@@ -3,8 +3,8 @@
   "lastUpdated": "2026-08-08",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 87,
-    "totalVariants": 732,
+    "totalFamilies": 88,
+    "totalVariants": 733,
     "totalSubVariants": 0,
     "totalStyles": 1728,
     "technologies": [
@@ -19975,6 +19975,94 @@
         "tailwind event template",
         "multi-page conference template"
       ]
+    },
+    {
+      "name": "Stratum Fintech Ops Platform (Template)",
+      "path": "Tailwind/Templates/stratum/",
+      "tech": "Tailwind CSS",
+      "category": "Templates",
+      "description": "Premium single-page Tailwind CSS template for a vertical fintech operations platform — Neo-Brutalist geometry fused with editorial typography (thick 2px borders, offset hard shadows, Archivo display + JetBrains Mono metadata). Hand-built treasury command-surface hero with live sparkline, approval-routing graph, staggered pillar cards, bento capabilities, five-step workflow, metrics, testimonials, cash-managed pricing, scoped FAQ accordion, and dark conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Stratum Fintech Ops Platform",
+          "path": "Tailwind/Templates/stratum/",
+          "description": "Complete Neo-Brutalist + editorial fintech ops landing page: editorial split hero with treasury command-surface product visualization (live status, sparkline, account ledger, floating approval/FX mini-cards), logos marquee, staggered three-pillar offset cards (Treasury / Bill pay / Spend control), bento capabilities grid with policy-as-code approval-routing graph, five-step capture-to-reconcile workflow with timings, dark customer-outcome metrics band, featured pull-quote + secondary testimonials, three-tier cash-managed pricing with featured Growth plan, scoped single-open FAQ accordion (ARIA + keyboard), dark corner-tick CTA, and five-column footer with live system status. Sticky navbar with scoped vanilla-JS mobile menu.",
+          "styles": [
+            "neo-brutalism",
+            "editorial",
+            "fintech",
+            "finance-ops",
+            "landing-page"
+          ],
+          "features": [
+            "single-page responsive landing page (320px to 1920px+)",
+            "editorial split hero with treasury command-surface product visualization (live status, sparkline, account ledger)",
+            "floating approval + FX mini-cards layered around the hero panel",
+            "staggered three-pillar offset cards (Treasury / Bill pay / Spend control)",
+            "bento capabilities grid with policy-as-code approval-routing graph",
+            "five-step capture-to-reconcile workflow with per-step timings",
+            "dark customer-outcome metrics band on a divided grid",
+            "featured pull-quote testimonial + secondary testimonial cards",
+            "three-tier cash-managed pricing with featured Growth plan",
+            "scoped single-open FAQ accordion (CSS-grid animation, ARIA, keyboard)",
+            "dark CTA section with corner-tick framing",
+            "five-column footer with live system-status indicator",
+            "sticky navbar with scoped vanilla-JS mobile menu",
+            "consistent Neo-Brutalist token system: 2px borders, square radii, 4/8/12px offset shadows, press interactions",
+            "accessible: semantic HTML, skip link, ARIA, focus rings, reduced-motion safe",
+            "Tailwind CSS via CDN with no build step"
+          ],
+          "tags": [
+            "fintech",
+            "finance-ops",
+            "treasury",
+            "bill-pay",
+            "neo-brutalism",
+            "editorial",
+            "b2b-saas",
+            "landing-page",
+            "dashboard-preview",
+            "tailwind",
+            "single-page",
+            "template"
+          ],
+          "files": [
+            "metadata.json",
+            "README.md",
+            "preview.html",
+            "pages/index.html",
+            "assets/icons/logo.svg",
+            "assets/images/og-image.svg"
+          ]
+        }
+      ],
+      "tags": [
+        "fintech",
+        "finance-ops",
+        "treasury",
+        "bill-pay",
+        "neo-brutalism",
+        "editorial",
+        "b2b-saas",
+        "landing-page",
+        "dashboard-preview",
+        "tailwind",
+        "single-page",
+        "template"
+      ],
+      "searchTerms": [
+        "fintech website template",
+        "finance ops landing page",
+        "treasury dashboard template",
+        "neo-brutalism saas template",
+        "b2b fintech template",
+        "bill pay website",
+        "vertical saas template",
+        "editorial brutalist landing page",
+        "tailwind fintech template",
+        "spend management website"
+      ]
     }
   ],
   "plannedFamilies": {
@@ -20121,7 +20209,8 @@
         "Newsletter (Tailwind)",
         "404 (Tailwind)",
         "AI SaaS Platform (Template)",
-        "Baseline Conference (Template)"
+        "Baseline Conference (Template)",
+        "Stratum Fintech Ops Platform (Template)"
       ]
     },
     {
