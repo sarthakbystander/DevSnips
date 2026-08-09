@@ -1,4 +1,0 @@
-<script setup lang="ts">
-withDefaults(defineProps<{ title?: string; description?: string }>(),{title:'Ready to build something better?',description:'Start with a focused foundation and make it your own.'})
-</script>
-<template><section class="overflow-hidden rounded-3xl bg-slate-950 px-5 py-14 text-white sm:px-10 sm:py-20 lg:px-16"><div class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 md:flex-row md:items-end"><div class="max-w-2xl"><p class="text-xs font-semibold uppercase tracking-[.18em] text-slate-400">Get started</p><h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl">{{ title }}</h2><p class="mt-4 max-w-xl text-slate-400">{{ description }}</p></div><button class="w-full rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 md:w-auto">Start building</button></div></section></template>

@@ -1,6 +1,0 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-const open=ref(0)
-const items=[['Is it responsive?','Yes. The layout is mobile-first and adapts through larger breakpoints.'],['Can I customize it?','Every visual layer is built from utility classes and component props.'],['Does it require a library?','The section itself has no runtime dependency beyond Vue.']]
-</script>
-<template><section class="rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-12 dark:border-slate-800 dark:bg-slate-950"><div class="mx-auto max-w-3xl"><p class="text-xs font-semibold uppercase tracking-[.18em] text-slate-500">FAQ</p><h2 class="mt-3 text-3xl font-semibold tracking-tight">Common questions.</h2><div class="mt-8 divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800"><article v-for="(item,i) in items" :key="item[0]"><button class="flex w-full items-center justify-between gap-6 py-5 text-left text-sm font-semibold" @click="open=open===i?-1:i"><span>{{ item[0] }}</span><span class="text-lg font-normal">{{ open===i?'−':'+' }}</span></button><p v-if="open===i" class="max-w-2xl pb-5 text-sm leading-6 text-slate-500">{{ item[1] }}</p></article></div></div></section></template>
