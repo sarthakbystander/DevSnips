@@ -1,0 +1,5 @@
+<script setup lang="ts">
+withDefaults(defineProps<{ modelValue?: string; label?: string; placeholder?: string; error?: string; disabled?: boolean }>(), { modelValue: '', label: '', placeholder: '', error: '', disabled: false })
+const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
+</script>
+<template><label class="grid gap-2 text-sm font-medium text-slate-800"><span v-if="label">{{ label }}</span><input :value="modelValue" :placeholder="placeholder" :disabled="disabled" :aria-invalid="!!error" class="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3.5 text-base outline-none transition placeholder:text-slate-400 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 disabled:bg-slate-100 sm:text-sm" :class="error && 'border-red-500 focus:border-red-500 focus:ring-red-100'" @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"><span v-if="error" class="text-xs font-normal text-red-600">{{ error }}</span><slot name="hint" /></label></template>
