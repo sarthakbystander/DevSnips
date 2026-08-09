@@ -1,0 +1,4 @@
+<script setup lang="ts">
+const members=[['Maya Chen','Design Lead'],['Noah Williams','Engineering'],['Ava Patel','Product'],['Leo Martin','Operations']]
+</script>
+<template><section class="rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-12 dark:border-slate-800 dark:bg-slate-950"><div class="max-w-2xl"><p class="text-xs font-semibold uppercase tracking-[.18em] text-slate-500">Team</p><h2 class="mt-3 text-3xl font-semibold tracking-tight">The people behind it.</h2></div><div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"><article v-for="member in members" :key="member[0]" class="min-w-0"><div class="aspect-square rounded-2xl bg-slate-100 dark:bg-slate-900"></div><h3 class="mt-3 truncate text-sm font-semibold">{{ member[0] }}</h3><p class="mt-1 text-xs text-slate-500">{{ member[1] }}</p></article></div></section></template>
