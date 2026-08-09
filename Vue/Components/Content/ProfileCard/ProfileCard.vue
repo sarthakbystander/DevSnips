@@ -1,4 +1,0 @@
-<script setup lang="ts">
-withDefaults(defineProps<{ name?: string; role?: string; avatar?: string }>(), { name: 'Alex Morgan', role: 'Product Designer' })
-</script>
-<template><article class="w-full rounded-2xl border border-slate-200 bg-white p-5 text-slate-950 dark:border-slate-800 dark:bg-slate-950 dark:text-white"><div class="flex flex-col gap-4 sm:flex-row sm:items-center"><img v-if="avatar" :src="avatar" :alt="name" class="size-12 shrink-0 rounded-full object-cover"><div v-else class="grid size-12 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-medium dark:bg-slate-900">{{ name?.split(' ').map(n=>n[0]).join('').slice(0,2) }}</div><div class="min-w-0 flex-1"><h2 class="truncate text-sm font-semibold">{{ name }}</h2><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">{{ role }}</p></div><div v-if="$slots.default" class="flex w-full gap-2 sm:w-auto"><slot /></div></div></article></template>
