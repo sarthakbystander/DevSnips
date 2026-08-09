@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Stratum — Operations Platform for Modern Finance Teams">
+  <rect width="1200" height="630" fill="#FBFAF7"/>
+  <rect x="60" y="60" width="1080" height="510" fill="none" stroke="#0A0A0A" stroke-width="6"/>
+
+  <!-- grid columns decorative -->
+  <g stroke="#0A0A0A" stroke-width="1.5" opacity="0.06">
+    <line x1="240" y1="60" x2="240" y2="570"/>
+    <line x1="420" y1="60" x2="420" y2="570"/>
+    <line x1="600" y1="60" x2="600" y2="570"/>
+    <line x1="780" y1="60" x2="780" y2="570"/>
+    <line x1="960" y1="60" x2="960" y2="570"/>
+  </g>
+
+  <!-- logo mark -->
+  <rect x="120" y="150" width="84" height="84" fill="#C6F24E" stroke="#0A0A0A" stroke-width="6"/>
+  <path d="M140 210 L170 174 L184 192 L198 160 L224 210" fill="none" stroke="#0A0A0A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="120" y="300" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="44" fill="#0A0A0A" letter-spacing="-1">STRATUM</text>
+  <text x="120" y="334" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18" fill="#0A0A0A" opacity="0.6">FINANCE OPS · v4.2</text>
+
+  <text x="120" y="430" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="92" fill="#0A0A0A" letter-spacing="-3">Finance ops,</text>
+  <text x="120" y="520" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="92" fill="#0A0A0A" letter-spacing="-3">finally unified<tspan fill="#C6F24E">.</tspan></text>
+
+  <!-- treasury panel motif right -->
+  <g transform="translate(820,150)">
+    <rect x="0" y="0" width="280" height="300" fill="#F4F1EA" stroke="#0A0A0A" stroke-width="6"/>
+    <rect x="0" y="0" width="280" height="44" fill="#0A0A0A"/>
+    <circle cx="22" cy="22" r="8" fill="#C6F24E"/>
+    <text x="42" y="28" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" fill="#FBFAF7">TREASURY · LIVE</text>
+    <text x="120" y="90" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A0A0A" opacity="0.5">TOTAL CASH</text>
+    <text x="120" y="130" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="30" fill="#0A0A0A">$112.8M</text>
+    <polyline points="20,210 50,200 80,208 110,180 140,188 170,150 200,160 230,120 260,90" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="20" y="230" width="240" height="40" fill="none" stroke="#0A0A0A" stroke-width="2"/>
+    <text x="30" y="256" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A0A0A">3 BANKS SYNCED · HEALTHY</text>
+  </g>
+</svg>
