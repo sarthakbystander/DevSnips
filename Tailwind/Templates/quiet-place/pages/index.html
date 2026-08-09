@@ -10,82 +10,118 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root { --ink:#0b302e; --mint:#cfe1de; --coral:#eb6665; --lake:#8eb8b6; }
+    :root {
+      --ink:#0b302e;
+      --mint:#cfe1de;
+      --coral:#eb6665;
+      --lake:#8eb8b6;
+      --paper:#f5f7f6;
+    }
     html { scroll-behavior:smooth; }
-    body { font-family:"DM Mono",monospace; background:#f5f7f6; color:var(--ink); }
+    body { font-family:"DM Mono",monospace; background:var(--paper); color:var(--ink); }
     .display { font-family:"Barlow Condensed",sans-serif; }
-    .pixel-art { shape-rendering:geometricPrecision; }
+    .pixel-art { shape-rendering:geometricPrecision; image-rendering:auto; }
     .soft-link { transition:opacity .2s ease, transform .2s ease; }
     .soft-link:hover { opacity:.62; }
     .cta { transition:transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
     .cta:hover { transform:translateY(-2px); box-shadow:0 5px 0 rgba(11,48,46,.10); }
     .cta:active { transform:translateY(0); box-shadow:none; }
     .hero-canvas { background:var(--mint); }
+    .hero-copy { padding-bottom:24rem; }
+    .landscape-wrap { position:absolute; inset-inline:0; bottom:0; height:48%; min-height:300px; }
+    .mobile-menu { display:none; }
+    .mobile-menu.is-open { display:block; }
+    @media (max-width:767px) {
+      body { padding:12px !important; }
+      .hero-copy { padding-bottom:2rem; }
+      .landscape-wrap { position:relative; height:auto; min-height:0; aspect-ratio:1200/430; margin-top:1.5rem; }
+    }
+    @media (min-width:768px) and (max-width:1023px) {
+      .hero-copy { padding-bottom:20rem; }
+      .landscape-wrap { height:42%; min-height:270px; }
+    }
+    @media (min-width:1024px) {
+      .hero-copy { padding-bottom:23rem; }
+    }
+    @media (min-width:1440px) {
+      .hero-canvas { max-width:1200px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; }
       *,*::before,*::after { transition:none!important; animation:none!important; }
     }
   </style>
 </head>
-<body class="min-h-screen px-3 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-20">
-  <main class="mx-auto max-w-[1135px] overflow-hidden rounded-[7px] hero-canvas">
-    <section id="home" class="relative min-h-[760px] overflow-hidden sm:min-h-[820px] lg:min-h-[735px]">
-      <!-- Header -->
-      <header class="relative z-30 flex items-center justify-between px-5 py-4 sm:px-7 sm:py-5 lg:px-7">
-        <a href="#home" class="soft-link flex items-center gap-2 text-[10px] font-medium tracking-[0.02em] sm:text-[11px]" aria-label="Quiet Place home">
-          <svg width="13" height="14" viewBox="0 0 13 14" fill="none" aria-hidden="true">
-            <path d="M6.5 1 10 6H8.5l2.5 6.5H2L4.5 6H3L6.5 1Z" fill="currentColor"/>
-            <path d="M1 12.5h11" stroke="currentColor" stroke-width="1"/>
-          </svg>
-          <span>Quiet Place</span>
-        </a>
+<body class="min-h-screen px-3 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-12 xl:py-16">
+  <main class="hero-canvas mx-auto w-full max-w-[1200px] overflow-hidden rounded-[8px]">
+    <section id="home" class="relative overflow-hidden">
+      <header class="relative z-40 px-5 py-5 sm:px-8 sm:py-6 lg:px-9 lg:py-7">
+        <div class="flex items-center justify-between gap-5">
+          <a href="#home" class="soft-link flex shrink-0 items-center gap-2 text-[13px] font-medium tracking-[-0.02em] sm:text-sm" aria-label="Quiet Place home">
+            <svg width="15" height="16" viewBox="0 0 13 14" fill="none" aria-hidden="true">
+              <path d="M6.5 1 10 6H8.5l2.5 6.5H2L4.5 6H3L6.5 1Z" fill="currentColor"/>
+              <path d="M1 12.5h11" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <span>Quiet Place</span>
+          </a>
 
-        <nav class="hidden items-center gap-7 text-[10px] sm:flex" aria-label="Primary navigation">
-          <a class="soft-link" href="#features">Features</a>
-          <a class="soft-link" href="#about">About</a>
-          <a class="soft-link" href="#contact">Contact</a>
+          <nav class="hidden items-center gap-8 text-[13px] md:flex lg:gap-10 lg:text-sm" aria-label="Primary navigation">
+            <a class="soft-link" href="#features">Features</a>
+            <a class="soft-link" href="#about">About</a>
+            <a class="soft-link" href="#contact">Contact</a>
+          </nav>
+
+          <a href="#contact" class="cta hidden rounded-full bg-[#eb6665] px-5 py-3 text-[12px] font-medium text-white sm:inline-flex sm:items-center lg:px-6 lg:text-[13px]">Start Your Journey <span class="ml-1" aria-hidden="true">→</span></a>
+
+          <button id="menuButton" type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#e7efed] text-[#173a38] md:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav id="mobileMenu" class="mobile-menu mt-4 rounded-2xl bg-[#e7efed] p-3 md:hidden" aria-label="Mobile navigation">
+          <a class="soft-link block rounded-xl px-4 py-3 text-sm" href="#features">Features</a>
+          <a class="soft-link block rounded-xl px-4 py-3 text-sm" href="#about">About</a>
+          <a class="soft-link block rounded-xl px-4 py-3 text-sm" href="#contact">Contact</a>
+          <a class="mt-1 block rounded-xl bg-[#eb6665] px-4 py-3 text-sm font-medium text-white" href="#contact">Start Your Journey <span aria-hidden="true">→</span></a>
         </nav>
-
-        <a href="#contact" class="cta rounded-full bg-[#eb6665] px-4 py-2 text-[9px] font-medium text-white sm:px-5 sm:py-2.5 sm:text-[10px]">Start Your Journey <span aria-hidden="true">→</span></a>
       </header>
 
-      <!-- Hero copy -->
-      <div class="relative z-20 mx-auto flex max-w-[650px] flex-col items-center px-5 pt-7 text-center sm:pt-10 lg:pt-8">
-        <h1 class="display max-w-[620px] text-[48px] font-semibold leading-[0.92] tracking-[-0.02em] text-[#0b302e] sm:text-[58px] lg:text-[62px]">
+      <div class="hero-copy relative z-20 mx-auto flex w-full max-w-[900px] flex-col items-center px-5 pt-8 text-center sm:px-8 sm:pt-12 lg:px-10 lg:pt-10 xl:pt-12">
+        <h1 class="display max-w-[850px] text-[clamp(3.35rem,8vw,6.5rem)] font-semibold leading-[.88] tracking-[-0.025em] text-[#0b302e]">
           Where Calm Meets<br />Creativity.
         </h1>
-        <p class="mt-5 max-w-[560px] text-[9px] leading-[1.6] tracking-[-0.02em] text-[#345451] sm:mt-6 sm:text-[10px] lg:mt-4">
+
+        <p class="mt-6 max-w-[700px] text-[14px] leading-[1.7] tracking-[-0.025em] text-[#345451] sm:mt-7 sm:text-[15px] sm:leading-[1.75] lg:mt-6 lg:text-[16px]">
           In the rush of life, imagine a space that feels like a deep breath — gentle and grounding. Here, you can reflect, create, or simply be, with tools to reconnect with your inner stillness.
         </p>
 
-        <!-- Feature row -->
-        <div id="features" class="mt-8 grid w-full max-w-[680px] grid-cols-1 gap-6 sm:mt-9 sm:grid-cols-3 sm:gap-5 lg:mt-8">
-          <article class="flex flex-col items-center px-5">
-            <div class="mb-2.5 text-[20px] leading-none" aria-hidden="true">🧘</div>
-            <h2 class="text-[10px] font-medium">Mindful Tools</h2>
-            <p class="mt-2 max-w-[180px] text-[8px] leading-[1.55] text-[#45625f] sm:text-[8px]">Use journals and mood trackers to build habits for well-being.</p>
+        <div id="features" class="mt-10 grid w-full max-w-[850px] grid-cols-1 gap-9 sm:mt-12 sm:grid-cols-3 sm:gap-5 lg:mt-11 lg:gap-10">
+          <article class="flex flex-col items-center px-4">
+            <div class="mb-3 text-[28px] leading-none sm:text-[30px]" aria-hidden="true">🧘</div>
+            <h2 class="text-[15px] font-medium sm:text-base">Mindful Tools</h2>
+            <p class="mt-2.5 max-w-[230px] text-[12px] leading-[1.65] text-[#45625f] sm:text-[13px]">Use journals and mood trackers to build habits for well-being.</p>
           </article>
-          <article class="flex flex-col items-center px-5">
-            <div class="mb-2.5 text-[20px] leading-none" aria-hidden="true">▣</div>
-            <h2 class="text-[10px] font-medium">Creative Space</h2>
-            <p class="mt-2 max-w-[180px] text-[8px] leading-[1.55] text-[#45625f] sm:text-[8px]">Write, sketch, or dream freely in your own private digital sanctuary.</p>
+          <article class="flex flex-col items-center px-4">
+            <div class="mb-3 text-[28px] leading-none sm:text-[30px]" aria-hidden="true">▣</div>
+            <h2 class="text-[15px] font-medium sm:text-base">Creative Space</h2>
+            <p class="mt-2.5 max-w-[230px] text-[12px] leading-[1.65] text-[#45625f] sm:text-[13px]">Write, sketch, or dream freely in your own private digital sanctuary.</p>
           </article>
-          <article class="flex flex-col items-center px-5">
-            <div class="mb-2.5 text-[20px] leading-none" aria-hidden="true">🌿</div>
-            <h2 class="text-[10px] font-medium">Gentle Reminders</h2>
-            <p class="mt-2 max-w-[180px] text-[8px] leading-[1.55] text-[#45625f] sm:text-[8px]">Custom prompts to slow down, reflect, and find clarity every day.</p>
+          <article class="flex flex-col items-center px-4">
+            <div class="mb-3 text-[28px] leading-none sm:text-[30px]" aria-hidden="true">🌿</div>
+            <h2 class="text-[15px] font-medium sm:text-base">Gentle Reminders</h2>
+            <p class="mt-2.5 max-w-[230px] text-[12px] leading-[1.65] text-[#45625f] sm:text-[13px]">Custom prompts to slow down, reflect, and find clarity every day.</p>
           </article>
         </div>
 
-        <!-- Actions -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-8">
-          <a href="#contact" class="cta rounded-full bg-[#eb6665] px-5 py-3 text-[9px] font-medium text-white">Start Your Journey <span aria-hidden="true">→</span></a>
-          <a href="#about" class="cta rounded-full bg-[#e7efed] px-5 py-3 text-[9px] font-medium text-[#173a38]">Explore Features</a>
+        <div class="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:mt-11 sm:flex-row">
+          <a href="#contact" class="cta inline-flex w-full max-w-[245px] items-center justify-center rounded-full bg-[#eb6665] px-6 py-3.5 text-[12px] font-medium text-white sm:w-auto sm:max-w-none sm:text-[13px]">Start Your Journey <span class="ml-1" aria-hidden="true">→</span></a>
+          <a href="#about" class="cta inline-flex w-full max-w-[245px] items-center justify-center rounded-full bg-[#e7efed] px-6 py-3.5 text-[12px] font-medium text-[#173a38] sm:w-auto sm:max-w-none sm:text-[13px]">Explore Features</a>
         </div>
       </div>
 
-      <!-- Hand-built responsive pixel landscape. No external image is required. -->
-      <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[42%] min-h-[285px] sm:h-[43%] sm:min-h-[315px] lg:h-[48%] lg:min-h-0" aria-hidden="true">
+      <div class="landscape-wrap pointer-events-none z-10" aria-hidden="true">
         <svg class="pixel-art h-full w-full" viewBox="0 0 1200 430" preserveAspectRatio="xMidYMax slice" role="img" aria-labelledby="landscape-title landscape-desc">
           <title id="landscape-title">Quiet lakeside pixel-art landscape</title>
           <desc id="landscape-desc">Layered pine forests frame a small fisherman beside a calm lake, with clouds, flowers, reeds and water reflections.</desc>
@@ -100,31 +136,24 @@
             </linearGradient>
           </defs>
 
-          <!-- distant clouds -->
           <g fill="url(#cloud)" opacity=".95">
             <path d="M275 181h188v-9h-20v-12h-20v-12h-27v-13h-34v10h-20v15h-24v12h-43v9Z"/>
             <path d="M716 187h206v-12h-23v-14h-27v-16h-32v-11h-34v11h-20v14h-31v10h-39v18Z"/>
             <path d="M435 222h130v-8h-16v-12h-25v-10h-29v10h-17v10h-43v10Z" opacity=".72"/>
           </g>
 
-          <!-- distant tree silhouettes -->
           <g opacity=".62">
             <path d="M81 302 105 247 96 247 118 214 110 214 135 170 160 214 152 214 174 247 165 247 188 302Z" fill="#9abbb8" stroke="#466a66" stroke-width="2"/>
             <path d="M1005 302 1028 248 1019 248 1041 214 1033 214 1058 170 1083 214 1075 214 1097 248 1088 248 1112 302Z" fill="#9abbb8" stroke="#466a66" stroke-width="2"/>
           </g>
 
-          <!-- left forest -->
           <g stroke="#355b57" stroke-width="2" stroke-linejoin="round">
-            <!-- tall back tree -->
             <path d="M28 330 53 265 44 265 69 224 60 224 87 177 114 224 105 224 130 265 121 265 147 330Z" fill="#a8c5c1"/>
-            <path d="M69 177v153M52 248l-14 16M87 228l16 18M44 282l-20 18M111 278l21 19" stroke="#5b7773" stroke-width="2"/>
-            <!-- broad tree -->
+            <path d="M69 177v153M52 248l-14 16M87 228l16 18M44 282l-20 18M111 278l21 19" stroke="#5b7773"/>
             <path d="M111 330 132 281 124 281 145 247 137 247 158 205 179 247 171 247 192 281 184 281 206 330Z" fill="#b1cbc6"/>
             <path d="M158 205v125M142 266l-17 15M174 260l16 14M135 299l-16 13M181 300l18 13" stroke="#607b77"/>
-            <!-- middle left -->
             <path d="M208 330 229 286 221 286 241 251 234 251 254 217 274 251 267 251 287 286 279 286 300 330Z" fill="#94b6b2"/>
             <path d="M254 217v113M239 272l-16 14M270 270l17 15M232 301l-14 13M278 300l16 13" stroke="#58736f"/>
-            <!-- right forest mirrored cluster -->
             <path d="M901 330 925 277 916 277 938 239 930 239 955 195 980 239 972 239 994 277 985 277 1010 330Z" fill="#a5c2be"/>
             <path d="M955 195v135M938 257l-17 15M973 255l17 16M927 298l-16 14M982 296l17 14" stroke="#5b7773"/>
             <path d="M974 330 997 268 989 268 1010 230 1002 230 1025 189 1048 230 1040 230 1061 268 1053 268 1077 330Z" fill="#aec9c5"/>
@@ -133,7 +162,6 @@
             <path d="M1100 210v120M1085 264l-15 14M1115 263l16 15M1078 300l-15 12M1123 299l16 13" stroke="#57736f"/>
           </g>
 
-          <!-- tree trunks -->
           <g fill="#806e68" stroke="#4c5552" stroke-width="2">
             <path d="M75 330h22v-76H75Z"/><path d="M145 330h18v-63h-18Z"/><path d="M241 330h18v-54h-18Z"/>
             <path d="M947 330h19v-61h-19Z"/><path d="M1016 330h19v-72h-19Z"/><path d="M1090 330h19v-55h-19Z"/>
@@ -142,12 +170,10 @@
             <path d="M80 262v64M151 272v52M247 280v44M953 274v51M1022 261v63M1096 282v43"/>
           </g>
 
-          <!-- foreground ground -->
           <path d="M0 330h1200v34H0Z" fill="#d7dfd5"/>
           <path d="M0 330h1200" stroke="#324f4b" stroke-width="3"/>
           <path d="M0 342h1200" stroke="#78908a" stroke-width="2"/>
 
-          <!-- grasses and reeds -->
           <g stroke="#526d67" stroke-width="2" stroke-linecap="round">
             <path d="M32 331q2-22 11-34M38 332q8-20 17-27M49 332q0-18 5-31M67 332q5-25 14-35M91 332q-2-20-9-31"/>
             <path d="M183 332q2-24 11-36M191 332q9-22 20-31M200 332q2-18 8-27M280 332q3-21 12-32M290 332q8-19 18-28"/>
@@ -158,7 +184,6 @@
             <path d="M868 330q8-17 16-24l-2 24ZM1098 330q7-16 16-23l-2 23ZM1160 330q7-17 16-24l-2 24Z"/>
           </g>
 
-          <!-- flowers -->
           <g stroke="#566b65" stroke-width="2">
             <path d="M175 330v-20M176 316l-8-6M176 320l8-8"/>
             <path d="M1037 330v-23M1037 312l-8-7M1037 317l8-8"/>
@@ -168,44 +193,32 @@
           </g>
           <g fill="#f28a82"><rect x="172" y="302" width="8" height="8"/><rect x="1033" y="298" width="8" height="8"/></g>
 
-          <!-- small stones -->
           <g fill="#9ca9a1" stroke="#66756f" stroke-width="1.5">
             <path d="M347 330l7-7 12 1 5 6Z"/><path d="M858 330l6-6 12 1 5 5Z"/><path d="M319 331l5-5 8 1 3 4Z"/>
           </g>
 
-          <!-- fisherman -->
           <g stroke="#4c5b58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <!-- fishing rod -->
             <path d="M456 302Q493 264 556 221" fill="none" stroke="#674d47" stroke-width="4"/>
             <path d="M556 221v102" fill="none" stroke="#586865" stroke-width="1.5"/>
             <path d="M556 323q0 5 4 5" fill="none" stroke="#4c5b58" stroke-width="1"/>
-            <!-- person body -->
             <path d="M458 304q4-22 23-25 19 3 24 25l-3 25h-43Z" fill="#ed7775"/>
             <path d="M470 282h16v17h-16Z" fill="#f1dfd0"/>
-            <!-- head / hood -->
             <path d="M469 279q-4-7 0-15l-2-12q0-13 12-14 12 1 13 14l-1 13q5 7-1 14Z" fill="#f2e9dd"/>
             <path d="M468 250q2-15 12-15 11 1 12 14" fill="none"/>
-            <!-- arms -->
             <path d="M480 289q11 8 23 12M480 289q-8 8-16 12" fill="none" stroke="#f2e9dd" stroke-width="6"/>
-            <!-- hand on rod -->
             <circle cx="503" cy="301" r="3.5" fill="#f2e9dd"/>
-            <!-- legs -->
             <path d="M469 327l-8 9M491 327l8 9" stroke="#594d4b" stroke-width="5"/>
           </g>
           <g fill="#d85f62"><rect x="460" y="335" width="12" height="4"/><rect x="495" y="335" width="12" height="4"/></g>
 
-          <!-- shoreline plants near fisherman -->
           <g stroke="#627873" stroke-width="2">
             <path d="M416 330q4-24 12-36M421 330q13-20 18-25M431 330q1-19 6-30"/>
             <path d="M526 330q2-18 10-28M533 330q9-20 15-25M545 330q2-15 8-24"/>
             <path d="M681 330q2-19 10-29M690 330q9-21 16-27M704 330q2-17 8-26"/>
           </g>
 
-          <!-- lake -->
           <path d="M0 364h1200v66H0Z" fill="url(#water)"/>
           <path d="M0 364h1200" stroke="#344f4d" stroke-width="2"/>
-
-          <!-- water ripples and pixel reflections -->
           <g fill="none" stroke-linecap="round">
             <g stroke="#c2d8d3" stroke-width="2" opacity=".75">
               <path d="M44 381h44M98 392h71M18 404h55M121 414h48M237 380h47M271 401h68M355 390h39M376 416h88M511 379h39M532 407h71M650 388h54M692 416h80M814 381h45M854 400h61M943 417h92M1080 384h64M1120 405h44"/>
@@ -217,13 +230,9 @@
               <path d="M6 374h24M152 401h30M203 417h23M332 383h19M451 375h24M579 423h31M733 378h25M889 380h31M1010 401h39M1101 421h29"/>
             </g>
           </g>
-
-          <!-- subtle reflection under fisherman -->
           <g stroke="#6f9d9a" opacity=".75" stroke-width="2">
             <path d="M468 374h42M460 385h56M473 397h29M467 408h41"/>
           </g>
-
-          <!-- foreground reeds over water edge -->
           <g stroke="#466661" stroke-width="2">
             <path d="M10 365q4-18 9-27M17 365q9-16 15-22M31 365q3-14 7-22"/>
             <path d="M1170 365q4-18 9-28M1178 365q8-15 14-22M1190 365q3-15 7-23"/>
@@ -232,29 +241,47 @@
       </div>
     </section>
 
-    <!-- Small supporting content keeps the template usable beyond the reference hero while preserving its visual restraint. -->
-    <section id="about" class="bg-[#eef3f0] px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-      <div class="mx-auto grid max-w-4xl gap-12 md:grid-cols-[.8fr_1.2fr] md:items-start">
+    <section id="about" class="bg-[#eef3f0] px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+      <div class="mx-auto grid max-w-5xl gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16 md:items-start">
         <div>
-          <p class="text-[9px] uppercase tracking-[0.16em] text-[#66817c]">A little slower</p>
-          <h2 class="display mt-3 text-4xl leading-none sm:text-5xl">Make room for quiet.</h2>
+          <p class="text-[12px] uppercase tracking-[0.16em] text-[#66817c] sm:text-[13px]">A little slower</p>
+          <h2 class="display mt-3 text-[clamp(2.75rem,6vw,4.5rem)] leading-[.92]">Make room for quiet.</h2>
         </div>
-        <div class="max-w-xl text-[10px] leading-[1.9] text-[#49635f]">
+        <div class="max-w-2xl text-[14px] leading-[1.8] text-[#49635f] sm:text-[15px]">
           <p>Quiet Place is designed for the small rituals that make a day feel more intentional. Keep a thought, sketch an idea, notice a pattern, or simply take a moment away from the noise.</p>
           <p class="mt-5">The interface stays deliberately gentle: simple tools, soft prompts, and enough empty space for your own thoughts to take up the room.</p>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="bg-[#cfe1de] px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-      <div class="mx-auto flex max-w-4xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+    <section id="contact" class="bg-[#cfe1de] px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+      <div class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <div>
-          <p class="text-[9px] uppercase tracking-[0.16em] text-[#66817c]">Begin gently</p>
-          <h2 class="display mt-3 max-w-lg text-5xl leading-[.92] sm:text-6xl">Your quiet place is waiting.</h2>
+          <p class="text-[12px] uppercase tracking-[0.16em] text-[#66817c] sm:text-[13px]">Begin gently</p>
+          <h2 class="display mt-3 max-w-3xl text-[clamp(3rem,7vw,5.75rem)] leading-[.9]">Your quiet place is waiting.</h2>
         </div>
-        <a href="#home" class="cta inline-flex rounded-full bg-[#eb6665] px-6 py-3 text-[9px] font-medium text-white">Start Your Journey <span class="ml-1" aria-hidden="true">→</span></a>
+        <a href="#home" class="cta inline-flex shrink-0 rounded-full bg-[#eb6665] px-6 py-3.5 text-[12px] font-medium text-white sm:text-[13px]">Start Your Journey <span class="ml-1" aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuButton?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        menuButton?.setAttribute('aria-expanded', 'false');
+        menuButton?.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+  </script>
 </body>
 </html>
