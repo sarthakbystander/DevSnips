@@ -17,18 +17,20 @@
     "mega-menu"
   ],
   "features": [
-    "click-away close",
-    "keyboard",
-    "aria-expanded"
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

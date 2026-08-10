@@ -2,7 +2,7 @@
   "id": "logo-trusted-by-001",
   "name": "Trusted By",
   "slug": "logo-trusted-by",
-  "component": "logos",
+  "component": "logo",
   "family": "logos",
   "variant": "logo-trusted-by",
   "description": "Infinite marquee of client names with edge fades.",
@@ -17,17 +17,19 @@
     "animated"
   ],
   "features": [
-    "reduced-motion safe",
-    "edge mask"
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
-  "responsive": true,
+  "responsive": false,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

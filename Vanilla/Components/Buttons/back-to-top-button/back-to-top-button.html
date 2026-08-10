@@ -11,8 +11,11 @@
   display: none;
   cursor: pointer;
 }
+
+/* devsnips-qa:quality-bar */
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
 </style>
-<a id="back-to-top" class="back-to-top">TOP</a>
+<a id="back-to-top" class="back-to-top" href="#top" role="button" aria-label="Back to top" tabindex="0">TOP</a>
 <script>
 window.onscroll = function() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -21,8 +24,12 @@ window.onscroll = function() {
     document.getElementById("back-to-top").style.display = "none";
   }
 };
-document.getElementById("back-to-top").onclick = function() {
+var btt = document.getElementById("back-to-top");
+btt.onclick = function() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-}
+};
+btt.addEventListener("keydown", function(e) {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); btt.click(); }
+});
 </script>

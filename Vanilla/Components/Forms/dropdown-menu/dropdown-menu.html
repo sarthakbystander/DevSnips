@@ -24,11 +24,23 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.dropdown-trigger {
+  background: inherit;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* devsnips-qa:quality-bar */
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
 </style>
 
 <div class="dropdown">
-  <span>Mouse over me</span>
-  <div class="dropdown-content">
-    <p>Hello World!</p>
+  <button type="button" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Mouse over me</button>
+  <div class="dropdown-content" role="menu" aria-label="Dropdown options">
+    <p role="menuitem">Hello World!</p>
   </div>
 </div>

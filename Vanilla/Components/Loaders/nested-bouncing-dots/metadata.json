@@ -25,7 +25,13 @@
   "framework": "Vanilla HTML/CSS/JS",
   "language": "HTML",
   "darkMode": false,
-  "accessibility": [],
+  "accessibility": [
+    "ARIA",
+    "focus-visible"
+  ],
   "related": [],
-  "features": []
+  "features": [
+    "ARIA",
+    "focus-visible"
+  ]
 }

@@ -2,7 +2,7 @@
   "id": "product-integrations-001",
   "name": "Integrations",
   "slug": "product-integrations",
-  "component": "products",
+  "component": "product",
   "family": "products",
   "variant": "product-integrations",
   "description": "Grid of integration cards with 'new' tags.",
@@ -17,17 +17,20 @@
     "grid"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

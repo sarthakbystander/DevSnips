@@ -238,9 +238,10 @@ def unify_metadata(dry: bool):
     log("\n=== Step D: unify legacy metadata to rich schema ===")
     RICH_KEYS = {"features", "related", "darkMode", "accessibility"}
     migrated = 0
+    refresh = os.environ.get("REFRESH") == "1"
     for mf in sorted(COMP.rglob("metadata.json")):
         m = json.loads(mf.read_text(encoding="utf-8"))
-        if RICH_KEYS.issubset(m.keys()):
+        if not refresh and RICH_KEYS.issubset(m.keys()):
             continue  # already rich
         leaf = mf.parent
         slug = leaf.name

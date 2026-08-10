@@ -2,7 +2,7 @@
   "id": "product-mobile-app-001",
   "name": "Mobile App Showcase",
   "slug": "product-mobile-app",
-  "component": "products",
+  "component": "product",
   "family": "products",
   "variant": "product-mobile-app",
   "description": "Mobile app showcase with two phone mockups and store buttons.",
@@ -17,17 +17,20 @@
     "phones"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

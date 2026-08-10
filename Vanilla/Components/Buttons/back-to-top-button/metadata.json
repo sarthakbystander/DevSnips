@@ -31,7 +31,15 @@
   "framework": "Vanilla HTML/CSS/JS",
   "language": "HTML",
   "darkMode": false,
-  "accessibility": [],
+  "accessibility": [
+    "ARIA",
+    "focus-visible",
+    "keyboard nav"
+  ],
   "related": [],
-  "features": []
+  "features": [
+    "ARIA",
+    "focus-visible",
+    "keyboard nav"
+  ]
 }

@@ -2,7 +2,7 @@
   "id": "product-dashboard-preview-001",
   "name": "Dashboard Preview",
   "slug": "product-dashboard-preview",
-  "component": "products",
+  "component": "product",
   "family": "products",
   "variant": "product-dashboard-preview",
   "description": "Mock dashboard preview with sidebar, KPIs and a bar chart.",
@@ -17,18 +17,20 @@
     "preview"
   ],
   "features": [
-    "light/dark",
     "responsive",
-    "accessible chart"
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

@@ -31,7 +31,13 @@
   "framework": "Vanilla HTML/CSS/JS",
   "language": "HTML",
   "darkMode": false,
-  "accessibility": [],
+  "accessibility": [
+    "reduced-motion",
+    "focus-visible"
+  ],
   "related": [],
-  "features": []
+  "features": [
+    "reduced-motion",
+    "focus-visible"
+  ]
 }

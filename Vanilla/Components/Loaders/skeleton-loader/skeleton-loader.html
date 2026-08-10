@@ -10,7 +10,11 @@ Usage Example: Pair with skeleton animation CSS to indicate asynchronous loading
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skeleton Loader</title>
-  </head>
+  <style>
+/* devsnips-qa:quality-bar */
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+</style>
+</head>
   <body>
     <article aria-busy="true" aria-live="polite" aria-label="Loading profile card">
       <div role="presentation"></div>

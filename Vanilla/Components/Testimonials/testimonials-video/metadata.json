@@ -2,7 +2,7 @@
   "id": "testimonials-video-001",
   "name": "Video Testimonial",
   "slug": "testimonials-video",
-  "component": "testimonials",
+  "component": "testimonial",
   "family": "testimonials",
   "variant": "testimonials-video",
   "description": "Video testimonial layout with play button and stats.",
@@ -17,17 +17,20 @@
     "feature"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

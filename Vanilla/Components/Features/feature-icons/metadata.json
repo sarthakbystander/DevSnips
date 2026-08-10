@@ -2,7 +2,7 @@
   "id": "feature-icons-001",
   "name": "Icon Features",
   "slug": "feature-icons",
-  "component": "features",
+  "component": "feature",
   "family": "features",
   "variant": "feature-icons",
   "description": "Compact icon + text feature list in a 4-col grid.",
@@ -17,17 +17,20 @@
     "compact"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

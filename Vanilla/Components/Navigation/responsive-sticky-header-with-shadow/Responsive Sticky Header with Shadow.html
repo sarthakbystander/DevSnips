@@ -11,6 +11,10 @@ Usage Example: Open `Vanilla/Components/Navigation/responsive-sticky-header-with
 <style>
 .sticky-header{position:sticky;top:0;background:#fff;padding:1rem;transition:box-shadow .25s}
 .sticky-header.scrolled{box-shadow:0 6px 18px rgba(0,0,0,.08)}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
 </style>
 
 

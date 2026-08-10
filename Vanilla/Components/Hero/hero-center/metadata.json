@@ -18,17 +18,18 @@
   ],
   "features": [
     "light/dark",
-    "responsive",
-    "avatar stack"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
-  "responsive": true,
+  "responsive": false,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

@@ -1,5 +1,5 @@
 <!-- CSS-Only Progress Bar -->
-<div class="progress-bar">
+<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Progress">
   <div class="progress" style="width: 60%"></div>
 </div>
 <style>
@@ -17,4 +17,8 @@
   background: linear-gradient(90deg, #6a5af9, #f857a6);
   transition: width 0.4s;
 }
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
 </style>

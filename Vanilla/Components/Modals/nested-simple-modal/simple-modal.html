@@ -1,7 +1,11 @@
 <!-- Simple Modal HTML Example -->
-<div class="modal" id="simpleModal">
+<div class="modal" id="simpleModal" role="dialog" aria-modal="true" aria-labelledby="simpleModal-title" hidden>
   <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <p>This is a simple modal!</p>
+    <button type="button" class="close-button" aria-label="Close modal">&times;</button>
+    <p id="simpleModal-title">This is a simple modal!</p>
   </div>
 </div>
+<style>
+/* devsnips-qa:quality-bar */
+:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+</style>

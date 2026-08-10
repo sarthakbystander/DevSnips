@@ -2,7 +2,7 @@
   "id": "stats-grid-001",
   "name": "Stats Grid",
   "slug": "stats-grid",
-  "component": "statistics",
+  "component": "statistic",
   "family": "statistics",
   "variant": "stats-grid",
   "description": "4 colored stat tiles with animated counters.",
@@ -17,18 +17,20 @@
     "animated"
   ],
   "features": [
-    "IntersectionObserver",
-    "reduced-motion safe",
-    "aria"
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

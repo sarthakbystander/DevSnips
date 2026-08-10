@@ -2,7 +2,7 @@
   "id": "process-how-it-works-001",
   "name": "How It Works",
   "slug": "process-how-it-works",
-  "component": "process",
+  "component": "proces",
   "family": "process",
   "variant": "process-how-it-works",
   "description": "Split how-it-works with numbered steps and a preview.",
@@ -17,17 +17,20 @@
     "split"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

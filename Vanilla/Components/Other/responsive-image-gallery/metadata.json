@@ -30,9 +30,12 @@
   "framework": "Vanilla HTML/CSS/JS",
   "language": "HTML",
   "darkMode": false,
-  "accessibility": [],
+  "accessibility": [
+    "focus-visible"
+  ],
   "related": [],
   "features": [
-    "responsive"
+    "responsive",
+    "focus-visible"
   ]
 }

@@ -17307,7 +17307,9 @@
             "typography"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -17336,12 +17338,8 @@
             "dropdown"
           ],
           "features": [
-            "accordion",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "layout",
-            "button"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -17369,12 +17367,7 @@
             "border"
           ],
           "features": [
-            "accordion",
-            "hover-effect",
-            "layout",
-            "button",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -17404,7 +17397,9 @@
           ],
           "features": [
             "responsive",
-            "ARIA"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -17432,12 +17427,8 @@
             "color"
           ],
           "features": [
-            "accordion",
-            "theming",
-            "accessibility",
-            "animation",
-            "layout",
-            "form"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -17495,12 +17486,8 @@
             "click"
           ],
           "features": [
-            "animation",
-            "hover-effect",
-            "button",
-            "badge",
-            "table",
-            "typography"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "animation",
@@ -17528,12 +17515,7 @@
             "border"
           ],
           "features": [
-            "storage",
-            "center",
-            "button",
-            "form",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "storage",
@@ -17586,12 +17568,7 @@
             "api"
           ],
           "features": [
-            "table",
-            "typography",
-            "color",
-            "border",
-            "image",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -17640,12 +17617,7 @@
             "color"
           ],
           "features": [
-            "badge",
-            "theming",
-            "accessibility",
-            "animation",
-            "form",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "badge",
@@ -17672,12 +17644,7 @@
             "pseudo-class"
           ],
           "features": [
-            "badge",
-            "hover-effect",
-            "typography",
-            "color",
-            "border",
-            "pseudo-class"
+            "focus-visible"
           ],
           "styles": [
             "badge",
@@ -17731,12 +17698,8 @@
             "click"
           ],
           "features": [
-            "ripple",
-            "button",
-            "animation",
-            "shadow",
-            "table",
-            "color"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "ripple",
@@ -17784,12 +17747,7 @@
             "border"
           ],
           "features": [
-            "button",
-            "landing-page",
-            "hover-effect",
-            "tabs",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -17818,12 +17776,9 @@
             "touch"
           ],
           "features": [
-            "glassmorphism",
-            "button",
-            "tooltip",
-            "badge",
-            "loader",
-            "theming"
+            "ARIA",
+            "focus-visible",
+            "keyboard nav"
           ],
           "styles": [
             "glassmorphism",
@@ -17850,12 +17805,7 @@
             "icons"
           ],
           "features": [
-            "button",
-            "typography",
-            "color",
-            "border",
-            "api",
-            "icons"
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -17904,8 +17854,7 @@
             "button"
           ],
           "features": [
-            "animation",
-            "button"
+            "focus-visible"
           ],
           "styles": [
             "animation",
@@ -17926,8 +17875,7 @@
             "button"
           ],
           "features": [
-            "gradient",
-            "button"
+            "focus-visible"
           ],
           "styles": [
             "gradient",
@@ -17973,12 +17921,8 @@
             "click"
           ],
           "features": [
-            "pulse",
-            "button",
-            "animation",
-            "shadow",
-            "table",
-            "color"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "pulse",
@@ -18002,10 +17946,7 @@
             "form-element"
           ],
           "features": [
-            "button",
-            "form",
-            "table",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -18033,12 +17974,8 @@
             "form-element"
           ],
           "features": [
-            "button",
-            "animation",
-            "hover-effect",
-            "form",
-            "table",
-            "color"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -18066,12 +18003,7 @@
             "pseudo-class"
           ],
           "features": [
-            "button",
-            "hover-effect",
-            "center",
-            "table",
-            "typography",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -18099,12 +18031,7 @@
             "typography"
           ],
           "features": [
-            "button",
-            "string",
-            "hover-effect",
-            "shadow",
-            "dropdown",
-            "navbar"
+            "focus-visible"
           ],
           "styles": [
             "button",
@@ -18162,12 +18089,8 @@
             "image"
           ],
           "features": [
-            "card",
-            "blog",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "layout"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18248,12 +18171,7 @@
             "color"
           ],
           "features": [
-            "card",
-            "typography",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "layout"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18281,12 +18199,7 @@
             "border"
           ],
           "features": [
-            "grid",
-            "card",
-            "typography",
-            "shadow",
-            "layout",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "grid",
@@ -18314,12 +18227,8 @@
             "form"
           ],
           "features": [
-            "card",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "flexbox",
-            "center"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18347,12 +18256,8 @@
             "typography"
           ],
           "features": [
-            "card",
-            "animation",
-            "hover-effect",
-            "flexbox",
-            "center",
-            "form"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18380,12 +18285,7 @@
             "color"
           ],
           "features": [
-            "glassmorphism",
-            "card",
-            "shadow",
-            "center",
-            "modal",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "glassmorphism",
@@ -18413,7 +18313,8 @@
             "drag"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "focus-visible"
           ],
           "styles": [
             "glassmorphism",
@@ -18439,11 +18340,7 @@
             "svg"
           ],
           "features": [
-            "card",
-            "ecommerce",
-            "image",
-            "icon",
-            "svg"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18468,10 +18365,7 @@
             "svg"
           ],
           "features": [
-            "card",
-            "image",
-            "icon",
-            "svg"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18500,6 +18394,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -18528,12 +18423,7 @@
             "color"
           ],
           "features": [
-            "card",
-            "ecommerce",
-            "shadow",
-            "center",
-            "button",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18561,12 +18451,7 @@
             "border"
           ],
           "features": [
-            "card",
-            "shadow",
-            "center",
-            "button",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18594,12 +18479,7 @@
             "image"
           ],
           "features": [
-            "card",
-            "center",
-            "form",
-            "table",
-            "typography",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18655,11 +18535,7 @@
             "click"
           ],
           "features": [
-            "dark-mode",
-            "button",
-            "color",
-            "border",
-            "click"
+            "focus-visible"
           ],
           "styles": [
             "dark-mode",
@@ -18685,12 +18561,7 @@
             "color"
           ],
           "features": [
-            "card",
-            "semantic",
-            "center",
-            "table",
-            "typography",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18718,6 +18589,7 @@
             "color"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -18746,6 +18618,7 @@
             "date"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -18774,12 +18647,7 @@
             "border"
           ],
           "features": [
-            "card",
-            "navbar",
-            "tabs",
-            "table",
-            "semantic",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "card",
@@ -18911,6 +18779,9 @@
             "form",
             "form-element"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "checkbox-group.html",
@@ -18927,6 +18798,9 @@
             "form",
             "dropdown",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -18950,7 +18824,9 @@
           ],
           "features": [
             "responsive",
-            "ARIA"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -18970,6 +18846,9 @@
             "typography",
             "color",
             "border"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19009,6 +18888,10 @@
             "clipboard",
             "form-element"
           ],
+          "features": [
+            "reduced-motion",
+            "focus-visible"
+          ],
           "files": [
             "CSS Toggle Switch.html",
             "README.md",
@@ -19023,6 +18906,9 @@
             "form-element",
             "form",
             "dropdown"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19046,6 +18932,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "keyboard nav"
@@ -19086,6 +18973,9 @@
             "click",
             "form-element"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "disabled-input.html",
@@ -19104,6 +18994,10 @@
             "shadow",
             "typography",
             "color"
+          ],
+          "features": [
+            "ARIA",
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19127,6 +19021,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "keyboard nav"
@@ -19151,7 +19046,9 @@
             "border"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "reduced-motion",
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19171,6 +19068,9 @@
             "flexbox",
             "button",
             "typography"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19213,6 +19113,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible"
           ],
@@ -19233,6 +19134,9 @@
             "form-element",
             "login"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "input-pattern-validation.html",
@@ -19252,6 +19156,9 @@
             "modern-css",
             "form-element"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "input-with-min-max.html",
@@ -19267,6 +19174,9 @@
             "keyboard",
             "typography",
             "clipboard"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19285,6 +19195,9 @@
             "login",
             "button",
             "typography"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19308,7 +19221,9 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -19326,6 +19241,9 @@
             "dropdown",
             "drag",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19349,6 +19267,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible"
           ],
@@ -19369,6 +19288,9 @@
             "login",
             "button"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19382,6 +19304,9 @@
           "tags": [
             "form",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19398,6 +19323,9 @@
             "tabs",
             "typography",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19416,6 +19344,9 @@
             "button",
             "typography",
             "login"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19436,6 +19367,9 @@
             "button",
             "dropdown",
             "badge"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19459,6 +19393,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "keyboard nav"
@@ -19479,6 +19414,9 @@
             "typography",
             "form-element"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19496,6 +19434,9 @@
             "badge",
             "form-element"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19511,6 +19452,9 @@
             "dropdown",
             "drag",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19531,6 +19475,9 @@
             "typography",
             "color"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19545,6 +19492,9 @@
             "form",
             "typography",
             "form-element"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19566,7 +19516,9 @@
             "border"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "reduced-motion",
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -19610,12 +19562,9 @@
             "badge"
           ],
           "features": [
-            "bounce",
-            "loader",
-            "animation",
-            "flexbox",
-            "center",
-            "form"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "bounce",
@@ -19643,12 +19592,8 @@
             "center"
           ],
           "features": [
-            "navbar",
-            "sidebar",
-            "loader",
-            "form-element",
-            "gradient",
-            "flexbox"
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "navbar",
@@ -19677,12 +19622,9 @@
             "gradient"
           ],
           "features": [
-            "navbar",
-            "sidebar",
-            "loader",
-            "theming",
-            "accessibility",
-            "form-element"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "navbar",
@@ -19709,12 +19651,9 @@
             "form-element"
           ],
           "features": [
-            "loader",
-            "animation",
-            "form",
-            "badge",
-            "table",
-            "border"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "loader",
@@ -19737,8 +19676,8 @@
             "loader"
           ],
           "features": [
-            "bounce",
-            "loader"
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "bounce",
@@ -19761,11 +19700,7 @@
             "form-element"
           ],
           "features": [
-            "navbar",
-            "sidebar",
-            "loader",
-            "form-element",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "navbar",
@@ -19793,12 +19728,8 @@
             "color"
           ],
           "features": [
-            "loader",
-            "form-element",
-            "flexbox",
-            "center",
-            "form",
-            "badge"
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "loader",
@@ -19827,6 +19758,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -19886,6 +19818,7 @@
             "form"
           ],
           "features": [
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "semantic HTML",
@@ -19912,6 +19845,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -19935,6 +19869,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "keyboard nav"
           ],
           "files": [
@@ -19956,6 +19891,9 @@
             "button",
             "form"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19976,6 +19914,10 @@
             "center",
             "button"
           ],
+          "features": [
+            "reduced-motion",
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -19994,6 +19936,9 @@
             "image",
             "utility",
             "api"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -20032,11 +19977,7 @@
             "api"
           ],
           "features": [
-            "image",
-            "accessibility",
-            "table",
-            "typography",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "image",
@@ -20059,9 +20000,7 @@
             "image"
           ],
           "features": [
-            "video",
-            "table",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "video",
@@ -20086,12 +20025,7 @@
             "border"
           ],
           "features": [
-            "web-components",
-            "canvas",
-            "table",
-            "typography",
-            "color",
-            "border"
+            "focus-visible"
           ],
           "styles": [
             "web-components",
@@ -20114,6 +20048,7 @@
             "api"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -20140,6 +20075,7 @@
             "api"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -20164,10 +20100,7 @@
             "api"
           ],
           "features": [
-            "table",
-            "image",
-            "media-query",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -20190,9 +20123,7 @@
             "video"
           ],
           "features": [
-            "table",
-            "image",
-            "video"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -20214,9 +20145,7 @@
             "image"
           ],
           "features": [
-            "video",
-            "table",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "video",
@@ -20239,10 +20168,7 @@
             "api"
           ],
           "features": [
-            "video",
-            "table",
-            "image",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "video",
@@ -20269,12 +20195,7 @@
             "clip-path"
           ],
           "features": [
-            "image",
-            "array",
-            "button",
-            "table",
-            "click",
-            "portfolio"
+            "focus-visible"
           ],
           "styles": [
             "image",
@@ -20303,12 +20224,7 @@
             "dropdown"
           ],
           "features": [
-            "carousel",
-            "image",
-            "shadow",
-            "flexbox",
-            "center",
-            "button"
+            "focus-visible"
           ],
           "styles": [
             "carousel",
@@ -20332,10 +20248,7 @@
             "media-query"
           ],
           "features": [
-            "image",
-            "web-components",
-            "table",
-            "media-query"
+            "focus-visible"
           ],
           "styles": [
             "image",
@@ -20364,12 +20277,8 @@
             "center"
           ],
           "features": [
-            "modal",
-            "tooltip",
-            "image",
-            "keyboard",
-            "login",
-            "animation"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20426,11 +20335,7 @@
             "media-query"
           ],
           "features": [
-            "responsive",
-            "image",
-            "table",
-            "api",
-            "media-query"
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -20458,12 +20363,7 @@
             "color"
           ],
           "features": [
-            "responsive",
-            "layout",
-            "video",
-            "container-query",
-            "container-queries",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -20491,12 +20391,7 @@
             "media-query"
           ],
           "features": [
-            "color",
-            "video",
-            "layout",
-            "table",
-            "image",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "color",
@@ -20556,6 +20451,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "semantic HTML",
@@ -20579,12 +20475,7 @@
             "form-element"
           ],
           "features": [
-            "modal",
-            "web-components",
-            "button",
-            "form",
-            "table",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20645,12 +20536,7 @@
             "button"
           ],
           "features": [
-            "shadow",
-            "form",
-            "modal",
-            "dropdown",
-            "aspect-ratio",
-            "center"
+            "focus-visible"
           ],
           "styles": [
             "shadow",
@@ -20678,7 +20564,8 @@
             "login"
           ],
           "features": [
-            "ARIA"
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20739,12 +20626,7 @@
             "click"
           ],
           "features": [
-            "modal",
-            "flexbox",
-            "center",
-            "button",
-            "table",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20768,10 +20650,8 @@
             "date"
           ],
           "features": [
-            "modal",
-            "button",
-            "table",
-            "date"
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20799,12 +20679,7 @@
             "border"
           ],
           "features": [
-            "modal",
-            "layout",
-            "button",
-            "form",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "modal",
@@ -20833,7 +20708,9 @@
             "button"
           ],
           "features": [
-            "ARIA"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
           ],
           "styles": [
             "badge",
@@ -20862,6 +20739,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -20921,7 +20799,9 @@
             "form"
           ],
           "features": [
+            "reduced-motion",
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -20944,6 +20824,7 @@
             "pseudo-class"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -20964,6 +20845,9 @@
             "center",
             "typography",
             "color"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -20987,6 +20871,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "semantic HTML"
@@ -21012,6 +20897,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -21033,6 +20919,9 @@
             "color",
             "border"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "circular-menu.html",
@@ -21053,6 +20942,9 @@
             "layout",
             "button"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "fixed-header-on-scroll.html",
@@ -21070,6 +20962,9 @@
             "color",
             "scroll",
             "semantic"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -21110,6 +21005,10 @@
             "color",
             "icon"
           ],
+          "features": [
+            "reduced-motion",
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "hamburger-menu.html",
@@ -21127,6 +21026,9 @@
             "center",
             "typography",
             "color"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -21147,6 +21049,9 @@
             "center",
             "button",
             "dropdown"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -21184,9 +21089,12 @@
             "mega-menu"
           ],
           "features": [
-            "click-away close",
-            "keyboard",
-            "aria-expanded"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21205,9 +21113,12 @@
             "drawer"
           ],
           "features": [
-            "keyboard",
-            "aria-expanded",
-            "focus"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21226,9 +21137,12 @@
             "sheet"
           ],
           "features": [
-            "esc to close",
-            "scrim",
-            "scroll shadow"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21251,6 +21165,7 @@
           ],
           "features": [
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -21275,7 +21190,9 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -21298,6 +21215,8 @@
             "animation"
           ],
           "features": [
+            "reduced-motion",
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -21327,12 +21246,7 @@
             "touch"
           ],
           "features": [
-            "parallax",
-            "button",
-            "tooltip",
-            "badge",
-            "loader",
-            "theming"
+            "focus-visible"
           ],
           "styles": [
             "parallax",
@@ -21359,6 +21273,10 @@
             "button",
             "accordion"
           ],
+          "features": [
+            "reduced-motion",
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -21375,9 +21293,12 @@
             "dashboard"
           ],
           "features": [
-            "responsive collapse",
-            "aria-current",
-            "scrim"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21399,6 +21320,7 @@
             "pseudo-class"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -21421,6 +21343,7 @@
             "scroll"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "files": [
@@ -21483,6 +21406,9 @@
             "typography",
             "color"
           ],
+          "features": [
+            "focus-visible"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -21500,6 +21426,9 @@
             "color",
             "semantic",
             "pseudo-class"
+          ],
+          "features": [
+            "focus-visible"
           ],
           "files": [
             "README.md",
@@ -21546,9 +21475,7 @@
             "image"
           ],
           "features": [
-            "web-components",
-            "table",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "web-components",
@@ -21569,8 +21496,7 @@
             "semantic"
           ],
           "features": [
-            "table",
-            "semantic"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -21593,11 +21519,7 @@
             "form-element"
           ],
           "features": [
-            "web-components",
-            "form",
-            "table",
-            "typography",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "web-components",
@@ -21622,11 +21544,7 @@
             "image"
           ],
           "features": [
-            "table",
-            "typography",
-            "color",
-            "border",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -21651,11 +21569,7 @@
             "semantic"
           ],
           "features": [
-            "table",
-            "layout",
-            "typography",
-            "api",
-            "semantic"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -21683,12 +21597,7 @@
             "string"
           ],
           "features": [
-            "grid",
-            "center",
-            "table",
-            "typography",
-            "color",
-            "border"
+            "focus-visible"
           ],
           "styles": [
             "grid",
@@ -21716,12 +21625,8 @@
             "typography"
           ],
           "features": [
-            "carousel",
-            "animation",
-            "layout",
-            "button",
-            "form",
-            "dropdown"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "carousel",
@@ -21744,9 +21649,7 @@
             "layout"
           ],
           "features": [
-            "center",
-            "layout",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "center",
@@ -21770,11 +21673,7 @@
             "form-element"
           ],
           "features": [
-            "form",
-            "table",
-            "typography",
-            "utility",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "form",
@@ -21797,9 +21696,7 @@
             "typography"
           ],
           "features": [
-            "tabs",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -21826,12 +21723,7 @@
             "border"
           ],
           "features": [
-            "animation",
-            "shadow",
-            "center",
-            "form",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "animation",
@@ -21858,12 +21750,7 @@
             "ecommerce"
           ],
           "features": [
-            "badge",
-            "table",
-            "date",
-            "center",
-            "typography",
-            "utility"
+            "focus-visible"
           ],
           "styles": [
             "badge",
@@ -21892,12 +21779,8 @@
             "layout"
           ],
           "features": [
-            "hover-effect",
-            "tooltip",
-            "image",
-            "pseudo-class",
-            "animation",
-            "flexbox"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "hover-effect",
@@ -21989,6 +21872,7 @@
           ],
           "features": [
             "light/dark",
+            "reduced-motion",
             "ARIA",
             "focus-visible"
           ],
@@ -22007,8 +21891,7 @@
             "typography"
           ],
           "features": [
-            "form-element",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -22032,12 +21915,7 @@
             "form-element"
           ],
           "features": [
-            "accordion",
-            "button",
-            "form",
-            "table",
-            "click",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "accordion",
@@ -22064,12 +21942,7 @@
             "ecommerce"
           ],
           "features": [
-            "table",
-            "color",
-            "border",
-            "image",
-            "api",
-            "portfolio"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -22097,12 +21970,7 @@
             "semantic"
           ],
           "features": [
-            "color",
-            "animation",
-            "layout",
-            "form",
-            "navbar",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "color",
@@ -22192,10 +22060,7 @@
             "typography"
           ],
           "features": [
-            "drag",
-            "web-components",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "drag",
@@ -22220,11 +22085,7 @@
             "image"
           ],
           "features": [
-            "typing-effect",
-            "icon",
-            "tabs",
-            "table",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "typing-effect",
@@ -22248,9 +22109,7 @@
             "typography"
           ],
           "features": [
-            "form-element",
-            "form",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -22277,12 +22136,7 @@
             "color"
           ],
           "features": [
-            "glassmorphism",
-            "array",
-            "form-element",
-            "backdrop-filter",
-            "form",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "glassmorphism",
@@ -22375,12 +22229,7 @@
             "color"
           ],
           "features": [
-            "accessibility",
-            "center",
-            "button",
-            "form",
-            "modal",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "accessibility",
@@ -22408,12 +22257,8 @@
             "color"
           ],
           "features": [
-            "icon",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "button",
-            "table"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "icon",
@@ -22442,6 +22287,7 @@
             "blog"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -22471,6 +22317,7 @@
           ],
           "features": [
             "responsive",
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -22493,8 +22340,7 @@
             "typography"
           ],
           "features": [
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -22521,12 +22367,8 @@
             "form"
           ],
           "features": [
-            "ripple",
-            "modal",
-            "image",
-            "animation",
-            "hover-effect",
-            "center"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "ripple",
@@ -22555,12 +22397,8 @@
             "dropdown"
           ],
           "features": [
-            "animation",
-            "hover-effect",
-            "gradient",
-            "responsive",
-            "flexbox",
-            "layout"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "animation",
@@ -22586,11 +22424,7 @@
             "api"
           ],
           "features": [
-            "form-element",
-            "flexbox",
-            "color",
-            "border",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -22614,6 +22448,7 @@
             "web-components"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -22639,11 +22474,7 @@
             "canvas"
           ],
           "features": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form",
@@ -22671,12 +22502,7 @@
             "blog"
           ],
           "features": [
-            "responsive",
-            "media-query",
-            "flexbox",
-            "typography",
-            "image",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -22699,9 +22525,7 @@
             "web-components"
           ],
           "features": [
-            "form-element",
-            "web-components",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -22759,12 +22583,7 @@
             "semantic"
           ],
           "features": [
-            "layout",
-            "responsive",
-            "flexbox",
-            "sidebar",
-            "typography",
-            "semantic"
+            "focus-visible"
           ],
           "styles": [
             "layout",
@@ -22788,10 +22607,7 @@
             "form"
           ],
           "features": [
-            "form-element",
-            "web-components",
-            "form",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -22819,12 +22635,7 @@
             "color"
           ],
           "features": [
-            "parallax",
-            "ripple",
-            "scroll",
-            "center",
-            "layout",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "parallax",
@@ -22854,6 +22665,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible"
           ],
@@ -22875,11 +22687,7 @@
             "semantic"
           ],
           "features": [
-            "flexbox",
-            "navbar",
-            "color",
-            "border",
-            "semantic"
+            "focus-visible"
           ],
           "styles": [
             "flexbox",
@@ -22907,12 +22715,7 @@
             "media-query"
           ],
           "features": [
-            "portfolio",
-            "responsive",
-            "flexbox",
-            "center",
-            "table",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "portfolio",
@@ -22936,10 +22739,7 @@
             "form-element"
           ],
           "features": [
-            "carousel",
-            "form",
-            "table",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "carousel",
@@ -22967,7 +22767,8 @@
             "media-query"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -23029,6 +22830,7 @@
             "border"
           ],
           "features": [
+            "focus-visible",
             "semantic HTML"
           ],
           "styles": [
@@ -23051,8 +22853,7 @@
             "form-element"
           ],
           "features": [
-            "form-element",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -23072,8 +22873,7 @@
             "form-element"
           ],
           "features": [
-            "form-element",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form-element",
@@ -23099,12 +22899,8 @@
             "portfolio"
           ],
           "features": [
-            "navbar",
-            "sidebar",
-            "animation",
-            "table",
-            "typography",
-            "color"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "navbar",
@@ -23130,12 +22926,7 @@
             "pseudo-class"
           ],
           "features": [
-            "typing-effect",
-            "table",
-            "color",
-            "keyboard",
-            "semantic",
-            "pseudo-class"
+            "focus-visible"
           ],
           "styles": [
             "typing-effect",
@@ -23183,12 +22974,8 @@
             "typography"
           ],
           "features": [
-            "responsive",
-            "icon",
-            "media-query",
-            "animation",
-            "hover-effect",
-            "layout"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -23216,12 +23003,7 @@
             "border"
           ],
           "features": [
-            "responsive",
-            "media-query",
-            "form",
-            "accordion",
-            "table",
-            "typography"
+            "focus-visible"
           ],
           "styles": [
             "responsive",
@@ -23244,9 +23026,7 @@
             "color"
           ],
           "features": [
-            "shadow",
-            "table",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "shadow",
@@ -23273,12 +23053,8 @@
             "color"
           ],
           "features": [
-            "navbar",
-            "sidebar",
-            "animation",
-            "center",
-            "form",
-            "table"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "navbar",
@@ -23304,12 +23080,7 @@
             "canvas"
           ],
           "features": [
-            "icon",
-            "svg",
-            "layout",
-            "table",
-            "color",
-            "canvas"
+            "focus-visible"
           ],
           "styles": [
             "icon",
@@ -23337,12 +23108,7 @@
             "api"
           ],
           "features": [
-            "form",
-            "tooltip",
-            "table",
-            "typography",
-            "color",
-            "image"
+            "focus-visible"
           ],
           "styles": [
             "form",
@@ -23367,11 +23133,7 @@
             "form-element"
           ],
           "features": [
-            "date",
-            "web-components",
-            "form",
-            "table",
-            "form-element"
+            "focus-visible"
           ],
           "styles": [
             "date",
@@ -23398,12 +23160,7 @@
             "pseudo-class"
           ],
           "features": [
-            "date",
-            "layout",
-            "table",
-            "color",
-            "border",
-            "media-query"
+            "focus-visible"
           ],
           "styles": [
             "date",
@@ -23430,12 +23187,7 @@
             "icons"
           ],
           "features": [
-            "table",
-            "center",
-            "typography",
-            "border",
-            "icon",
-            "api"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -23493,12 +23245,7 @@
             "form-element"
           ],
           "features": [
-            "theming",
-            "touch",
-            "accessibility",
-            "form",
-            "typography",
-            "color"
+            "focus-visible"
           ],
           "styles": [
             "theming",
@@ -23528,6 +23275,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible"
           ],
@@ -23548,11 +23296,7 @@
             "icons"
           ],
           "features": [
-            "table",
-            "typography",
-            "color",
-            "api",
-            "icons"
+            "focus-visible"
           ],
           "styles": [
             "table",
@@ -23609,12 +23353,7 @@
             "semantic"
           ],
           "features": [
-            "tabs",
-            "table",
-            "navbar",
-            "typography",
-            "border",
-            "semantic"
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23637,8 +23376,7 @@
             "table"
           ],
           "features": [
-            "tabs",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23660,9 +23398,7 @@
             "border"
           ],
           "features": [
-            "tabs",
-            "table",
-            "border"
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23684,8 +23420,7 @@
             "table"
           ],
           "features": [
-            "tabs",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23752,12 +23487,7 @@
             "typography"
           ],
           "features": [
-            "404",
-            "tabs",
-            "pagination",
-            "typing-effect",
-            "center",
-            "button"
+            "focus-visible"
           ],
           "styles": [
             "404",
@@ -23787,6 +23517,7 @@
           ],
           "features": [
             "responsive",
+            "reduced-motion",
             "ARIA",
             "focus-visible",
             "keyboard nav"
@@ -23811,12 +23542,8 @@
             "border"
           ],
           "features": [
-            "tabs",
-            "animation",
-            "hover-effect",
-            "typing-effect",
-            "button",
-            "table"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23845,12 +23572,8 @@
             "navbar"
           ],
           "features": [
-            "tabs",
-            "web-components",
-            "animation",
-            "flexbox",
-            "button",
-            "form"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "tabs",
@@ -23909,12 +23632,8 @@
             "form"
           ],
           "features": [
-            "tooltip",
-            "theming",
-            "accessibility",
-            "animation",
-            "hover-effect",
-            "center"
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "tooltip",
@@ -23942,7 +23661,9 @@
             "form"
           ],
           "features": [
-            "responsive"
+            "responsive",
+            "reduced-motion",
+            "focus-visible"
           ],
           "styles": [
             "tooltip",
@@ -23969,12 +23690,7 @@
             "form-element"
           ],
           "features": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas",
-            "hover-effect",
-            "table"
+            "focus-visible"
           ],
           "styles": [
             "form",
@@ -24027,7 +23743,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24046,7 +23765,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24064,9 +23786,12 @@
             "form"
           ],
           "features": [
-            "validation",
-            "inline feedback",
-            "accessible"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24083,8 +23808,12 @@
             "split"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24125,8 +23854,12 @@
             "cards"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24144,9 +23877,12 @@
             "split"
           ],
           "features": [
-            "validation",
-            "labels",
-            "grouped fields"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24164,8 +23900,12 @@
             "locations"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24207,8 +23947,12 @@
             "cards"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24226,9 +23970,12 @@
             "sidebar"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "code block"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24246,8 +23993,12 @@
             "editorial"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24265,8 +24016,12 @@
             "filters"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24307,9 +24062,11 @@
             "accordion"
           ],
           "features": [
-            "keyboard",
-            "aria-expanded",
-            "grid animation"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24327,9 +24084,11 @@
             "filter"
           ],
           "features": [
-            "live search",
-            "no results state",
-            "aria"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24371,9 +24130,12 @@
             "grid"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "varied sizes"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24387,13 +24149,15 @@
           "description": "Feature comparison table vs. competitors.",
           "tags": [
             "features",
-            "comparison",
-            "table"
+            "comparison"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "scroll on mobile",
-            "accessible table"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24411,9 +24175,12 @@
             "icons"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "hover lift"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24431,8 +24198,12 @@
             "compact"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24450,8 +24221,12 @@
             "steps"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24493,8 +24268,12 @@
             "newsletter"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24512,7 +24291,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24530,8 +24312,12 @@
             "links"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24573,8 +24359,12 @@
             "images"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24592,8 +24382,12 @@
             "filters"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24611,8 +24405,12 @@
             "cards"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24654,9 +24452,11 @@
             "text-cycle"
           ],
           "features": [
-            "reduced-motion safe",
-            "accessible fallback",
-            "visually-hidden text"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24674,9 +24474,12 @@
             "grid"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "varied tiles"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24695,8 +24498,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive",
-            "avatar stack"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24716,8 +24521,10 @@
           ],
           "features": [
             "light/dark",
-            "reduced-motion safe",
-            "gradient text"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24735,9 +24542,12 @@
             "split"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "placeholder media"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24757,8 +24567,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive",
-            "focus states"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24776,9 +24588,12 @@
             "showcase"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "3-up grid"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24797,9 +24612,12 @@
             "mrr"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "floating badge"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24817,9 +24635,12 @@
             "comparison"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "join-on-desktop"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24838,9 +24659,12 @@
             "stats"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "preview pane"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24882,8 +24706,12 @@
             "cards"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24902,7 +24730,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24920,8 +24751,11 @@
             "animated"
           ],
           "features": [
-            "reduced-motion safe",
-            "edge mask"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24959,12 +24793,15 @@
           "description": "Full pricing comparison matrix table.",
           "tags": [
             "pricing",
-            "comparison",
-            "table"
+            "comparison"
           ],
           "features": [
-            "scroll on mobile",
-            "accessible table"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -24982,8 +24819,12 @@
             "cta"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25001,9 +24842,12 @@
             "toggle"
           ],
           "features": [
-            "accessible toggle",
-            "aria-pressed",
-            "responsive"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25021,8 +24865,12 @@
             "plans"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25064,8 +24912,12 @@
             "split"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25083,8 +24935,12 @@
             "numbered"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25102,8 +24958,12 @@
             "steps"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25121,8 +24981,12 @@
             "flow"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25165,7 +25029,10 @@
           ],
           "features": [
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25183,9 +25050,12 @@
             "preview"
           ],
           "features": [
-            "light/dark",
             "responsive",
-            "accessible chart"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25203,8 +25073,12 @@
             "grid"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25222,8 +25096,12 @@
             "phones"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25241,8 +25119,12 @@
             "columns"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25260,8 +25142,12 @@
             "split"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25303,8 +25189,12 @@
             "band"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25322,9 +25212,12 @@
             "animated"
           ],
           "features": [
-            "IntersectionObserver",
-            "reduced-motion safe",
-            "aria"
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25342,8 +25235,12 @@
             "cards"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25385,8 +25282,12 @@
             "strip"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25404,8 +25305,12 @@
             "members"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25423,8 +25328,12 @@
             "exec"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25466,8 +25375,12 @@
             "ratings"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25485,9 +25398,11 @@
             "slider"
           ],
           "features": [
-            "keyboard",
-            "pause on hover",
-            "reduced-motion safe"
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25505,8 +25420,12 @@
             "wall"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -25524,8 +25443,12 @@
             "feature"
           ],
           "features": [
+            "responsive",
             "light/dark",
-            "responsive"
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
