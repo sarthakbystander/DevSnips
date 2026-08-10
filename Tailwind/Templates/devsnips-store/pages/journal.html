@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal — Notes on making · DevSnips</title>
+  <meta name="description" content="The DevSnips journal — field notes from the studios on craft, materials and living with objects.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink: '#14110D', paper: '#F5F1EA', bone: '#ECE6DB', stone: '#8A8275', clay: '#B5552D', cream: '#FBF8F1' }, fontFamily: { display: ['Fraunces', 'Georgia', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] } } } };
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    html, body { background: #F5F1EA; }
+    body { font-family: 'Inter', sans-serif; color: #14110D; }
+    .font-display { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    ::selection { background: #B5552D; color: #FBF8F1; }
+    .rule { border-color: rgba(20,17,13,0.16); }
+    .rule-strong { border-color: rgba(20,17,13,0.30); }
+    [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #B5552D; outline-offset: 2px; }
+    .chip[data-active="true"] { background: #14110D; color: #F5F1EA; border-color: #14110D; }
+    @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } * { scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+
+  <div class="border-b rule bg-cream">
+    <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60 sm:px-8 lg:px-12">
+      <span class="hidden sm:block">Complimentary shipping on orders over &euro;180</span>
+      <span class="sm:hidden">Free shipping over &euro;180</span>
+      <span class="flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-clay"></span> Vol. 04 — The Vessel Collection &middot; now released</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 border-b rule bg-paper/90 backdrop-blur-md">
+    <nav class="mx-auto flex h-[68px] max-w-[1400px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12" aria-label="Primary">
+      <div class="flex items-center gap-3 lg:gap-6">
+        <button type="button" data-nav-toggle class="grid h-9 w-9 place-items-center border rule-strong lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div class="hidden items-center gap-5 text-[13px] font-medium text-ink/70 lg:flex">
+          <a href="shop.html" class="hover:text-ink">Shop</a>
+          <a href="journal.html" class="text-ink">Journal</a>
+          <a href="about.html" class="hover:text-ink">Atelier</a>
+        </div>
+      </div>
+      <a href="index.html" class="flex flex-col items-center gap-1" aria-label="DevSnips home">
+        <img src="../assets/icons/logo.svg" alt="" class="h-7 w-7" width="32" height="32">
+        <span class="font-display text-[15px] font-semibold tracking-[0.04em]">DevSnips</span>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-5">
+        <a href="#" aria-label="Search" class="hidden text-[13px] font-medium text-ink/70 hover:text-ink sm:inline">Search</a>
+        <a href="#" aria-label="Account" class="hidden text-[13px] font-medium text-ink/70 hover:text-ink sm:inline">Account</a>
+        <a href="cart.html" class="group flex items-center gap-2 text-[13px] font-medium" aria-label="Cart, 2 items">
+          <span class="hidden sm:inline">Cart</span>
+          <span class="relative grid h-8 w-8 place-items-center border rule-strong">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+            <span class="absolute -right-1.5 -top-1.5 grid h-4 min-w-4 place-items-center bg-clay px-1 font-mono text-[9px] font-medium text-cream">2</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t rule px-5 py-3 lg:hidden">
+      <div class="flex flex-col divide-y rule">
+        <a href="shop.html" class="py-3 text-sm font-medium">Shop</a>
+        <a href="journal.html" class="py-3 text-sm font-medium">Journal</a>
+        <a href="about.html" class="py-3 text-sm font-medium">Atelier</a>
+        <a href="#" class="py-3 text-sm font-medium text-ink/60">Search</a>
+        <a href="#" class="py-3 text-sm font-medium text-ink/60">Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- masthead -->
+    <section class="border-b rule">
+      <div class="mx-auto max-w-[1400px] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+        <div class="flex items-center justify-between border-b rule pb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">
+          <span>The Journal</span>
+          <span class="hidden sm:block">Notes on making &amp; living</span>
+          <span>Issue 12</span>
+        </div>
+        <div class="mt-8 grid gap-8 lg:grid-cols-12">
+          <h1 class="font-display lg:col-span-8 text-[clamp(2.6rem,6vw,5.5rem)] font-medium leading-[0.96] tracking-[-0.03em]">Field notes from the studios &mdash; on craft, material, and the long life of an object.</h1>
+          <p class="lg:col-span-4 lg:self-end lg:pb-2 max-w-md text-[15px] leading-7 text-ink/70">We publish roughly once a month: studio visits, short essays, and the occasional defence of a material most people overlook.</p>
+        </div>
+        <!-- filter chips -->
+        <div class="mt-10 flex flex-wrap items-center gap-2" data-tags>
+          <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45">Filter</span>
+          <button type="button" class="chip border rule-strong px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] hover:border-ink" data-tag="all" data-active="true">All</button>
+          <button type="button" class="chip border rule-strong px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] hover:border-ink" data-tag="craft">Craft</button>
+          <button type="button" class="chip border rule-strong px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] hover:border-ink" data-tag="materials">Materials</button>
+          <button type="button" class="chip border rule-strong px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] hover:border-ink" data-tag="living">Living</button>
+          <button type="button" class="chip border rule-strong px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] hover:border-ink" data-tag="studios">Studios</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- featured article -->
+    <section class="border-b rule" data-reveal>
+      <a href="journal.html" class="group block">
+        <div class="mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+          <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div class="relative aspect-[5/4] overflow-hidden border rule bg-bone">
+              <svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.02]" viewBox="0 0 500 400" aria-hidden="true"><rect width="500" height="400" fill="#ECE6DB"/><g stroke="#14110D" stroke-width="1" opacity="0.4"><line x1="0" y1="100" x2="500" y2="100"/><line x1="0" y1="200" x2="500" y2="200"/><line x1="0" y1="300" x2="500" y2="300"/></g><path d="M170 250 C140 250 140 320 160 350 C190 355 215 340 210 300 C205 270 190 250 170 250Z" fill="#C9C0AE" stroke="#14110D"/><path d="M250 110 C200 110 190 200 180 270 C172 330 210 360 250 360 C290 360 328 330 320 270 C310 200 300 110 250 110 Z" fill="#B8A88A" stroke="#14110D"/><path d="M360 240 C330 240 330 320 350 350 C380 355 405 340 400 300 C395 270 380 240 360 240Z" fill="#C9C0AE" stroke="#14110D"/></svg>
+            </div>
+            <div>
+              <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-clay">Featured &middot; Craft &middot; 6 min read</p>
+              <h2 class="font-display mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.02em] sm:text-5xl">Why stoneware should never be perfect.</h2>
+              <p class="mt-6 max-w-md text-[15px] leading-7 text-ink/70">In&ecirc;s Aalto on the dishonesty of symmetry &mdash; and why a vessel that leans is one that has been honestly made. A visit to the wood kiln at Caldas da Rainha.</p>
+              <div class="mt-7 flex items-center gap-3">
+                <span class="grid h-9 w-9 place-items-center rounded-full bg-bone font-mono text-[11px] font-medium">IA</span>
+                <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-ink/55">In&ecirc;s Aalto &middot; 14 Feb 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- article list -->
+    <section>
+      <div class="mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+        <div data-grid class="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          <a href="journal.html" data-tag="materials" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><rect x="140" y="60" width="120" height="180" fill="none" stroke="#14110D" stroke-width="1.5"/><path d="M140 90 Q200 80 260 90" fill="#B5552D" opacity="0.8"/><circle cx="200" cy="180" r="34" fill="none" stroke="#14110D" stroke-width="1.3"/></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Materials &middot; 4 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">A short defence of unlacquered brass.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">On letting a material earn its patina, and why we never lacquer our fittings.</p>
+          </a>
+          <a href="journal.html" data-tag="living" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><g stroke="#14110D" stroke-width="1.2" fill="none"><path d="M110 150 L200 120 L290 150 L290 240 L200 270 L110 240 Z"/><path d="M110 150 L200 180 L290 150"/><path d="M200 180 L200 270"/></g></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Living &middot; 5 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">The slow furnishing of a small flat.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">A reader writes back, six years in, on the few objects that stayed.</p>
+          </a>
+          <a href="journal.html" data-tag="studios" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><rect x="80" y="120" width="240" height="120" fill="none" stroke="#14110D" stroke-width="1.4"/><path d="M80 120 L200 70 L320 120" fill="none" stroke="#14110D" stroke-width="1.4"/><rect x="170" y="160" width="60" height="80" fill="#B5552D" opacity="0.75"/></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Studios &middot; 7 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">A morning at Loom &amp; Field.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">Six looms, two dyers, and the slow arithmetic of undyed wool.</p>
+          </a>
+          <a href="journal.html" data-tag="craft" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><circle cx="200" cy="150" r="70" fill="none" stroke="#14110D" stroke-width="1.4"/><path d="M200 80 V220" stroke="#14110D" stroke-width="1.4"/><path d="M130 150 H270" stroke="#14110D" stroke-width="1.4"/><circle cx="200" cy="150" r="20" fill="#C9C0AE"/></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Craft &middot; 5 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">Centring: what the wheel teaches.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">The first ten minutes of every pot, and why they never get easier.</p>
+          </a>
+          <a href="journal.html" data-tag="materials" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><g stroke="#14110D" stroke-width="1"><line x1="120" y1="90" x2="280" y2="90"/><line x1="120" y1="150" x2="280" y2="150"/><line x1="120" y1="210" x2="280" y2="210"/></g><g><line x1="120" y1="90" x2="120" y2="210" stroke="#14110D"/><line x1="200" y1="90" x2="200" y2="210" stroke="#14110D"/><line x1="280" y1="90" x2="280" y2="210" stroke="#14110D"/></g><rect x="120" y="120" width="40" height="30" fill="#E4DDC9"/></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Materials &middot; 3 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">Why we chose European flax.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">Rain-fed, retted in the field, and spun within four hundred kilometres.</p>
+          </a>
+          <a href="journal.html" data-tag="living" class="group block">
+            <div class="aspect-[4/3] overflow-hidden border rule bg-bone"><svg class="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#ECE6DB"/><rect x="110" y="90" width="180" height="140" fill="#D8B98A" stroke="#14110D" stroke-width="1.4"/><line x1="110" y1="130" x2="290" y2="130" stroke="#14110D" stroke-width="0.8" opacity="0.5"/><rect x="160" y="160" width="80" height="70" fill="#C9C0AE" stroke="#14110D" stroke-width="1"/></svg></div>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">Living &middot; 4 min</p>
+            <h3 class="font-display mt-2 text-xl font-medium leading-snug">An oak table, and what it asked of us.</h3>
+            <p class="mt-2 text-[14px] leading-6 text-ink/65">Notes on a single piece of furniture that reordered a whole room.</p>
+          </a>
+        </div>
+
+        <!-- load more -->
+        <div class="mt-16 flex flex-col items-center gap-4 border-t rule pt-10 text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">Six of forty-two entries</p>
+          <button type="button" class="inline-flex items-center gap-3 border rule-strong px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:bg-ink hover:text-paper transition-colors">Load more entries</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="border-t rule bg-ink text-paper">
+      <div class="mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div class="grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/55">The dispatch</p>
+            <h2 class="font-display mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.02em] sm:text-5xl">A letter when there is something worth saying.</h2>
+          </div>
+          <form class="w-full" data-newsletter>
+            <label for="nl-email" class="sr-only">Email address</label>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <input id="nl-email" type="email" required placeholder="you@studio.com" class="w-full border border-paper/25 bg-transparent px-4 py-3.5 text-[15px] text-paper placeholder:text-paper/40 focus:border-clay">
+              <button type="submit" class="shrink-0 border border-paper bg-paper px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:bg-clay hover:border-clay hover:text-paper">Subscribe</button>
+            </div>
+            <p data-nl-msg class="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-clay" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-paper">
+    <div class="mx-auto max-w-[1400px] px-5 py-14 sm:px-8 lg:px-12">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5"><div class="flex items-center gap-2.5"><img src="../assets/icons/logo.svg" alt="" class="h-7 w-7" width="32" height="32"><span class="font-display text-lg font-semibold tracking-[0.04em]">DevSnips</span></div><p class="mt-4 max-w-xs text-sm leading-7 text-ink/65">A curated store of considered design objects, made in small batches by independent studios.</p></div>
+        <div class="md:col-span-2"><p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Shop</p><ul class="mt-4 space-y-2.5 text-sm"><li><a href="shop.html" class="text-ink/75 hover:text-ink">All objects</a></li><li><a href="shop.html" class="text-ink/75 hover:text-ink">Vessels</a></li><li><a href="shop.html" class="text-ink/75 hover:text-ink">Lighting</a></li><li><a href="shop.html" class="text-ink/75 hover:text-ink">Textiles</a></li><li><a href="shop.html" class="text-ink/75 hover:text-ink">Furniture</a></li></ul></div>
+        <div class="md:col-span-2"><p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Store</p><ul class="mt-4 space-y-2.5 text-sm"><li><a href="about.html" class="text-ink/75 hover:text-ink">Atelier</a></li><li><a href="journal.html" class="text-ink/75 hover:text-ink">Journal</a></li><li><a href="cart.html" class="text-ink/75 hover:text-ink">Cart</a></li><li><a href="#" class="text-ink/75 hover:text-ink">Shipping &amp; returns</a></li><li><a href="#" class="text-ink/75 hover:text-ink">Care guide</a></li></ul></div>
+        <div class="md:col-span-3"><p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Atelier</p><p class="mt-4 text-sm leading-7 text-ink/65">Rua das Janelas Verdes 14<br>1200-690 Lisboa, Portugal</p><p class="mt-3"><a href="mailto:hello@devsnips.example" class="text-sm text-ink/75 underline decoration-ink/30 underline-offset-4 hover:text-ink">hello@devsnips.example</a></p></div>
+      </div>
+      <div class="mt-12 flex flex-col gap-4 border-t rule pt-6 sm:flex-row sm:items-center sm:justify-between"><p class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">&copy; 2026 DevSnips &mdash; A fictional store for this DevSnips template</p><div class="flex gap-5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50"><a href="#" class="hover:text-ink">Instagram</a><a href="#" class="hover:text-ink">Are.na</a><a href="#" class="hover:text-ink">Pinterest</a></div></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-nav-toggle]'); var menu = document.getElementById('mobile-menu');
+      if (btn && menu) btn.addEventListener('click', function () { var open = menu.classList.toggle('hidden') === false; btn.setAttribute('aria-expanded', String(open)); });
+    })();
+    (function () {
+      var form = document.querySelector('[data-newsletter]'); if (!form) return;
+      var msg = form.querySelector('[data-nl-msg]');
+      form.addEventListener('submit', function (e) { e.preventDefault(); msg.textContent = 'Thank you — your first dispatch arrives soon.'; form.reset(); });
+    })();
+    // Tag filter (scoped)
+    (function () {
+      var wrap = document.querySelector('[data-tags]'); if (!wrap) return;
+      var grid = document.querySelector('[data-grid]'); var items = grid ? Array.prototype.slice.call(grid.querySelectorAll('[data-tag]')) : [];
+      wrap.querySelectorAll('.chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          wrap.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('data-active', 'false'); });
+          chip.setAttribute('data-active', 'true');
+          var tag = chip.getAttribute('data-tag');
+          items.forEach(function (it) { it.style.display = (tag === 'all' || it.getAttribute('data-tag') === tag) ? '' : 'none'; });
+        });
+      });
+    })();
+    (function () {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var els = document.querySelectorAll('[data-reveal]');
+      if (!els.length || !('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
