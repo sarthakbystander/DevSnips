@@ -1,10 +1,10 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-08",
+  "lastUpdated": "2026-08-10",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 88,
-    "totalVariants": 733,
+    "totalFamilies": 89,
+    "totalVariants": 734,
     "totalSubVariants": 0,
     "totalStyles": 1728,
     "technologies": [
@@ -20063,6 +20063,96 @@
         "tailwind fintech template",
         "spend management website"
       ]
+    },
+    {
+      "name": "Meridian Incident Command Platform (Template)",
+      "path": "Tailwind/Templates/meridian/",
+      "tech": "Tailwind CSS",
+      "category": "Templates",
+      "description": "Premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams — Neo-Industrial utility language fused with Swiss Minimal discipline (1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display + JetBrains Mono metadata). Hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Meridian Incident Command Platform",
+          "path": "Tailwind/Templates/meridian/",
+          "description": "Complete Neo-Industrial + Swiss Minimal incident-command landing page: editorial-technical split hero with incident command-surface product visualization (live status, latency sparkline, responders, timeline, runbook footer, floating signal-correlation + stepped-escalation mini-cards), logos marquee, hairline-divided three-pillar panels (Route / Respond / Learn), signature directed alert-routing graph (signal → correlate → rule → page with ack-fallback), five-step incident lifecycle workflow with per-step timings and a signed-state rail, dark customer-outcome metrics band, featured pull-quote + secondary engineer testimonials, three-tier per-on-call-team pricing with featured Squad plan, scoped single-open FAQ accordion (ARIA + keyboard), dark corner-tick CTA, and five-column footer with live system status. Sticky navbar with scoped vanilla-JS mobile menu.",
+          "styles": [
+            "neo-industrial",
+            "swiss-minimal",
+            "incident-management",
+            "on-call",
+            "landing-page"
+          ],
+          "features": [
+            "single-page responsive landing page (320px to 1920px+)",
+            "editorial-technical split hero with incident command-surface product visualization (live status, latency sparkline, responders, timeline, runbook footer)",
+            "floating signal-correlation + stepped-escalation mini-cards layered around the hero panel",
+            "hairline-divided three-pillar panels (Route / Respond / Learn)",
+            "signature directed alert-routing graph (signal -> correlate -> rule -> page) with animated edges and an ack-fallback branch",
+            "five-step incident lifecycle workflow with per-step timings and a signed-state rail",
+            "dark customer-outcome metrics band (MTTA / MTTR / noise / burnout) on a divided grid",
+            "featured pull-quote testimonial + secondary engineer testimonial cards",
+            "three-tier per-on-call-team pricing with featured Squad plan",
+            "scoped single-open FAQ accordion (CSS-grid animation, ARIA, keyboard)",
+            "dark conversion CTA with corner-tick framing and a three-line onboarding panel",
+            "five-column footer with live system-status indicator",
+            "sticky navbar with scoped vanilla-JS mobile menu",
+            "consistent Neo-Industrial + Swiss Minimal token system: 1px hairlines, square radii, single amber accent, blueprint graph-paper surfaces, restrained tonal elevation",
+            "accessible: semantic HTML, skip link, ARIA, focus rings, reduced-motion safe",
+            "Tailwind CSS via CDN with no build step"
+          ],
+          "tags": [
+            "incident-management",
+            "on-call",
+            "observability",
+            "alert-routing",
+            "neo-industrial",
+            "swiss-minimal",
+            "b2b-saas",
+            "developer-tools",
+            "landing-page",
+            "dashboard-preview",
+            "tailwind",
+            "single-page",
+            "template"
+          ],
+          "files": [
+            "metadata.json",
+            "README.md",
+            "preview.html",
+            "pages/index.html",
+            "assets/icons/logo.svg",
+            "assets/images/og-image.svg"
+          ]
+        }
+      ],
+      "tags": [
+        "incident-management",
+        "on-call",
+        "observability",
+        "alert-routing",
+        "neo-industrial",
+        "swiss-minimal",
+        "b2b-saas",
+        "developer-tools",
+        "landing-page",
+        "dashboard-preview",
+        "tailwind",
+        "single-page",
+        "template"
+      ],
+      "searchTerms": [
+        "incident management template",
+        "on-call landing page",
+        "alert routing website",
+        "observability platform template",
+        "neo-industrial saas template",
+        "swiss minimal landing page",
+        "developer tools website",
+        "incident command template",
+        "tailwind developer template",
+        "pagerduty alternative landing page"
+      ]
     }
   ],
   "plannedFamilies": {
@@ -20210,7 +20300,8 @@
         "404 (Tailwind)",
         "AI SaaS Platform (Template)",
         "Baseline Conference (Template)",
-        "Stratum Fintech Ops Platform (Template)"
+        "Stratum Fintech Ops Platform (Template)",
+        "Meridian Incident Command Platform (Template)"
       ]
     },
     {
