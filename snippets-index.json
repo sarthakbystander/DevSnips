@@ -3,8 +3,8 @@
   "lastUpdated": "2026-08-10",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 89,
-    "totalVariants": 734,
+    "totalFamilies": 90,
+    "totalVariants": 735,
     "totalSubVariants": 0,
     "totalStyles": 1728,
     "technologies": [
@@ -20153,6 +20153,98 @@
         "tailwind developer template",
         "pagerduty alternative landing page"
       ]
+    },
+    {
+      "name": "Vesper Attack-Surface Management Platform (Template)",
+      "path": "Tailwind/Templates/vesper/",
+      "tech": "Tailwind CSS",
+      "category": "Templates",
+      "description": "Premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams — Glassmorphism surfaces fused with Cyber Minimal discipline (translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display + JetBrains Mono metadata). Hand-built attack-surface command-console hero with a live surface radar, sparkline, and floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with the exposed path animated in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Vesper Attack-Surface Management Platform",
+          "path": "Tailwind/Templates/vesper/",
+          "description": "Complete Glassmorphism + Cyber Minimal attack-surface landing page: editorial-cyber split hero with attack-surface command-console visualization (live scanning status, severity bar, exposure rows, surface radar, exposures-per-day sparkline, floating critical-exposure + new-asset mini-cards), logos marquee, three frosted-glass pillar panels (Discover / Prioritize / Remediate), signature asset-topology reachability graph (internet → load balancer → API gateway → K8s API / Postgres / S3 with exposed path in cyan), five-step EASM lifecycle workflow (Discover → Classify → Prioritize → Remediate → Verify) with signed-state rail, dark customer-outcome metrics band, featured pull-quote + secondary security-leader testimonials, three-tier per-asset pricing with featured Team plan, scoped single-open FAQ accordion (ARIA + keyboard), glass corner-tick CTA with three-step onboarding panel, and a six-column footer with live system-status indicator. Sticky glass navbar with scoped vanilla-JS mobile menu. Semantic HTML, ARIA, visible focus, prefers-reduced-motion support.",
+          "styles": [
+            "glassmorphism",
+            "cyber-minimal",
+            "cybersecurity",
+            "dark",
+            "dashboard-preview",
+            "landing-page",
+            "single-page"
+          ],
+          "features": [
+            "single-page responsive landing page (320px → 1920px+)",
+            "editorial-cyber split hero with attack-surface command-console visualization (live scanning, severity bar, exposure rows, surface radar, sparkline, floating critical-exposure + new-asset mini-cards)",
+            "atmospheric glassmorphism backdrop — frosted glass over low-opacity fuchsia/indigo/cyan mesh + cyber-grid + vignette",
+            "three frosted-glass pillar panels (Discover / Prioritize / Remediate) with severity-colored icon chips",
+            "signature asset-topology reachability graph with exposed path animated in cyan and critical node in red",
+            "five-step EASM lifecycle workflow (Discover → Classify → Prioritize → Remediate → Verify) with signed-state rail",
+            "dark customer-outcome metrics grid (MTTR, critical exposures, shadow assets, alert noise)",
+            "featured pull-quote testimonial + secondary security-leader testimonial cards",
+            "three-tier per-asset pricing with featured Team plan and Most-popular tag",
+            "scoped single-open FAQ accordion (CSS-grid animation, ARIA, keyboard)",
+            "glass conversion CTA with corner-tick framing and three-step onboarding panel",
+            "six-column footer with live system-status indicator",
+            "sticky glass navbar with scoped vanilla-JS mobile menu (escape-safe)",
+            "consistent Glassmorphism + Cyber Minimal token system: translucent surfaces, 1px white hairlines, rounded-2xl glass, single cyan accent, amber/red/ok severity-only",
+            "semantic HTML, skip link, ARIA, visible focus states, prefers-reduced-motion support",
+            "Tailwind CSS via CDN with no build step"
+          ],
+          "tags": [
+            "cybersecurity",
+            "attack-surface-management",
+            "easm",
+            "threat-intel",
+            "glassmorphism",
+            "cyber-minimal",
+            "b2b-saas",
+            "developer-tools",
+            "landing-page",
+            "dashboard-preview",
+            "tailwind",
+            "single-page",
+            "template"
+          ],
+          "files": [
+            "metadata.json",
+            "README.md",
+            "preview.html",
+            "pages/index.html",
+            "assets/icons/logo.svg",
+            "assets/images/og-image.svg"
+          ]
+        }
+      ],
+      "tags": [
+        "cybersecurity",
+        "attack-surface-management",
+        "easm",
+        "threat-intel",
+        "glassmorphism",
+        "cyber-minimal",
+        "b2b-saas",
+        "developer-tools",
+        "landing-page",
+        "dashboard-preview",
+        "tailwind",
+        "single-page",
+        "template"
+      ],
+      "searchTerms": [
+        "cybersecurity template",
+        "attack surface management website",
+        "easm landing page",
+        "threat intelligence template",
+        "glassmorphism saas template",
+        "cyber minimal landing page",
+        "security platform website",
+        "external attack surface template",
+        "tailwind security template",
+        "ciso landing page"
+      ]
     }
   ],
   "plannedFamilies": {
@@ -20301,7 +20393,8 @@
         "AI SaaS Platform (Template)",
         "Baseline Conference (Template)",
         "Stratum Fintech Ops Platform (Template)",
-        "Meridian Incident Command Platform (Template)"
+        "Meridian Incident Command Platform (Template)",
+        "Vesper Attack-Surface Management Platform (Template)"
       ]
     },
     {
