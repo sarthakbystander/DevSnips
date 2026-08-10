@@ -1,5 +1,15 @@
 # DevSnips — Repository Knowledge
 
+## CURRENT AUTHORITATIVE STATE (2026-08-10 audit & sync)
+**The filesystem is the source of truth.** `snippets-index.json` was fully regenerated to match it. Do NOT trust stale "Stats after" snapshots elsewhere in this file or in README/CHANGELOG history.
+- **Grand total: 988 content items across 114 families.** (`snippets-index.json` stats: `totalFamilies=114`, `totalVariants=988`, `totalStyles=1902`)
+- Tailwind: 534 (Components 310, Sections 216, Templates 8) | Vanilla: 454 (Components 232, Sections 65, Templates 14, Utilities 76, Resources 67)
+- Only two technologies exist: **Tailwind CSS** and **Vanilla HTML/CSS/JS** (no React/Vue).
+- Tailwind Components Buttons family uses a **3-level** layout (`Buttons/<Variant> Button>/<sub-variant>/`): the 15 `<Variant> Button` group folders carry a grouping `metadata.json` and are NOT components — the 58 leaf sub-variant folders are. Every other Tailwind family uses the standard 2-level `Family/variant/` layout.
+- A leaf content item = a folder with `metadata.json` and no child folder containing `metadata.json` (Vanilla) or `code.html`+`preview.html`+`metadata.json` (Tailwind).
+- The index regenerator preserves hand-curated family-level `description`/`tags`/`searchTerms` and variant-level fields by matching on normalized path; missing families are built from each leaf's `metadata.json`. Variant `files` lists the actual folder contents. Paths use real (un-URL-encoded) names.
+- The index `category` field uses Capitalized values: Components / Sections / Templates / Utilities / Resources. Individual `metadata.json` `category` uses lowercase (components/sections/templates/utilities/resources) for Vanilla and Capitalized for Tailwind sections — this is an existing inconsistency, not a bug.
+
 ## What this repo is
 DevSnips is an open-source, framework-free frontend component library organized as design-system "families". Each Tailwind family lives under `Tailwind/Components/` (e.g. `Tailwind/Components/Accordions/`, `Tailwind/Components/Tables/`) and contains variant sub-folders.
 

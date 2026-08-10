@@ -3,8 +3,8 @@
 Responsive Sticky Header With Shadow with animations.
 
 **Technology:** vanilla
-**Category:** utilities
-**Subcategory:** helpers
+**Category:** components
+**Subcategory:** navigation
 
 **Tags:** shadow, responsive, card, navbar, table, semantic, web-components, animation
 

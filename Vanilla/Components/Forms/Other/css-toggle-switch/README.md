@@ -3,8 +3,8 @@
 Css Toggle Switch with animations.
 
 **Technology:** vanilla
-**Category:** utilities
-**Subcategory:** helpers
+**Category:** components
+**Subcategory:** forms
 
 **Tags:** theming, animation, form, table, color, border, clipboard, form-element
 

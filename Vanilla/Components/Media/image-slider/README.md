@@ -3,8 +3,8 @@
 Image Slider.
 
 **Technology:** vanilla
-**Category:** utilities
-**Subcategory:** helpers
+**Category:** components
+**Subcategory:** media
 
 **Tags:** carousel, image, shadow, flexbox, center, button, form, dropdown
 
