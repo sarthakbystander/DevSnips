@@ -1,0 +1,40 @@
+{
+  "id": "stats-editorial",
+  "slug": "stats-editorial",
+  "name": "Dashboard Stats \u2014 Editorial",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "stats",
+  "section": "Dashboard Stats",
+  "style": "editorial",
+  "description": "Editorial stats layout: Dashboard stat panel.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "stats",
+    "metrics",
+    "kpi",
+    "numbers",
+    "editorial"
+  ],
+  "features": [
+    "dashboard stat panel",
+    "bar chart placeholder",
+    "month axis",
+    "3 KPI tiles",
+    "responsive"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

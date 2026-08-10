@@ -11,6 +11,21 @@ This makes components:
 - Hard to navigate (500+ line files)
 - Not SEO-friendly (no pages for specific components)
 
+## Architecture
+
+DevSnips organizes content under each technology (`Tailwind/`, `Vanilla/`, `React/`)
+into exactly two content types:
+
+```
+<Technology>/
+├── Components/   # reusable UI building blocks and sections
+└── Templates/     # complete website / page templates
+```
+
+There are no standalone `Sections/`, `Utilities/`, or `Resources/` collections —
+former sections are merged into `Components`, and the standalone Utilities/Resources
+categories have been removed.
+
 ## Desired Structure
 
 Each **variant** becomes its own:
@@ -21,17 +36,16 @@ Each **variant** becomes its own:
 ### Component Folder Structure
 
 ```
-Components/
+<Technology>/Components/
 └── {Component Name}/
     ├── {Variant-01}/
-    │   ├── preview.html        # Interactive preview
-    │   ├── code.html          # Copy-paste ready code
-    │   ├── README.md          # Variant-specific documentation
+    │   ├── preview.html        # Interactive preview (Tailwind) / <slug>.html (Vanilla)
+    │   ├── code.html          # Copy-paste ready code (Tailwind)
+    │   ├── README.md          # Variant-specific documentation (optional)
     │   └── metadata.json      # Variant metadata
     ├── {Variant-02}/
     ├── {Variant-03}/
-    ├── README.md              # Component family overview
-    └── metadata.json          # Component family metadata
+    └── metadata.json          # (optional) family/grouping metadata
 ```
 
 ### Example: Gradient Button

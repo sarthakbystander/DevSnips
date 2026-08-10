@@ -1,4 +1,4 @@
-"""Main generator: writes all 165 section folders and updates the index."""
+"""Main generator: writes all 165 section-style component folders and updates the index."""
 import json
 import os
 from pathlib import Path
@@ -18,7 +18,9 @@ from .builders_newsletter import newsletter
 from .builders_404 import error_page
 
 ROOT = Path(__file__).resolve().parent.parent
-SECTIONS = ROOT / "Tailwind" / "Sections"
+# Generated section-style components now live under Tailwind/Components/
+# (sections were merged into Components during the architecture migration).
+SECTIONS = ROOT / "Tailwind" / "Components"
 
 BUILDERS = [
     ("Testimonials", testimonials),
@@ -101,7 +103,7 @@ def metadata(builder_result, style, cat, n, style_key):
         "slug": slug,
         "name": "%s — %s" % (builder_result["section_name"], STYLE_NAMES[style]),
         "technology": "tailwind",
-        "category": "sections",
+        "category": "components",
         "subcategory": cat.lower(),
         "section": builder_result["section_name"],
         "style": style_key,
@@ -151,7 +153,7 @@ def readme(builder_result, style, cat, n):
 
 ## Design language
 
-**%s** — part of the DevSnips Tailwind Sections library. Every section is
+**%s** — part of the DevSnips Tailwind Components library. Every section is
 original, accessible, and production-ready.
 
 ## Files

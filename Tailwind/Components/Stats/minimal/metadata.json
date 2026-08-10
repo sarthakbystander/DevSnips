@@ -1,0 +1,40 @@
+{
+  "id": "stats-minimal",
+  "slug": "stats-minimal",
+  "name": "Inline Stat Strip \u2014 Minimal",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "stats",
+  "section": "Inline Stat Strip",
+  "style": "minimal",
+  "description": "Minimal stats layout: Inline stat strip.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "stats",
+    "metrics",
+    "kpi",
+    "numbers",
+    "minimal"
+  ],
+  "features": [
+    "inline stat strip",
+    "divided columns",
+    "compact container",
+    "centered values",
+    "responsive 2/4-col"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

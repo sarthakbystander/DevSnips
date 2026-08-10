@@ -1,0 +1,36 @@
+{
+  "name": "Usage Based Pricing — Neo-Brutalism",
+  "slug": "usage-pricing-neo-brutalism",
+  "category": "Components",
+  "subcategory": "saas",
+  "section": "usage-pricing",
+  "style": "neo-brutalism",
+  "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "pricing",
+    "usage-based",
+    "neo-brutalism",
+    "brutalist",
+    "slider",
+    "metered",
+    "saas",
+    "offset-shadows"
+  ],
+  "features": [
+    "draggable usage slider that recomputes live estimate",
+    "stacked tier-rate table",
+    "volume savings bar",
+    "offset-shadow CTAs",
+    "monospace labels",
+    "bright accent panels",
+    "press-down hover states",
+    "keyboard accessible slider"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Archivo, JetBrains Mono"
+  ]
+}

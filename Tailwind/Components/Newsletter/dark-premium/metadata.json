@@ -1,0 +1,40 @@
+{
+  "id": "newsletter-dark-premium",
+  "slug": "newsletter-dark-premium",
+  "name": "Split Newsletter \u2014 Dark Premium",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "newsletter",
+  "section": "Split Newsletter",
+  "style": "dark-premium",
+  "description": "Dark Premium newsletter layout: Split newsletter.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "newsletter",
+    "subscribe",
+    "email",
+    "cta",
+    "dark-premium"
+  ],
+  "features": [
+    "split newsletter",
+    "left intro + right form",
+    "subscriber stats",
+    "badge header",
+    "responsive"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

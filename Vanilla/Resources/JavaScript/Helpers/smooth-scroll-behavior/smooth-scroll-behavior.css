@@ -1,8 +1,0 @@
-/*
-Snippet Name: Smooth Scroll Behavior
-Use Case: To enable smooth, animated scrolling when a user clicks on an in-page anchor link (e.g., <a href="#section2">), instead of an instant jump.
-Description: This snippet applies the `scroll-behavior: smooth` property to the root element. This single line of CSS tells the browser to handle the scrolling animation natively.
-*/
-html {
-  scroll-behavior: smooth;
-}
