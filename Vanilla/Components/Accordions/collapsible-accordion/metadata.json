@@ -1,7 +1,7 @@
 {
   "id": "collapsible-accordion-001",
   "name": "Collapsible Accordion",
-  "description": "Collapsible Accordion with responsive design with animations and hover interactions.",
+  "description": "Collapsible Accordion.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "accordions",
@@ -23,5 +23,20 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "collapsible-accordion",
+  "component": "accordion",
+  "family": "accordions",
+  "variant": "collapsible-accordion",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "ARIA"
+  ],
+  "related": [],
+  "features": [
+    "responsive",
+    "ARIA"
+  ]
 }

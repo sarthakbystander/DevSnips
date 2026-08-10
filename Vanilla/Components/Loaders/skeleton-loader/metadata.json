@@ -1,7 +1,7 @@
 {
   "id": "skeleton-loader-001",
   "name": "Skeleton Loader",
-  "description": "Skeleton Loader with animations.",
+  "description": "Skeleton Loader.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "loaders",
@@ -9,13 +9,12 @@
     "loader",
     "animation",
     "card",
-    "table",
     "accessibility",
     "semantic",
     "form-element",
     "blog"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,21 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "skeleton-loader",
+  "component": "loader",
+  "family": "loaders",
+  "variant": "skeleton-loader",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "ARIA",
+    "semantic HTML"
+  ],
+  "related": [],
+  "features": [
+    "ARIA",
+    "semantic HTML"
+  ]
 }

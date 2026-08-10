@@ -1,7 +1,7 @@
 {
   "id": "accordion-001",
   "name": "Accordion",
-  "description": "Accordion with responsive design with animations.",
+  "description": "Accordion.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "accordions",
@@ -12,7 +12,6 @@
     "layout",
     "form",
     "dropdown",
-    "table",
     "typography"
   ],
   "responsive": true,
@@ -23,5 +22,17 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "accordion",
+  "component": "accordion",
+  "family": "accordions",
+  "variant": "accordion",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": [
+    "responsive"
+  ]
 }

@@ -6,13 +6,12 @@
   "category": "components",
   "subcategory": "ratings",
   "tags": [
-    "table",
     "typography",
     "color",
     "api",
     "icons"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -20,5 +19,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "user-rating",
+  "component": "rating",
+  "family": "ratings",
+  "variant": "user-rating",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

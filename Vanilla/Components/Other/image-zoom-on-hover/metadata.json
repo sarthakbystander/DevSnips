@@ -1,7 +1,7 @@
 {
   "id": "image-zoom-on-hover-001",
   "name": "Image Zoom On Hover",
-  "description": "Image Zoom On Hover with animations and hover interactions.",
+  "description": "Image Zoom On Hover.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "other",
@@ -15,7 +15,7 @@
     "button",
     "dropdown"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "image-zoom-on-hover",
+  "component": "other",
+  "family": "other",
+  "variant": "image-zoom-on-hover",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

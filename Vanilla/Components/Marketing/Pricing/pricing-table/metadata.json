@@ -7,7 +7,6 @@
   "subcategory": "pricing-table",
   "tags": [
     "tabs",
-    "table",
     "ecommerce",
     "responsive",
     "flexbox",
@@ -15,7 +14,7 @@
     "button",
     "form"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "pricing-table",
+  "component": "pricing",
+  "family": "pricing",
+  "variant": "pricing-table",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

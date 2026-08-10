@@ -25,7 +25,7 @@ Every Tailwind variant folder (kebab-case) must contain exactly three files:
 - `preview.html` — full `<!DOCTYPE html>` page with Tailwind CDN (`https://cdn.tailwindcss.com`), Inter font, responsive layout, and realistic application context around the component.
 - `metadata.json` — see schema below.
 
-Vanilla variant folders contain a self-contained `<slug>.html` (inline `<style>`+`<script>`, full `<!DOCTYPE html>`), `metadata.json`, and `README.md`.
+Vanilla variant folders contain a self-contained `<slug>.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper).
 
 The `code.html` snippet comment header is optional but follows CONTRIBUTING.md:
 `<!-- Snippet Name / Description / Author: DevSnips Contributors / Usage Example -->`

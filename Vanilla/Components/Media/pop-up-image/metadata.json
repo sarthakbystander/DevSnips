@@ -1,7 +1,7 @@
 {
   "id": "pop-up-image-001",
   "name": "Pop Up Image",
-  "description": "Pop Up Image with animations and hover interactions.",
+  "description": "Pop Up Image.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "media",
@@ -15,7 +15,7 @@
     "hover-effect",
     "center"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "pop-up-image",
+  "component": "media",
+  "family": "media",
+  "variant": "pop-up-image",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

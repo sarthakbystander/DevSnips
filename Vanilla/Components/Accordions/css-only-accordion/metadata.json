@@ -1,7 +1,7 @@
 {
   "id": "css-only-accordion-001",
   "name": "Css Only Accordion",
-  "description": "Css Only Accordion with animations.",
+  "description": "Css Only Accordion.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "accordions",
@@ -12,10 +12,9 @@
     "animation",
     "layout",
     "form",
-    "table",
     "color"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "css-only-accordion",
+  "component": "accordion",
+  "family": "accordions",
+  "variant": "css-only-accordion",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

@@ -1,7 +1,7 @@
 {
   "id": "css-only-tooltip-001",
   "name": "Css Only Tooltip",
-  "description": "Css Only Tooltip with animations and hover interactions.",
+  "description": "Css Only Tooltip.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "tooltips",
@@ -15,7 +15,7 @@
     "button",
     "form"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "css-only-tooltip",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "css-only-tooltip",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

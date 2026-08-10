@@ -1,7 +1,7 @@
 {
   "id": "image-overlay-effect-001",
   "name": "Image Overlay Effect",
-  "description": "Image Overlay Effect with animations and hover interactions.",
+  "description": "Image Overlay Effect.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "other",
@@ -15,7 +15,7 @@
     "layout",
     "form"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "image-overlay-effect",
+  "component": "other",
+  "family": "other",
+  "variant": "image-overlay-effect",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

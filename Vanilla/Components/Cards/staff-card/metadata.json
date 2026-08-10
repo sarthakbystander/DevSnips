@@ -9,13 +9,12 @@
     "card",
     "center",
     "form",
-    "table",
     "typography",
     "color",
     "border",
     "image"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "staff-card",
+  "component": "card",
+  "family": "cards",
+  "variant": "staff-card",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

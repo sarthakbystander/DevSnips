@@ -1,7 +1,7 @@
 {
   "id": "bouncing-loader-001",
   "name": "Bouncing Loader",
-  "description": "Bouncing Loader with animations.",
+  "description": "Bouncing Loader.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "loaders",
@@ -12,8 +12,7 @@
     "flexbox",
     "center",
     "form",
-    "badge",
-    "table"
+    "badge"
   ],
   "responsive": false,
   "browserSupport": [
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "bouncing-loader",
+  "component": "loader",
+  "family": "loaders",
+  "variant": "bouncing-loader",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

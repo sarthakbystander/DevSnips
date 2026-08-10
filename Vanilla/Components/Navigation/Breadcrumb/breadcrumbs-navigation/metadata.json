@@ -9,13 +9,12 @@
     "navbar",
     "semantic",
     "flexbox",
-    "table",
     "color",
     "border",
     "accessibility",
     "form-element"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,21 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "breadcrumbs-navigation",
+  "component": "breadcrumb",
+  "family": "breadcrumb",
+  "variant": "breadcrumbs-navigation",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "ARIA",
+    "semantic HTML"
+  ],
+  "related": [],
+  "features": [
+    "ARIA",
+    "semantic HTML"
+  ]
 }

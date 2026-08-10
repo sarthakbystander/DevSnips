@@ -1,7 +1,7 @@
 {
   "id": "blog-post-card-001",
   "name": "Blog Post Card",
-  "description": "Blog Post Card with animations and hover interactions.",
+  "description": "Blog Post Card.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "cards",
@@ -12,10 +12,9 @@
     "hover-effect",
     "shadow",
     "layout",
-    "table",
     "image"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "blog-post-card",
+  "component": "card",
+  "family": "cards",
+  "variant": "blog-post-card",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

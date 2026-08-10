@@ -1,7 +1,7 @@
 {
   "id": "tabs-001",
   "name": "Tabs",
-  "description": "Tabs with animations and hover interactions.",
+  "description": "Tabs.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "tabs",
@@ -11,7 +11,6 @@
     "hover-effect",
     "typing-effect",
     "button",
-    "table",
     "color",
     "border"
   ],
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "tabs",
+  "component": "tab",
+  "family": "tabs",
+  "variant": "tabs",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

@@ -9,13 +9,12 @@
     "card",
     "semantic",
     "center",
-    "table",
     "typography",
     "color",
     "scroll",
     "date"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "sticky-footer",
+  "component": "display",
+  "family": "display",
+  "variant": "sticky-footer",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "semantic HTML"
+  ],
+  "related": [],
+  "features": [
+    "semantic HTML"
+  ]
 }

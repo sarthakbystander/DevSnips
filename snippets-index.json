@@ -4,9 +4,9 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 106,
-    "totalVariants": 846,
+    "totalVariants": 842,
     "totalSubVariants": 0,
-    "totalStyles": 2052,
+    "totalStyles": 2006,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -601,28 +601,6 @@
           ]
         },
         {
-          "name": "3D Button Basic",
-          "path": "Tailwind/Components/Buttons/3D Button/basic/",
-          "description": "3D push button effects with depth",
-          "tags": [
-            "button",
-            "3d",
-            "push",
-            "depth",
-            "3d effect"
-          ],
-          "styles": [
-            "Blue",
-            "Gray",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Basic",
           "path": "Tailwind/Components/Buttons/Icon Button/basic/",
           "description": "Basic icon button styles with various colors",
@@ -637,6 +615,28 @@
             "Secondary",
             "Danger",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "3D Button Basic",
+          "path": "Tailwind/Components/Buttons/3D Button/basic/",
+          "description": "3D push button effects with depth",
+          "tags": [
+            "button",
+            "3d",
+            "push",
+            "depth",
+            "3d effect"
+          ],
+          "styles": [
+            "Blue",
+            "Gray",
+            "Green"
           ],
           "files": [
             "code.html",
@@ -759,6 +759,27 @@
           ]
         },
         {
+          "name": "Dark Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
+          "description": "Dark background buttons for dark themed interfaces",
+          "tags": [
+            "button",
+            "filled",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Dark Solid",
+            "Blue"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Outline on Dark Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dark/",
           "description": "Outline buttons designed for dark backgrounds",
@@ -780,19 +801,19 @@
           ]
         },
         {
-          "name": "Glass Dark Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
-          "description": "Dark glass morphism buttons for dark interfaces",
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
           "tags": [
             "button",
-            "glass",
-            "glassmorphism",
-            "dark"
+            "ghost",
+            "dark",
+            "dark mode"
           ],
           "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
+            "White",
+            "Gray",
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -823,40 +844,19 @@
           ]
         },
         {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "description": "Dark background buttons for dark themed interfaces",
+          "name": "Glass Dark Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
+          "description": "Dark glass morphism buttons for dark interfaces",
           "tags": [
             "button",
-            "filled",
-            "dark",
-            "dark mode"
+            "glass",
+            "glassmorphism",
+            "dark"
           ],
           "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
-            "Blue"
+            "Default",
+            "Disabled",
+            "Pill"
           ],
           "files": [
             "code.html",
@@ -1082,20 +1082,20 @@
           ]
         },
         {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "description": "Glass morphism icon buttons for toolbars and actions",
+          "name": "Ghost Icon Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "description": "Ghost buttons with icons for upload, add, and delete actions",
           "tags": [
             "button",
-            "glass",
-            "glassmorphism",
-            "icon"
+            "ghost",
+            "icon",
+            "upload",
+            "delete"
           ],
           "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
+            "Upload",
+            "Add",
+            "Delete"
           ],
           "files": [
             "code.html",
@@ -1125,20 +1125,20 @@
           ]
         },
         {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
+          "description": "Glass morphism icon buttons for toolbars and actions",
           "tags": [
             "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
+            "glass",
+            "glassmorphism",
+            "icon"
           ],
           "styles": [
-            "Upload",
-            "Add",
-            "Delete"
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1336,6 +1336,27 @@
           ]
         },
         {
+          "name": "Filled Primary Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/primary/",
+          "description": "Solid color filled buttons with primary colors",
+          "tags": [
+            "button",
+            "filled",
+            "solid",
+            "primary"
+          ],
+          "styles": [
+            "Blue",
+            "Indigo",
+            "Violet"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Outline Primary Button",
           "path": "Tailwind/Components/Buttons/Outline Button/primary/",
           "description": "Blue bordered buttons with transparent background and hover fill",
@@ -1356,19 +1377,19 @@
           ]
         },
         {
-          "name": "Primary Button",
-          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
-          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
           "tags": [
             "button",
-            "primary",
-            "basic",
-            "solid"
+            "ghost",
+            "transparent",
+            "hover"
           ],
           "styles": [
             "Default",
             "Disabled",
-            "Link"
+            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1398,40 +1419,19 @@
           ]
         },
         {
-          "name": "Filled Primary Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/primary/",
-          "description": "Solid color filled buttons with primary colors",
+          "name": "Primary Button",
+          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
+          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
           "tags": [
             "button",
-            "filled",
-            "solid",
-            "primary"
-          ],
-          "styles": [
-            "Blue",
-            "Indigo",
-            "Violet"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
-          "tags": [
-            "button",
-            "ghost",
-            "transparent",
-            "hover"
+            "primary",
+            "basic",
+            "solid"
           ],
           "styles": [
             "Default",
             "Disabled",
-            "Solid (comparison)"
+            "Link"
           ],
           "files": [
             "code.html",
@@ -1462,28 +1462,6 @@
           ]
         },
         {
-          "name": "Icon Button Rounded",
-          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
-          "description": "Fully rounded icon button styles",
-          "tags": [
-            "button",
-            "icon",
-            "rounded",
-            "circle"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Gradient",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Rounded Full Button",
           "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
           "description": "Fully rounded pill-shaped filled buttons",
@@ -1498,6 +1476,28 @@
             "Blue Pill",
             "Dark Pill",
             "Gradient Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Rounded",
+          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
+          "description": "Fully rounded icon button styles",
+          "tags": [
+            "button",
+            "icon",
+            "rounded",
+            "circle"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Gradient",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1594,12 +1594,12 @@
           ]
         },
         {
-          "name": "Outline Button Sizes",
-          "path": "Tailwind/Components/Buttons/Outline Button/sizes/",
-          "description": "Outline button sizes from small to large",
+          "name": "Filled Button Sizes",
+          "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
+          "description": "Filled button sizes from small to large",
           "tags": [
             "button",
-            "outline",
+            "filled",
             "sizes",
             "small",
             "large"
@@ -1611,29 +1611,12 @@
           ]
         },
         {
-          "name": "Button Sizes",
-          "path": "Tailwind/Components/Buttons/Basic Button/sizes/",
-          "description": "Button sizes from extra small to extra large for different use cases",
+          "name": "Outline Button Sizes",
+          "path": "Tailwind/Components/Buttons/Outline Button/sizes/",
+          "description": "Outline button sizes from small to large",
           "tags": [
             "button",
-            "sizes",
-            "small",
-            "large",
-            "responsive"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Filled Button Sizes",
-          "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
-          "description": "Filled button sizes from small to large",
-          "tags": [
-            "button",
-            "filled",
+            "outline",
             "sizes",
             "small",
             "large"
@@ -1662,20 +1645,15 @@
           ]
         },
         {
-          "name": "Glass Soft Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/soft/",
-          "description": "Soft glass morphism buttons with blur effect",
+          "name": "Button Sizes",
+          "path": "Tailwind/Components/Buttons/Basic Button/sizes/",
+          "description": "Button sizes from extra small to extra large for different use cases",
           "tags": [
             "button",
-            "glass",
-            "glassmorphism",
-            "blur",
-            "frosted"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
+            "sizes",
+            "small",
+            "large",
+            "responsive"
           ],
           "files": [
             "code.html",
@@ -1722,6 +1700,28 @@
             "Default",
             "Pill",
             "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Soft Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/soft/",
+          "description": "Soft glass morphism buttons with blur effect",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "blur",
+            "frosted"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Pill"
           ],
           "files": [
             "code.html",
@@ -17296,7 +17296,7 @@
         {
           "name": "Accordion",
           "path": "Vanilla/Components/Accordions/accordion/",
-          "description": "Accordion with responsive design with animations.",
+          "description": "Accordion.",
           "tags": [
             "accordion",
             "animation",
@@ -17304,16 +17304,10 @@
             "layout",
             "form",
             "dropdown",
-            "table",
             "typography"
           ],
           "features": [
-            "accordion",
-            "animation",
-            "responsive",
-            "layout",
-            "form",
-            "dropdown"
+            "responsive"
           ],
           "styles": [
             "accordion",
@@ -17330,7 +17324,7 @@
         {
           "name": "Accordion Panel",
           "path": "Vanilla/Components/Accordions/accordion-panel/",
-          "description": "Accordion Panel with animations and hover interactions.",
+          "description": "Accordion Panel.",
           "tags": [
             "accordion",
             "animation",
@@ -17370,7 +17364,6 @@
             "hover-effect",
             "layout",
             "button",
-            "table",
             "typography",
             "color",
             "border"
@@ -17398,7 +17391,7 @@
         {
           "name": "Collapsible Accordion",
           "path": "Vanilla/Components/Accordions/collapsible-accordion/",
-          "description": "Collapsible Accordion with responsive design with animations and hover interactions.",
+          "description": "Collapsible Accordion.",
           "tags": [
             "accordion",
             "animation",
@@ -17410,12 +17403,8 @@
             "button"
           ],
           "features": [
-            "accordion",
-            "animation",
-            "hover-effect",
             "responsive",
-            "flexbox",
-            "center"
+            "ARIA"
           ],
           "styles": [
             "accordion",
@@ -17432,7 +17421,7 @@
         {
           "name": "Css Only Accordion",
           "path": "Vanilla/Components/Accordions/css-only-accordion/",
-          "description": "Css Only Accordion with animations.",
+          "description": "Css Only Accordion.",
           "tags": [
             "accordion",
             "theming",
@@ -17440,7 +17429,6 @@
             "animation",
             "layout",
             "form",
-            "table",
             "color"
           ],
           "features": [
@@ -17496,13 +17484,12 @@
         {
           "name": "Alert Messages",
           "path": "Vanilla/Components/Alerts/alert-messages/",
-          "description": "Alert Messages with animations and hover interactions.",
+          "description": "Alert Messages.",
           "tags": [
             "animation",
             "hover-effect",
             "button",
             "badge",
-            "table",
             "typography",
             "color",
             "click"
@@ -17536,7 +17523,6 @@
             "center",
             "button",
             "form",
-            "table",
             "typography",
             "color",
             "border"
@@ -17593,7 +17579,6 @@
           "path": "Vanilla/Components/Avatars/contact-chip/",
           "description": "Contact Chip.",
           "tags": [
-            "table",
             "typography",
             "color",
             "border",
@@ -17651,7 +17636,6 @@
             "accessibility",
             "animation",
             "form",
-            "table",
             "typography",
             "color"
           ],
@@ -17736,13 +17720,12 @@
         {
           "name": "3d Button Effect",
           "path": "Vanilla/Components/Buttons/3d-button-effect/",
-          "description": "3d Button Effect with animations.",
+          "description": "3d Button Effect.",
           "tags": [
             "ripple",
             "button",
             "animation",
             "shadow",
-            "table",
             "color",
             "border",
             "click"
@@ -17768,6 +17751,26 @@
           ]
         },
         {
+          "name": "3d Press Button",
+          "path": "Vanilla/Components/Buttons/3d-press-button/",
+          "description": "3d Press Button.",
+          "tags": [
+            "button",
+            "keyboard",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-24-3d-press-button.css"
+          ]
+        },
+        {
           "name": "Action Buttons",
           "path": "Vanilla/Components/Buttons/action-buttons/",
           "description": "Action Buttons and hover interactions.",
@@ -17776,7 +17779,6 @@
             "landing-page",
             "hover-effect",
             "tabs",
-            "table",
             "typography",
             "color",
             "border"
@@ -17868,6 +17870,32 @@
           ]
         },
         {
+          "name": "Floating Action Button",
+          "path": "Vanilla/Components/Buttons/floating-action-button/",
+          "description": "Floating Action Button.",
+          "tags": [
+            "button",
+            "landing-page",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center"
+          ],
+          "features": [
+            "responsive",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "floating-action-button.html",
+            "metadata.json"
+          ]
+        },
+        {
           "name": "Nested Animated Button",
           "path": "Vanilla/Components/Buttons/nested-animated-button/",
           "description": "Nested Animated Button.",
@@ -17912,15 +17940,34 @@
           ]
         },
         {
+          "name": "Neumorphic Button",
+          "path": "Vanilla/Components/Buttons/neumorphic-button/",
+          "description": "Neumorphic Button.",
+          "tags": [
+            "shadow",
+            "button",
+            "animation",
+            "hover-effect",
+            "glassmorphism",
+            "responsive",
+            "center",
+            "form"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-21-neumorphic-button.css"
+          ]
+        },
+        {
           "name": "Pulsing Button",
           "path": "Vanilla/Components/Buttons/pulsing-button/",
-          "description": "Pulsing Button with animations.",
+          "description": "Pulsing Button.",
           "tags": [
             "pulse",
             "button",
             "animation",
             "shadow",
-            "table",
             "color",
             "border",
             "click"
@@ -17952,7 +17999,6 @@
           "tags": [
             "button",
             "form",
-            "table",
             "form-element"
           ],
           "features": [
@@ -17976,13 +18022,12 @@
         {
           "name": "Skewed Button",
           "path": "Vanilla/Components/Buttons/skewed-button/",
-          "description": "Skewed Button with animations and hover interactions.",
+          "description": "Skewed Button.",
           "tags": [
             "button",
             "animation",
             "hover-effect",
             "form",
-            "table",
             "color",
             "border",
             "form-element"
@@ -18008,108 +18053,6 @@
           ]
         },
         {
-          "name": "Snippet 09 Floating Action Button",
-          "path": "Vanilla/Components/Buttons/snippet-09-floating-action-button/",
-          "description": "Snippet 09 Floating Action Button with responsive design with animations and hover interactions.",
-          "tags": [
-            "button",
-            "landing-page",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "features": [
-            "button",
-            "landing-page",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive"
-          ],
-          "styles": [
-            "button",
-            "landing-page",
-            "animation",
-            "hover-effect"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-09-floating-action-button.html"
-          ]
-        },
-        {
-          "name": "Snippet 21 Neumorphic Button",
-          "path": "Vanilla/Components/Buttons/snippet-21-neumorphic-button/",
-          "description": "Snippet 21 Neumorphic Button with responsive design with animations and hover interactions.",
-          "tags": [
-            "shadow",
-            "button",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "responsive",
-            "center",
-            "form"
-          ],
-          "features": [
-            "shadow",
-            "button",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "responsive"
-          ],
-          "styles": [
-            "shadow",
-            "button",
-            "animation",
-            "hover-effect"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-21-neumorphic-button.css"
-          ]
-        },
-        {
-          "name": "Snippet 24 3d Press Button",
-          "path": "Vanilla/Components/Buttons/snippet-24-3d-press-button/",
-          "description": "Snippet 24 3d Press Button with responsive design with animations and hover interactions.",
-          "tags": [
-            "button",
-            "keyboard",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "features": [
-            "button",
-            "keyboard",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive"
-          ],
-          "styles": [
-            "button",
-            "keyboard",
-            "animation",
-            "hover-effect"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-24-3d-press-button.css"
-          ]
-        },
-        {
           "name": "Social Buttons",
           "path": "Vanilla/Components/Buttons/social-buttons/",
           "description": "Social Buttons and hover interactions.",
@@ -18117,7 +18060,6 @@
             "button",
             "hover-effect",
             "center",
-            "table",
             "typography",
             "color",
             "api",
@@ -18154,7 +18096,6 @@
             "shadow",
             "dropdown",
             "navbar",
-            "table",
             "typography"
           ],
           "features": [
@@ -18210,7 +18151,7 @@
         {
           "name": "Blog Post Card",
           "path": "Vanilla/Components/Cards/blog-post-card/",
-          "description": "Blog Post Card with animations and hover interactions.",
+          "description": "Blog Post Card.",
           "tags": [
             "card",
             "blog",
@@ -18218,7 +18159,6 @@
             "hover-effect",
             "shadow",
             "layout",
-            "table",
             "image"
           ],
           "features": [
@@ -18252,8 +18192,7 @@
             "container-queries",
             "flexbox",
             "dropdown",
-            "tabs",
-            "table"
+            "tabs"
           ],
           "features": [
             "layout",
@@ -18276,6 +18215,26 @@
           ]
         },
         {
+          "name": "Equal Height Cards",
+          "path": "Vanilla/Components/Cards/equal-height-cards/",
+          "description": "Equal Height Cards.",
+          "tags": [
+            "404",
+            "card",
+            "typography",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-04-equal-height-cards.css"
+          ]
+        },
+        {
           "name": "Equal Height Cards Flexbox",
           "path": "Vanilla/Components/Cards/equal-height-cards-flexbox/",
           "description": "Equal Height Cards Flexbox.",
@@ -18286,7 +18245,6 @@
             "responsive",
             "flexbox",
             "layout",
-            "table",
             "color"
           ],
           "features": [
@@ -18319,7 +18277,6 @@
             "typography",
             "shadow",
             "layout",
-            "table",
             "color",
             "border"
           ],
@@ -18346,7 +18303,7 @@
         {
           "name": "Flip Card",
           "path": "Vanilla/Components/Cards/flip-card/",
-          "description": "Flip Card with animations and hover interactions.",
+          "description": "Flip Card.",
           "tags": [
             "card",
             "animation",
@@ -18354,8 +18311,7 @@
             "shadow",
             "flexbox",
             "center",
-            "form",
-            "table"
+            "form"
           ],
           "features": [
             "card",
@@ -18380,7 +18336,7 @@
         {
           "name": "Flipping Card",
           "path": "Vanilla/Components/Cards/flipping-card/",
-          "description": "Flipping Card with animations and hover interactions.",
+          "description": "Flipping Card.",
           "tags": [
             "card",
             "animation",
@@ -18388,7 +18344,6 @@
             "flexbox",
             "center",
             "form",
-            "table",
             "typography"
           ],
           "features": [
@@ -18421,7 +18376,6 @@
             "shadow",
             "center",
             "modal",
-            "table",
             "typography",
             "color"
           ],
@@ -18454,18 +18408,12 @@
             "card",
             "shadow",
             "responsive",
-            "table",
             "color",
             "border",
             "drag"
           ],
           "features": [
-            "glassmorphism",
-            "card",
-            "shadow",
-            "responsive",
-            "table",
-            "color"
+            "responsive"
           ],
           "styles": [
             "glassmorphism",
@@ -18546,18 +18494,13 @@
             "ecommerce",
             "layout",
             "button",
-            "table",
             "accessibility",
             "semantic",
             "form-element"
           ],
           "features": [
-            "card",
-            "ecommerce",
-            "layout",
-            "button",
-            "table",
-            "accessibility"
+            "ARIA",
+            "semantic HTML"
           ],
           "styles": [
             "card",
@@ -18581,7 +18524,6 @@
             "shadow",
             "center",
             "button",
-            "table",
             "typography",
             "color"
           ],
@@ -18614,7 +18556,6 @@
             "shadow",
             "center",
             "button",
-            "table",
             "typography",
             "color",
             "border"
@@ -18640,40 +18581,6 @@
           ]
         },
         {
-          "name": "Snippet 04 Equal Height Cards",
-          "path": "Vanilla/Components/Cards/snippet-04-equal-height-cards/",
-          "description": "Snippet 04 Equal Height Cards with animations and hover interactions.",
-          "tags": [
-            "404",
-            "card",
-            "typography",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "features": [
-            "404",
-            "card",
-            "typography",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "styles": [
-            "404",
-            "card",
-            "typography",
-            "animation"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-04-equal-height-cards.css"
-          ]
-        },
-        {
           "name": "Staff Card",
           "path": "Vanilla/Components/Cards/staff-card/",
           "description": "Staff Card.",
@@ -18681,7 +18588,6 @@
             "card",
             "center",
             "form",
-            "table",
             "typography",
             "color",
             "border",
@@ -18735,7 +18641,7 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Components",
       "description": "Vanilla display and layout components - dark mode toggle, footers, sticky footers, table layouts, and visibility toggles.",
-      "variantsCount": 7,
+      "variantsCount": 6,
       "variants": [
         {
           "name": "Dark Mode Toggle",
@@ -18775,7 +18681,6 @@
             "card",
             "semantic",
             "center",
-            "table",
             "typography",
             "color"
           ],
@@ -18809,17 +18714,11 @@
             "center",
             "form",
             "navbar",
-            "table",
             "typography",
             "color"
           ],
           "features": [
-            "card",
-            "semantic",
-            "center",
-            "form",
-            "navbar",
-            "table"
+            "semantic HTML"
           ],
           "styles": [
             "card",
@@ -18834,40 +18733,6 @@
           ]
         },
         {
-          "name": "Snippet 03 Sticky Footer",
-          "path": "Vanilla/Components/Display/snippet-03-sticky-footer/",
-          "description": "Snippet 03 Sticky Footer.",
-          "tags": [
-            "card",
-            "semantic",
-            "responsive",
-            "flexbox",
-            "layout",
-            "navbar",
-            "table",
-            "color"
-          ],
-          "features": [
-            "card",
-            "semantic",
-            "responsive",
-            "flexbox",
-            "layout",
-            "navbar"
-          ],
-          "styles": [
-            "card",
-            "semantic",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-03-sticky-footer.css"
-          ]
-        },
-        {
           "name": "Sticky Footer",
           "path": "Vanilla/Components/Display/sticky-footer/",
           "description": "Sticky Footer.",
@@ -18875,19 +18740,13 @@
             "card",
             "semantic",
             "center",
-            "table",
             "typography",
             "color",
             "scroll",
             "date"
           ],
           "features": [
-            "card",
-            "semantic",
-            "center",
-            "table",
-            "typography",
-            "color"
+            "semantic HTML"
           ],
           "styles": [
             "card",
@@ -18909,7 +18768,6 @@
             "card",
             "navbar",
             "tabs",
-            "table",
             "semantic",
             "typography",
             "color",
@@ -18940,8 +18798,7 @@
           "path": "Vanilla/Components/Display/toggle-element-visibility/",
           "description": "Toggle Element Visibility.",
           "tags": [
-            "web-components",
-            "table"
+            "web-components"
           ],
           "features": [
             "web-components",
@@ -18988,9 +18845,9 @@
       "variantsCount": 1,
       "variants": [
         {
-          "name": "Snippet 12 Hover Dropdown",
-          "path": "Vanilla/Components/Dropdowns/snippet-12-hover-dropdown/",
-          "description": "Snippet 12 Hover Dropdown with responsive design with animations and hover interactions.",
+          "name": "Hover Dropdown",
+          "path": "Vanilla/Components/Dropdowns/hover-dropdown/",
+          "description": "Hover Dropdown.",
           "tags": [
             "hover-effect",
             "dropdown",
@@ -19000,20 +18857,6 @@
             "animation",
             "shadow",
             "responsive"
-          ],
-          "features": [
-            "hover-effect",
-            "dropdown",
-            "tooltip",
-            "drag",
-            "pseudo-class",
-            "animation"
-          ],
-          "styles": [
-            "hover-effect",
-            "dropdown",
-            "tooltip",
-            "drag"
           ],
           "files": [
             "README.md",
@@ -19042,16 +18885,15 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Components",
       "description": "Vanilla form components organized by type - contact, login, register, newsletter, search, and other form inputs.",
-      "variantsCount": 38,
+      "variantsCount": 36,
       "variants": [
         {
           "name": "Auto Resizing Textarea",
-          "path": "Vanilla/Components/Forms/Other/auto-resizing-textarea/",
+          "path": "Vanilla/Components/Forms/auto-resizing-textarea/",
           "description": "Auto Resizing Textarea.",
           "tags": [
             "form",
             "typography",
-            "table",
             "scroll",
             "utility"
           ],
@@ -19063,7 +18905,7 @@
         },
         {
           "name": "Checkbox Group",
-          "path": "Vanilla/Components/Forms/Other/checkbox-group/",
+          "path": "Vanilla/Components/Forms/checkbox-group/",
           "description": "Checkbox Group.",
           "tags": [
             "form",
@@ -19077,14 +18919,13 @@
         },
         {
           "name": "Color Picker",
-          "path": "Vanilla/Components/Forms/Other/color-picker/",
+          "path": "Vanilla/Components/Forms/color-picker/",
           "description": "Color Picker.",
           "tags": [
             "color",
             "modern-css",
             "form",
             "dropdown",
-            "table",
             "form-element"
           ],
           "files": [
@@ -19095,17 +18936,21 @@
         },
         {
           "name": "Contact Form",
-          "path": "Vanilla/Components/Forms/Contact/contact-form/",
-          "description": "Contact Form and hover interactions.",
+          "path": "Vanilla/Components/Forms/contact-form/",
+          "description": "Contact Form.",
           "tags": [
             "animation",
             "form",
             "form-element",
             "hover-effect",
-            "flexbox",
-            "button",
-            "table",
-            "typography"
+            "glassmorphism",
+            "shadow",
+            "responsive",
+            "flexbox"
+          ],
+          "features": [
+            "responsive",
+            "ARIA"
           ],
           "files": [
             "README.md",
@@ -19115,14 +18960,13 @@
         },
         {
           "name": "Contact Form Basic",
-          "path": "Vanilla/Components/Forms/Contact/contact-form-basic/",
+          "path": "Vanilla/Components/Forms/contact-form-basic/",
           "description": "Contact Form Basic.",
           "tags": [
             "animation",
             "form",
             "form-element",
             "button",
-            "table",
             "typography",
             "color",
             "border"
@@ -19135,8 +18979,8 @@
         },
         {
           "name": "Css Only Toggle Switch",
-          "path": "Vanilla/Components/Forms/Other/css-only-toggle-switch/",
-          "description": "Css Only Toggle Switch with animations.",
+          "path": "Vanilla/Components/Forms/css-only-toggle-switch/",
+          "description": "Css Only Toggle Switch.",
           "tags": [
             "theming",
             "accessibility",
@@ -19144,7 +18988,6 @@
             "shadow",
             "form",
             "carousel",
-            "table",
             "color"
           ],
           "files": [
@@ -19155,13 +18998,12 @@
         },
         {
           "name": "Css Toggle Switch",
-          "path": "Vanilla/Components/Forms/Other/css-toggle-switch/",
-          "description": "Css Toggle Switch with animations.",
+          "path": "Vanilla/Components/Forms/css-toggle-switch/",
+          "description": "Css Toggle Switch.",
           "tags": [
             "theming",
             "animation",
             "form",
-            "table",
             "color",
             "border",
             "clipboard",
@@ -19175,13 +19017,12 @@
         },
         {
           "name": "Datalist Autocomplete",
-          "path": "Vanilla/Components/Forms/Search/datalist-autocomplete/",
+          "path": "Vanilla/Components/Forms/datalist-autocomplete/",
           "description": "Datalist Autocomplete.",
           "tags": [
             "form-element",
             "form",
-            "dropdown",
-            "table"
+            "dropdown"
           ],
           "files": [
             "README.md",
@@ -19190,15 +19031,40 @@
           ]
         },
         {
+          "name": "Date Time Picker",
+          "path": "Vanilla/Components/Forms/date-time-picker/",
+          "description": "Date Time Picker.",
+          "tags": [
+            "validation",
+            "date",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "grid"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible",
+            "keyboard nav"
+          ],
+          "files": [
+            "README.md",
+            "date-time-picker.html",
+            "metadata.json"
+          ]
+        },
+        {
           "name": "Debounced Input Handler Js",
-          "path": "Vanilla/Components/Forms/Other/debounced-input-handler-js/",
+          "path": "Vanilla/Components/Forms/debounced-input-handler-js/",
           "description": "Debounced Input Handler Js.",
           "tags": [
             "bounce",
             "form",
             "debounce",
             "dropdown",
-            "table",
             "utility",
             "date",
             "clipboard"
@@ -19211,12 +19077,11 @@
         },
         {
           "name": "Disabled Input",
-          "path": "Vanilla/Components/Forms/Other/disabled-input/",
+          "path": "Vanilla/Components/Forms/disabled-input/",
           "description": "Disabled Input.",
           "tags": [
             "form",
             "button",
-            "table",
             "typography",
             "click",
             "form-element"
@@ -19229,7 +19094,7 @@
         },
         {
           "name": "Dropdown Menu",
-          "path": "Vanilla/Components/Forms/Other/dropdown-menu/",
+          "path": "Vanilla/Components/Forms/dropdown-menu/",
           "description": "Dropdown Menu and hover interactions.",
           "tags": [
             "dropdown",
@@ -19237,7 +19102,6 @@
             "drag",
             "hover-effect",
             "shadow",
-            "table",
             "typography",
             "color"
           ],
@@ -19249,11 +19113,23 @@
         },
         {
           "name": "File Upload Input",
-          "path": "Vanilla/Components/Forms/Other/file-upload-input/",
+          "path": "Vanilla/Components/Forms/file-upload-input/",
           "description": "File Upload Input.",
           "tags": [
             "form",
-            "form-element"
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center",
+            "layout"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible",
+            "keyboard nav"
           ],
           "files": [
             "README.md",
@@ -19263,17 +19139,19 @@
         },
         {
           "name": "Floating Label",
-          "path": "Vanilla/Components/Forms/Other/floating-label/",
-          "description": "Floating Label with responsive design with animations.",
+          "path": "Vanilla/Components/Forms/floating-label/",
+          "description": "Floating Label.",
           "tags": [
             "form-element",
             "animation",
             "responsive",
             "form",
-            "table",
             "typography",
             "color",
             "border"
+          ],
+          "features": [
+            "responsive"
           ],
           "files": [
             "README.md",
@@ -19283,7 +19161,7 @@
         },
         {
           "name": "Form Validation",
-          "path": "Vanilla/Components/Forms/Other/form-validation/",
+          "path": "Vanilla/Components/Forms/form-validation/",
           "description": "Form Validation.",
           "tags": [
             "animation",
@@ -19292,7 +19170,6 @@
             "form-element",
             "flexbox",
             "button",
-            "table",
             "typography"
           ],
           "files": [
@@ -19303,13 +19180,12 @@
         },
         {
           "name": "Form Validator",
-          "path": "Vanilla/Components/Forms/Other/form-validator/",
+          "path": "Vanilla/Components/Forms/form-validator/",
           "description": "Form Validator.",
           "tags": [
             "animation",
             "form",
             "form-element",
-            "table",
             "validation",
             "date",
             "array",
@@ -19322,14 +19198,38 @@
           ]
         },
         {
+          "name": "Inline Form",
+          "path": "Vanilla/Components/Forms/inline-form/",
+          "description": "Inline Form.",
+          "tags": [
+            "animation",
+            "form",
+            "form-element",
+            "hover-effect",
+            "glassmorphism",
+            "shadow",
+            "responsive",
+            "flexbox"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "inline-form.html",
+            "metadata.json"
+          ]
+        },
+        {
           "name": "Input Pattern Validation",
-          "path": "Vanilla/Components/Forms/Other/input-pattern-validation/",
+          "path": "Vanilla/Components/Forms/input-pattern-validation/",
           "description": "Input Pattern Validation.",
           "tags": [
             "form",
             "validation",
             "button",
-            "table",
             "form-element",
             "login"
           ],
@@ -19341,11 +19241,10 @@
         },
         {
           "name": "Input With Min Max",
-          "path": "Vanilla/Components/Forms/Other/input-with-min-max/",
+          "path": "Vanilla/Components/Forms/input-with-min-max/",
           "description": "Input With Min Max.",
           "tags": [
             "form",
-            "table",
             "theming",
             "media-query",
             "dashboard",
@@ -19361,12 +19260,11 @@
         },
         {
           "name": "Keyboard Input",
-          "path": "Vanilla/Components/Forms/Other/keyboard-input/",
+          "path": "Vanilla/Components/Forms/keyboard-input/",
           "description": "Keyboard Input.",
           "tags": [
             "form",
             "keyboard",
-            "table",
             "typography",
             "clipboard"
           ],
@@ -19378,7 +19276,7 @@
         },
         {
           "name": "Login Form",
-          "path": "Vanilla/Components/Forms/Login/login-form/",
+          "path": "Vanilla/Components/Forms/login-form/",
           "description": "Login Form.",
           "tags": [
             "animation",
@@ -19386,7 +19284,6 @@
             "form-element",
             "login",
             "button",
-            "table",
             "typography"
           ],
           "files": [
@@ -19396,8 +19293,33 @@
           ]
         },
         {
+          "name": "Mobile Dropdown",
+          "path": "Vanilla/Components/Forms/mobile-dropdown/",
+          "description": "Mobile Dropdown.",
+          "tags": [
+            "responsive",
+            "dropdown",
+            "drag",
+            "animation",
+            "shadow",
+            "flexbox",
+            "center",
+            "form"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "mobile-dropdown.html"
+          ]
+        },
+        {
           "name": "Multi Select Dropdown",
-          "path": "Vanilla/Components/Forms/Other/multi-select-dropdown/",
+          "path": "Vanilla/Components/Forms/multi-select-dropdown/",
           "description": "Multi Select Dropdown.",
           "tags": [
             "form",
@@ -19412,16 +19334,40 @@
           ]
         },
         {
+          "name": "Newsletter Signup",
+          "path": "Vanilla/Components/Forms/newsletter-signup/",
+          "description": "Newsletter Signup.",
+          "tags": [
+            "login",
+            "animation",
+            "hover-effect",
+            "glassmorphism",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "newsletter-signup.html"
+          ]
+        },
+        {
           "name": "Newsletter Signup Form",
-          "path": "Vanilla/Components/Forms/Register/newsletter-signup-form/",
+          "path": "Vanilla/Components/Forms/newsletter-signup-form/",
           "description": "Newsletter Signup Form.",
           "tags": [
             "animation",
             "form",
             "form-element",
             "login",
-            "button",
-            "table"
+            "button"
           ],
           "files": [
             "README.md",
@@ -19431,7 +19377,7 @@
         },
         {
           "name": "Range Input",
-          "path": "Vanilla/Components/Forms/Other/range-input/",
+          "path": "Vanilla/Components/Forms/range-input/",
           "description": "Range Input.",
           "tags": [
             "form",
@@ -19445,12 +19391,11 @@
         },
         {
           "name": "Readonly Input",
-          "path": "Vanilla/Components/Forms/Other/readonly-input/",
+          "path": "Vanilla/Components/Forms/readonly-input/",
           "description": "Readonly Input.",
           "tags": [
             "form",
             "tabs",
-            "table",
             "typography",
             "form-element"
           ],
@@ -19462,12 +19407,11 @@
         },
         {
           "name": "Registration Form",
-          "path": "Vanilla/Components/Forms/Other/registration-form/",
+          "path": "Vanilla/Components/Forms/registration-form/",
           "description": "Registration Form.",
           "tags": [
             "animation",
             "form",
-            "table",
             "form-element",
             "button",
             "typography",
@@ -19481,7 +19425,7 @@
         },
         {
           "name": "Responsive Form",
-          "path": "Vanilla/Components/Forms/Other/responsive-form/",
+          "path": "Vanilla/Components/Forms/responsive-form/",
           "description": "Responsive Form.",
           "tags": [
             "animation",
@@ -19500,13 +19444,38 @@
           ]
         },
         {
+          "name": "Search Autocomplete",
+          "path": "Vanilla/Components/Forms/search-autocomplete/",
+          "description": "Search Autocomplete.",
+          "tags": [
+            "accessibility",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center",
+            "layout"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible",
+            "keyboard nav"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "search-autocomplete.html"
+          ]
+        },
+        {
           "name": "Search Input",
-          "path": "Vanilla/Components/Forms/Search/search-input/",
+          "path": "Vanilla/Components/Forms/search-input/",
           "description": "Search Input.",
           "tags": [
             "form",
             "button",
-            "table",
             "typography",
             "form-element"
           ],
@@ -19518,14 +19487,13 @@
         },
         {
           "name": "Select Dropdown",
-          "path": "Vanilla/Components/Forms/Other/select-dropdown/",
+          "path": "Vanilla/Components/Forms/select-dropdown/",
           "description": "Select Dropdown.",
           "tags": [
             "form",
             "dropdown",
             "drag",
             "badge",
-            "table",
             "form-element"
           ],
           "files": [
@@ -19536,12 +19504,11 @@
         },
         {
           "name": "Select With Optgroup",
-          "path": "Vanilla/Components/Forms/Other/select-with-optgroup/",
+          "path": "Vanilla/Components/Forms/select-with-optgroup/",
           "description": "Select With Optgroup.",
           "tags": [
             "form",
             "dropdown",
-            "table",
             "drag",
             "form-element"
           ],
@@ -19552,148 +19519,8 @@
           ]
         },
         {
-          "name": "Snippet 03 Mobile Dropdown",
-          "path": "Vanilla/Components/Forms/Other/snippet-03-mobile-dropdown/",
-          "description": "Snippet 03 Mobile Dropdown with responsive design with animations.",
-          "tags": [
-            "responsive",
-            "dropdown",
-            "drag",
-            "animation",
-            "shadow",
-            "flexbox",
-            "center",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-03-mobile-dropdown.html"
-          ]
-        },
-        {
-          "name": "Snippet 11 Search Autocomplete",
-          "path": "Vanilla/Components/Forms/Search/snippet-11-search-autocomplete/",
-          "description": "Snippet 11 Search Autocomplete with responsive design with animations and hover interactions.",
-          "tags": [
-            "accessibility",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-11-search-autocomplete.html"
-          ]
-        },
-        {
-          "name": "Snippet 12 Inline Form",
-          "path": "Vanilla/Components/Forms/Other/snippet-12-inline-form/",
-          "description": "Snippet 12 Inline Form with responsive design with animations and hover interactions.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "hover-effect",
-            "glassmorphism",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-12-inline-form.html"
-          ]
-        },
-        {
-          "name": "Snippet 13 Contact Form",
-          "path": "Vanilla/Components/Forms/Contact/snippet-13-contact-form/",
-          "description": "Snippet 13 Contact Form with responsive design with animations and hover interactions.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "hover-effect",
-            "glassmorphism",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-13-contact-form.html"
-          ]
-        },
-        {
-          "name": "Snippet 14 Newsletter Signup",
-          "path": "Vanilla/Components/Forms/Register/snippet-14-newsletter-signup/",
-          "description": "Snippet 14 Newsletter Signup with responsive design with animations and hover interactions.",
-          "tags": [
-            "login",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-14-newsletter-signup.html"
-          ]
-        },
-        {
-          "name": "Snippet 16 File Upload Input",
-          "path": "Vanilla/Components/Forms/Other/snippet-16-file-upload-input/",
-          "description": "Snippet 16 File Upload Input with responsive design with animations and hover interactions.",
-          "tags": [
-            "form",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-16-file-upload-input.html"
-          ]
-        },
-        {
-          "name": "Snippet 18 Date Time Picker",
-          "path": "Vanilla/Components/Forms/Other/snippet-18-date-time-picker/",
-          "description": "Snippet 18 Date Time Picker with responsive design with animations and hover interactions.",
-          "tags": [
-            "validation",
-            "date",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "grid"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-18-date-time-picker.html"
-          ]
-        },
-        {
           "name": "Subscription Form",
-          "path": "Vanilla/Components/Forms/Newsletter/subscription-form/",
+          "path": "Vanilla/Components/Forms/subscription-form/",
           "description": "Subscription Form.",
           "tags": [
             "animation",
@@ -19701,7 +19528,6 @@
             "form-element",
             "center",
             "button",
-            "table",
             "typography",
             "color"
           ],
@@ -19713,13 +19539,12 @@
         },
         {
           "name": "Textarea Label",
-          "path": "Vanilla/Components/Forms/Other/textarea-label/",
+          "path": "Vanilla/Components/Forms/textarea-label/",
           "description": "Textarea Label.",
           "tags": [
             "form",
             "typography",
-            "form-element",
-            "table"
+            "form-element"
           ],
           "files": [
             "README.md",
@@ -19729,17 +19554,19 @@
         },
         {
           "name": "Toggle Switch",
-          "path": "Vanilla/Components/Forms/Other/toggle-switch/",
-          "description": "Toggle Switch with responsive design with animations.",
+          "path": "Vanilla/Components/Forms/toggle-switch/",
+          "description": "Toggle Switch.",
           "tags": [
             "animation",
             "shadow",
             "responsive",
             "form",
             "carousel",
-            "table",
             "color",
             "border"
+          ],
+          "features": [
+            "responsive"
           ],
           "files": [
             "README.md",
@@ -19772,7 +19599,7 @@
         {
           "name": "Bouncing Loader",
           "path": "Vanilla/Components/Loaders/bouncing-loader/",
-          "description": "Bouncing Loader with animations.",
+          "description": "Bouncing Loader.",
           "tags": [
             "bounce",
             "loader",
@@ -19780,8 +19607,7 @@
             "flexbox",
             "center",
             "form",
-            "badge",
-            "table"
+            "badge"
           ],
           "features": [
             "bounce",
@@ -19814,8 +19640,7 @@
             "form-element",
             "gradient",
             "flexbox",
-            "center",
-            "table"
+            "center"
           ],
           "features": [
             "navbar",
@@ -19840,7 +19665,7 @@
         {
           "name": "Css Only Progress Bar",
           "path": "Vanilla/Components/Loaders/css-only-progress-bar/",
-          "description": "Css Only Progress Bar with animations.",
+          "description": "Css Only Progress Bar.",
           "tags": [
             "navbar",
             "sidebar",
@@ -19874,13 +19699,12 @@
         {
           "name": "Loader",
           "path": "Vanilla/Components/Loaders/loader/",
-          "description": "Loader with animations.",
+          "description": "Loader.",
           "tags": [
             "loader",
             "animation",
             "form",
             "badge",
-            "table",
             "border",
             "form-element"
           ],
@@ -19934,8 +19758,7 @@
             "navbar",
             "sidebar",
             "loader",
-            "form-element",
-            "table"
+            "form-element"
           ],
           "features": [
             "navbar",
@@ -19967,7 +19790,6 @@
             "center",
             "form",
             "badge",
-            "table",
             "color"
           ],
           "features": [
@@ -19993,24 +19815,19 @@
         {
           "name": "Skeleton Loader",
           "path": "Vanilla/Components/Loaders/skeleton-loader/",
-          "description": "Skeleton Loader with animations.",
+          "description": "Skeleton Loader.",
           "tags": [
             "loader",
             "animation",
             "card",
-            "table",
             "accessibility",
             "semantic",
             "form-element",
             "blog"
           ],
           "features": [
-            "loader",
-            "animation",
-            "card",
-            "table",
-            "accessibility",
-            "semantic"
+            "ARIA",
+            "semantic HTML"
           ],
           "styles": [
             "loader",
@@ -20055,18 +19872,47 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Accordion Faq",
+          "path": "Vanilla/Components/Marketing/FAQ/accordion-faq/",
+          "description": "Accordion Faq.",
+          "tags": [
+            "404",
+            "accordion",
+            "animation",
+            "flexbox",
+            "center",
+            "layout",
+            "button",
+            "form"
+          ],
+          "features": [
+            "ARIA",
+            "focus-visible",
+            "semantic HTML",
+            "keyboard nav"
+          ],
+          "files": [
+            "README.md",
+            "accordion-faq.html",
+            "metadata.json"
+          ]
+        },
+        {
           "name": "Accordion Faq Layout",
           "path": "Vanilla/Components/Marketing/FAQ/accordion-faq-layout/",
           "description": "Accordion Faq Layout.",
           "tags": [
             "layout",
             "accordion",
-            "table",
             "typography",
             "keyboard",
             "accessibility",
             "clipboard",
             "semantic"
+          ],
+          "features": [
+            "ARIA",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -20079,7 +19925,6 @@
           "path": "Vanilla/Components/Marketing/Hero/jumbotron/",
           "description": "Jumbotron.",
           "tags": [
-            "table",
             "layout",
             "button",
             "form",
@@ -20087,6 +19932,10 @@
             "color",
             "border",
             "accessibility"
+          ],
+          "features": [
+            "ARIA",
+            "keyboard nav"
           ],
           "files": [
             "README.md",
@@ -20100,7 +19949,6 @@
           "description": "Pricing Table.",
           "tags": [
             "tabs",
-            "table",
             "ecommerce",
             "responsive",
             "flexbox",
@@ -20117,7 +19965,7 @@
         {
           "name": "Responsive Pricing Grid",
           "path": "Vanilla/Components/Marketing/Pricing/responsive-pricing-grid/",
-          "description": "Responsive Pricing Grid with animations and hover interactions.",
+          "description": "Responsive Pricing Grid.",
           "tags": [
             "responsive",
             "grid",
@@ -20135,33 +19983,12 @@
           ]
         },
         {
-          "name": "Snippet 04 Accordion Faq",
-          "path": "Vanilla/Components/Marketing/FAQ/snippet-04-accordion-faq/",
-          "description": "Snippet 04 Accordion Faq with animations.",
-          "tags": [
-            "404",
-            "accordion",
-            "animation",
-            "flexbox",
-            "center",
-            "layout",
-            "button",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-04-accordion-faq.html"
-          ]
-        },
-        {
           "name": "Testimonial Slider",
           "path": "Vanilla/Components/Marketing/Testimonials/testimonial-slider/",
           "description": "Testimonial Slider.",
           "tags": [
             "carousel",
             "center",
-            "table",
             "typography",
             "border",
             "image",
@@ -20201,7 +20028,6 @@
           "tags": [
             "image",
             "accessibility",
-            "table",
             "typography",
             "api"
           ],
@@ -20230,7 +20056,6 @@
           "description": "Audio Embed.",
           "tags": [
             "video",
-            "table",
             "image"
           ],
           "features": [
@@ -20256,7 +20081,6 @@
           "tags": [
             "web-components",
             "canvas",
-            "table",
             "typography",
             "color",
             "border"
@@ -20286,14 +20110,11 @@
           "path": "Vanilla/Components/Media/figure-figcaption/",
           "description": "Figure Figcaption.",
           "tags": [
-            "table",
             "image",
             "api"
           ],
           "features": [
-            "table",
-            "image",
-            "api"
+            "semantic HTML"
           ],
           "styles": [
             "table",
@@ -20311,7 +20132,6 @@
           "path": "Vanilla/Components/Media/figure-with-figcaption/",
           "description": "Figure With Figcaption.",
           "tags": [
-            "table",
             "center",
             "typography",
             "color",
@@ -20320,12 +20140,7 @@
             "api"
           ],
           "features": [
-            "table",
-            "center",
-            "typography",
-            "color",
-            "border",
-            "image"
+            "semantic HTML"
           ],
           "styles": [
             "table",
@@ -20344,7 +20159,6 @@
           "path": "Vanilla/Components/Media/full-width-image/",
           "description": "Full Width Image.",
           "tags": [
-            "table",
             "image",
             "media-query",
             "api"
@@ -20372,7 +20186,6 @@
           "path": "Vanilla/Components/Media/html5-audio-player/",
           "description": "Html5 Audio Player.",
           "tags": [
-            "table",
             "image",
             "video"
           ],
@@ -20398,7 +20211,6 @@
           "description": "Html5 Video Player.",
           "tags": [
             "video",
-            "table",
             "image"
           ],
           "features": [
@@ -20423,7 +20235,6 @@
           "description": "Iframe Embed.",
           "tags": [
             "video",
-            "table",
             "image",
             "api"
           ],
@@ -20453,7 +20264,6 @@
             "image",
             "array",
             "button",
-            "table",
             "click",
             "portfolio",
             "clip-path"
@@ -20519,7 +20329,6 @@
           "tags": [
             "image",
             "web-components",
-            "table",
             "media-query"
           ],
           "features": [
@@ -20543,7 +20352,7 @@
         {
           "name": "Pop Up Image",
           "path": "Vanilla/Components/Media/pop-up-image/",
-          "description": "Pop Up Image with animations and hover interactions.",
+          "description": "Pop Up Image.",
           "tags": [
             "modal",
             "tooltip",
@@ -20582,7 +20391,6 @@
             "responsive",
             "video",
             "layout",
-            "table",
             "color",
             "border",
             "semantic"
@@ -20614,7 +20422,6 @@
           "tags": [
             "responsive",
             "image",
-            "table",
             "api",
             "media-query"
           ],
@@ -20647,7 +20454,6 @@
             "video",
             "container-query",
             "container-queries",
-            "table",
             "typography",
             "color"
           ],
@@ -20679,7 +20485,6 @@
             "color",
             "video",
             "layout",
-            "table",
             "image",
             "api",
             "semantic",
@@ -20733,8 +20538,35 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Components",
       "description": "Vanilla modal and dialog components - modal boxes, dialogs, focus-trap modals, popup chat windows, toast notifications, and device-optimized modals.",
-      "variantsCount": 12,
+      "variantsCount": 11,
       "variants": [
+        {
+          "name": "Device Optimized Modal",
+          "path": "Vanilla/Components/Modals/device-optimized-modal/",
+          "description": "Device Optimized Modal.",
+          "tags": [
+            "modal",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center",
+            "button"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML",
+            "keyboard nav"
+          ],
+          "files": [
+            "README.md",
+            "device-optimized-modal.html",
+            "metadata.json"
+          ]
+        },
         {
           "name": "Dialog Element",
           "path": "Vanilla/Components/Modals/dialog-element/",
@@ -20744,7 +20576,6 @@
             "web-components",
             "button",
             "form",
-            "table",
             "form-element"
           ],
           "features": [
@@ -20773,7 +20604,6 @@
           "description": "Focus Trap Modal.",
           "tags": [
             "modal",
-            "table",
             "keyboard",
             "pseudo-class",
             "layout",
@@ -20812,8 +20642,7 @@
             "dropdown",
             "aspect-ratio",
             "center",
-            "button",
-            "table"
+            "button"
           ],
           "features": [
             "shadow",
@@ -20843,19 +20672,13 @@
             "modal",
             "button",
             "form",
-            "table",
             "typography",
             "accessibility",
             "form-element",
             "login"
           ],
           "features": [
-            "modal",
-            "button",
-            "form",
-            "table",
-            "typography",
-            "accessibility"
+            "ARIA"
           ],
           "styles": [
             "modal",
@@ -20879,7 +20702,6 @@
             "drag",
             "backdrop-filter",
             "shadow",
-            "table",
             "color",
             "border"
           ],
@@ -20912,7 +20734,6 @@
             "flexbox",
             "center",
             "button",
-            "table",
             "color",
             "border",
             "click"
@@ -20944,7 +20765,6 @@
           "tags": [
             "modal",
             "button",
-            "table",
             "date"
           ],
           "features": [
@@ -20974,7 +20794,6 @@
             "layout",
             "button",
             "form",
-            "table",
             "typography",
             "color",
             "border"
@@ -21000,43 +20819,9 @@
           ]
         },
         {
-          "name": "Snippet 07 Device Optimized Modal",
-          "path": "Vanilla/Components/Modals/snippet-07-device-optimized-modal/",
-          "description": "Snippet 07 Device Optimized Modal with responsive design with animations and hover interactions.",
-          "tags": [
-            "modal",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center",
-            "button"
-          ],
-          "features": [
-            "modal",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "styles": [
-            "modal",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-07-device-optimized-modal.html"
-          ]
-        },
-        {
-          "name": "Snippet 08 Toast Notification",
-          "path": "Vanilla/Components/Modals/snippet-08-toast-notification/",
-          "description": "Snippet 08 Toast Notification with animations and hover interactions.",
+          "name": "Toast Notification",
+          "path": "Vanilla/Components/Modals/toast-notification/",
+          "description": "Toast Notification.",
           "tags": [
             "badge",
             "animation",
@@ -21048,46 +20833,7 @@
             "button"
           ],
           "features": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "flexbox",
-            "center"
-          ],
-          "styles": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-08-toast-notification.html"
-          ]
-        },
-        {
-          "name": "Toast Notification",
-          "path": "Vanilla/Components/Modals/toast-notification/",
-          "description": "Toast Notification.",
-          "tags": [
-            "badge",
-            "shadow",
-            "button",
-            "table",
-            "color",
-            "border",
-            "click",
-            "date"
-          ],
-          "features": [
-            "badge",
-            "shadow",
-            "button",
-            "table",
-            "color",
-            "border"
+            "ARIA"
           ],
           "styles": [
             "badge",
@@ -21109,19 +20855,14 @@
             "badge",
             "layout",
             "button",
-            "table",
             "accessibility",
             "date",
             "semantic",
             "form-element"
           ],
           "features": [
-            "badge",
-            "layout",
-            "button",
-            "table",
-            "accessibility",
-            "date"
+            "ARIA",
+            "semantic HTML"
           ],
           "styles": [
             "badge",
@@ -21166,6 +20907,30 @@
       "variantsCount": 28,
       "variants": [
         {
+          "name": "Sticky Header",
+          "path": "Vanilla/Components/Navigation/Navbar/auto-hide-sticky-header/",
+          "description": "Sticky Header.",
+          "tags": [
+            "card",
+            "navbar",
+            "semantic",
+            "animation",
+            "shadow",
+            "flexbox",
+            "center",
+            "form"
+          ],
+          "features": [
+            "ARIA",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "auto-hide-sticky-header.html",
+            "metadata.json"
+          ]
+        },
+        {
           "name": "Basic Navbar",
           "path": "Vanilla/Components/Navigation/Navbar/basic-navbar/",
           "description": "Basic Navbar and hover interactions.",
@@ -21177,6 +20942,9 @@
             "typography",
             "color",
             "pseudo-class"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21194,13 +20962,38 @@
             "hover-effect",
             "responsive",
             "center",
-            "table",
             "typography",
             "color"
           ],
           "files": [
             "README.md",
             "bottom-navigation.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Breadcrumb Nav",
+          "path": "Vanilla/Components/Navigation/Breadcrumb/breadcrumb-nav/",
+          "description": "Breadcrumb Nav.",
+          "tags": [
+            "navbar",
+            "sidebar",
+            "pagination",
+            "semantic",
+            "animation",
+            "hover-effect",
+            "responsive",
+            "flexbox"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "breadcrumb-nav.html",
             "metadata.json"
           ]
         },
@@ -21212,11 +21005,14 @@
             "navbar",
             "semantic",
             "flexbox",
-            "table",
             "color",
             "border",
             "accessibility",
             "form-element"
+          ],
+          "features": [
+            "ARIA",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21233,7 +21029,6 @@
             "animation",
             "center",
             "form",
-            "table",
             "typography",
             "color",
             "border"
@@ -21271,7 +21066,6 @@
           "tags": [
             "sidebar",
             "navbar",
-            "table",
             "typography",
             "color",
             "scroll",
@@ -21284,16 +21078,35 @@
           ]
         },
         {
+          "name": "Glassmorphism Nav",
+          "path": "Vanilla/Components/Navigation/Navbar/glassmorphism-nav/",
+          "description": "Glassmorphism Nav.",
+          "tags": [
+            "glassmorphism",
+            "navbar",
+            "sidebar",
+            "pagination",
+            "semantic",
+            "animation",
+            "hover-effect",
+            "shadow"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-20-glassmorphism-nav.css"
+          ]
+        },
+        {
           "name": "Hamburger Menu",
           "path": "Vanilla/Components/Navigation/Menu/hamburger-menu/",
-          "description": "Hamburger Menu with animations.",
+          "description": "Hamburger Menu.",
           "tags": [
             "navbar",
             "animation",
             "responsive",
             "button",
             "form",
-            "table",
             "color",
             "icon"
           ],
@@ -21339,6 +21152,26 @@
             "README.md",
             "mega-menu.html",
             "metadata.json"
+          ]
+        },
+        {
+          "name": "Mobile Bottom Nav",
+          "path": "Vanilla/Components/Navigation/Pagination/mobile-bottom-nav/",
+          "description": "Mobile Bottom Nav.",
+          "tags": [
+            "responsive",
+            "navbar",
+            "sidebar",
+            "pagination",
+            "semantic",
+            "animation",
+            "hover-effect",
+            "shadow"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-15-mobile-bottom-nav.css"
           ]
         },
         {
@@ -21412,10 +21245,13 @@
             "web-components",
             "flexbox",
             "navbar",
-            "table",
             "typography",
             "color",
             "border"
+          ],
+          "features": [
+            "ARIA",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -21424,26 +21260,45 @@
           ]
         },
         {
+          "name": "Responsive Navbar",
+          "path": "Vanilla/Components/Navigation/Navbar/responsive-navbar/",
+          "description": "Responsive Navbar.",
+          "tags": [
+            "responsive",
+            "navbar",
+            "semantic",
+            "animation",
+            "shadow",
+            "flexbox",
+            "center",
+            "form"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "responsive-navbar.html"
+          ]
+        },
+        {
           "name": "Responsive Sticky Header With Shadow",
           "path": "Vanilla/Components/Navigation/responsive-sticky-header-with-shadow/",
-          "description": "Responsive Sticky Header With Shadow with animations.",
+          "description": "Responsive Sticky Header With Shadow.",
           "tags": [
             "shadow",
             "responsive",
             "card",
             "navbar",
-            "table",
             "semantic",
             "web-components",
             "animation"
           ],
           "features": [
-            "shadow",
-            "responsive",
-            "card",
-            "navbar",
-            "table",
-            "semantic"
+            "semantic HTML"
           ],
           "styles": [
             "shadow",
@@ -21494,7 +21349,7 @@
         {
           "name": "Side Navigation",
           "path": "Vanilla/Components/Navigation/Other/side-navigation/",
-          "description": "Side Navigation with animations and hover interactions.",
+          "description": "Side Navigation.",
           "tags": [
             "navbar",
             "sidebar",
@@ -21502,8 +21357,7 @@
             "animation",
             "hover-effect",
             "button",
-            "accordion",
-            "table"
+            "accordion"
           ],
           "files": [
             "README.md",
@@ -21544,6 +21398,9 @@
             "color",
             "pseudo-class"
           ],
+          "features": [
+            "semantic HTML"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -21551,89 +21408,31 @@
           ]
         },
         {
-          "name": "Snippet 01 Responsive Navbar",
-          "path": "Vanilla/Components/Navigation/Navbar/snippet-01-responsive-navbar/",
-          "description": "Snippet 01 Responsive Navbar with responsive design with animations.",
-          "tags": [
-            "responsive",
-            "navbar",
-            "semantic",
-            "animation",
-            "shadow",
-            "flexbox",
-            "center",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-01-responsive-navbar.html"
-          ]
-        },
-        {
-          "name": "Snippet 02 Sticky Header",
-          "path": "Vanilla/Components/Navigation/Navbar/snippet-02-sticky-header/",
-          "description": "Snippet 02 Sticky Header with animations.",
+          "name": "Sticky Header",
+          "path": "Vanilla/Components/Navigation/Navbar/sticky-header/",
+          "description": "Sticky Header.",
           "tags": [
             "card",
             "navbar",
             "semantic",
-            "animation",
-            "shadow",
-            "flexbox",
             "center",
-            "form"
+            "typography",
+            "color",
+            "scroll"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "snippet-02-sticky-header.html"
+            "sticky-header.html"
           ]
         },
         {
-          "name": "Snippet 10 Breadcrumb Nav",
-          "path": "Vanilla/Components/Navigation/Breadcrumb/snippet-10-breadcrumb-nav/",
-          "description": "Snippet 10 Breadcrumb Nav with responsive design with animations and hover interactions.",
-          "tags": [
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-10-breadcrumb-nav.html"
-          ]
-        },
-        {
-          "name": "Snippet 10 Sticky Sidebar",
-          "path": "Vanilla/Components/Navigation/Sidebar/snippet-10-sticky-sidebar/",
-          "description": "Snippet 10 Sticky Sidebar with responsive design with animations.",
-          "tags": [
-            "sidebar",
-            "animation",
-            "shadow",
-            "responsive",
-            "grid",
-            "layout",
-            "form",
-            "dropdown"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-10-sticky-sidebar.css"
-          ]
-        },
-        {
-          "name": "Snippet 14 Sticky Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/snippet-14-sticky-nav/",
-          "description": "Snippet 14 Sticky Nav with responsive design with animations.",
+          "name": "Sticky Nav",
+          "path": "Vanilla/Components/Navigation/Navbar/sticky-nav/",
+          "description": "Sticky Nav.",
           "tags": [
             "navbar",
             "sidebar",
@@ -21651,63 +21450,23 @@
           ]
         },
         {
-          "name": "Snippet 15 Mobile Bottom Nav",
-          "path": "Vanilla/Components/Navigation/Pagination/snippet-15-mobile-bottom-nav/",
-          "description": "Snippet 15 Mobile Bottom Nav with responsive design with animations and hover interactions.",
+          "name": "Sticky Sidebar",
+          "path": "Vanilla/Components/Navigation/Sidebar/sticky-sidebar/",
+          "description": "Sticky Sidebar.",
           "tags": [
+            "sidebar",
+            "animation",
+            "shadow",
             "responsive",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
+            "grid",
+            "layout",
+            "form",
+            "dropdown"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "snippet-15-mobile-bottom-nav.css"
-          ]
-        },
-        {
-          "name": "Snippet 20 Glassmorphism Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/snippet-20-glassmorphism-nav/",
-          "description": "Snippet 20 Glassmorphism Nav with responsive design with animations and hover interactions.",
-          "tags": [
-            "glassmorphism",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-20-glassmorphism-nav.css"
-          ]
-        },
-        {
-          "name": "Sticky Header",
-          "path": "Vanilla/Components/Navigation/Navbar/sticky-header/",
-          "description": "Sticky Header.",
-          "tags": [
-            "card",
-            "navbar",
-            "semantic",
-            "center",
-            "table",
-            "typography",
-            "color",
-            "scroll"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "sticky-header.html"
+            "snippet-10-sticky-sidebar.css"
           ]
         },
         {
@@ -21737,7 +21496,6 @@
           "tags": [
             "navbar",
             "hover-effect",
-            "table",
             "typography",
             "color",
             "semantic",
@@ -21785,7 +21543,6 @@
           "description": "Abbr Element.",
           "tags": [
             "web-components",
-            "table",
             "image"
           ],
           "features": [
@@ -21809,7 +21566,6 @@
           "path": "Vanilla/Components/Other/address-tag/",
           "description": "Address Tag.",
           "tags": [
-            "table",
             "semantic"
           ],
           "features": [
@@ -21833,7 +21589,6 @@
           "tags": [
             "web-components",
             "form",
-            "table",
             "typography",
             "form-element"
           ],
@@ -21861,7 +21616,6 @@
           "path": "Vanilla/Components/Other/blockquote-citation/",
           "description": "Blockquote Citation.",
           "tags": [
-            "table",
             "typography",
             "color",
             "border",
@@ -21891,7 +21645,6 @@
           "path": "Vanilla/Components/Other/blockquote-with-cite/",
           "description": "Blockquote With Cite.",
           "tags": [
-            "table",
             "layout",
             "typography",
             "api",
@@ -21923,7 +21676,6 @@
           "tags": [
             "grid",
             "center",
-            "table",
             "typography",
             "color",
             "border",
@@ -21953,7 +21705,7 @@
         {
           "name": "Carousel",
           "path": "Vanilla/Components/Other/carousel/",
-          "description": "Carousel with animations.",
+          "description": "Carousel.",
           "tags": [
             "carousel",
             "animation",
@@ -21961,7 +21713,6 @@
             "button",
             "form",
             "dropdown",
-            "table",
             "typography"
           ],
           "features": [
@@ -21990,8 +21741,7 @@
           "description": "Centered Website.",
           "tags": [
             "center",
-            "layout",
-            "table"
+            "layout"
           ],
           "features": [
             "center",
@@ -22015,7 +21765,6 @@
           "description": "Code Block.",
           "tags": [
             "form",
-            "table",
             "typography",
             "utility",
             "form-element"
@@ -22045,7 +21794,6 @@
           "description": "Content Editable.",
           "tags": [
             "tabs",
-            "table",
             "typography"
           ],
           "features": [
@@ -22073,7 +21821,6 @@
             "shadow",
             "center",
             "form",
-            "table",
             "typography",
             "color",
             "border"
@@ -22104,7 +21851,6 @@
           "description": "Countdown Timer.",
           "tags": [
             "badge",
-            "table",
             "date",
             "center",
             "typography",
@@ -22134,7 +21880,7 @@
         {
           "name": "Creative Image Hover",
           "path": "Vanilla/Components/Other/creative-image-hover/",
-          "description": "Creative Image Hover with animations and hover interactions.",
+          "description": "Creative Image Hover.",
           "tags": [
             "hover-effect",
             "tooltip",
@@ -22170,7 +21916,6 @@
           "path": "Vanilla/Components/Other/css-triangle-shape/",
           "description": "Css Triangle Shape.",
           "tags": [
-            "table",
             "theming",
             "clip-path",
             "form",
@@ -22206,7 +21951,6 @@
           "tags": [
             "theming",
             "css-variable",
-            "table",
             "color",
             "utility"
           ],
@@ -22226,6 +21970,31 @@
           "files": [
             "README.md",
             "css-variable-fallback.css",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Dark Mode Toggle",
+          "path": "Vanilla/Components/Other/dark-mode-toggle/",
+          "description": "Dark Mode Toggle.",
+          "tags": [
+            "dark-mode",
+            "animation",
+            "hover-effect",
+            "flexbox",
+            "center",
+            "button",
+            "form",
+            "dropdown"
+          ],
+          "features": [
+            "light/dark",
+            "ARIA",
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "dark-mode-toggle.html",
             "metadata.json"
           ]
         },
@@ -22259,7 +22028,6 @@
             "accordion",
             "button",
             "form",
-            "table",
             "click",
             "form-element"
           ],
@@ -22288,7 +22056,6 @@
           "path": "Vanilla/Components/Other/device-mockups/",
           "description": "Device Mockups.",
           "tags": [
-            "table",
             "color",
             "border",
             "image",
@@ -22326,7 +22093,6 @@
             "layout",
             "form",
             "navbar",
-            "table",
             "border",
             "semantic"
           ],
@@ -22353,7 +22119,7 @@
         {
           "name": "Direction Aware Hover",
           "path": "Vanilla/Components/Other/direction-aware-hover/",
-          "description": "Direction Aware Hover with animations and hover interactions.",
+          "description": "Direction Aware Hover.",
           "tags": [
             "hover-effect",
             "flexbox",
@@ -22391,7 +22157,6 @@
           "tags": [
             "gradient",
             "layout",
-            "table",
             "color",
             "border",
             "image",
@@ -22424,7 +22189,6 @@
           "tags": [
             "drag",
             "web-components",
-            "table",
             "typography"
           ],
           "features": [
@@ -22453,7 +22217,6 @@
             "typing-effect",
             "icon",
             "tabs",
-            "table",
             "image"
           ],
           "features": [
@@ -22510,7 +22273,6 @@
             "form-element",
             "backdrop-filter",
             "form",
-            "table",
             "typography",
             "color"
           ],
@@ -22577,7 +22339,6 @@
             "accessibility",
             "badge",
             "loader",
-            "table",
             "color"
           ],
           "features": [
@@ -22610,7 +22371,6 @@
             "button",
             "form",
             "modal",
-            "table",
             "typography",
             "color"
           ],
@@ -22637,14 +22397,13 @@
         {
           "name": "Glowing Icon",
           "path": "Vanilla/Components/Other/glowing-icon/",
-          "description": "Glowing Icon with animations and hover interactions.",
+          "description": "Glowing Icon.",
           "tags": [
             "icon",
             "animation",
             "hover-effect",
             "shadow",
             "button",
-            "table",
             "typography",
             "color"
           ],
@@ -22683,12 +22442,7 @@
             "blog"
           ],
           "features": [
-            "flexbox",
-            "layout",
-            "responsive",
-            "navbar",
-            "sidebar",
-            "color"
+            "semantic HTML"
           ],
           "styles": [
             "flexbox",
@@ -22713,16 +22467,11 @@
             "center",
             "navbar",
             "sidebar",
-            "table",
             "typography"
           ],
           "features": [
-            "grid",
-            "layout",
             "responsive",
-            "center",
-            "navbar",
-            "sidebar"
+            "semantic HTML"
           ],
           "styles": [
             "grid",
@@ -22741,7 +22490,6 @@
           "path": "Vanilla/Components/Other/horizontal-rule/",
           "description": "Horizontal Rule.",
           "tags": [
-            "table",
             "typography"
           ],
           "features": [
@@ -22761,7 +22509,7 @@
         {
           "name": "Image Overlay Effect",
           "path": "Vanilla/Components/Other/image-overlay-effect/",
-          "description": "Image Overlay Effect with animations and hover interactions.",
+          "description": "Image Overlay Effect.",
           "tags": [
             "ripple",
             "modal",
@@ -22795,7 +22543,7 @@
         {
           "name": "Image Zoom On Hover",
           "path": "Vanilla/Components/Other/image-zoom-on-hover/",
-          "description": "Image Zoom On Hover with animations and hover interactions.",
+          "description": "Image Zoom On Hover.",
           "tags": [
             "animation",
             "hover-effect",
@@ -22863,14 +22611,10 @@
           "tags": [
             "semantic",
             "coming-soon",
-            "web-components",
-            "table"
+            "web-components"
           ],
           "features": [
-            "semantic",
-            "coming-soon",
-            "web-components",
-            "table"
+            "semantic HTML"
           ],
           "styles": [
             "semantic",
@@ -22892,8 +22636,7 @@
             "form",
             "tooltip",
             "typography",
-            "canvas",
-            "table"
+            "canvas"
           ],
           "features": [
             "form",
@@ -22953,8 +22696,7 @@
           "description": "Meter Element.",
           "tags": [
             "form-element",
-            "web-components",
-            "table"
+            "web-components"
           ],
           "features": [
             "form-element",
@@ -22980,7 +22722,6 @@
             "dark-mode",
             "modern-css",
             "modal",
-            "table",
             "typography",
             "color",
             "image"
@@ -23044,8 +22785,7 @@
           "tags": [
             "form-element",
             "web-components",
-            "form",
-            "table"
+            "form"
           ],
           "features": [
             "form-element",
@@ -23075,7 +22815,6 @@
             "scroll",
             "center",
             "layout",
-            "table",
             "typography",
             "color"
           ],
@@ -23097,6 +22836,31 @@
             "README.md",
             "metadata.json",
             "parallax-scrolling-effect.html"
+          ]
+        },
+        {
+          "name": "Password Visibility Toggle",
+          "path": "Vanilla/Components/Other/password-visibility-toggle/",
+          "description": "Password Visibility Toggle.",
+          "tags": [
+            "login",
+            "animation",
+            "hover-effect",
+            "shadow",
+            "responsive",
+            "flexbox",
+            "center",
+            "layout"
+          ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "password-visibility-toggle.html"
           ]
         },
         {
@@ -23138,7 +22902,6 @@
             "responsive",
             "flexbox",
             "center",
-            "table",
             "image",
             "api",
             "media-query"
@@ -23170,7 +22933,6 @@
           "tags": [
             "carousel",
             "form",
-            "table",
             "form-element"
           ],
           "features": [
@@ -23200,18 +22962,12 @@
             "image",
             "portfolio",
             "flexbox",
-            "table",
             "border",
             "api",
             "media-query"
           ],
           "features": [
-            "responsive",
-            "image",
-            "portfolio",
-            "flexbox",
-            "table",
-            "border"
+            "responsive"
           ],
           "styles": [
             "responsive",
@@ -23269,17 +23025,11 @@
             "form",
             "navbar",
             "sidebar",
-            "table",
             "typography",
             "border"
           ],
           "features": [
-            "layout",
-            "semantic",
-            "form",
-            "navbar",
-            "sidebar",
-            "table"
+            "semantic HTML"
           ],
           "styles": [
             "layout",
@@ -23298,8 +23048,7 @@
           "path": "Vanilla/Components/Other/simple-ordered-list/",
           "description": "Simple Ordered List.",
           "tags": [
-            "form-element",
-            "table"
+            "form-element"
           ],
           "features": [
             "form-element",
@@ -23320,8 +23069,7 @@
           "path": "Vanilla/Components/Other/simple-unordered-list/",
           "description": "Simple Unordered List.",
           "tags": [
-            "form-element",
-            "table"
+            "form-element"
           ],
           "features": [
             "form-element",
@@ -23340,12 +23088,11 @@
         {
           "name": "Skill Bar",
           "path": "Vanilla/Components/Other/skill-bar/",
-          "description": "Skill Bar with animations.",
+          "description": "Skill Bar.",
           "tags": [
             "navbar",
             "sidebar",
             "animation",
-            "table",
             "typography",
             "color",
             "border",
@@ -23377,7 +23124,6 @@
           "description": "Skip Link.",
           "tags": [
             "typing-effect",
-            "table",
             "color",
             "keyboard",
             "semantic",
@@ -23404,77 +23150,9 @@
           ]
         },
         {
-          "name": "Snippet 06 Dark Mode Toggle",
-          "path": "Vanilla/Components/Other/snippet-06-dark-mode-toggle/",
-          "description": "Snippet 06 Dark Mode Toggle with animations and hover interactions.",
-          "tags": [
-            "dark-mode",
-            "animation",
-            "hover-effect",
-            "flexbox",
-            "center",
-            "button",
-            "form",
-            "dropdown"
-          ],
-          "features": [
-            "dark-mode",
-            "animation",
-            "hover-effect",
-            "flexbox",
-            "center",
-            "button"
-          ],
-          "styles": [
-            "dark-mode",
-            "animation",
-            "hover-effect",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-06-dark-mode-toggle.html"
-          ]
-        },
-        {
-          "name": "Snippet 15 Password Visibility Toggle",
-          "path": "Vanilla/Components/Other/snippet-15-password-visibility-toggle/",
-          "description": "Snippet 15 Password Visibility Toggle with responsive design with animations and hover interactions.",
-          "tags": [
-            "login",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "features": [
-            "login",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "styles": [
-            "login",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-15-password-visibility-toggle.html"
-          ]
-        },
-        {
-          "name": "Snippet 19 Sliding Indicator",
-          "path": "Vanilla/Components/Other/snippet-19-sliding-indicator/",
-          "description": "Snippet 19 Sliding Indicator with responsive design with animations and hover interactions.",
+          "name": "Sliding Indicator",
+          "path": "Vanilla/Components/Other/sliding-indicator/",
+          "description": "Sliding Indicator.",
           "tags": [
             "badge",
             "animation",
@@ -23485,20 +23163,6 @@
             "flexbox",
             "center"
           ],
-          "features": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "gradient",
-            "shadow",
-            "responsive"
-          ],
-          "styles": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "gradient"
-          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -23508,7 +23172,7 @@
         {
           "name": "Social Media Icons",
           "path": "Vanilla/Components/Other/social-media-icons/",
-          "description": "Social Media Icons with animations and hover interactions.",
+          "description": "Social Media Icons.",
           "tags": [
             "responsive",
             "icon",
@@ -23516,7 +23180,6 @@
             "animation",
             "hover-effect",
             "layout",
-            "table",
             "typography"
           ],
           "features": [
@@ -23548,7 +23211,6 @@
             "media-query",
             "form",
             "accordion",
-            "table",
             "typography",
             "color",
             "border"
@@ -23579,7 +23241,6 @@
           "description": "Sticky Notes.",
           "tags": [
             "shadow",
-            "table",
             "color"
           ],
           "features": [
@@ -23601,14 +23262,13 @@
         {
           "name": "Sticky Social Bar",
           "path": "Vanilla/Components/Other/sticky-social-bar/",
-          "description": "Sticky Social Bar with animations.",
+          "description": "Sticky Social Bar.",
           "tags": [
             "navbar",
             "sidebar",
             "animation",
             "center",
             "form",
-            "table",
             "typography",
             "color"
           ],
@@ -23640,7 +23300,6 @@
             "icon",
             "svg",
             "layout",
-            "table",
             "color",
             "canvas"
           ],
@@ -23671,7 +23330,6 @@
           "tags": [
             "form",
             "tooltip",
-            "table",
             "typography",
             "color",
             "image",
@@ -23706,7 +23364,6 @@
             "date",
             "web-components",
             "form",
-            "table",
             "form-element"
           ],
           "features": [
@@ -23735,7 +23392,6 @@
           "tags": [
             "date",
             "layout",
-            "table",
             "color",
             "border",
             "media-query",
@@ -23766,7 +23422,6 @@
           "path": "Vanilla/Components/Other/weather-widget/",
           "description": "Weather Widget.",
           "tags": [
-            "table",
             "center",
             "typography",
             "border",
@@ -23858,9 +23513,9 @@
           ]
         },
         {
-          "name": "Snippet 17 Rating Stars",
-          "path": "Vanilla/Components/Ratings/snippet-17-rating-stars/",
-          "description": "Snippet 17 Rating Stars with responsive design with animations and hover interactions.",
+          "name": "Rating Stars",
+          "path": "Vanilla/Components/Ratings/rating-stars/",
+          "description": "Rating Stars.",
           "tags": [
             "animation",
             "hover-effect",
@@ -23872,23 +23527,14 @@
             "button"
           ],
           "features": [
-            "animation",
-            "hover-effect",
-            "shadow",
             "responsive",
-            "flexbox",
-            "center"
-          ],
-          "styles": [
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive"
+            "ARIA",
+            "focus-visible"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "snippet-17-rating-stars.html"
+            "rating-stars.html"
           ]
         },
         {
@@ -23896,7 +23542,6 @@
           "path": "Vanilla/Components/Ratings/user-rating/",
           "description": "User Rating.",
           "tags": [
-            "table",
             "typography",
             "color",
             "api",
@@ -24074,6 +23719,26 @@
       "variantsCount": 5,
       "variants": [
         {
+          "name": "Css Tabs",
+          "path": "Vanilla/Components/Tabs/css-tabs/",
+          "description": "Css Tabs.",
+          "tags": [
+            "tabs",
+            "theming",
+            "animation",
+            "hover-effect",
+            "responsive",
+            "flexbox",
+            "center",
+            "layout"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "snippet-18-css-tabs.css"
+          ]
+        },
+        {
           "name": "Full Page Tabs",
           "path": "Vanilla/Components/Tabs/full-page-tabs/",
           "description": "Full Page Tabs.",
@@ -24084,7 +23749,6 @@
             "typing-effect",
             "center",
             "button",
-            "table",
             "typography"
           ],
           "features": [
@@ -24108,9 +23772,9 @@
           ]
         },
         {
-          "name": "Snippet 05 Tabbed Content",
-          "path": "Vanilla/Components/Tabs/snippet-05-tabbed-content/",
-          "description": "Snippet 05 Tabbed Content with responsive design with animations.",
+          "name": "Tabbed Content",
+          "path": "Vanilla/Components/Tabs/tabbed-content/",
+          "description": "Tabbed Content.",
           "tags": [
             "tabs",
             "animation",
@@ -24122,70 +23786,27 @@
             "dropdown"
           ],
           "features": [
-            "tabs",
-            "animation",
             "responsive",
-            "flexbox",
-            "layout",
-            "button"
-          ],
-          "styles": [
-            "tabs",
-            "animation",
-            "responsive",
-            "flexbox"
+            "ARIA",
+            "focus-visible",
+            "keyboard nav"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "snippet-05-tabbed-content.html"
-          ]
-        },
-        {
-          "name": "Snippet 18 Css Tabs",
-          "path": "Vanilla/Components/Tabs/snippet-18-css-tabs/",
-          "description": "Snippet 18 Css Tabs with responsive design with animations and hover interactions.",
-          "tags": [
-            "tabs",
-            "theming",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "features": [
-            "tabs",
-            "theming",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "flexbox"
-          ],
-          "styles": [
-            "tabs",
-            "theming",
-            "animation",
-            "hover-effect"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-18-css-tabs.css"
+            "tabbed-content.html"
           ]
         },
         {
           "name": "Tabs",
           "path": "Vanilla/Components/Tabs/tabs/",
-          "description": "Tabs with animations and hover interactions.",
+          "description": "Tabs.",
           "tags": [
             "tabs",
             "animation",
             "hover-effect",
             "typing-effect",
             "button",
-            "table",
             "color",
             "border"
           ],
@@ -24212,7 +23833,7 @@
         {
           "name": "Tabs Component",
           "path": "Vanilla/Components/Tabs/tabs-component/",
-          "description": "Tabs Component with animations.",
+          "description": "Tabs Component.",
           "tags": [
             "tabs",
             "web-components",
@@ -24276,7 +23897,7 @@
         {
           "name": "Css Only Tooltip",
           "path": "Vanilla/Components/Tooltips/css-only-tooltip/",
-          "description": "Css Only Tooltip with animations and hover interactions.",
+          "description": "Css Only Tooltip.",
           "tags": [
             "tooltip",
             "theming",
@@ -24310,7 +23931,7 @@
         {
           "name": "Tooltip",
           "path": "Vanilla/Components/Tooltips/tooltip/",
-          "description": "Tooltip with responsive design with animations and hover interactions.",
+          "description": "Tooltip.",
           "tags": [
             "tooltip",
             "animation",
@@ -24318,16 +23939,10 @@
             "responsive",
             "center",
             "button",
-            "form",
-            "table"
+            "form"
           ],
           "features": [
-            "tooltip",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "center",
-            "button"
+            "responsive"
           ],
           "styles": [
             "tooltip",
@@ -24351,7 +23966,6 @@
             "typography",
             "canvas",
             "hover-effect",
-            "table",
             "form-element"
           ],
           "features": [
@@ -26047,7 +25661,7 @@
         {
           "name": "Ai Tool Launch",
           "path": "Vanilla/Templates/ai-tool-launch/",
-          "description": "Ai Tool Launch with responsive design with animations and hover interactions.",
+          "description": "Ai Tool Launch.",
           "tags": [
             "layout",
             "accordion",
@@ -26057,6 +25671,9 @@
             "coming-soon",
             "container-queries",
             "animation"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26089,7 +25706,7 @@
         {
           "name": "Blog Landing Pages",
           "path": "Vanilla/Templates/blog-landing-pages/",
-          "description": "Blog Landing Pages with responsive design with animations and hover interactions.",
+          "description": "Blog Landing Pages.",
           "tags": [
             "landing-page",
             "blog",
@@ -26099,6 +25716,11 @@
             "gradient",
             "shadow",
             "parallax"
+          ],
+          "features": [
+            "responsive",
+            "semantic HTML",
+            "ARIA"
           ],
           "files": [
             "README.md",
@@ -26132,7 +25754,7 @@
         {
           "name": "Event Conference",
           "path": "Vanilla/Templates/event-conference/",
-          "description": "Event Conference with animations and hover interactions.",
+          "description": "Event Conference.",
           "tags": [
             "animation",
             "hover-effect",
@@ -26142,6 +25764,9 @@
             "flexbox",
             "grid",
             "center"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26174,7 +25799,7 @@
         {
           "name": "Freelancer Portfolio",
           "path": "Vanilla/Templates/freelancer-portfolio/",
-          "description": "Freelancer Portfolio with responsive design with animations and hover interactions.",
+          "description": "Freelancer Portfolio.",
           "tags": [
             "portfolio",
             "animation",
@@ -26184,6 +25809,9 @@
             "flexbox",
             "grid",
             "center"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26242,7 +25870,7 @@
         {
           "name": "Micro Saas Product",
           "path": "Vanilla/Templates/micro-saas-product/",
-          "description": "Micro Saas Product with responsive design with animations and hover interactions.",
+          "description": "Micro Saas Product.",
           "tags": [
             "ecommerce",
             "animation",
@@ -26252,6 +25880,9 @@
             "responsive",
             "flexbox",
             "grid"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26284,7 +25915,7 @@
         {
           "name": "Nft Web3 Project",
           "path": "Vanilla/Templates/nft-web3-project/",
-          "description": "Nft Web3 Project with responsive design with animations and hover interactions.",
+          "description": "Nft Web3 Project.",
           "tags": [
             "animation",
             "hover-effect",
@@ -26294,6 +25925,9 @@
             "pulse",
             "responsive",
             "flexbox"
+          ],
+          "features": [
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26337,6 +25971,11 @@
             "shadow",
             "parallax"
           ],
+          "features": [
+            "responsive",
+            "ARIA",
+            "semantic HTML"
+          ],
           "files": [
             "README.md",
             "metadata.json",
@@ -26369,7 +26008,7 @@
         {
           "name": "Product Launch",
           "path": "Vanilla/Templates/product-launch/",
-          "description": "Product Launch with responsive design with animations and hover interactions.",
+          "description": "Product Launch.",
           "tags": [
             "ecommerce",
             "animation",
@@ -26379,6 +26018,10 @@
             "shadow",
             "parallax",
             "pulse"
+          ],
+          "features": [
+            "responsive",
+            "semantic HTML"
           ],
           "files": [
             "README.md",
@@ -26421,6 +26064,10 @@
             "shadow",
             "parallax",
             "responsive"
+          ],
+          "features": [
+            "responsive",
+            "semantic HTML"
           ],
           "files": [
             "README.md",

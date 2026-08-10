@@ -1,7 +1,7 @@
 {
   "id": "tooltip-001",
   "name": "Tooltip",
-  "description": "Tooltip with responsive design with animations and hover interactions.",
+  "description": "Tooltip.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "tooltips",
@@ -12,8 +12,7 @@
     "responsive",
     "center",
     "button",
-    "form",
-    "table"
+    "form"
   ],
   "responsive": true,
   "browserSupport": [
@@ -23,5 +22,17 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "tooltip",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": [
+    "responsive"
+  ]
 }
