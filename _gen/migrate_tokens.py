@@ -158,10 +158,11 @@ DS_DEF = re.compile(r"--ds-[a-z0-9-]+\s*:\s*(?=#)")
 
 def replace_colors(html: str):
     """Replace hex color VALUES in CSS declarations with var(--ds-*, fallback).
-    Skips colors already inside any var(...) call AND hexes that are the value
-    of a --ds-* token definition (RHS of `--ds-foo:` in :root{})."""
+    Skips colors already inside any var(...) call AND the entire injected
+    Swiss :root / @media token-definition block (those hexes ARE the token
+    values, not usage)."""
     changed = 0
-    # spans of every var(...) so we can skip hexes inside them
+    # spans to skip: every var(...) and the Swiss definition block
     skip_spans = []
     for m in VAR_OPEN.finditer(html):
         depth = 1
@@ -174,12 +175,13 @@ def replace_colors(html: str):
             else:
                 i += 1
         skip_spans.append((m.start(), i))
-    in_var = [False] * len(html)
+    sb = _find_swiss_block(html)
+    if sb:
+        skip_spans.append(sb)
+    in_skip = [False] * len(html)
     for s, e in skip_spans:
         for j in range(s, min(e, len(html))):
-            in_var[j] = True
-    # positions immediately after a --ds-*:<ws> definition marker
-    def_starts = [m.end() for m in DS_DEF.finditer(html)]
+            in_skip[j] = True
 
     def repl(match):
         nonlocal changed
@@ -187,13 +189,8 @@ def replace_colors(html: str):
         key = val.lower()
         if key not in COLOR_MAP:
             return val
-        s = match.start()
-        if in_var[s]:
+        if in_skip[match.start()]:
             return val
-        # skip if this hex is the RHS of a --ds-foo: definition
-        for ds in def_starts:
-            if ds == s:
-                return val
         changed += 1
         return f"var({COLOR_MAP[key]}, {val})"
 
@@ -248,35 +245,119 @@ def replace_fonts(html: str):
     return html, changed
 
 
+def _find_swiss_block(html: str):
+    """Return (start, end) of an existing injected Swiss block (the comment
+    marker through the closing brace of the :root rule AND any following
+    dark-mode @media rule), or None. Handles nested braces in @media."""
+    marker = "/* DevSnips design tokens"
+    ms = html.find(marker)
+    if ms < 0:
+        return None
+    # find the first :root{ after the marker
+    ridx = html.find(":root{", ms)
+    if ridx < 0:
+        return None
+    bidx = html.find("{", ridx)
+    end = _match_brace(html, bidx)
+    if end < 0:
+        return None
+    pos = end + 1
+    # skip whitespace, then an optional @media (prefers-color-scheme: dark){...}
+    while pos < len(html) and html[pos] in " \t\r\n":
+        pos += 1
+    if html[pos:pos + 5] == "@medi".lower() or html[pos:pos + 6] == "@media":
+        mbidx = html.find("{", pos)
+        if mbidx >= 0:
+            mend = _match_brace(html, mbidx)
+            if mend >= 0:
+                pos = mend + 1
+    return ms, pos
+
+
+def _match_brace(html: str, open_idx: int) -> int:
+    """Given index of '{', return index of matching '}' (-1 if unbalanced)."""
+    depth = 0
+    i = open_idx
+    while i < len(html):
+        if html[i] == "{":
+            depth += 1
+        elif html[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return i
+        i += 1
+    return -1
+
+
 def inject_root(html: str) -> str:
-    """Inject a compact :root fallback block (Swiss defaults) so the component
-    is standalone. Injects the rule INSIDE the first existing <style> block
-    (just before </style>), so no new tags are opened. Only injects if the
-    component references --ds-* and doesn't already define a --ds- :root."""
+    """Inject the full Swiss design-token :root block + dark-mode override so
+    every var(--ds-*) reference resolves to the Swiss value (not the original
+    fallback). Injects INSIDE the first existing <style> block (before
+    </style>), so no new tags are opened. Idempotent: if a Swiss block is
+    already present, it is replaced with the current one (brace-matched)."""
     if "--ds-" not in html:
         return html
-    if re.search(r":root\s*\{[^}]*--ds-", html):
-        return html
-    rule = (
-        "\n/* DevSnips design tokens (Swiss) — override by editing tokens.css */\n"
-        ":root{\n"
-        "--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;"
-        "--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;"
-        "--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;"
-        "--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);"
-        "--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);"
-        "--ds-font-sans:system-ui,sans-serif;\n}\n"
-    )
+    block = _SWISS_BLOCK
+    existing = _find_swiss_block(html)
+    if existing:
+        s, e = existing
+        if html[s:e] == block.strip("\n"):
+            return html  # already current
+        return html[:s] + block + html[e:]
     if "</style>" in html:
         idx = html.index("</style>")
-        return html[:idx] + rule + html[idx:]
+        return html[:idx] + block + html[idx:]
     if "</head>" in html:
         idx = html.index("</head>")
-        return html[:idx] + "<style>" + rule + "</style>\n" + html[idx:]
-    return html + "<style>" + rule + "</style>\n"
+        return html[:idx] + "<style>" + block + "</style>\n" + html[idx:]
+    return html + "<style>" + block + "</style>\n"
 
 
-def migrate_file(path: Path):
+# The compact Swiss token block injected into every migrated component.
+# Mirrors Vanilla/Components/tokens.css. No self-references (every value is
+# a literal). Dark-mode override included so components respect the OS theme.
+_SWISS_BLOCK = (
+    "\n/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */\n"
+    ":root{\n"
+    "--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;"
+    "--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;"
+    "--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;"
+    "--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;"
+    "--ds-success:#16a34a;--ds-success-soft:#f0fdf4;"
+    "--ds-warning:#d97706;--ds-warning-soft:#fffbeb;"
+    "--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;"
+    "--ds-info:#2563eb;--ds-info-soft:#eff6ff;"
+    "--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;"
+    "--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;"
+    "--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;"
+    "--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;"
+    "--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;"
+    "--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;"
+    "--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;"
+    "--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;"
+    "--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;"
+    "--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;"
+    "--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;"
+    "--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);"
+    "--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);"
+    "--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);"
+    "--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;"
+    "--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);"
+    "--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;\n}\n"
+    "@media (prefers-color-scheme: dark){:root{"
+    "--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;"
+    "--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;"
+    "--ds-border:#262626;--ds-border-strong:#404040;"
+    "--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;"
+    "--ds-success:#22c55e;--ds-success-soft:#052e16;"
+    "--ds-warning:#f59e0b;--ds-warning-soft:#422006;"
+    "--ds-danger:#ef4444;--ds-danger-soft:#450a0a;"
+    "--ds-info:#3b82f6;--ds-info-soft:#172554;"
+    "--ds-ring:0 0 0 2px #3b82f6;}}\n"
+)
+
+
+def migrate_file(path: Path, refresh: bool = False):
     html = path.read_text(encoding="utf-8")
     if is_section(html):
         return 0, 0
@@ -286,16 +367,25 @@ def migrate_file(path: Path):
     html, sc = replace_shadows(html)
     html, fc = replace_fonts(html)
     total = cc + rc + sc + fc
-    if total == 0:
+    # On refresh, always (re)inject the block even with 0 new replacements so
+    # the Swiss token set stays current (e.g. new tokens added).
+    if refresh and "--ds-" in html:
+        html = inject_root(html)
+    elif total == 0:
         return 0, 0
-    html = inject_root(html)
+    else:
+        html = inject_root(html)
     if html != original:
         if not DRY:
             path.write_text(html, encoding="utf-8")
-    return total, 1
+        # count as a change on refresh even if 0 value replacements
+        return (total if total else 1), 1
+    return total, 0
 
 
 def main():
+    import sys
+    refresh = "--refresh-blocks" in sys.argv
     total_replacements = 0
     files_changed = 0
     files_scanned = 0
@@ -311,10 +401,12 @@ def main():
         if is_section(html):
             skipped_sections += 1
             continue
-        n, changed = migrate_file(html_path)
+        n, changed = migrate_file(html_path, refresh=refresh)
         total_replacements += n
         files_changed += changed
     mode = "DRY RUN" if DRY else "APPLIED"
+    if refresh:
+        mode += " (refresh-blocks)"
     print(f"migrate_tokens [{mode}]")
     print(f"  scanned: {files_scanned} component HTML files")
     print(f"  skipped sections (own token system): {skipped_sections}")
