@@ -2,22 +2,27 @@
 <style>
   .btn-3d {
     position: relative;
-    background: #007bff;
+    background: var(--ds-accent, #007bff);
     border: none;
     color: white;
     padding: 15px 25px;
-    border-radius: 5px;
+    border-radius: var(--ds-radius-sm, 5px);
     outline: none;
-    box-shadow: 0 5px #0069d9;
+    box-shadow: 0 5px var(--ds-accent-hover, #0069d9);
     transition: all 0.1s;
   }
   .btn-3d:active {
     top: 5px;
-    box-shadow: 0 0 #0069d9;
+    box-shadow: 0 0 var(--ds-accent-hover, #0069d9);
   }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 <button class="btn-3d">Click me</button>

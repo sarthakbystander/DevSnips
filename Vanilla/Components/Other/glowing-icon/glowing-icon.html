@@ -2,17 +2,22 @@
 <style>
   .glowing-icon {
     font-size: 48px;
-    color: #4a90e2;
+    color: var(--ds-accent, #4a90e2);
     transition: all 0.3s;
   }
   .glowing-icon:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #4a90e2, 0 0 20px #4a90e2, 0 0 30px #4a90e2;
+    color: var(--ds-surface, #fff);
+    text-shadow: 0 0 10px var(--ds-accent, #4a90e2), 0 0 20px var(--ds-accent, #4a90e2), 0 0 30px var(--ds-accent, #4a90e2);
   }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <i class="fas fa-star glowing-icon"></i>

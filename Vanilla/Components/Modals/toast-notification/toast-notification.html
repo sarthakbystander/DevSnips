@@ -37,18 +37,18 @@
 
 .toast {
   --toast-bg: white;
-  --toast-border: #ddd;
-  --toast-progress: #4a90e2;
+  --toast-border: var(--ds-border, #ddd);
+  --toast-progress: var(--ds-accent, #4a90e2);
   
   position: relative;
   min-width: 300px;
   max-width: 400px;
   background: var(--toast-bg);
   border: 1px solid var(--toast-border);
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
   padding: 1rem;
   margin: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--ds-shadow-lg, 0 4px 12px rgba(0, 0, 0, 0.15));
   pointer-events: auto;
   overflow: hidden;
   animation: toastSlideIn 0.3s;
@@ -106,12 +106,12 @@
 
 /* Toast types */
 .toast[data-type="success"] {
-  --toast-border: #4caf50;
+  --toast-border: var(--ds-success, #4caf50);
   border-left: 4px solid var(--toast-border);
 }
 
 .toast[data-type="error"] {
-  --toast-border: #f44336;
+  --toast-border: var(--ds-danger, #f44336);
   border-left: 4px solid var(--toast-border);
 }
 
@@ -161,20 +161,25 @@
 
 .demo-buttons button {
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
   background: white;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .demo-buttons button:hover {
-  background: #f5f5f5;
+  background: var(--ds-surface-2, #f5f5f5);
 }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

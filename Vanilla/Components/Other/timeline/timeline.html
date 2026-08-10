@@ -9,7 +9,7 @@
   content: '';
   position: absolute;
   width: 6px;
-  background-color: #4a90e2;
+  background-color: var(--ds-accent, #4a90e2);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -34,7 +34,7 @@
   height: 25px;
   right: -17px;
   background-color: white;
-  border: 4px solid #4a90e2;
+  border: 4px solid var(--ds-accent, #4a90e2);
   top: 15px;
   border-radius: 50%;
   z-index: 1;
@@ -46,11 +46,16 @@
   padding: 20px 30px;
   background-color: white;
   position: relative;
-  border-radius: 6px;
+  border-radius: var(--ds-radius-md, 6px);
 }
 
 /* devsnips-qa:quality-bar */
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 <div class="timeline">
   <div class="timeline-container left">

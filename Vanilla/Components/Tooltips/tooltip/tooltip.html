@@ -5,11 +5,11 @@
 <style>
 .tooltip-btn {
   position: relative;
-  background: #6a5af9;
-  color: #fff;
+  background: var(--ds-accent, #6a5af9);
+  color: var(--ds-surface, #fff);
   border: none;
   padding: 0.7em 1.5em;
-  border-radius: 6px;
+  border-radius: var(--ds-radius-md, 6px);
   cursor: pointer;
   font-size: 1em;
 }
@@ -17,10 +17,10 @@
   visibility: hidden;
   opacity: 0;
   width: 140px;
-  background: #222;
-  color: #fff;
+  background: var(--ds-foreground, #222);
+  color: var(--ds-surface, #fff);
   text-align: center;
-  border-radius: 6px;
+  border-radius: var(--ds-radius-md, 6px);
   padding: 0.5em 0.7em;
   position: absolute;
   z-index: 1;
@@ -44,5 +44,10 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>

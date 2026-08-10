@@ -66,6 +66,13 @@ This works because the `<script>` parses inside the root. Panel animation uses t
 - NO React/Vue/Alpine/Bootstrap/jQuery.
 - 2-space indentation. Semantic HTML. Accessibility required (ARIA, keyboard, focus rings).
 
+## Vanilla design tokens — "Swiss" (neo-minimal, industry-standard)
+A single canonical token system makes the 201 legacy components speak one visual language. Source of truth: `Vanilla/Components/tokens.css` + `Vanilla/Components/DESIGN_TOKENS.md`.
+- **Token vocabulary** (`--ds-*`): neutrals (stone ramp), one accent (blue-600), semantic status (WCAG AA), typography (system stack + size/weight/leading ramps), spacing (base-4, Tailwind-aligned), radius (sm/md/lg/xl/full), shadow (restrained, Swiss — not the brutalist offset), motion, layout. Light + dark via `prefers-color-scheme`.
+- **Components opt in** with `var(--ds-<token>, <original-value>)` — the original value is the fallback, so a component is **copy-paste standalone** AND renders identically until `tokens.css` is themed. Including `tokens.css` once upgrades every component together (re-theme by editing one file). This is the shadcn model (CSS variables + per-theme override).
+- **Migration** (`_gen/migrate_tokens.py`, deterministic + idempotent): replaces ad-hoc hex/radius/shadow/font values with `var(--ds-*, fallback)`, injects a compact `:root{--ds-*}` defaults block into each component's `<style>`. Result: **201/201 legacy components tokenized (was 1.5%), 654 `var(--ds-*)` references, only 56 genuinely raw hex remaining** (component-specific gradient/decorative colors). The 65 neo-brutalist migrated sections keep their own `--bg`/`--surface`/`--radius` system (a deliberate, already-cohesive design language) and are NOT touched.
+- **Conformance** (`scripts/qa_vanilla.py --tokens`): reports adoption — counts `var(--ds-*)` references vs raw hex (excluding fallbacks + token definitions) per component; lists the top offenders. Advisory (always exits 0).
+
 ## Vanilla quality bar (enforced)
 `scripts/qa_vanilla.py` scans every Vanilla component against an enforceable quality bar and is wired into `scripts/validate.py` (a required-check failure fails validation, exit 1). Run standalone for the full report (`--only-failures` for just failures; `--json` for machine-readable).
 - **reduced-motion** (required on animated components): every component with `transition`/`animation`/`@keyframes` must guard them with a `@media (prefers-reduced-motion: reduce)` rule. `_gen/fix_quality_bar.py` injects a global guard idempotently (marker `/* devsnips-qa:quality-bar */`).

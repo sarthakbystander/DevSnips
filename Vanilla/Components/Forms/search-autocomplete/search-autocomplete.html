@@ -69,16 +69,16 @@
 .search-input {
   width: 100%;
   padding: 0.75rem 3rem 0.75rem 1rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-md, 8px);
   font-size: 1rem;
   transition: border-color 0.3s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #4a90e2;
-  border-radius: 8px 8px 0 0;
+  border-color: var(--ds-accent, #4a90e2);
+  border-radius: var(--ds-radius-md, 8px) 8px 0 0;
 }
 
 .search-button {
@@ -89,13 +89,13 @@
   padding: 0.5rem;
   border: none;
   background: none;
-  color: #666;
+  color: var(--ds-muted, #666);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .search-button:hover {
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .search-suggestions {
@@ -107,10 +107,10 @@
   padding: 0;
   list-style: none;
   background: white;
-  border: 2px solid #4a90e2;
+  border: 2px solid var(--ds-accent, #4a90e2);
   border-top: none;
   border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--ds-shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
   z-index: 1000;
 }
 
@@ -129,14 +129,14 @@
 
 .suggestion-button:hover,
 .suggestion-button:focus {
-  background-color: #f5f5f5;
+  background-color: var(--ds-surface-2, #f5f5f5);
 }
 
 /* Focus styles */
 .search-button:focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid var(--ds-accent, #4a90e2);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
 }
 
 /* Mobile optimization */
@@ -152,6 +152,11 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

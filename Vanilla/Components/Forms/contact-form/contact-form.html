@@ -106,14 +106,14 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--ds-surface, #fff);
+  border-radius: var(--ds-radius-md, 8px);
+  box-shadow: var(--ds-shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .contact-form h2 {
   margin: 0 0 1.5rem;
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .form-grid {
@@ -135,15 +135,15 @@
 
 label {
   font-weight: 500;
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 input,
 select,
 textarea {
   padding: 0.75rem;
-  border: 2px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
   font-size: 1rem;
   transition: all 0.3s;
   width: 100%;
@@ -176,7 +176,7 @@ input[type="checkbox"] {
 
 .error-message {
   font-size: 0.875rem;
-  color: #f44336;
+  color: var(--ds-danger, #f44336);
   min-height: 1.25rem;
 }
 
@@ -185,8 +185,8 @@ input[type="checkbox"] {
   width: 100%;
   padding: 0.875rem;
   border: none;
-  border-radius: 4px;
-  background: #4a90e2;
+  border-radius: var(--ds-radius-sm, 4px);
+  background: var(--ds-accent, #4a90e2);
   color: white;
   font-size: 1rem;
   font-weight: 500;
@@ -195,11 +195,11 @@ input[type="checkbox"] {
 }
 
 .submit-button:hover:not(:disabled) {
-  background: #357abd;
+  background: var(--ds-accent, #357abd);
 }
 
 .submit-button:disabled {
-  background: #ddd;
+  background: var(--ds-border, #ddd);
   cursor: not-allowed;
 }
 
@@ -211,7 +211,7 @@ input[type="checkbox"] {
   height: 20px;
   margin-top: -10px;
   margin-left: -10px;
-  border: 2px solid #fff;
+  border: 2px solid var(--ds-surface, #fff);
   border-radius: 50%;
   border-top-color: transparent;
   animation: spin 0.6s linear infinite;
@@ -220,18 +220,18 @@ input[type="checkbox"] {
 .form-message {
   margin-top: 1rem;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
   text-align: center;
 }
 
 .form-message.success {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: var(--ds-success-soft, #e8f5e9);
+  color: var(--ds-success, #2e7d32);
 }
 
 .form-message.error {
-  background: #ffebee;
-  color: #c62828;
+  background: var(--ds-danger-soft, #ffebee);
+  color: var(--ds-danger, #c62828);
 }
 
 @keyframes spin {
@@ -243,7 +243,7 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #4a90e2;
+  border-color: var(--ds-accent, #4a90e2);
   box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
 }
 
@@ -267,7 +267,12 @@ textarea:focus {
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

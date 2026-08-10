@@ -31,8 +31,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: var(--ds-surface, #fff);
+  box-shadow: var(--ds-shadow-md, 0 2px 5px rgba(0,0,0,0.1));
 }
 
 .nav-toggle {
@@ -49,7 +49,7 @@
 .nav-toggle-label span {
   width: 25px;
   height: 2px;
-  background: #333;
+  background: var(--ds-foreground, #333);
   transition: 0.3s;
 }
 
@@ -72,7 +72,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: #fff;
+    background: var(--ds-surface, #fff);
     flex-direction: column;
     padding: 1rem;
     text-align: center;
@@ -85,5 +85,10 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>

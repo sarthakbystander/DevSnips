@@ -204,11 +204,85 @@ def checks(c):
     return out
 
 
+# ---- Token conformance (var(--ds-*) adoption) ----
+DS_VAR = re.compile(r"var\(--ds-")
+HEX = re.compile(r"#[0-9a-fA-F]{3,8}\b")
+# a hex inside a var(--ds-*, HERE) fallback is not raw usage
+HEX_IN_FALLBACK = re.compile(r"var\(--ds-[^)]*?#\s*[0-9a-fA-F]{3,8}")
+# a hex on the RHS of a --ds-* definition inside :root{} is not usage either
+DS_DEF_BLOCK = re.compile(
+    r":root\s*\{[^}]*?--ds-[^}]*\}", re.DOTALL)
+SECTION_MARKERS = ("prefers-color-scheme", "--bg", "--radius")
+
+
+def _raw_hex_count(html: str) -> int:
+    """Count hex colors used as raw values (not var() fallbacks, not token
+    definitions in :root)."""
+    # strip the :root{--ds-*} definition blocks so token defs don't count
+    cleaned = DS_DEF_BLOCK.sub("", html)
+    total = len(HEX.findall(cleaned))
+    in_fb = len(HEX_IN_FALLBACK.findall(cleaned))
+    return max(0, total - in_fb)
+
+
+def token_conformance():
+    """Report design-token adoption across Vanilla components.
+
+    Measures how many components reference --ds-* tokens vs how many still
+    hardcode raw values. Non-fatal (advisory): exits 0 always. The migrated
+    neo-brutalist sections keep their own --bg/--surface system and are
+    counted separately.
+    """
+    rows = []
+    for mf in sorted(COMP.rglob("metadata.json")):
+        leaf = mf.parent
+        html = next((f.read_text(encoding="utf-8", errors="ignore")
+                     for f in leaf.iterdir() if f.suffix == ".html"), "")
+        if not html:
+            continue
+        is_section = all(m in html for m in SECTION_MARKERS)
+        ds_uses = len(DS_VAR.findall(html))
+        raw_hex = _raw_hex_count(html)
+        rows.append((leaf, is_section, ds_uses, raw_hex))
+
+    sections = [r for r in rows if r[1]]
+    legacy = [r for r in rows if not r[1]]
+    tok_components = sum(1 for _, _, d, _ in legacy if d > 0)
+    print("Vanilla token-conformance report")
+    print("  components scanned: %d" % len(rows))
+    print("  neo-brutalist sections (own token system): %d" % len(sections))
+    print("  legacy components: %d" % len(legacy))
+    print("    using --ds-* tokens: %d / %d (%.0f%%)" % (
+        tok_components, len(legacy),
+        100 * tok_components / max(1, len(legacy))))
+    total_ds = sum(d for _, _, d, _ in legacy)
+    total_raw = sum(r for _, _, _, r in legacy)
+    print("    total var(--ds-*) references: %d" % total_ds)
+    print("    total raw hex remaining (excl. fallbacks + token defs): %d" % total_raw)
+    # worst offenders (most raw hex, fewest tokens)
+    worst = sorted([r for r in legacy if r[3] > 0],
+                   key=lambda x: -x[3])[:10]
+    if worst:
+        print("  top 10 components by remaining raw hex:")
+        for leaf, _, ds, raw in worst:
+            print("    %4d raw  %3d tok  %s" % (
+                raw, ds, str(leaf).replace(str(ROOT) + "/", "")))
+    sys.exit(0)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--only-failures", action="store_true")
+    ap.add_argument("--tokens", action="store_true",
+                    help="report design-token (--ds-*) adoption instead of "
+                         "the quality bar; always exits 0 (advisory)")
+
     args = ap.parse_args()
+
+    if args.tokens:
+        token_conformance()
+        return
 
     results = []
     for mf in sorted(COMP.rglob("metadata.json")):

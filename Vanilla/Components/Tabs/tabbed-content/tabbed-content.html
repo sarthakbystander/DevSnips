@@ -48,7 +48,7 @@
 .tab-list {
   display: flex;
   gap: 0.5rem;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--ds-border, #ddd);
   margin-bottom: 1rem;
 }
 
@@ -64,8 +64,8 @@
 }
 
 .tab-button[aria-selected="true"] {
-  border-bottom-color: #4a90e2;
-  color: #4a90e2;
+  border-bottom-color: var(--ds-accent, #4a90e2);
+  color: var(--ds-accent, #4a90e2);
 }
 
 .tab-panel {
@@ -74,7 +74,7 @@
 
 /* Focus styles for accessibility */
 .tab-button:focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid var(--ds-accent, #4a90e2);
   outline-offset: -2px;
 }
 
@@ -89,29 +89,34 @@
   .tab-button {
     width: 100%;
     text-align: left;
-    border: 1px solid #ddd;
+    border: 1px solid var(--ds-border, #ddd);
     border-bottom: none;
     margin: 0;
   }
 
   .tab-button:last-child {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--ds-border, #ddd);
   }
 
   .tab-button[aria-selected="true"] {
-    background: #4a90e2;
+    background: var(--ds-accent, #4a90e2);
     color: white;
-    border-color: #4a90e2;
+    border-color: var(--ds-accent, #4a90e2);
   }
 
   .tab-panel {
-    border: 1px solid #ddd;
+    border: 1px solid var(--ds-border, #ddd);
     margin-top: 1rem;
   }
 }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

@@ -57,9 +57,9 @@
 .upload-area {
   position: relative;
   padding: 2rem;
-  border: 2px dashed #ddd;
-  border-radius: 8px;
-  background: #fff;
+  border: 2px dashed var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-md, 8px);
+  background: var(--ds-surface, #fff);
   transition: all 0.3s;
   text-align: center;
   cursor: pointer;
@@ -67,12 +67,12 @@
 
 .upload-area:hover,
 .upload-area:focus {
-  border-color: #4a90e2;
-  background: #f8f9fa;
+  border-color: var(--ds-accent, #4a90e2);
+  background: var(--ds-surface-2, #f8f9fa);
 }
 
 .upload-area.drag-over {
-  border-color: #4a90e2;
+  border-color: var(--ds-accent, #4a90e2);
   background: #e3f2fd;
 }
 
@@ -84,18 +84,18 @@
 }
 
 .upload-message {
-  color: #666;
+  color: var(--ds-muted, #666);
 }
 
 .upload-message svg {
   margin-bottom: 1rem;
-  color: #999;
+  color: var(--ds-subtle, #999);
 }
 
 .upload-message h3 {
   margin: 0 0 0.5rem;
   font-size: 1.25rem;
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .upload-message p {
@@ -103,14 +103,14 @@
 }
 
 .browse-text {
-  color: #4a90e2;
+  color: var(--ds-accent, #4a90e2);
   text-decoration: underline;
 }
 
 .file-types {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  color: #999;
+  color: var(--ds-subtle, #999);
 }
 
 .upload-progress {
@@ -136,13 +136,13 @@
 
 .progress-background {
   fill: none;
-  stroke: #eee;
+  stroke: var(--ds-surface-3, #eee);
   stroke-width: 8;
 }
 
 .progress-bar {
   fill: none;
-  stroke: #4a90e2;
+  stroke: var(--ds-accent, #4a90e2);
   stroke-width: 8;
   stroke-linecap: round;
   stroke-dasharray: 283;
@@ -157,13 +157,13 @@
   transform: translate(-50%, -50%);
   font-size: 1.25rem;
   font-weight: 500;
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .progress-status {
   margin: 0;
   font-weight: 500;
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .file-list {
@@ -178,8 +178,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem;
-  background: #f8f9fa;
-  border-radius: 4px;
+  background: var(--ds-surface-2, #f8f9fa);
+  border-radius: var(--ds-radius-sm, 4px);
   animation: slideIn 0.3s ease-out;
 }
 
@@ -190,9 +190,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  border-radius: 4px;
-  color: #666;
+  background: var(--ds-surface, #fff);
+  border-radius: var(--ds-radius-sm, 4px);
+  color: var(--ds-muted, #666);
 }
 
 .file-info {
@@ -203,7 +203,7 @@
 .file-name {
   margin: 0 0 0.25rem;
   font-weight: 500;
-  color: #333;
+  color: var(--ds-foreground, #333);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -212,7 +212,7 @@
 .file-size {
   margin: 0;
   font-size: 0.875rem;
-  color: #666;
+  color: var(--ds-muted, #666);
 }
 
 .file-remove {
@@ -220,13 +220,13 @@
   padding: 0.5rem;
   border: none;
   background: none;
-  color: #666;
+  color: var(--ds-muted, #666);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .file-remove:hover {
-  color: #f44336;
+  color: var(--ds-danger, #f44336);
 }
 
 @keyframes slideIn {
@@ -243,14 +243,14 @@
 /* Focus styles */
 .upload-area:focus-visible {
   outline: none;
-  border-color: #4a90e2;
+  border-color: var(--ds-accent, #4a90e2);
   box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
 
 .file-remove:focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid var(--ds-accent, #4a90e2);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
 }
 
 /* Mobile optimization */
@@ -271,6 +271,11 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

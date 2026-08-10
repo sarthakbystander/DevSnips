@@ -13,25 +13,30 @@
   left: 0;
   height: 2px;
   width: 100%;
-  background: #eee;
+  background: var(--ds-surface-3, #eee);
   z-index: -1;
 }
 .step {
   width: 30px;
   height: 30px;
-  background: #eee;
+  background: var(--ds-surface-3, #eee);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .step.active {
-  background: #4a90e2;
+  background: var(--ds-accent, #4a90e2);
   color: white;
 }
 
 /* devsnips-qa:quality-bar */
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 <div class="progress-steps" role="list" aria-label="Progress steps">
   <div class="step active">1</div>

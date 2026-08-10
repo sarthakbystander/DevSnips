@@ -20,12 +20,12 @@
   width: 300px;
   height: 180px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-md, 8px);
   box-shadow: 0 2px 8px #0002;
 }
 button.prev, button.next {
-  background: #6366f1;
-  color: #fff;
+  background: var(--ds-accent, #6366f1);
+  color: var(--ds-surface, #fff);
   border: none;
   border-radius: 50%;
   width: 2.5em;
@@ -35,7 +35,12 @@ button.prev, button.next {
 }
 
 /* devsnips-qa:quality-bar */
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

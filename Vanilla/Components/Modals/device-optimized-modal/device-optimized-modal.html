@@ -70,8 +70,8 @@
   width: 100%;
   max-width: 500px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--ds-radius-md, 8px);
+  box-shadow: var(--ds-shadow-lg, 0 4px 12px rgba(0, 0, 0, 0.15));
   animation: slideIn 0.3s;
 }
 
@@ -80,7 +80,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--ds-surface-3, #eee);
 }
 
 .modal-title {
@@ -92,13 +92,13 @@
   padding: 0.5rem;
   border: none;
   background: none;
-  color: #666;
+  color: var(--ds-muted, #666);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .modal-close:hover {
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .modal-body {
@@ -112,30 +112,30 @@
   justify-content: flex-end;
   gap: 0.5rem;
   padding: 1rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--ds-surface-3, #eee);
 }
 
 .modal-button {
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ds-border, #ddd);
   background: white;
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .modal-button.primary {
-  background: #4a90e2;
-  border-color: #4a90e2;
+  background: var(--ds-accent, #4a90e2);
+  border-color: var(--ds-accent, #4a90e2);
   color: white;
 }
 
 .modal-button:hover {
-  background: #f5f5f5;
+  background: var(--ds-surface-2, #f5f5f5);
 }
 
 .modal-button.primary:hover {
-  background: #357abd;
+  background: var(--ds-accent, #357abd);
 }
 
 @keyframes fadeIn {
@@ -157,7 +157,7 @@
 /* Focus styles for accessibility */
 .modal-close:focus-visible,
 .modal-button:focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid var(--ds-accent, #4a90e2);
   outline-offset: 2px;
 }
 
@@ -177,6 +177,11 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

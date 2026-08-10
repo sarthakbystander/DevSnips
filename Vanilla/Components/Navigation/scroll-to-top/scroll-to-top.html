@@ -1,5 +1,5 @@
 <!-- Scroll to Top Button -->
-<button id="scrollTopBtn" style="display:none;position:fixed;bottom:2em;right:2em;background:#6366f1;color:#fff;border:none;border-radius:50%;width:2.5em;height:2.5em;font-size:1.5em;cursor:pointer;z-index:1000;">&#8679;</button>
+<button id="scrollTopBtn" style="display:none;position:fixed;bottom:2em;right:2em;background:var(--ds-accent, #6366f1);color:var(--ds-surface, #fff);border:none;border-radius:50%;width:2.5em;height:2.5em;font-size:1.5em;cursor:pointer;z-index:1000;">&#8679;</button>
 
 <script>
 const scrollBtn = document.getElementById('scrollTopBtn');
@@ -12,5 +12,10 @@ scrollBtn.onclick = () => {
 </script>
 <style>
 /* devsnips-qa:quality-bar */
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>

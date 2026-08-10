@@ -24,15 +24,15 @@
 
 <style>
 :root {
-  --color-text: #333;
-  --color-bg: #fff;
-  --color-primary: #4a90e2;
+  --color-text: var(--ds-foreground, #333);
+  --color-bg: var(--ds-surface, #fff);
+  --color-primary: var(--ds-accent, #4a90e2);
   --transition-speed: 0.3s;
 }
 
 [data-theme="dark"] {
-  --color-text: #fff;
-  --color-bg: #1a1a1a;
+  --color-text: var(--ds-surface, #fff);
+  --color-bg: var(--ds-foreground, #1a1a1a);
   --color-primary: #66b1ff;
 }
 

@@ -12,18 +12,18 @@
 .floating-label-group input {
   width: 100%;
   padding: 1em 0.5em 0.5em 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid var(--ds-border-strong, #ccc);
+  border-radius: var(--ds-radius-md, 6px);
   outline: none;
   font-size: 1em;
-  background: #fff;
+  background: var(--ds-surface, #fff);
 }
 .floating-label-group label {
   position: absolute;
   left: 0.6em;
   top: 1.1em;
-  color: #888;
-  background: #fff;
+  color: var(--ds-subtle, #888);
+  background: var(--ds-surface, #fff);
   padding: 0 0.2em;
   pointer-events: none;
   transition: 0.2s;
@@ -34,7 +34,7 @@
   top: -0.7em;
   left: 0.4em;
   font-size: 0.85em;
-  color: #6a5af9;
+  color: var(--ds-accent, #6a5af9);
 }
 @media (max-width: 500px) {
   .floating-label-group {
@@ -44,5 +44,10 @@
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>

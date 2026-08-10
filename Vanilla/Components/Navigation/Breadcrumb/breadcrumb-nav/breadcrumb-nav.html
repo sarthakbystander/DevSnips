@@ -52,7 +52,7 @@
 .breadcrumbs {
   background: #f8f8f8;
   padding: 0.75rem;
-  border-radius: 4px;
+  border-radius: var(--ds-radius-sm, 4px);
   margin: 1rem 0;
 }
 
@@ -63,7 +63,7 @@
   padding: 0.25rem;
   margin: -0.25rem;
   cursor: pointer;
-  color: #666;
+  color: var(--ds-muted, #666);
 }
 
 .breadcrumbs-list {
@@ -83,24 +83,24 @@
 .breadcrumb-item:not(:last-child)::after {
   content: "/";
   margin-left: 0.5rem;
-  color: #999;
+  color: var(--ds-subtle, #999);
 }
 
 .breadcrumb-item a {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: #666;
+  color: var(--ds-muted, #666);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .breadcrumb-item a:hover {
-  color: #333;
+  color: var(--ds-foreground, #333);
 }
 
 .breadcrumb-item a[aria-current="page"] {
-  color: #333;
+  color: var(--ds-foreground, #333);
   font-weight: 500;
   pointer-events: none;
 }
@@ -157,13 +157,18 @@
 /* Focus styles */
 .breadcrumbs-toggle:focus-visible,
 .breadcrumb-item a:focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid var(--ds-accent, #4a90e2);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>

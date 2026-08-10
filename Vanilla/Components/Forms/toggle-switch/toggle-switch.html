@@ -19,8 +19,8 @@
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #ccc;
-  border-radius: 28px;
+  background: var(--ds-border-strong, #ccc);
+  border-radius: var(--ds-radius-2xl, 28px);
   transition: background 0.3s;
 }
 .slider:before {
@@ -30,13 +30,13 @@
   width: 22px;
   left: 3px;
   bottom: 3px;
-  background: #fff;
+  background: var(--ds-surface, #fff);
   border-radius: 50%;
   transition: transform 0.3s;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 input:checked + .slider {
-  background: #6a5af9;
+  background: var(--ds-accent, #6a5af9);
 }
 input:checked + .slider:before {
   transform: translateX(20px);
@@ -56,5 +56,10 @@ input:checked + .slider:before {
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>

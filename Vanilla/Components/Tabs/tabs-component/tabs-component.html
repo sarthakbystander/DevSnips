@@ -18,7 +18,7 @@
 .tab {
   flex: 1;
   padding: 0.75em;
-  background: #f4f4f5;
+  background: var(--ds-surface-3, #f4f4f5);
   border: none;
   cursor: pointer;
   font-size: 1em;
@@ -26,15 +26,20 @@
   transition: background 0.2s, border-color 0.2s;
 }
 .tab.active {
-  background: #6366f1;
-  color: #fff;
+  background: var(--ds-accent, #6366f1);
+  color: var(--ds-surface, #fff);
   border-bottom: 2px solid #4338ca;
 }
-.tab-body { display: none; padding: 1em; background: #fff; border-radius: 0 0 8px 8px; }
+.tab-body { display: none; padding: 1em; background: var(--ds-surface, #fff); border-radius: 0 0 8px 8px; }
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
-:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+/* DevSnips design tokens (Swiss) — override by editing tokens.css */
+:root{
+--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-border:#e5e5e5;--ds-accent:#2563eb;--ds-accent-fg:#fff;--ds-radius-sm:4px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-shadow-sm:0 1px 2px rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08);--ds-font-sans:system-ui,sans-serif;
+}
 </style>
 
 <script>
