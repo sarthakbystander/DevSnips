@@ -151,12 +151,45 @@ def main():
     check_architecture()
     check_metadata_validity()
     check_index_vs_disk()
+    # Quality-bar scan (Vanilla components). Non-fatal warnings are fine; only
+    # required-check failures fail validation, so the bar is enforced in CI.
+    qa_failures = _run_qa()
     if problems:
         print("VALIDATION FAILED - %d problem(s):" % len(problems))
         for p in problems:
             print("  x %s" % p)
         sys.exit(1)
+    if qa_failures:
+        sys.exit(1)
     print("VALIDATION PASSED - architecture, metadata, and index all consistent.")
+
+
+def _run_qa():
+    """Run the Vanilla quality-bar scanner; return required-failure count.
+
+    Only surfaces the summary line and any FAIL rows (warns are non-fatal and
+    not printed to keep validation output readable).
+    """
+    import subprocess
+    qa = ROOT / "scripts" / "qa_vanilla.py"
+    if not qa.exists():
+        return 0
+    r = subprocess.run(
+        [sys.executable, str(qa), "--only-failures"],
+        capture_output=True, text=True)
+    out = (r.stdout + r.stderr).splitlines()
+    for line in out:
+        s = line.strip()
+        if not s:
+            continue
+        if s.startswith("Vanilla quality-bar scan") or \
+                s.startswith("scanned:") or s.startswith("failing") or \
+                s.startswith("required"):
+            print("  qa: " + s)
+            continue
+        if s.startswith("FAIL"):
+            print("  qa: " + s)
+    return 1 if r.returncode != 0 else 0
 
 
 if __name__ == "__main__":
