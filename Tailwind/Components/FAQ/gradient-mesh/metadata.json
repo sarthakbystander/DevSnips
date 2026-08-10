@@ -1,0 +1,39 @@
+{
+  "id": "faq-gradient-mesh",
+  "slug": "faq-gradient-mesh",
+  "name": "SaaS FAQ \u2014 Gradient Mesh",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "faq",
+  "section": "SaaS FAQ",
+  "style": "gradient-mesh",
+  "description": "Gradient Mesh FAQ layout: Saas feature faq grid.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "faq",
+    "accordion",
+    "questions",
+    "gradient-mesh"
+  ],
+  "features": [
+    "SaaS feature FAQ grid",
+    "3-column cards",
+    "iconized categories",
+    "disclosure answers",
+    "responsive collapse"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

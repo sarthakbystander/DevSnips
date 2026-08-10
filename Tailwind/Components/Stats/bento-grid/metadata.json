@@ -1,0 +1,40 @@
+{
+  "id": "stats-bento-grid",
+  "slug": "stats-bento-grid",
+  "name": "KPI Cards \u2014 Bento Grid",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "stats",
+  "section": "KPI Cards",
+  "style": "bento-grid",
+  "description": "Bento Grid stats layout: 4 kpi cards.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "stats",
+    "metrics",
+    "kpi",
+    "numbers",
+    "bento-grid"
+  ],
+  "features": [
+    "4 KPI cards",
+    "delta indicators",
+    "iconified",
+    "hover lift",
+    "responsive 1/2/4-col"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

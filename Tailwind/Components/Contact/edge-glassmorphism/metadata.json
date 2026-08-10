@@ -1,0 +1,39 @@
+{
+  "id": "contact-edge-glassmorphism",
+  "slug": "contact-edge-glassmorphism",
+  "name": "Centered Contact \u2014 Edge Glassmorphism",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "contact",
+  "section": "Centered Contact",
+  "style": "edge-glassmorphism",
+  "description": "Edge Glassmorphism contact layout: Centered hero form.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "contact",
+    "form",
+    "get-in-touch",
+    "edge-glassmorphism"
+  ],
+  "features": [
+    "centered hero form",
+    "single email field",
+    "direct email fallback",
+    "max-width panel",
+    "submit CTA"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

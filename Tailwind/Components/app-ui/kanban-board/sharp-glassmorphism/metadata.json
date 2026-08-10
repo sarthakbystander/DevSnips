@@ -1,0 +1,27 @@
+{
+  "name": "Kanban Board — Sharp Glassmorphism",
+  "slug": "kanban-board-sharp-glassmorphism",
+  "category": "Components",
+  "subcategory": "app-ui",
+  "section": "kanban-board",
+  "style": "sharp-glassmorphism",
+  "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": ["kanban", "board", "glassmorphism", "glass", "drag-and-drop", "task-board", "app-ui", "project-management", "gradient", "vibrant"],
+  "features": [
+    "backdrop-blur glass columns",
+    "animated gradient mesh backdrop",
+    "luminous top-edge highlights",
+    "glowing cyan status dots",
+    "gradient priority chips",
+    "HTML5 drag-and-drop between columns",
+    "live-updating count chips",
+    "keyboard-focusable draggable cards"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Sora, JetBrains Mono"
+  ]
+}

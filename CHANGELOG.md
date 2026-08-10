@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-08-10 (architecture migration)
+
+### Changed — Components + Templates architecture
+- **Consolidated the repository to two content types per technology.** Each of `Tailwind/`, `Vanilla/`, and `React/` now contains only `Components/` and `Templates/`. Created `React/Components/` and `React/Templates/` (currently empty, reserved for future content).
+- **Merged all Sections into Components.** Every former `Tailwind/Sections/` family (165 fifteen-style components across 11 categories, 33 multi-concept components across ai-product/app-ui/developer/marketing/premium-visual, and 18 SaaS components) moved to `Tailwind/Components/`. Every former `Vanilla/Sections/` Neo-Brutalist family (65 sections across 16 families) moved to `Vanilla/Components/`. Section metadata `category` updated `sections`/`Sections` → `components`/`Components`; IDs, slugs, names, and descriptions preserved.
+- **Merged `Vanilla/Sections/Navigation/` into `Vanilla/Components/Navigation/`** (4 variants folded into the existing 24, now 28 variants).
+- **Removed the standalone `Vanilla/Utilities/` (76 snippets) and `Vanilla/Resources/` (67 JS helpers) collections.** No existing component depended on them; no broken references remain.
+- **Removed empty reserved dirs** `Tailwind/Sections/`, `Tailwind/Utilities/`, `Tailwind/Pages/`, `Vanilla/Tools/`.
+- **Moved `Tailwind/Sections/STYLE_TOKENS.md`** to `Tailwind/Components/STYLE_TOKENS.md` (design-token reference for the section-style components).
+- **Updated `_gen/` generator** (`generate.py`, `update_index.py`) to emit section-style components into `Tailwind/Components/` with `category: components`, preserving reproducibility.
+- **Added `scripts/validate.py`** and **`_gen/rebuild_index.py`** (regenerates `snippets-index.json` from the filesystem, preserving curated family metadata by path match and cross-validating indexed == on-disk).
+- **Regenerated `snippets-index.json`** from the migrated filesystem: **106 families, 846 variants** (Tailwind 59 families / 535 variants [526 Components + 9 Templates]; Vanilla 47 families / 311 variants [297 Components + 14 Templates]). Index matches disk exactly (0 mismatches).
+- **Updated docs**: README.md, CONTRIBUTING.md, COMPONENT_STRUCTURE.md describe the new Components + Templates architecture and the recalculated counts.
+
+### Notes
+- Two pre-existing duplicate IDs (`feature-grid-neo-brutalism` across marketing/saas; `contact-form-001` across Forms/Contact and Contact) existed before the migration at their old locations and are preserved unchanged per the "preserve existing IDs" rule.
+
 ## 2026-08-10
 
 ### Fixed (repository-wide audit & sync)
@@ -19,7 +36,7 @@
 
 ### Changed
 - Updated `README.md` structure tree and family tables to the on-disk counts (Tailwind Components 267 → 310, Buttons 15 → 58; Vanilla Components 182 → 232) and documented the previously-missing Vanilla Templates (14), Utilities (76), Resources (67), and Tailwind Sections (216) and Templates (8).
-- Corrected a stale `CHANGELOG.md` reference to a non-existent `devsnips/snippets/{html,css,js}-snippets` tree to point at the real `Vanilla/Components/`, `Vanilla/Utilities/`, and `Vanilla/Resources/` locations.
+- Corrected a stale `CHANGELOG.md` reference to a non-existent `devsnips/snippets/{html,css,js}-snippets` tree to point at the real `Vanilla/Components/`, `Vanilla/Utilities/`, and `Vanilla/Resources/` locations. *(These two standalone collections have since been removed in the 2026-08-10 architecture migration — see the entry above.)*
 
 ## 2026-08-05
 

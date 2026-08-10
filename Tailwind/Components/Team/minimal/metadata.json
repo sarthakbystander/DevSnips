@@ -1,0 +1,40 @@
+{
+  "id": "team-minimal",
+  "slug": "team-minimal",
+  "name": "Minimal Profiles \u2014 Minimal",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "team",
+  "section": "Minimal Profiles",
+  "style": "minimal",
+  "description": "Minimal team layout: Minimal profiles.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "team",
+    "people",
+    "about",
+    "profiles",
+    "minimal"
+  ],
+  "features": [
+    "minimal profiles",
+    "inline rows",
+    "avatar + name",
+    "no cards",
+    "responsive 1/2/3-col"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

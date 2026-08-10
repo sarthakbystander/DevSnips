@@ -1,0 +1,27 @@
+{
+  "name": "Prompt Library — Vercel",
+  "slug": "prompt-library-vercel",
+  "category": "Components",
+  "subcategory": "ai-product",
+  "section": "prompt-library",
+  "style": "vercel",
+  "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": ["prompt-library", "prompts", "templates", "vercel", "dark", "copy-clipboard", "filter", "gallery", "ai-product"],
+  "features": [
+    "dark monochrome surfaces",
+    "hairline borders and subtle hover",
+    "single teal accent dot",
+    "category filter chips (Writing/Code/Analysis/Image)",
+    "live search across cards",
+    "copy-to-clipboard with checkmark Copied! state",
+    "empty state for no matches",
+    "keyboard accessible controls"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ]
+}

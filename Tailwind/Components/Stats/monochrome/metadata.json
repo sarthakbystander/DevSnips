@@ -1,0 +1,40 @@
+{
+  "id": "stats-monochrome",
+  "slug": "stats-monochrome",
+  "name": "Spotlight Stats \u2014 Monochrome",
+  "technology": "tailwind",
+  "category": "components",
+  "subcategory": "stats",
+  "section": "Spotlight Stats",
+  "style": "monochrome",
+  "description": "Monochrome stats layout: Spotlight stat cards.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "stats",
+    "metrics",
+    "kpi",
+    "numbers",
+    "monochrome"
+  ],
+  "features": [
+    "spotlight stat cards",
+    "mini progress bars",
+    "6 metrics",
+    "icon + value",
+    "responsive 1/2/3-col"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ]
+}

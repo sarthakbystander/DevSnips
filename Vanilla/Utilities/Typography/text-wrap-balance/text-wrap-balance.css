@@ -1,9 +1,0 @@
-/*
-Snippet Name: Balanced Text Wrapping
-Use Case: To improve the readability and appearance of multi-line headlines or short blocks of text by preventing single "orphan" words on the last line.
-Description: The `text-wrap: balance` property automatically adjusts the text wrapping to create a more visually balanced and symmetrical block of text, making it easier to read. It's best used for headlines, not long paragraphs.
-Cautions: This is a new feature. Check for browser support before using.
-*/
-.balanced-headline {
-  text-wrap: balance;
-}

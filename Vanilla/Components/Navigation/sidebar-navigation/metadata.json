@@ -1,0 +1,42 @@
+{
+  "id": "sidebar-navigation-001",
+  "name": "Sidebar Navigation",
+  "slug": "sidebar-navigation",
+  "component": "navigation",
+  "family": "navigation",
+  "variant": "sidebar-navigation",
+  "description": "App sidebar + content area, collapsible on mobile.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "technology": "vanilla",
+  "category": "components",
+  "subcategory": "navigation",
+  "tags": [
+    "nav",
+    "sidebar",
+    "dashboard"
+  ],
+  "features": [
+    "responsive collapse",
+    "aria-current",
+    "scrim"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic HTML",
+    "ARIA",
+    "keyboard nav",
+    "focus-visible",
+    "reduced-motion"
+  ],
+  "browserSupport": [
+    "chrome",
+    "firefox",
+    "safari",
+    "edge"
+  ],
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}
