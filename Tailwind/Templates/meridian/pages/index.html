@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meridian — incident command for on-call teams. Every alert routed, every incident governed, every on-call calmer. Alert routing, real-time coordination, and postmortems in one platform." />
+  <meta name="theme-color" content="#F5F6F8" />
+  <meta property="og:title" content="Meridian — Incident Command for On-Call Teams" />
+  <meta property="og:description" content="Every alert routed. Every incident governed. Every on-call calmer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../assets/images/og-image.svg" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg" />
+  <title>Meridian — Incident Command for On-Call Teams</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Inter', 'ui-sans-serif', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+          },
+          colors: {
+            canvas: '#F5F6F8',
+            ink: '#0B0D10',
+            surface: '#FFFFFF',
+            panel: '#EDEFF3',
+            panel2: '#E2E5EB',
+            muted: '#5C6470',
+            line: '#0B0D10',
+            amber: '#E8A33C',
+            amberink: '#8C5A12',
+            ok: '#16A34A',
+            alert: '#DC2626'
+          },
+          letterSpacing: { 'tightest': '-0.04em' },
+          maxWidth: { 'sheet': '1280px' }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+
+  <style>
+    :root { color-scheme: light; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { background:#F5F6F8; color:#0B0D10; font-family:'Inter',sans-serif; overflow-x:hidden; }
+    ::selection { background:#E8A33C; color:#0B0D10; }
+
+    .display { font-family:'Space Grotesk',sans-serif; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+
+    /* hairline rule system (Swiss / Neo-Industrial) */
+    .hl { border:1px solid rgba(11,13,16,0.14); }
+    .hl-b { border-bottom:1px solid rgba(11,13,16,0.14); }
+    .hl-t { border-top:1px solid rgba(11,13,16,0.14); }
+    .hl-l { border-left:1px solid rgba(11,13,16,0.14); }
+    .hl-r { border-right:1px solid rgba(11,13,16,0.14); }
+    .hl-strong { border:1px solid #0B0D10; }
+    .hl-strong-b { border-bottom:1px solid #0B0D10; }
+    .hl-strong-t { border-top:1px solid #0B0D10; }
+
+    /* graph-paper blueprint background */
+    .blueprint {
+      background-image:
+        linear-gradient(to right, rgba(11,13,16,0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11,13,16,0.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .blueprint-fine {
+      background-image:
+        linear-gradient(to right, rgba(11,13,16,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11,13,16,0.04) 1px, transparent 1px);
+      background-size: 14px 14px;
+    }
+
+    /* hairline card hover — tonal + border lift, NO offset shadow */
+    .card { transition:border-color .18s ease, background-color .18s ease, transform .18s ease; }
+    .card:hover { border-color:#0B0D10; }
+    .card-press { transition:transform .14s ease, background-color .14s ease; }
+    .card-press:hover { background-color:#EDEFF3; }
+    .card-press:active { transform:translateY(1px); }
+
+    /* link underline grow */
+    .link-underline { background-image:linear-gradient(currentColor,currentColor); background-size:0% 1px; background-position:0 100%; background-repeat:no-repeat; transition:background-size .28s ease; }
+    .link-underline:hover { background-size:100% 1px; }
+    .link-underline-amber { background-image:linear-gradient(#E8A33C,#E8A33C); background-size:0% 2px; background-position:0 100%; background-repeat:no-repeat; transition:background-size .28s ease; }
+    .link-underline-amber:hover { background-size:100% 2px; }
+
+    /* sparkline draw */
+    .spark-path { stroke-dasharray:1000; stroke-dashoffset:1000; animation:draw 2.6s ease forwards .15s; }
+    @keyframes draw { to { stroke-dashoffset:0; } }
+
+    /* pulse dot for live status */
+    .live-dot { box-shadow:0 0 0 0 rgba(220,38,38,0.55); animation:pulse 1.8s infinite; }
+    .live-dot-amber { box-shadow:0 0 0 0 rgba(232,163,60,0.6); animation:pulse-amber 1.8s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(220,38,38,0.5);} 70%{box-shadow:0 0 0 7px rgba(220,38,38,0);} 100%{box-shadow:0 0 0 0 rgba(220,38,38,0);} }
+    @keyframes pulse-amber { 0%{box-shadow:0 0 0 0 rgba(232,163,60,0.55);} 70%{box-shadow:0 0 0 0 rgba(232,163,60,0);} 100%{box-shadow:0 0 0 0 rgba(232,163,60,0);} }
+
+    /* routing edges animated dash */
+    .edge { stroke-dasharray:5 4; animation:flow 1.4s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset:-18; } }
+
+    /* mobile menu */
+    .mobile-menu { max-height:0; overflow:hidden; transition:max-height .38s ease; }
+    .mobile-menu.open { max-height:560px; }
+
+    /* accordion */
+    .acc-panel { display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s ease; }
+    .acc-panel.open { grid-template-rows:1fr; }
+    .acc-chevron { transition:transform .3s ease; }
+    .acc-chevron.open { transform:rotate(180deg); }
+
+    /* marquee */
+    .marquee-track { animation:marquee 32s linear infinite; }
+    @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
+      .spark-path { stroke-dashoffset:0; }
+      .edge { animation:none; }
+      .marquee-track { animation:none; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-canvas">Skip to content</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="sticky top-0 z-50 hl-strong-b bg-canvas/92 backdrop-blur-md">
+    <nav class="mx-auto flex h-16 max-w-sheet items-center justify-between gap-4 px-5 sm:px-8" aria-label="Primary">
+      <a href="#top" class="flex shrink-0 items-center gap-2.5" aria-label="Meridian home">
+        <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" fill="#0B0D10"/><path d="M5 16 L9 9 L12 13 L15 6 L19 16" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="16" r="2.1" fill="#E8A33C" stroke="#0B0D10" stroke-width="1"/></svg>
+        <span class="display text-[17px] font-bold tracking-tight">Meridian</span>
+        <span class="mono ml-1 hidden border hl px-1.5 py-0.5 text-[10px] font-medium text-muted sm:inline">v3.8</span>
+      </a>
+
+      <ul class="hidden items-center gap-7 lg:flex">
+        <li><a href="#platform" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">Platform</a></li>
+        <li><a href="#routing" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">Routing</a></li>
+        <li><a href="#lifecycle" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">Lifecycle</a></li>
+        <li><a href="#outcomes" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">Outcomes</a></li>
+        <li><a href="#pricing" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">Pricing</a></li>
+        <li><a href="#faq" class="mono text-[12.5px] font-medium text-muted transition-colors hover:text-ink">FAQ</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2.5">
+        <a href="#" class="mono hidden text-[12.5px] font-semibold link-underline md:inline">Sign in</a>
+        <a href="#cta" class="card-press hidden border hl-strong bg-surface px-4 py-2 text-[12.5px] font-bold md:inline-block">Book a demo</a>
+        <a href="#cta" class="border hl-strong bg-ink px-4 py-2 text-[12.5px] font-bold text-canvas transition-colors hover:bg-amber hover:text-ink">Start free</a>
+        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center border hl-strong bg-surface lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="menu-open-icon" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="menu-close-icon" viewBox="0 0 24 24" class="hidden h-5 w-5" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu bg-canvas lg:hidden hl-strong-b">
+      <ul class="space-y-0 px-5 py-2">
+        <li><a href="#platform" class="mobile-link mono block hl-b py-3 text-sm font-medium">Platform</a></li>
+        <li><a href="#routing" class="mobile-link mono block hl-b py-3 text-sm font-medium">Routing</a></li>
+        <li><a href="#lifecycle" class="mobile-link mono block hl-b py-3 text-sm font-medium">Lifecycle</a></li>
+        <li><a href="#outcomes" class="mobile-link mono block hl-b py-3 text-sm font-medium">Outcomes</a></li>
+        <li><a href="#pricing" class="mobile-link mono block hl-b py-3 text-sm font-medium">Pricing</a></li>
+        <li><a href="#faq" class="mobile-link mono block hl-b py-3 text-sm font-medium">FAQ</a></li>
+        <li class="pt-3 pb-4"><a href="#" class="mono block border hl-strong bg-surface py-2.5 text-center text-sm font-bold">Sign in</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden hl-strong-b bg-canvas" aria-labelledby="hero-heading">
+      <div class="pointer-events-none absolute inset-0 blueprint opacity-70" aria-hidden="true"></div>
+      <!-- corner registration ticks (industrial) -->
+      <div class="pointer-events-none absolute left-0 top-0 h-10 w-px bg-ink/20" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute left-0 top-0 h-px w-10 bg-ink/20" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute right-0 top-0 h-10 w-px bg-ink/20" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute right-0 top-0 h-px w-10 bg-ink/20" aria-hidden="true"></div>
+
+      <div class="relative mx-auto grid max-w-sheet grid-cols-1 gap-y-12 px-5 pb-12 pt-14 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-20 lg:pt-20">
+        <!-- Left: editorial-technical copy -->
+        <div class="lg:col-span-6 lg:pr-6">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="mono inline-flex items-center gap-2 border hl-strong bg-surface px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide">
+              <span class="h-2 w-2 rounded-full bg-alert live-dot" aria-hidden="true"></span> Series C · $41M raised
+            </span>
+            <span class="mono text-[11px] font-medium text-muted">SOC 2 Type II · HIPAA-eligible</span>
+          </div>
+
+          <h1 id="hero-heading" class="display mt-8 text-[2.8rem] font-bold leading-[0.96] tracking-tightest sm:text-[3.4rem] lg:text-[4.4rem] xl:text-[5rem]">
+            Every alert routed.<br>
+            Every incident
+            <span class="relative inline-block">
+              <span class="relative z-10">governed.</span>
+              <span class="absolute inset-x-0 bottom-1 -z-0 h-[0.32em] bg-amber/45" aria-hidden="true"></span>
+            </span>
+          </h1>
+
+          <p class="mt-7 max-w-xl text-[16.5px] leading-relaxed text-ink/70 sm:text-[17.5px]">
+            Meridian is the incident command platform for on-call teams. Correlate signals, suppress noise, and coordinate response in one auditable system — so the right engineer is paged, every time.
+          </p>
+
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#cta" class="card-press inline-flex items-center justify-center gap-2 border hl-strong bg-ink px-6 py-3.5 text-sm font-bold text-canvas transition-colors hover:bg-amber hover:text-ink">
+              Start free trial
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#platform" class="card-press inline-flex items-center justify-center gap-2 border hl-strong bg-surface px-6 py-3.5 text-sm font-bold">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Watch 3-min tour
+            </a>
+          </div>
+
+          <dl class="mt-10 grid grid-cols-3 gap-0 hl-strong-t max-w-lg">
+            <div class="pr-4">
+              <dt class="mono text-[10px] uppercase tracking-wide text-muted">Noise cut</dt>
+              <dd class="display mt-1 text-xl font-bold tracking-tight sm:text-2xl">−73%</dd>
+            </div>
+            <div class="border-l hl px-4">
+              <dt class="mono text-[10px] uppercase tracking-wide text-muted">MTTA</dt>
+              <dd class="display mt-1 text-xl font-bold tracking-tight sm:text-2xl">2.4m</dd>
+            </div>
+            <div class="border-l hl px-4">
+              <dt class="mono text-[10px] uppercase tracking-wide text-muted">On-call</dt>
+              <dd class="display mt-1 text-xl font-bold tracking-tight sm:text-2xl">calmer</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Right: incident command panel -->
+        <div class="relative lg:col-span-6">
+          <!-- floating mini signal card (desktop enhancement) -->
+          <div class="absolute -left-3 top-24 z-20 hidden w-52 border hl-strong bg-surface shadow-[6px_6px_0_0_rgba(11,13,16,0.06)] lg:block">
+            <div class="flex items-center justify-between hl-strong-b px-3 py-1.5 bg-ink text-canvas">
+              <span class="mono text-[10px] font-bold">SIGNAL · correlated</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-amber live-dot-amber" aria-hidden="true"></span>
+            </div>
+            <div class="p-3">
+              <p class="mono text-[10px] text-muted">checkout-api / p99</p>
+              <p class="display mt-1 text-2xl font-bold">8.4s</p>
+              <p class="mono mt-1 text-[10px] text-alert">▲ +612% baseline</p>
+              <p class="mono mt-2 border hl-t pt-2 text-[10px] text-muted">3 alerts → 1 incident</p>
+            </div>
+          </div>
+
+          <!-- main incident console -->
+          <div class="relative z-10 border hl-strong bg-surface shadow-[10px_10px_0_0_rgba(11,13,16,0.07)]">
+            <!-- console title bar -->
+            <div class="flex items-center justify-between hl-strong-b bg-ink px-4 py-2.5 text-canvas">
+              <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-alert live-dot" aria-hidden="true"></span>
+                <span class="mono text-[11px] font-bold">INC #4471</span>
+                <span class="mono text-[11px] font-medium text-canvas/60">· sev-2 · checkout-api</span>
+              </div>
+              <div class="hidden items-center gap-3 sm:flex">
+                <span class="mono text-[10px] text-canvas/50">uptime 99.94%</span>
+                <span class="mono border hl px-1.5 py-0.5 text-[9px] font-bold text-canvas/70" style="border-color:rgba(245,246,248,0.25)">LIVE</span>
+              </div>
+            </div>
+
+            <!-- body -->
+            <div class="grid grid-cols-1 sm:grid-cols-5">
+              <!-- metric + sparkline -->
+              <div class="sm:col-span-3 hl-strong-r p-4">
+                <div class="flex items-center justify-between">
+                  <p class="mono text-[10px] uppercase tracking-wide text-muted">p99 latency · us-east-1</p>
+                  <span class="mono text-[10px] text-alert">degraded</span>
+                </div>
+                <p class="display mt-3 text-4xl font-bold tracking-tight">8.4<span class="text-2xl text-muted">s</span></p>
+                <p class="mono mt-1 text-[11px] text-alert">▲ +612% over 14-day baseline</p>
+
+                <svg viewBox="0 0 320 90" class="mt-4 h-[72px] w-full" role="img" aria-label="Latency spiking sharply over the last 30 minutes">
+                  <defs>
+                    <linearGradient id="sparkfill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#DC2626" stop-opacity="0.16"/>
+                      <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="72" x2="320" y2="72" stroke="#0B0D10" stroke-opacity="0.1" stroke-width="1"/>
+                  <line x1="0" y1="48" x2="320" y2="48" stroke="#0B0D10" stroke-opacity="0.06" stroke-width="1" stroke-dasharray="3 3"/>
+                  <path d="M0,70 L40,68 L80,66 L120,60 L160,54 L200,40 L240,28 L280,16 L320,8 L320,90 L0,90 Z" fill="url(#sparkfill)"/>
+                  <path class="spark-path" d="M0,70 L40,68 L80,66 L120,60 L160,54 L200,40 L240,28 L280,16 L320,8" fill="none" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="320" cy="8" r="3.5" fill="#DC2626"/>
+                </svg>
+                <p class="mono mt-2 text-[10px] text-muted">00:00 → 30m window · 1m resolution</p>
+              </div>
+
+              <!-- responders + timeline -->
+              <div class="sm:col-span-2 p-4">
+                <p class="mono text-[10px] uppercase tracking-wide text-muted">Responders</p>
+                <ul class="mt-3 space-y-2.5">
+                  <li class="flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                      <span class="grid h-6 w-6 place-items-center border hl-strong bg-amber mono text-[10px] font-bold">RM</span>
+                      <span class="text-[12px] font-semibold">R. Mendez</span>
+                    </span>
+                    <span class="mono text-[10px] text-muted">IC</span>
+                  </li>
+                  <li class="flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                      <span class="grid h-6 w-6 place-items-center border hl-strong bg-panel mono text-[10px] font-bold">AK</span>
+                      <span class="text-[12px] font-semibold">A. Kapoor</span>
+                    </span>
+                    <span class="mono text-[10px] text-muted">sre</span>
+                  </li>
+                  <li class="flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                      <span class="grid h-6 w-6 place-items-center border hl-strong bg-panel mono text-[10px] font-bold">JT</span>
+                      <span class="text-[12px] font-semibold">J. Tran</span>
+                    </span>
+                    <span class="mono text-[10px] text-muted">platform</span>
+                  </li>
+                </ul>
+
+                <p class="mono mt-4 hl-t pt-3 text-[10px] uppercase tracking-wide text-muted">Timeline</p>
+                <ol class="mt-2 space-y-1.5 mono text-[11px]">
+                  <li class="flex gap-2"><span class="text-muted">00:00</span><span class="font-semibold">triggered</span></li>
+                  <li class="flex gap-2"><span class="text-muted">00:42</span><span>ack · auto-correlated 3 → 1</span></li>
+                  <li class="flex gap-2"><span class="text-muted">01:18</span><span>mitigating</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- console footer -->
+            <div class="flex flex-col gap-2 hl-strong-t bg-panel px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+              <div class="flex items-center gap-2 mono text-[11px] text-muted">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4z M8 20h8 M12 16v4"/></svg>
+                runbook · checkout-latency.runbook
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="mono border hl px-2 py-1 text-[10px] font-bold">ack 00:42</span>
+                <span class="mono border hl-strong bg-amber px-2 py-1 text-[10px] font-bold">resolve</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- floating escalation card (desktop enhancement) -->
+          <div class="absolute -right-3 bottom-6 z-20 hidden w-56 border hl-strong bg-surface shadow-[6px_6px_0_0_rgba(11,13,16,0.06)] lg:block">
+            <div class="hl-strong-b px-3 py-1.5">
+              <p class="mono text-[10px] font-bold uppercase tracking-wide">Escalation · stepped</p>
+            </div>
+            <div class="p-3">
+              <ol class="space-y-2 mono text-[10px]">
+                <li class="flex items-center justify-between"><span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 bg-ink"></span>primary · A. Kapoor</span><span class="text-muted">+0m</span></li>
+                <li class="flex items-center justify-between"><span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 bg-amber"></span>secondary · R. Mendez</span><span class="text-muted">+5m</span></li>
+                <li class="flex items-center justify-between"><span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 bg-panel2"></span>manager · D. Okafor</span><span class="text-muted">+15m</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOGOS / TRUST STRIP ===== -->
+    <section class="hl-strong-b bg-canvas" aria-labelledby="trust-heading">
+      <h2 id="trust-heading" class="sr-only">Trusted by on-call engineering teams</h2>
+      <div class="mx-auto max-w-sheet px-5 py-9 sm:px-8">
+        <p class="mono text-center text-[10px] font-bold uppercase tracking-[0.24em] text-muted">On-call teams at companies that ship</p>
+        <div class="relative mt-6 overflow-hidden" style="mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)">
+          <ul class="marquee-track flex w-max items-center gap-12">
+            <!-- group A -->
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Northpath</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">vaultgrid</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Cobalt/</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">Helmwatch</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Tier3</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">quanta labs</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Saltline</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">ORBITAL</li>
+            <!-- group B (duplicate for seamless loop) -->
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Northpath</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">vaultgrid</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Cobalt/</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">Helmwatch</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Tier3</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">quanta labs</li>
+            <li class="mono text-lg font-bold tracking-tight text-ink/45">Saltline</li>
+            <li class="display text-lg font-bold tracking-tight text-ink/45">ORBITAL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PLATFORM / THREE PILLARS ===== -->
+    <section id="platform" class="hl-strong-b bg-canvas" aria-labelledby="platform-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="max-w-2xl">
+          <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 01 — Platform</p>
+          <h2 id="platform-heading" class="display mt-4 text-[2.1rem] font-bold leading-[1.03] tracking-tight sm:text-[2.6rem] lg:text-[3.4rem]">Three systems, one audit trail.</h2>
+          <p class="mt-4 max-w-xl text-[15.5px] leading-relaxed text-ink/70 lg:text-base">Pager noise is a symptom of disconnected tools. Meridian unifies alert routing, incident command, and postmortems — so a signal becomes an action without a human triage queue.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-0 border hl-strong bg-canvas md:grid-cols-3">
+          <!-- Pillar 1: Route -->
+          <article class="card border hl hl-b md:hl-b-0 md:hl-r bg-surface p-7">
+            <div class="flex items-center justify-between">
+              <span class="grid h-11 w-11 place-items-center border hl-strong bg-ink text-canvas">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#E8A33C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12l-3-3 M14 17H6l3 3"/><circle cx="18" cy="7" r="2"/><circle cx="4" cy="17" r="2"/></svg>
+              </span>
+              <span class="mono text-[10px] font-bold text-muted">PILLAR 01</span>
+            </div>
+            <h3 class="display mt-5 text-2xl font-bold tracking-tight">Route</h3>
+            <p class="mt-2 text-[14px] leading-relaxed text-ink/70">Ingest alerts from Datadog, Grafana, PagerDuty, or webhooks. Meridian correlates related signals and suppresses duplicates before anyone is paged.</p>
+            <ul class="mt-5 space-y-2.5 border hl-t pt-4">
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Correlation by service + topology</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Dedupe, group, and silence rules</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> 80+ native integrations</li>
+            </ul>
+          </article>
+
+          <!-- Pillar 2: Respond -->
+          <article class="card border hl hl-b md:hl-b-0 md:hl-r bg-surface p-7">
+            <div class="flex items-center justify-between">
+              <span class="grid h-11 w-11 place-items-center border hl-strong bg-amber">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-7-7 18-2-7-9-4z"/></svg>
+              </span>
+              <span class="mono text-[10px] font-bold text-muted">PILLAR 02</span>
+            </div>
+            <h3 class="display mt-5 text-2xl font-bold tracking-tight">Respond</h3>
+            <p class="mt-2 text-[14px] leading-relaxed text-ink/70">A shared war room for every incident — severity, timeline, responders, and runbook on one screen. Coordinate in Slack or in-app without losing the audit trail.</p>
+            <ul class="mt-5 space-y-2.5 border hl-t pt-4">
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Live timeline + severity model</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Role assignment + paging</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Status pages + stakeholder updates</li>
+            </ul>
+          </article>
+
+          <!-- Pillar 3: Learn -->
+          <article class="card border hl bg-surface p-7">
+            <div class="flex items-center justify-between">
+              <span class="grid h-11 w-11 place-items-center border hl-strong bg-panel">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h12 M4 12h16 M4 18h9"/><circle cx="19" cy="6" r="2"/></svg>
+              </span>
+              <span class="mono text-[10px] font-bold text-muted">PILLAR 03</span>
+            </div>
+            <h3 class="display mt-5 text-2xl font-bold tracking-tight">Learn</h3>
+            <p class="mt-2 text-[14px] leading-relaxed text-ink/70">Every resolved incident becomes a structured postmortem with contributing factors, action items, and follow-ups tracked to completion — not a Google Doc nobody reads.</p>
+            <ul class="mt-5 space-y-2.5 border hl-t pt-4">
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Timeline-first postmortem drafts</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Action items with owners + due dates</li>
+              <li class="flex items-center gap-2.5 mono text-[12px] text-ink/75"><span class="h-1.5 w-1.5 bg-amber" aria-hidden="true"></span> Blameless review analytics</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ALERT ROUTING GRAPH (signature visual) ===== -->
+    <section id="routing" class="hl-strong-b bg-surface" aria-labelledby="routing-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <!-- copy -->
+          <div class="lg:col-span-4">
+            <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 02 — Routing</p>
+            <h2 id="routing-heading" class="display mt-4 text-[2rem] font-bold leading-[1.04] tracking-tight sm:text-[2.6rem]">From raw signal to the right page.</h2>
+            <p class="mt-4 text-[15px] leading-relaxed text-ink/70">A signal enters, gets correlated against your service topology, is evaluated against routing rules, and lands with the on-call owner — in milliseconds, with full context attached.</p>
+            <dl class="mt-7 space-y-0 border hl-strong">
+              <div class="flex items-center justify-between border hl-b px-4 py-3">
+                <dt class="mono text-[11px] uppercase tracking-wide text-muted">p95 evaluate</dt>
+                <dd class="display text-lg font-bold">38<span class="text-sm text-muted">ms</span></dd>
+              </div>
+              <div class="flex items-center justify-between border hl-b px-4 py-3">
+                <dt class="mono text-[11px] uppercase tracking-wide text-muted">noise suppressed</dt>
+                <dd class="display text-lg font-bold">73<span class="text-sm text-muted">%</span></dd>
+              </div>
+              <div class="flex items-center justify-between px-4 py-3">
+                <dt class="mono text-[11px] uppercase tracking-wide text-muted">routes / day</dt>
+                <dd class="display text-lg font-bold">2.1<span class="text-sm text-muted">M</span></dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- graph diagram -->
+          <div class="lg:col-span-8">
+            <div class="border hl-strong bg-canvas">
+              <div class="flex items-center justify-between hl-strong-b bg-ink px-4 py-2 text-canvas">
+                <span class="mono text-[11px] font-bold">ROUTING GRAPH · live</span>
+                <span class="mono text-[10px] text-canvas/55">3 signals · 1 route · eval 38ms</span>
+              </div>
+              <div class="blueprint-fine">
+                <svg viewBox="0 0 720 380" class="w-full" role="img" aria-label="Alert routing graph: three input signals are correlated, evaluated against a routing rule, and routed to the on-call team, which pages the primary responder">
+                  <!-- edges -->
+                  <g fill="none" stroke="#0B0D10" stroke-width="1.5">
+                    <path class="edge" d="M150 70 C210 70 210 140 270 140"/>
+                    <path class="edge" d="M150 140 C210 140 210 150 270 150"/>
+                    <path class="edge" d="M150 210 C210 210 210 160 270 160"/>
+                    <path d="M390 150 C450 150 450 150 510 150" stroke-width="2"/>
+                    <path class="edge" d="M630 150 C660 150 660 95 690 95"/>
+                    <path d="M630 150 C660 150 660 205 690 205" stroke-dasharray="5 4"/>
+                  </g>
+                  <!-- signal nodes -->
+                  <g>
+                    <rect x="30" y="50" width="120" height="40" fill="#FFFFFF" stroke="#0B0D10" stroke-width="1.5"/>
+                    <text x="42" y="68" font-family="JetBrains Mono,monospace" font-size="10" fill="#5C6470">signal</text>
+                    <text x="42" y="82" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="13" fill="#0B0D10">p99 latency</text>
+
+                    <rect x="30" y="120" width="120" height="40" fill="#FFFFFF" stroke="#0B0D10" stroke-width="1.5"/>
+                    <text x="42" y="138" font-family="JetBrains Mono,monospace" font-size="10" fill="#5C6470">signal</text>
+                    <text x="42" y="152" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="13" fill="#0B0D10">5xx rate</text>
+
+                    <rect x="30" y="190" width="120" height="40" fill="#FFFFFF" stroke="#0B0D10" stroke-width="1.5"/>
+                    <text x="42" y="208" font-family="JetBrains Mono,monospace" font-size="10" fill="#5C6470">signal</text>
+                    <text x="42" y="222" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="13" fill="#0B0D10">pod restarts</text>
+                  </g>
+                  <!-- correlate -->
+                  <g>
+                    <rect x="270" y="110" width="120" height="80" fill="#0B0D10"/>
+                    <text x="330" y="142" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#E8A33C" font-weight="700">CORRELATE</text>
+                    <text x="330" y="162" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" fill="#F5F6F8" font-weight="700">checkout-api</text>
+                    <text x="330" y="178" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#F5F6F8" opacity="0.6">3 → 1 incident</text>
+                  </g>
+                  <!-- rule -->
+                  <g>
+                    <rect x="510" y="110" width="120" height="80" fill="#FFFFFF" stroke="#E8A33C" stroke-width="2"/>
+                    <text x="570" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#5C6470" font-weight="700">RULE</text>
+                    <text x="570" y="158" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" fill="#0B0D10" font-weight="700">sev-2 → SRE</text>
+                    <text x="570" y="176" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#8C5A12">owner: platform</text>
+                  </g>
+                  <!-- page / ack -->
+                  <g>
+                    <rect x="612" y="76" width="108" height="38" fill="#0B0D10"/>
+                    <circle cx="628" cy="95" r="4" fill="#E8A33C"/>
+                    <text x="640" y="92" font-family="JetBrains Mono,monospace" font-size="9" fill="#F5F6F8" font-weight="700">PAGE</text>
+                    <text x="640" y="106" font-family="Space Grotesk,sans-serif" font-size="11" fill="#F5F6F8" font-weight="700">A. Kapoor</text>
+
+                    <rect x="612" y="186" width="108" height="38" fill="#FFFFFF" stroke="#0B0D10" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <text x="624" y="202" font-family="JetBrains Mono,monospace" font-size="9" fill="#5C6470">if no ack +5m</text>
+                    <text x="624" y="216" font-family="Space Grotesk,sans-serif" font-size="11" fill="#0B0D10" font-weight="700">→ R. Mendez</text>
+                  </g>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 hl-strong-t">
+                <div class="border-r hl px-4 py-3"><span class="mono text-[10px] uppercase tracking-wide text-muted">01 ingest</span><p class="text-[12px] font-semibold mt-0.5">Datadog · Grafana · webhook</p></div>
+                <div class="border-r hl px-4 py-3"><span class="mono text-[10px] uppercase tracking-wide text-muted">02 correlate</span><p class="text-[12px] font-semibold mt-0.5">topology-aware grouping</p></div>
+                <div class="px-4 py-3"><span class="mono text-[10px] uppercase tracking-wide text-muted">03 page</span><p class="text-[12px] font-semibold mt-0.5">owner + context, first time</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIFECYCLE / WORKFLOW TIMELINE ===== -->
+    <section id="lifecycle" class="hl-strong-b bg-canvas" aria-labelledby="lifecycle-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="max-w-2xl">
+          <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 03 — Lifecycle</p>
+          <h2 id="lifecycle-heading" class="display mt-4 text-[2.1rem] font-bold leading-[1.03] tracking-tight sm:text-[2.6rem] lg:text-[3.4rem]">One incident, five governed steps.</h2>
+          <p class="mt-4 max-w-xl text-[15.5px] leading-relaxed text-ink/70 lg:text-base">From the first signal to the published postmortem, every state transition is timestamped, attributable, and replayable. No more reconstructing incidents from Slack screenshots.</p>
+        </div>
+
+        <ol class="mt-12 grid grid-cols-1 gap-0 border hl-strong bg-surface sm:grid-cols-2 lg:grid-cols-5">
+          <!-- step 1 -->
+          <li class="border hl-b sm:hl-b lg:hl-b-0 lg:hl-r p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid h-9 w-9 place-items-center border hl-strong bg-ink text-canvas mono text-sm font-bold">1</span>
+              <span class="mono text-[10px] text-muted">~0s</span>
+            </div>
+            <h3 class="display mt-4 text-lg font-bold tracking-tight">Signal</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink/70">Alerts land from any source. Meridian tags severity from your ruleset.</p>
+          </li>
+          <!-- step 2 -->
+          <li class="border hl-b sm:hl-r sm:hl-b lg:hl-b-0 lg:hl-r p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid h-9 w-9 place-items-center border hl-strong bg-amber mono text-sm font-bold">2</span>
+              <span class="mono text-[10px] text-muted">~2s</span>
+            </div>
+            <h3 class="display mt-4 text-lg font-bold tracking-tight">Triage</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink/70">Correlation collapses noise. Severity, scope, and owner are auto-assigned.</p>
+          </li>
+          <!-- step 3 -->
+          <li class="border hl-b sm:hl-b lg:hl-b-0 lg:hl-r p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid h-9 w-9 place-items-center border hl-strong bg-panel mono text-sm font-bold">3</span>
+              <span class="mono text-[10px] text-muted">~42s</span>
+            </div>
+            <h3 class="display mt-4 text-lg font-bold tracking-tight">Coordinate</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink/70">War room opens with responders, runbook, and stakeholder channel attached.</p>
+          </li>
+          <!-- step 4 -->
+          <li class="border hl-b sm:hl-r sm:hl-b lg:hl-b-0 lg:hl-r p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid h-9 w-9 place-items-center border hl-strong bg-panel mono text-sm font-bold">4</span>
+              <span class="mono text-[10px] text-muted">median 11m</span>
+            </div>
+            <h3 class="display mt-4 text-lg font-bold tracking-tight">Mitigate</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink/70">Deploy, roll back, or fail over. Actions log straight into the timeline.</p>
+          </li>
+          <!-- step 5 -->
+          <li class="border hl p-6">
+            <div class="flex items-center justify-between">
+              <span class="grid h-9 w-9 place-items-center border hl-strong bg-ink text-canvas mono text-sm font-bold">5</span>
+              <span class="mono text-[10px] text-muted">auto</span>
+            </div>
+            <h3 class="display mt-4 text-lg font-bold tracking-tight">Learn</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink/70">Postmortem drafts from the timeline. Action items track to closure.</p>
+          </li>
+        </ol>
+
+        <!-- micro timeline rail -->
+        <div class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 mono text-[11px] text-muted">
+          <span class="text-ink">triggered</span><span aria-hidden="true">→</span>
+          <span>acknowledged</span><span aria-hidden="true">→</span>
+          <span>assigned</span><span aria-hidden="true">→</span>
+          <span>mitigating</span><span aria-hidden="true">→</span>
+          <span>resolved</span><span aria-hidden="true">→</span>
+          <span class="font-bold text-amber">postmortem</span>
+          <span class="ml-2 text-[10px]">· every state signed &amp; immutable</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUTCOMES / METRICS BAND ===== -->
+    <section id="outcomes" class="hl-strong-b bg-ink text-canvas" aria-labelledby="outcomes-heading">
+      <h2 id="outcomes-heading" class="sr-only">Customer outcomes</h2>
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-20">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-5">
+            <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-canvas/55">/ 04 — Outcomes</p>
+            <h2 class="display mt-4 text-[2rem] font-bold leading-[1.04] tracking-tight sm:text-[2.6rem]">Calmer on-call, measured.</h2>
+            <p class="mt-4 max-w-md text-[15px] leading-relaxed text-canvas/65">Aggregated across 600+ engineering teams over 12 months. Outcomes, not vanity metrics.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-0 border hl-strong lg:col-span-7 lg:grid-cols-2" style="border-color:rgba(245,246,248,0.16)">
+            <div class="border-b p-6 lg:border-r" style="border-color:rgba(245,246,248,0.16)">
+              <p class="mono text-[10px] uppercase tracking-wide text-canvas/50">MTTA</p>
+              <p class="display mt-2 text-4xl font-bold tracking-tight sm:text-5xl">2.4<span class="text-2xl text-canvas/50">m</span></p>
+              <p class="mt-1 text-[12px] text-canvas/55">down from 14m · auto-ack + paging</p>
+            </div>
+            <div class="border-b p-6 lg:border-r-0" style="border-color:rgba(245,246,248,0.16)">
+              <p class="mono text-[10px] uppercase tracking-wide text-canvas/50">MTTR</p>
+              <p class="display mt-2 text-4xl font-bold tracking-tight sm:text-5xl">11<span class="text-2xl text-canvas/50">m</span></p>
+              <p class="mt-1 text-[12px] text-canvas/55">median to mitigation · runbook-attached</p>
+            </div>
+            <div class="border-b p-6 lg:border-r lg:border-b-0" style="border-color:rgba(245,246,248,0.16)">
+              <p class="mono text-[10px] uppercase tracking-wide text-canvas/50">Noise reduction</p>
+              <p class="display mt-2 text-4xl font-bold tracking-tight sm:text-5xl">−73<span class="text-2xl text-canvas/50">%</span></p>
+              <p class="mt-1 text-[12px] text-canvas/55">pages per on-call rotation</p>
+            </div>
+            <div class="p-6">
+              <p class="mono text-[10px] uppercase tracking-wide text-canvas/50">Burnout index</p>
+              <p class="display mt-2 text-4xl font-bold tracking-tight sm:text-5xl">−2.1<span class="text-2xl text-canvas/50">pt</span></p>
+              <p class="mt-1 text-[12px] text-canvas/55">self-reported on-call fatigue score</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROOF / TESTIMONIALS ===== -->
+    <section class="hl-strong-b bg-canvas" aria-labelledby="proof-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="max-w-2xl">
+          <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 05 — Proof</p>
+          <h2 id="proof-heading" class="display mt-4 text-[2.1rem] font-bold leading-[1.03] tracking-tight sm:text-[2.6rem]">From the engineers on the hook.</h2>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-0 border hl-strong bg-surface lg:grid-cols-12">
+          <!-- featured pull quote -->
+          <figure class="border hl-b p-8 lg:col-span-7 lg:hl-b-0 lg:hl-r lg:p-10">
+            <svg viewBox="0 0 24 24" class="h-8 w-8 text-amber" fill="currentColor" aria-hidden="true"><path d="M9 7H5a2 2 0 0 0-2 2v6h6v-6H6c0-2 1-3 3-3V4zm10 0h-4a2 2 0 0 0-2 2v6h6v-6h-3c0-2 1-3 3-3V4z"/></svg>
+            <blockquote class="display mt-5 text-2xl font-medium leading-snug tracking-tight sm:text-[1.9rem]">
+              We cut pages per rotation by two-thirds in the first quarter. Meridian correlates three Datadog monitors into one incident before anyone reaches for their phone — that's the whole job, done.
+            </blockquote>
+            <figcaption class="mt-7 flex items-center justify-between border hl-t pt-5">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center border hl-strong bg-amber mono text-xs font-bold">AS</span>
+                <div>
+                  <p class="text-sm font-bold">Amara Sule</p>
+                  <p class="mono text-[11px] text-muted">Staff SRE · Helmwatch</p>
+                </div>
+              </div>
+              <div class="hidden text-right sm:block">
+                <p class="mono text-[10px] uppercase tracking-wide text-muted">result</p>
+                <p class="display text-base font-bold">−68% pages</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- secondary quotes -->
+          <div class="lg:col-span-5">
+            <figure class="border hl-b p-7">
+              <blockquote class="text-[15px] leading-relaxed text-ink/85">The postmortem timeline is built as the incident happens. Our reviews used to take a week; now they're an hour of edits, not a week of archaeology.</blockquote>
+              <figcaption class="mt-5 flex items-center gap-3 border hl-t pt-4">
+                <span class="grid h-9 w-9 place-items-center border hl-strong bg-panel mono text-[11px] font-bold">DP</span>
+                <div>
+                  <p class="text-[13px] font-bold">Dario Pell</p>
+                  <p class="mono text-[10px] text-muted">Eng Manager · vaultgrid</p>
+                </div>
+              </figcaption>
+            </figure>
+            <figure class="p-7">
+              <blockquote class="text-[15px] leading-relaxed text-ink/85">Escalation rules respect our follow-the-sun rotation automatically. Nobody gets paged at 3am for a sev-3 they can't act on anymore.</blockquote>
+              <figcaption class="mt-5 flex items-center gap-3 border hl-t pt-4">
+                <span class="grid h-9 w-9 place-items-center border hl-strong bg-panel mono text-[11px] font-bold">MK</span>
+                <div>
+                  <p class="text-[13px] font-bold">Mei Kuroda</p>
+                  <p class="mono text-[10px] text-muted">On-call Lead · Saltline</p>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="hl-strong-b bg-canvas" aria-labelledby="pricing-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="flex flex-col gap-4 border hl-strong-b pb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 06 — Pricing</p>
+            <h2 id="pricing-heading" class="display mt-4 text-[2.1rem] font-bold leading-[1.03] tracking-tight sm:text-[2.6rem]">Priced per on-call team.</h2>
+          </div>
+          <p class="max-w-sm text-[14px] text-ink/70">Not per seat. On-call is a team sport — so we bill by rotation, not by who happens to hold the pager this week.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-0 border hl-strong bg-surface lg:grid-cols-3">
+          <!-- Team -->
+          <article class="border hl-b p-7 lg:hl-b-0 lg:hl-r">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-muted">Team</p>
+            <p class="display mt-3 text-4xl font-bold tracking-tight">$24<span class="text-lg text-muted">/team/mo</span></p>
+            <p class="mt-1 text-[13px] text-ink/65">For a single on-call rotation.</p>
+            <ul class="mt-6 space-y-2.5 border hl-t pt-5">
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Unlimited responders</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Alert routing + correlation</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> 20 integrations</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> 30-day incident archive</li>
+            </ul>
+            <a href="#cta" class="card-press mt-7 block border hl-strong bg-surface px-4 py-3 text-center text-sm font-bold">Start free trial</a>
+          </article>
+
+          <!-- Squad (featured) -->
+          <article class="relative border hl-b bg-ink p-7 pt-9 text-canvas lg:hl-b-0 lg:hl-r" style="border-color:#0B0D10">
+            <span class="absolute left-0 top-0 mono border hl-strong bg-amber px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink">Most popular</span>
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/55">Squad</p>
+            <p class="display mt-3 text-4xl font-bold tracking-tight">$72<span class="text-lg text-canvas/50">/team/mo</span></p>
+            <p class="mt-1 text-[13px] text-canvas/65">For multiple rotations + follow-the-sun.</p>
+            <ul class="mt-6 space-y-2.5 border pt-5" style="border-color:rgba(245,246,248,0.18)">
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Everything in Team</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Stepped + conditional escalation</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Unlimited integrations</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Postmortems + action tracking</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> 1-year archive</li>
+            </ul>
+            <a href="#cta" class="card-press mt-7 block border hl-strong bg-amber px-4 py-3 text-center text-sm font-bold text-ink">Start free trial</a>
+          </article>
+
+          <!-- Org -->
+          <article class="border hl p-7">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-muted">Org</p>
+            <p class="display mt-3 text-4xl font-bold tracking-tight">Custom</p>
+            <p class="mt-1 text-[13px] text-ink/65">For platform orgs 100+ engineers.</p>
+            <ul class="mt-6 space-y-2.5 border hl-t pt-5">
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Everything in Squad</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> SSO/SAML + SCIM</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Custom retention + on-prem sink</li>
+              <li class="flex items-center gap-2.5 mono text-[12px]"><svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="#0B0D10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Dedicated CSM + SLA</li>
+            </ul>
+            <a href="#cta" class="card-press mt-7 block border hl-strong bg-surface px-4 py-3 text-center text-sm font-bold">Talk to sales</a>
+          </article>
+        </div>
+
+        <p class="mono mt-5 text-[11px] text-muted">All plans · unlimited incidents · 14-day free trial · no card required · annual billing available.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="hl-strong-b bg-surface" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-4">
+            <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-muted">/ 07 — FAQ</p>
+            <h2 id="faq-heading" class="display mt-4 text-[2rem] font-bold leading-[1.04] tracking-tight sm:text-[2.6rem]">Questions on-call teams ask.</h2>
+            <p class="mt-4 text-[14px] leading-relaxed text-ink/70">Still stuck? <a href="#cta" class="font-bold link-underline-amber">Talk to an engineer</a> — not a sales bot.</p>
+          </div>
+
+          <div class="lg:col-span-8" data-accordion="faq">
+            <!-- q1 -->
+            <div data-accordion-item class="border hl-strong">
+              <h3>
+                <button type="button" class="acc-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="true" aria-controls="faq-panel-1">
+                  <span id="faq-label-1" class="display text-base font-bold tracking-tight sm:text-lg">Does Meridian replace our existing APM and monitoring?</span>
+                  <svg class="acc-chevron open h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </h3>
+              <div id="faq-panel-1" class="acc-panel open" role="region" aria-labelledby="faq-label-1">
+                <div class="overflow-hidden"><div class="px-5 pb-5 text-[14px] leading-relaxed text-ink/70">No. Meridian sits on top of Datadog, Grafana, New Relic, Sentry, and PagerDuty — it ingests their alerts, correlates them, and routes the result. Your monitoring stays where it is; the noise stops reaching the wrong person.</div></div>
+              </div>
+            </div>
+            <!-- q2 -->
+            <div data-accordion-item class="border hl-strong">
+              <h3>
+                <button type="button" class="acc-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false" aria-controls="faq-panel-2">
+                  <span id="faq-label-2" class="display text-base font-bold tracking-tight sm:text-lg">How does correlation decide what becomes one incident?</span>
+                  <svg class="acc-chevron h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </h3>
+              <div id="faq-panel-2" class="acc-panel" role="region" aria-labelledby="faq-label-2">
+                <div class="overflow-hidden"><div class="px-5 pb-5 text-[14px] leading-relaxed text-ink/70">Correlation combines your service topology, deployment markers, and signal fingerprints — alert name, tags, and timing windows. You can tune correlation rules or let the default model run, which learns from acknowledged incidents over the first few weeks.</div></div>
+              </div>
+            </div>
+            <!-- q3 -->
+            <div data-accordion-item class="border hl-strong">
+              <h3>
+                <button type="button" class="acc-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false" aria-controls="faq-panel-3">
+                  <span id="faq-label-3" class="display text-base font-bold tracking-tight sm:text-lg">Can it respect a follow-the-sun rotation across regions?</span>
+                  <svg class="acc-chevron h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </h3>
+              <div id="faq-panel-3" class="acc-panel" role="region" aria-labelledby="faq-label-3">
+                <div class="overflow-hidden"><div class="px-5 pb-5 text-[14px] leading-relaxed text-ink/70">Yes. Schedules are region-aware and shift with the rotation clock automatically. Stepped escalation (primary → secondary → manager) and conditional rules (sev, service, time-of-day) ensure the right region is paged first, with fallbacks only if no ack within your configured window.</div></div>
+              </div>
+            </div>
+            <!-- q4 -->
+            <div data-accordion-item class="border hl-strong">
+              <h3>
+                <button type="button" class="acc-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false" aria-controls="faq-panel-4">
+                  <span id="faq-label-4" class="display text-base font-bold tracking-tight sm:text-lg">Is the audit trail exportable for compliance?</span>
+                  <svg class="acc-chevron h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </h3>
+              <div id="faq-panel-4" class="acc-panel" role="region" aria-labelledby="faq-label-4">
+                <div class="overflow-hidden"><div class="px-5 pb-5 text-[14px] leading-relaxed text-ink/70">Every state transition is signed and immutable. You can export the full incident timeline and postmortem as JSON or PDF, or stream events to S3, Snowflake, or a SIEM. Meridian is SOC 2 Type II and HIPAA-eligible, with retention configurable per plan.</div></div>
+              </div>
+            </div>
+            <!-- q5 -->
+            <div data-accordion-item class="border hl-strong">
+              <h3>
+                <button type="button" class="acc-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false" aria-controls="faq-panel-5">
+                  <span id="faq-label-5" class="display text-base font-bold tracking-tight sm:text-lg">How long does it take to get value after we connect sources?</span>
+                  <svg class="acc-chevron h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="#0B0D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </h3>
+              <div id="faq-panel-5" class="acc-panel" role="region" aria-labelledby="faq-label-5">
+                <div class="overflow-hidden"><div class="px-5 pb-5 text-[14px] leading-relaxed text-ink/70">Most teams route their first real incident within an hour of connecting sources. Noise reduction compounds over the first two weeks as the correlation model tunes to your topology, and the majority of teams report a measurable drop in pages inside the first quarter.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section id="cta" class="hl-strong-b bg-canvas" aria-labelledby="cta-heading">
+      <div class="mx-auto max-w-sheet px-5 py-16 sm:px-8 lg:py-24">
+        <div class="relative overflow-hidden border hl-strong bg-ink p-8 text-canvas sm:p-12 lg:p-16">
+          <div class="pointer-events-none absolute inset-0 opacity-[0.07]" aria-hidden="true" style="background-image:linear-gradient(to right,rgba(245,246,248,1) 1px,transparent 1px),linear-gradient(to bottom,rgba(245,246,248,1) 1px,transparent 1px);background-size:28px 28px"></div>
+          <!-- corner ticks -->
+          <span class="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t" style="border-color:rgba(232,163,60,0.7)" aria-hidden="true"></span>
+          <span class="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t" style="border-color:rgba(232,163,60,0.7)" aria-hidden="true"></span>
+          <span class="pointer-events-none absolute bottom-3 left-3 h-3 w-3 border-b border-l" style="border-color:rgba(232,163,60,0.7)" aria-hidden="true"></span>
+          <span class="pointer-events-none absolute bottom-3 right-3 h-3 w-3 border-b border-r" style="border-color:rgba(232,163,60,0.7)" aria-hidden="true"></span>
+
+          <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+            <div class="lg:col-span-7">
+              <p class="mono text-[11px] font-bold uppercase tracking-[0.2em] text-canvas/55">/ 08 — Get started</p>
+              <h2 id="cta-heading" class="display mt-4 text-[2.2rem] font-bold leading-[1.02] tracking-tight sm:text-[2.8rem] lg:text-[3.4rem]">Stop paging the wrong engineer.</h2>
+              <p class="mt-5 max-w-lg text-[15.5px] leading-relaxed text-canvas/70">Connect a source, watch your first incident correlate, and decide in 14 days — no contract, no credit card, no migration project.</p>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="#" class="inline-flex items-center justify-center gap-2 border hl-strong bg-amber px-6 py-3.5 text-sm font-bold text-ink transition-colors hover:bg-canvas">
+                  Start free trial
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+                <a href="#" class="inline-flex items-center justify-center gap-2 border px-6 py-3.5 text-sm font-bold text-canvas transition-colors hover:bg-canvas/10" style="border-color:rgba(245,246,248,0.25)">Book a demo</a>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="border p-6" style="border-color:rgba(245,246,248,0.18)">
+                <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/55">Onboarding, in three lines</p>
+                <ol class="mt-5 space-y-4">
+                  <li class="flex gap-4">
+                    <span class="grid h-7 w-7 shrink-0 place-items-center border mono text-[11px] font-bold" style="border-color:rgba(245,246,248,0.25)">1</span>
+                    <div><p class="text-[13px] font-bold">Connect a source</p><p class="mono mt-0.5 text-[11px] text-canvas/55">Datadog, Grafana, or webhook · 5 min</p></div>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="grid h-7 w-7 shrink-0 place-items-center border mono text-[11px] font-bold" style="border-color:rgba(245,246,248,0.25)">2</span>
+                    <div><p class="text-[13px] font-bold">Import your rotation</p><p class="mono mt-0.5 text-[11px] text-canvas/55">PagerDuty sync or CSV · 10 min</p></div>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="grid h-7 w-7 shrink-0 place-items-center border hl-strong bg-amber mono text-[11px] font-bold text-ink">3</span>
+                    <div><p class="text-[13px] font-bold">Ship your first incident</p><p class="mono mt-0.5 text-[11px] text-canvas/55">correlated, routed, governed</p></div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-ink text-canvas" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" class="sr-only">Site footer</h2>
+      <div class="mx-auto max-w-sheet px-5 py-14 sm:px-8 lg:py-16">
+        <div class="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6">
+          <div class="col-span-2 lg:col-span-2">
+            <a href="#top" class="flex items-center gap-2.5" aria-label="Meridian home">
+              <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" fill="#F5F6F8"/><path d="M5 16 L9 9 L12 13 L15 6 L19 16" fill="none" stroke="#E8A33C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="16" r="2.1" fill="#E8A33C" stroke="#0B0D10" stroke-width="1"/></svg>
+              <span class="display text-lg font-bold tracking-tight">Meridian</span>
+            </a>
+            <p class="mt-4 max-w-xs text-[13px] leading-relaxed text-canvas/65">Incident command for on-call teams. Every alert routed, every incident governed, every on-call calmer.</p>
+            <div class="mt-5 flex items-center gap-2.5">
+              <span class="mono inline-flex items-center gap-1.5 border px-2.5 py-1 text-[10px] font-bold" style="border-color:rgba(245,246,248,0.18)">
+                <span class="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true"></span> All systems operational
+              </span>
+            </div>
+          </div>
+
+          <nav aria-label="Product">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/50">Product</p>
+            <ul class="mt-3 space-y-2.5 text-[13px]">
+              <li><a href="#platform" class="link-underline text-canvas/75 hover:text-canvas">Platform</a></li>
+              <li><a href="#routing" class="link-underline text-canvas/75 hover:text-canvas">Routing</a></li>
+              <li><a href="#lifecycle" class="link-underline text-canvas/75 hover:text-canvas">Lifecycle</a></li>
+              <li><a href="#pricing" class="link-underline text-canvas/75 hover:text-canvas">Pricing</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Company">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/50">Company</p>
+            <ul class="mt-3 space-y-2.5 text-[13px]">
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">About</a></li>
+              <li><a href="#outcomes" class="link-underline text-canvas/75 hover:text-canvas">Customers</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Careers</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Security</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Resources">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/50">Resources</p>
+            <ul class="mt-3 space-y-2.5 text-[13px]">
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Documentation</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">API reference</a></li>
+              <li><a href="#faq" class="link-underline text-canvas/75 hover:text-canvas">FAQ</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Status</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Legal">
+            <p class="mono text-[10px] font-bold uppercase tracking-wide text-canvas/50">Legal</p>
+            <ul class="mt-3 space-y-2.5 text-[13px]">
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Privacy</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">Terms</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">SOC 2 report</a></li>
+              <li><a href="#" class="link-underline text-canvas/75 hover:text-canvas">DPA</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t pt-6 sm:flex-row sm:items-center" style="border-color:rgba(245,246,248,0.14)">
+          <p class="mono text-[11px] text-canvas/55">© 2026 Meridian Systems, Inc. · Fictional brand for template demonstration.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="mono text-[11px] text-canvas/55 transition-colors hover:text-canvas" aria-label="Meridian on X">X</a>
+            <a href="#" class="mono text-[11px] text-canvas/55 transition-colors hover:text-canvas" aria-label="Meridian on GitHub">GitHub</a>
+            <a href="#" class="mono text-[11px] text-canvas/55 transition-colors hover:text-canvas" aria-label="Meridian on LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== SCOPED JS: mobile menu + accordion ===== -->
+  <script>
+    (function () {
+      // Mobile menu
+      var btn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var openIcon = document.getElementById('menu-open-icon');
+      var closeIcon = document.getElementById('menu-close-icon');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          var isOpen = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(isOpen));
+          openIcon.classList.toggle('hidden', isOpen);
+          closeIcon.classList.toggle('hidden', !isOpen);
+        });
+        menu.querySelectorAll('.mobile-link').forEach(function (l) {
+          l.addEventListener('click', function () {
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            openIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          });
+        });
+      }
+
+      // Accordion (single-open)
+      var root = document.querySelector('[data-accordion="faq"]');
+      if (root) {
+        var items = root.querySelectorAll('[data-accordion-item]');
+        items.forEach(function (item) {
+          var trigger = item.querySelector('.acc-trigger');
+          var panel = item.querySelector('.acc-panel');
+          var chevron = item.querySelector('.acc-chevron');
+          if (!trigger || !panel) return;
+          trigger.addEventListener('click', function () {
+            var isOpen = panel.classList.contains('open');
+            items.forEach(function (other) {
+              var op = other.querySelector('.acc-panel');
+              var oc = other.querySelector('.acc-chevron');
+              var ot = other.querySelector('.acc-trigger');
+              if (op) op.classList.remove('open');
+              if (oc) oc.classList.remove('open');
+              if (ot) ot.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+              panel.classList.add('open');
+              if (chevron) chevron.classList.add('open');
+              trigger.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
