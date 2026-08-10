@@ -3,8 +3,8 @@
 Scroll To Top.
 
 **Technology:** vanilla
-**Category:** utilities
-**Subcategory:** helpers
+**Category:** components
+**Subcategory:** navigation
 
 **Tags:** parallax, button, tooltip, badge, loader, theming, scroll, touch
 

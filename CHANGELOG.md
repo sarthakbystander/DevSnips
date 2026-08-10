@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-08-10
+
+### Fixed (repository-wide audit & sync)
+- **Synced `snippets-index.json` to the actual filesystem.** The index was 253 items out of date (declared 90 families / 735 variants; actual 114 families / 988 variants). Regenerated `families[]`, `variants[]`, `variantsCount`, `stats`, and `technologies[].families` from on-disk `metadata.json`, preserving existing hand-curated descriptions/tags/searchTerms where present. All counts now match the disk exactly (0 mismatches).
+  - **Tailwind Components:** Buttons recount fixed 15 → 58 (the index counted the 15 variant-group folders instead of the 58 leaf sub-variants). Total now 310 (was 267 in the index).
+  - **Tailwind Templates:** added 3 missing templates (northline-atelier, krat-adventure, quiet-place). Total now 8.
+  - **Vanilla Components:** recount fixed Forms 6 → 38, Navigation 8 → 24, Marketing 4 → 6, Accordions 5, Media 17. Total now 232 (was 182 in the index).
+  - **Vanilla Sections:** confirmed 65 (was already correct).
+  - **Vanilla Templates:** added all 14 (were entirely missing from the index).
+  - **Vanilla Utilities:** added all 76 across Animations (33), Layout (22), Typography (10), Theming (7), Clipboard (3), Scrollbar (1) (were entirely missing).
+  - **Vanilla Resources:** added all 67 JS helpers — Helpers (65), LocalStorage (2) (were entirely missing).
+  - Recomputed stats: **114 families**, **988 variants**.
+
+### Fixed (content quality)
+- Reclassified 5 items under `Vanilla/Components/` whose `metadata.json` and `README.md` wrongly declared `category: utilities` despite living under Components with an `.html` file (css-toggle-switch, accordion-panel, image-slider, responsive-sticky-header-with-shadow, scroll-to-top). Now `category: components` with a matching `subcategory`, so path and metadata agree.
+- Removed an empty placeholder file `Vanilla/Templates/product-launch/launchsite3.html` (0 bytes; unreferenced).
+
+### Changed
+- Updated `README.md` structure tree and family tables to the on-disk counts (Tailwind Components 267 → 310, Buttons 15 → 58; Vanilla Components 182 → 232) and documented the previously-missing Vanilla Templates (14), Utilities (76), Resources (67), and Tailwind Sections (216) and Templates (8).
+- Corrected a stale `CHANGELOG.md` reference to a non-existent `devsnips/snippets/{html,css,js}-snippets` tree to point at the real `Vanilla/Components/`, `Vanilla/Utilities/`, and `Vanilla/Resources/` locations.
+
 ## 2026-08-05
 
 ### Added
@@ -27,7 +48,7 @@
 - Added shared project config: `.editorconfig`, `.htmlhintrc`, `eslint.config.js`, and GitHub Actions lint workflow at `.github/workflows/lint.yml`.
 
 ### Changed
-- Added standardized snippet header comments to existing snippet files in `devsnips/snippets/html-snippets`, `devsnips/snippets/css-snippets`, and `devsnips/snippets/js-snippets` where missing.
+- Added standardized snippet header comments to existing snippet files in `Vanilla/Components/`, `Vanilla/Utilities/`, and `Vanilla/Resources/` where missing.
 - Rewrote `README.md` with a clearer structure, usage guide, badges, and a full snippet table.
 - Updated `CONTRIBUTING.md` with explicit code style rules, header templates, and a contribution checklist.
 - Updated `PULL_REQUEST_TEMPLATE.md` with accessibility and cross-browser testing checks.
