@@ -3,8 +3,8 @@
   "lastUpdated": "2026-08-10",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 89,
-    "totalVariants": 734,
+    "totalFamilies": 90,
+    "totalVariants": 735,
     "totalSubVariants": 0,
     "totalStyles": 1728,
     "technologies": [
@@ -20153,6 +20153,94 @@
         "tailwind developer template",
         "pagerduty alternative landing page"
       ]
+    },
+    {
+      "name": "DevSnips Curated Design Store (Template)",
+      "path": "Tailwind/Templates/devsnips-store/",
+      "tech": "Tailwind CSS",
+      "category": "Templates",
+      "description": "Premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects — Editorial Modern fused with Monochrome Luxury (warm neutral palette, single clay accent, Fraunces serif + Inter + JetBrains Mono, hairline rules, square geometry). Six connected pages (home, shop, product, cart, checkout, journal, about) share one design system with a [D] logo mark, editorial issue-cover hero, product hover reveals, material-spectrum swatches, a receipt-style cart summary, a stepper-led checkout, and a magazine journal. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.",
+      "variantsCount": 1,
+      "tags": [
+        "ecommerce",
+        "shopping",
+        "store",
+        "editorial",
+        "monochrome-luxury",
+        "design-objects",
+        "homewares",
+        "tailwind",
+        "multipage",
+        "template"
+      ],
+      "searchTerms": [
+        "ecommerce website template",
+        "online store template",
+        "tailwind shop template",
+        "editorial ecommerce template",
+        "monochrome luxury store",
+        "design objects store",
+        "homewares website template",
+        "multipage ecommerce tailwind",
+        "product page template",
+        "cart and checkout template"
+      ],
+      "variants": [
+        {
+          "name": "DevSnips Curated Design Store",
+          "path": "Tailwind/Templates/devsnips-store/",
+          "description": "Complete editorial-luxury ecommerce template: home (issue-cover hero, new arrivals, material spectrum, featured collection, journal preview, newsletter), shop (category filter chips, sort, responsive grid), product (thumbnail gallery, finish swatches, quantity stepper, single-open care-guide accordion, related objects), cart (working quantity steppers, receipt-style order summary, shipping estimate, empty state), checkout (stepper-led contact/shipping/payment + fixed summary), journal (featured entry, tag filters, magazine cards), and about/atelier (principles, process timeline, maker studios). Shared sticky navbar with centered [D] logo and cart badge, shared footer, scoped vanilla JS throughout.",
+          "styles": [
+            "editorial-modern",
+            "monochrome-luxury",
+            "ecommerce",
+            "store",
+            "multipage"
+          ],
+          "features": [
+            "6 connected pages sharing one editorial-luxury design system",
+            "shared sticky navbar (centered [D] logo, cart badge, scoped mobile menu) and footer",
+            "editorial issue-cover hero with oversized serif headline, featured object panel and numbered collection index",
+            "product grid with hover-reveal detail strips and inline SVG object illustrations",
+            "material-spectrum swatch visualization and quiet metrics band",
+            "shop page with category filter chips, sort dropdown and live result count (scoped JS)",
+            "product page with thumbnail gallery, finish swatches, quantity stepper and single-open care-guide accordion (CSS-grid, ARIA, keyboard)",
+            "receipt-style cart order summary with working quantity steppers, line totals, shipping estimate and empty state (scoped JS)",
+            "stepper-led checkout with contact, shipping, payment and a fixed order summary",
+            "editorial journal index with featured entry, tag filters and magazine-style article cards",
+            "atelier/about page with principles, process timeline and maker studio cards",
+            "consistent token system: warm neutrals, hairline rules, square radii, single clay accent, no gradients/shadows",
+            "accessible: semantic HTML, skip link, ARIA, focus rings, reduced-motion safe",
+            "Tailwind CSS via CDN with no build step"
+          ],
+          "tags": [
+            "ecommerce",
+            "shopping",
+            "store",
+            "editorial",
+            "monochrome-luxury",
+            "design-objects",
+            "homewares",
+            "tailwind",
+            "multipage",
+            "template"
+          ],
+          "files": [
+            "preview.html",
+            "metadata.json",
+            "README.md",
+            "pages/index.html",
+            "pages/shop.html",
+            "pages/product.html",
+            "pages/cart.html",
+            "pages/checkout.html",
+            "pages/journal.html",
+            "pages/about.html",
+            "assets/icons/logo.svg",
+            "assets/images/og-image.svg"
+          ]
+        }
+      ]
     }
   ],
   "plannedFamilies": {
@@ -20301,7 +20389,8 @@
         "AI SaaS Platform (Template)",
         "Baseline Conference (Template)",
         "Stratum Fintech Ops Platform (Template)",
-        "Meridian Incident Command Platform (Template)"
+        "Meridian Incident Command Platform (Template)",
+        "DevSnips Curated Design Store (Template)"
       ]
     },
     {
