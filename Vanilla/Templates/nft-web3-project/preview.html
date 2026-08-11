@@ -3,412 +3,922 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFT Web3 Project</title>
+    <title>CYBERPUNK NEXUS — Ultra Premium Web3 NFT Collection</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-/* General Styles */
-body {
-    font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    background-color: #0d0d2b;
-    color: #fff;
-}
+        /* ==========================================
+           1. CORE DESIGN SYSTEM & VARIABLES
+           ========================================== */
+        :root {
+            --bg-dark: #0a0b10;
+            --bg-card: rgba(18, 20, 29, 0.7);
+            --accent-cyan: #00f0ff;
+            --accent-pink: #ff007f;
+            --accent-purple: #7000ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-glow: rgba(0, 240, 255, 0.25);
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
 
-h1, h2 {
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-section {
-    padding: 80px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        /* Container Limit */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-/* Header */
-header {
-    background: rgba(13, 13, 43, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 0, 255, 0.3);
-}
+        /* ==========================================
+           2. NAVIGATION HEADER
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 11, 16, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 0;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 0 0 5px #ff00ff;
-}
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+        .brand-logo span {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s, text-shadow 0.3s;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
 
-nav a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-}
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
 
-/* Hero Section */
-#hero {
-    text-align: center;
-    padding: 100px 20px;
-}
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 8px var(--accent-cyan);
+        }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
+        /* Web3 Wallet Connect Button */
+        .btn-wallet {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s ease;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
 
-.hero-content p {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 40px;
-}
+        .btn-wallet:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+        }
 
-.nft-preview {
-    margin-bottom: 40px;
-}
+        /* ==========================================
+           3. HERO SECTION
+           ========================================== */
+        #hero {
+            padding: 160px 0 100px;
+            display: flex;
+            align-items: center;
+            min-height: 90vh;
+        }
 
-#interactive-nft {
-    width: 300px;
-    height: 300px;
-    border: 3px solid #ff00ff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff inset;
-    animation: pulse 2s infinite;
-}
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff inset; }
-    50% { box-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff inset; }
-    100% { box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff inset; }
-}
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.mint-button {
-    background: linear-gradient(45deg, #ff00ff, #8a2be2);
-    color: white;
-    padding: 15px 40px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: 2px solid #ff00ff;
-    box-shadow: 0 0 15px #ff00ff;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
 
-.mint-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #ff00ff;
-}
+        .hero-title span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-/* Roadmap Section */
-.roadmap-timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 50px auto 0;
-    padding: 20px 0;
-}
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 36px;
+            max-width: 500px;
+        }
 
-.roadmap-timeline::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background: #ff00ff;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-    box-shadow: 0 0 10px #ff00ff;
-}
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
 
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-}
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: #000;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            padding: 16px 36px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s ease;
+        }
 
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
+        .btn-primary:hover {
+            background: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
 
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 16px 36px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
 
-.timeline-dot {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #0d0d2b;
-    border: 4px solid #ff00ff;
-    top: 20px;
-    border-radius: 50%;
-    z-index: 1;
-    box-shadow: 0 0 15px #ff00ff;
-}
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
 
-.timeline-item:nth-child(odd) .timeline-dot {
-    right: -10px;
-}
+        /* 3D Interactive Preview Card */
+        .hero-preview-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
-.timeline-item:nth-child(even) .timeline-dot {
-    left: -10px;
-}
+        .hero-nft-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
 
-/* Tokenomics Section */
-.tokenomics-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
+        .hero-nft-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #120919, #1c1028);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.tokenomics-container .chart img {
-    max-width: 100%;
-}
+        .hero-nft-image svg {
+            width: 70%;
+            height: 70%;
+            filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.5));
+        }
 
-.tokenomics-container .info ul {
-    list-style: none;
-    padding: 0;
-}
+        .hero-nft-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.tokenomics-container .info li {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
+        .hero-nft-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
 
-/* Community Section */
-.community-feed {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
+        .hero-nft-price {
+            text-align: right;
+        }
 
-.feed-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 0, 255, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    width: 350px;
-}
+        .hero-nft-price label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+        }
 
-.feed-card.twitter { border-left: 5px solid #1da1f2; }
-.feed-card.discord { border-left: 5px solid #7289da; }
+        .hero-nft-price val {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
 
-.feed-card h4 {
-    margin-top: 0;
-    font-size: 1.3rem;
-}
+        /* ==========================================
+           4. LIVE STATS STRIP
+           ========================================== */
+        #stats {
+            background: rgba(18, 20, 29, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 0;
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 0, 255, 0.3);
-}
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .roadmap-timeline::before {
-        left: 10px;
-    }
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 0;
-        text-align: left !important;
-    }
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    .timeline-dot {
-        left: 0 !important;
-    }
-}
-</style>
+        .stat-item h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           5. NFT COLLECTION GRID
+           ========================================== */
+        #collection {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .nft-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nft-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #151821;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-img-wrapper svg {
+            width: 65%;
+            height: 65%;
+            transition: transform 0.4s ease;
+        }
+
+        .nft-card:hover .card-img-wrapper svg {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--accent-cyan);
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .card-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+        }
+
+        .btn-mint {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mint:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        /* ==========================================
+           6. ROADMAP TIMELINE
+           ========================================== */
+        #roadmap {
+            padding: 100px 0;
+            background: rgba(10, 11, 16, 0.6);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--border-glow);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .timeline-phase {
+            font-family: var(--font-heading);
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           7. FOOTER
+           ========================================== */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px 0 30px;
+            background: #06070a;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+        }
+
+        /* ==========================================
+           8. RESPONSIVE MEDIA QUERIES
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-description {
+                margin: 0 auto 36px;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left !important;
+            }
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            .timeline-dot {
+                left: 12px !important;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Header / Navigation -->
     <header>
-        <nav>
-            <div class="logo">CryptoPunks</div>
-            <ul>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="#community">Community</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="#" class="brand-logo">
+                    <i class="fa-solid fa-cubes-stacked"></i> NEXUS <span>NFT</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Explore</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#stats">Metrics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                </ul>
+                <button class="btn-wallet" id="walletBtn" onclick="connectWallet()">
+                    <i class="fa-solid fa-wallet"></i> Connect Wallet
+                </button>
+            </nav>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section id="hero">
-        <div class="hero-content">
-            <h1>Discover, Collect, and Sell Extraordinary NFTs</h1>
-            <p>The premier marketplace for unique digital collectibles.</p>
-            <div class="nft-preview">
-                <!-- Interactive NFT Preview -->
-                <img src="https://via.placeholder.com/400x400.png?text=NFT" alt="Interactive NFT Preview" id="interactive-nft">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-bolt"></i> Next-Gen Web3 Collectibles
+                    </div>
+                    <h1 class="hero-title">Discover, Mint & Collect <span>Rare NFTs</span></h1>
+                    <p class="hero-description">
+                        An elite collection of 10,000 algorithmic digital avatars granting utility, metaverse access, and exclusive staking rewards.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#collection" class="btn-primary">Explore Drops</a>
+                        <a href="#roadmap" class="btn-secondary">View Roadmap</a>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Card Preview -->
+                <div class="hero-preview-wrapper">
+                    <div class="hero-nft-card" id="interactiveCard">
+                        <div class="hero-nft-image">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100" height="100" fill="#0c0d14"/>
+                                <path d="M30 30H70V70H30V30Z" fill="#00f0ff" opacity="0.8"/>
+                                <circle cx="50" cy="45" r="12" fill="#ff007f"/>
+                                <rect x="40" y="62" width="20" height="4" fill="#fff"/>
+                            </svg>
+                        </div>
+                        <div class="hero-nft-info">
+                            <div>
+                                <div class="hero-nft-title">Cyber Apex #001</div>
+                                <span style="font-size: 0.8rem; color: var(--accent-cyan);">Genesis Edition</span>
+                            </div>
+                            <div class="hero-nft-price">
+                                <label>Current Price</label>
+                                <val>2.45 ETH</val>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="cta-button mint-button">Mint Now</a>
         </div>
     </section>
 
+    <!-- Metrics / Live Stats -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10,000</h3>
+                    <p>Total Items</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0.08 ETH</h3>
+                    <p>Floor Price</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.2K</h3>
+                    <p>Unique Owners</p>
+                </div>
+                <div class="stat-item">
+                    <h3>18.5K</h3>
+                    <p>Volume Traded (ETH)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Showcase Section -->
+    <section id="collection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collectibles</h2>
+                <p class="section-subtitle">Hand-picked rare digital assets available for instant minting.</p>
+            </div>
+
+            <div class="nft-grid">
+                <!-- NFT Item 1 -->
+                <div class="nft-card">
+                    <div class="card-img-wrapper">
+                        <span class="card-badge">RARE</span>
+                        <svg viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#120919"/>
+                            <path d="M25 25H75V75H25V25Z" fill="#7000ff"/>
+                            <circle cx="50" cy="50" r="15" fill="#00f0ff"/>
+                        </svg>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <div class="card-title">Vortex Sentinel</div>
+                        </div>
+                        <p class="card-desc">Equipped with quantum encryption and hyper-speed metaverse processing capabilities.</p>
+                        <div class="card-footer">
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display:block;">Price</span>
+                                <strong style="color: var(--accent-cyan); font-family: var(--font-heading);">0.15 ETH</strong>
+                            </div>
+                            <button class="btn-mint" onclick="mintNFT('Vortex Sentinel')">Mint Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NFT Item 2 -->
+                <div class="nft-card">
+                    <div class="card-img-wrapper">
+                        <span class="card-badge">LEGENDARY</span>
+                        <svg viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#1c1028"/>
+                            <polygon points="50,15 85,85 15,85" fill="#ff007f"/>
+                            <circle cx="50" cy="60" r="10" fill="#00f0ff"/>
+                        </svg>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <div class="card-title">Neon Valkyrie</div>
+                        </div>
+                        <p class="card-desc">Guardian of the Decentralized Realm, providing passive yield through staking rewards.</p>
+                        <div class="card-footer">
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display:block;">Price</span>
+                                <strong style="color: var(--accent-cyan); font-family: var(--font-heading);">0.35 ETH</strong>
+                            </div>
+                            <button class="btn-mint" onclick="mintNFT('Neon Valkyrie')">Mint Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NFT Item 3 -->
+                <div class="nft-card">
+                    <div class="card-img-wrapper">
+                        <span class="card-badge">EPIC</span>
+                        <svg viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#091419"/>
+                            <circle cx="50" cy="50" r="30" fill="#00f0ff"/>
+                            <rect x="35" y="35" width="30" height="30" fill="#0a0b10"/>
+                        </svg>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <div class="card-title">Cyber Core #88</div>
+                        </div>
+                        <p class="card-desc">An ancient data node key unlocking access to private community DAO votes.</p>
+                        <div class="card-footer">
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display:block;">Price</span>
+                                <strong style="color: var(--accent-cyan); font-family: var(--font-heading);">0.22 ETH</strong>
+                            </div>
+                            <button class="btn-mint" onclick="mintNFT('Cyber Core #88')">Mint Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Timeline Section -->
     <section id="roadmap">
-        <h2>Our Roadmap</h2>
-        <div class="roadmap-timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Phase 1: Launch</h3>
-                    <p>Initial NFT drop and platform launch.</p>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Project Roadmap</h2>
+                <p class="section-subtitle">Our strategic vision and milestone execution path.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Phase 2: Marketplace</h3>
-                    <p>Launch of the secondary marketplace.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">PHASE 01 — Q1</div>
+                        <div class="timeline-title">Genesis Drop & Community</div>
+                        <p class="timeline-desc">Launch of 10,000 unique avatars, smart contract audit, and establishing the DAO governance structure.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Phase 3: Staking</h3>
-                    <p>Introduction of NFT staking for rewards.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">PHASE 02 — Q2</div>
+                        <div class="timeline-title">Staking & $NEXUS Token</div>
+                        <p class="timeline-desc">Deploying staking protocols allowing NFT holders to earn daily utility tokens.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Phase 4: Metaverse</h3>
-                    <p>Integration into the metaverse.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">PHASE 03 — Q3</div>
+                        <div class="timeline-title">Metaverse Integration</div>
+                        <p class="timeline-desc">Full 3D avatar integration into major Web3 virtual worlds and exclusive holder events.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tokenomics">
-        <h2>Tokenomics</h2>
-        <div class="tokenomics-container">
-            <div class="chart">
-                <img src="https://via.placeholder.com/400x400.png?text=Token+Distribution" alt="Tokenomics Chart">
-            </div>
-            <div class="info">
-                <ul>
-                    <li><strong>Total Supply:</strong> 1,000,000,000</li>
-                    <li><strong>Public Sale:</strong> 40%</li>
-                    <li><strong>Team:</strong> 20%</li>
-                    <li><strong>Ecosystem:</strong> 30%</li>
-                    <li><strong>Advisors:</strong> 10%</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="community">
-        <h2>Join Our Community</h2>
-        <div class="community-feed">
-            <div class="feed-card twitter">
-                <h4>Latest Tweet</h4>
-                <p>Our mint is now live! Don't miss out on this exclusive drop. #NFT #Crypto</p>
-            </div>
-            <div class="feed-card discord">
-                <h4>Discord Announcement</h4>
-                <p>Join our AMA session with the founders this Friday at 8 PM UTC.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 CryptoPunks. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <a href="#" class="brand-logo">
+                    <i class="fa-solid fa-cubes-stacked"></i> NEXUS <span>NFT</span>
+                </a>
+                <div class="footer-socials">
+                    <a href="#" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" title="OpenSea"><i class="fa-solid fa-ship"></i></a>
+                    <a href="#" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NEXUS WEB3 LABS. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Interactive JavaScript -->
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        // 3D Tilt Effect on Hero Card
+        const card = document.getElementById('interactiveCard');
+        if (card) {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const rotateX = (y / rect.height) * -20;
+                const rotateY = (x / rect.width) * 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
-        });
-    });
 
-    // Interactive NFT Preview
-    const nftPreview = document.getElementById('interactive-nft');
-    if (nftPreview) {
-        nftPreview.addEventListener('mousemove', (e) => {
-            const rect = e.target.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the element.
-            const y = e.clientY - rect.top;  // y position within the element.
-
-            const rotateX = (y / rect.height - 0.5) * -30; // Rotate between -15 and 15 deg
-            const rotateY = (x / rect.width - 0.5) * 30;  // Rotate between -15 and 15 deg
-
-            e.target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-        });
-
-        nftPreview.addEventListener('mouseleave', (e) => {
-            e.target.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    }
-
-    // Animate roadmap items on scroll
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateX(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    timelineItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        // Set initial position for animation
-        if (index % 2 === 0) { // Odd items are on the left
-             item.style.transform = 'translateX(-30px)';
-        } else { // Even items are on the right
-             item.style.transform = 'translateX(30px)';
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
         }
-        item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-        observer.observe(item);
-    });
-});
-</script>
+
+        // Web3 Wallet Trigger Simulation
+        function connectWallet() {
+            const btn = document.getElementById('walletBtn');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Connecting...`;
+            setTimeout(() => {
+                btn.innerHTML = `<i class="fa-solid fa-check-circle"></i> 0x71C...39A`;
+                btn.style.background = '#00f0ff';
+                btn.style.color = '#000';
+            }, 1200);
+        }
+
+        // Mint Simulation
+        function mintNFT(title) {
+            alert(`⚡ Web3 Transaction Initiated: Minting ${title}...`);
+        }
+    </script>
 </body>
 </html>
