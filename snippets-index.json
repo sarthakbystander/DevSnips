@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-10",
+  "lastUpdated": "2026-08-11",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 106,
-    "totalVariants": 842,
+    "totalVariants": 852,
     "totalSubVariants": 0,
-    "totalStyles": 2006,
+    "totalStyles": 2016,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -759,6 +759,28 @@
           ]
         },
         {
+          "name": "Icon Button Dark",
+          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "description": "Dark themed icon button styles for dark interfaces",
+          "tags": [
+            "button",
+            "icon",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "Gray",
+            "Darker",
+            "Light",
+            "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Dark Button",
           "path": "Tailwind/Components/Buttons/Filled Button/dark/",
           "description": "Dark background buttons for dark themed interfaces",
@@ -772,6 +794,27 @@
             "White",
             "Dark Solid",
             "Blue"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Dark Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
+          "description": "Dark glass morphism buttons for dark interfaces",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "dark"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Pill"
           ],
           "files": [
             "code.html",
@@ -814,49 +857,6 @@
             "White",
             "Gray",
             "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Button Dark",
-          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
-          "description": "Dark themed icon button styles for dark interfaces",
-          "tags": [
-            "button",
-            "icon",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "Gray",
-            "Darker",
-            "Light",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Dark Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
-          "description": "Dark glass morphism buttons for dark interfaces",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "dark"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
           ],
           "files": [
             "code.html",
@@ -1082,28 +1082,6 @@
           ]
         },
         {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
-          "tags": [
-            "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
-          ],
-          "styles": [
-            "Upload",
-            "Add",
-            "Delete"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Animated Icon Button",
           "path": "Tailwind/Components/Buttons/Animated Button/icon/",
           "description": "Icon animations on hover for interactive effects",
@@ -1117,6 +1095,26 @@
             "Scale",
             "Rotate",
             "Flip"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
+          "description": "Split buttons with icon and dropdown",
+          "tags": [
+            "button",
+            "split",
+            "dropdown",
+            "icon"
+          ],
+          "styles": [
+            "Primary",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1147,18 +1145,20 @@
           ]
         },
         {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "description": "Split buttons with icon and dropdown",
+          "name": "Ghost Icon Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "description": "Ghost buttons with icons for upload, add, and delete actions",
           "tags": [
             "button",
-            "split",
-            "dropdown",
-            "icon"
+            "ghost",
+            "icon",
+            "upload",
+            "delete"
           ],
           "styles": [
-            "Primary",
-            "Outline"
+            "Upload",
+            "Add",
+            "Delete"
           ],
           "files": [
             "code.html",
@@ -1272,27 +1272,6 @@
           ]
         },
         {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "description": "Fully rounded gradient buttons with pill shape for modern UI",
@@ -1307,6 +1286,27 @@
             "Violet",
             "Cyan",
             "Emerald"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
           ],
           "files": [
             "code.html",
@@ -1357,47 +1357,6 @@
           ]
         },
         {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
-          "tags": [
-            "button",
-            "ghost",
-            "transparent",
-            "hover"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Primary Button",
           "path": "Tailwind/Components/Buttons/Glass Button/primary/",
           "description": "Color glass morphism buttons with colored backgrounds",
@@ -1440,6 +1399,47 @@
           ]
         },
         {
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
+          "description": "Blue bordered buttons with transparent background and hover fill",
+          "tags": [
+            "button",
+            "outline",
+            "bordered",
+            "blue"
+          ],
+          "styles": [
+            "Default",
+            "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Loading Button Progress",
           "path": "Tailwind/Components/Buttons/Loading Button/progress/",
           "description": "Loading buttons with progress bar indicator",
@@ -1462,28 +1462,6 @@
           ]
         },
         {
-          "name": "Rounded Full Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
-          "description": "Fully rounded pill-shaped filled buttons",
-          "tags": [
-            "button",
-            "filled",
-            "rounded",
-            "pill",
-            "full"
-          ],
-          "styles": [
-            "Blue Pill",
-            "Dark Pill",
-            "Gradient Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Rounded",
           "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
           "description": "Fully rounded icon button styles",
@@ -1498,6 +1476,28 @@
             "Secondary",
             "Gradient",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Rounded Full Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
+          "description": "Fully rounded pill-shaped filled buttons",
+          "tags": [
+            "button",
+            "filled",
+            "rounded",
+            "pill",
+            "full"
+          ],
+          "styles": [
+            "Blue Pill",
+            "Dark Pill",
+            "Gradient Pill"
           ],
           "files": [
             "code.html",
@@ -1611,6 +1611,23 @@
           ]
         },
         {
+          "name": "Button Sizes",
+          "path": "Tailwind/Components/Buttons/Basic Button/sizes/",
+          "description": "Button sizes from extra small to extra large for different use cases",
+          "tags": [
+            "button",
+            "sizes",
+            "small",
+            "large",
+            "responsive"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Outline Button Sizes",
           "path": "Tailwind/Components/Buttons/Outline Button/sizes/",
           "description": "Outline button sizes from small to large",
@@ -1645,23 +1662,6 @@
           ]
         },
         {
-          "name": "Button Sizes",
-          "path": "Tailwind/Components/Buttons/Basic Button/sizes/",
-          "description": "Button sizes from extra small to extra large for different use cases",
-          "tags": [
-            "button",
-            "sizes",
-            "small",
-            "large",
-            "responsive"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Soft Background Button",
           "path": "Tailwind/Components/Buttons/Filled Button/soft/",
           "description": "Soft background buttons with pastel colors for subtle actions",
@@ -1687,27 +1687,6 @@
           ]
         },
         {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Soft Button",
           "path": "Tailwind/Components/Buttons/Glass Button/soft/",
           "description": "Soft glass morphism buttons with blur effect",
@@ -1722,6 +1701,27 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
+          "tags": [
+            "button",
+            "neumorphism",
+            "soft ui",
+            "shadow"
+          ],
+          "styles": [
+            "Default",
+            "Pill",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -25497,7 +25497,7 @@
           "files": [
             "README.md",
             "metadata.json",
-            "one-page-scrolling.html"
+            "preview.html"
           ]
         }
       ],
@@ -25535,9 +25535,9 @@
             "table"
           ],
           "files": [
-            "404-not-found-page.html",
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         },
         {
@@ -25556,8 +25556,8 @@
           ],
           "files": [
             "README.md",
-            "coming-soon-page.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -25600,10 +25600,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
             "metadata.json",
-            "script.js",
-            "style.css"
+            "preview.html"
           ]
         }
       ],
@@ -25624,34 +25622,102 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Templates",
       "description": "Blog Landing Pages with responsive design with animations and hover interactions.",
-      "variantsCount": 1,
+      "variantsCount": 4,
       "variants": [
         {
-          "name": "Blog Landing Pages",
-          "path": "Vanilla/Templates/blog-landing-pages/",
-          "description": "Blog Landing Pages.",
+          "name": "Cyber Neon Dark",
+          "path": "Vanilla/Templates/blog-landing-pages/cyber-neon-dark/",
+          "description": "Dark cyber blog landing with cyan and purple neon glow and particle effects.",
           "tags": [
-            "landing-page",
             "blog",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "gradient",
-            "shadow",
-            "parallax"
+            "landing-page",
+            "cyber",
+            "neon",
+            "dark",
+            "gradient"
           ],
           "features": [
-            "responsive",
-            "semantic HTML",
-            "ARIA"
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "cyber-neon-dark"
           ],
           "files": [
             "README.md",
-            "blog1.html",
-            "blog2.html",
-            "blog3.html",
-            "blog4.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Editorial Magazine",
+          "path": "Vanilla/Templates/blog-landing-pages/editorial-magazine/",
+          "description": "Minimal serif magazine blog landing with editorial typography.",
+          "tags": [
+            "blog",
+            "landing-page",
+            "editorial",
+            "serif",
+            "minimal"
+          ],
+          "features": [
+            "responsive"
+          ],
+          "styles": [
+            "editorial-magazine"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Minimal Soft Blue",
+          "path": "Vanilla/Templates/blog-landing-pages/minimal-soft-blue/",
+          "description": "Clean light blog landing with soft-blue accents and gentle shadows.",
+          "tags": [
+            "blog",
+            "landing-page",
+            "minimal",
+            "soft-blue",
+            "shadow"
+          ],
+          "features": [
+            "responsive"
+          ],
+          "styles": [
+            "minimal-soft-blue"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Soft Pastel Blob",
+          "path": "Vanilla/Templates/blog-landing-pages/soft-pastel-blob/",
+          "description": "Pastel blog landing with morphing blob hero and gradient cards.",
+          "tags": [
+            "blog",
+            "landing-page",
+            "pastel",
+            "gradient",
+            "animation"
+          ],
+          "features": [
+            "animation",
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "soft-pastel-blob"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -25693,10 +25759,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
             "metadata.json",
-            "script.js",
-            "style.css"
+            "preview.html"
           ]
         }
       ],
@@ -25738,10 +25802,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
             "metadata.json",
-            "script.js",
-            "style.css"
+            "preview.html"
           ]
         }
       ],
@@ -25773,8 +25835,8 @@
           ],
           "files": [
             "README.md",
-            "html5-boilerplate.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -25809,10 +25871,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
             "metadata.json",
-            "script.js",
-            "style.css"
+            "preview.html"
           ]
         }
       ],
@@ -25854,10 +25914,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
             "metadata.json",
-            "script.js",
-            "style.css"
+            "preview.html"
           ]
         }
       ],
@@ -25878,34 +25936,101 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Templates",
       "description": "Portfolio Site with responsive design with animations and hover interactions, supports dark mode.",
-      "variantsCount": 1,
+      "variantsCount": 4,
       "variants": [
         {
-          "name": "Portfolio Site",
-          "path": "Vanilla/Templates/portfolio-site/",
-          "description": "Portfolio Site with responsive design with animations and hover interactions, supports dark mode.",
+          "name": "Bold Gradient Blob",
+          "path": "Vanilla/Templates/portfolio-site/bold-gradient-blob/",
+          "description": "Dark portfolio with bold multi-color gradients and blurred blobs.",
           "tags": [
             "portfolio",
-            "404",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
             "gradient",
-            "shadow",
-            "parallax"
+            "blob",
+            "glassmorphism",
+            "dark"
           ],
           "features": [
-            "responsive",
-            "ARIA",
-            "semantic HTML"
+            "glassmorphism",
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "bold-gradient-blob"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "portfolio1.html",
-            "portfolio2.html",
-            "portfolio3.html",
-            "portfolio4.html"
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Cyber Neon Grid",
+          "path": "Vanilla/Templates/portfolio-site/cyber-neon-grid/",
+          "description": "Dark portfolio with animated dot-grid background and neon accents.",
+          "tags": [
+            "portfolio",
+            "cyber",
+            "neon",
+            "grid",
+            "dark"
+          ],
+          "features": [
+            "responsive"
+          ],
+          "styles": [
+            "cyber-neon-grid"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Dark Glassmorphism Purple",
+          "path": "Vanilla/Templates/portfolio-site/dark-glassmorphism-purple/",
+          "description": "Dark portfolio with glassmorphism nav and purple accents.",
+          "tags": [
+            "portfolio",
+            "glassmorphism",
+            "dark",
+            "purple",
+            "gradient"
+          ],
+          "features": [
+            "glassmorphism",
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "dark-glassmorphism-purple"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Minimal Editorial Light",
+          "path": "Vanilla/Templates/portfolio-site/minimal-editorial-light/",
+          "description": "White minimal portfolio with pastel accent and editorial layout.",
+          "tags": [
+            "portfolio",
+            "minimal",
+            "editorial",
+            "light"
+          ],
+          "features": [
+            "responsive"
+          ],
+          "styles": [
+            "minimal-editorial-light"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -25926,32 +26051,78 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Templates",
       "description": "Product Launch with responsive design with animations and hover interactions.",
-      "variantsCount": 1,
+      "variantsCount": 3,
       "variants": [
         {
-          "name": "Product Launch",
-          "path": "Vanilla/Templates/product-launch/",
-          "description": "Product Launch.",
+          "name": "Cyber Neon Dark",
+          "path": "Vanilla/Templates/product-launch/cyber-neon-dark/",
+          "description": "Dark launch page with neon cyan glow and futuristic typography.",
           "tags": [
             "ecommerce",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "gradient",
-            "shadow",
-            "parallax",
-            "pulse"
+            "landing-page",
+            "cyber",
+            "neon",
+            "dark"
           ],
           "features": [
-            "responsive",
-            "semantic HTML"
+            "responsive"
+          ],
+          "styles": [
+            "cyber-neon-dark"
           ],
           "files": [
             "README.md",
-            "launchsite1.html",
-            "launchsite2.html",
-            "launchsite4.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Gradient SaaS",
+          "path": "Vanilla/Templates/product-launch/gradient-saas/",
+          "description": "Clean SaaS launch page with a single purple-to-blue gradient hero.",
+          "tags": [
+            "ecommerce",
+            "landing-page",
+            "saas",
+            "gradient"
+          ],
+          "features": [
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "gradient-saas"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Playful Pastel Rotated",
+          "path": "Vanilla/Templates/product-launch/playful-pastel-rotated/",
+          "description": "Playful launch page with rotated cards and pastel blob gradients.",
+          "tags": [
+            "ecommerce",
+            "landing-page",
+            "playful",
+            "pastel",
+            "gradient",
+            "animation"
+          ],
+          "features": [
+            "animation",
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "playful-pastel-rotated"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -25972,32 +26143,76 @@
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Templates",
       "description": "Startup Template with responsive design with animations and hover interactions, supports dark mode.",
-      "variantsCount": 1,
+      "variantsCount": 3,
       "variants": [
         {
-          "name": "Startup Template",
-          "path": "Vanilla/Templates/startup-template/",
-          "description": "Startup Template with responsive design with animations and hover interactions, supports dark mode.",
+          "name": "Cyber Neon Startup",
+          "path": "Vanilla/Templates/startup-template/cyber-neon-startup/",
+          "description": "Dark startup template with glassmorphism header and neon accents.",
           "tags": [
-            "grid",
-            "animation",
-            "hover-effect",
+            "startup",
+            "cyber",
+            "neon",
             "glassmorphism",
-            "gradient",
-            "shadow",
-            "parallax",
-            "responsive"
+            "dark"
           ],
           "features": [
-            "responsive",
-            "semantic HTML"
+            "glassmorphism",
+            "responsive"
+          ],
+          "styles": [
+            "cyber-neon-startup"
           ],
           "files": [
             "README.md",
             "metadata.json",
-            "template1.html",
-            "template2.html",
-            "template3.html"
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Minimal Professional",
+          "path": "Vanilla/Templates/startup-template/minimal-professional/",
+          "description": "Neutral professional startup template with light/dark toggle and soft shadows.",
+          "tags": [
+            "startup",
+            "minimal",
+            "professional",
+            "neutral"
+          ],
+          "features": [
+            "responsive"
+          ],
+          "styles": [
+            "minimal-professional"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Soft Gradient Shapes",
+          "path": "Vanilla/Templates/startup-template/soft-gradient-shapes/",
+          "description": "Light startup template with soft pastel gradients and floating SVG shapes.",
+          "tags": [
+            "startup",
+            "gradient",
+            "pastel",
+            "animation"
+          ],
+          "features": [
+            "animation",
+            "gradient",
+            "responsive"
+          ],
+          "styles": [
+            "soft-gradient-shapes"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -26037,7 +26252,7 @@
           "files": [
             "README.md",
             "metadata.json",
-            "template-element.html"
+            "preview.html"
           ]
         }
       ],
