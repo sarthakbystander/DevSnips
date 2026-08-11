@@ -3,10 +3,10 @@
   "lastUpdated": "2026-08-11",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 106,
-    "totalVariants": 852,
+    "totalFamilies": 107,
+    "totalVariants": 853,
     "totalSubVariants": 0,
-    "totalStyles": 2016,
+    "totalStyles": 2017,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -601,28 +601,6 @@
           ]
         },
         {
-          "name": "Icon Button Basic",
-          "path": "Tailwind/Components/Buttons/Icon Button/basic/",
-          "description": "Basic icon button styles with various colors",
-          "tags": [
-            "button",
-            "icon",
-            "icon-only",
-            "toolbar"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Danger",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "3D Button Basic",
           "path": "Tailwind/Components/Buttons/3D Button/basic/",
           "description": "3D push button effects with depth",
@@ -637,6 +615,28 @@
             "Blue",
             "Gray",
             "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Basic",
+          "path": "Tailwind/Components/Buttons/Icon Button/basic/",
+          "description": "Basic icon button styles with various colors",
+          "tags": [
+            "button",
+            "icon",
+            "icon-only",
+            "toolbar"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Danger",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -709,31 +709,6 @@
           ]
         },
         {
-          "name": "Outline Colors Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
-          "description": "Outline buttons available in multiple colors",
-          "tags": [
-            "button",
-            "outline",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Ghost Colors Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
           "description": "Ghost buttons available in multiple colors for different actions",
@@ -759,20 +734,44 @@
           ]
         },
         {
-          "name": "Icon Button Dark",
-          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
-          "description": "Dark themed icon button styles for dark interfaces",
+          "name": "Outline Colors Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
+          "description": "Outline buttons available in multiple colors",
           "tags": [
             "button",
-            "icon",
+            "outline",
+            "colors",
+            "red",
+            "green",
+            "purple"
+          ],
+          "styles": [
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Dark"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "tags": [
+            "button",
+            "ghost",
             "dark",
             "dark mode"
           ],
           "styles": [
+            "White",
             "Gray",
-            "Darker",
-            "Light",
-            "Outline"
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -802,27 +801,6 @@
           ]
         },
         {
-          "name": "Glass Dark Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
-          "description": "Dark glass morphism buttons for dark interfaces",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "dark"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline on Dark Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dark/",
           "description": "Outline buttons designed for dark backgrounds",
@@ -844,19 +822,41 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "name": "Glass Dark Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
+          "description": "Dark glass morphism buttons for dark interfaces",
           "tags": [
             "button",
-            "ghost",
+            "glass",
+            "glassmorphism",
+            "dark"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Dark",
+          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "description": "Dark themed icon button styles for dark interfaces",
+          "tags": [
+            "button",
+            "icon",
             "dark",
             "dark mode"
           ],
           "styles": [
-            "White",
             "Gray",
-            "Blue"
+            "Darker",
+            "Light",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1082,6 +1082,28 @@
           ]
         },
         {
+          "name": "Ghost Icon Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "description": "Ghost buttons with icons for upload, add, and delete actions",
+          "tags": [
+            "button",
+            "ghost",
+            "icon",
+            "upload",
+            "delete"
+          ],
+          "styles": [
+            "Upload",
+            "Add",
+            "Delete"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Animated Icon Button",
           "path": "Tailwind/Components/Buttons/Animated Button/icon/",
           "description": "Icon animations on hover for interactive effects",
@@ -1137,28 +1159,6 @@
             "Bookmark",
             "Share",
             "Add (Pill)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
-          "tags": [
-            "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
-          ],
-          "styles": [
-            "Upload",
-            "Add",
-            "Delete"
           ],
           "files": [
             "code.html",
@@ -1336,6 +1336,27 @@
           ]
         },
         {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Filled Primary Button",
           "path": "Tailwind/Components/Buttons/Filled Button/primary/",
           "description": "Solid color filled buttons with primary colors",
@@ -1349,27 +1370,6 @@
             "Blue",
             "Indigo",
             "Violet"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Primary Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
-          "description": "Color glass morphism buttons with colored backgrounds",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "colored"
-          ],
-          "styles": [
-            "Blue",
-            "Purple",
-            "Pink"
           ],
           "files": [
             "code.html",
@@ -1419,19 +1419,19 @@
           ]
         },
         {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
+          "name": "Glass Primary Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
+          "description": "Color glass morphism buttons with colored backgrounds",
           "tags": [
             "button",
-            "ghost",
-            "transparent",
-            "hover"
+            "glass",
+            "glassmorphism",
+            "colored"
           ],
           "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
+            "Blue",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -1462,28 +1462,6 @@
           ]
         },
         {
-          "name": "Icon Button Rounded",
-          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
-          "description": "Fully rounded icon button styles",
-          "tags": [
-            "button",
-            "icon",
-            "rounded",
-            "circle"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Gradient",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Rounded Full Button",
           "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
           "description": "Fully rounded pill-shaped filled buttons",
@@ -1498,6 +1476,28 @@
             "Blue Pill",
             "Dark Pill",
             "Gradient Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Rounded",
+          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
+          "description": "Fully rounded icon button styles",
+          "tags": [
+            "button",
+            "icon",
+            "rounded",
+            "circle"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Gradient",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1594,6 +1594,23 @@
           ]
         },
         {
+          "name": "Ghost Button Sizes",
+          "path": "Tailwind/Components/Buttons/Ghost Button/sizes/",
+          "description": "Ghost button sizes from small to large",
+          "tags": [
+            "button",
+            "ghost",
+            "sizes",
+            "small",
+            "large"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Filled Button Sizes",
           "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
           "description": "Filled button sizes from small to large",
@@ -1645,23 +1662,6 @@
           ]
         },
         {
-          "name": "Ghost Button Sizes",
-          "path": "Tailwind/Components/Buttons/Ghost Button/sizes/",
-          "description": "Ghost button sizes from small to large",
-          "tags": [
-            "button",
-            "ghost",
-            "sizes",
-            "small",
-            "large"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Soft Background Button",
           "path": "Tailwind/Components/Buttons/Filled Button/soft/",
           "description": "Soft background buttons with pastel colors for subtle actions",
@@ -1687,6 +1687,27 @@
           ]
         },
         {
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
+          "tags": [
+            "button",
+            "neumorphism",
+            "soft ui",
+            "shadow"
+          ],
+          "styles": [
+            "Default",
+            "Pill",
+            "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Glass Soft Button",
           "path": "Tailwind/Components/Buttons/Glass Button/soft/",
           "description": "Soft glass morphism buttons with blur effect",
@@ -1701,27 +1722,6 @@
             "Default",
             "Disabled",
             "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
           ],
           "files": [
             "code.html",
@@ -26329,6 +26329,65 @@
         "multipage",
         "template"
       ]
+    },
+    {
+      "name": "SaaS Dashboard",
+      "path": "Vanilla/Templates/SaaS Dashboard/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "category": "Templates",
+      "description": "A self-contained Vanilla HTML/CSS/JS SaaS admin dashboard template with KPI cards, an interactive revenue chart, an activity feed, a customer table, dark mode, and a responsive sidebar layout. No frameworks or build step required.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "SaaS Dashboard",
+          "path": "Vanilla/Templates/SaaS Dashboard/",
+          "description": "A self-contained Vanilla HTML/CSS/JS SaaS admin dashboard template with KPI cards, an interactive revenue chart, an activity feed, a customer table, dark mode, and a responsive sidebar layout. No frameworks or build step required.",
+          "tags": [
+            "dashboard",
+            "saas",
+            "admin",
+            "analytics",
+            "charts",
+            "dark-mode",
+            "responsive",
+            "grid",
+            "css-variables",
+            "accessibility",
+            "sidebar",
+            "table"
+          ],
+          "features": [
+            "Interactive SVG line chart with period toggle (7d/30d/12m) and hover tooltip",
+            "Animated count-up KPI cards (revenue, customers, conversion, session)",
+            "Light and dark mode with system preference detection and persisted toggle",
+            "Responsive sidebar that converts to an off-canvas drawer below 860px",
+            "Customer table with row view/delete actions and toast feedback",
+            "CSS design-token system (--ds-*) for easy re-theming",
+            "Accessible: skip link, semantic landmarks, ARIA on interactive controls, focus-visible rings, reduced-motion safe",
+            "Zero dependencies — copy the folder and open preview.html"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        }
+      ],
+      "tags": [
+        "dashboard",
+        "saas",
+        "admin",
+        "analytics",
+        "charts",
+        "dark-mode",
+        "responsive",
+        "grid",
+        "css-variables",
+        "accessibility",
+        "sidebar",
+        "table"
+      ]
     }
   ],
   "technologies": [
@@ -26449,7 +26508,8 @@
         "Portfolio Site",
         "Product Launch",
         "Startup Template",
-        "Template Element"
+        "Template Element",
+        "SaaS Dashboard"
       ]
     }
   ],
