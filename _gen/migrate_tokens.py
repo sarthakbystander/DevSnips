@@ -96,6 +96,46 @@ COLOR_MAP = {
     "#111111": "--ds-foreground",
     "#888": "--ds-subtle",
     "#888888": "--ds-subtle",
+    # ---- extended shades (mop-up pass) ----
+    # surfaces / backgrounds
+    "#f8f8f8": "--ds-surface-2",
+    "#f3f3f3": "--ds-surface-2",
+    "#f6f6f6": "--ds-surface-2",
+    "#f9f9ff": "--ds-surface-2",
+    "#f9f9fa": "--ds-surface-2",
+    "#e9ecef": "--ds-surface-3",
+    "#e7e7e7": "--ds-surface-3",
+    "#e4e4e4": "--ds-surface-3",
+    "#e3f2fd": "--ds-accent-soft",
+    "#f4f4f4": "--ds-surface-2",
+    "#fefefe": "--ds-surface",
+    "#f8f9fa": "--ds-surface-2",
+    # borders
+    "#dee2e6": "--ds-border",
+    "#d1d5db": "--ds-border",
+    "#d4d4d4": "--ds-border-strong",
+    # muted / subtle text
+    "#777": "--ds-muted",
+    "#777777": "--ds-muted",
+    "#818181": "--ds-muted",
+    "#aaa": "--ds-subtle",
+    "#aaaaaa": "--ds-subtle",
+    "#6c757d": "--ds-muted",
+    # accents (blues/cyans/teals) -> --ds-accent
+    "#2196f3": "--ds-accent",
+    "#3498db": "--ds-accent",
+    "#008cba": "--ds-accent",
+    "#3b82f6": "--ds-accent",
+    "#66b1ff": "--ds-accent-hover",
+    # accent hover shades
+    "#4338ca": "--ds-accent-hover",
+    # semantic
+    "#ff9800": "--ds-warning",
+    "#ffa726": "--ds-warning",
+    "#3e8e41": "--ds-success",
+    "#79a70a": "--ds-success",
+    "#1abc9c": "--ds-success",
+    "#ff0000": "--ds-danger",
 }
 
 # Radius: only standalone border-radius declarations (not compound corners).

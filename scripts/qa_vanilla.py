@@ -206,7 +206,9 @@ def checks(c):
 
 # ---- Token conformance (var(--ds-*) adoption) ----
 DS_VAR = re.compile(r"var\(--ds-")
-HEX = re.compile(r"#[0-9a-fA-F]{3,8}\b")
+# Hex color VALUE. Negative lookbehind on '&' so HTML character entities like
+# &#8592; (←), &#9776; (☰), &#10094; (❮) are not miscounted as hex colors.
+HEX = re.compile(r"(?<!&)#[0-9a-fA-F]{3,8}\b")
 # a hex inside a var(--ds-*, HERE) fallback is not raw usage
 HEX_IN_FALLBACK = re.compile(r"var\(--ds-[^)]*?#\s*[0-9a-fA-F]{3,8}")
 # a hex on the RHS of a --ds-* definition inside :root{} is not usage either
@@ -217,7 +219,7 @@ SECTION_MARKERS = ("prefers-color-scheme", "--bg", "--radius")
 
 def _raw_hex_count(html: str) -> int:
     """Count hex colors used as raw values (not var() fallbacks, not token
-    definitions in :root)."""
+    definitions in :root, not HTML character entities like &#8592;)."""
     # strip the :root{--ds-*} definition blocks so token defs don't count
     cleaned = DS_DEF_BLOCK.sub("", html)
     total = len(HEX.findall(cleaned))
