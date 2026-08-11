@@ -1,0 +1,61 @@
+{
+  "id": "saas-dashboard-001",
+  "name": "SaaS Dashboard",
+  "slug": "saas-dashboard",
+  "component": "dashboard",
+  "family": "saas-dashboard",
+  "variant": "default",
+  "description": "A self-contained Vanilla HTML/CSS/JS SaaS admin dashboard template with KPI cards, an interactive revenue chart, an activity feed, a customer table, dark mode, and a responsive sidebar layout. No frameworks or build step required.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "technology": "vanilla",
+  "category": "templates",
+  "subcategory": "saas-dashboard",
+  "tags": [
+    "dashboard",
+    "saas",
+    "admin",
+    "analytics",
+    "charts",
+    "dark-mode",
+    "responsive",
+    "grid",
+    "css-variables",
+    "accessibility",
+    "sidebar",
+    "table"
+  ],
+  "features": [
+    "Interactive SVG line chart with period toggle (7d/30d/12m) and hover tooltip",
+    "Animated count-up KPI cards (revenue, customers, conversion, session)",
+    "Light and dark mode with system preference detection and persisted toggle",
+    "Responsive sidebar that converts to an off-canvas drawer below 860px",
+    "Customer table with row view/delete actions and toast feedback",
+    "CSS design-token system (--ds-*) for easy re-theming",
+    "Accessible: skip link, semantic landmarks, ARIA on interactive controls, focus-visible rings, reduced-motion safe",
+    "Zero dependencies — copy the folder and open preview.html"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "browserSupport": [
+    "chrome",
+    "firefox",
+    "safari",
+    "edge"
+  ],
+  "dependencies": [
+    "Inter",
+    "JetBrains Mono"
+  ],
+  "accessibility": [
+    "semantic HTML",
+    "ARIA roles and labels on interactive controls",
+    "focus-visible rings",
+    "prefers-reduced-motion support",
+    "skip-to-content link",
+    "keyboard-operable controls (Escape closes sidebar)"
+  ],
+  "source": "DevSnips",
+  "related": [],
+  "type": "single-page"
+}
