@@ -10,9 +10,13 @@ Tailwind, no bundler, no build step.
 
 ## Preview
 
-Open `preview.html` directly in a browser, or serve the folder:
+Open `preview.html` directly in a browser (no server needed — it's self-contained):
 
 ```bash
+# Option A: just open the file
+open "Vanilla/Templates/SaaS Dashboard/preview.html"
+
+# Option B: serve the folder (handy for hot-reloading during edits)
 cd Vanilla/Templates/SaaS\ Dashboard
 python3 -m http.server 8080
 # visit http://localhost:8080/preview.html
@@ -22,18 +26,22 @@ python3 -m http.server 8080
 
 ```
 SaaS Dashboard/
-├── preview.html        # Full live demo — links css/ + js/ + assets/
-├── code.html           # Self-contained copy-paste (all CSS/JS inlined, no assets)
-├── metadata.json        # DevSnips registration metadata
-├── README.md            # This file
-├── css/
-│   └── dashboard.css    # Design tokens + layout + components + responsive
-├── js/
-│   └── dashboard.js     # Chart, theme toggle, sidebar, KPI count-up, table actions
-└── assets/
-    ├── logo.svg
-    └── favicon.svg
+├── preview.html        # Self-contained live demo — all CSS/JS/SVG inlined, open directly in a browser
+├── code.html          # Same dashboard with the snippet comment header, ready to copy-paste
+├── metadata.json      # DevSnips registration metadata
+├── README.md           # This file
+├── css/dashboard.css  # Optional: the dashboard stylesheet split out for modular projects
+├── js/dashboard.js    # Optional: the dashboard script split out for modular projects
+└── assets/{logo,favicon}.svg
 ```
+
+`preview.html` and `code.html` are fully self-contained single files (inline `<style>` +
+`<script>`, logo as a data URI) — matching the DevSnips Vanilla/Templates convention
+(e.g. `micro-saas-product/preview.html`). Open either in a browser with no server
+required. The `css/`, `js/`, and `assets/` folders are provided for developers who
+prefer a split, modular setup — move the inlined `<style>`/`<script>` into those files
+and link them with `<link rel="stylesheet" href="css/dashboard.css">` and
+`<script src="js/dashboard.js" defer></script>`.
 
 ## Features
 
