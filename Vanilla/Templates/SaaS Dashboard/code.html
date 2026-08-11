@@ -1,17 +1,17 @@
 <!--
 Snippet Name: SaaS Dashboard (self-contained)
-Description: A Vanilla HTML/CSS/JS SaaS admin dashboard with KPIs, an interactive revenue chart, activity feed, customer table, dark mode, and responsive sidebar. All CSS/JS inlined; the only external request is Google Fonts.
+Description: A Vanilla HTML/CSS/JS SaaS admin dashboard with KPIs, an interactive revenue chart, activity feed, customer table, dark mode, and responsive sidebar. All CSS/JS/inline SVG inlined; the only external request is Google Fonts.
 Author: DevSnips Contributors
-Usage Example: Copy this entire file into an .html file and open it in a browser. To split it apart, move the <style> contents into css/dashboard.css and the <script> contents into js/dashboard.js, then link them with <link>/<script src>.
+Usage Example: Copy this entire file into an .html file and open it in a browser. For a modular setup, split the <style> into css/dashboard.css and the <script> into js/dashboard.js, then link them with <link rel="stylesheet"> and <script src>.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Northstar — SaaS Dashboard</title>
-  <meta name="description" content="A self-contained Vanilla HTML/CSS/JS SaaS admin dashboard: KPIs, revenue chart, activity feed, customer table, dark mode, responsive.">
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJOb3J0aHN0YXIgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im5zLWciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNjM2NmYxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhiNWNmNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0idXJsKCNucy1nKSIvPgogIDxwYXRoIGQ9Ik0xNiA2LjVsMi42IDYuNCA2LjkuNS01LjMgNC41IDEuNyA2LjhMMTYgMjEuMiA5LjEgMjUuMmwxLjctNi44LTUuMy00LjUgNi45LS41eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K" type="image/svg+xml">
+  <title>Northstar — SaaS Dashboard Template | DevSnips</title>
+  <meta name="description" content="A self-contained Vanilla HTML/CSS/JS SaaS admin dashboard template: KPIs, revenue chart, activity feed, customer table, dark mode, and responsive layout.">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJOb3J0aHN0YXIiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJmYXYtZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM2MzY2ZjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGI1Y2Y2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI4IiBmaWxsPSJ1cmwoI2Zhdi1nKSIvPgogIDxwYXRoIGQ9Ik0xNiA2LjVsMi42IDYuNCA2LjkuNS01LjMgNC41IDEuNyA2LjhMMTYgMjEuMiA5LjEgMjUuMmwxLjctNi44LTUuMy00LjUgNi45LS41eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -700,6 +700,7 @@ table.data .cust .meta .em { font-size: 0.76rem; color: var(--ds-muted); }
 
   </style>
   <script>
+    // Apply persisted/system theme before paint to avoid a flash.
     (function () {
       try {
         var t = localStorage.getItem('ns-theme');
