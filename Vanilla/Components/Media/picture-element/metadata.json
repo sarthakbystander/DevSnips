@@ -8,10 +8,9 @@
   "tags": [
     "image",
     "web-components",
-    "table",
     "media-query"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -19,5 +18,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "picture-element",
+  "component": "media",
+  "family": "media",
+  "variant": "picture-element",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

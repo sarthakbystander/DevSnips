@@ -6,10 +6,9 @@
   "category": "components",
   "subcategory": "other",
   "tags": [
-    "form-element",
-    "table"
+    "form-element"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -17,5 +16,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "simple-unordered-list",
+  "component": "other",
+  "family": "other",
+  "variant": "simple-unordered-list",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

@@ -7,7 +7,6 @@
   "subcategory": "modals",
   "tags": [
     "modal",
-    "table",
     "keyboard",
     "pseudo-class",
     "layout",
@@ -15,7 +14,7 @@
     "form",
     "dropdown"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "focus-trap-modal",
+  "component": "modal",
+  "family": "modals",
+  "variant": "focus-trap-modal",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

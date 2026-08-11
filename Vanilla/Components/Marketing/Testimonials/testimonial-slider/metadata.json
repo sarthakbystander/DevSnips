@@ -8,14 +8,13 @@
   "tags": [
     "carousel",
     "center",
-    "table",
     "typography",
     "border",
     "image",
     "utility",
     "api"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "testimonial-slider",
+  "component": "testimonial",
+  "family": "testimonials",
+  "variant": "testimonial-slider",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

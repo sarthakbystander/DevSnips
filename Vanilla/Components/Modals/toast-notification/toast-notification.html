@@ -1,23 +1,262 @@
-<!-- Toast Notification -->
-<button id="showToast">Show Toast</button>
-<div id="toast" style="display:none;position:fixed;bottom:2em;right:2em;background:#6366f1;color:#fff;padding:1em 2em;border-radius:8px;box-shadow:0 2px 8px #0003;z-index:1000;">This is a toast notification!</div>
+<!--
+  Toast Notification System
+  - Stackable notifications
+  - Auto-dismiss with progress bar
+  - Different types (success, error, info)
+  - Accessible announcements
+  - Smooth animations
+-->
+
+<div class="toast-container" role="log" aria-live="polite" aria-atomic="true">
+  <!-- Toasts will be inserted here dynamically -->
+</div>
+
+<div class="demo-buttons">
+  <button onclick="showToast('success', 'Success!', 'Operation completed successfully.')">
+    Show Success Toast
+  </button>
+  <button onclick="showToast('error', 'Error!', 'Something went wrong.')">
+    Show Error Toast
+  </button>
+  <button onclick="showToast('info', 'Info', 'This is an informational message.')">
+    Show Info Toast
+  </button>
+</div>
 
 <style>
-#showToast {
-  padding: 0.5em 1em;
-  border: none;
-  background: #6366f1;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+  pointer-events: none;
 }
+
+.toast {
+  --toast-bg: white;
+  --toast-border: var(--ds-border, #ddd);
+  --toast-progress: var(--ds-accent, #4a90e2);
+  
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--toast-bg);
+  border: 1px solid var(--toast-border);
+  border-radius: var(--ds-radius-sm, 4px);
+  padding: 1rem;
+  margin: 0;
+  box-shadow: var(--ds-shadow-lg, 0 4px 12px rgba(0, 0, 0, 0.15));
+  pointer-events: auto;
+  overflow: hidden;
+  animation: toastSlideIn 0.3s;
+}
+
+.toast.removing {
+  animation: toastSlideOut 0.3s forwards;
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--toast-progress);
+  transform-origin: left;
+  animation: toastProgress 5s linear forwards;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.toast-title {
+  font-weight: bold;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.toast-close {
+  padding: 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+.toast-message {
+  margin: 0;
+}
+
+/* Toast types */
+.toast[data-type="success"] {
+  --toast-border: var(--ds-success, #4caf50);
+  border-left: 4px solid var(--toast-border);
+}
+
+.toast[data-type="error"] {
+  --toast-border: var(--ds-danger, #f44336);
+  border-left: 4px solid var(--toast-border);
+}
+
+.toast[data-type="info"] {
+  --toast-border: var(--ds-accent, #2196f3);
+  border-left: 4px solid var(--toast-border);
+}
+
+/* Animations */
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Demo buttons */
+.demo-buttons {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.demo-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.demo-buttons button:hover {
+  background: var(--ds-surface-2, #f5f5f5);
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
 
 <script>
-const showToast = document.getElementById('showToast');
-const toast = document.getElementById('toast');
-showToast.onclick = () => {
-  toast.style.display = 'block';
-  setTimeout(() => toast.style.display = 'none', 2000);
-};
+class ToastNotification {
+  static container = document.querySelector('.toast-container');
+  static icons = {
+    success: '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="currentColor"/></svg>',
+    error: '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>',
+    info: '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>'
+  };
+  
+  constructor(type, title, message) {
+    this.type = type;
+    this.title = title;
+    this.message = message;
+    this.element = null;
+    this.timeout = null;
+    
+    this.create();
+    this.show();
+  }
+  
+  create() {
+    this.element = document.createElement('div');
+    this.element.className = 'toast';
+    this.element.setAttribute('data-type', this.type);
+    this.element.setAttribute('role', 'alert');
+    
+    this.element.innerHTML = `
+      <div class="toast-header">
+        <span class="toast-icon" aria-hidden="true">
+          ${ToastNotification.icons[this.type]}
+        </span>
+        <h3 class="toast-title">${this.title}</h3>
+        <button class="toast-close" aria-label="Close notification">
+          ${ToastNotification.icons.error}
+        </button>
+      </div>
+      <p class="toast-message">${this.message}</p>
+      <div class="toast-progress"></div>
+    `;
+    
+    this.element.querySelector('.toast-close')
+      .addEventListener('click', () => this.close());
+  }
+  
+  show() {
+    ToastNotification.container.appendChild(this.element);
+    
+    // Auto-dismiss after 5 seconds
+    this.timeout = setTimeout(() => this.close(), 5000);
+    
+    // Clear timeout if user hovers over toast
+    this.element.addEventListener('mouseenter', () => {
+      clearTimeout(this.timeout);
+      this.element.querySelector('.toast-progress').style.animationPlayState = 'paused';
+    });
+    
+    this.element.addEventListener('mouseleave', () => {
+      this.timeout = setTimeout(() => this.close(), 5000);
+      this.element.querySelector('.toast-progress').style.animationPlayState = 'running';
+    });
+  }
+  
+  close() {
+    clearTimeout(this.timeout);
+    this.element.classList.add('removing');
+    
+    this.element.addEventListener('animationend', () => {
+      this.element.remove();
+    });
+  }
+}
+
+function showToast(type, title, message) {
+  new ToastNotification(type, title, message);
+}
 </script>

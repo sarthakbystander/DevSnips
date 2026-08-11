@@ -66,9 +66,9 @@ Design-style reference: `Tailwind/Components/STYLE_TOKENS.md` (neo-brutalism, ve
 
 ### Vanilla
 
-**Components (34 families, 297 variants):** Accordions (5), Alerts (2), Avatars (1), Badges (2), Buttons (14), Cards (15), CTA (4), Contact (3), Content (4), Display (7), Dropdowns (1), FAQ (2), Features (5), Footer (3), Forms (38 — Contact, Login, Newsletter, Other, Register, Search), Gallery (3), Hero (10), Loaders (8), Logos (3), Marketing (6 — FAQ, Hero, Pricing, Testimonials), Media (17), Modals (12), Navigation (28), Other (65), Pricing (4), Process (4), Products (6), Ratings (3), Statistics (3), Tables (4), Tabs (5), Team (3), Testimonials (4), Tooltips (3).
+**Components (34 families, 293 variants):** Accordions (5), Alerts (2), Avatars (1), Badges (2), Buttons (14), Cards (15), CTA (4), Contact (3), Content (4), Display (6), Dropdowns (1), FAQ (2), Features (5), Footer (3), Forms (36), Gallery (3), Hero (10), Loaders (8), Logos (3), Marketing (6 — FAQ, Hero, Pricing, Testimonials), Media (17), Modals (11), Navigation (28), Other (65), Pricing (4), Process (4), Products (6), Ratings (3), Statistics (3), Tables (4), Tabs (5), Team (3), Testimonials (4), Tooltips (3).
 
-The 15 former Neo-Brutalist Vanilla Sections families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing, Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer) are now merged into `Vanilla/Components/`. Browse them via `Vanilla/Components/index.html` and `Vanilla/Components/showcase.html`.
+The 15 former Neo-Brutalist Vanilla Sections families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing, Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer) are now merged into `Vanilla/Components/`. Browse them via `Vanilla/Components/sections-index.html` and `Vanilla/Components/sections-showcase.html`.
 
 **Templates (14):** Landing-Pages (one-page-scrolling), Standalone (404-not-found-page, Coming-Soon), ai-tool-launch, blog-landing-pages, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, portfolio-site, product-launch, startup-template, template-element.
 

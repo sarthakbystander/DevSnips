@@ -12,10 +12,9 @@
     "container-queries",
     "flexbox",
     "dropdown",
-    "tabs",
-    "table"
+    "tabs"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,15 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "container-query-card",
+  "component": "card",
+  "family": "cards",
+  "variant": "container-query-card",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [],
+  "related": [],
+  "features": []
 }

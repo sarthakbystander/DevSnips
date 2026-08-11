@@ -8,11 +8,10 @@
   "tags": [
     "responsive",
     "image",
-    "table",
     "api",
     "media-query"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -20,5 +19,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "responsive-picture",
+  "component": "media",
+  "family": "media",
+  "variant": "responsive-picture",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

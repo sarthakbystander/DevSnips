@@ -25,7 +25,7 @@ Every Tailwind variant folder (kebab-case) must contain exactly three files:
 - `preview.html` — full `<!DOCTYPE html>` page with Tailwind CDN (`https://cdn.tailwindcss.com`), Inter font, responsive layout, and realistic application context around the component.
 - `metadata.json` — see schema below.
 
-Vanilla variant folders contain a self-contained `<slug>.html` (inline `<style>`+`<script>`, full `<!DOCTYPE html>`), `metadata.json`, and `README.md`.
+Vanilla variant folders contain a self-contained `<slug>.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper).
 
 The `code.html` snippet comment header is optional but follows CONTRIBUTING.md:
 `<!-- Snippet Name / Description / Author: DevSnips Contributors / Usage Example -->`
@@ -65,6 +65,21 @@ This works because the `<script>` parses inside the root. Panel animation uses t
 - HTML + Tailwind CSS only. Vanilla JS only where interaction is required.
 - NO React/Vue/Alpine/Bootstrap/jQuery.
 - 2-space indentation. Semantic HTML. Accessibility required (ARIA, keyboard, focus rings).
+
+## Vanilla design tokens — "Swiss" (neo-minimal, industry-standard)
+A single canonical token system makes the 201 legacy components speak one visual language. Source of truth: `Vanilla/Components/tokens.css` + `Vanilla/Components/DESIGN_TOKENS.md`.
+- **Token vocabulary** (`--ds-*`): neutrals (stone ramp), one accent (blue-600), semantic status (WCAG AA), typography (system stack + size/weight/leading ramps), spacing (base-4, Tailwind-aligned), radius (sm/md/lg/xl/full), shadow (restrained, Swiss — not the brutalist offset), motion, layout. Light + dark via `prefers-color-scheme`.
+- **Components opt in** with `var(--ds-<token>, <original-value>)` — the original value is the fallback, so a component is **copy-paste standalone** AND renders identically until `tokens.css` is themed. Including `tokens.css` once upgrades every component together (re-theme by editing one file). This is the shadcn model (CSS variables + per-theme override).
+- **Migration** (`_gen/migrate_tokens.py`, deterministic + idempotent): replaces ad-hoc hex/radius/shadow/font values with `var(--ds-*, fallback)`, injects the **full** Swiss `:root{--ds-*}` block + dark-mode `@media (prefers-color-scheme: dark)` override into each component's `<style>` so every `var(--ds-*)` reference resolves to the Swiss value. `--refresh-blocks` re-injects the current block (brace-matched replacement) without re-running value replacement — use it after editing the token set. Result: **201/201 legacy components tokenized (was 1.5%), 654 `var(--ds-*)` references, all 24 referenced tokens resolve to Swiss values, only 56 genuinely raw hex remaining** (component-specific gradient/decorative colors). The 65 neo-brutalist migrated sections keep their own `--bg`/`--surface`/`--radius` system (a deliberate, already-cohesive design language) and are NOT touched.
+- **Conformance** (`scripts/qa_vanilla.py --tokens`): reports adoption — counts `var(--ds-*)` references vs raw hex (excluding fallbacks + token definitions) per component; lists the top offenders. Advisory (always exits 0).
+
+## Vanilla quality bar (enforced)
+`scripts/qa_vanilla.py` scans every Vanilla component against an enforceable quality bar and is wired into `scripts/validate.py` (a required-check failure fails validation, exit 1). Run standalone for the full report (`--only-failures` for just failures; `--json` for machine-readable).
+- **reduced-motion** (required on animated components): every component with `transition`/`animation`/`@keyframes` must guard them with a `@media (prefers-reduced-motion: reduce)` rule. `_gen/fix_quality_bar.py` injects a global guard idempotently (marker `/* devsnips-qa:quality-bar */`).
+- **focus-visible** (required): every component must have a `:focus-visible` ring so keyboard users see focus. `fix_quality_bar.py` injects `:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}`.
+- **aria/role** (required on interactive families: Modals, Dropdowns, Tabs, Accordions, Navigation, Tooltips, Loaders, Buttons, Forms): custom widgets must use `role`/`aria-*`. Native semantic elements (`<button>`, `<a href>`, `<input>`, `<select>`, `<textarea>`, `<summary>`, `<dialog>`, `<details>`, `<progress>`, `<meter>`, `<output>`; content semantics `<kbd>`/`<time>`/`<mark>`/`<abbr>`; structure `<p>`/`<h1-6>`/`<ul>`/`<ol>`/landmarks) satisfy this by themselves — W3C: prefer native semantics, "no ARIA is better than bad ARIA".
+- **keyboard** (required only when the component wires interaction via `onclick`/click-listeners/div-based controls): operable controls must be `<button>`/`<a>`/`<input>` or carry `tabindex`+`role="button"`+Enter/Space handlers. Pure status displays (spinners, progress bars, skeletons) need aria but not keyboard.
+- Informational (non-fatal) warns: `doctype` (legacy fragments ship without `<!DOCTYPE>` — acceptable), `lang`/`viewport` (only when DOCTYPE present), `semantic` landmarks.
 
 ## Tailwind SaaS Sections — `Tailwind/Components/saas/` (merged — formerly `Tailwind/Sections/saas/`)
 Premium SaaS website sections (one variant/style per section, mixed across the three design styles). Same 3-file convention as other Sections families (`code.html` / `preview.html` / `metadata.json`).

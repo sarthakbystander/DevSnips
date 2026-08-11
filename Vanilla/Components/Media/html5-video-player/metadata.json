@@ -7,7 +7,6 @@
   "subcategory": "media",
   "tags": [
     "video",
-    "table",
     "image"
   ],
   "responsive": false,
@@ -18,5 +17,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "html5-video-player",
+  "component": "media",
+  "family": "media",
+  "variant": "html5-video-player",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

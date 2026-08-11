@@ -2,7 +2,7 @@
   "id": "feature-bento-001",
   "name": "Bento Features",
   "slug": "feature-bento",
-  "component": "features",
+  "component": "feature",
   "family": "features",
   "variant": "feature-bento",
   "description": "Bento feature grid mixing tile sizes and colors.",
@@ -17,18 +17,20 @@
     "grid"
   ],
   "features": [
-    "light/dark",
     "responsive",
-    "varied sizes"
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

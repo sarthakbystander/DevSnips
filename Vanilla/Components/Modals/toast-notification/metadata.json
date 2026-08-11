@@ -7,15 +7,15 @@
   "subcategory": "modals",
   "tags": [
     "badge",
+    "animation",
+    "hover-effect",
     "shadow",
-    "button",
-    "table",
-    "color",
-    "border",
-    "click",
-    "date"
+    "flexbox",
+    "center",
+    "layout",
+    "button"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,23 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "toast-notification",
+  "component": "modal",
+  "family": "modals",
+  "variant": "toast-notification",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible"
+  ]
 }

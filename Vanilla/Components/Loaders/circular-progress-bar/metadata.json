@@ -12,8 +12,7 @@
     "form-element",
     "gradient",
     "flexbox",
-    "center",
-    "table"
+    "center"
   ],
   "responsive": false,
   "browserSupport": [
@@ -23,5 +22,21 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "circular-progress-bar",
+  "component": "loader",
+  "family": "loaders",
+  "variant": "circular-progress-bar",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "ARIA",
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "ARIA",
+    "focus-visible"
+  ]
 }

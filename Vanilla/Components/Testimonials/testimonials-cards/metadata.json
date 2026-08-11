@@ -2,7 +2,7 @@
   "id": "testimonials-cards-001",
   "name": "Testimonial Cards",
   "slug": "testimonials-cards",
-  "component": "testimonials",
+  "component": "testimonial",
   "family": "testimonials",
   "variant": "testimonials-cards",
   "description": "3-column testimonial cards with star ratings.",
@@ -17,17 +17,20 @@
     "ratings"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

@@ -11,11 +11,10 @@
     "typography",
     "shadow",
     "layout",
-    "table",
     "color",
     "border"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "equal-height-cards-grid",
+  "component": "card",
+  "family": "cards",
+  "variant": "equal-height-cards-grid",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

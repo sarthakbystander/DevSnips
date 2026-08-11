@@ -2,7 +2,7 @@
   "id": "testimonials-carousel-001",
   "name": "Testimonial Carousel",
   "slug": "testimonials-carousel",
-  "component": "testimonials",
+  "component": "testimonial",
   "family": "testimonials",
   "variant": "testimonials-carousel",
   "description": "Auto-rotating carousel with dots and arrows.",
@@ -17,18 +17,19 @@
     "slider"
   ],
   "features": [
-    "keyboard",
-    "pause on hover",
-    "reduced-motion safe"
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
-  "responsive": true,
+  "responsive": false,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

@@ -12,7 +12,6 @@
     "typing-effect",
     "center",
     "button",
-    "table",
     "typography"
   ],
   "responsive": false,
@@ -23,5 +22,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "full-page-tabs",
+  "component": "tab",
+  "family": "tabs",
+  "variant": "full-page-tabs",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

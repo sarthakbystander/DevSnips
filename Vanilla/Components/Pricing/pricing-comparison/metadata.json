@@ -13,21 +13,23 @@
   "subcategory": "pricing",
   "tags": [
     "pricing",
-    "comparison",
-    "table"
+    "comparison"
   ],
   "features": [
-    "scroll on mobile",
-    "accessible table"
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

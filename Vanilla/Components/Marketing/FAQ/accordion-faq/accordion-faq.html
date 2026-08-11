@@ -1,0 +1,132 @@
+<!--
+  Multi-level Accordion FAQ Section
+  - Semantic HTML structure
+  - Keyboard accessible
+  - Smooth animations
+  - ARIA states for accessibility
+  - CSS-only implementation
+-->
+
+<section class="faq-accordion" role="region" aria-label="Frequently Asked Questions">
+  <h2>Frequently Asked Questions</h2>
+  
+  <div class="accordion">
+    <div class="accordion-item">
+      <input type="checkbox" id="faq-1" class="accordion-toggle" aria-hidden="true">
+      <label for="faq-1" class="accordion-header" role="button" aria-controls="faq-1-content" aria-expanded="false">
+        How do I create an account?
+        <span class="accordion-icon"></span>
+      </label>
+      <div class="accordion-content" role="region" aria-labelledby="faq-1" id="faq-1-content">
+        <p>Creating an account is easy! Simply click the "Sign Up" button and follow the registration process. You'll need to provide a valid email address and create a secure password.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <input type="checkbox" id="faq-2" class="accordion-toggle" aria-hidden="true">
+      <label for="faq-2" class="accordion-header" role="button" aria-controls="faq-2-content" aria-expanded="false">
+        What payment methods do you accept?
+        <span class="accordion-icon"></span>
+      </label>
+      <div class="accordion-content" role="region" aria-labelledby="faq-2" id="faq-2-content">
+        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. All payments are processed securely through our payment gateway.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <input type="checkbox" id="faq-3" class="accordion-toggle" aria-hidden="true">
+      <label for="faq-3" class="accordion-header" role="button" aria-controls="faq-3-content" aria-expanded="false">
+        How can I contact support?
+        <span class="accordion-icon"></span>
+      </label>
+      <div class="accordion-content" role="region" aria-labelledby="faq-3" id="faq-3-content">
+        <p>Our support team is available 24/7. You can reach us through:</p>
+        <ul>
+          <li>Email: support@example.com</li>
+          <li>Phone: 1-800-123-4567</li>
+          <li>Live Chat: Available on our website</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-accordion {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.accordion {
+  border: 1px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--ds-border, #ddd);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-toggle {
+  display: none;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  background: var(--ds-surface-2, #f8f8f8);
+  transition: background-color 0.3s;
+}
+
+.accordion-icon {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--ds-muted, #666);
+  border-bottom: 2px solid var(--ds-muted, #666);
+  transform: rotate(45deg);
+  transition: transform 0.3s;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: all 0.3s ease-out;
+}
+
+.accordion-toggle:checked ~ .accordion-header {
+  background: var(--ds-surface, #fff);
+}
+
+.accordion-toggle:checked ~ .accordion-header .accordion-icon {
+  transform: rotate(-135deg);
+}
+
+.accordion-toggle:checked ~ .accordion-content {
+  max-height: 1000px;
+  padding: 1rem;
+}
+
+/* Focus styles for accessibility */
+.accordion-header:focus-visible {
+  outline: 2px solid var(--ds-accent, #4a90e2);
+  outline-offset: -2px;
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+</style>

@@ -10,12 +10,11 @@
     "ecommerce",
     "layout",
     "button",
-    "table",
     "accessibility",
     "semantic",
     "form-element"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,23 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "pricing-card",
+  "component": "card",
+  "family": "cards",
+  "variant": "pricing-card",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "related": [],
+  "features": [
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ]
 }

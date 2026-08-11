@@ -1,7 +1,7 @@
 {
   "id": "micro-saas-product-001",
   "name": "Micro Saas Product",
-  "description": "Micro Saas Product with responsive design with animations and hover interactions.",
+  "description": "Micro Saas Product.",
   "technology": "vanilla",
   "category": "templates",
   "subcategory": "micro-saas-product",
@@ -15,7 +15,7 @@
     "flexbox",
     "grid"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -25,5 +25,12 @@
   "dependencies": [
     "Poppins"
   ],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "darkMode": false,
+  "accessibility": [
+    "semantic HTML"
+  ],
+  "features": [
+    "semantic HTML"
+  ]
 }

@@ -1,0 +1,378 @@
+<!--
+  Mobile-friendly Contact Form Layout
+  - Responsive grid layout
+  - Custom form validation
+  - Success/error states
+  - Accessible form controls
+  - Touch-friendly inputs
+-->
+
+<form class="contact-form" novalidate>
+  <h2>Contact Us</h2>
+  
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        minlength="2"
+        aria-describedby="name-error"
+      >
+      <div id="name-error" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required
+        aria-describedby="email-error"
+      >
+      <div id="email-error" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        pattern="[0-9]{10}"
+        aria-describedby="phone-error"
+      >
+      <div id="phone-error" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <select 
+        id="subject" 
+        name="subject" 
+        required
+        aria-describedby="subject-error"
+      >
+        <option value="">Select a subject</option>
+        <option value="general">General Inquiry</option>
+        <option value="support">Technical Support</option>
+        <option value="feedback">Feedback</option>
+        <option value="other">Other</option>
+      </select>
+      <div id="subject-error" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="message">Message</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        required 
+        minlength="10"
+        rows="5"
+        aria-describedby="message-error"
+      ></textarea>
+      <div id="message-error" class="error-message" aria-live="polite"></div>
+    </div>
+
+    <div class="form-group full-width">
+      <label class="checkbox-label">
+        <input 
+          type="checkbox" 
+          id="consent" 
+          name="consent" 
+          required
+          aria-describedby="consent-error"
+        >
+        <span>I agree to the processing of my personal data</span>
+      </label>
+      <div id="consent-error" class="error-message" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <button type="submit" class="submit-button" disabled>
+    <span class="button-text">Send Message</span>
+    <span class="button-loader" hidden></span>
+  </button>
+
+  <div class="form-message" role="status" aria-live="polite"></div>
+</form>
+
+<style>
+.contact-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--ds-surface, #fff);
+  border-radius: var(--ds-radius-md, 8px);
+  box-shadow: var(--ds-shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.contact-form h2 {
+  margin: 0 0 1.5rem;
+  color: var(--ds-foreground, #333);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 500;
+  color: var(--ds-foreground, #333);
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
+  font-size: 1rem;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M7 10l5 5 5-5H7z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2.5rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-top: 0.25rem;
+}
+
+.error-message {
+  font-size: 0.875rem;
+  color: var(--ds-danger, #f44336);
+  min-height: 1.25rem;
+}
+
+.submit-button {
+  position: relative;
+  width: 100%;
+  padding: 0.875rem;
+  border: none;
+  border-radius: var(--ds-radius-sm, 4px);
+  background: var(--ds-accent, #4a90e2);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--ds-accent, #357abd);
+}
+
+.submit-button:disabled {
+  background: var(--ds-border, #ddd);
+  cursor: not-allowed;
+}
+
+.button-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border: 2px solid var(--ds-surface, #fff);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+.form-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--ds-radius-sm, 4px);
+  text-align: center;
+}
+
+.form-message.success {
+  background: var(--ds-success-soft, #e8f5e9);
+  color: var(--ds-success, #2e7d32);
+}
+
+.form-message.error {
+  background: var(--ds-danger-soft, #ffebee);
+  color: var(--ds-danger, #c62828);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Focus styles */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--ds-accent, #4a90e2);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+</style>
+
+<script>
+const form = document.querySelector('.contact-form');
+const submitButton = form.querySelector('.submit-button');
+const formMessage = form.querySelector('.form-message');
+const buttonText = submitButton.querySelector('.button-text');
+const buttonLoader = submitButton.querySelector('.button-loader');
+
+// Validation messages
+const validationMessages = {
+  name: {
+    valueMissing: 'Please enter your name',
+    tooShort: 'Name must be at least 2 characters'
+  },
+  email: {
+    valueMissing: 'Please enter your email address',
+    typeMismatch: 'Please enter a valid email address'
+  },
+  phone: {
+    patternMismatch: 'Please enter a valid 10-digit phone number'
+  },
+  subject: {
+    valueMissing: 'Please select a subject'
+  },
+  message: {
+    valueMissing: 'Please enter your message',
+    tooShort: 'Message must be at least 10 characters'
+  },
+  consent: {
+    valueMissing: 'You must agree to the processing of your data'
+  }
+};
+
+// Real-time validation
+form.querySelectorAll('input, select, textarea').forEach(field => {
+  field.addEventListener('input', () => validateField(field));
+  field.addEventListener('blur', () => validateField(field));
+});
+
+function validateField(field) {
+  const errorElement = document.getElementById(`${field.id}-error`);
+  
+  if (!field.validity.valid) {
+    let message = '';
+    for (const key in validationMessages[field.name]) {
+      if (field.validity[key]) {
+        message = validationMessages[field.name][key];
+        break;
+      }
+    }
+    errorElement.textContent = message;
+    field.setAttribute('aria-invalid', 'true');
+  } else {
+    errorElement.textContent = '';
+    field.setAttribute('aria-invalid', 'false');
+  }
+  
+  // Update submit button state
+  submitButton.disabled = !form.checkValidity();
+}
+
+// Form submission
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  if (!form.checkValidity()) {
+    // Show all validation messages
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+      validateField(field);
+    });
+    return;
+  }
+  
+  // Show loading state
+  submitButton.disabled = true;
+  buttonText.hidden = true;
+  buttonLoader.hidden = false;
+  formMessage.className = 'form-message';
+  formMessage.textContent = '';
+  
+  try {
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Show success message
+    formMessage.className = 'form-message success';
+    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+    form.reset();
+  } catch (error) {
+    // Show error message
+    formMessage.className = 'form-message error';
+    formMessage.textContent = 'Sorry, something went wrong. Please try again.';
+  } finally {
+    // Reset button state
+    buttonText.hidden = false;
+    buttonLoader.hidden = true;
+    submitButton.disabled = false;
+  }
+});
+</script>

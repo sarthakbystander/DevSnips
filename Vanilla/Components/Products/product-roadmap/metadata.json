@@ -2,7 +2,7 @@
   "id": "product-roadmap-001",
   "name": "Roadmap",
   "slug": "product-roadmap",
-  "component": "products",
+  "component": "product",
   "family": "products",
   "variant": "product-roadmap",
   "description": "Three-column roadmap: shipped / in progress / next.",
@@ -17,17 +17,20 @@
     "columns"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

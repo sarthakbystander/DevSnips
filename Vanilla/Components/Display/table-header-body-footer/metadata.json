@@ -9,13 +9,12 @@
     "card",
     "navbar",
     "tabs",
-    "table",
     "semantic",
     "typography",
     "color",
     "border"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "table-header-body-footer",
+  "component": "display",
+  "family": "display",
+  "variant": "table-header-body-footer",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

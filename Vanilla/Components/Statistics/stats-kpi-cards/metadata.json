@@ -2,7 +2,7 @@
   "id": "stats-kpi-cards-001",
   "name": "KPI Cards",
   "slug": "stats-kpi-cards",
-  "component": "statistics",
+  "component": "statistic",
   "family": "statistics",
   "variant": "stats-kpi-cards",
   "description": "KPI cards with trend chips and progress bars.",
@@ -17,17 +17,20 @@
     "cards"
   ],
   "features": [
+    "responsive",
     "light/dark",
-    "responsive"
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
   ],
   "responsive": true,
   "darkMode": true,
   "accessibility": [
-    "semantic HTML",
+    "reduced-motion",
     "ARIA",
-    "keyboard nav",
     "focus-visible",
-    "reduced-motion"
+    "semantic HTML"
   ],
   "browserSupport": [
     "chrome",

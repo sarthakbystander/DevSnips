@@ -1,7 +1,7 @@
 {
   "id": "nft-web3-project-001",
   "name": "Nft Web3 Project",
-  "description": "Nft Web3 Project with responsive design with animations and hover interactions.",
+  "description": "Nft Web3 Project.",
   "technology": "vanilla",
   "category": "templates",
   "subcategory": "nft-web3-project",
@@ -15,7 +15,7 @@
     "responsive",
     "flexbox"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -25,5 +25,12 @@
   "dependencies": [
     "Orbitron"
   ],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "darkMode": false,
+  "accessibility": [
+    "semantic HTML"
+  ],
+  "features": [
+    "semantic HTML"
+  ]
 }

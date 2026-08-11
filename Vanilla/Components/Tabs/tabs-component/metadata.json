@@ -1,7 +1,7 @@
 {
   "id": "tabs-component-001",
   "name": "Tabs Component",
-  "description": "Tabs Component with animations.",
+  "description": "Tabs Component.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "tabs",
@@ -15,7 +15,7 @@
     "dropdown",
     "navbar"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,21 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "tabs-component",
+  "component": "tab",
+  "family": "tabs",
+  "variant": "tabs-component",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "reduced-motion",
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "reduced-motion",
+    "focus-visible"
+  ]
 }

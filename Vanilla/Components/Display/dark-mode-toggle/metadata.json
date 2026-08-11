@@ -1,5 +1,5 @@
 {
-  "id": "dark-mode-toggle-001",
+  "id": "display-dark-mode-toggle-001",
   "name": "Dark Mode Toggle",
   "description": "Dark Mode Toggle, supports dark mode.",
   "technology": "vanilla",
@@ -12,7 +12,7 @@
     "border",
     "click"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -20,5 +20,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "dark-mode-toggle",
+  "component": "display",
+  "family": "display",
+  "variant": "dark-mode-toggle",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "carousel-001",
   "name": "Carousel",
-  "description": "Carousel with animations.",
+  "description": "Carousel.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "other",
@@ -12,10 +12,9 @@
     "button",
     "form",
     "dropdown",
-    "table",
     "typography"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +22,21 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "carousel",
+  "component": "other",
+  "family": "other",
+  "variant": "carousel",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "reduced-motion",
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "reduced-motion",
+    "focus-visible"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "css-only-progress-bar-001",
   "name": "Css Only Progress Bar",
-  "description": "Css Only Progress Bar with animations.",
+  "description": "Css Only Progress Bar.",
   "technology": "vanilla",
   "category": "components",
   "subcategory": "loaders",
@@ -15,7 +15,7 @@
     "animation",
     "gradient"
   ],
-  "responsive": true,
+  "responsive": false,
   "browserSupport": [
     "chrome",
     "firefox",
@@ -23,5 +23,23 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "css-only-progress-bar",
+  "component": "loader",
+  "family": "loaders",
+  "variant": "css-only-progress-bar",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible"
+  ]
 }

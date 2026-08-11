@@ -11,7 +11,6 @@
     "typography",
     "canvas",
     "hover-effect",
-    "table",
     "form-element"
   ],
   "responsive": false,
@@ -22,5 +21,19 @@
     "edge"
   ],
   "dependencies": [],
-  "source": "DevSnips"
+  "source": "DevSnips",
+  "slug": "tooltip-text",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-text",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "darkMode": false,
+  "accessibility": [
+    "focus-visible"
+  ],
+  "related": [],
+  "features": [
+    "focus-visible"
+  ]
 }
