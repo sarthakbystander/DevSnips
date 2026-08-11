@@ -45,30 +45,44 @@ and link them with `<link rel="stylesheet" href="css/dashboard.css">` and
 
 ## Features
 
-- **Interactive SVG line chart** — period toggle (7d / 30d / 12m) with a hover/touch
-  tooltip and crosshair. No charting library; pure SVG generated in JS.
-- **Animated count-up KPI cards** — revenue, active customers, conversion rate, and
-  average session animate on load (reduced-motion aware).
-- **Activity feed** — recent workspace events rendered from a small JS data array.
-- **Customer table** — plan, status pills, MRR, last-active; per-row view/delete
-  actions surface a toast and remove the row.
-- **Dark mode** — follows the system `prefers-color-scheme` on first load, with a
-  header toggle that persists the choice in `localStorage`.
+- **Dense metric hierarchy** — a primary MRR card with a prominent display value
+  plus three secondary KPIs (active customers, conversion rate, ARPU). Each card
+  carries a delta vs. the previous period and a mini sparkline.
+- **Interactive SVG revenue chart** — period toggle (7d / 30d / 12m) with a
+  two-series comparison (this period vs. last), proper axes + gridlines, and a
+  hover/touch tooltip with a crosshair. Pure SVG generated in JS — no chart library.
+- **Plan-breakdown panel** — a stacked bar with per-plan customers and MRR, a legend,
+  and a total-MRR footer.
+- **Activity timeline** — recent workspace events with avatars, event + target,
+  status dots, and timestamps.
+- **Transactions list** — invoice IDs, customer + company, amounts, and status pills.
+- **Customers table** — sortable columns (click headers), paginated, and filterable
+  by name/email/plan. It transforms into stacked cards below the tablet breakpoint.
+  Per-row view/delete actions surface a toast and remove the row.
+- **Workspace-usage panel** — quota bars (seats, API calls, storage) with an upgrade
+  prompt.
+- **Dark mode** — follows the system `prefers-color-scheme` on first paint (no flash),
+  with a header toggle that persists the choice in `localStorage`.
 - **Responsive sidebar** — fixed sidebar on desktop; converts to an off-canvas drawer
-  with a backdrop below 860px. `Esc` closes it.
-- **Design-token system** — all colors, radii, shadows, spacing, and fonts are
-  `--ds-*` CSS variables in `:root`, with a dark-mode override under
-  `@media (prefers-color-scheme: dark)` and `[data-theme="dark"]`.
+  with a backdrop below 1024px. `Esc` and the backdrop close it.
+- **Refined neutral design system** — all colors, radii, shadows, spacing, and fonts
+  are `--ds-*` CSS variables in `:root` (cool-stone surfaces, hairline borders,
+  restrained shadows, one indigo accent, semantic status colors), with a dark-mode
+  override under `[data-theme="dark"]`.
+- **Data abstraction** — all content lives in a single `DASHBOARD` object in
+  `js/dashboard.js`, so you can swap in a real API without touching any render code.
 
 ## Accessibility
 
 - Skip-to-content link.
 - Semantic landmarks (`aside`, `header`, `main`, `nav`, `footer`).
-- `aria-pressed` on the segmented control and theme toggle; `aria-current` on the
-  active nav item; `aria-label` on icon-only buttons.
+- `aria-pressed` on the period segmented control and theme toggle; `aria-current` on
+  the active nav item; `aria-sort` on the table headers; `aria-label` on icon-only
+  buttons; the chart has a descriptive `role="img"` + `aria-label`.
 - Visible `:focus-visible` ring on every interactive control.
-- `prefers-reduced-motion` disables animations and count-up easing.
-- Customer table row actions are real `<button>`s with descriptive labels.
+- `prefers-reduced-motion` disables animations, sparklines, and count-up easing.
+- All controls are real `<button>`/`<a>`/`<input>` elements; row actions are buttons
+  with descriptive labels; the sidebar drawer is keyboard-closable via `Esc`.
 
 ## Usage
 
