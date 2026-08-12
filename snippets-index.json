@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-11",
+  "lastUpdated": "2026-08-12",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 108,
-    "totalVariants": 854,
+    "totalFamilies": 109,
+    "totalVariants": 855,
     "totalSubVariants": 0,
-    "totalStyles": 2018,
+    "totalStyles": 2019,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -601,28 +601,6 @@
           ]
         },
         {
-          "name": "3D Button Basic",
-          "path": "Tailwind/Components/Buttons/3D Button/basic/",
-          "description": "3D push button effects with depth",
-          "tags": [
-            "button",
-            "3d",
-            "push",
-            "depth",
-            "3d effect"
-          ],
-          "styles": [
-            "Blue",
-            "Gray",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Basic",
           "path": "Tailwind/Components/Buttons/Icon Button/basic/",
           "description": "Basic icon button styles with various colors",
@@ -637,6 +615,28 @@
             "Secondary",
             "Danger",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "3D Button Basic",
+          "path": "Tailwind/Components/Buttons/3D Button/basic/",
+          "description": "3D push button effects with depth",
+          "tags": [
+            "button",
+            "3d",
+            "push",
+            "depth",
+            "3d effect"
+          ],
+          "styles": [
+            "Blue",
+            "Gray",
+            "Green"
           ],
           "files": [
             "code.html",
@@ -709,31 +709,6 @@
           ]
         },
         {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "description": "Ghost buttons available in multiple colors for different actions",
-          "tags": [
-            "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline Colors Button",
           "path": "Tailwind/Components/Buttons/Outline Button/colors/",
           "description": "Outline buttons available in multiple colors",
@@ -759,19 +734,23 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "name": "Ghost Colors Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
+          "description": "Ghost buttons available in multiple colors for different actions",
           "tags": [
             "button",
             "ghost",
-            "dark",
-            "dark mode"
+            "colors",
+            "red",
+            "green",
+            "purple"
           ],
           "styles": [
-            "White",
-            "Gray",
-            "Blue"
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -822,6 +801,28 @@
           ]
         },
         {
+          "name": "Icon Button Dark",
+          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "description": "Dark themed icon button styles for dark interfaces",
+          "tags": [
+            "button",
+            "icon",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "Gray",
+            "Darker",
+            "Light",
+            "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Glass Dark Button",
           "path": "Tailwind/Components/Buttons/Glass Button/dark/",
           "description": "Dark glass morphism buttons for dark interfaces",
@@ -843,20 +844,19 @@
           ]
         },
         {
-          "name": "Icon Button Dark",
-          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
-          "description": "Dark themed icon button styles for dark interfaces",
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
           "tags": [
             "button",
-            "icon",
+            "ghost",
             "dark",
             "dark mode"
           ],
           "styles": [
+            "White",
             "Gray",
-            "Darker",
-            "Light",
-            "Outline"
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -1082,6 +1082,48 @@
           ]
         },
         {
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
+          "description": "Glass morphism icon buttons for toolbars and actions",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "icon"
+          ],
+          "styles": [
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
+          "description": "Split buttons with icon and dropdown",
+          "tags": [
+            "button",
+            "split",
+            "dropdown",
+            "icon"
+          ],
+          "styles": [
+            "Primary",
+            "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Ghost Icon Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
           "description": "Ghost buttons with icons for upload, add, and delete actions",
@@ -1117,48 +1159,6 @@
             "Scale",
             "Rotate",
             "Flip"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "description": "Glass morphism icon buttons for toolbars and actions",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "icon"
-          ],
-          "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1272,6 +1272,27 @@
           ]
         },
         {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "description": "Fully rounded gradient buttons with pill shape for modern UI",
@@ -1294,27 +1315,6 @@
           ]
         },
         {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Neumorphism Pressed Button",
           "path": "Tailwind/Components/Buttons/Neumorphism Button/pressed/",
           "description": "Pressed state neumorphism buttons with inset shadows",
@@ -1328,27 +1328,6 @@
             "Default",
             "Pill",
             "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
-          "tags": [
-            "button",
-            "ghost",
-            "transparent",
-            "hover"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1432,6 +1411,27 @@
             "Blue",
             "Purple",
             "Pink"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1594,23 +1594,6 @@
           ]
         },
         {
-          "name": "Ghost Button Sizes",
-          "path": "Tailwind/Components/Buttons/Ghost Button/sizes/",
-          "description": "Ghost button sizes from small to large",
-          "tags": [
-            "button",
-            "ghost",
-            "sizes",
-            "small",
-            "large"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Filled Button Sizes",
           "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
           "description": "Filled button sizes from small to large",
@@ -1651,6 +1634,23 @@
           "tags": [
             "button",
             "outline",
+            "sizes",
+            "small",
+            "large"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Button Sizes",
+          "path": "Tailwind/Components/Buttons/Ghost Button/sizes/",
+          "description": "Ghost button sizes from small to large",
+          "tags": [
+            "button",
+            "ghost",
             "sizes",
             "small",
             "large"
@@ -26341,7 +26341,7 @@
         {
           "name": "SaaS Dashboard",
           "path": "Vanilla/Templates/SaaS Dashboard/",
-          "description": "A refined, framework-free Vanilla HTML/CSS/JS SaaS admin dashboard template: a dense metric hierarchy (MRR, customers, conversion, ARPU) with sparklines and deltas, an interactive revenue chart with two-series comparison and hover/touch tooltip, a plan-breakdown panel, an activity timeline, a transactions list, a sortable/paginated/filterable customers table that transforms to cards on mobile, and a workspace-usage panel. Restrained neutral design system with one indigo accent, light/dark mode, and a responsive sidebar that becomes an off-canvas drawer. All CSS/JS inlined in a single self-contained file.",
+          "description": "A complete, commercial-grade Vanilla HTML/CSS/JS SaaS dashboard template: 30 interconnected pages sharing one coherent mock dataset, a JS-injected app shell, and a single Northstar design system. Covers overview (dashboard, analytics, reports, activity), customer management (customers, details, activity, segments, invitations), revenue (billing, plans, payment methods, invoices, transactions), communication (3-panel inbox, notifications, preferences), workspace (team, roles & permissions matrix, integrations, settings), settings (general, profile, security, sessions, API keys, webhooks), and support (help center, support, system status). Includes interactive SVG charts, sortable/paginated/filterable tables with bulk selection, modals, drawers, toasts, loading/empty/error states, light/dark mode, and a responsive sidebar that becomes an off-canvas drawer. No frameworks, no build step, no backend.",
           "tags": [
             "dashboard",
             "saas",
@@ -26356,22 +26356,35 @@
             "accessibility",
             "sidebar",
             "table",
-            "data-layer"
+            "data-layer",
+            "multi-page",
+            "inbox",
+            "billing",
+            "permissions",
+            "api-keys",
+            "webhooks",
+            "integrations",
+            "system-status"
           ],
           "features": [
-            "Dense metric hierarchy: primary MRR + 3 secondary KPIs (customers, conversion, ARPU) each with delta + mini sparkline",
-            "Interactive SVG revenue chart: 7d/30d/12m period toggle, two-series (current vs last) comparison, axes, gridlines, and hover/touch tooltip with crosshair",
-            "Plan-breakdown panel with stacked-bar + legend (customers + MRR per plan) and total MRR",
-            "Activity timeline with avatars, event, target, status dot, and timestamp",
-            "Transactions list with invoice IDs, amounts, and status pills",
-            "Sortable, paginated, filterable customers table that transforms to stacked cards on mobile",
-            "Workspace-usage panel with quota bars and an upgrade prompt",
-            "Light/dark mode: follows prefers-color-scheme on first paint (no-flash) with a persisted header toggle",
-            "Refined neutral design system (--ds-* tokens): cool-stone surfaces, hairline borders, restrained shadows, one indigo accent, semantic status colors",
-            "Responsive sidebar that becomes an off-canvas drawer (Esc + backdrop to close) below 1024px",
-            "Data abstraction: all content lives in a single DASHBOARD object — swap in a real API without touching render code",
-            "Accessible: skip link, semantic landmarks, ARIA on interactive controls, focus-visible rings, reduced-motion safe, real button controls",
-            "Zero dependencies — open preview.html directly in a browser (only external request is Google Fonts)"
+            "30 interconnected pages across 8 sections, all reachable from a single JS-injected sidebar (no dead links)",
+            "Coherent mock SaaS dataset (DB) shared across every page — customers, team, invoices, transactions, activity, conversations, notifications reference the same entities",
+            "Shared Northstar design system (css/app.css + js/app.js): cool-stone neutrals, one indigo accent, hairline borders, semantic status colors, light/dark tokens — identical on every page",
+            "Overview: dashboard (KPIs + revenue chart + plan breakdown + activity + transactions + customers table), deep analytics (MRR/ARR/retention/churn/conversion/traffic/engagement/sessions), reports (list + preview + builder + CSV/PDF/Excel), full activity audit feed with filters",
+            "Customer management: sortable/filterable/paginated table with bulk selection + bulk actions, customer details with 6 tabs (overview/activity/invoices/transactions/notes/metadata), per-customer activity timeline, dynamic segments with creation UI, invitations with resend/revoke",
+            "Revenue: billing overview (plan/usage/payment method/upcoming charges), plan comparison + feature matrix + upgrade/downgrade flows, payment methods (cards + billing address), invoices with modal invoice viewer, transactions with detail drawer + retry",
+            "3-panel support inbox: conversation list + thread + customer sidebar, search, filters, priority/tags, reply (Cmd+Enter), resolve — collapses to stacked panels on mobile",
+            "Notification center (unread/read tabs, mark-as-read) + polished notification dropdown in the global header + notification preferences with per-category channels",
+            "Workspace: team members with roles/2FA/status, clean permissions matrix (Owner/Admin/Manager/Member/Viewer × 14 capabilities), integrations marketplace with connect/configure/disconnect flows, workspace settings with branding + danger zone",
+            "Settings: general + appearance, profile, security (password/2FA/sessions/login history/alerts), sessions with trusted devices, API keys with create-key modal + quickstart, webhooks with endpoints/events/delivery status/retries",
+            "Support: help center (search/categories/FAQ), support ticket form + history, system status (overall status/component uptime bars/incident history)",
+            "Interactive SVG charts: line charts with comparison + hover/touch tooltip, bar charts, donut, sparklines — all with mock data and redraw on theme/resize",
+            "Application states: loading skeletons, meaningful empty states, error states with retry — plus disabled/selected/active/inactive/pending/failed/success throughout",
+            "Reusable components: modal, drawer, confirmation dialog, toast, tabs, breadcrumbs, switches, pagination, pills, avatars — all programmatic via window.NS",
+            "Light/dark mode: no-flash system preference detection + persisted header toggle, charts redraw on theme change",
+            "Responsive: sidebar → off-canvas drawer (Esc/backdrop), tables → stacked cards, multi-panel inbox → stacked, settings nav → horizontal scroll, forms → single column — no horizontal overflow at any width from 320px to 1920px",
+            "Accessible: skip link, semantic landmarks, ARIA on interactive controls, focus-visible rings, keyboard-operable (Escape closes overlays, Enter activates conversation items), reduced-motion safe",
+            "Zero dependencies — only external request is Google Fonts. Open preview.html (the template gallery) or any page in pages/ directly in a browser"
           ],
           "files": [
             "README.md",
@@ -26407,7 +26420,7 @@
         {
           "name": "Documentation Site",
           "path": "Vanilla/Templates/Documentation Site/",
-          "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections via hash routing with nested sidebar nav, breadcrumbs, scrollspy TOC, previous/next navigation, a Cmd+K search command palette, syntax-highlighted code blocks with copy buttons and tabs, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent, hairline borders, restrained shadows, and editorial typography. Fully responsive (320px to 1920px).",
+          "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview of the UI. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing) via hash routing. Includes nested sidebar navigation with active page state, breadcrumbs, sticky scrollspy table of contents, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight syntax highlighter, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent (never violet/neon), hairline borders, restrained shadows, light code blocks, and editorial typography — following the shared design-tokens.md specification. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes a collapsible panel, code blocks remain usable, tables adapt without page overflow, from 320px to 1920px. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or CMS.",
           "tags": [
             "documentation",
             "docs",
@@ -26435,33 +26448,41 @@
             "drawer"
           ],
           "features": [
-            "Single self-contained SPA in one preview.html covering 15 documentation sections via hash routing — exactly one preview.html per the design-tokens.md convention",
-            "Desktop layout: sticky header + nested left documentation sidebar + main content + sticky right On-this-page table of contents",
-            "Nested sidebar navigation with four groups (Start, Library, Reference, Project), expandable parents, active page state via aria-current, and a live filter input",
-            "Breadcrumbs, last-updated metadata, reading-time estimate, and an edit-on-GitHub action on every content page",
-            "Sticky scrollspy table of contents generated per page from h2/h3 headings via IntersectionObserver; collapses to a tappable panel below 1180px",
-            "Previous/next navigation at the foot of every content page, driven by the canonical section order",
-            "Cmd+K (and /) search command palette: filters pages and sub-sections, arrow-key navigation, Enter to open, Esc to close, grouped results with matched-term highlighting",
-            "Code blocks with a lightweight vanilla-JS syntax highlighter (HTML, CSS, JS, JSON, Bash), a language label header, and a clipboard copy button with a Copied state",
-            "Tabbed code blocks (e.g. npm/pnpm/yarn) with ARIA tablist semantics and per-tab copy buttons",
-            "Five callout variants (info, note, tip, warning, danger) communicating intent without decoration",
-            "Responsive tables wrapped in overflow-x:auto containers so they never cause page overflow on narrow screens",
-            "Status and category badges (stable, beta, deprecated, accent, neutral, solid) used to communicate state, not decoration",
-            "API reference blocks with signature, return type, a parameter table, and an inline runnable example",
-            "Light/dark mode: no-flash system-preference detection on first paint plus a persisted header toggle with a calm dark palette (never black + neon purple)",
-            "DevSnips design system on top of Pico CSS: primitive -> semantic -> template -> component token layers, neutral-first with one blue-600 accent, hairline 1px borders, restrained shadows, Inter + JetBrains Mono type scale, base-4 spacing scale, small radii by default",
-            "Responsive by composition: sidebar to off-canvas drawer (Esc + backdrop) below 1024px, TOC to collapsible panel below 1180px, header compacts and hides labels below 640px, pager stacks to one column — zero horizontal overflow from 320px to 1920px",
-            "Accessible: skip link, semantic landmarks, ARIA on the search dialog/tablists/drawer/TOC, focus-visible rings, keyboard-operable controls, prefers-reduced-motion guards on every animation",
-            "Realistic DevSnips documentation content referencing real repository paths (Vanilla/Templates/, Vanilla/Templates/SaaS Dashboard/, Vanilla/Templates/Documentation Site/, Vanilla/Templates/design-tokens.md), the metadata.json schema, the validation workflow, and the contribution process — no placeholder content",
-            "Zero runtime dependencies beyond Pico CSS and Google Fonts loaded from CDNs; open preview.html directly in a browser"
+            "hash-routed single-page app",
+            "15 documentation sections",
+            "nested sidebar navigation",
+            "active page state",
+            "breadcrumbs",
+            "sticky scrollspy TOC",
+            "previous/next navigation",
+            "Cmd+K search command palette",
+            "syntax-highlighted code blocks",
+            "copy buttons",
+            "tabbed code blocks",
+            "callouts (info/note/tip/warning/danger)",
+            "responsive tables",
+            "status badges",
+            "API reference blocks",
+            "edit-on-GitHub action",
+            "last-updated metadata",
+            "reading-time estimate",
+            "opt-in light/dark mode",
+            "mobile sidebar drawer",
+            "collapsible mobile TOC",
+            "nav filter",
+            "reduced-motion safe",
+            "focus-visible rings",
+            "keyboard operable",
+            "Pico CSS foundation",
+            "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "README.md",
             "code.html",
-            "style.css",
-            "script.js",
-            "preview.html",
             "metadata.json",
-            "README.md"
+            "preview.html",
+            "script.js",
+            "style.css"
           ]
         }
       ],
@@ -26512,6 +26533,81 @@
         "technical",
         "developer documentation",
         "devsnips docs"
+      ]
+    },
+    {
+      "name": "Agency",
+      "path": "Vanilla/Templates/Agency/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "category": "Templates",
+      "description": "A premium editorial agency website template for DevSnips built with semantic HTML, CSS (Pico CSS foundation), and vanilla JavaScript. A dark-first, high-contrast editorial layout combining bold typography, an asymmetric hero, an about + statistics section, an editorial services list, selected work with alternating project layouts, a featured case study, a five-step process, a capabilities grid, a team grid, testimonials, an insights/blog section, and a contact CTA, plus a sticky header with responsive mobile navigation, scroll-reveal animations, and scrollspy active navigation. Split into modular files: code.html + style.css + script.js, with preview.html as a self-contained single-file preview. Follows the shared design-tokens.md system.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Agency",
+          "path": "Vanilla/Templates/Agency/",
+          "description": "A premium editorial agency website template for DevSnips built with semantic HTML, CSS (Pico CSS foundation), and vanilla JavaScript. A dark-first, high-contrast editorial layout combining bold typography, an asymmetric hero, an about + statistics section, an editorial services list, selected work with alternating project layouts, a featured case study, a five-step process, a capabilities grid, a team grid, testimonials, an insights/blog section, and a contact CTA, plus a sticky header with responsive mobile navigation, scroll-reveal animations, and scrollspy active navigation. Split into modular files: code.html + style.css + script.js, with preview.html as a self-contained single-file preview. Follows the shared design-tokens.md system.",
+          "tags": [
+            "agency",
+            "creative-agency",
+            "portfolio",
+            "editorial",
+            "case-study",
+            "services",
+            "projects",
+            "responsive",
+            "pico-css",
+            "vanilla-js",
+            "typography",
+            "dark-theme",
+            "accessibility",
+            "design-system"
+          ],
+          "features": [
+            "dark-first high-contrast editorial agency layout",
+            "sticky header with responsive mobile navigation (aria-expanded toggle)",
+            "large-typography hero with asymmetric text + image grid",
+            "about section with two-up statistics",
+            "editorial numbered services list",
+            "selected work with alternating image/content project layouts",
+            "featured case study (challenge, approach, solution, results)",
+            "five-step process grid",
+            "four-up capabilities grid",
+            "four-up team grid",
+            "three-up testimonials",
+            "insights/blog section with meta (category, date, read time)",
+            "contact CTA section",
+            "scroll-reveal animations via IntersectionObserver",
+            "scrollspy active navigation state with aria-current",
+            "reduced-motion support (prefers-reduced-motion)",
+            "Pico CSS foundation",
+            "modular file split (code.html + style.css + script.js)"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json",
+            "preview.html",
+            "script.js",
+            "style.css"
+          ]
+        }
+      ],
+      "tags": [
+        "agency",
+        "creative-agency",
+        "portfolio",
+        "editorial",
+        "case-study",
+        "services",
+        "projects",
+        "responsive",
+        "pico-css",
+        "vanilla-js",
+        "typography",
+        "dark-theme",
+        "accessibility",
+        "design-system"
       ]
     }
   ],
@@ -26635,7 +26731,8 @@
         "Startup Template",
         "Template Element",
         "SaaS Dashboard",
-        "Documentation Site"
+        "Documentation Site",
+        "Agency"
       ]
     }
   ],
