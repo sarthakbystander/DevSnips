@@ -3,10 +3,10 @@
   "lastUpdated": "2026-08-12",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 109,
-    "totalVariants": 855,
+    "totalFamilies": 110,
+    "totalVariants": 856,
     "totalSubVariants": 0,
-    "totalStyles": 2019,
+    "totalStyles": 2020,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -759,19 +759,20 @@
           ]
         },
         {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "description": "Dark background buttons for dark themed interfaces",
+          "name": "Icon Button Dark",
+          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "description": "Dark themed icon button styles for dark interfaces",
           "tags": [
             "button",
-            "filled",
+            "icon",
             "dark",
             "dark mode"
           ],
           "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
+            "Gray",
+            "Darker",
+            "Light",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -801,20 +802,19 @@
           ]
         },
         {
-          "name": "Icon Button Dark",
-          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
-          "description": "Dark themed icon button styles for dark interfaces",
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
           "tags": [
             "button",
-            "icon",
+            "ghost",
             "dark",
             "dark mode"
           ],
           "styles": [
+            "White",
             "Gray",
-            "Darker",
-            "Light",
-            "Outline"
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -844,18 +844,18 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "name": "Dark Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
+          "description": "Dark background buttons for dark themed interfaces",
           "tags": [
             "button",
-            "ghost",
+            "filled",
             "dark",
             "dark mode"
           ],
           "styles": [
             "White",
-            "Gray",
+            "Dark Solid",
             "Blue"
           ],
           "files": [
@@ -1082,28 +1082,6 @@
           ]
         },
         {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "description": "Glass morphism icon buttons for toolbars and actions",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "icon"
-          ],
-          "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Split Button Icon",
           "path": "Tailwind/Components/Buttons/Split Button/icon/",
           "description": "Split buttons with icon and dropdown",
@@ -1116,6 +1094,27 @@
           "styles": [
             "Primary",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Animated Icon Button",
+          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "description": "Icon animations on hover for interactive effects",
+          "tags": [
+            "button",
+            "animated",
+            "icon",
+            "hover"
+          ],
+          "styles": [
+            "Scale",
+            "Rotate",
+            "Flip"
           ],
           "files": [
             "code.html",
@@ -1146,19 +1145,20 @@
           ]
         },
         {
-          "name": "Animated Icon Button",
-          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
-          "description": "Icon animations on hover for interactive effects",
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
+          "description": "Glass morphism icon buttons for toolbars and actions",
           "tags": [
             "button",
-            "animated",
-            "icon",
-            "hover"
+            "glass",
+            "glassmorphism",
+            "icon"
           ],
           "styles": [
-            "Scale",
-            "Rotate",
-            "Flip"
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1336,27 +1336,6 @@
           ]
         },
         {
-          "name": "Filled Primary Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/primary/",
-          "description": "Solid color filled buttons with primary colors",
-          "tags": [
-            "button",
-            "filled",
-            "solid",
-            "primary"
-          ],
-          "styles": [
-            "Blue",
-            "Indigo",
-            "Violet"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Primary Button",
           "path": "Tailwind/Components/Buttons/Basic Button/primary/",
           "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
@@ -1398,6 +1377,27 @@
           ]
         },
         {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Glass Primary Button",
           "path": "Tailwind/Components/Buttons/Glass Button/primary/",
           "description": "Color glass morphism buttons with colored backgrounds",
@@ -1419,19 +1419,19 @@
           ]
         },
         {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
+          "name": "Filled Primary Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/primary/",
+          "description": "Solid color filled buttons with primary colors",
           "tags": [
             "button",
-            "ghost",
-            "transparent",
-            "hover"
+            "filled",
+            "solid",
+            "primary"
           ],
           "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
+            "Blue",
+            "Indigo",
+            "Violet"
           ],
           "files": [
             "code.html",
@@ -1462,28 +1462,6 @@
           ]
         },
         {
-          "name": "Rounded Full Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
-          "description": "Fully rounded pill-shaped filled buttons",
-          "tags": [
-            "button",
-            "filled",
-            "rounded",
-            "pill",
-            "full"
-          ],
-          "styles": [
-            "Blue Pill",
-            "Dark Pill",
-            "Gradient Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Rounded",
           "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
           "description": "Fully rounded icon button styles",
@@ -1498,6 +1476,28 @@
             "Secondary",
             "Gradient",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Rounded Full Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
+          "description": "Fully rounded pill-shaped filled buttons",
+          "tags": [
+            "button",
+            "filled",
+            "rounded",
+            "pill",
+            "full"
+          ],
+          "styles": [
+            "Blue Pill",
+            "Dark Pill",
+            "Gradient Pill"
           ],
           "files": [
             "code.html",
@@ -1594,23 +1594,6 @@
           ]
         },
         {
-          "name": "Filled Button Sizes",
-          "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
-          "description": "Filled button sizes from small to large",
-          "tags": [
-            "button",
-            "filled",
-            "sizes",
-            "small",
-            "large"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Button Sizes",
           "path": "Tailwind/Components/Buttons/Basic Button/sizes/",
           "description": "Button sizes from extra small to extra large for different use cases",
@@ -1662,23 +1645,15 @@
           ]
         },
         {
-          "name": "Soft Background Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
-          "description": "Soft background buttons with pastel colors for subtle actions",
+          "name": "Filled Button Sizes",
+          "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
+          "description": "Filled button sizes from small to large",
           "tags": [
             "button",
             "filled",
-            "soft",
-            "pastel",
-            "subtle"
-          ],
-          "styles": [
-            "Blue",
-            "Green",
-            "Red",
-            "Amber",
-            "Purple",
-            "Pink"
+            "sizes",
+            "small",
+            "large"
           ],
           "files": [
             "code.html",
@@ -1722,6 +1697,31 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Soft Background Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
+          "description": "Soft background buttons with pastel colors for subtle actions",
+          "tags": [
+            "button",
+            "filled",
+            "soft",
+            "pastel",
+            "subtle"
+          ],
+          "styles": [
+            "Blue",
+            "Green",
+            "Red",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -26609,6 +26609,99 @@
         "accessibility",
         "design-system"
       ]
+    },
+    {
+      "name": "Job Board",
+      "path": "Vanilla/Templates/Job Board/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "category": "Templates",
+      "description": "A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Job Board",
+          "path": "Vanilla/Templates/Job Board/",
+          "description": "A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.",
+          "tags": [
+            "job-board",
+            "jobs",
+            "careers",
+            "recruitment",
+            "search",
+            "filters",
+            "pagination",
+            "companies",
+            "candidate",
+            "applications",
+            "saved-jobs",
+            "modal",
+            "toast",
+            "filter-drawer",
+            "responsive",
+            "vanilla-js",
+            "css-variables",
+            "accessibility",
+            "dark-mode",
+            "design-system",
+            "data-dense"
+          ],
+          "features": [
+            "sticky navigation with responsive mobile menu (aria-expanded toggle)",
+            "jobs view with keyword search (title, skill, company, location)",
+            "location and job-type filter selects",
+            "category filter chips (all, remote, frontend, backend, full stack, devops, data, design)",
+            "live result count",
+            "paginated job list (8 per page) with prev/next and numbered pages",
+            "job cards with company logo letter, title, company, meta (location, salary, work mode, posted), and skill tags",
+            "save / unsave jobs (bookmark) with toast feedback",
+            "job detail view with description, responsibilities, requirements, skills, and benefits plus a company info sidebar and apply/save actions",
+            "companies directory grid (auto-fill responsive cards)",
+            "company detail view with about, info sidebar, and open positions list",
+            "saved jobs view with empty state",
+            "candidate area with sidebar (avatar, name, role) and profile, applications, and saved tabs",
+            "applications table with status badges (applied, pending, shortlisted, interview, rejected, accepted)",
+            "scoped apply modal (role=dialog, aria-modal, Escape to close, click-overlay to close)",
+            "toast notifications (success and default)",
+            "mobile filter drawer (location, type, category chips) with overlay and Escape handling",
+            "single-page view switching (jobs, job detail, companies, company detail, saved, candidate)",
+            "opt-in dark mode via prefers-color-scheme (calm inverted system, accent preserved)",
+            "reduced-motion support (prefers-reduced-motion disables animations and smooth scroll)",
+            "DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens mapped on top",
+            "modular file split (code.html + style.css + script.js)"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json",
+            "preview.html",
+            "script.js",
+            "style.css"
+          ]
+        }
+      ],
+      "tags": [
+        "job-board",
+        "jobs",
+        "careers",
+        "recruitment",
+        "search",
+        "filters",
+        "pagination",
+        "companies",
+        "candidate",
+        "applications",
+        "saved-jobs",
+        "modal",
+        "toast",
+        "filter-drawer",
+        "responsive",
+        "vanilla-js",
+        "css-variables",
+        "accessibility",
+        "dark-mode",
+        "design-system",
+        "data-dense"
+      ]
     }
   ],
   "technologies": [
@@ -26732,7 +26825,8 @@
         "Template Element",
         "SaaS Dashboard",
         "Documentation Site",
-        "Agency"
+        "Agency",
+        "Job Board"
       ]
     }
   ],
