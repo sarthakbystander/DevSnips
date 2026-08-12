@@ -3,10 +3,10 @@
   "lastUpdated": "2026-08-11",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 107,
-    "totalVariants": 853,
+    "totalFamilies": 108,
+    "totalVariants": 854,
     "totalSubVariants": 0,
-    "totalStyles": 2017,
+    "totalStyles": 2018,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -26395,6 +26395,121 @@
         "sidebar",
         "table"
       ]
+    },
+    {
+      "name": "Documentation Site",
+      "path": "Vanilla/Templates/Documentation Site/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "category": "Templates",
+      "description": "A self-contained Vanilla HTML/CSS/JS developer-documentation template built on Pico CSS and the shared DevSnips --ds-* token system: a single hash-routed SPA with a header, nested left sidebar, main content, and a sticky On-this-page table of contents. 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing). Includes nested sidebar navigation with active page state, breadcrumbs, a sticky scrollspy TOC, section tracking, previous/next navigation, a Cmd+K search command palette, code blocks with syntax highlighting, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and light/dark mode with a no-flash system-preference fallback. Neutral-first design system with one blue accent (never violet/neon), hairline borders, and restrained shadows. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes collapsible, code blocks remain usable, and tables adapt without page overflow, from 320px to 1920px. No frameworks or build step required.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Documentation Site",
+          "path": "Vanilla/Templates/Documentation Site/",
+          "description": "A premium, editorial developer-documentation template for DevSnips built with plain HTML, CSS, Pico CSS, and vanilla JavaScript. A single self-contained SPA with a header, nested left sidebar, main content, and a sticky On-this-page TOC, covering 15 documentation sections via hash routing (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing). Features nested sidebar navigation with active page state, breadcrumbs, a sticky scrollspy table of contents with section tracking via IntersectionObserver, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight vanilla-JS syntax highlighter, copy buttons, tabbed code blocks, five callout variants, responsive tables, status badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and light/dark mode with a no-flash system-preference fallback. Neutral-first design system with one blue-600 accent (never violet/neon), hairline borders, restrained shadows, an Inter + JetBrains Mono type scale, and small radii by default — following the shared design-tokens.md specification exactly. Responsive by composition: sidebar to off-canvas drawer below 1024px, TOC to collapsible panel below 1180px, code blocks and tables remain usable, with zero horizontal overflow from 320px to 1920px. Accessible: skip link, semantic landmarks, ARIA on the search dialog/tablists/drawer/TOC, focus-visible rings, keyboard-operable controls (Escape closes overlays, Cmd/Ctrl+K and slash open search, arrow keys navigate results), and prefers-reduced-motion guards.",
+          "tags": [
+            "documentation",
+            "docs",
+            "spa",
+            "sidebar",
+            "table-of-contents",
+            "scrollspy",
+            "search",
+            "command-palette",
+            "syntax-highlighting",
+            "code-blocks",
+            "copy-button",
+            "code-tabs",
+            "callouts",
+            "breadcrumbs",
+            "prev-next",
+            "dark-mode",
+            "responsive",
+            "pico-css",
+            "css-variables",
+            "accessibility",
+            "editorial",
+            "typography",
+            "hash-routing",
+            "drawer"
+          ],
+          "features": [
+            "Single self-contained SPA in one preview.html covering 15 documentation sections via hash routing — exactly one preview.html per the design-tokens.md convention",
+            "Desktop layout: sticky header + nested left documentation sidebar + main content + sticky right On-this-page table of contents",
+            "Nested sidebar navigation with four groups (Start, Library, Reference, Project), expandable parents, active page state via aria-current, and a live filter input",
+            "Breadcrumbs, last-updated metadata, reading-time estimate, and an edit-on-GitHub action on every content page",
+            "Sticky scrollspy table of contents generated per page from h2/h3 headings via IntersectionObserver; collapses to a tappable panel below 1180px",
+            "Previous/next navigation at the foot of every content page, driven by the canonical section order",
+            "Cmd+K (and /) search command palette: filters pages and sub-sections, arrow-key navigation, Enter to open, Esc to close, grouped results with matched-term highlighting",
+            "Code blocks with a lightweight vanilla-JS syntax highlighter (HTML, CSS, JS, JSON, Bash), a language label header, and a clipboard copy button with a Copied state",
+            "Tabbed code blocks (e.g. npm/pnpm/yarn) with ARIA tablist semantics and per-tab copy buttons",
+            "Five callout variants (info, note, tip, warning, danger) communicating intent without decoration",
+            "Responsive tables wrapped in overflow-x:auto containers so they never cause page overflow on narrow screens",
+            "Status and category badges (stable, beta, deprecated, accent, neutral, solid) used to communicate state, not decoration",
+            "API reference blocks with signature, return type, a parameter table, and an inline runnable example",
+            "Light/dark mode: no-flash system-preference detection on first paint plus a persisted header toggle with a calm dark palette (never black + neon purple)",
+            "DevSnips design system on top of Pico CSS: primitive -> semantic -> template -> component token layers, neutral-first with one blue-600 accent, hairline 1px borders, restrained shadows, Inter + JetBrains Mono type scale, base-4 spacing scale, small radii by default",
+            "Responsive by composition: sidebar to off-canvas drawer (Esc + backdrop) below 1024px, TOC to collapsible panel below 1180px, header compacts and hides labels below 640px, pager stacks to one column — zero horizontal overflow from 320px to 1920px",
+            "Accessible: skip link, semantic landmarks, ARIA on the search dialog/tablists/drawer/TOC, focus-visible rings, keyboard-operable controls, prefers-reduced-motion guards on every animation",
+            "Realistic DevSnips documentation content referencing real repository paths (Vanilla/Templates/, Vanilla/Templates/SaaS Dashboard/, Vanilla/Templates/Documentation Site/, Vanilla/Templates/design-tokens.md), the metadata.json schema, the validation workflow, and the contribution process — no placeholder content",
+            "Zero runtime dependencies beyond Pico CSS and Google Fonts loaded from CDNs; open preview.html directly in a browser"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "preview.html"
+          ]
+        }
+      ],
+      "tags": [
+        "documentation",
+        "docs",
+        "spa",
+        "sidebar",
+        "table-of-contents",
+        "scrollspy",
+        "search",
+        "command-palette",
+        "syntax-highlighting",
+        "code-blocks",
+        "copy-button",
+        "code-tabs",
+        "callouts",
+        "breadcrumbs",
+        "prev-next",
+        "dark-mode",
+        "responsive",
+        "pico-css",
+        "css-variables",
+        "accessibility",
+        "editorial",
+        "typography",
+        "hash-routing",
+        "drawer"
+      ],
+      "searchTerms": [
+        "documentation",
+        "docs",
+        "sidebar",
+        "table of contents",
+        "on this page",
+        "scrollspy",
+        "command palette",
+        "search",
+        "code blocks",
+        "copy button",
+        "syntax highlighting",
+        "callouts",
+        "breadcrumbs",
+        "previous next",
+        "dark mode",
+        "pico css",
+        "editorial",
+        "technical",
+        "developer documentation",
+        "devsnips docs"
+      ]
     }
   ],
   "technologies": [
@@ -26516,7 +26631,8 @@
         "Product Launch",
         "Startup Template",
         "Template Element",
-        "SaaS Dashboard"
+        "SaaS Dashboard",
+        "Documentation Site"
       ]
     }
   ],
