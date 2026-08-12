@@ -1,19 +1,36 @@
 # Documentation Site Template (Vanilla)
 
-A premium, editorial **developer documentation** template built for DevSnips with
-plain HTML, CSS, Pico CSS, and vanilla JavaScript. A single self-contained SPA
-with a header, nested left sidebar, main content, and a sticky *On this page*
-table of contents. No React, no Tailwind, no bundler, no build step, no backend.
+A premium, minimal, **light-mode-first** developer documentation template built
+for DevSnips with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript.
+The template is split into modular files — `code.html` (HTML structure) +
+`style.css` (the design system) + `script.js` (router, content, interactions) —
+with `preview.html` as a self-contained single-file preview of the UI so you can
+open it directly and see exactly how the template looks.
 
 **Technology:** vanilla
 **Category:** templates
 **Subcategory:** documentation-site
 **Type:** single-page (15 documentation sections, hash-routed)
 
+## Files
+
+```
+Documentation Site/
+├── code.html               # HTML structure (links style.css + script.js) — the modular source
+├── style.css               # the design system (Pico CSS foundation + DevSnips --ds-* tokens)
+├── script.js               # router + content (15 sections) + interactions (vanilla JS, no deps)
+├── preview.html            # single-file preview of the UI (inlines style.css + script.js) — open this to see it
+├── metadata.json           # DevSnips registration metadata
+├── README.md               # This file
+└── assets/
+    ├── logo.svg            # DevSnips [D] mark
+    └── favicon.svg         # DevSnips favicon
+```
+
 ## Preview
 
-Open `preview.html` directly in a browser, or serve the folder for local
-development:
+Open `preview.html` directly in a browser to see the template — it is a
+self-contained single-file preview that inlines the CSS and JS:
 
 ```bash
 cd "Vanilla/Templates/Documentation Site"
@@ -21,20 +38,10 @@ python3 -m http.server 8080
 # visit http://localhost:8080/preview.html
 ```
 
-The whole template runs without a build step. The only external requests are
-Google Fonts (Inter + JetBrains Mono) and Pico CSS, both from CDNs.
-
-## What's inside
-
-```
-Documentation Site/
-├── preview.html            # The single canonical DevSnips preview (this SPA)
-├── metadata.json            # DevSnips registration metadata
-├── README.md                # This file
-└── assets/
-    ├── logo.svg             # DevSnips [DS] mark
-    └── favicon.svg          # DevSnips favicon
-```
+For development and customization, work with the split files — open `code.html`
+(which references `style.css` and `script.js` relatively) in the same served
+folder. The whole template runs without a build step. The only external requests
+are Google Fonts (Inter + JetBrains Mono) and Pico CSS, both from CDNs.
 
 Per the shared `design-tokens.md` convention, the template folder contains
 exactly **one** `preview.html`. It is the canonical preview shown by the DevSnips
@@ -43,11 +50,21 @@ paths, and loads correctly when opened directly.
 
 ### Architecture
 
-`preview.html` is a single hash-routed SPA. A `NAV` config drives the nested
-sidebar, a `PAGES` object maps each section ID to a content-builder function,
-and a small runtime handles routing, scrollspy, search, code tools, theming,
-and the mobile drawer. All content for all 15 sections lives in the one file —
-there are no separate `pages/`.
+The template is split into three modular files plus a single-file preview:
+
+- **`code.html`** — the HTML shell (header, sidebar, main, TOC, search modal,
+  drawer) that links `style.css` and `script.js`. This is the modular source you
+  customize.
+- **`style.css`** — the entire design system: Pico CSS overrides, the `--ds-*`
+  token layers, and every component style.
+- **`script.js`** — the runtime + content: a `NAV` config drives the nested
+  sidebar, a `PAGES` object maps each section ID to a content-builder function,
+  and the runtime handles routing, scrollspy, search, code tools, theming, and
+  the mobile drawer. All content for all 15 sections lives here — there are no
+  separate `pages/`.
+- **`preview.html`** — a self-contained single-file preview that inlines
+  `style.css` and `script.js` into the `code.html` structure, so it can be opened
+  directly with no build step and renders identically to the modular version.
 
 ### Sections (15)
 

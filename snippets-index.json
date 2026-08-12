@@ -26401,13 +26401,13 @@
       "path": "Vanilla/Templates/Documentation Site/",
       "tech": "Vanilla HTML/CSS/JS",
       "category": "Templates",
-      "description": "A self-contained Vanilla HTML/CSS/JS developer-documentation template built on Pico CSS and the shared DevSnips --ds-* token system: a single hash-routed SPA with a header, nested left sidebar, main content, and a sticky On-this-page table of contents. 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing). Includes nested sidebar navigation with active page state, breadcrumbs, a sticky scrollspy TOC, section tracking, previous/next navigation, a Cmd+K search command palette, code blocks with syntax highlighting, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and light/dark mode with a no-flash system-preference fallback. Neutral-first design system with one blue accent (never violet/neon), hairline borders, and restrained shadows. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes collapsible, code blocks remain usable, and tables adapt without page overflow, from 320px to 1920px. No frameworks or build step required.",
+      "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections via hash routing with nested sidebar nav, breadcrumbs, scrollspy TOC, previous/next navigation, a Cmd+K search command palette, syntax-highlighted code blocks with copy buttons and tabs, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent, hairline borders, restrained shadows, and editorial typography. Fully responsive (320px to 1920px).",
       "variantsCount": 1,
       "variants": [
         {
           "name": "Documentation Site",
           "path": "Vanilla/Templates/Documentation Site/",
-          "description": "A premium, editorial developer-documentation template for DevSnips built with plain HTML, CSS, Pico CSS, and vanilla JavaScript. A single self-contained SPA with a header, nested left sidebar, main content, and a sticky On-this-page TOC, covering 15 documentation sections via hash routing (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing). Features nested sidebar navigation with active page state, breadcrumbs, a sticky scrollspy table of contents with section tracking via IntersectionObserver, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight vanilla-JS syntax highlighter, copy buttons, tabbed code blocks, five callout variants, responsive tables, status badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and light/dark mode with a no-flash system-preference fallback. Neutral-first design system with one blue-600 accent (never violet/neon), hairline borders, restrained shadows, an Inter + JetBrains Mono type scale, and small radii by default — following the shared design-tokens.md specification exactly. Responsive by composition: sidebar to off-canvas drawer below 1024px, TOC to collapsible panel below 1180px, code blocks and tables remain usable, with zero horizontal overflow from 320px to 1920px. Accessible: skip link, semantic landmarks, ARIA on the search dialog/tablists/drawer/TOC, focus-visible rings, keyboard-operable controls (Escape closes overlays, Cmd/Ctrl+K and slash open search, arrow keys navigate results), and prefers-reduced-motion guards.",
+          "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections via hash routing with nested sidebar nav, breadcrumbs, scrollspy TOC, previous/next navigation, a Cmd+K search command palette, syntax-highlighted code blocks with copy buttons and tabs, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent, hairline borders, restrained shadows, and editorial typography. Fully responsive (320px to 1920px).",
           "tags": [
             "documentation",
             "docs",
@@ -26456,9 +26456,12 @@
             "Zero runtime dependencies beyond Pico CSS and Google Fonts loaded from CDNs; open preview.html directly in a browser"
           ],
           "files": [
-            "README.md",
+            "code.html",
+            "style.css",
+            "script.js",
+            "preview.html",
             "metadata.json",
-            "preview.html"
+            "README.md"
           ]
         }
       ],
