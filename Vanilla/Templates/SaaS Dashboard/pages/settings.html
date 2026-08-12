@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Northstar | DevSnips</title>
+  <meta name="description" content="General account settings: workspace defaults, appearance, locale, and preferences.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="settings">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="settings">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Settings</h1>
+          <p class="sub">Manage your account and workspace preferences.</p>
+        </div>
+      </div>
+
+      <div class="settings-layout">
+        <nav class="settings-nav" data-settings-nav></nav>
+        <div>
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>General</h2><p class="desc">Basic account settings</p></div></div>
+            <div class="panel-body">
+              <div class="form-row">
+                <div class="field"><label class="field-label">Display name <span class="req">*</span></label><input class="input" value="Alex Morgan"></div>
+                <div class="field"><label class="field-label">Email <span class="req">*</span></label><input class="input" type="email" value="alex@northstar.io"></div>
+              </div>
+              <div class="field"><label class="field-label">Workspace</label><input class="input" value="Northstar" disabled></div>
+              <div class="form-row-3">
+                <div class="field"><label class="field-label">Timezone</label><select class="select"><option>Europe/Stockholm (UTC+1)</option><option>UTC</option><option>America/New_York</option></select></div>
+                <div class="field"><label class="field-label">Language</label><select class="select"><option>English</option><option>Swedish</option><option>French</option></select></div>
+                <div class="field"><label class="field-label">Date format</label><select class="select"><option>YYYY-MM-DD</option><option>MM/DD/YYYY</option></select></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>Appearance</h2><p class="desc">How Northstar looks for you</p></div></div>
+            <div class="panel-body">
+              <div class="field"><label class="field-label">Theme</label>
+                <div class="segmented" id="theme-pref" role="group" aria-label="Theme">
+                  <button aria-pressed="false">Light</button>
+                  <button aria-pressed="false">Dark</button>
+                  <button aria-pressed="true">System</button>
+                </div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="lbl">Compact mode <span class="sub">Reduce spacing to fit more on screen</span></span></label>
+            </div>
+          </section>
+
+          <section class="panel mb-0">
+            <div class="panel-head"><div class="titles"><h2>Privacy</h2><p class="desc">Control your data and visibility</p></div></div>
+            <div class="panel-body">
+              <label class="switch mb-16"><input type="checkbox" checked><span class="track"></span><span class="lbl">Show online status <span class="sub">Let teammates see when you are active</span></span></label><br>
+              <label class="switch mb-16"><input type="checkbox"><span class="track"></span><span class="lbl">Share usage analytics <span class="sub">Help improve Northstar with anonymous data</span></span></label><br>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="lbl">Marketing emails <span class="sub">Product updates and announcements</span></span></label>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="flex justify-between mt-16 flex-wrap gap-8">
+        <span class="muted-block">Changes are saved automatically.</span>
+        <button class="btn btn-primary" id="save"><span class="btn-text">Save changes</span></button>
+      </div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Settings',href:'settings.html'},{label:'General'}]);
+      document.getElementById('theme-pref').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        var val = b.textContent.trim().toLowerCase();
+        if (val === 'light') NS.applyTheme(false);
+        else if (val === 'dark') NS.applyTheme(true);
+        NS.toast('Theme preference updated');
+      });
+      document.getElementById('save').addEventListener('click', function () { NS.toast('Settings saved', 'success'); });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

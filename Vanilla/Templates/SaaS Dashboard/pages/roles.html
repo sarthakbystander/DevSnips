@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles & permissions — Northstar | DevSnips</title>
+  <meta name="description" content="Workspace roles and a clean permissions matrix across customers, billing, analytics, reports, settings, team.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="roles">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="roles">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Roles & permissions</h1>
+          <p class="sub">Control what each role can do across your workspace.</p>
+        </div>
+      </div>
+
+      <div class="grid-3 mb-16" id="role-cards"></div>
+
+      <section class="panel mb-16">
+        <div class="panel-head"><div class="titles"><h2>Permissions matrix</h2><p class="desc">What each role can do</p></div></div>
+        <div class="perm-matrix-wrap">
+          <table class="perm-matrix">
+            <thead><tr><th>Capability</th><th>Owner</th><th>Admin</th><th>Manager</th><th>Member</th><th>Viewer</th></tr></thead>
+            <tbody id="perm-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel mb-0">
+        <div class="panel-head"><div class="titles"><h2>Members by role</h2><p class="desc">Who holds each role</p></div></div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th>Member</th><th class="nosort">Role</th><th class="nosort">Status</th><th class="nosort hide-sm">Last active</th></tr></thead>
+            <tbody id="role-members"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    var ROLES = [
+      { name: 'Owner', desc: 'Full control, cannot be removed', tone: NS.TONES.indigo, count: 1 },
+      { name: 'Admin', desc: 'Manage everything except billing', tone: NS.TONES.emerald, count: 1 },
+      { name: 'Manager', desc: 'Manage customers and team', tone: NS.TONES.sky, count: 1 },
+      { name: 'Member', desc: 'Day-to-day operations access', tone: NS.TONES.violet, count: 3 },
+      { name: 'Viewer', desc: 'Read-only access to everything', tone: NS.TONES.amber, count: 2 }
+    ];
+    var PERMS = [
+      { cap: 'View customers', roles: [1,1,1,1,1] },
+      { cap: 'Create & edit customers', roles: [1,1,1,1,0] },
+      { cap: 'Delete customers', roles: [1,1,0,0,0] },
+      { cap: 'View billing & invoices', roles: [1,1,1,0,0] },
+      { cap: 'Manage billing', roles: [1,0,0,0,0] },
+      { cap: 'View analytics', roles: [1,1,1,1,1] },
+      { cap: 'View reports', roles: [1,1,1,1,1] },
+      { cap: 'Create & schedule reports', roles: [1,1,1,0,0] },
+      { cap: 'Manage integrations', roles: [1,1,0,0,0] },
+      { cap: 'Manage API keys', roles: [1,1,0,0,0] },
+      { cap: 'Manage webhooks', roles: [1,1,0,0,0] },
+      { cap: 'Invite team members', roles: [1,1,1,0,0] },
+      { cap: 'Change roles', roles: [1,1,0,0,0] },
+      { cap: 'Manage workspace settings', roles: [1,0,0,0,0] }
+    ];
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Workspace',href:'team.html'},{label:'Roles & permissions'}]);
+      document.getElementById('role-cards').innerHTML = ROLES.map(function (r) {
+        return '<section class="panel mb-0" style="border-top:3px solid ' + r.tone + '"><div class="panel-body"><div class="flex items-center justify-between mb-8"><h3 class="font-bold">' + esc(r.name) + '</h3><span class="tag">' + r.count + ' member' + (r.count !== 1 ? 's' : '') + '</span></div><p class="muted-block">' + esc(r.desc) + '</p></div></section>';
+      }).join('');
+      document.getElementById('perm-rows').innerHTML = PERMS.map(function (p) {
+        return '<tr><td>' + esc(p.cap) + '</td>' + p.roles.map(function (v) {
+          if (v === 1) return '<td><span class="perm-yes">' + ICONS.check + '</span></td>';
+          return '<td><span class="perm-no">—</span></td>';
+        }).join('') + '</tr>';
+      }).join('');
+      document.getElementById('role-members').innerHTML = DB.team.map(function (m) {
+        return '<tr><td><div class="cust"><span class="pic" style="background:' + m.tone + '">' + m.initials + '</span><div class="meta"><div class="nm">' + esc(m.name) + '</div><div class="em">' + esc(m.email) + '</div></div></div></td><td class="plan-cell">' + esc(m.role) + '</td><td>' + pill(m.status) + '</td><td class="muted hide-sm">' + esc(m.last) + '</td></tr>';
+      }).join('');
+    });
+  })();
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox — Northstar | DevSnips</title>
+  <meta name="description" content="Customer support inbox: conversation list, thread view, customer info, search, filters, reply.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="inbox">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="inbox">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Inbox</h1>
+          <p class="sub">Customer conversations across all channels.</p>
+        </div>
+        <div class="page-actions">
+          <div class="segmented" id="inbox-filter" role="group" aria-label="Filter">
+            <button aria-pressed="true" data-f="all">All</button>
+            <button aria-pressed="false" data-f="unread">Unread</button>
+            <button aria-pressed="false" data-f="open">Open</button>
+            <button aria-pressed="false" data-f="resolved">Resolved</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-layout">
+        <div class="inbox-list-col">
+          <div class="inbox-list-head">
+            <div class="top">
+              <h2>Conversations</h2>
+              <span class="pill trial" id="unread-pill">4 unread</span>
+            </div>
+            <div class="table-filter" style="width:100%">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="search" id="conv-search" placeholder="Search conversations…" style="width:100%">
+            </div>
+          </div>
+          <div class="inbox-scroll" id="conv-list"></div>
+        </div>
+
+        <div class="inbox-thread" id="thread"></div>
+        <aside class="inbox-side" id="side"></aside>
+      </div>
+
+      <footer class="foot" style="margin-top:16px">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Communication',href:'inbox.html'},{label:'Inbox'}]);
+      var state = { current: DB.conversations[0].id, filter: 'all', search: '' };
+
+      function priorityClass(p) { return p === 'urgent' ? 'c-danger' : p === 'high' ? 'c-warning' : 'text-muted'; }
+      function filteredConvs() {
+        return DB.conversations.filter(function (c) {
+          if (state.filter === 'unread' && !c.unread) return false;
+          if (state.filter === 'open' && c.status !== 'open') return false;
+          if (state.filter === 'resolved' && c.status !== 'resolved') return false;
+          if (state.search) {
+            var s = state.search.toLowerCase();
+            return c.name.toLowerCase().indexOf(s) > -1 || c.subject.toLowerCase().indexOf(s) > -1 || c.preview.toLowerCase().indexOf(s) > -1;
+          }
+          return true;
+        });
+      }
+
+      function renderList() {
+        var list = filteredConvs();
+        document.getElementById('conv-list').innerHTML = list.map(function (c) {
+          return '<div class="conv-item ' + (c.id === state.current ? 'is-active' : '') + ' ' + (c.unread ? 'is-unread' : '') + '" data-id="' + c.id + '" role="button" tabindex="0" aria-label="' + esc(c.name) + ': ' + esc(c.subject) + '">' +
+            (c.unread ? '<span class="conv-unread-dot"></span>' : '<span style="width:8px;flex:0 0 8px"></span>') +
+            '<span class="avatar-pic" style="background:' + c.tone + '">' + c.initials + '</span>' +
+            '<div class="conv-body"><div class="conv-top"><span class="conv-name">' + esc(c.name) + '</span><span class="conv-time">' + esc(c.time) + '</span></div>' +
+            '<div class="conv-preview">' + esc(c.subject) + '</div>' +
+            '<div class="conv-tags">' + c.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '<span class="tag ' + priorityClass(c.priority) + '" style="border-color:transparent;background:transparent">' + esc(c.priority) + '</span></div></div></div>';
+        }).join('') || '<div class="state"><span class="ic">' + ICONS.inboxEmpty + '</span><h3>No conversations</h3><p>No conversations match this filter.</p></div>';
+        var unreadCount = DB.conversations.filter(function (c) { return c.unread; }).length;
+        var pill = document.getElementById('unread-pill');
+        pill.textContent = unreadCount + ' unread';
+        pill.style.display = unreadCount ? '' : 'none';
+      }
+
+      function renderThread() {
+        var conv = DB.conversations.find(function (c) { return c.id === state.current; });
+        var thread = document.getElementById('thread');
+        if (!conv) { thread.innerHTML = '<div class="state"><span class="ic">' + ICONS.inboxEmpty + '</span><h3>No conversation selected</h3><p>Select a conversation from the list.</p></div>'; return; }
+        var msgs = DB.convMessages[conv.id] || [];
+        thread.innerHTML =
+          '<div class="inbox-thread-head"><h2>' + esc(conv.subject) + '</h2><div class="sub"><span>' + esc(conv.name) + '</span><span class="sep">•</span><span>' + esc(conv.company) + '</span><span class="sep">•</span>' + NS.pill(conv.status) + '</div></div>' +
+          '<div class="inbox-messages">' + msgs.map(function (m) {
+            return '<div class="msg ' + m.side + '"><span class="pic" style="background:' + m.tone + '">' + m.initials + '</span><div class="body"><div class="head"><span class="who">' + esc(m.who) + '</span><span class="when">' + esc(m.when) + '</span></div><div class="text">' + esc(m.text) + '</div></div></div>';
+          }).join('') + '</div>' +
+          '<div class="inbox-reply"><textarea class="textarea" id="reply-input" placeholder="Type your reply… (⌘+Enter to send)" style="min-height:64px"></textarea><div class="tools"><button class="icon-btn" data-toast="Attach file" aria-label="Attach">' + ICONS.package + '</button><button class="icon-btn" data-toast="Insert template" aria-label="Template">' + ICONS.doc + '</button><div class="spacer"></div><button class="btn btn-sm" id="resolve-btn">Resolve</button><button class="btn btn-sm btn-primary" id="send-reply">' + ICONS.send + ' <span class="btn-text">Send</span></button></div></div>';
+        var replyInput = document.getElementById('reply-input');
+        function send() {
+          var v = replyInput.value.trim();
+          if (!v) { NS.toast('Please write a reply first', 'danger'); return; }
+          DB.convMessages[conv.id].push({ who: 'You', initials: 'AM', tone: NS.TONES.indigo, side: 'me', text: v, when: 'just now' });
+          replyInput.value = ''; renderThread(); NS.toast('Reply sent', 'success');
+        }
+        document.getElementById('send-reply').addEventListener('click', send);
+        replyInput.addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); send(); } });
+        document.getElementById('resolve-btn').addEventListener('click', function () {
+          conv.status = 'resolved'; conv.unread = false; renderThread(); renderList(); NS.toast('Conversation resolved', 'success');
+        });
+      }
+
+      function renderSide() {
+        var conv = DB.conversations.find(function (c) { return c.id === state.current; });
+        var side = document.getElementById('side');
+        if (!conv) { side.innerHTML = ''; return; }
+        var c = DB.customers.find(function (x) { return x.id === conv.customer; });
+        side.innerHTML =
+          '<div class="section"><div class="panel-head"><div class="titles"><h2>Customer</h2></div></div><div class="panel-body"><div style="display:flex;flex-direction:column;gap:8px"><span class="avatar lg" style="background:' + conv.tone + '">' + conv.initials + '</span><div><div style="font-size:16px;font-weight:700">' + esc(conv.name) + '</div><div class="text-muted text-sm">' + esc(conv.company) + '</div></div></div></div></div>' +
+          '<div class="section"><div class="panel-head"><div class="titles"><h3 class="text-sm font-bold">Details</h3></div></div><div class="panel-body">' +
+            '<div class="kv"><span class="k">Email</span><span class="v text-sm ellipsis">' + (c ? esc(c.email) : '—') + '</span></div>' +
+            '<div class="kv"><span class="k">Plan</span><span class="v text-sm">' + (c ? esc(c.plan) : '—') + '</span></div>' +
+            '<div class="kv"><span class="k">MRR</span><span class="v text-sm mono">' + (c ? NS.money(c.mrr) : '—') + '</span></div>' +
+            '<div class="kv"><span class="k">Priority</span><span class="v text-sm ' + priorityClass(conv.priority) + '">' + esc(conv.priority) + '</span></div>' +
+            '<div class="kv"><span class="k">Status</span><span class="v">' + NS.pill(conv.status) + '</span></div>' +
+            '<div class="kv"><span class="k">Tags</span><span class="v text-sm">' + conv.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span> '; }).join('') + '</span></div>' +
+          '</div></div>' +
+          '<div class="section"><div class="panel-body"><a class="btn btn-block btn-sm" href="customer-details.html?id=' + conv.customer + '">View customer profile</a></div></div>';
+      }
+
+      function renderAll() { renderList(); renderThread(); renderSide(); }
+      renderAll();
+
+      document.getElementById('conv-list').addEventListener('click', function (e) {
+        var item = e.target.closest('[data-id]'); if (!item) return;
+        state.current = item.dataset.id;
+        var conv = DB.conversations.find(function (c) { return c.id === state.current; });
+        if (conv) conv.unread = false;
+        renderAll();
+      });
+      document.getElementById('conv-list').addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        var item = e.target.closest('[data-id]'); if (!item) return;
+        e.preventDefault(); item.click();
+      });
+      document.getElementById('inbox-filter').addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-f]'); if (!b) return;
+        this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        state.filter = b.dataset.f; renderList();
+      });
+      document.getElementById('conv-search').addEventListener('input', function () { state.search = this.value; renderList(); });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

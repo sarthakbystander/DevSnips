@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing — Northstar | DevSnips</title>
+  <meta name="description" content="Billing overview: current plan, usage, next billing date, current spend, payment method, billing status.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="billing">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="billing">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Billing</h1>
+          <p class="sub">Manage your subscription, usage, and payment details.</p>
+        </div>
+        <div class="page-actions">
+          <div class="segmented" id="cycle" role="group" aria-label="Billing cycle"><button aria-pressed="true">Monthly</button><button aria-pressed="false">Annual</button></div>
+        </div>
+      </div>
+
+      <!-- Current plan -->
+      <div class="grid-main">
+        <section class="panel">
+          <div class="panel-head"><div class="titles"><h2>Current plan</h2><p class="desc">Scale — billed monthly</p></div><span class="pill active">Active</span></div>
+          <div class="panel-body">
+            <div class="flex items-center justify-between mb-16">
+              <div><div class="font-bold" style="font-size:32px">$840<span class="text-muted" style="font-size:14px;font-weight:500">/month</span></div><div class="muted-block">Renews on Sep 1, 2026</div></div>
+              <a class="btn btn-primary" href="plans.html">Change plan</a>
+            </div>
+            <hr class="divider">
+            <dl class="dl-grid">
+              <div><dt>Plan</dt><dd>Scale</dd></div>
+              <div><dt>Seats</dt><dd>18 / 25</dd></div>
+              <div><dt>Next billing date</dt><dd>Sep 1, 2026</dd></div>
+              <div><dt>Billing cycle</dt><dd>Monthly</dd></div>
+              <div><dt>Current spend</dt><dd class="mono">$840.00</dd></div>
+              <div><dt>Status</dt><dd><span class="pill active">Active</span></dd></div>
+            </dl>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div class="titles"><h2>Payment method</h2><p class="desc">Default card on file</p></div></div>
+          <div class="panel-body">
+            <div class="flex items-center gap-12 mb-16">
+              <div class="integ-logo" style="background:#1a1f71;width:48px;height:32px;border-radius:6px;font-size:13px">VISA</div>
+              <div class="flex-1"><div class="font-semibold">Visa ending in 4242</div><div class="muted-block">Expires 08/27 · Alex Morgan</div></div>
+            </div>
+            <a class="btn btn-block" href="payment-methods.html">Manage payment methods</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Usage -->
+      <section class="panel mb-16">
+        <div class="panel-head"><div class="titles"><h2>Usage this cycle</h2><p class="desc">Resets on Sep 1, 2026</p></div></div>
+        <div class="panel-body">
+          <div id="usage"></div>
+          <div class="usage-note"><strong>You're at 72% of your API quota.</strong> Consider upgrading to Enterprise for unlimited API calls.</div>
+        </div>
+      </section>
+
+      <!-- Recent invoices + upcoming -->
+      <div class="grid-main">
+        <section class="panel mb-0">
+          <div class="panel-head"><div class="titles"><h2>Recent invoices</h2><p class="desc">Latest charges to your account</p></div><a class="link text-sm" href="invoices.html">View all</a></div>
+          <div class="data-table-wrap"><table class="data"><thead><tr><th class="nosort">Invoice</th><th class="nosort">Date</th><th class="nosort" style="text-align:right">Amount</th><th class="nosort">Status</th></tr></thead><tbody id="recent-inv"></tbody></table></div>
+        </section>
+        <section class="panel mb-0">
+          <div class="panel-head"><div class="titles"><h2>Upcoming charges</h2><p class="desc">Next billing cycle estimate</p></div></div>
+          <div class="panel-body">
+            <div class="flex justify-between mb-8"><span>Plan subscription</span><span class="mono">$840.00</span></div>
+            <div class="flex justify-between mb-8"><span>Extra seats (0)</span><span class="mono">$0.00</span></div>
+            <div class="flex justify-between mb-8"><span>API overage (0)</span><span class="mono">$0.00</span></div>
+            <hr class="divider">
+            <div class="flex justify-between font-bold" style="font-size:16px"><span>Estimated total</span><span class="mono">$840.00</span></div>
+            <p class="muted-block mt-8">Charged on Sep 1, 2026 to Visa •• 4242</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, money = NS.money, esc = NS.esc, pill = NS.pill;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Revenue',href:'billing.html'},{label:'Billing'}]);
+      var u = DB.usage;
+      var rows = [
+        { label: 'Seats', val: u.seats + ' / ' + u.seatsMax, pct: (u.seats/u.seatsMax)*100 },
+        { label: 'API calls', val: NS.compact(u.apiCalls) + ' / ' + NS.compact(u.apiMax), pct: (u.apiCalls/u.apiMax)*100 },
+        { label: 'Storage (GB)', val: u.storage + ' / ' + u.storageMax, pct: (u.storage/u.storageMax)*100 }
+      ];
+      document.getElementById('usage').innerHTML = rows.map(function (r) {
+        var cls = r.pct > 90 ? 'danger' : r.pct > 70 ? 'warning' : '';
+        return '<div class="usage-row"><div class="usage-head"><span>' + r.label + '</span><span class="mono">' + r.val + '</span></div><div class="bar"><div class="fill ' + cls + '" style="width:' + r.pct.toFixed(1) + '%"></div></div></div>';
+      }).join('');
+      document.getElementById('recent-inv').innerHTML = DB.invoices.slice(0, 5).map(function (i) {
+        return '<tr><td class="mono">' + esc(i.id) + '</td><td class="muted">' + esc(i.date) + '</td><td class="amount mono">' + money(i.amount) + '</td><td>' + pill(i.status) + '</td></tr>';
+      }).join('');
+      document.getElementById('cycle').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        NS.toast(b.textContent.trim() === 'Annual' ? 'Switched to annual billing — 2 months free' : 'Switched to monthly billing');
+      });
+    });
+  })();
+  </script>
+  
+</body>
+</html>
