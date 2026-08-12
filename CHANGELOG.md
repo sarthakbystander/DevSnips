@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-12
+
+### Added — Vanilla template
+- **`Job Board`** (`Vanilla/Templates/Job Board/`) — a dense, structured developer job-board template. Modular files: `code.html` (links `style.css` + `script.js`) + `style.css` + `script.js` + `preview.html` (self-contained single-file preview inlining CSS+JS) + `metadata.json` + `README.md`. No `assets/` (text-logo avatars + inline SVG/emoji; Inter + JetBrains Mono via Google Fonts CDN). Single-page view switching: Jobs (search + location/type filters + category chips + paginated list), Job Detail (sidebar Apply/Save), Companies + Company Detail, Saved Jobs, Candidate (Profile / Applications status table / Saved). Scoped apply modal, toasts, mobile nav dropdown, mobile filter drawer. Built on the shared `--ds-*` token system (`design-tokens.md`); the original `--color-*` vocabulary is mapped onto `--ds-*` so the light-mode output is identical to the uploaded design. Opt-in calm dark mode (`prefers-color-scheme`), `prefers-reduced-motion` guard, generic `.hidden` utility. QA verified (Playwright) for both `code.html` and `preview.html`: 0 console errors, 0 horizontal overflow at 320/375/768/1024/1280/1920px, strict HTML5 valid (html5lib), `script.js` valid (node --check), interactions pass, light-mode computed styles match the original 1:1. ID `job-board-001`, slug `job-board`, source `DevSnips`, related `[saas-dashboard, documentation-site, agency]`.
+- **Regenerated `snippets-index.json`** via `_gen/rebuild_index.py`: **110 families, 856 variants** (Vanilla now 51 families / 321 variants [297 Components + 24 Templates]). Index matches disk exactly (0 mismatches). Updated README.md + AGENTS.md authoritative counts.
+
 ## 2026-08-10 (architecture migration)
 
 ### Changed — Components + Templates architecture

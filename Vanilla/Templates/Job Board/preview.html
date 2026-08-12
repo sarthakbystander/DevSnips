@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSnips — Developer Job Board (Preview)</title>
+    <meta name="description" content="DevSnips Developer Job Board — discover developer roles at top technology companies. Search, filter, save, and apply.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            /* ============================================================
+               DevSnips Shared Design Tokens (--ds-*)
+               Source of truth per Vanilla/Templates/design-tokens.md.
+               The template's original --color-* names are mapped onto these
+               tokens so the visual output is preserved exactly while the
+               shared system remains the foundation.
+               ============================================================ */
+            --ds-gray-0: #ffffff;
+            --ds-gray-25: #fdfdfd;
+            --ds-gray-50: #fafafa;
+            --ds-gray-100: #f8f8fa;
+            --ds-gray-150: #f5f7fd;
+            --ds-gray-200: #f0f0f4;
+            --ds-gray-300: #e5e5ea;
+            --ds-gray-400: #c5c5ce;
+            --ds-gray-500: #8a8a9a;
+            --ds-gray-600: #5a5a6e;
+            --ds-gray-700: #3a3a4e;
+            --ds-gray-800: #2a2a3e;
+            --ds-gray-900: #1a1a2e;
+            --ds-gray-950: #121225;
+            --ds-gray-1000: #000000;
+            --ds-neutral: #6b7280;
+            --ds-neutral-light: #f3f4f6;
+
+            --ds-blue-50: #eff4ff;
+            --ds-blue-100: #dbeafe;
+            --ds-blue-500: #1d4ed8;
+            --ds-blue-600: #1e40af;
+            --ds-blue-700: #1e3a8a;
+
+            --ds-green-500: #0d9488;
+            --ds-green-50: #e6f7f5;
+            --ds-yellow-500: #d97706;
+            --ds-yellow-50: #fef7ed;
+            --ds-red-500: #dc2626;
+            --ds-red-50: #fef2f2;
+            --ds-sky-100: #e0f2fe;
+            --ds-sky-600: #0284c7;
+            --ds-green-700: #2e7d32;
+            --ds-green-100: #e8f5e9;
+
+            /* Semantic tokens (light, default) */
+            --ds-bg-canvas: #f8f8fa;
+            --ds-bg-surface: #ffffff;
+            --ds-bg-surface-subtle: #f0f0f4;
+            --ds-bg-surface-raised: #fcfcfd;
+            --ds-bg-overlay: rgb(0 0 0 / 0.4);
+
+            --ds-text-primary: #1a1a2e;
+            --ds-text-secondary: #5a5a6e;
+            --ds-text-muted: #8a8a9a;
+            --ds-text-inverse: #ffffff;
+
+            --ds-border-subtle: #f0f0f4;
+            --ds-border-default: #e5e5ea;
+            --ds-border-strong: #c5c5ce;
+            --ds-border-focus: #1d4ed8;
+
+            --ds-action-primary: #1d4ed8;
+            --ds-action-primary-hover: #1e40af;
+            --ds-action-primary-active: #1e3a8a;
+            --ds-accent-light: #eff4ff;
+            --ds-accent-subtle: #f5f7fd;
+
+            --ds-status-success: var(--ds-green-500);
+            --ds-status-success-bg: var(--ds-green-50);
+            --ds-status-warning: var(--ds-yellow-500);
+            --ds-status-warning-bg: var(--ds-yellow-50);
+            --ds-status-danger: var(--ds-red-500);
+            --ds-status-danger-bg: var(--ds-red-50);
+            --ds-status-info: var(--ds-sky-600);
+            --ds-status-info-bg: var(--ds-sky-100);
+
+            --ds-font-sans: 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --ds-font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            --ds-font-display: var(--ds-font-sans);
+
+            --ds-radius-sm: 4px;
+            --ds-radius-md: 6px;
+            --ds-radius-lg: 10px;
+            --ds-radius-xl: 14px;
+            --ds-radius-full: 999px;
+
+            --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            --ds-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+            --ds-duration-fast: 120ms;
+            --ds-duration-normal: 180ms;
+            --ds-duration-slow: 250ms;
+            --ds-ease-standard: ease;
+
+            /* Template-specific tokens (Job Board) */
+            --template-nav-height: 56px;
+            --template-sidebar-width: 260px;
+            --template-max-width: 1200px;
+
+            /* Original template vocabulary, mapped onto the shared tokens.
+               Kept so the rest of the stylesheet (which uses/* Original template vocabulary, mapped onto the shared tokens.
+               Kept so the rest of the stylesheet (which uses these names)
+               resolves to the shared values unchanged. */
+            --color-bg: var(--ds-bg-canvas);
+            --color-surface: var(--ds-bg-surface);
+            --color-surface-raised: var(--ds-bg-surface-raised);
+            --color-text: var(--ds-text-primary);
+            --color-text-secondary: var(--ds-text-secondary);
+            --color-text-tertiary: var(--ds-text-muted);
+            --color-border: var(--ds-border-default);
+            --color-border-light: var(--ds-border-subtle);
+            --color-accent: var(--ds-action-primary);
+            --color-accent-hover: var(--ds-action-primary-hover);
+            --color-accent-light: var(--ds-accent-light);
+            --color-accent-subtle: var(--ds-accent-subtle);
+            --color-success: var(--ds-status-success);
+            --color-success-light: var(--ds-status-success-bg);
+            --color-warning: var(--ds-status-warning);
+            --color-warning-light: var(--ds-status-warning-bg);
+            --color-danger: var(--ds-status-danger);
+            --color-danger-light: var(--ds-status-danger-bg);
+            --color-neutral: var(--ds-neutral);
+            --color-neutral-light: var(--ds-neutral-light);
+            --font-sans: var(--ds-font-sans);
+            --font-mono: var(--ds-font-mono);
+            --radius-sm: var(--ds-radius-sm);
+            --radius-md: var(--ds-radius-md);
+            --radius-lg: var(--ds-radius-lg);
+            --radius-xl: var(--ds-radius-xl);
+            --shadow-xs: var(--ds-shadow-xs);
+            --shadow-sm: var(--ds-shadow-sm);
+            --shadow-md: var(--ds-shadow-md);
+            --shadow-lg: var(--ds-shadow-lg);
+            --transition-fast: var(--ds-duration-fast) var(--ds-ease-standard);
+            --transition-normal: var(--ds-duration-normal) var(--ds-ease-standard);
+            --transition-slow: var(--ds-duration-slow) var(--ds-ease-standard);
+            --max-width: var(--template-max-width);
+            --nav-height: var(--template-nav-height);
+            --sidebar-width: var(--template-sidebar-width);
+        }
+        /* Calm dark mode: same design system inverted (prefers-color-scheme).
+           The blue accent and status colors are preserved; surfaces and text
+           invert. Opt-in via system preference only. */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --ds-bg-canvas: #0f0f17;
+                --ds-bg-surface: #1a1a24;
+                --ds-bg-surface-subtle: #22222e;
+                --ds-bg-surface-raised: #20202c;
+                --ds-bg-overlay: rgb(0 0 0 / 0.6);
+
+                --ds-text-primary: #f5f5f7;
+                --ds-text-secondary: #c5c5d0;
+                --ds-text-muted: #9090a0;
+                --ds-text-inverse: #1a1a24;
+
+                --ds-border-subtle: #262634;
+                --ds-border-default: #2e2e3c;
+                --ds-border-strong: #3a3a4c;
+
+                --ds-accent-light: #1e2a4a;
+                --ds-accent-subtle: #1c1c28;
+
+                --ds-neutral: #9090a0;
+                --ds-neutral-light: #22222e;
+            }
+        }
+
+        /* Reduced-motion: disable all animations/transitions and scroll smoothing. */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.55;
+            min-height: 100vh;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        a:hover {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: inherit;
+            color: inherit;
+            transition: all var(--transition-fast);
+        }
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        svg {
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* ── Navigation ─────────────────────── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 20px;
+            box-shadow: var(--shadow-xs);
+        }
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .nav-brand:hover {
+            text-decoration: none;
+            color: var(--color-text);
+        }
+        .nav-brand-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--color-text);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+            flex: 1;
+        }
+        .nav-link {
+            padding: 7px 14px;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            letter-spacing: -0.005em;
+        }
+        .nav-link:hover {
+            background: var(--color-neutral-light);
+            color: var(--color-text);
+            text-decoration: none;
+        }
+        .nav-link.active {
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 7px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-primary {
+            background: var(--color-accent);
+            color: #fff;
+            border-color: var(--color-accent);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            border-color: var(--color-accent-hover);
+        }
+        .btn-outline {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border-color: var(--color-border);
+        }
+        .btn-outline:hover {
+            background: var(--color-neutral-light);
+            border-color: #c5c5ce;
+        }
+        .btn-ghost {
+            background: transparent;
+            color: var(--color-text-secondary);
+            border-color: transparent;
+        }
+        .btn-ghost:hover {
+            background: var(--color-neutral-light);
+            color: var(--color-text);
+        }
+        .btn-sm {
+            padding: 5px 11px;
+            font-size: 0.8rem;
+            border-radius: var(--radius-sm);
+        }
+        .btn-icon {
+            width: 34px;
+            height: 34px;
+            padding: 0;
+            border-radius: var(--radius-md);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .nav-mobile-toggle {
+            display: none;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: var(--radius-md);
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--color-text-secondary);
+            flex-shrink: 0;
+        }
+
+        /* ── Layout ────────────────────────── */
+        .app-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+        .view {
+            display: none;
+            animation: fadeIn var(--transition-normal) ease;
+        }
+        .view.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .page-header {
+            margin-bottom: 22px;
+        }
+        .page-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+        .page-header p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        .breadcrumbs {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .breadcrumbs a {
+            color: var(--color-text-tertiary);
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        .breadcrumbs .sep {
+            color: #c5c5ce;
+            user-select: none;
+        }
+
+        /* ── Search & Filters Bar ──────────── */
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 18px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 10px 14px;
+            box-shadow: var(--shadow-xs);
+        }
+        .search-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1 1 220px;
+            min-width: 180px;
+            background: var(--color-bg);
+            border-radius: var(--radius-md);
+            padding: 7px 12px;
+            border: 1px solid var(--color-border-light);
+            transition: border-color var(--transition-fast);
+        }
+        .search-input-wrap:focus-within {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.06);
+        }
+        .search-input-wrap input {
+            border: none;
+            background: none;
+            font-family: inherit;
+            font-size: 0.875rem;
+            width: 100%;
+            color: var(--color-text);
+            outline: none;
+        }
+        .search-input-wrap input::placeholder {
+            color: var(--color-text-tertiary);
+        }
+        .search-icon {
+            color: var(--color-text-tertiary);
+            flex-shrink: 0;
+        }
+        .filter-select {
+            padding: 7px 30px 7px 12px;
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.85rem;
+            background: var(--color-bg);
+            color: var(--color-text);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a8a9a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            min-width: 130px;
+            flex: 0 0 auto;
+            transition: border-color var(--transition-fast);
+        }
+        .filter-select:focus {
+            border-color: var(--color-accent);
+            outline: none;
+        }
+        .filter-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .chip {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            letter-spacing: -0.005em;
+        }
+        .chip:hover {
+            border-color: #c5c5ce;
+            color: var(--color-text);
+        }
+        .chip.active {
+            background: var(--color-accent-light);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .result-count {
+            font-size: 0.85rem;
+            color: var(--color-text-tertiary);
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        /* ── Job List ──────────────────────── */
+        .job-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--color-surface);
+            box-shadow: var(--shadow-xs);
+        }
+        .job-card {
+            display: flex;
+            gap: 16px;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--color-border-light);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+            align-items: flex-start;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        .job-card:last-child {
+            border-bottom: none;
+        }
+        .job-card:hover {
+            background: var(--color-accent-subtle);
+            text-decoration: none;
+            color: inherit;
+        }
+        .job-card-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: var(--color-neutral-light);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            letter-spacing: -0.02em;
+            overflow: hidden;
+            border: 1px solid var(--color-border-light);
+        }
+        .job-card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .job-card-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .job-card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-text);
+            margin-bottom: 2px;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        .job-card-company {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+        }
+        .job-card-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+            align-items: center;
+        }
+        .job-card-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .job-card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 7px;
+        }
+        .tag {
+            padding: 3px 9px;
+            border-radius: var(--radius-sm);
+            font-size: 0.73rem;
+            font-weight: 500;
+            background: var(--color-neutral-light);
+            color: var(--color-text-secondary);
+            letter-spacing: -0.005em;
+            white-space: nowrap;
+        }
+        .job-card-save {
+            flex-shrink: 0;
+            padding: 6px;
+            border-radius: var(--radius-md);
+            color: var(--color-text-tertiary);
+            transition: all var(--transition-fast);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: -2px;
+        }
+        .job-card-save:hover {
+            color: var(--color-accent);
+            background: var(--color-accent-light);
+        }
+        .job-card-save.saved {
+            color: var(--color-accent);
+        }
+
+        /* ── Job Detail ────────────────────── */
+        .job-detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 28px;
+            align-items: start;
+        }
+        .job-detail-main {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 28px 30px;
+            box-shadow: var(--shadow-xs);
+        }
+        .job-detail-main h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .job-detail-company-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .job-detail-company-row .job-card-avatar {
+            width: 36px;
+            height: 36px;
+            font-size: 0.85rem;
+        }
+        .job-detail-company-row span {
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+        .job-detail-meta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--color-text-tertiary);
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        .job-detail-section {
+            margin-bottom: 22px;
+        }
+        .job-detail-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+            color: var(--color-text);
+        }
+        .job-detail-section p,
+        .job-detail-section li {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+        .job-detail-section ul {
+            padding-left: 20px;
+        }
+        .job-detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: sticky;
+            top: calc(var(--nav-height) + 20px);
+        }
+        .sidebar-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            box-shadow: var(--shadow-xs);
+        }
+        .sidebar-card h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+            color: var(--color-text);
+        }
+        .sidebar-info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            padding: 5px 0;
+            color: var(--color-text-secondary);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        .sidebar-info-row:last-child {
+            border-bottom: none;
+        }
+        .sidebar-info-row .label {
+            color: var(--color-text-tertiary);
+        }
+        .sidebar-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+            padding: 9px 16px;
+            font-size: 0.875rem;
+            border-radius: var(--radius-md);
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        /* ── Company Directory ─────────────── */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .company-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-xs);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .company-card:hover {
+            border-color: #c5c5ce;
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+            color: inherit;
+            transform: translateY(-1px);
+        }
+        .company-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .company-card-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--color-neutral-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid var(--color-border-light);
+            flex-shrink: 0;
+        }
+        .company-card-name {
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+        .company-card-desc {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .company-card-meta {
+            font-size: 0.78rem;
+            color: var(--color-text-tertiary);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Candidate Area ────────────────── */
+        .candidate-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        .candidate-sidebar {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-xs);
+            position: sticky;
+            top: calc(var(--nav-height) + 20px);
+        }
+        .candidate-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--color-neutral-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-text-secondary);
+            border: 2px solid var(--color-border);
+        }
+        .candidate-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+        .candidate-role {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        .candidate-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 8px;
+        }
+        .candidate-nav a {
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+        .candidate-nav a:hover,
+        .candidate-nav a.active {
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+        .candidate-main {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 24px 26px;
+            box-shadow: var(--shadow-xs);
+            min-height: 400px;
+        }
+        .app-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .app-table th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 10px 12px;
+            border-bottom: 2px solid var(--color-border);
+        }
+        .app-table td {
+            padding: 11px 12px;
+            border-bottom: 1px solid var(--color-border-light);
+            vertical-align: middle;
+        }
+        .app-table tr:hover td {
+            background: var(--color-accent-subtle);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+        }
+        .status-applied {
+            background: var(--color-neutral-light);
+            color: var(--color-neutral);
+        }
+        .status-pending {
+            background: var(--color-warning-light);
+            color: var(--color-warning);
+        }
+        .status-shortlisted {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+        .status-interview {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status-rejected {
+            background: var(--color-danger-light);
+            color: var(--color-danger);
+        }
+        .status-accepted {
+            background: var(--color-success-light);
+            color: var(--color-success);
+        }
+
+        /* ── Modal ─────────────────────────── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn var(--transition-fast) ease;
+            padding: 20px;
+        }
+        .modal-overlay.hidden {
+            display: none;
+        }
+        .modal {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: 28px 30px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp var(--transition-normal) ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .modal h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 14px;
+        }
+        .modal .form-group {
+            margin-bottom: 14px;
+        }
+        .modal label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+            letter-spacing: -0.005em;
+        }
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.875rem;
+            resize: vertical;
+            transition: border-color var(--transition-fast);
+        }
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: var(--color-accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.06);
+        }
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 18px;
+        }
+
+        /* ── Toast ─────────────────────────── */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 300;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+        .toast {
+            background: var(--color-text);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            pointer-events: auto;
+            animation: slideIn var(--transition-normal) ease;
+            letter-spacing: -0.005em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .toast.success {
+            background: #0d9488;
+        }
+        .toast.fading {
+            animation: fadeOut var(--transition-slow) ease forwards;
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ── Mobile Filter Drawer ──────────── */
+        .filter-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 150;
+            display: none;
+        }
+        .filter-drawer-overlay.open {
+            display: block;
+            animation: fadeIn var(--transition-fast) ease;
+        }
+        .filter-drawer {
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 320px;
+            max-width: 85vw;
+            background: var(--color-surface);
+            z-index: 151;
+            box-shadow: var(--shadow-lg);
+            padding: 20px 22px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform var(--transition-normal) ease;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .filter-drawer.open {
+            transform: translateX(0);
+        }
+        .filter-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .filter-drawer-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .filter-drawer .filter-select {
+            width: 100%;
+        }
+
+        /* ── Empty States ──────────────────── */
+        .empty-state {
+            text-align: center;
+            padding: 48px 20px;
+            color: var(--color-text-tertiary);
+        }
+        .empty-state svg {
+            margin: 0 auto 14px;
+            opacity: 0.5;
+        }
+        .empty-state h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+        }
+        .empty-state p {
+            font-size: 0.85rem;
+        }
+
+        /* ── Pagination ────────────────────── */
+        .pagination {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            padding: 7px 13px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            transition: all var(--transition-fast);
+        }
+        .pagination button:hover {
+            background: var(--color-neutral-light);
+            color: var(--color-text);
+        }
+        .pagination button.active {
+            background: var(--color-accent);
+            color: #fff;
+            border-color: var(--color-accent);
+            font-weight: 600;
+        }
+        .pagination button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* ── Responsive ────────────────────── */
+        @media (max-width: 1024px) {
+            .job-detail-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .job-detail-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .candidate-layout {
+                grid-template-columns: 200px 1fr;
+                gap: 16px;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                background: var(--color-surface);
+                flex-direction: column;
+                padding: 12px;
+                border-bottom: 1px solid var(--color-border);
+                box-shadow: var(--shadow-md);
+                gap: 4px;
+                z-index: 99;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-mobile-toggle {
+                display: flex;
+            }
+            .nav-actions .btn span {
+                display: none;
+            }
+            .nav-actions .btn {
+                padding: 7px 10px;
+                font-size: 0.8rem;
+            }
+            .search-bar {
+                gap: 6px;
+                padding: 8px 10px;
+            }
+            .filter-select {
+                font-size: 0.78rem;
+                padding: 6px 24px 6px 10px;
+                min-width: auto;
+                flex: 1 1 auto;
+            }
+            .job-detail-sidebar {
+                grid-template-columns: 1fr;
+            }
+            .candidate-layout {
+                grid-template-columns: 1fr;
+            }
+            .candidate-sidebar {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                align-items: center;
+                padding: 16px;
+            }
+            .candidate-sidebar .candidate-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 4px;
+                margin-top: 0;
+            }
+            .candidate-avatar {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+            .company-grid {
+                grid-template-columns: 1fr;
+            }
+            .job-card {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+            .job-card-avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 0.85rem;
+            }
+            .job-detail-main {
+                padding: 18px 16px;
+            }
+            .pagination button {
+                padding: 6px 10px;
+                font-size: 0.78rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .app-container {
+                padding: 16px 10px 40px;
+            }
+            .nav {
+                padding: 0 10px;
+                gap: 10px;
+            }
+            .nav-brand {
+                font-size: 1rem;
+            }
+            .search-bar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px;
+            }
+            .search-input-wrap {
+                width: 100%;
+            }
+            .filter-select {
+                width: 100%;
+                min-width: 0;
+            }
+            .job-card-meta {
+                gap: 6px;
+                font-size: 0.75rem;
+            }
+            .job-card-title {
+                font-size: 0.88rem;
+            }
+            .btn-full {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            .modal {
+                padding: 20px 16px;
+                margin: 10px;
+                border-radius: var(--radius-lg);
+            }
+            .filter-drawer {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* ── Compact Mobile Search Bar (new) ── */
+        @media (max-width: 640px) {
+            .search-bar .filter-select {
+                display: none;
+            }
+            .search-bar {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                padding: 6px 8px;
+                gap: 6px;
+                align-items: center;
+            }
+            .search-input-wrap {
+                flex: 1 1 auto;
+                width: auto;
+                padding: 5px 10px;
+            }
+            #btnMobileFilters {
+                flex-shrink: 0;
+                font-size: 0.75rem;
+                padding: 6px 10px;
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+            }
+            #btnMobileFilters svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<!-- ── Navigation ──────────────────────── -->
+    <nav class="nav" aria-label="Main navigation">
+        <a href="#" class="nav-brand" data-view="jobs" aria-label="DevSnips Home">
+            <span class="nav-brand-icon">DS</span> DevSnips
+        </a>
+        <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#" class="nav-link active" data-view="jobs">Jobs</a>
+            <a href="#" class="nav-link" data-view="companies">Companies</a>
+            <a href="#" class="nav-link" data-view="saved">Saved Jobs</a>
+            <a href="#" class="nav-link" data-view="candidate">Candidate</a>
+        </div>
+        <div class="nav-actions">
+            <button class="btn btn-ghost btn-sm" id="btnNotifications" aria-label="Notifications">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            </button>
+            <button class="btn btn-outline btn-sm" data-view="candidate">Profile</button>
+        </div>
+    </nav>
+
+    <!-- ── App Container ──────────────────── -->
+    <div class="app-container" id="appContainer">
+        <!-- Jobs View -->
+        <div class="view active" id="view-jobs">
+            <div class="page-header">
+                <h1>Developer Jobs</h1>
+                <p>Discover your next role at top technology companies.</p>
+            </div>
+            <div class="search-bar" id="searchBar">
+                <div class="search-input-wrap">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <input type="text" id="searchKeyword" placeholder="Search by title, skill, or company..." aria-label="Search jobs">
+                </div>
+                <select class="filter-select" id="filterLocation" aria-label="Filter by location">
+                    <option value="">All Locations</option>
+                    <option value="remote">Remote</option>
+                    <option value="san-francisco">San Francisco</option>
+                    <option value="new-york">New York</option>
+                    <option value="london">London</option>
+                    <option value="berlin">Berlin</option>
+                    <option value="amsterdam">Amsterdam</option>
+                </select>
+                <select class="filter-select" id="filterType" aria-label="Filter by job type">
+                    <option value="">All Types</option>
+                    <option value="full-time">Full-Time</option>
+                    <option value="contract">Contract</option>
+                    <option value="part-time">Part-Time</option>
+                </select>
+                <button class="btn btn-outline btn-sm" id="btnMobileFilters" style="display:none;" aria-label="Open filters">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><circle cx="4" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="20" cy="12" r="2"/></svg>
+                    Filters
+                </button>
+            </div>
+            <div class="filter-chips" id="filterChips">
+                <button class="chip active" data-chip="all">All Jobs</button>
+                <button class="chip" data-chip="remote">Remote</button>
+                <button class="chip" data-chip="frontend">Frontend</button>
+                <button class="chip" data-chip="backend">Backend</button>
+                <button class="chip" data-chip="fullstack">Full Stack</button>
+                <button class="chip" data-chip="devops">DevOps</button>
+                <button class="chip" data-chip="data">Data</button>
+                <button class="chip" data-chip="design">Design</button>
+            </div>
+            <div class="result-count" id="resultCount">Showing 24 jobs</div>
+            <div class="job-list" id="jobList" role="list" aria-label="Job listings"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+
+        <!-- Job Detail View -->
+        <div class="view" id="view-job-detail"></div>
+
+        <!-- Companies View -->
+        <div class="view" id="view-companies">
+            <div class="page-header">
+                <h1>Companies</h1>
+                <p>Explore top technology companies hiring developers.</p>
+            </div>
+            <div class="company-grid" id="companyGrid"></div>
+        </div>
+
+        <!-- Company Detail View -->
+        <div class="view" id="view-company-detail"></div>
+
+        <!-- Saved Jobs View -->
+        <div class="view" id="view-saved">
+            <div class="page-header">
+                <h1>Saved Jobs</h1>
+                <p>Jobs you've bookmarked for later.</p>
+            </div>
+            <div class="job-list" id="savedJobList" role="list" aria-label="Saved job listings"></div>
+            <div class="empty-state hidden" id="savedEmpty">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+                <h3>No saved jobs yet</h3>
+                <p>Bookmark jobs you're interested in to find them here.</p>
+            </div>
+        </div>
+
+        <!-- Candidate View -->
+        <div class="view" id="view-candidate">
+            <div class="candidate-layout">
+                <aside class="candidate-sidebar">
+                    <div class="candidate-avatar">AK</div>
+                    <div class="candidate-name">Alex Kim</div>
+                    <div class="candidate-role">Full Stack Developer</div>
+                    <nav class="candidate-nav" id="candidateNav">
+                        <a href="#" class="active" data-candidate-tab="profile">Profile</a>
+                        <a href="#" data-candidate-tab="applications">Applications</a>
+                        <a href="#" data-candidate-tab="saved-candidate">Saved Jobs</a>
+                    </nav>
+                </aside>
+                <div class="candidate-main" id="candidateMain"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Apply Modal ────────────────────── -->
+    <div class="modal-overlay hidden" id="applyModalOverlay">
+        <div class="modal" id="applyModal" role="dialog" aria-labelledby="applyModalTitle" aria-modal="true">
+            <h3 id="applyModalTitle">Apply for this position</h3>
+            <div class="form-group">
+                <label for="applyName">Full Name</label>
+                <input type="text" id="applyName" placeholder="Your full name" value="Alex Kim">
+            </div>
+            <div class="form-group">
+                <label for="applyEmail">Email</label>
+                <input type="email" id="applyEmail" placeholder="you@example.com" value="alex.kim@example.com">
+            </div>
+            <div class="form-group">
+                <label for="applyNote">Cover Note (optional)</label>
+                <textarea id="applyNote" rows="3" placeholder="Briefly explain why you're a great fit..."></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="btnCancelApply">Cancel</button>
+                <button class="btn btn-primary" id="btnSubmitApply">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Toast Container ────────────────── -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ── Mobile Filter Drawer ───────────── -->
+    <div class="filter-drawer-overlay" id="filterDrawerOverlay"></div>
+    <div class="filter-drawer" id="filterDrawer">
+        <div class="filter-drawer-header">
+            <h3>Filters</h3>
+            <button class="btn btn-ghost btn-icon" id="btnCloseDrawer" aria-label="Close filters">&times;</button>
+        </div>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--color-text-secondary);">Location</label>
+        <select class="filter-select" id="drawerLocation">
+            <option value="">All Locations</option>
+            <option value="remote">Remote</option>
+            <option value="san-francisco">San Francisco</option>
+            <option value="new-york">New York</option>
+            <option value="london">London</option>
+            <option value="berlin">Berlin</option>
+            <option value="amsterdam">Amsterdam</option>
+        </select>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--color-text-secondary);">Job Type</label>
+        <select class="filter-select" id="drawerType">
+            <option value="">All Types</option>
+            <option value="full-time">Full-Time</option>
+            <option value="contract">Contract</option>
+            <option value="part-time">Part-Time</option>
+        </select>
+        <label style="font-size:0.8rem;font-weight:600;color:var(--color-text-secondary);">Category</label>
+        <div class="filter-chips" style="flex-direction:column;gap:4px;" id="drawerChips"></div>
+        <button class="btn btn-primary btn-full" id="btnApplyDrawerFilters">Apply Filters</button>
+    </div>
+
+    <script>
+/* DevSnips Job Board — script.js
+   Application logic: views, job/company/candidate rendering,
+   search + filters + pagination, save/apply, mobile nav + filter drawer.
+   Vanilla JS, no dependencies. Loaded at end of <body> so the DOM is ready. */
+(function() {
+            // ── Application Data ──────────────────
+            const companies = [
+                { id: 'vercel', name: 'Vercel', logo: 'V', desc: 'Build, deploy, and scale modern web applications with the frontend cloud platform.', website: 'vercel.com',
+                    location: 'San Francisco, CA', size: '200-500', industry: 'Cloud Infrastructure', openPositions: 12,
+                    overview: 'Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web. Their platform enables frontend teams to do their best work.' },
+                { id: 'linear', name: 'Linear', logo: 'L', desc: 'A streamlined issue tracking and project management tool built for speed.', website: 'linear.app',
+                    location: 'San Francisco, CA', size: '50-200', industry: 'Developer Tools', openPositions: 6,
+                    overview: 'Linear is redefining how software teams build products. Purpose-built for planning and building great software, Linear helps teams streamline issues, sprints, and product roadmaps.' },
+                { id: 'stripe', name: 'Stripe', logo: 'S', desc: 'Financial infrastructure platform for businesses of all sizes.', website: 'stripe.com',
+                    location: 'San Francisco, CA', size: '5,000+', industry: 'Fintech', openPositions: 45,
+                    overview: 'Stripe builds economic infrastructure for the internet. Businesses of every size use Stripe to accept payments, send payouts, and manage their businesses online.' },
+                { id: 'figma', name: 'Figma', logo: 'F', desc: 'Collaborative interface design tool powering product teams worldwide.', website: 'figma.com',
+                    location: 'San Francisco, CA', size: '1,000-2,000', industry: 'Design Tools', openPositions: 18,
+                    overview: 'Figma is the leading collaborative design tool for building meaningful products. Seamlessly design, prototype, develop, and collect feedback in a single platform.' },
+                { id: 'notion', name: 'Notion', logo: 'N', desc: 'All-in-one workspace for notes, docs, wikis, and project management.', website: 'notion.so',
+                    location: 'San Francisco, CA', size: '500-1,000', industry: 'Productivity', openPositions: 14,
+                    overview: 'Notion is a single space where you can think, write, and plan. Capture thoughts, manage projects, or even run an entire company — and do it exactly the way you want.' },
+                { id: 'supabase', name: 'Supabase', logo: 'Sb', desc: 'Open source Firebase alternative providing instant backend infrastructure.', website: 'supabase.com',
+                    location: 'Remote', size: '50-200', industry: 'Developer Tools', openPositions: 9,
+                    overview: 'Supabase is an open source Firebase alternative. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.' },
+                { id: 'railway', name: 'Railway', logo: 'R', desc: 'Infrastructure platform that makes deploying services simple and fast.', website: 'railway.app',
+                    location: 'Remote', size: '20-50', industry: 'Cloud Infrastructure', openPositions: 4,
+                    overview: 'Railway is an infrastructure platform where you can provision infrastructure, develop with that infrastructure locally, and then deploy to the cloud.' },
+                { id: 'clerk', name: 'Clerk', logo: 'C', desc: 'Complete user management and authentication for modern applications.', website: 'clerk.com',
+                    location: 'San Francisco, CA', size: '20-50', industry: 'Developer Tools', openPositions: 3,
+                    overview: 'Clerk provides drop-in authentication and user management for modern web applications. Embed complete user management UIs and APIs in minutes.' },
+                { id: 'resend', name: 'Resend', logo: 'Re', desc: 'Modern email API for developers to build, test, and send emails.', website: 'resend.com',
+                    location: 'San Francisco, CA', size: '10-30', industry: 'Developer Tools', openPositions: 2,
+                    overview: 'Resend is the email API for developers. Build, test, and send transactional emails at scale with a modern, developer-friendly platform.' },
+                { id: 'render', name: 'Render', logo: 'Rd', desc: 'Unified cloud platform to build and run all your apps and websites.', website: 'render.com',
+                    location: 'San Francisco, CA', size: '100-300', industry: 'Cloud Infrastructure', openPositions: 8,
+                    overview: 'Render is a unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.' },
+            ];
+
+            const jobs = [
+                { id: 1, title: 'Senior Frontend Developer', company: 'Vercel', companyId: 'vercel', location: 'San Francisco, CA',
+                    salary: '$160,000 – $210,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '2 days ago', skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'GraphQL'],
+                    description: 'Join the team building the frontend cloud. You\'ll work on developer-facing products that millions of developers use daily to deploy and scale their web applications. Help shape the future of frontend infrastructure with a team that values craft, performance, and developer experience above all.',
+                    responsibilities: [
+                        'Architect and build high-performance React applications used by millions of developers',
+                        'Collaborate with design and product teams to ship polished, accessible user interfaces',
+                        'Improve build tooling, CI/CD pipelines, and developer workflows',
+                        'Mentor junior engineers and contribute to technical design discussions',
+                        'Write clean, tested, and well-documented code'
+                    ],
+                    requirements: [
+                        '5+ years of experience in frontend development with React and TypeScript',
+                        'Deep understanding of web performance optimization and Core Web Vitals',
+                        'Experience with Next.js and server-side rendering patterns',
+                        'Strong eye for design and attention to detail',
+                        'Excellent communication skills and a collaborative mindset'
+                    ],
+                    benefits: ['Competitive salary and equity', 'Flexible PTO', 'Health, dental, and vision',
+                        'Home office stipend', 'Learning and development budget'
+                    ] },
+                { id: 2, title: 'Backend Engineer', company: 'Stripe', companyId: 'stripe', location: 'New York, NY',
+                    salary: '$170,000 – $230,000', workMode: 'On-site', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '1 week ago', skills: ['Java', 'Ruby', 'Distributed Systems', 'PostgreSQL', 'gRPC'],
+                    description: 'Build the core payment processing infrastructure that powers millions of businesses globally. You\'ll design and implement highly reliable distributed systems that handle billions of dollars in transactions while maintaining sub-millisecond latency.',
+                    responsibilities: [
+                        'Design and build scalable, fault-tolerant distributed systems',
+                        'Optimize database queries and API performance for high-throughput scenarios',
+                        'Participate in on-call rotations and incident response',
+                        'Write comprehensive tests and contribute to code review culture',
+                        'Collaborate across teams to define API contracts and service boundaries'
+                    ],
+                    requirements: [
+                        '4+ years of backend engineering experience',
+                        'Strong proficiency in at least one of: Java, Ruby, Go, or Rust',
+                        'Experience with distributed systems and microservices architecture',
+                        'Knowledge of database internals and query optimization',
+                        'Track record of shipping reliable production systems'
+                    ],
+                    benefits: ['Top-tier compensation', 'Comprehensive healthcare', '401(k) matching',
+                        'Wellness stipend', 'Relocation assistance'
+                    ] },
+                { id: 3, title: 'Product Designer', company: 'Figma', companyId: 'figma', location: 'San Francisco, CA',
+                    salary: '$150,000 – $200,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '3 days ago', skills: ['UI Design', 'Design Systems', 'Prototyping', 'Figma', 'User Research'],
+                    description: 'Shape the future of collaborative design tools. As a product designer at Figma, you\'ll craft intuitive, powerful experiences that empower designers and developers to create their best work together.',
+                    responsibilities: [
+                        'Lead design projects from concept through implementation',
+                        'Conduct user research and translate insights into design decisions',
+                        'Create high-fidelity prototypes and detailed interaction specifications',
+                        'Contribute to and evolve Figma\'s design system',
+                        'Partner with engineering to ensure pixel-perfect implementation'
+                    ],
+                    requirements: [
+                        '5+ years of product design experience',
+                        'Exceptional portfolio demonstrating complex problem-solving',
+                        'Deep expertise with Figma and modern design tools',
+                        'Experience contributing to or maintaining design systems',
+                        'Strong communication and storytelling skills'
+                    ],
+                    benefits: ['Competitive compensation', 'Equity package', 'Health coverage', '401(k)',
+                        'Annual design conference budget'
+                    ] },
+                { id: 4, title: 'DevOps Engineer', company: 'Railway', companyId: 'railway', location: 'Remote',
+                    salary: '$140,000 – $185,000', workMode: 'Remote', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '5 days ago', skills: ['Kubernetes', 'Terraform', 'AWS', 'Docker', 'CI/CD', 'Go'],
+                    description: 'Build the infrastructure platform that lets developers deploy applications with a single command. You\'ll work on container orchestration, networking, and deployment automation at scale.',
+                    responsibilities: [
+                        'Design and maintain Kubernetes clusters and container orchestration systems',
+                        'Build internal tooling for infrastructure provisioning and monitoring',
+                        'Improve deployment pipelines and reduce build times',
+                        'Implement security best practices across cloud infrastructure',
+                        'Document infrastructure patterns and mentor team members'
+                    ],
+                    requirements: [
+                        '4+ years of experience in DevOps or platform engineering',
+                        'Deep knowledge of Kubernetes and container ecosystems',
+                        'Experience with infrastructure-as-code using Terraform or Pulumi',
+                        'Strong programming skills in Go, Python, or similar',
+                        'Passion for developer experience and automation'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Flexible hours', 'Equipment budget',
+                        'Annual team retreats'
+                    ] },
+                { id: 5, title: 'Full Stack Developer', company: 'Notion', companyId: 'notion', location: 'San Francisco, CA',
+                    salary: '$155,000 – $205,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '1 day ago', skills: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis'],
+                    description: 'Build features that help millions of people organize their work and life. You\'ll work across the full stack, from the React frontend to the distributed backend that powers real-time collaboration.',
+                    responsibilities: [
+                        'Develop and ship features across the entire stack',
+                        'Optimize real-time collaboration performance and reliability',
+                        'Build reusable UI components that scale across platforms',
+                        'Participate in technical design and architecture reviews',
+                        'Contribute to a culture of engineering excellence'
+                    ],
+                    requirements: [
+                        '4+ years of full stack development experience',
+                        'Proficiency with React, TypeScript, and Node.js',
+                        'Experience with relational databases and caching strategies',
+                        'Understanding of real-time systems and WebSocket protocols',
+                        'Product-minded with a focus on user experience'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health benefits', 'Unlimited PTO',
+                        'Learning stipend'
+                    ] },
+                { id: 6, title: 'Data Engineer', company: 'Supabase', companyId: 'supabase', location: 'Remote',
+                    salary: '$135,000 – $175,000', workMode: 'Remote', type: 'full-time', experience: 'Mid',
+                    posted: '4 days ago', skills: ['PostgreSQL', 'Python', 'Apache Spark', 'dbt', 'Airflow',
+                        'Data Modeling'],
+                    description: 'Build the data infrastructure that powers Supabase\'s analytics and observability platforms. Design data pipelines, optimize query performance, and create tools that help developers understand their data.',
+                    responsibilities: [
+                        'Design and maintain scalable ETL pipelines and data warehouses',
+                        'Optimize PostgreSQL query performance and schema design',
+                        'Build data models and dashboards for internal analytics',
+                        'Create tooling for data quality monitoring and alerting',
+                        'Collaborate with product teams on data-driven features'
+                    ],
+                    requirements: [
+                        '3+ years of data engineering experience',
+                        'Expert-level PostgreSQL knowledge',
+                        'Experience with workflow orchestration tools like Airflow',
+                        'Proficiency in Python and SQL',
+                        'Strong analytical and problem-solving skills'
+                    ],
+                    benefits: ['Fully remote', 'Open source contribution time', 'Competitive pay', 'Flexible schedule',
+                        'Conference budget'
+                    ] },
+                { id: 7, title: 'Frontend Developer', company: 'Linear', companyId: 'linear', location: 'San Francisco, CA',
+                    salary: '$145,000 – $190,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid',
+                    posted: '6 days ago', skills: ['React', 'TypeScript', 'CSS', 'GraphQL', 'Jest'],
+                    description: 'Craft pixel-perfect interfaces for a project management tool that developers love. At Linear, quality is paramount — you\'ll build interfaces that are fast, accessible, and delightful to use.',
+                    responsibilities: [
+                        'Build and maintain high-quality React components with TypeScript',
+                        'Optimize rendering performance and reduce bundle size',
+                        'Implement complex animations and micro-interactions',
+                        'Write comprehensive unit and integration tests',
+                        'Collaborate closely with designers on interaction patterns'
+                    ],
+                    requirements: [
+                        '3+ years of frontend development experience',
+                        'Strong TypeScript and React skills',
+                        'Deep understanding of CSS, layout, and responsive design',
+                        'Experience with GraphQL APIs',
+                        'Obsession with details and polish'
+                    ],
+                    benefits: ['Top salary', 'Meaningful equity', 'Health coverage', 'Flexible PTO',
+                        'Office in downtown SF'
+                    ] },
+                { id: 8, title: 'Security Engineer', company: 'Clerk', companyId: 'clerk', location: 'San Francisco, CA',
+                    salary: '$165,000 – $215,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '1 week ago', skills: ['OAuth', 'OIDC', 'Cryptography', 'Web Security', 'Go', 'TypeScript'],
+                    description: 'Help build the most secure authentication platform for modern applications. You\'ll design and implement security protocols, conduct audits, and ensure Clerk remains a trusted foundation for thousands of apps.',
+                    responsibilities: [
+                        'Design and implement authentication and authorization protocols',
+                        'Conduct security audits and penetration testing',
+                        'Develop security monitoring and incident response systems',
+                        'Stay current with emerging threats and vulnerabilities',
+                        'Advise engineering teams on security best practices'
+                    ],
+                    requirements: [
+                        '5+ years of security engineering experience',
+                        'Deep knowledge of OAuth 2.0, OIDC, and SAML protocols',
+                        'Experience with cryptographic primitives and their applications',
+                        'Strong programming skills in Go or TypeScript',
+                        'Track record of responsible vulnerability disclosure'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health benefits', 'Security conference budget',
+                        'Flexible working'
+                    ] },
+                { id: 9, title: 'Developer Advocate', company: 'Resend', companyId: 'resend', location: 'Remote',
+                    salary: '$130,000 – $170,000', workMode: 'Remote', type: 'full-time', experience: 'Mid',
+                    posted: '3 days ago', skills: ['Technical Writing', 'Public Speaking', 'Node.js', 'React',
+                        'API Design'],
+                    description: 'Be the voice of Resend in the developer community. Create content, give talks, and help developers build better email experiences. You\'ll bridge the gap between our engineering team and the broader developer ecosystem.',
+                    responsibilities: [
+                        'Create high-quality technical content including blog posts, tutorials, and videos',
+                        'Speak at conferences and meetups about email infrastructure',
+                        'Engage with the developer community on social media and forums',
+                        'Gather developer feedback and advocate for product improvements',
+                        'Build demo applications and integration examples'
+                    ],
+                    requirements: [
+                        '3+ years of experience in developer relations or software engineering',
+                        'Excellent written and verbal communication skills',
+                        'Experience building with modern web technologies',
+                        'Active presence in developer communities',
+                        'Comfortable with public speaking and live coding'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Travel budget', 'Content creation budget',
+                        'Flexible hours'
+                    ] },
+                { id: 10, title: 'Senior Backend Engineer', company: 'Render', companyId: 'render', location: 'San Francisco, CA',
+                    salary: '$175,000 – $225,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '2 days ago', skills: ['Go', 'Kubernetes', 'PostgreSQL', 'Redis', 'gRPC', 'Distributed Systems'],
+                    description: 'Design and build the core infrastructure that powers Render\'s cloud platform. You\'ll work on service orchestration, networking, and deployment systems that make cloud infrastructure simple for developers.',
+                    responsibilities: [
+                        'Architect and implement scalable backend services',
+                        'Optimize service mesh and inter-service communication',
+                        'Build internal APIs and developer-facing features',
+                        'Mentor engineers and lead technical initiatives',
+                        'Participate in architectural decision-making'
+                    ],
+                    requirements: [
+                        '6+ years of backend engineering experience',
+                        'Expert-level Go programming skills',
+                        'Deep experience with Kubernetes and container orchestration',
+                        'Strong understanding of distributed systems principles',
+                        'Experience leading technical projects'
+                    ],
+                    benefits: ['Competitive compensation', 'Equity', 'Health insurance', 'Unlimited PTO',
+                        'Remote-friendly'
+                    ] },
+                { id: 11, title: 'Frontend Platform Engineer', company: 'Vercel', companyId: 'vercel', location: 'London, UK',
+                    salary: '£90,000 – £130,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '1 week ago', skills: ['Next.js', 'React', 'TypeScript', 'Edge Computing',
+                    'Web Performance'],
+                    description: 'Build the tools and frameworks that define modern frontend development. Work on Next.js and related open-source projects that power the web. You\'ll contribute to the ecosystem used by millions.',
+                    responsibilities: [
+                        'Contribute to Next.js and related open-source projects',
+                        'Build developer tooling for frontend performance optimization',
+                        'Write documentation and examples for the developer community',
+                        'Collaborate with the React core team on framework features',
+                        'Engage with the open-source community through issues and PRs'
+                    ],
+                    requirements: [
+                        '4+ years of frontend development experience',
+                        'Deep expertise with React and Next.js',
+                        'Experience contributing to open-source projects',
+                        'Strong understanding of web performance and edge computing',
+                        'Excellent technical communication skills'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health coverage', 'Open source contribution time',
+                        'Conference budget'
+                    ] },
+                { id: 12, title: 'Product Manager', company: 'Linear', companyId: 'linear', location: 'San Francisco, CA',
+                    salary: '$160,000 – $210,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '5 days ago', skills: ['Product Strategy', 'User Research', 'Analytics', 'Developer Tools',
+                        'Agile'],
+                    description: 'Drive the product vision for Linear\'s core project management experience. You\'ll work closely with engineering and design to ship features that delight developers and product teams.',
+                    responsibilities: [
+                        'Define product roadmap and prioritize features based on user impact',
+                        'Conduct user research and analyze product metrics',
+                        'Write detailed product specifications and acceptance criteria',
+                        'Collaborate with engineering on technical feasibility',
+                        'Communicate product decisions and rationale to stakeholders'
+                    ],
+                    requirements: [
+                        '5+ years of product management experience',
+                        'Experience with developer tools or productivity software',
+                        'Strong analytical skills and data-driven decision-making',
+                        'Excellent written and verbal communication',
+                        'Technical background preferred'
+                    ],
+                    benefits: ['Top salary', 'Equity', 'Health benefits', 'Flexible PTO', 'Downtown SF office'] },
+                { id: 13, title: 'iOS Developer', company: 'Figma', companyId: 'figma', location: 'New York, NY',
+                    salary: '$155,000 – $200,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '4 days ago', skills: ['Swift', 'SwiftUI', 'UIKit', 'Core Animation', 'Metal'],
+                    description: 'Build the Figma mobile experience that brings collaborative design to iOS. Create smooth, performant native applications that designers love to use on the go.',
+                    responsibilities: [
+                        'Develop and maintain the Figma iOS application',
+                        'Optimize rendering performance for complex design files',
+                        'Implement custom UI components and animations',
+                        'Collaborate with design team on mobile interaction patterns',
+                        'Write unit and UI tests to ensure quality'
+                    ],
+                    requirements: [
+                        '4+ years of iOS development experience',
+                        'Proficiency in Swift and SwiftUI',
+                        'Experience with complex UI and custom drawing',
+                        'Understanding of mobile performance optimization',
+                        'Strong attention to detail and design sensibilities'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health coverage', 'Device budget', '401(k)'] },
+                { id: 14, title: 'Solutions Architect', company: 'Stripe', companyId: 'stripe', location: 'Amsterdam, NL',
+                    salary: '€95,000 – €140,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '1 week ago', skills: ['API Design', 'System Architecture', 'Payments', 'Cloud', 'Technical Sales'],
+                    description: 'Help Stripe\'s largest European customers integrate and optimize their payment infrastructure. You\'ll design solutions, lead technical discussions, and ensure successful implementations.',
+                    responsibilities: [
+                        'Design payment integration architectures for enterprise customers',
+                        'Lead technical discovery sessions and solution design workshops',
+                        'Create reference implementations and integration guides',
+                        'Collaborate with product teams on customer requirements',
+                        'Represent Stripe at industry events and conferences'
+                    ],
+                    requirements: [
+                        '6+ years in solutions architecture or technical consulting',
+                        'Deep understanding of API design and system integration',
+                        'Experience with payment systems or financial technology',
+                        'Excellent communication in English; additional European languages a plus',
+                        'Willingness to travel within Europe'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health benefits', 'Travel budget',
+                        'Relocation support'
+                    ] },
+                { id: 15, title: 'Machine Learning Engineer', company: 'Notion', companyId: 'notion', location: 'San Francisco, CA',
+                    salary: '$180,000 – $240,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '2 days ago', skills: ['Python', 'PyTorch', 'NLP', 'Transformers', 'MLOps', 'AWS'],
+                    description: 'Build AI-powered features that make Notion smarter. Work on natural language processing, search relevance, and intelligent content understanding that helps users get more from their workspace.',
+                    responsibilities: [
+                        'Develop and deploy machine learning models for content understanding',
+                        'Build and maintain ML infrastructure and training pipelines',
+                        'Collaborate with product teams to identify AI opportunities',
+                        'Optimize model inference for low-latency production serving',
+                        'Stay current with advances in NLP and generative AI'
+                    ],
+                    requirements: [
+                        '5+ years of machine learning experience',
+                        'Strong programming skills in Python',
+                        'Experience with PyTorch or TensorFlow',
+                        'Knowledge of NLP and transformer architectures',
+                        'Track record of deploying ML models to production'
+                    ],
+                    benefits: ['Top compensation', 'Equity', 'Health benefits', 'Research budget', 'Flexible working'] },
+                { id: 16, title: 'Technical Writer', company: 'Supabase', companyId: 'supabase', location: 'Remote',
+                    salary: '$100,000 – $140,000', workMode: 'Remote', type: 'full-time', experience: 'Mid',
+                    posted: '6 days ago', skills: ['Technical Writing', 'SQL', 'REST APIs', 'Documentation', 'Markdown'],
+                    description: 'Create world-class documentation that helps developers build with Supabase. Write guides, API references, and tutorials that make complex concepts accessible and actionable.',
+                    responsibilities: [
+                        'Write and maintain API documentation and developer guides',
+                        'Create tutorials and quickstart guides for various frameworks',
+                        'Review and improve existing documentation for clarity and accuracy',
+                        'Collaborate with engineering on new feature documentation',
+                        'Gather developer feedback to improve documentation quality'
+                    ],
+                    requirements: [
+                        '3+ years of technical writing experience',
+                        'Understanding of SQL and REST APIs',
+                        'Excellent written English',
+                        'Experience with documentation tools and static site generators',
+                        'Ability to explain complex technical concepts clearly'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Flexible hours', 'Learning budget',
+                        'Open source contribution'
+                    ] },
+                { id: 17, title: 'Platform Engineer', company: 'Railway', companyId: 'railway', location: 'Remote',
+                    salary: '$150,000 – $195,000', workMode: 'Remote', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '3 days ago', skills: ['Go', 'Rust', 'Kubernetes', 'Linux', 'Networking', 'Nix'],
+                    description: 'Build the core platform that makes deploying infrastructure as simple as writing code. Work on container runtimes, build systems, and deployment orchestration at the cutting edge.',
+                    responsibilities: [
+                        'Develop and maintain the container orchestration platform',
+                        'Build and optimize build systems for various language ecosystems',
+                        'Design networking and service discovery systems',
+                        'Implement monitoring and observability infrastructure',
+                        'Contribute to open-source projects in the platform ecosystem'
+                    ],
+                    requirements: [
+                        '4+ years of platform or systems engineering experience',
+                        'Strong programming skills in Go or Rust',
+                        'Deep Linux systems knowledge',
+                        'Experience with container runtimes and orchestration',
+                        'Passion for developer tooling and infrastructure'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Equipment budget', 'Flexible PTO',
+                        'Team retreats'
+                    ] },
+                { id: 18, title: 'UX Researcher', company: 'Figma', companyId: 'figma', location: 'San Francisco, CA',
+                    salary: '$140,000 – $185,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '1 week ago', skills: ['User Research', 'Usability Testing', 'Data Analysis', 'Survey Design',
+                        'Design Thinking'],
+                    description: 'Conduct research that shapes the future of collaborative design. Understand how designers and developers work together and uncover insights that drive product strategy.',
+                    responsibilities: [
+                        'Plan and conduct qualitative and quantitative user research',
+                        'Synthesize research findings into actionable insights',
+                        'Collaborate with product and design teams on research priorities',
+                        'Build research operations and participant recruitment systems',
+                        'Present findings to stakeholders and leadership'
+                    ],
+                    requirements: [
+                        '4+ years of UX research experience',
+                        'Strong portfolio demonstrating research impact',
+                        'Experience with both qualitative and quantitative methods',
+                        'Excellent communication and storytelling skills',
+                        'Background in HCI, psychology, or related field preferred'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health coverage', 'Research budget', '401(k)'] },
+                { id: 19, title: 'Site Reliability Engineer', company: 'Stripe', companyId: 'stripe', location: 'San Francisco, CA',
+                    salary: '$175,000 – $235,000', workMode: 'Hybrid', type: 'full-time', experience: 'Senior',
+                    posted: '4 days ago', skills: ['Go', 'Linux', 'Kubernetes', 'Prometheus', 'Terraform',
+                        'Incident Response'],
+                    description: 'Ensure Stripe\'s payment infrastructure maintains exceptional reliability at global scale. Design systems, automate operations, and lead incident response for mission-critical services.',
+                    responsibilities: [
+                        'Design and implement reliability improvements across services',
+                        'Build automation to reduce operational toil',
+                        'Lead incident response and post-incident reviews',
+                        'Define and monitor SLOs and error budgets',
+                        'Mentor engineering teams on reliability best practices'
+                    ],
+                    requirements: [
+                        '5+ years of SRE or platform engineering experience',
+                        'Strong programming skills, preferably in Go',
+                        'Deep experience with observability and monitoring tools',
+                        'Track record of improving system reliability at scale',
+                        'Calm and effective during incidents'
+                    ],
+                    benefits: ['Top compensation', 'Equity', 'Health benefits', 'On-call compensation',
+                        'Wellness program'
+                    ] },
+                { id: 20, title: 'Full Stack Developer', company: 'Clerk', companyId: 'clerk', location: 'Remote',
+                    salary: '$130,000 – $170,000', workMode: 'Remote', type: 'full-time', experience: 'Mid',
+                    posted: '2 days ago', skills: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'OAuth'],
+                    description: 'Build the user management platform that thousands of developers rely on. Work on both the frontend SDKs and backend APIs that make authentication simple and secure.',
+                    responsibilities: [
+                        'Develop and maintain React SDKs and UI components',
+                        'Build robust backend APIs for user management',
+                        'Write clear documentation and integration guides',
+                        'Collaborate on API design and developer experience',
+                        'Respond to community feedback and contribute to open source'
+                    ],
+                    requirements: [
+                        '3+ years of full stack development experience',
+                        'Proficiency with React, TypeScript, and Node.js',
+                        'Experience with authentication and authorization patterns',
+                        'Strong written communication skills',
+                        'Passion for developer experience'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Equity', 'Health benefits', 'Flexible schedule'] },
+                { id: 21, title: 'Growth Engineer', company: 'Notion', companyId: 'notion', location: 'New York, NY',
+                    salary: '$150,000 – $200,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '5 days ago', skills: ['React', 'TypeScript', 'A/B Testing', 'Analytics', 'Growth Strategy'],
+                    description: 'Drive user acquisition and engagement through data-informed product experiments. Build features that help more people discover and adopt Notion as their primary workspace.',
+                    responsibilities: [
+                        'Design and implement growth experiments across the product',
+                        'Build A/B testing infrastructure and analyze experiment results',
+                        'Optimize onboarding flows and activation funnels',
+                        'Collaborate with marketing on product-led growth initiatives',
+                        'Ship fast and iterate based on data'
+                    ],
+                    requirements: [
+                        '4+ years of engineering experience with a growth focus',
+                        'Strong React and TypeScript skills',
+                        'Experience with A/B testing and experimentation platforms',
+                        'Data-driven mindset with strong analytical skills',
+                        'Entrepreneurial spirit and bias for action'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health benefits', 'Unlimited PTO', 'NYC office'] },
+                { id: 22, title: 'Developer Relations Engineer', company: 'Resend', companyId: 'resend', location: 'Remote',
+                    salary: '$120,000 – $160,000', workMode: 'Remote', type: 'full-time', experience: 'Mid',
+                    posted: '1 week ago', skills: ['Node.js', 'React', 'API Design', 'Technical Content',
+                        'Community Building'],
+                    description: 'Build and nurture the developer community around Resend. Create integrations, write content, and help developers succeed with email infrastructure.',
+                    responsibilities: [
+                        'Build SDK libraries and integration examples for popular frameworks',
+                        'Write technical blog posts, tutorials, and documentation',
+                        'Engage with developers on GitHub, Discord, and social media',
+                        'Speak at conferences and host workshops',
+                        'Gather and synthesize developer feedback for the product team'
+                    ],
+                    requirements: [
+                        '3+ years in developer relations or software engineering',
+                        'Strong JavaScript/TypeScript skills',
+                        'Experience building and shipping side projects',
+                        'Excellent communication and teaching skills',
+                        'Active in developer communities'
+                    ],
+                    benefits: ['Fully remote', 'Competitive salary', 'Travel budget', 'Content budget',
+                        'Flexible hours'
+                    ] },
+                { id: 23, title: 'Engineering Manager', company: 'Linear', companyId: 'linear', location: 'San Francisco, CA',
+                    salary: '$200,000 – $260,000', workMode: 'Hybrid', type: 'full-time', experience: 'Manager',
+                    posted: '3 days ago', skills: ['Engineering Leadership', 'People Management', 'Agile', 'React',
+                        'TypeScript'],
+                    description: 'Lead and grow a team of exceptional engineers building the future of project management. Balance technical excellence with people development in a high-autonomy environment.',
+                    responsibilities: [
+                        'Manage and mentor a team of 5-8 engineers',
+                        'Drive technical strategy and architecture decisions',
+                        'Conduct regular 1:1s and performance reviews',
+                        'Collaborate with product and design on roadmap planning',
+                        'Foster a culture of craftsmanship and continuous improvement'
+                    ],
+                    requirements: [
+                        '7+ years of engineering experience with 2+ years in management',
+                        'Strong technical background in web technologies',
+                        'Proven track record of shipping high-quality products',
+                        'Excellent people management and communication skills',
+                        'Experience with developer tools or productivity software preferred'
+                    ],
+                    benefits: ['Top compensation', 'Significant equity', 'Health coverage', 'Executive coaching',
+                        'Leadership development'
+                    ] },
+                { id: 24, title: 'Data Scientist', company: 'Render', companyId: 'render', location: 'San Francisco, CA',
+                    salary: '$155,000 – $205,000', workMode: 'Hybrid', type: 'full-time', experience: 'Mid-Senior',
+                    posted: '6 days ago', skills: ['Python', 'SQL', 'Machine Learning', 'Statistical Modeling',
+                        'Data Visualization'],
+                    description: 'Use data to improve how developers build and deploy on Render. Analyze usage patterns, build predictive models, and create dashboards that drive product decisions.',
+                    responsibilities: [
+                        'Analyze large datasets to identify usage patterns and trends',
+                        'Build predictive models for capacity planning and optimization',
+                        'Create dashboards and reports for product and leadership teams',
+                        'Design and analyze A/B experiments',
+                        'Collaborate with engineering on data infrastructure'
+                    ],
+                    requirements: [
+                        '4+ years of data science experience',
+                        'Strong programming skills in Python and SQL',
+                        'Experience with statistical modeling and machine learning',
+                        'Proficiency with data visualization tools',
+                        'Ability to communicate findings to non-technical stakeholders'
+                    ],
+                    benefits: ['Competitive salary', 'Equity', 'Health benefits', 'Learning budget',
+                        'Remote-friendly'
+                    ] },
+            ];
+
+            // ── State ────────────────────────────
+            let currentView = 'jobs';
+            let currentJobDetailId = null;
+            let currentCompanyDetailId = null;
+            let currentCandidateTab = 'profile';
+            let savedJobIds = new Set([1, 5, 10]);
+            let applications = [
+                { id: 101, jobId: 1, jobTitle: 'Senior Frontend Developer', company: 'Vercel', appliedDate: '2026-08-01',
+                    status: 'interview' },
+                { id: 102, jobId: 5, jobTitle: 'Full Stack Developer', company: 'Notion', appliedDate: '2026-07-28',
+                    status: 'shortlisted' },
+                { id: 103, jobId: 8, jobTitle: 'Security Engineer', company: 'Clerk', appliedDate: '2026-07-20',
+                    status: 'pending' },
+                { id: 104, jobId: 12, jobTitle: 'Product Manager', company: 'Linear', appliedDate: '2026-07-15',
+                    status: 'rejected' },
+                { id: 105, jobId: 3, jobTitle: 'Product Designer', company: 'Figma', appliedDate: '2026-06-10',
+                    status: 'accepted' },
+            ];
+            let searchKeyword = '';
+            let filterLocation = '';
+            let filterType = '';
+            let filterChip = 'all';
+            let sortOrder = 'newest';
+            let currentPage = 1;
+            const pageSize = 8;
+            let currentApplyJobId = null;
+
+            // ── DOM References ────────────────────
+            const $ = (sel) => document.querySelector(sel);
+            const $$ = (sel) => document.querySelectorAll(sel);
+
+            const appContainer = $('#appContainer');
+            const viewJobs = $('#view-jobs');
+            const viewJobDetail = $('#view-job-detail');
+            const viewCompanies = $('#view-companies');
+            const viewCompanyDetail = $('#view-company-detail');
+            const viewSaved = $('#view-saved');
+            const viewCandidate = $('#view-candidate');
+            const jobList = $('#jobList');
+            const savedJobList = $('#savedJobList');
+            const savedEmpty = $('#savedEmpty');
+            const resultCount = $('#resultCount');
+            const pagination = $('#pagination');
+            const companyGrid = $('#companyGrid');
+            const candidateMain = $('#candidateMain');
+            const searchKeywordInput = $('#searchKeyword');
+            const filterLocationSelect = $('#filterLocation');
+            const filterTypeSelect = $('#filterType');
+            const filterChipsContainer = $('#filterChips');
+            const applyModalOverlay = $('#applyModalOverlay');
+            const toastContainer = $('#toastContainer');
+            const filterDrawerOverlay = $('#filterDrawerOverlay');
+            const filterDrawer = $('#filterDrawer');
+            const navLinks = $('#navLinks');
+            const mobileNavToggle = $('#mobileNavToggle');
+            const btnMobileFilters = $('#btnMobileFilters');
+            const drawerLocation = $('#drawerLocation');
+            const drawerType = $('#drawerType');
+            const drawerChips = $('#drawerChips');
+
+            // ── Utility Functions ────────────────
+            function showToast(message, type = '') {
+                const toast = document.createElement('div');
+                toast.className = 'toast ' + type;
+                toast.textContent = message;
+                toastContainer.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add('fading');
+                    setTimeout(() => toast.remove(), 300);
+                }, 2200);
+            }
+
+            function getCompany(id) { return companies.find(c => c.id === id); }
+
+            function getJob(id) { return jobs.find(j => j.id === id); }
+
+            function formatSalary(s) { return s; }
+
+            function getStatusClass(status) {
+                const map = { applied: 'status-applied', pending: 'status-pending', shortlisted: 'status-shortlisted',
+                    interview: 'status-interview', rejected: 'status-rejected', accepted: 'status-accepted' };
+                return map[status] || 'status-applied';
+            }
+
+            function getStatusLabel(status) {
+                return status.charAt(0).toUpperCase() + status.slice(1);
+            }
+
+            function getFilteredJobs() {
+                let filtered = [...jobs];
+                if (searchKeyword.trim()) {
+                    const q = searchKeyword.toLowerCase().trim();
+                    filtered = filtered.filter(j =>
+                        j.title.toLowerCase().includes(q) ||
+                        j.company.toLowerCase().includes(q) ||
+                        j.skills.some(s => s.toLowerCase().includes(q)) ||
+                        j.location.toLowerCase().includes(q)
+                    );
+                }
+                if (filterLocation) {
+                    if (filterLocation === 'remote') filtered = filtered.filter(j => j.workMode.toLowerCase() ===
+                        'remote');
+                    else filtered = filtered.filter(j => j.location.toLowerCase().includes(filterLocation.replace(
+                        '-', ' ')));
+                }
+                if (filterType) {
+                    filtered = filtered.filter(j => j.type === filterType);
+                }
+                if (filterChip !== 'all') {
+                    const chipMap = {
+                        remote: 'remote',
+                        frontend: 'frontend',
+                        backend: 'backend',
+                        fullstack: 'full stack',
+                        devops: 'devops',
+                        data: 'data',
+                        design: 'design'
+                    };
+                    const keyword = chipMap[filterChip] || filterChip;
+                    filtered = filtered.filter(j =>
+                        j.title.toLowerCase().includes(keyword) ||
+                        j.skills.some(s => s.toLowerCase().includes(keyword))
+                    );
+                }
+                if (sortOrder === 'newest') filtered.sort((a, b) => a.id - b.id);
+                else if (sortOrder === 'oldest') filtered.sort((a, b) => b.id - a.id);
+                else if (sortOrder === 'salary-high') filtered.sort((a, b) => {
+                    const getMax = (s) => { const m = s.match(/[\d,]+/g); return m ? parseInt(m[m.length - 1]
+                        .replace(/,/g, '')) : 0; };
+                    return getMax(b.salary) - getMax(a.salary);
+                });
+                return filtered;
+            }
+
+            function getPageData(filtered) {
+                const total = filtered.length;
+                const totalPages = Math.ceil(total / pageSize);
+                const start = (currentPage - 1) * pageSize;
+                const pageJobs = filtered.slice(start, start + pageSize);
+                return { pageJobs, total, totalPages, start };
+            }
+
+            // ── Render Functions ──────────────────
+            function renderJobCard(job, showSave = true) {
+                const isSaved = savedJobIds.has(job.id);
+                const companyData = getCompany(job.companyId);
+                const logoLetter = companyData ? companyData.logo : job.company.charAt(0);
+                return `
+                <div class="job-card" data-job-id="${job.id}" role="listitem">
+                    <div class="job-card-avatar">${logoLetter}</div>
+                    <div class="job-card-body">
+                        <div class="job-card-title">${job.title}</div>
+                        <div class="job-card-company">${job.company}</div>
+                        <div class="job-card-meta">
+                            <span>📍 ${job.location}</span>
+                            <span>💰 ${job.salary}</span>
+                            <span>🏢 ${job.workMode}</span>
+                            <span>⏱ ${job.posted}</span>
+                        </div>
+                        <div class="job-card-tags">
+                            ${job.skills.slice(0, 4).map(s => `<span class="tag">${s}</span>`).join('')}
+                            ${job.skills.length > 4 ? `<span class="tag">+${job.skills.length - 4}</span>` : ''}
+                        </div>
+                    </div>
+                    ${showSave ? `<button class="job-card-save ${isSaved ? 'saved' : ''}" data-save-job="${job.id}" aria-label="${isSaved ? 'Unsave' : 'Save'} job">
+                        ${isSaved ? '★' : '☆'}
+                    </button>` : ''}
+                </div>`;
+            }
+
+            function renderJobList(targetEl, filtered, showSave = true) {
+                const { pageJobs, total, totalPages, start } = getPageData(filtered);
+                if (pageJobs.length === 0) {
+                    targetEl.innerHTML =
+                        `<div class="empty-state"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><h3>No jobs found</h3><p>Try adjusting your search or filters.</p></div>`;
+                } else {
+                    targetEl.innerHTML = pageJobs.map(j => renderJobCard(j, showSave)).join('');
+                }
+                return { total, totalPages, pageJobs };
+            }
+
+            function renderPagination(totalPages) {
+                if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+                let html = '';
+                html +=
+                    `<button ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}" aria-label="Previous page">← Prev</button>`;
+                for (let i = 1; i <= totalPages; i++) {
+                    html +=
+                        `<button class="${i === currentPage ? 'active' : ''}" data-page="${i}" aria-label="Page ${i}">${i}</button>`;
+                }
+                html +=
+                    `<button ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}" aria-label="Next page">Next →</button>`;
+                pagination.innerHTML = html;
+            }
+
+            function refreshJobListView() {
+                const filtered = getFilteredJobs();
+                const { total, totalPages } = renderJobList(jobList, filtered, true);
+                resultCount.textContent = `Showing ${filtered.length} job${filtered.length !== 1 ? 's' : ''}`;
+                renderPagination(totalPages);
+            }
+
+            function refreshSavedView() {
+                const savedJobs = jobs.filter(j => savedJobIds.has(j.id));
+                if (savedJobs.length === 0) {
+                    savedJobList.innerHTML = '';
+                    savedEmpty.classList.remove('hidden');
+                    savedJobList.style.display = 'none';
+                } else {
+                    savedEmpty.classList.add('hidden');
+                    savedJobList.style.display = '';
+                    renderJobList(savedJobList, savedJobs, true);
+                }
+            }
+
+            function renderJobDetail(jobId) {
+                const job = getJob(jobId);
+                if (!job) return;
+                const companyData = getCompany(job.companyId);
+                const isSaved = savedJobIds.has(job.id);
+                currentJobDetailId = jobId;
+                viewJobDetail.innerHTML = `
+                <div class="breadcrumbs">
+                    <a href="#" data-view="jobs">Jobs</a> <span class="sep">›</span>
+                    <a href="#" data-view="companies" data-company="${job.companyId}">${job.company}</a> <span class="sep">›</span>
+                    <span>${job.title}</span>
+                </div>
+                <div class="job-detail-layout">
+                    <div class="job-detail-main">
+                        <h2>${job.title}</h2>
+                        <div class="job-detail-company-row">
+                            <div class="job-card-avatar">${companyData ? companyData.logo : job.company.charAt(0)}</div>
+                            <span>${job.company}</span>
+                        </div>
+                        <div class="job-detail-meta-row">
+                            <span>📍 ${job.location}</span>
+                            <span>💰 ${job.salary}</span>
+                            <span>🏢 ${job.workMode}</span>
+                            <span>📋 ${job.type.replace('-', ' ')}</span>
+                            <span>🎯 ${job.experience}</span>
+                            <span>⏱ Posted ${job.posted}</span>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Description</h3>
+                            <p>${job.description}</p>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Responsibilities</h3>
+                            <ul>${job.responsibilities.map(r => `<li>${r}</li>`).join('')}</ul>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Requirements</h3>
+                            <ul>${job.requirements.map(r => `<li>${r}</li>`).join('')}</ul>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Skills</h3>
+                            <div class="skills-grid">${job.skills.map(s => `<span class="tag">${s}</span>`).join('')}</div>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Benefits</h3>
+                            <ul>${job.benefits.map(b => `<li>${b}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                    <aside class="job-detail-sidebar">
+                        <div class="sidebar-card">
+                            <h4>${job.company}</h4>
+                            ${companyData ? `
+                            <div class="sidebar-info-row"><span class="label">Website</span><span>${companyData.website}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Location</span><span>${companyData.location}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Size</span><span>${companyData.size}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Industry</span><span>${companyData.industry}</span></div>
+                            ` : ''}
+                            <div class="sidebar-actions">
+                                <button class="btn btn-primary btn-full" data-apply="${job.id}">Apply Now</button>
+                                <button class="btn btn-outline btn-full" data-save-job="${job.id}">${isSaved ? '★ Saved' : '☆ Save Job'}</button>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <h4>Job Details</h4>
+                            <div class="sidebar-info-row"><span class="label">Type</span><span>${job.type.replace('-', ' ')}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Experience</span><span>${job.experience}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Work Mode</span><span>${job.workMode}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Posted</span><span>${job.posted}</span></div>
+                        </div>
+                    </aside>
+                </div>`;
+                switchView('job-detail');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function renderCompanyDirectory() {
+                companyGrid.innerHTML = companies.map(c => `
+                <a href="#" class="company-card" data-company="${c.id}">
+                    <div class="company-card-header">
+                        <div class="company-card-logo">${c.logo}</div>
+                        <div class="company-card-name">${c.name}</div>
+                    </div>
+                    <div class="company-card-desc">${c.desc}</div>
+                    <div class="company-card-meta">
+                        <span>📍 ${c.location}</span>
+                        <span>👥 ${c.size}</span>
+                        <span>📋 ${c.openPositions} open positions</span>
+                    </div>
+                </a>`).join('');
+            }
+
+            function renderCompanyDetail(companyId) {
+                const company = getCompany(companyId);
+                if (!company) return;
+                currentCompanyDetailId = companyId;
+                const companyJobs = jobs.filter(j => j.companyId === companyId);
+                viewCompanyDetail.innerHTML = `
+                <div class="breadcrumbs">
+                    <a href="#" data-view="companies">Companies</a> <span class="sep">›</span>
+                    <span>${company.name}</span>
+                </div>
+                <div class="job-detail-layout">
+                    <div class="job-detail-main">
+                        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+                            <div class="company-card-logo" style="width:56px;height:56px;font-size:1.3rem;">${company.logo}</div>
+                            <div>
+                                <h2 style="margin-bottom:2px;">${company.name}</h2>
+                                <a href="https://${company.website}" target="_blank" rel="noopener" style="font-size:0.85rem;">${company.website} ↗</a>
+                            </div>
+                        </div>
+                        <div class="job-detail-meta-row">
+                            <span>📍 ${company.location}</span>
+                            <span>👥 ${company.size} employees</span>
+                            <span>🏭 ${company.industry}</span>
+                            <span>📋 ${company.openPositions} open positions</span>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>About</h3>
+                            <p>${company.overview}</p>
+                        </div>
+                        <div class="job-detail-section">
+                            <h3>Open Positions (${companyJobs.length})</h3>
+                            <div class="job-list" style="border-radius:var(--radius-md);">${companyJobs.map(j => renderJobCard(j, true)).join('')}</div>
+                        </div>
+                    </div>
+                    <aside class="job-detail-sidebar">
+                        <div class="sidebar-card">
+                            <h4>Company Info</h4>
+                            <div class="sidebar-info-row"><span class="label">Website</span><span>${company.website}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Location</span><span>${company.location}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Size</span><span>${company.size}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Industry</span><span>${company.industry}</span></div>
+                            <div class="sidebar-info-row"><span class="label">Open Positions</span><span>${company.openPositions}</span></div>
+                        </div>
+                    </aside>
+                </div>`;
+                switchView('company-detail');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function renderCandidateTab(tab) {
+                currentCandidateTab = tab;
+                let html = '';
+                if (tab === 'profile') {
+                    html = `
+                    <h3 style="margin-bottom:16px;">Profile</h3>
+                    <div style="display:grid;gap:12px;">
+                        <div><strong>Name:</strong> Alex Kim</div>
+                        <div><strong>Email:</strong> alex.kim@example.com</div>
+                        <div><strong>Location:</strong> San Francisco, CA</div>
+                        <div><strong>Title:</strong> Full Stack Developer</div>
+                        <div><strong>Experience:</strong> 6 years</div>
+                        <div><strong>Skills:</strong> React, TypeScript, Node.js, PostgreSQL, GraphQL, AWS</div>
+                        <div><strong>Resume:</strong> <a href="#">resume-alex-kim.pdf</a></div>
+                        <div style="margin-top:8px;"><strong>Profile Completion:</strong> 85%</div>
+                        <div style="background:var(--color-border-light);border-radius:20px;height:8px;overflow:hidden;max-width:300px;">
+                            <div style="width:85%;height:100%;background:var(--color-success);border-radius:20px;"></div>
+                        </div>
+                    </div>`;
+                } else if (tab === 'applications') {
+                    html = `
+                    <h3 style="margin-bottom:14px;">Applications (${applications.length})</h3>
+                    <div style="overflow-x:auto;">
+                    <table class="app-table">
+                        <thead><tr><th>Job</th><th>Company</th><th>Applied</th><th>Status</th></tr></thead>
+                        <tbody>${applications.map(a => `
+                            <tr>
+                                <td><a href="#" data-view-job="${a.jobId}">${a.jobTitle}</a></td>
+                                <td>${a.company}</td>
+                                <td>${a.appliedDate}</td>
+                                <td><span class="status-badge ${getStatusClass(a.status)}">${getStatusLabel(a.status)}</span></td>
+                            </tr>`).join('')}</tbody>
+                    </table></div>`;
+                } else if (tab === 'saved-candidate') {
+                    const saved = jobs.filter(j => savedJobIds.has(j.id));
+                    if (saved.length === 0) {
+                        html =
+                            `<div class="empty-state"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><h3>No saved jobs</h3><p>Save jobs to view them here.</p></div>`;
+                    } else {
+                        html =
+                            `<h3 style="margin-bottom:14px;">Saved Jobs (${saved.length})</h3><div class="job-list" style="border-radius:var(--radius-md);">${saved.map(j => renderJobCard(j, true)).join('')}</div>`;
+                    }
+                }
+                candidateMain.innerHTML = html;
+            }
+
+            function switchView(viewName) {
+                currentView = viewName;
+                [viewJobs, viewJobDetail, viewCompanies, viewCompanyDetail, viewSaved, viewCandidate].forEach(v => v
+                    .classList.remove('active'));
+                if (viewName === 'jobs') viewJobs.classList.add('active');
+                else if (viewName === 'job-detail') viewJobDetail.classList.add('active');
+                else if (viewName === 'companies') viewCompanies.classList.add('active');
+                else if (viewName === 'company-detail') viewCompanyDetail.classList.add('active');
+                else if (viewName === 'saved') viewSaved.classList.add('active');
+                else if (viewName === 'candidate') viewCandidate.classList.add('active');
+
+                $$('.nav-link').forEach(l => l.classList.remove('active'));
+                const navMap = { jobs: 'Jobs', 'job-detail': 'Jobs', companies: 'Companies', 'company-detail': 'Companies',
+                    saved: 'Saved Jobs', candidate: 'Candidate' };
+                const targetLabel = navMap[viewName] || 'Jobs';
+                $$('.nav-link').forEach(l => { if (l.textContent.trim() === targetLabel) l.classList.add('active'); });
+
+                if (viewName === 'jobs') refreshJobListView();
+                if (viewName === 'saved') refreshSavedView();
+                if (viewName === 'candidate') renderCandidateTab(currentCandidateTab);
+                if (viewName === 'companies') renderCompanyDirectory();
+                appContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // ── Event Handlers ────────────────────
+            function handleViewSwitch(e) {
+                const target = e.target.closest('[data-view]');
+                if (!target) return;
+                e.preventDefault();
+                const view = target.dataset.view;
+                const companyId = target.dataset.company;
+                const jobId = target.dataset.viewJob;
+                if (jobId) { renderJobDetail(parseInt(jobId));
+                    return; }
+                if (companyId) { renderCompanyDetail(companyId);
+                    return; }
+                if (view === 'job-detail' && currentJobDetailId) { renderJobDetail(currentJobDetailId); return; }
+                switchView(view);
+                navLinks.classList.remove('open');
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            function handleJobCardClick(e) {
+                const card = e.target.closest('.job-card');
+                if (!card) return;
+                if (e.target.closest('[data-save-job]')) return;
+                const jobId = parseInt(card.dataset.jobId);
+                if (jobId) renderJobDetail(jobId);
+            }
+
+            function handleSaveJob(e) {
+                const btn = e.target.closest('[data-save-job]');
+                if (!btn) return;
+                e.preventDefault();
+                e.stopPropagation();
+                const jobId = parseInt(btn.dataset.saveJob);
+                if (savedJobIds.has(jobId)) {
+                    savedJobIds.delete(jobId);
+                    btn.classList.remove('saved');
+                    btn.innerHTML = '☆';
+                    showToast('Job removed from saved', '');
+                } else {
+                    savedJobIds.add(jobId);
+                    btn.classList.add('saved');
+                    btn.innerHTML = '★';
+                    showToast('Job saved!', 'success');
+                }
+                if (currentView === 'saved') refreshSavedView();
+                if (currentView === 'job-detail' && currentJobDetailId === jobId) renderJobDetail(jobId);
+                if (currentView === 'candidate' && currentCandidateTab === 'saved-candidate') renderCandidateTab(
+                    'saved-candidate');
+                refreshJobListView();
+            }
+
+            function handleApply(e) {
+                const btn = e.target.closest('[data-apply]');
+                if (!btn) return;
+                e.preventDefault();
+                currentApplyJobId = parseInt(btn.dataset.apply);
+                const job = getJob(currentApplyJobId);
+                if (job) {
+                    $('#applyModalTitle').textContent = `Apply for ${job.title} at ${job.company}`;
+                }
+                applyModalOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeApplyModal() {
+                applyModalOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+                currentApplyJobId = null;
+            }
+
+            function submitApplication() {
+                if (currentApplyJobId) {
+                    const job = getJob(currentApplyJobId);
+                    const newApp = {
+                        id: Date.now(),
+                        jobId: currentApplyJobId,
+                        jobTitle: job ? job.title : 'Unknown Position',
+                        company: job ? job.company : 'Unknown Company',
+                        appliedDate: new Date().toISOString().split('T')[0],
+                        status: 'applied'
+                    };
+                    applications.unshift(newApp);
+                    showToast('Application submitted successfully!', 'success');
+                }
+                closeApplyModal();
+                if (currentView === 'candidate') renderCandidateTab(currentCandidateTab);
+            }
+
+            function handleSearch() {
+                searchKeyword = searchKeywordInput.value;
+                currentPage = 1;
+                refreshJobListView();
+            }
+
+            function handleFilterChange() {
+                filterLocation = filterLocationSelect.value;
+                filterType = filterTypeSelect.value;
+                currentPage = 1;
+                refreshJobListView();
+            }
+
+            function handleChipClick(e) {
+                const chip = e.target.closest('.chip');
+                if (!chip) return;
+                filterChip = chip.dataset.chip;
+                currentPage = 1;
+                $$('.chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                refreshJobListView();
+            }
+
+            function handlePaginationClick(e) {
+                const btn = e.target.closest('button');
+                if (!btn || !btn.dataset.page) return;
+                currentPage = parseInt(btn.dataset.page);
+                refreshJobListView();
+                jobList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function handleCandidateNav(e) {
+                const link = e.target.closest('[data-candidate-tab]');
+                if (!link) return;
+                e.preventDefault();
+                const tab = link.dataset.candidateTab;
+                $$('#candidateNav a').forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+                renderCandidateTab(tab);
+            }
+
+            function handleMobileNavToggle() {
+                const isOpen = navLinks.classList.toggle('open');
+                mobileNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+
+            function handleMobileFilters() {
+                drawerLocation.value = filterLocation;
+                drawerType.value = filterType;
+                drawerChips.innerHTML = ['all', 'remote', 'frontend', 'backend', 'fullstack', 'devops', 'data',
+                    'design'
+                ].map(chip =>
+                    `<button class="chip ${filterChip === chip ? 'active' : ''}" data-drawer-chip="${chip}">${chip.charAt(0).toUpperCase() + chip.slice(1)}</button>`
+                ).join('');
+                filterDrawerOverlay.classList.add('open');
+                filterDrawer.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                filterDrawerOverlay.classList.remove('open');
+                filterDrawer.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            function applyDrawerFilters() {
+                filterLocation = drawerLocation.value;
+                filterType = drawerType.value;
+                const activeChip = drawerChips.querySelector('.chip.active');
+                if (activeChip) filterChip = activeChip.dataset.drawerChip;
+                filterLocationSelect.value = filterLocation;
+                filterTypeSelect.value = filterType;
+                $$('#filterChips .chip').forEach(c => c.classList.remove('active'));
+                const mainChip = document.querySelector(`#filterChips .chip[data-chip="${filterChip}"]`);
+                if (mainChip) mainChip.classList.add('active');
+                currentPage = 1;
+                refreshJobListView();
+                closeDrawer();
+            }
+
+            function handleDrawerChipClick(e) {
+                const chip = e.target.closest('.chip');
+                if (!chip || !chip.dataset.drawerChip) return;
+                $$('#drawerChips .chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                filterChip = chip.dataset.drawerChip;
+            }
+
+            function handleNotificationsClick() {
+                showToast('You have 3 new job alerts', '');
+            }
+
+            function handleClickOutsideModal(e) {
+                if (e.target === applyModalOverlay) closeApplyModal();
+                if (e.target === filterDrawerOverlay) closeDrawer();
+            }
+
+            function handleKeydown(e) {
+                if (e.key === 'Escape') {
+                    if (!applyModalOverlay.classList.contains('hidden')) closeApplyModal();
+                    if (filterDrawerOverlay.classList.contains('open')) closeDrawer();
+                }
+            }
+
+            // ── Initialize ────────────────────────
+            function init() {
+                // Set initial filter values
+                filterLocationSelect.value = '';
+                filterTypeSelect.value = '';
+                searchKeywordInput.value = '';
+
+                // Render initial views
+                refreshJobListView();
+                renderCompanyDirectory();
+                refreshSavedView();
+                renderCandidateTab('profile');
+
+                // Event listeners
+                document.addEventListener('click', function(e) {
+                    handleViewSwitch(e);
+                    handleJobCardClick(e);
+                    handleSaveJob(e);
+                    handleApply(e);
+                    handleChipClick(e);
+                    handlePaginationClick(e);
+                    handleCandidateNav(e);
+                    handleClickOutsideModal(e);
+                    handleDrawerChipClick(e);
+                });
+
+                searchKeywordInput.addEventListener('input', debounce(handleSearch, 250));
+                filterLocationSelect.addEventListener('change', handleFilterChange);
+                filterTypeSelect.addEventListener('change', handleFilterChange);
+                mobileNavToggle.addEventListener('click', handleMobileNavToggle);
+                btnMobileFilters.addEventListener('click', handleMobileFilters);
+                $('#btnCloseDrawer').addEventListener('click', closeDrawer);
+                $('#btnApplyDrawerFilters').addEventListener('click', applyDrawerFilters);
+                $('#btnCancelApply').addEventListener('click', closeApplyModal);
+                $('#btnSubmitApply').addEventListener('click', submitApplication);
+                $('#btnNotifications').addEventListener('click', handleNotificationsClick);
+                document.addEventListener('keydown', handleKeydown);
+
+                // Responsive: show mobile filter button
+                function updateMobileFilterBtn() {
+                    if (window.innerWidth <= 768) {
+                        btnMobileFilters.style.display = 'inline-flex';
+                    } else {
+                        btnMobileFilters.style.display = 'none';
+                    }
+                }
+                updateMobileFilterBtn();
+                window.addEventListener('resize', debounce(updateMobileFilterBtn, 150));
+
+                // Initial saved jobs view check
+                refreshSavedView();
+            }
+
+            function debounce(fn, delay) {
+                let timer;
+                return function(...args) {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => fn.apply(this, args), delay);
+                };
+            }
+
+            // Start the app
+            init();
+            console.log('DevSnips Job Board — Ready');
+        })();
+
+    </script>
+</body>
+</html>

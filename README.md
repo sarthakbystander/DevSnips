@@ -18,7 +18,7 @@ DevSnips is organized around two content types — **Components** (reusable UI b
 │   └── Templates/             # (reserved for future React templates)
 ├── _gen/                      # Section-style component generator
 ├── scripts/                   # Validation + indexing tooling
-├── snippets-index.json        # Content index (106 families, 846 variants)
+├── snippets-index.json        # Content index (110 families, 856 variants)
 └── README.md
 ```
 
