@@ -13,9 +13,11 @@ DevSnips/
         └── ...
 ```
 
-## IMPORTANT REPOSITORY RULE
+---
 
-The design-token specification MUST be created directly at:
+# 1. REPOSITORY RULE
+
+The design-token specification MUST exist directly at:
 
 ```text
 Vanilla/Templates/design-tokens.md
@@ -28,190 +30,217 @@ Vanilla/Templates/_shared/
 Vanilla/Templates/design-system/
 Vanilla/Templates/shared/
 Vanilla/design-tokens.md
+Vanilla/Templates/system/
 ```
 
-Do NOT create a shared folder for this system.
+Do NOT create a shared folder for the token system.
 
-`design-tokens.md` is the single source of truth for the visual design principles and token specifications used by all Vanilla templates.
+`design-tokens.md` is the single source of truth for the visual foundation used by all DevSnips Vanilla templates.
 
 ---
 
-# 1. PURPOSE
+# 2. PURPOSE
 
-Create a shared visual language for the entire DevSnips Vanilla Templates collection.
+Create one coherent visual foundation for the entire DevSnips Vanilla Templates collection.
 
-The system should allow different templates to have different personalities while still clearly belonging to the same DevSnips design family.
+Different templates may have different personalities, density, layouts, and content structures, but they must feel like they belong to the same product family.
 
 Examples:
 
-- SaaS Dashboard → structured, analytical, operational
-- Documentation → editorial, technical, typography-focused
-- Job Board → dense, structured, content-heavy
-- Developer Portfolio → personal, technical, expressive
-- Agency → visual, polished, portfolio-driven
-- E-commerce → commercial, product-focused
-- LMS → educational, structured, progress-oriented
+```text
+SaaS Dashboard     → structured, analytical, operational
+Documentation      → editorial, technical, typography-focused
+Job Board          → dense, structured, content-heavy
+Developer Portfolio → personal, technical, expressive
+Agency             → visual, polished, portfolio-oriented
+E-commerce         → commercial, product-focused
+LMS                → educational, structured, progress-oriented
+```
 
-They should NOT all look identical.
+They must NOT become copies of one another.
 
-They should share the same underlying design discipline.
+The design tokens provide the common visual language.
 
 ---
 
-# 2. DESIGN REFERENCES
+# 3. PRIMARY AESTHETIC
 
-Use the provided reference images as the aesthetic benchmark.
+The default DevSnips Vanilla aesthetic is:
 
-Do NOT copy their:
+```text
+minimal
+light
+editorial
+clean
+neutral
+typography-driven
+product-focused
+information-dense
+responsive
+accessible
+lightweight
+restrained
+intentional
+```
 
-- branding
-- exact colors
-- content
-- layouts
-- logos
-- visual identity
-- exact component implementations
+The visual quality must come from:
 
-Instead, extract the underlying design principles.
+```text
+typography
+spacing
+alignment
+hierarchy
+content density
+subtle borders
+surface contrast
+controlled color
+responsive behavior
+micro-interactions
+```
 
-The desired visual language is:
-
-- clean
-- refined
-- editorial
-- product-focused
-- typography-driven
-- information-dense
-- neutral
-- restrained
-- highly usable
-- responsive
-- accessible
-- premium without being flashy
-
-The interface should look:
+The interface should feel:
 
 > Designed, not generated.
 
+The default visual impression should be closer to a refined documentation platform or premium product interface than a decorative marketing template.
+
 ---
 
-# 3. CORE DESIGN PHILOSOPHY
+# 4. VISUAL PRIORITIES
 
-Prioritize:
+Use this priority order:
 
 1. Typography
 2. Information hierarchy
 3. Spacing
 4. Alignment
 5. Content density
-6. Subtle borders
-7. Neutral surfaces
-8. Controlled accents
-9. Responsive behavior
-10. Accessibility
+6. Borders
+7. Surface hierarchy
+8. Controlled accent color
+9. Interaction feedback
+10. Decoration
 
-Avoid using decoration as a substitute for design.
-
-A UI should feel premium because its:
-
-- typography is strong
-- spacing is consistent
-- hierarchy is clear
-- information is well organized
-- details are polished
-- responsive behavior is intentional
+Decoration must never compensate for weak hierarchy or spacing.
 
 ---
 
-# 4. DO NOT CREATE THE GENERIC AI/SAAS AESTHETIC
+# 5. DEFAULT DESIGN CHARACTER
 
-The default DevSnips visual language must NOT become:
+The DevSnips default should be:
 
-- glowing violet
-- neon indigo
-- purple-on-black
-- gradient-heavy
-- glassmorphism-heavy
-- neon borders
-- giant gradient backgrounds
-- gradient text
-- oversized floating icons
-- decorative blobs
-- excessive blur
-- giant rounded cards
-- excessive pill controls
-- giant marketing hero sections
-- generic three-column feature grids
-- glossy stock photography
-- buzzword-heavy marketing copy
-- fake futuristic effects
-- animated backgrounds
-- giant empty whitespace
-- excessive drop shadows
+```text
+white background
+black / near-black primary text
+soft gray secondary text
+very subtle gray borders
+small controlled radius
+minimal shadows
+restrained color
+large but intentional whitespace
+compact navigation
+precise alignment
+clean content containers
+```
+
+Do not make every page feel empty.
+
+Whitespace should be intentional and balanced with useful content density.
+
+---
+
+# 6. AVOID THE GENERIC AI / SAAS LOOK
+
+The shared system must NOT default to:
+
+```text
+glowing purple
+neon blue
+purple-on-black
+gradient-heavy backgrounds
+gradient text
+glassmorphism
+frosted cards
+giant rounded cards
+excessive pill controls
+glowing borders
+colored shadows
+oversized floating icons
+decorative blobs
+blur-heavy layouts
+animated backgrounds
+generic three-column feature grids
+fake futuristic UI
+oversized hero sections
+excessive drop shadows
+```
 
 Especially avoid:
 
 ```text
 dark charcoal background
 +
-glowing purple/violet cards
+purple gradient cards
 +
 neon blue buttons
 +
-gradient text
+gradient headings
 +
-AI buzzwords
+AI-style decorative effects
 ```
 
-That is NOT the DevSnips default design language.
+That is not the default DevSnips design language.
 
 ---
 
-# 5. TOKEN ARCHITECTURE
+# 7. DESIGN TOKEN ARCHITECTURE
 
-Use a three-layer system:
+Use four layers:
 
 ```text
 Primitive Tokens
-        ↓
+      ↓
 Semantic Tokens
-        ↓
+      ↓
 Template Tokens
-        ↓
+      ↓
 Components
 ```
 
-## Primitive tokens
+## Primitive Tokens
 
-Define raw values.
+Raw design values.
 
 Example:
 
 ```css
 --ds-gray-100
---ds-blue-500
+--ds-black
+--ds-white
 --ds-space-4
---ds-radius-md
+--ds-radius-sm
 ```
 
-## Semantic tokens
+## Semantic Tokens
 
-Define meaning.
+Meaning-based values.
 
 Example:
 
 ```css
 --ds-bg-canvas
+--ds-bg-surface
 --ds-text-primary
+--ds-text-secondary
 --ds-border-default
 --ds-action-primary
 ```
 
 Components should primarily consume semantic tokens.
 
-## Template tokens
+## Template Tokens
 
-Allow individual templates to adapt the system.
+Template-specific adaptations.
 
 Example:
 
@@ -219,16 +248,16 @@ Example:
 --template-accent
 --template-sidebar-width
 --template-content-width
---template-card-radius
+--template-density
 ```
 
-Do not force every template to use exactly the same values.
+Template tokens may override presentation without changing the global language.
 
 ---
 
-# 6. NAMING CONVENTION
+# 8. NAMING CONVENTION
 
-Use:
+Shared tokens:
 
 ```text
 --ds-[category]-[property]
@@ -241,12 +270,12 @@ Examples:
 --ds-text-primary
 --ds-border-default
 --ds-space-4
---ds-radius-md
---ds-shadow-sm
+--ds-radius-sm
+--ds-shadow-xs
 --ds-font-sans
 ```
 
-Template-specific tokens use:
+Template tokens:
 
 ```text
 --template-[property]
@@ -257,27 +286,38 @@ Examples:
 ```css
 --template-accent
 --template-sidebar-width
+--template-content-width
 --template-reading-width
+--template-density
 ```
 
-Keep naming consistent across the entire collection.
+Keep naming consistent across every Vanilla template.
 
 ---
 
-# 7. COLOR SYSTEM
+# 9. COLOR PHILOSOPHY
 
-The color system must support:
+Color is supportive, not decorative.
 
-- light mode
-- dark mode
-- neutral-first interfaces
-- semantic feedback states
-- accessible contrast
-- template-specific accents
+The default system must be:
 
-## Primitive neutral scale
+```text
+neutral-first
+black-first
+white-first
+low-saturation
+semantic when necessary
+```
 
-Create a complete neutral scale:
+Most interfaces should be visually understandable with grayscale alone.
+
+Accent colors should only reinforce hierarchy, interaction, categorization, or state.
+
+---
+
+# 10. PRIMITIVE NEUTRAL SCALE
+
+Define:
 
 ```css
 --ds-gray-0
@@ -298,17 +338,42 @@ Create a complete neutral scale:
 --ds-gray-1000
 ```
 
-The exact values can be selected during implementation.
+Recommended implementation:
 
-## Accent scales
+```css
+--ds-gray-0: #ffffff;
+--ds-gray-25: #fdfdfd;
+--ds-gray-50: #fafafa;
+--ds-gray-100: #f5f5f5;
+--ds-gray-150: #eeeeee;
+--ds-gray-200: #e7e7e7;
+--ds-gray-300: #d7d7d7;
+--ds-gray-400: #b8b8b8;
+--ds-gray-500: #8f8f8f;
+--ds-gray-600: #6b6b6b;
+--ds-gray-700: #4a4a4a;
+--ds-gray-800: #2f2f2f;
+--ds-gray-850: #222222;
+--ds-gray-900: #171717;
+--ds-gray-950: #0f0f0f;
+--ds-gray-1000: #000000;
+```
+
+The exact values may be adjusted during implementation if contrast or browser rendering requires it.
+
+---
+
+# 11. ACCENT SCALES
 
 Provide controlled scales for:
 
-- Blue
-- Green
-- Red
-- Yellow
-- Orange
+```text
+blue
+green
+red
+yellow
+orange
+```
 
 Example:
 
@@ -325,11 +390,13 @@ Example:
 --ds-blue-900
 ```
 
-Do not make violet or indigo the default DevSnips accent.
+Repeat the same structure for other semantic colors.
+
+Do NOT make violet or indigo the default DevSnips accent.
 
 ---
 
-# 8. SEMANTIC BACKGROUND TOKENS
+# 12. SEMANTIC BACKGROUND TOKENS
 
 Define:
 
@@ -341,11 +408,21 @@ Define:
 --ds-bg-overlay
 ```
 
-Use these to create subtle surface hierarchy without relying heavily on shadows.
+Light-mode defaults:
+
+```css
+--ds-bg-canvas: var(--ds-gray-0);
+--ds-bg-surface: var(--ds-gray-0);
+--ds-bg-surface-subtle: var(--ds-gray-50);
+--ds-bg-surface-raised: var(--ds-gray-0);
+--ds-bg-overlay: rgb(0 0 0 / 0.45);
+```
+
+Use surface variation sparingly.
 
 ---
 
-# 9. SEMANTIC TEXT TOKENS
+# 13. SEMANTIC TEXT TOKENS
 
 Define:
 
@@ -357,13 +434,23 @@ Define:
 --ds-text-inverse
 ```
 
-Primary text should provide the strongest hierarchy.
+Recommended light values:
 
-Muted text should be visually subtle but still readable.
+```css
+--ds-text-primary: #111111;
+--ds-text-secondary: #4b4b4b;
+--ds-text-muted: #707070;
+--ds-text-disabled: #a0a0a0;
+--ds-text-inverse: #ffffff;
+```
+
+Muted text must remain readable.
+
+Do not sacrifice accessibility for visual subtlety.
 
 ---
 
-# 10. BORDER TOKENS
+# 14. BORDER TOKENS
 
 Define:
 
@@ -374,7 +461,16 @@ Define:
 --ds-border-focus
 ```
 
-Default structural borders should generally be:
+Recommended light values:
+
+```css
+--ds-border-subtle: #f0f0f0;
+--ds-border-default: #e5e5e5;
+--ds-border-strong: #d2d2d2;
+--ds-border-focus: #111111;
+```
+
+The default structural border should normally be:
 
 ```text
 1px
@@ -382,20 +478,22 @@ Default structural borders should generally be:
 
 Use borders for:
 
-- cards
-- panels
-- navigation
-- tables
-- inputs
-- dividers
-- list items
-- code blocks
+```text
+cards
+panels
+navigation
+tables
+inputs
+dividers
+lists
+code blocks
+```
 
-Prefer subtle borders over heavy shadows.
+Prefer borders over heavy shadows.
 
 ---
 
-# 11. ACTION TOKENS
+# 15. ACTION TOKENS
 
 Define:
 
@@ -412,62 +510,60 @@ Define:
 --ds-action-danger-hover
 ```
 
-Primary actions should be visually distinct.
+Default primary action:
 
-Do not make every interactive element a primary action.
+```css
+--ds-action-primary: #111111;
+--ds-action-primary-hover: #222222;
+--ds-action-primary-active: #000000;
+```
+
+Primary actions should feel deliberate.
+
+Do not make every interactive element visually dominant.
 
 ---
 
-# 12. STATUS TOKENS
+# 16. STATUS TOKENS
 
 Define:
-
-### Success
 
 ```css
 --ds-status-success
 --ds-status-success-bg
 --ds-status-success-border
-```
 
-### Warning
-
-```css
 --ds-status-warning
 --ds-status-warning-bg
 --ds-status-warning-border
-```
 
-### Danger
-
-```css
 --ds-status-danger
 --ds-status-danger-bg
 --ds-status-danger-border
-```
 
-### Info
-
-```css
 --ds-status-info
 --ds-status-info-bg
 --ds-status-info-border
 ```
 
-Use for:
+Use status colors for:
 
-- alerts
-- badges
-- validation
-- notifications
-- states
-- system messages
+```text
+alerts
+badges
+validation
+notifications
+state indicators
+system messages
+```
+
+Use muted backgrounds and borders instead of highly saturated blocks.
 
 ---
 
-# 13. TYPOGRAPHY
+# 17. TYPOGRAPHY
 
-Typography is a primary design element across DevSnips.
+Typography is one of the most important parts of the DevSnips visual system.
 
 Define:
 
@@ -477,34 +573,34 @@ Define:
 --ds-font-display
 ```
 
-## Sans
+Recommended:
 
-Use for:
+```css
+--ds-font-sans:
+  Inter,
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
 
-- interface text
-- headings
-- navigation
-- forms
-- buttons
-- labels
-- content
+--ds-font-mono:
+  "SFMono-Regular",
+  Consolas,
+  "Liberation Mono",
+  monospace;
 
-## Mono
+--ds-font-display: var(--ds-font-sans);
+```
 
-Use for:
+Do not require an external font download for templates to function correctly.
 
-- code
-- API endpoints
-- technical identifiers
-- terminal commands
-- technical values
-- selected numeric interfaces
-
-Do not use monospace for an entire template unless deliberately justified.
+System fallbacks must remain usable.
 
 ---
 
-# 14. TYPE SCALE
+# 18. TYPOGRAPHY SCALE
 
 Define:
 
@@ -520,25 +616,27 @@ Define:
 --ds-text-5xl
 ```
 
-Suggested hierarchy:
+Recommended scale:
 
-```text
-xs  → metadata
-sm  → supporting text
-md  → standard content
-lg  → emphasized content
-xl  → section heading
-2xl → large section heading
-3xl → page heading
-4xl → major heading
-5xl → rare display use
+```css
+--ds-text-xs: 12px;
+--ds-text-sm: 13px;
+--ds-text-md: 14px;
+--ds-text-lg: 16px;
+--ds-text-xl: 18px;
+--ds-text-2xl: 22px;
+--ds-text-3xl: 28px;
+--ds-text-4xl: 36px;
+--ds-text-5xl: 44px;
 ```
 
-Do not overuse very large typography.
+Use larger sizes only when hierarchy requires them.
+
+Normal product interfaces should remain compact.
 
 ---
 
-# 15. FONT WEIGHTS
+# 19. FONT WEIGHTS
 
 Define:
 
@@ -549,13 +647,20 @@ Define:
 --ds-weight-bold
 ```
 
-Use weight carefully to establish hierarchy.
+Recommended:
 
-Avoid making everything bold.
+```css
+--ds-weight-regular: 400;
+--ds-weight-medium: 500;
+--ds-weight-semibold: 600;
+--ds-weight-bold: 700;
+```
+
+Do not make every heading bold.
 
 ---
 
-# 16. LINE HEIGHT
+# 20. LINE HEIGHT
 
 Define:
 
@@ -566,15 +671,22 @@ Define:
 --ds-leading-relaxed
 ```
 
-Use tighter line height for headings.
+Recommended:
 
-Use normal/relaxed line height for reading content.
+```css
+--ds-leading-tight: 1.15;
+--ds-leading-snug: 1.3;
+--ds-leading-normal: 1.5;
+--ds-leading-relaxed: 1.65;
+```
+
+Use tighter values for headings and relaxed values for long-form content.
 
 ---
 
-# 17. LETTER SPACING
+# 21. LETTER SPACING
 
-Define where useful:
+Define:
 
 ```css
 --ds-tracking-tight
@@ -582,15 +694,15 @@ Define where useful:
 --ds-tracking-wide
 ```
 
-Do not overuse tracking.
+Use restrained tracking.
 
-Avoid using uppercase + wide tracking as the default way to create hierarchy.
+Do not rely on uppercase text plus large letter spacing as the primary hierarchy mechanism.
 
 ---
 
-# 18. SPACING SYSTEM
+# 22. SPACING SYSTEM
 
-Create a predictable scale:
+Define:
 
 ```css
 --ds-space-1
@@ -608,15 +720,31 @@ Create a predictable scale:
 --ds-space-32
 ```
 
-Use these tokens consistently.
+Recommended:
 
-Avoid unnecessary one-off values.
+```css
+--ds-space-1: 4px;
+--ds-space-2: 8px;
+--ds-space-3: 12px;
+--ds-space-4: 16px;
+--ds-space-5: 20px;
+--ds-space-6: 24px;
+--ds-space-8: 32px;
+--ds-space-10: 40px;
+--ds-space-12: 48px;
+--ds-space-16: 64px;
+--ds-space-20: 80px;
+--ds-space-24: 96px;
+--ds-space-32: 128px;
+```
+
+Prefer these tokens over arbitrary values.
 
 ---
 
-# 19. COMPONENT SPACING
+# 23. COMPONENT SPACING
 
-Define shared spacing levels:
+Define:
 
 ```css
 --ds-component-padding-xs
@@ -625,19 +753,23 @@ Define shared spacing levels:
 --ds-component-padding-lg
 ```
 
-Use for:
+Use these consistently across:
 
-- cards
-- buttons
-- inputs
-- lists
-- navigation
-- tables
-- panels
+```text
+buttons
+cards
+inputs
+lists
+navigation
+tables
+panels
+dropdowns
+dialogs
+```
 
 ---
 
-# 20. LAYOUT TOKENS
+# 24. PAGE AND CONTENT WIDTH
 
 Define:
 
@@ -648,31 +780,27 @@ Define:
 --ds-container-lg
 --ds-container-xl
 --ds-container-wide
-```
 
-Templates should choose the most appropriate container width.
-
-Do not force every template to use the maximum width.
-
----
-
-# 21. CONTENT WIDTH TOKENS
-
-Define:
-
-```css
 --ds-content-reading
 --ds-content-default
 --ds-content-wide
 ```
 
-Reading-focused templates should maintain comfortable line lengths.
+Recommended principles:
 
-Documentation and article content should never become unnecessarily wide.
+```text
+reading content → narrow
+documentation   → readable
+dashboards      → wide
+tables          → expandable
+marketing       → controlled
+```
+
+Never allow long-form text to become unnecessarily wide.
 
 ---
 
-# 22. PAGE PADDING
+# 25. PAGE PADDING
 
 Define:
 
@@ -682,11 +810,19 @@ Define:
 --ds-page-padding-desktop
 ```
 
-Page padding should adapt to viewport size.
+Recommended starting values:
+
+```css
+--ds-page-padding-mobile: 16px;
+--ds-page-padding-tablet: 24px;
+--ds-page-padding-desktop: 32px;
+```
+
+Templates may increase these values when their layout requires it.
 
 ---
 
-# 23. SECTION SPACING
+# 26. SECTION SPACING
 
 Define:
 
@@ -697,13 +833,13 @@ Define:
 --ds-section-gap-xl
 ```
 
-Use these to create consistent vertical rhythm.
+Whitespace must establish hierarchy.
 
-Do not create huge empty spaces only to make a design look premium.
+Do not create huge empty sections simply to make the UI appear premium.
 
 ---
 
-# 24. GRID TOKENS
+# 27. GRID TOKENS
 
 Define:
 
@@ -715,31 +851,11 @@ Define:
 --ds-grid-gap-xl
 ```
 
-Use consistent grid gaps across templates.
+Grid density should be chosen according to the template.
 
 ---
 
-# 25. BORDER SYSTEM
-
-Define:
-
-```css
---ds-border-width-thin
---ds-border-width-default
---ds-border-width-strong
-```
-
-Default:
-
-```text
-1px
-```
-
-Avoid thick borders unless a template intentionally uses a brutalist style.
-
----
-
-# 26. RADIUS SYSTEM
+# 28. RADIUS SYSTEM
 
 Define:
 
@@ -753,7 +869,19 @@ Define:
 --ds-radius-full
 ```
 
-Default DevSnips interfaces should primarily use:
+Recommended values:
+
+```css
+--ds-radius-none: 0;
+--ds-radius-xs: 2px;
+--ds-radius-sm: 4px;
+--ds-radius-md: 6px;
+--ds-radius-lg: 8px;
+--ds-radius-xl: 10px;
+--ds-radius-full: 999px;
+```
+
+Default DevSnips templates should favor:
 
 ```text
 none
@@ -762,21 +890,23 @@ sm
 md
 ```
 
-Large radius values should be intentional.
+Large radius values are intentional exceptions.
 
-Full rounding should be mainly used for:
+Full rounding is mainly for:
 
-- badges
-- tags
-- avatars
-- compact pills
-- selected special controls
+```text
+avatars
+badges
+tags
+status pills
+special controls
+```
 
 Do not round everything.
 
 ---
 
-# 27. SHADOW SYSTEM
+# 29. SHADOW SYSTEM
 
 Define:
 
@@ -788,25 +918,43 @@ Define:
 --ds-shadow-lg
 ```
 
-Shadows should remain subtle.
+Recommended:
 
-Primary hierarchy should come from:
+```css
+--ds-shadow-none: none;
+--ds-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+--ds-shadow-sm: 0 2px 6px rgb(0 0 0 / 0.06);
+--ds-shadow-md: 0 6px 18px rgb(0 0 0 / 0.08);
+--ds-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.10);
+```
 
-- spacing
-- typography
-- borders
-- surface contrast
+Most components should use:
 
-Avoid:
+```text
+none
+xs
+```
 
-- glowing shadows
-- colored shadows
-- neon effects
-- massive floating shadows
+Use stronger shadows only for temporary overlays such as:
+
+```text
+dropdowns
+dialogs
+floating panels
+```
+
+Never use:
+
+```text
+neon shadows
+colored shadows
+glows
+massive shadows
+```
 
 ---
 
-# 28. BUTTON TOKENS
+# 30. BUTTON TOKENS
 
 Define:
 
@@ -822,19 +970,38 @@ Define:
 --ds-button-radius
 ```
 
-Buttons need:
+Primary buttons should generally be:
 
-- hover
-- active
-- focus
-- disabled
-- loading where appropriate
+```text
+black
+white text
+small radius
+thin or no visible outer border
+subtle hover state
+```
 
-Buttons must remain visually consistent throughout a template.
+Secondary buttons should generally be:
+
+```text
+white
+dark text
+1px border
+subtle hover surface
+```
+
+Buttons must support:
+
+```text
+hover
+active
+focus
+disabled
+loading
+```
 
 ---
 
-# 29. INPUT TOKENS
+# 31. INPUT TOKENS
 
 Define:
 
@@ -849,18 +1016,32 @@ Define:
 --ds-input-radius
 ```
 
-Inputs should support:
+Inputs should be:
 
-- default
-- focus
-- error
-- success where appropriate
-- disabled
-- readonly
+```text
+white or subtle gray surface
+1px border
+clear focus state
+comfortable text size
+minimal decoration
+```
+
+Support:
+
+```text
+default
+focus
+error
+success
+disabled
+readonly
+```
+
+Avoid heavy inner shadows and glowing focus effects.
 
 ---
 
-# 30. CARD TOKENS
+# 32. CARD TOKENS
 
 Define:
 
@@ -875,11 +1056,20 @@ Cards are optional.
 
 Do not turn every section into a card.
 
-Use cards when they improve grouping or hierarchy.
+Use a card when it improves:
+
+```text
+grouping
+scannability
+hierarchy
+interaction
+```
+
+A section that can exist cleanly without a container should generally remain unboxed.
 
 ---
 
-# 31. NAVIGATION TOKENS
+# 33. NAVIGATION TOKENS
 
 Define:
 
@@ -891,18 +1081,32 @@ Define:
 --ds-nav-padding-y
 ```
 
-Navigation needs:
+Navigation should feel lightweight.
 
-- hover
-- active
-- selected
-- focus
-- collapsed
-- mobile states
+Prefer:
+
+```text
+clear alignment
+small typography
+thin separators
+subtle active state
+minimal background treatment
+```
+
+Support:
+
+```text
+hover
+active
+selected
+focus
+collapsed
+mobile
+```
 
 ---
 
-# 32. TABLE TOKENS
+# 34. TABLE TOKENS
 
 Define:
 
@@ -913,11 +1117,20 @@ Define:
 --ds-table-header-height
 ```
 
-Tables should support information density without becoming difficult to scan.
+Tables should prioritize:
+
+```text
+scanability
+alignment
+density
+hierarchy
+```
+
+Use light row dividers rather than boxed cells wherever possible.
 
 ---
 
-# 33. BADGE TOKENS
+# 35. BADGE TOKENS
 
 Define:
 
@@ -928,18 +1141,22 @@ Define:
 --ds-badge-radius
 ```
 
-Badges should communicate:
+Badges communicate:
 
-- status
-- category
-- priority
-- state
+```text
+status
+category
+priority
+state
+```
 
-Do not use them purely for decoration.
+Keep them small and restrained.
+
+Do not use badges purely as decoration.
 
 ---
 
-# 34. ICON TOKENS
+# 36. ICON TOKENS
 
 Define:
 
@@ -951,20 +1168,24 @@ Define:
 --ds-icon-xl
 ```
 
-Icons should:
+Icons must:
 
-- align with text
-- remain visually lightweight
-- have consistent sizing
-- communicate meaning
+```text
+align with text
+remain lightweight
+use consistent sizing
+support meaning
+```
 
 Avoid oversized decorative icons.
 
+Icons should not visually dominate the interface.
+
 ---
 
-# 35. RESPONSIVE SYSTEM
+# 37. RESPONSIVE SYSTEM
 
-Create shared breakpoints:
+Define:
 
 ```css
 --ds-breakpoint-sm
@@ -973,74 +1194,56 @@ Create shared breakpoints:
 --ds-breakpoint-xl
 ```
 
-Do not interpret these simply as:
+Breakpoints represent meaningful layout changes, not simply device labels.
 
-```text
-mobile
-tablet
-desktop
-```
-
-They should represent meaningful layout changes.
-
----
-
-# 36. RESPONSIVE DESIGN PRINCIPLES
-
-Every template must be intentionally responsive across:
-
-- large desktop
-- desktop
-- laptop
-- tablet
-- mobile
-- small mobile
-
-Do NOT use:
-
-```text
-desktop layout → shrink everything
-```
-
-Instead:
-
-```text
-desktop composition
-tablet composition
-mobile composition
-```
+Responsive design should transform composition where necessary.
 
 Examples:
 
-- sidebar → drawer
-- multi-column grid → reduced grid
-- table → compact table/list
-- large header → compact header
-- right-side content → collapsible content
-- complex toolbar → grouped controls
+```text
+sidebar → drawer
+multi-column grid → reduced grid
+large toolbar → grouped controls
+wide table → compact representation
+large header → compact header
+secondary content → collapsible section
+```
 
 ---
 
-# 37. MOBILE RULES
+# 38. MOBILE DESIGN
+
+Every template must remain intentionally usable on:
+
+```text
+large desktop
+desktop
+laptop
+tablet
+mobile
+small mobile
+```
 
 Mobile must:
 
-- avoid horizontal overflow
-- maintain readable typography
-- preserve usable controls
-- prevent clipping
-- handle long labels
-- handle tables
-- handle code
-- handle dialogs
-- handle navigation
-- handle filters
+```text
+avoid horizontal overflow
+maintain readable typography
+preserve usable controls
+prevent clipping
+handle long labels
+handle tables
+handle code
+handle dialogs
+handle navigation
+handle filters
+```
 
-The mobile design must feel intentional.
+Never simply shrink the desktop layout.
 
 ---
 
-# 38. MOTION
+# 39. MOTION
 
 Define:
 
@@ -1053,28 +1256,38 @@ Define:
 --ds-ease-emphasized
 ```
 
+Recommended direction:
+
+```text
+fast   → 100–150ms
+normal → 150–200ms
+slow   → 200–300ms
+```
+
 Use motion for:
 
-- drawers
-- dropdowns
-- dialogs
-- navigation
-- state changes
-- subtle interaction feedback
+```text
+dropdowns
+drawers
+dialogs
+navigation
+state changes
+subtle feedback
+```
 
-Avoid decorative animation.
+Do not use animation for decoration.
 
 Respect:
 
 ```css
-prefers-reduced-motion
+@media (prefers-reduced-motion: reduce)
 ```
 
 ---
 
-# 39. Z-INDEX
+# 40. Z-INDEX
 
-Define a predictable stacking system:
+Define:
 
 ```css
 --ds-z-base
@@ -1085,171 +1298,238 @@ Define a predictable stacking system:
 --ds-z-toast
 ```
 
-Avoid random extreme z-index values.
+Use predictable stacking.
+
+Avoid arbitrary extreme z-index values.
 
 ---
 
-# 40. LIGHT MODE
+# 41. LIGHT MODE
 
-Light mode should use:
+Light mode is the default DevSnips experience.
 
-- white
-- off-white
-- light gray
-- charcoal
-- black
+Use primarily:
 
-with controlled accents.
+```text
+white
+off-white
+soft gray
+charcoal
+black
+```
 
-Use surface variation and borders for hierarchy.
+with controlled semantic accents.
+
+Hierarchy should come from:
+
+```text
+spacing
+typography
+border contrast
+surface contrast
+```
+
+not from decorative backgrounds.
 
 ---
 
-# 41. DARK MODE
+# 42. DARK MODE
 
-Dark mode should use:
+Every template should support a simple dark-mode toggle.
 
-- near-black
-- deep charcoal
-- subtle dark surfaces
-- muted borders
-- soft white text
+Dark mode should feel like the same design system inverted.
 
-Do not convert dark mode into:
+Recommended values:
+
+```css
+--ds-bg-canvas: #0a0a0a;
+--ds-bg-surface: #111111;
+--ds-bg-surface-subtle: #171717;
+--ds-bg-surface-raised: #1b1b1b;
+
+--ds-text-primary: #f5f5f5;
+--ds-text-secondary: #c8c8c8;
+--ds-text-muted: #909090;
+--ds-text-disabled: #5f5f5f;
+--ds-text-inverse: #111111;
+
+--ds-border-subtle: #1a1a1a;
+--ds-border-default: #272727;
+--ds-border-strong: #363636;
+--ds-border-focus: #ffffff;
+
+--ds-action-primary: #f5f5f5;
+--ds-action-primary-hover: #ffffff;
+--ds-action-primary-active: #e5e5e5;
+```
+
+Do NOT turn dark mode into:
 
 ```text
 black + neon purple
+black + glowing gradients
+black + glassmorphism
 ```
 
-Dark mode should feel calm, readable, and professional.
+Dark mode should remain calm, clean, and readable.
 
 ---
 
-# 42. ACCESSIBILITY
+# 43. BLACK TOGGLE
 
-All tokens should support accessible interfaces.
+The theme toggle should be visually minimal.
+
+Preferred characteristics:
+
+```text
+small
+compact
+black/white
+bordered
+simple icon
+clear focus state
+```
+
+Avoid oversized switch components or decorative sun/moon animations.
+
+The toggle should feel like part of the interface rather than a feature showcase.
+
+---
+
+# 44. ACCESSIBILITY
+
+All tokens must support accessible interfaces.
 
 Consider:
 
-- contrast
-- keyboard navigation
-- focus states
-- disabled states
-- selected states
-- hover states
-- readable muted text
-- dark-mode contrast
-- touch targets
-- reduced motion
+```text
+contrast
+keyboard navigation
+visible focus states
+disabled states
+selected states
+hover states
+dark-mode contrast
+touch targets
+reduced motion
+```
 
-Visual subtlety must never destroy usability.
+Do not use color as the only indicator of state.
 
----
-
-# 43. DATA-DENSE INTERFACES
-
-The token system must work for information-heavy templates:
-
-- SaaS dashboards
-- documentation
-- job boards
-- finance
-- CRM
-- developer tools
-- project management
-- analytics
-- e-commerce
-
-Density should be controlled through:
-
-- typography
-- spacing
-- grouping
-- borders
-- hierarchy
-
-Not visual clutter.
+Subtle design must never reduce usability.
 
 ---
 
-# 44. TEMPLATE-SPECIFIC TOKENS
+# 45. DATA-DENSE INTERFACES
 
-Individual templates may define their own variables.
+The token system must work for:
 
-Example:
+```text
+SaaS dashboards
+documentation
+job boards
+finance interfaces
+CRM
+developer tools
+project management
+analytics
+e-commerce
+```
+
+Density should be controlled with:
+
+```text
+typography
+spacing
+grouping
+borders
+hierarchy
+```
+
+not clutter.
+
+---
+
+# 46. TEMPLATE-SPECIFIC TOKENS
+
+Individual templates may define:
 
 ```css
 --template-accent
 --template-sidebar-width
 --template-content-width
+--template-reading-width
 --template-card-radius
 --template-density
+--template-header-height
 ```
 
-Template-specific tokens should extend the shared system.
+Template-specific tokens extend the shared system.
 
-Do not modify the entire global design language for one template.
+They must NOT redefine the entire global visual language.
 
 ---
 
-# 45. TEMPLATE PERSONALITY
+# 47. TEMPLATE PERSONALITY
 
-The shared system should establish the foundation.
+The shared tokens establish the foundation, while templates establish personality.
 
-Templates should remain visually distinct.
-
-For example:
-
-Documentation:
+## Documentation
 
 ```text
 editorial
-compact
 technical
+compact
 typography-driven
+highly readable
 ```
 
-Job Board:
+## Job Board
 
 ```text
 structured
 dense
 content-focused
+scannable
+filter-heavy
 ```
 
-SaaS Dashboard:
+## SaaS Dashboard
 
 ```text
 analytical
 operational
 data-focused
+structured
 ```
 
-Developer Portfolio:
+## Developer Portfolio
 
 ```text
 personal
 technical
 expressive
+minimal
 ```
 
-Agency:
+## Agency
 
 ```text
 visual
 polished
 portfolio-oriented
+editorial
 ```
 
-All should still feel like DevSnips.
+Every template must still feel recognizably DevSnips.
 
 ---
 
-# 46. CONTENT RULES
+# 48. CONTENT RULES
 
-Templates should use realistic content.
+Templates must use realistic content.
 
-Avoid excessive use of:
+Avoid excessive placeholder content such as:
 
 ```text
 Lorem ipsum
@@ -1261,21 +1541,128 @@ John Doe
 
 Use realistic:
 
-- names
-- dates
-- titles
-- metrics
-- categories
-- statuses
-- descriptions
-- examples
-- technical values
+```text
+names
+dates
+titles
+metrics
+categories
+statuses
+descriptions
+technical values
+navigation labels
+examples
+```
 
-Good content is part of good visual design because it demonstrates actual spacing and density.
+Content is part of visual quality because it demonstrates real spacing, hierarchy, and density.
 
 ---
 
-# 47. PREVIEW.HTML CONVENTION
+# 49. COMPONENT PHILOSOPHY
+
+Components should be visually quiet and structurally strong.
+
+Prefer:
+
+```text
+1px borders
+subtle surfaces
+small radii
+compact typography
+clear alignment
+short transitions
+```
+
+over:
+
+```text
+gradients
+glows
+large shadows
+giant radius
+heavy decoration
+```
+
+Components should look refined even without color.
+
+---
+
+# 50. DOCUMENTATION-STYLE INTERFACES
+
+Documentation templates should especially prioritize:
+
+```text
+readable content width
+sticky navigation where useful
+thin dividers
+small navigation typography
+strong heading hierarchy
+compact metadata
+clear code blocks
+quiet active states
+```
+
+The interface should feel editorial and technical rather than like a marketing landing page.
+
+---
+
+# 51. LIGHTWEIGHT IMPLEMENTATION
+
+The token system is framework-independent.
+
+Primary target:
+
+```text
+HTML
+CSS
+Vanilla JavaScript
+```
+
+Keep implementation lightweight.
+
+Prefer:
+
+```text
+CSS custom properties
+native CSS
+system fonts
+small JavaScript
+minimal dependencies
+```
+
+Avoid introducing dependencies only to implement simple visual behavior.
+
+Individual templates may use lightweight tools such as Pico CSS when appropriate, but the design tokens remain the source of truth.
+
+---
+
+# 52. CSS CUSTOM PROPERTY REQUIREMENT
+
+The final implementation must expose the shared design system through CSS custom properties.
+
+Example:
+
+```css
+:root {
+  --ds-bg-canvas: #ffffff;
+  --ds-text-primary: #111111;
+  --ds-border-default: #e5e5e5;
+  --ds-radius-sm: 4px;
+  --ds-space-4: 16px;
+}
+
+[data-theme="dark"] {
+  --ds-bg-canvas: #0a0a0a;
+  --ds-text-primary: #f5f5f5;
+  --ds-border-default: #272727;
+}
+```
+
+Components should consume semantic variables instead of hardcoded visual values whenever practical.
+
+---
+
+# 53. PREVIEW.HTML CONVENTION
 
 Every individual template folder MUST contain exactly one:
 
@@ -1289,32 +1676,29 @@ Example:
 Vanilla/
 └── Templates/
     ├── design-tokens.md
-    │
     ├── SaaS Dashboard/
     │   └── preview.html
-    │
     ├── Documentation Site/
     │   └── preview.html
-    │
     └── Job Board/
         └── preview.html
 ```
 
-`preview.html` is the canonical preview displayed by the DevSnips website.
-
-It must represent the real template.
+`preview.html` is the canonical preview displayed by DevSnips.
 
 It must:
 
-- be fully responsive
-- use the actual template design
-- use realistic content
-- use the template's real CSS/JS
-- work without a backend
-- use relative paths
-- load correctly when opened directly
-- contain no broken interactions
-- contain no JavaScript errors
+```text
+be fully responsive
+use the actual template design
+use realistic content
+use the real CSS/JS
+work without a backend
+use relative paths
+load when opened directly
+contain no broken interactions
+contain no JavaScript errors
+```
 
 Do NOT create:
 
@@ -1324,28 +1708,25 @@ tablet-preview.html
 mobile-preview.html
 ```
 
-There must be exactly one `preview.html` for every template folder.
+There must be exactly one `preview.html` per template.
 
 ---
 
-# 48. TEMPLATE FOLDER STRUCTURE
+# 54. TEMPLATE STRUCTURE
 
-The root structure is:
+Root structure:
 
 ```text
 DevSnips/
 └── Vanilla/
     └── Templates/
         ├── design-tokens.md
-        │
         ├── SaaS Dashboard/
         │   ├── preview.html
-        │   ├── ...
-        │
+        │   └── ...
         ├── Documentation Site/
         │   ├── preview.html
-        │   ├── ...
-        │
+        │   └── ...
         └── ...
 ```
 
@@ -1355,121 +1736,141 @@ Do NOT create:
 _templates/
 _shared/
 design-system/
-Vanilla/Templates/system/
+system/
+Vanilla/Templates/shared/
+Vanilla/Templates/_shared/
 ```
 
-The token specification lives directly at:
+---
+
+# 55. IMPLEMENTATION EXPECTATION
+
+This file defines the shared visual system.
+
+Do NOT turn this task into a complete component library.
+
+Do NOT create:
 
 ```text
-Vanilla/Templates/design-tokens.md
+React
+Vue
+Next.js
+Tailwind
+Bootstrap
+backend infrastructure
 ```
 
----
-
-# 49. IMPLEMENTATION EXPECTATION
-
-This task creates the shared specification.
-
-Do not turn this into a complete component library.
-
-Do not create:
-
-- React
-- Vue
-- Next.js
-- Tailwind
-- Bootstrap
-- backend infrastructure
-
-The token specification should be framework-independent and designed primarily for:
-
-- HTML
-- CSS
-- Vanilla JavaScript
-
-Individual templates may use lightweight tools such as Pico CSS when appropriate, while still following this visual system.
+The specification must remain framework-independent.
 
 ---
 
-# 50. VALIDATION
+# 56. VALIDATION
 
 Validate the design system against at least:
 
-1. SaaS Dashboard
-2. Documentation
-3. Job Board
-4. Developer Portfolio
-5. Agency Website
+```text
+SaaS Dashboard
+Documentation
+Job Board
+Developer Portfolio
+Agency Website
+```
 
-Check whether it can support:
+The system must be able to support:
 
-- light mode
-- dark mode
-- desktop
-- tablet
-- mobile
-- dense tables
-- long-form content
-- forms
-- navigation
-- cards
-- dashboards
-- documentation
-- status states
+```text
+light mode
+dark mode
+desktop
+tablet
+mobile
+dense tables
+long-form content
+forms
+navigation
+cards
+dashboards
+documentation
+status states
+```
 
-The system should support all of these without forcing them into a single visual style.
+without forcing every template into the same layout.
 
 ---
 
-# 51. FINAL STANDARD
+# 57. FINAL VISUAL STANDARD
 
-The DevSnips Vanilla design language should communicate:
+DevSnips Vanilla should communicate:
 
 > Professional interfaces designed with intention.
 
 The visual quality should come from:
 
-- typography
-- spacing
-- hierarchy
-- alignment
-- realistic content
-- subtle borders
-- neutral surfaces
-- controlled color
-- responsive behavior
-- accessibility
-- consistency
+```text
+typography
+spacing
+hierarchy
+alignment
+realistic content
+subtle borders
+neutral surfaces
+controlled color
+responsive behavior
+accessibility
+consistency
+```
 
 Not from:
 
-- glow
-- neon
-- excessive gradients
-- excessive rounding
-- decorative noise
-- generic AI aesthetics
-- giant marketing sections
-- artificial content
+```text
+glow
+neon
+excessive gradients
+excessive rounding
+decorative noise
+generic AI aesthetics
+giant marketing sections
+artificial content
+heavy effects
+```
 
-Create the specification at:
+The default visual benchmark is:
+
+```text
+minimal
+light
+black-first
+editorial
+technical
+refined
+responsive
+lightweight
+```
+
+The interface should look polished even when every decorative effect is removed.
+
+---
+
+# 58. FINAL FILE
+
+Create and maintain this specification at exactly:
 
 ```text
 Vanilla/Templates/design-tokens.md
 ```
 
-This file becomes the visual reference that every future Vanilla template should follow.
+This file is the single visual reference for all future DevSnips Vanilla templates.
 
-Do not create a new template in this task.
+Do not move it.
 
-Do not create a `_shared` folder.
+Do not duplicate it.
 
-Do not move the design-token specification elsewhere.
+Do not create a shared folder.
 
-The output of this task is the complete:
+Do not create a new template as part of this task.
+
+The output of this task is:
 
 ```text
 Vanilla/Templates/design-tokens.md
 ```
-
-file.
