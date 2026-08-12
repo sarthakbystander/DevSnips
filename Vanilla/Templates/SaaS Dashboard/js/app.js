@@ -54,7 +54,9 @@
     chevronDown: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>',
     plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
     download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+    upload: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>',
     export: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+    tag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>',
     eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
     edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
     trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
@@ -531,7 +533,9 @@
     var unread = DB.notifications.filter(function (n) { return n.unread; }).length;
     return '<header class="topbar">' +
       '<button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">' + ICONS.menu + '</button>' +
-      '<div class="search">' + ICONS.search + '<input type="search" placeholder="Search customers, invoices, reports…" aria-label="Search"><span class="kbd">⌘K</span></div>' +
+      '<div class="search">' + ICONS.search + '<input type="search" id="global-search" placeholder="Search customers, invoices, reports…" aria-label="Search" aria-expanded="false" aria-controls="search-results" autocomplete="off"><span class="kbd">⌘K</span>' +
+        '<div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div>' +
+      '</div>' +
       '<div class="header-actions">' +
         '<div style="position:relative">' +
           '<button class="icon-btn" id="notif-btn" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">' + (unread ? '<span class="count-badge">' + unread + '</span>' : '<span class="badge"></span>') + ICONS.notifications + '</button>' +
@@ -544,14 +548,21 @@
   }
 
   function buildNotifDropdown(unread) {
-    var list = DB.notifications.slice(0, 5).map(function (n) {
-      return '<li class="' + (n.unread ? 'unread' : '') + '">' +
-        '<span class="ic" style="background:' + n.tone + '">' + (ICONS[n.icon] || ICONS.bell) + '</span>' +
-        '<div class="body"><p class="txt">' + n.body + '</p><p class="when">' + n.time + '</p></div></li>';
-    }).join('');
+    var recent = DB.notifications.slice(0, 5);
+    var body;
+    if (DB.notifications.length === 0) {
+      /* Genuine empty state — distinguish "nothing here" from a loading gap. */
+      body = '<div class="notif-empty"><span class="ic">' + ICONS.bell + '</span><p>You are all caught up — no notifications right now.</p></div>';
+    } else {
+      body = '<ul class="notif-list">' + recent.map(function (n) {
+        return '<li class="' + (n.unread ? 'unread' : '') + '">' +
+          '<span class="ic" style="background:' + n.tone + '">' + (ICONS[n.icon] || ICONS.bell) + '</span>' +
+          '<div class="body"><p class="txt">' + n.body + '</p><p class="when">' + n.time + '</p></div></li>';
+      }).join('') + '</ul>';
+    }
     return '<div class="notif-dropdown" id="notif-dropdown" role="menu" aria-label="Notifications">' +
       '<div class="notif-head"><h3>Notifications</h3>' + (unread ? '<a href="notifications.html" id="mark-all-read">' + unread + ' unread</a>' : '') + '</div>' +
-      '<ul class="notif-list">' + list + '</ul>' +
+      body +
       '<div class="notif-foot"><a href="notifications.html">View all notifications</a></div></div>';
   }
 
@@ -643,6 +654,81 @@
       var link = head.querySelector('a');
       if (link) link.remove();
       showToast('All notifications marked as read', 'success');
+    });
+  }
+
+  /* =====================================================================
+     GLOBAL SEARCH — ⌘K palette with loading + results + no-results states
+  ===================================================================== */
+  function wireSearch() {
+    var input = document.getElementById('global-search');
+    var results = document.getElementById('search-results');
+    if (!input || !results) return;
+    var debounce;
+
+    function open() { results.classList.add('is-open'); input.setAttribute('aria-expanded', 'true'); }
+    function close() { results.classList.remove('is-open'); input.setAttribute('aria-expanded', 'false'); }
+
+    function search(q) {
+      var ql = q.toLowerCase().trim();
+      if (!ql) { close(); return; }
+      /* Brief skeleton to demonstrate the async loading state. */
+      results.innerHTML = '<div class="sr-loading"><span class="spinner"></span> Searching…</div>';
+      open();
+
+      clearTimeout(debounce);
+      debounce = setTimeout(function () {
+        var cust = DB.customers.filter(function (c) {
+          return c.name.toLowerCase().indexOf(ql) > -1 || c.email.toLowerCase().indexOf(ql) > -1 || c.company.toLowerCase().indexOf(ql) > -1;
+        }).slice(0, 5).map(function (c) {
+          return '<a class="sr-item" href="customer-details.html?id=' + c.id + '" role="option">' +
+            '<span class="pic" style="background:' + c.tone + '">' + c.initials + '</span>' +
+            '<span class="sr-body"><span class="sr-title">' + esc(c.name) + '</span><span class="sr-sub">' + esc(c.company) + '</span></span>' +
+            '<span class="sr-kind">Customer</span></a>';
+        });
+
+        var inv = DB.invoices.filter(function (i) {
+          return i.id.toLowerCase().indexOf(ql) > -1 || (i.customerName && i.customerName.toLowerCase().indexOf(ql) > -1);
+        }).slice(0, 3).map(function (i) {
+          return '<a class="sr-item" href="invoices.html" role="option">' +
+            '<span class="ic">' + ICONS.invoices + '</span>' +
+            '<span class="sr-body"><span class="sr-title">' + esc(i.id) + '</span><span class="sr-sub">' + esc(i.customerName) + ' · ' + money(i.amount) + '</span></span>' +
+            '<span class="sr-kind">Invoice</span></a>';
+        });
+
+        var team = DB.team.filter(function (t) {
+          return t.name.toLowerCase().indexOf(ql) > -1 || t.email.toLowerCase().indexOf(ql) > -1;
+        }).slice(0, 3).map(function (t) {
+          return '<a class="sr-item" href="team.html" role="option">' +
+            '<span class="pic" style="background:' + (t.tone || '#4f46e5') + '">' + (t.initials || t.name.charAt(0)) + '</span>' +
+            '<span class="sr-body"><span class="sr-title">' + esc(t.name) + '</span><span class="sr-sub">' + esc(t.role || '') + '</span></span>' +
+            '<span class="sr-kind">Team</span></a>';
+        });
+
+        var all = cust.concat(inv, team);
+        if (!all.length) {
+          results.innerHTML = '<div class="sr-empty"><span class="ic">' + ICONS.search + '</span><p>No results for "' + esc(q) + '"</p><span class="sr-hint">Try a name, email, company, or invoice number</span></div>';
+        } else {
+          results.innerHTML = '<div class="sr-list">' + all.join('') + '</div>' +
+            '<div class="sr-foot">Showing ' + all.length + ' result' + (all.length === 1 ? '' : 's') + '</div>';
+        }
+        open();
+      }, 220);
+    }
+
+    input.addEventListener('input', function () { search(this.value); });
+    input.addEventListener('focus', function () { if (this.value) search(this.value); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { this.blur(); close(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!results.contains(e.target) && e.target !== input) close();
+    });
+    /* ⌘K / Ctrl+K focuses the search from anywhere. */
+    document.addEventListener('keydown', function (e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault(); input.focus(); input.select();
+      }
     });
   }
 
@@ -1106,6 +1192,240 @@
   function wireCountUp() { document.querySelectorAll('[data-countup]').forEach(animateNumber); }
 
   /* =====================================================================
+     SPA NAVIGATION — swap <main> without a full page reload.
+
+     The shell (sidebar + topbar), the resident DB, NS helpers, charts code,
+     and the loaded CSS/JS all stay mounted across navigations. Only the
+     <main data-page> region is swapped and the destination page's inline
+     <script> is re-executed. This removes the re-parse of app.js/app.css
+     and the shell re-inject on every click, so in-app navigation is near-
+     instantaneous. Real <a href> links remain, so this is pure progressive
+     enhancement — fetch failure or no-JS falls back to a normal load.
+  ===================================================================== */
+
+  /* Per-page listener registry: pages opt in via NS.on(event, fn) instead
+     of window.addEventListener so teardownPage() can remove every handler
+     (and cancel timers) before the next swap — no leak across navigations. */
+  var pageListeners = [];
+  var pageTimers = [];
+
+  function onPageEvent(type, fn, opts) {
+    window.addEventListener(type, fn, opts);
+    pageListeners.push({ type: type, fn: fn, opts: opts });
+    return fn;
+  }
+  function pageTimer(fn, ms) {
+    var id = setTimeout(fn, ms);
+    pageTimers.push(id);
+    return id;
+  }
+  function clearPageTimers() {
+    pageTimers.forEach(function (id) { clearTimeout(id); clearInterval(id); });
+    pageTimers = [];
+  }
+  function teardownPage() {
+    pageListeners.forEach(function (l) { window.removeEventListener(l.type, l.fn, l.opts); });
+    pageListeners = [];
+    clearPageTimers();
+    /* Drop any page-mounted modals/drawers/backdrops/toasts left open. */
+    document.querySelectorAll('.modal-backdrop, .drawer-backdrop, .drawer, .backdrop.is-open').forEach(function (el) {
+      if (el.id !== 'toast') el.remove();
+    });
+    document.body.classList.remove('sidebar-open');
+  }
+
+  var navState = { fetching: false, lastPath: location.pathname };
+
+  /* Thin top loading bar — visible feedback during the fetch + swap. */
+  function ensureNavBar() {
+    var bar = document.getElementById('ns-navbar');
+    if (bar) return bar;
+    bar = document.createElement('div');
+    bar.id = 'ns-navbar';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    return bar;
+  }
+  function navBarStart() {
+    var bar = ensureNavBar();
+    bar.classList.remove('done');
+    requestAnimationFrame(function () { bar.classList.add('active'); });
+  }
+  function navBarDone() {
+    var bar = ensureNavBar();
+    bar.classList.add('active');
+    requestAnimationFrame(function () {
+      bar.classList.add('done');
+      setTimeout(function () { bar.classList.remove('active', 'done'); }, 220);
+    });
+  }
+
+  function sameOrigin(href) {
+    try {
+      var u = new URL(href, location.href);
+      return u.origin === location.origin;
+    } catch (e) { return false; }
+  }
+  function isTemplatePage(href) {
+    if (!sameOrigin(href)) return false;
+    var u = new URL(href, location.href);
+    if (u.hash) return false;            // in-page anchors → normal jump
+    return /\.html$/i.test(u.pathname);  // only swap our .html pages
+  }
+
+  /* Update sidebar + topbar active link + document title. */
+  function updateActiveNav(pageId) {
+    document.querySelectorAll('.nav a[aria-current="page"]').forEach(function (a) { a.removeAttribute('aria-current'); });
+    var link = document.querySelector('.nav a[href="' + pageId + '.html"]');
+    if (link) link.setAttribute('aria-current', 'page');
+    document.body.setAttribute('data-page', pageId);
+    var main = document.querySelector('main[data-page]');
+    if (main) main.setAttribute('data-page', pageId);
+    var t = document.querySelector('main[data-page] .page-head h1');
+    if (t) document.title = t.textContent.trim() + ' — Northstar | DevSnips';
+  }
+
+  function applyNewMain(fetchedDoc, href) {
+    var newMain = fetchedDoc.querySelector('main[data-page]');
+    if (!newMain) return false;
+    var oldMain = document.querySelector('main[data-page]');
+    if (!oldMain) return false;
+
+    /* Swap the main region. Cloning avoids carrying over detached
+       listeners from the old DOM. */
+    var swap = document.createElement('main');
+    swap.className = newMain.className;
+    swap.id = newMain.id || 'main';
+    swap.setAttribute('data-page', newMain.getAttribute('data-page'));
+    swap.innerHTML = newMain.innerHTML;
+    oldMain.parentNode.replaceChild(swap, oldMain);
+
+    var pageId = newMain.getAttribute('data-page') || href.split('/').pop().replace(/\.html$/, '');
+    updateActiveNav(pageId);
+
+    /* Collect the page's inline <script> text (skip the app.js <script src>).
+       Append them as fresh <script> nodes so the browser executes them
+       natively — no eval, source maps/debugger stay intact. */
+    var scripts = Array.prototype.slice.call(fetchedDoc.querySelectorAll('script'))
+      .filter(function (s) { return !s.src && s.textContent.trim(); });
+    scripts.forEach(function (s) {
+      var run = document.createElement('script');
+      if (s.type) run.type = s.type;
+      run.textContent = s.textContent;
+      swap.appendChild(run);
+    });
+    return true;
+  }
+
+  function navigate(href, opts) {
+    opts = opts || {};
+    if (navState.fetching) return;
+    if (!isTemplatePage(href)) { location.href = href; return; }
+    var url = new URL(href, location.href);
+    if (url.href === location.href && !opts.force) return;
+
+    navState.fetching = true;
+    navBarStart();
+    teardownPage();
+
+    fetch(url.href, { headers: { 'X-Requested-With': 'NS-Navigate' }, credentials: 'same-origin' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        if (!doc.querySelector('main[data-page]')) throw new Error('no main');
+        var ok = applyNewMain(doc, url.href);
+        if (!ok) throw new Error('swap failed');
+
+        if (!opts.replace) history.pushState({ ns: true, href: url.href }, '', url.href);
+        else history.replaceState({ ns: true, href: url.href }, '', url.href);
+
+        navState.lastPath = url.pathname;
+        /* Re-run shared wiring scoped to the new <main>. */
+        wireTabs();
+        wireAccordions();
+        wireCountUp();
+        renderSparklines();
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+        /* NOTE: we deliberately do NOT dispatch the global 'ns:ready' here.
+           Pages gate their init on `onReady(fn)` which checks for '.topbar'.
+           On a full page load the shell isn't injected until app.js init() runs,
+           so pages defer via window.addEventListener('ns:ready', fn) — those
+           listeners persist across SPA swaps. Re-dispatching ns:ready would
+           re-fire every previously-visited page's init against the current
+           (wrong) DOM, throwing null errors and clobbering state. During an
+           SPA swap the shell is already mounted, so '.topbar' is present and
+           the destination page's onReady runs synchronously — no event needed. */
+        window.dispatchEvent(new CustomEvent('ns:navigate', { detail: { href: url.href } }));
+        navBarDone();
+      })
+      .catch(function (err) {
+        /* Graceful fallback: a real navigation always works. */
+        navBarDone();
+        location.href = href;
+      })
+      .then(function () { navState.fetching = false; });
+  }
+
+  /* Hover/focus prefetch: warm the browser cache for the destination so
+     the swap fetch is a cache hit. 90ms intent threshold avoids prefetch
+     storms from fly-overs. */
+  var prefetched = {};
+  function prefetch(href) {
+    if (!isTemplatePage(href) || prefetched[href]) return;
+    prefetched[href] = true;
+    var link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = href;
+    link.as = 'document';
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  }
+
+  function wireNavigation() {
+    /* Intercept same-origin .html link clicks inside the shell. */
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!href || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      if (!isTemplatePage(href)) return;
+      /* Only intercept links in the shell (sidebar/topbar/breadcrumbs/page-head)
+         so in-content links to other pages also benefit; but always allow
+         opens in a new tab (target=_blank). */
+      if (a.target === '_blank') return;
+      e.preventDefault();
+      navigate(a.href);
+    });
+
+    /* Hover/focus intent prefetch on any template link. */
+    var hoverTimer;
+    document.addEventListener('mouseover', function (e) {
+      var a = e.target.closest('a[href]');
+      if (!a || !isTemplatePage(a.href)) return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () { prefetch(a.href); }, 90);
+    }, true);
+    document.addEventListener('mouseout', function (e) {
+      if (e.target.closest && e.target.closest('a[href]')) clearTimeout(hoverTimer);
+    }, true);
+    document.addEventListener('focus', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (a && isTemplatePage(a.href)) prefetch(a.href);
+    }, true);
+
+    /* Back/forward: re-swap to the history entry. */
+    window.addEventListener('popstate', function (e) {
+      var href = location.href;
+      if (!isTemplatePage(href)) { location.reload(); return; }
+      navigate(href, { replace: true, force: true });
+    });
+  }
+
+  /* =====================================================================
      INIT
   ===================================================================== */
   function init() {
@@ -1114,12 +1434,16 @@
     wireThemeToggle();
     wireSidebar();
     wireNotifications();
+    wireSearch();
     wireGlobalActions();
+    wireNavigation();
     buildSettingsNav();
     wireTabs();
     wireAccordions();
     wireCountUp();
     renderSparklines();
+    /* Seed history so popstate has a state to compare against. */
+    history.replaceState({ ns: true, href: location.href }, '', location.href);
     window.dispatchEvent(new CustomEvent('ns:ready'));
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
@@ -1135,4 +1459,8 @@
   window.NS.wireTabs = wireTabs;
   window.NS.wireAccordions = wireAccordions;
   window.NS.animateNumber = animateNumber;
+  window.NS.navigate = navigate;
+  window.NS.on = onPageEvent;        /* page-scoped window listener (auto-removed on next navigate) */
+  window.NS.pageTimer = pageTimer;   /* page-scoped timer (auto-cleared on next navigate) */
+  window.NS.teardownPage = teardownPage;
 })();
