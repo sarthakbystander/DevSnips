@@ -22,9 +22,9 @@
           <p class="sub">All customers across your workspace.</p>
         </div>
         <div class="page-actions">
-          <button class="btn" data-toast="Importing customers from CSV…"><span class="btn-text">Import</span></button>
-          <button class="btn" data-toast="Exporting customers…"><span class="btn-text">Export</span></button>
-          <button class="btn btn-primary" id="add-customer"><span class="btn-text">Add customer</span></button>
+          <button class="btn" data-toast="Importing customers from CSV…"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></span><span class="btn-text">Import</span></button>
+          <button class="btn" data-toast="Exporting customers…"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span><span class="btn-text">Export</span></button>
+          <button class="btn btn-primary" id="add-customer"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="btn-text">Add customer</span></button>
         </div>
       </div>
 
@@ -42,6 +42,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
               <input type="search" id="cust-filter" placeholder="Search by name, email, company…">
             </div>
+            <button class="btn btn-sm select-toggle" id="select-toggle" aria-pressed="false" aria-label="Enter select mode"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><span class="btn-text">Select</span></button>
             <select class="select" id="cust-plan" aria-label="Filter by plan"><option value="">All plans</option><option>Scale</option><option>Growth</option><option>Starter</option><option>Trial</option></select>
             <select class="select" id="cust-status" aria-label="Filter by status"><option value="">All statuses</option><option>active</option><option>trial</option><option>pastdue</option></select>
           </div>
@@ -50,9 +51,10 @@
         <div class="bulk-bar" id="bulk-bar" style="display:none">
           <span id="bulk-count">0 selected</span>
           <div class="actions">
-            <button class="btn btn-sm" data-toast="Exporting selected customers…">Export</button>
-            <button class="btn btn-sm" data-toast="Added tag to selected customers">Add tag</button>
-            <button class="btn btn-sm btn-danger" id="bulk-delete">Delete</button>
+            <button class="btn btn-sm" data-toast="Exporting selected customers…"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span><span class="btn-text">Export</span></button>
+            <button class="btn btn-sm" data-toast="Added tag to selected customers"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span><span class="btn-text">Add tag</span></button>
+            <button class="btn btn-sm btn-danger" id="bulk-delete"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><span class="btn-text">Delete</span></button>
+            <button class="btn btn-sm btn-ghost bulk-cancel" id="bulk-cancel" aria-label="Exit select mode"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span><span class="btn-text">Cancel</span></button>
           </div>
         </div>
         <div class="data-table-wrap">
@@ -64,7 +66,6 @@
                 <th data-sort="plan">Plan</th>
                 <th class="nosort">Status</th>
                 <th data-sort="mrr" style="text-align:right">MRR</th>
-                <th class="nosort hide-sm">ARR</th>
                 <th class="nosort hide-sm">Signup</th>
                 <th class="nosort hide-sm">Last active</th>
                 <th class="nosort" style="text-align:right">Actions</th>
@@ -119,7 +120,6 @@
           '<td data-label="Plan" class="plan-cell">' + esc(c.plan) + '</td>' +
           '<td data-label="Status">' + pill(c.status) + '</td>' +
           '<td data-label="MRR" class="amount mono">' + money(c.mrr) + '</td>' +
-          '<td data-label="ARR" class="amount mono hide-sm">' + money(c.arr) + '</td>' +
           '<td data-label="Signup" class="muted hide-sm">' + esc(c.signup) + '</td>' +
           '<td data-label="Last active" class="muted hide-sm">' + esc(c.lastActive) + '</td>' +
           '<td data-label="Actions" class="row-acts"><a class="row-act" href="customer-activity.html?id=' + c.id + '" aria-label="View ' + esc(c.name) + ' activity">' + ICONS.activity + '</a><a class="row-act" href="customer-details.html?id=' + c.id + '" aria-label="View ' + esc(c.name) + '">' + ICONS.eye + '</a><button class="row-act" data-confirm="Delete ' + esc(c.name) + '? Their subscription will be cancelled." data-confirm-title="Delete customer?" data-danger="true" data-confirm-label="Delete" data-name="' + esc(c.name) + '" aria-label="Delete ' + esc(c.name) + '">' + ICONS.trash + '</button></td>' +
@@ -129,15 +129,54 @@
         var rows = filtered();
         var start = (state.page - 1) * state.perPage;
         var page = rows.slice(start, start + state.perPage);
-        document.getElementById('cust-rows').innerHTML = page.map(row).join('') || '<tr><td colspan="9" class="empty-row">No customers match your filters.</td></tr>';
+        var host = document.getElementById('cust-rows');
+        var html = page.map(row).join('');
+        if (!html) {
+          /* Two distinct empty states:
+             - genuinely empty dataset → onboarding CTA
+             - filters produced nothing → keep the terse inline hint */
+          if (DB.customers.length === 0) {
+            html = '<tr><td colspan="8" class="empty-row" style="padding:0">' + NS.emptyState(
+              'No customers yet',
+              'Add your first customer to start tracking MRR, plan, and activity.',
+              'Add customer', '#'
+            ) + '</td></tr>';
+          } else {
+            html = '<tr><td colspan="8" class="empty-row">No customers match your filters.</td></tr>';
+          }
+        }
+        host.innerHTML = html;
         updateBulkBar(rows);
         NS.renderPagination(document.getElementById('pagination'), state, rows.length, render);
       }
       function updateBulkBar(rows) {
         var sel = rows.filter(function (r) { return state.selected[r.id]; }).length;
         var bar = document.getElementById('bulk-bar');
-        bar.style.display = sel ? 'flex' : 'none';
+        /* On mobile the bar is driven by .select-mode (CSS); on desktop it
+           shows whenever a row is selected. Respect an explicit inline
+           display style only on desktop widths. */
+        if (window.matchMedia('(min-width: 769px)').matches) {
+          bar.style.display = sel ? 'flex' : 'none';
+        } else {
+          bar.style.display = '';
+        }
         document.getElementById('bulk-count').textContent = sel + ' selected';
+        var selectAll = document.getElementById('select-all');
+        if (selectAll) {
+          var visible = rows.slice((state.page - 1) * state.perPage, state.page * state.perPage);
+          var allSel = visible.length > 0 && visible.every(function (r) { return state.selected[r.id]; });
+          selectAll.checked = allSel;
+          selectAll.indeterminate = !allSel && visible.some(function (r) { return state.selected[r.id]; });
+        }
+      }
+      function setSelectMode(on) {
+        var panel = document.querySelector('.panel.mb-0');
+        if (!panel) return;
+        panel.classList.toggle('select-mode', on);
+        var toggle = document.getElementById('select-toggle');
+        if (toggle) toggle.setAttribute('aria-pressed', String(on));
+        if (!on) { state.selected = {}; }
+        render();
       }
       function toggleAll() {
         var rows = filtered().slice((state.page - 1) * state.perPage, state.page * state.perPage);
@@ -156,6 +195,19 @@
       document.getElementById('cust-rows').addEventListener('click', function (e) {
         var delBtn = e.target.closest('[data-confirm][data-danger]'); if (!delBtn) return;
         e.stopPropagation();
+      });
+      document.getElementById('select-toggle').addEventListener('click', function () {
+        setSelectMode(true);
+      });
+      document.getElementById('bulk-cancel').addEventListener('click', function () {
+        setSelectMode(false);
+      });
+      /* Drop out of select mode automatically on widening to desktop. */
+      NS.on('resize', function () {
+        if (window.matchMedia('(min-width: 769px)').matches) {
+          var panel = document.querySelector('.panel.mb-0');
+          if (panel && panel.classList.contains('select-mode')) setSelectMode(false);
+        }
       });
       document.getElementById('bulk-delete').addEventListener('click', function () {
         var ids = Object.keys(state.selected);
@@ -185,7 +237,14 @@
           onOpen: function (bd, close) { bd.querySelector('[data-cancel-modal]').addEventListener('click', close); bd.querySelector('#save-cust').addEventListener('click', function () { close(); NS.toast('Customer added', 'success'); }); }
         });
       });
-      render();
+      /* Initial load: demonstrate the skeleton-loading pattern a real app
+         would use while fetching. Skeleton rows briefly fill the table,
+         then the data renders — no blank-to-populated flash. */
+      (function initialLoad() {
+        var host = document.getElementById('cust-rows');
+        host.innerHTML = NS.skeletonRows(state.perPage, 8);
+        NS.pageTimer(render, 450);
+      })();
     });
   })();
   </script>

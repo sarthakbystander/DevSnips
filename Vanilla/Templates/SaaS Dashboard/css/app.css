@@ -17,8 +17,8 @@
   --ds-border-strong: #d7dce4;
   --ds-text: #0f172a;
   --ds-text-2: #475569;
-  --ds-muted: #8a93a4;
-  --ds-faint: #b4bccb;
+  --ds-muted: #697086;
+  --ds-faint: #9aa3b3;
 
   /* accent (restrained indigo, used sparingly) */
   --ds-accent: #4f46e5;
@@ -65,8 +65,8 @@
   --ds-border-strong: #2a3342;
   --ds-text: #e6e9ef;
   --ds-text-2: #aab3c2;
-  --ds-muted: #7d8699;
-  --ds-faint: #5a6473;
+  --ds-muted: #9aa3b3;
+  --ds-faint: #6b7488;
   --ds-accent: #818cf8;
   --ds-accent-soft: #1e1b4b;
   --ds-accent-press: #6366f1;
@@ -344,6 +344,8 @@ svg { display: block; }
   background: var(--ds-surface); color: var(--ds-text); transition: background .12s, border-color .12s;
 }
 .btn svg { width: 15px; height: 15px; }
+.btn .ic { display: inline-flex; }
+.btn .ic svg { width: 15px; height: 15px; display: block; }
 .btn:hover { background: var(--ds-sunken); border-color: var(--ds-border-strong); }
 .btn-primary { background: var(--ds-accent); border-color: var(--ds-accent); color: #fff; }
 .btn-primary:hover { background: var(--ds-accent-press); border-color: var(--ds-accent-press); }
@@ -641,6 +643,11 @@ table.data .row-acts { display: flex; gap: 4px; justify-content: flex-end; }
   font-size: 13px; color: var(--ds-accent); font-weight: 600;
 }
 .bulk-bar .actions { margin-left: auto; display: flex; gap: 6px; }
+/* Desktop: checkboxes are always visible, so the mobile "Select" toggle
+   and the bulk-bar cancel affordance are hidden. (Mobile reveals them
+   via the .select-mode rules in the responsive block.) */
+.select-toggle { display: none; }
+.bulk-cancel { display: none; }
 
 .table-foot {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -846,6 +853,39 @@ table.data .row-acts { display: flex; gap: 4px; justify-content: flex-end; }
 .notif-list .when { font-size: 11px; color: var(--ds-muted); margin-top: 2px; }
 .notif-foot { padding: 10px 14px; border-top: 1px solid var(--ds-border); text-align: center; }
 .notif-foot a { font-size: 12px; font-weight: 600; color: var(--ds-accent); }
+.notif-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 18px; gap: 8px; }
+.notif-empty .ic { width: 44px; height: 44px; border-radius: var(--ds-r-lg); background: var(--ds-sunken); color: var(--ds-muted); display: grid; place-items: center; }
+.notif-empty .ic svg { width: 22px; height: 22px; }
+.notif-empty p { font-size: 13px; color: var(--ds-muted); margin: 0; }
+
+/* ---- Global search results ---------------------------------------- */
+.search-results {
+  position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+  background: var(--ds-surface); border: 1px solid var(--ds-border); border-radius: var(--ds-r-lg);
+  box-shadow: var(--ds-shadow-lg); z-index: 60; display: none; flex-direction: column;
+  max-height: 420px; overflow-y: auto;
+}
+.search-results.is-open { display: flex; }
+.search-results .sr-loading { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; color: var(--ds-muted); }
+.search-results .sr-loading .spinner { width: 14px; height: 14px; border: 2px solid var(--ds-border); border-top-color: var(--ds-accent); border-radius: 50%; animation: sr-spin .7s linear infinite; }
+@keyframes sr-spin { to { transform: rotate(360deg); } }
+.search-results .sr-list { display: flex; flex-direction: column; }
+.search-results .sr-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--ds-border); text-decoration: none; color: var(--ds-text); }
+.search-results .sr-item:last-child { border-bottom: none; }
+.search-results .sr-item:hover, .search-results .sr-item:focus-visible { background: var(--ds-accent-soft); outline: none; }
+.search-results .sr-item .pic { width: 28px; height: 28px; border-radius: var(--ds-r-sm); color: #fff; display: grid; place-items: center; font-size: 11px; font-weight: 700; flex: 0 0 28px; }
+.search-results .sr-item .ic { width: 28px; height: 28px; border-radius: var(--ds-r-sm); background: var(--ds-sunken); color: var(--ds-text-2); display: grid; place-items: center; flex: 0 0 28px; }
+.search-results .sr-item .ic svg { width: 15px; height: 15px; }
+.search-results .sr-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.search-results .sr-title { font-size: 13px; font-weight: 600; }
+.search-results .sr-sub { font-size: 12px; color: var(--ds-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-results .sr-kind { font-size: 11px; font-weight: 600; color: var(--ds-faint); text-transform: uppercase; letter-spacing: 0.04em; flex: 0 0 auto; }
+.search-results .sr-foot { padding: 8px 14px; border-top: 1px solid var(--ds-border); font-size: 11px; color: var(--ds-muted); }
+.search-results .sr-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 26px 18px; gap: 6px; }
+.search-results .sr-empty .ic { width: 44px; height: 44px; border-radius: var(--ds-r-lg); background: var(--ds-sunken); color: var(--ds-muted); display: grid; place-items: center; }
+.search-results .sr-empty .ic svg { width: 22px; height: 22px; }
+.search-results .sr-empty p { font-size: 13px; color: var(--ds-text); margin: 0; font-weight: 600; }
+.search-results .sr-hint { font-size: 12px; color: var(--ds-muted); }
 
 /* notification center list */
 .notif-center { list-style: none; margin: 0; padding: 0; }
@@ -1068,6 +1108,17 @@ table.perm-matrix tbody tr:hover { background: var(--ds-surface-2); }
 .foot .links { display: flex; gap: 16px; }
 .foot a:hover { color: var(--ds-text); }
 
+/* ---- Navigation loading bar ---------------------------------------- */
+#ns-navbar {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: var(--ds-accent); z-index: 200;
+  box-shadow: 0 0 8px var(--ds-accent);
+  pointer-events: none; opacity: 0;
+  transition: width .2s ease-out, opacity .2s;
+}
+#ns-navbar.active { opacity: 1; width: 80%; transition: width .25s ease-out, opacity .2s; }
+#ns-navbar.done { width: 100%; opacity: 0; transition: width .12s ease-out, opacity .22s ease-out .05s; }
+
 /* ---- Toast --------------------------------------------------------- */
 #toast {
   position: fixed; bottom: 22px; left: 50%; transform: translate(-50%, 16px);
@@ -1142,7 +1193,16 @@ table.perm-matrix tbody tr:hover { background: var(--ds-surface-2); }
   table.data .cust, table.data .row-acts { display: flex; }
   table.data .amount { text-align: left; }
   table.data .check-cell { display: none; }
-  .bulk-bar { display: none; }
+  /* On mobile, bulk actions live behind an explicit "Select" toggle.
+     Selecting it puts the panel into select mode, which re-shows the
+     checkbox column and the bulk action bar. Hidden by default so the
+     row-card layout stays clean, but never a dead end. */
+  .select-toggle { display: inline-flex; }
+  .panel:not(.select-mode) .bulk-bar { display: none; }
+  .panel.select-mode .check-cell { display: flex; }
+  .panel.select-mode .bulk-bar { display: flex; }
+  .panel.select-mode .select-toggle { display: none; }
+  .panel.select-mode .bulk-cancel { display: inline-flex; }
   .form-row, .form-row-3 { grid-template-columns: 1fr; }
   .modal-backdrop { padding: 12px; }
   .modal { max-height: calc(100vh - 24px); }
@@ -1153,10 +1213,13 @@ table.perm-matrix tbody tr:hover { background: var(--ds-surface-2); }
 @media (max-width: 480px) {
   .topbar { height: 52px; }
   .icon-btn { width: 34px; height: 34px; }
-  .btn span, .btn-text { display: none; }
-  .btn-primary span, .btn-primary .btn-text { display: inline; }
+  /* On icon-bearing buttons, collapse to icon-only to save space.
+     :has() keeps iconless buttons' text intact (graceful: browsers
+     without :has simply leave the full label visible — never an empty box). */
+  .btn:has(.ic):not(.btn-primary):not(.btn-block) { padding: 0 9px; }
+  .btn:has(.ic):not(.btn-primary) .btn-text { display: none; }
+  .btn:has(.ic):not(.btn-primary) .ic { margin: 0 auto; }
   .daterange button { padding: 7px 10px; }
-  .page-actions .btn-text { display: none; }
 }
 
 /* ---- Reduced motion ------------------------------------------------ */

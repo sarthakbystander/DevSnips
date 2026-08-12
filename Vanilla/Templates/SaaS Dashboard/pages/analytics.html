@@ -33,7 +33,7 @@
             <option>Compare to same period last year</option>
             <option>No comparison</option>
           </select>
-          <button class="btn" data-toast="Exporting analytics as CSV…"><span class="btn-text">Export CSV</span></button>
+          <button class="btn" data-toast="Exporting analytics as CSV…"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span><span class="btn-text">Export CSV</span></button>
         </div>
       </div>
 
@@ -172,8 +172,8 @@
         return '<tr><td>' + r[0] + '</td><td class="mono font-semibold">' + r[1] + '</td><td class="c-success">' + r[2] + '</td><td class="muted">' + r[3] + '</td></tr>';
       }).join('');
 
-      window.addEventListener('ns:theme', redraw);
-      var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(redraw, 150); });
+      NS.on('ns:theme', redraw);
+      var rt; NS.on('resize', function () { clearTimeout(rt); rt = NS.pageTimer(redraw, 150); });
       function redraw() {
         NSCharts.drawLineChart(document.getElementById('mrr-chart'), { labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], current: a.mrrTrend, previous: a.mrrTrend.map(function(v){return Math.round(v*0.88)}) });
         NSCharts.drawBarChart(document.getElementById('new-chart'), { labels: ['W1','W2','W3','W4','W5','W6','W7','W8'], current: a.newCustomersTrend, previous: a.newCustomersTrend.map(function(v){return Math.round(v*0.85)}) });
