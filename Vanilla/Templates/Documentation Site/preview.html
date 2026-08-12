@@ -1,3 +1,9 @@
+<!--
+  Snippet Name: DevSnips Documentation Site (modular)
+  Description: A premium, minimal, light-mode-first developer documentation template built on Pico CSS + the shared DevSnips ds-* token system. Hash-routed single-page app covering 15 documentation sections with nested sidebar, sticky scrollspy TOC, Cmd+K search, syntax-highlighted code blocks with copy + tabs, callouts, responsive tables, badges, API reference blocks, prev/next navigation, edit-on-GitHub metadata, and opt-in dark mode. Responsive: sidebar becomes a drawer, TOC becomes a collapsible panel, zero horizontal overflow from 320px to 1920px. Files: code.html (this file) + style.css + script.js.
+  Author: DevSnips Contributors
+  Usage Example: Open code.html in a browser, or copy this folder into your project and link code.html (which references style.css and script.js relatively). For a self-contained single-file preview of the UI, open preview.html instead.
+-->
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -344,14 +350,17 @@ code, kbd, samp, pre { font-family: var(--ds-font-mono); font-feature-settings: 
   flex: 1; max-width: 460px; position: relative;
 }
 .header-search .search-input {
+  display: flex; align-items: center; gap: 8px; position: relative;
   width: 100%; height: 36px; padding: 0 12px 0 34px;
   font-size: var(--ds-text-sm); font-family: var(--ds-font-sans);
   color: var(--ds-text-primary); background: var(--ds-bg-sunken);
   border: 1px solid transparent; border-radius: var(--ds-radius-md);
-  outline: none; transition: border-color var(--ds-duration-normal), background var(--ds-duration-normal);
+  outline: none; text-align: left; cursor: pointer;
+  transition: border-color var(--ds-duration-normal), background var(--ds-duration-normal);
 }
+.header-search .search-input > span { color: var(--ds-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .header-search .search-input::placeholder { color: var(--ds-text-muted); }
-.header-search .search-input:focus {
+.header-search .search-input:focus, .header-search .search-input:hover {
   background: var(--ds-bg-surface); border-color: var(--ds-border-focus);
   box-shadow: 0 0 0 3px var(--template-accent-soft);
 }
@@ -367,9 +376,17 @@ code, kbd, samp, pre { font-family: var(--ds-font-mono); font-feature-settings: 
 }
 
 .header-actions { display: flex; align-items: center; gap: var(--ds-space-1); margin-left: auto; }
+
+/* Reset Pico CSS <button> defaults (margin-bottom, width:100%, appearance)
+   on every custom button so header/code controls align and size correctly. */
+button.icon-btn, button.menu-toggle, button.search-input,
+button.copy-btn, button.code-tab, button.toc-mobile-toggle, button.drawer-close {
+  margin: 0; width: auto; appearance: none; -webkit-appearance: none;
+}
+
 .icon-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: var(--ds-radius-md);
+  width: 34px; height: 34px; flex: none; border-radius: var(--ds-radius-md);
   color: var(--ds-text-secondary); background: transparent; border: 1px solid transparent;
   cursor: pointer; transition: background var(--ds-duration-fast), color var(--ds-duration-fast);
 }
@@ -519,7 +536,12 @@ code, kbd, samp, pre { font-family: var(--ds-font-mono); font-feature-settings: 
 .page :not(pre) > code, .prose-inline-code {
   font-size: 0.875em; padding: 1px 5px; border-radius: var(--ds-radius-xs);
   background: var(--c-bg-inline); color: var(--c-tag);
-  border: 1px solid var(--ds-border-subtle); white-space: nowrap;
+  border: 1px solid var(--ds-border-subtle);
+  white-space: nowrap; overflow-wrap: anywhere;
+}
+/* allow long inline code (paths/commands) to wrap on narrow screens */
+@media (max-width: 480px) {
+  .page :not(pre) > code, .prose-inline-code { white-space: normal; word-break: break-word; }
 }
 [data-theme="dark"] .page :not(pre) > code { color: var(--c-attr); }
 
@@ -820,10 +842,23 @@ table.docs-table td code { font-size: 0.85em; }
   .app-footer .footer-inner { padding: var(--ds-space-6) var(--ds-space-8); }
 }
 
-/* Mobile: sidebar becomes a drawer */
+/* Mobile: sidebar becomes a drawer (fixed, hidden off-canvas, slides in with .open).
+   Does NOT depend on a .drawer class — the media query itself turns the static
+   sticky sidebar into the off-canvas drawer, so JS only needs to toggle .open. */
 @media (max-width: 1024px) {
   .app-body { grid-template-columns: minmax(0, 1fr); }
-  .app-sidebar:not(.drawer) { display: none; }
+  .app-sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: calc(var(--ds-z-drawer) + 1);
+    width: 300px; max-width: 86vw; height: 100vh; height: 100dvh;
+    display: block;
+    transform: translateX(-100%);
+    transition: transform var(--ds-duration-normal) var(--ds-ease-standard);
+    border-right: 1px solid var(--ds-border-default);
+    padding-top: var(--ds-space-5);
+    box-shadow: var(--ds-shadow-lg);
+  }
+  .app-sidebar.open { transform: translateX(0); }
+  .app-sidebar .drawer-close { display: inline-flex; }
   .menu-toggle { display: inline-flex; }
   .app-main { padding: var(--ds-space-6) var(--ds-space-5) var(--ds-space-16); max-width: 100%; }
   .page, .home-hero { max-width: 100%; }
@@ -836,7 +871,11 @@ table.docs-table td code { font-size: 0.85em; }
 
 @media (max-width: 640px) {
   .header-search { display: none; }
-  .app-header .header-actions { margin-left: auto; }
+  .app-header { gap: var(--ds-space-2); }
+  .app-header .brand .wordmark small { display: none; }
+  .header-actions { margin-left: auto; }
+  .menu-toggle { width: 38px; height: 38px; }
+  .menu-toggle svg { width: 19px; height: 19px; }
   .page h1, .home-hero h1 { font-size: var(--ds-text-3xl); }
   .page h2 { font-size: var(--ds-text-xl); }
   .card-grid { grid-template-columns: 1fr; }
@@ -851,6 +890,7 @@ table.docs-table td code { font-size: 0.85em; }
 img, svg, video { max-width: 100%; }
 
   </style>
+  <!-- no-flash theme: light by default; honor persisted dark preference before paint -->
   <script>
     (function(){try{var t=localStorage.getItem('ds-docs-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
   </script>
@@ -859,14 +899,20 @@ img, svg, video { max-width: 100%; }
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="app">
+    <!-- Header -->
     <header class="app-header">
       <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
       </button>
+
       <a class="brand" href="#/home" aria-label="DevSnips home">
         <img src="assets/logo.svg" alt="" width="24" height="24">
-        <span class="wordmark"><span>DevSnips</span><small>Documentation</small></span>
+        <span class="wordmark">
+          <span>DevSnips</span>
+          <small>Documentation</small>
+        </span>
       </a>
+
       <div class="header-search">
         <button id="header-search" type="button" class="search-input" style="text-align:left" aria-label="Search documentation">
           <span class="search-icon" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ds-text-muted);pointer-events:none">
@@ -876,6 +922,7 @@ img, svg, video { max-width: 100%; }
           <span class="kbd">⌘K</span>
         </button>
       </div>
+
       <div class="header-actions">
         <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
@@ -885,7 +932,10 @@ img, svg, video { max-width: 100%; }
         </a>
       </div>
     </header>
+
+    <!-- Body grid -->
     <div class="app-body">
+      <!-- Sidebar -->
       <aside id="sidebar" class="app-sidebar" aria-label="Documentation navigation">
         <button id="drawer-close" class="icon-btn drawer-close" aria-label="Close navigation">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -893,14 +943,20 @@ img, svg, video { max-width: 100%; }
         <input id="nav-filter" class="nav-filter" type="search" placeholder="Filter…" aria-label="Filter navigation">
         <nav id="sidebar-nav" class="sidebar-nav"></nav>
       </aside>
+
+      <!-- Main content -->
       <main id="main" class="app-main">
         <div id="pages-root"></div>
       </main>
+
+      <!-- Right TOC -->
       <aside class="app-toc" aria-label="On this page">
         <div class="toc-head">On this page</div>
         <ul id="toc-list" class="toc-list"></ul>
       </aside>
     </div>
+
+    <!-- Footer -->
     <footer class="app-footer">
       <div class="footer-inner">
         <div>© 2026 DevSnips · MIT License</div>
@@ -913,6 +969,8 @@ img, svg, video { max-width: 100%; }
       </div>
     </footer>
   </div>
+
+  <!-- Search modal -->
   <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search documentation">
     <div class="search-panel">
       <div class="search-field">
@@ -927,7 +985,10 @@ img, svg, video { max-width: 100%; }
       </div>
     </div>
   </div>
+
+  <!-- Drawer backdrop -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
   <script>
 /* ============================================================
    DevSnips Documentation — runtime + content
@@ -2031,11 +2092,13 @@ img, svg, video { max-width: 100%; }
     var sb = $('#sidebar'), bd = $('#drawer-backdrop');
     if (sb) sb.classList.add('open');
     if (bd) bd.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
     var sb = $('#sidebar'), bd = $('#drawer-backdrop');
     if (sb) sb.classList.remove('open');
     if (bd) bd.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   /* ---------- router ---------- */
@@ -2090,6 +2153,10 @@ img, svg, video { max-width: 100%; }
     if (bd) bd.addEventListener('click', closeDrawer);
     var dc = $('#drawer-close');
     if (dc) dc.addEventListener('click', closeDrawer);
+    /* close drawer when resizing up to desktop so scroll-lock never sticks */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) closeDrawer();
+    });
 
     /* keyboard */
     document.addEventListener('keydown', function (e) {

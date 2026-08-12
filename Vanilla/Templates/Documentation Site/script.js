@@ -1100,11 +1100,13 @@
     var sb = $('#sidebar'), bd = $('#drawer-backdrop');
     if (sb) sb.classList.add('open');
     if (bd) bd.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
     var sb = $('#sidebar'), bd = $('#drawer-backdrop');
     if (sb) sb.classList.remove('open');
     if (bd) bd.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   /* ---------- router ---------- */
@@ -1159,6 +1161,10 @@
     if (bd) bd.addEventListener('click', closeDrawer);
     var dc = $('#drawer-close');
     if (dc) dc.addEventListener('click', closeDrawer);
+    /* close drawer when resizing up to desktop so scroll-lock never sticks */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) closeDrawer();
+    });
 
     /* keyboard */
     document.addEventListener('keydown', function (e) {
