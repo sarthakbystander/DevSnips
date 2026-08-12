@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team — Northstar | DevSnips</title>
+  <meta name="description" content="Workspace team members, roles, status, last active, invitations, and actions.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="team">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="team">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Team</h1>
+          <p class="sub">Members of the Northstar workspace.</p>
+        </div>
+        <div class="page-actions">
+          <a class="btn" href="invitations.html"><span class="btn-text">Invitations</span></a>
+          <button class="btn btn-primary" id="invite-member"><span class="btn-text">Invite member</span></button>
+        </div>
+      </div>
+
+      <section class="stat-grid mb-16" id="team-stats"></section>
+
+      <section class="panel mb-0">
+        <div class="table-head">
+          <div class="table-tools">
+            <div class="table-filter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="search" id="team-filter" placeholder="Search members…">
+            </div>
+            <select class="select" id="team-role" aria-label="Filter by role"><option value="">All roles</option><option>Owner</option><option>Admin</option><option>Manager</option><option>Member</option><option>Viewer</option></select>
+          </div>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th>Member</th><th class="nosort">Role</th><th class="nosort">2FA</th><th class="nosort hide-sm">Joined</th><th class="nosort">Status</th><th class="nosort hide-sm">Last active</th><th class="nosort" style="text-align:right">Actions</th></tr></thead>
+            <tbody id="team-rows"></tbody>
+          </table>
+        </div>
+        <div class="table-foot"><span class="page-info" id="pagination"></span></div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Workspace',href:'team.html'},{label:'Team'}]);
+      var roles = DB.team.reduce(function (acc, m) { acc[m.role] = (acc[m.role] || 0) + 1; return acc; }, {});
+      document.getElementById('team-stats').innerHTML = [
+        { lbl: 'Total members', val: DB.team.length }, { lbl: 'Active', val: DB.team.filter(function(m){return m.status==='active';}).length },
+        { lbl: 'Invited', val: DB.team.filter(function(m){return m.status==='invited';}).length }, { lbl: 'Seats used', val: '18 / 25' }
+      ].map(function (s) { return '<div class="stat"><div class="lbl">' + s.lbl + '</div><div class="val">' + s.val + '</div></div>'; }).join('');
+
+      var state = { page: 1, perPage: 8, filter: '', role: '' };
+      function filtered() {
+        var f = state.filter.toLowerCase();
+        return DB.team.filter(function (m) {
+          return (!f || m.name.toLowerCase().indexOf(f) > -1 || m.email.toLowerCase().indexOf(f) > -1) && (!state.role || m.role === state.role);
+        });
+      }
+      function render() {
+        var rows = filtered();
+        var page = rows.slice((state.page - 1) * state.perPage, state.page * state.perPage);
+        document.getElementById('team-rows').innerHTML = page.map(function (m) {
+          var acts = '<button class="row-act" data-action="edit" data-name="' + esc(m.name) + '" aria-label="Edit">' + ICONS.edit + '</button><button class="row-act" data-action="role" data-name="' + esc(m.name) + '" aria-label="Change role">' + ICONS.roles + '</button>';
+          if (m.role !== 'Owner') acts += '<button class="row-act" data-confirm="Remove ' + esc(m.name) + ' from the workspace?" data-confirm-title="Remove member?" data-danger="true" data-confirm-label="Remove" data-name="' + esc(m.name) + '" aria-label="Remove">' + ICONS.trash + '</button>';
+          return '<tr><td><div class="cust"><span class="pic" style="background:' + m.tone + '">' + m.initials + '</span><div class="meta"><div class="nm">' + esc(m.name) + '</div><div class="em">' + esc(m.email) + '</div></div></div></td><td class="plan-cell">' + esc(m.role) + '</td><td>' + (m.twoFactor ? '<span class="c-success">' + ICONS.lock + '</span>' : '<span class="text-muted">—</span>') + '</td><td class="muted hide-sm">' + esc(m.joined) + '</td><td>' + pill(m.status) + '</td><td class="muted hide-sm">' + esc(m.last) + '</td><td class="row-acts">' + acts + '</td></tr>';
+        }).join('') || '<tr><td colspan="7" class="empty-row">No members match your filters.</td></tr>';
+        NS.renderPagination(document.getElementById('pagination'), state, rows.length, render);
+      }
+      render();
+      document.getElementById('team-filter').addEventListener('input', function () { state.filter = this.value; state.page = 1; render(); });
+      document.getElementById('team-role').addEventListener('change', function () { state.role = this.value; state.page = 1; render(); });
+      document.getElementById('team-rows').addEventListener('click', function (e) {
+        var ed = e.target.closest('[data-action="edit"]'); if (ed) { NS.toast('Editing ' + ed.dataset.name); return; }
+        var rl = e.target.closest('[data-action="role"]'); if (rl) { NS.toast('Change role for ' + rl.dataset.name); return; }
+      });
+      document.getElementById('invite-member').addEventListener('click', function () { window.location.href = 'invitations.html'; });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

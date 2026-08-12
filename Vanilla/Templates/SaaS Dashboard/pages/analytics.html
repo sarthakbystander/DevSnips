@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — Northstar | DevSnips</title>
+  <meta name="description" content="Deep SaaS analytics: MRR, ARR, retention, churn, conversion, traffic sources, engagement, and session metrics.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="analytics">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="analytics">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Analytics</h1>
+          <p class="sub">Revenue, growth, and engagement across your customer base.</p>
+        </div>
+        <div class="page-actions">
+          <select class="select" id="range" aria-label="Date range">
+            <option>Last 30 days</option>
+            <option>Last 7 days</option>
+            <option>Last 90 days</option>
+            <option>Last 12 months</option>
+          </select>
+          <select class="select" id="compare" aria-label="Compare to">
+            <option>Compare to previous period</option>
+            <option>Compare to same period last year</option>
+            <option>No comparison</option>
+          </select>
+          <button class="btn" data-toast="Exporting analytics as CSV…"><span class="btn-text">Export CSV</span></button>
+        </div>
+      </div>
+
+      <!-- KPI stat grid -->
+      <section class="stat-grid mb-16" id="kpi-grid"></section>
+
+      <!-- Revenue + MRR trend -->
+      <div class="grid-main">
+        <section class="panel">
+          <div class="panel-head">
+            <div class="titles"><h2>MRR trend</h2><p class="desc">Monthly recurring revenue over the last 12 months</p></div>
+            <div class="actions chart-legend"><span class="lg"><span class="sw" style="background:var(--ds-accent)"></span> MRR</span></div>
+          </div>
+          <div class="panel-body flush"><div class="chart-wrap"><svg id="mrr-chart" class="chart-svg" role="img" aria-label="MRR trend chart"></svg></div></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div class="titles"><h2>Acquisition sources</h2><p class="desc">New customers by channel</p></div></div>
+          <div class="panel-body">
+            <svg id="sources-donut" class="chart-svg" role="img" aria-label="Acquisition sources donut"></svg>
+            <ul class="legend-list mt-16" id="sources-legend"></ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- Growth: new vs churned -->
+      <div class="grid-mid">
+        <section class="panel">
+          <div class="panel-head">
+            <div class="titles"><h2>New customers</h2><p class="desc">New signups per week</p></div>
+            <div class="actions chart-legend"><span class="lg"><span class="sw" style="background:var(--ds-emerald,#10b981)"></span> This period</span><span class="lg"><span class="sw" style="background:var(--ds-faint);height:2px"></span> Last period</span></div>
+          </div>
+          <div class="panel-body flush"><div class="chart-wrap"><svg id="new-chart" class="chart-svg bar" role="img" aria-label="New customers chart"></svg></div></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <div class="titles"><h2>Churn</h2><p class="desc">Churned customers per week</p></div>
+            <div class="actions chart-legend"><span class="lg"><span class="sw" style="background:var(--ds-danger)"></span> Churned</span></div>
+          </div>
+          <div class="panel-body flush"><div class="chart-wrap"><svg id="churn-chart" class="chart-svg bar" role="img" aria-label="Churn chart"></svg></div></div>
+        </section>
+      </div>
+
+      <!-- Traffic + engagement -->
+      <div class="grid-main">
+        <section class="panel">
+          <div class="panel-head"><div class="titles"><h2>Traffic & signups</h2><p class="desc">Visitors and conversions by day</p></div>
+            <div class="actions chart-legend"><span class="lg"><span class="sw" style="background:var(--ds-accent)"></span> Visitors</span><span class="lg"><span class="sw" style="background:var(--ds-emerald,#10b981)"></span> Signups</span></div>
+          </div>
+          <div class="panel-body flush"><div class="chart-wrap"><svg id="traffic-chart" class="chart-svg bar" role="img" aria-label="Traffic and signups"></svg></div></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div class="titles"><h2>Engagement</h2><p class="desc">Daily vs monthly active users</p></div>
+            <div class="actions chart-legend"><span class="lg"><span class="sw" style="background:var(--ds-accent)"></span> DAU</span><span class="lg"><span class="sw" style="background:var(--ds-sky,#0ea5e9)"></span> MAU</span></div>
+          </div>
+          <div class="panel-body flush"><div class="chart-wrap"><svg id="engage-chart" class="chart-svg bar" role="img" aria-label="Engagement chart"></svg></div></div>
+        </section>
+      </div>
+
+      <!-- Retention + session metrics -->
+      <div class="grid-3">
+        <section class="panel"><div class="panel-body"><div class="stat"><div class="lbl">Retention rate</div><div class="val">96.7%</div><div class="sub c-success">+1.4% vs last period</div></div></div></section>
+        <section class="panel"><div class="panel-body"><div class="stat"><div class="lbl">Churn rate</div><div class="val">3.3%</div><div class="sub c-success">-0.8% vs last period</div></div></div></section>
+        <section class="panel"><div class="panel-body"><div class="stat"><div class="lbl">Net revenue retention</div><div class="val">112%</div><div class="sub c-success">+4.2% vs last period</div></div></div></section>
+      </div>
+
+      <!-- Session metrics table -->
+      <section class="panel">
+        <div class="panel-head"><div class="titles"><h2>Session metrics</h2><p class="desc">How users engage with the product</p></div>
+          <button class="btn btn-sm" data-toast="Session report queued"><span class="btn-text">Export</span></button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th class="nosort">Metric</th><th class="nosort">Value</th><th class="nosort">Change</th><th class="nosort">Period</th></tr></thead>
+            <tbody id="session-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, a = DB.analytics, esc = NS.esc;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Overview',href:'dashboard.html'},{label:'Analytics'}]);
+      var kpis = [
+        { lbl: 'MRR', val: NS.money(a.mrr), delta: 12.4, foot: 'Monthly recurring revenue' },
+        { lbl: 'ARR', val: NS.money(a.arr), delta: a.arrDelta, foot: 'Annualized run rate' },
+        { lbl: 'Active customers', val: NS.fmt(a.activeCustomers), delta: 8.1, foot: 'Customers with activity in 30d' },
+        { lbl: 'New customers', val: NS.fmt(a.newCustomers), delta: a.newDelta, foot: 'New signups this period' },
+        { lbl: 'Churned', val: NS.fmt(a.churnedCustomers), delta: a.churnDelta, down: true, foot: 'Customers lost this period' },
+        { lbl: 'Retention', val: a.retentionRate + '%', delta: a.retentionDelta, foot: 'Logo retention' },
+        { lbl: 'Churn rate', val: a.churnRate + '%', delta: -a.churnDelta, down: false, foot: 'Lower is better' },
+        { lbl: 'Conversion', val: a.conversionRate + '%', delta: -1.3, down: true, foot: 'Trial to paid' }
+      ];
+      document.getElementById('kpi-grid').innerHTML = kpis.map(function (k) {
+        var cls = k.down ? 'down' : 'up', ic = k.down ? NS.ICONS.arrowDown : NS.ICONS.arrowUp;
+        var dCls = (k.delta < 0 && !k.down) || (k.down && k.delta > 0) ? 'c-danger' : 'c-success';
+        // churned: lower is better
+        var good = k.down ? k.delta < 0 : k.delta > 0;
+        var dColor = good ? 'c-success' : 'c-danger';
+        return '<div class="stat"><div class="lbl">' + k.lbl + '</div><div class="val">' + k.val + '</div><div class="sub ' + dColor + '">' + ic + ' ' + Math.abs(k.delta).toFixed(1) + '% vs last period</div><div class="foot">' + esc(k.foot) + '</div></div>';
+      }).join('');
+
+      NSCharts.drawLineChart(document.getElementById('mrr-chart'), { labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], current: a.mrrTrend, previous: a.mrrTrend.map(function(v){return Math.round(v*0.88)}) });
+      NSCharts.drawBarChart(document.getElementById('new-chart'), { labels: ['W1','W2','W3','W4','W5','W6','W7','W8'], current: a.newCustomersTrend, previous: a.newCustomersTrend.map(function(v){return Math.round(v*0.85)}) });
+      NSCharts.drawBarChart(document.getElementById('churn-chart'), { labels: ['W1','W2','W3','W4','W5','W6','W7','W8'], current: a.churnTrend });
+      NSCharts.drawBarChart(document.getElementById('traffic-chart'), { labels: a.traffic.labels, current: a.traffic.visitors, previous: a.traffic.signups });
+      NSCharts.drawBarChart(document.getElementById('engage-chart'), { labels: a.engagement.labels, current: a.engagement.dau, previous: a.engagement.mau });
+
+      NSCharts.drawDonut(document.getElementById('sources-donut'), a.sources);
+      document.getElementById('sources-legend').innerHTML = a.sources.map(function (s) {
+        return '<li><span class="sw" style="background:' + s.color + '"></span><span class="nm">' + esc(s.name) + '</span><span class="ct">' + s.value + '%</span></li>';
+      }).join('');
+
+      var s = a.sessions;
+      var rows = [
+        ['Average session duration', s.avgDuration, '+4.2%', '30d'],
+        ['Average pages per session', s.avgPages, '+0.3', '30d'],
+        ['Bounce rate', s.bounceRate + '%', '-2.1%', '30d'],
+        ['Daily active users', NS.fmt(s.dau), '+8.4%', '30d'],
+        ['Monthly active users', NS.fmt(12482), '+8.1%', '30d'],
+        ['Sessions per user', '12.4', '+1.1', '30d'],
+        ['New visitor rate', '24.8%', '+1.6%', '30d'],
+        ['Returning visitor rate', '75.2%', '-1.6%', '30d']
+      ];
+      document.getElementById('session-rows').innerHTML = rows.map(function (r) {
+        return '<tr><td>' + r[0] + '</td><td class="mono font-semibold">' + r[1] + '</td><td class="c-success">' + r[2] + '</td><td class="muted">' + r[3] + '</td></tr>';
+      }).join('');
+
+      window.addEventListener('ns:theme', redraw);
+      var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(redraw, 150); });
+      function redraw() {
+        NSCharts.drawLineChart(document.getElementById('mrr-chart'), { labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], current: a.mrrTrend, previous: a.mrrTrend.map(function(v){return Math.round(v*0.88)}) });
+        NSCharts.drawBarChart(document.getElementById('new-chart'), { labels: ['W1','W2','W3','W4','W5','W6','W7','W8'], current: a.newCustomersTrend, previous: a.newCustomersTrend.map(function(v){return Math.round(v*0.85)}) });
+        NSCharts.drawBarChart(document.getElementById('churn-chart'), { labels: ['W1','W2','W3','W4','W5','W6','W7','W8'], current: a.churnTrend });
+        NSCharts.drawBarChart(document.getElementById('traffic-chart'), { labels: a.traffic.labels, current: a.traffic.visitors, previous: a.traffic.signups });
+        NSCharts.drawBarChart(document.getElementById('engage-chart'), { labels: a.engagement.labels, current: a.engagement.dau, previous: a.engagement.mau });
+        NSCharts.drawDonut(document.getElementById('sources-donut'), a.sources);
+      }
+    });
+  })();
+  </script>
+  
+</body>
+</html>

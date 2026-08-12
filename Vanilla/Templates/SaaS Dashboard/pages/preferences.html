@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification preferences — Northstar | DevSnips</title>
+  <meta name="description" content="Configure email, in-app, and mobile notifications by category.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="preferences">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="preferences">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Notification preferences</h1>
+          <p class="sub">Choose how and when you want to be notified.</p>
+        </div>
+        <div class="page-actions"><button class="btn btn-primary" id="save-prefs"><span class="btn-text">Save changes</span></button></div>
+      </div>
+
+      <div class="settings-layout">
+        <nav class="settings-nav" data-settings-nav></nav>
+        <div>
+          <section class="panel">
+            <div class="panel-head"><div class="titles"><h2>Delivery channels</h2><p class="desc">Where notifications are sent</p></div></div>
+            <div class="panel-body">
+              <label class="switch mb-16"><input type="checkbox" checked><span class="track"></span><span class="lbl">Email <span class="sub">alex@northstar.io</span></span></label><br>
+              <label class="switch mb-16"><input type="checkbox" checked><span class="track"></span><span class="lbl">In-app <span class="sub">Show in the notification center</span></span></label><br>
+              <label class="switch mb-16"><input type="checkbox"><span class="track"></span><span class="lbl">Push notifications <span class="sub">Requires the mobile app</span></span></label><br>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="lbl">Weekly digest <span class="sub">A summary every Monday morning</span></span></label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><div class="titles"><h2>By category</h2><p class="desc">Fine-tune which events trigger notifications</p></div></div>
+            <div class="data-table-wrap">
+              <table class="data">
+                <thead><tr><th class="nosort">Category</th><th class="nosort" style="text-align:center">Email</th><th class="nosort" style="text-align:center">In-app</th><th class="nosort" style="text-align:center">Push</th></tr></thead>
+                <tbody id="pref-rows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel mb-0">
+            <div class="panel-head"><div class="titles"><h2>Do not disturb</h2><p class="desc">Pause notifications during specific hours</p></div></div>
+            <div class="panel-body">
+              <label class="switch mb-16"><input type="checkbox" checked><span class="track"></span><span class="lbl">Enable do not disturb <span class="sub">Silence notifications outside working hours</span></span></label>
+              <div class="form-row">
+                <div class="field"><label class="field-label">From</label><input class="input" type="time" value="18:00"></div>
+                <div class="field"><label class="field-label">To</label><input class="input" type="time" value="08:00"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Communication',href:'notifications.html'},{label:'Preferences'}]);
+      var prefs = [
+        { cat: 'Billing', desc: 'Payments, invoices, failed charges', email: true, inApp: true, push: false },
+        { cat: 'Customers', desc: 'New signups, trials, cancellations', email: true, inApp: true, push: true },
+        { cat: 'Team', desc: 'Invitations, role changes', email: true, inApp: true, push: false },
+        { cat: 'Security', desc: 'New sign-ins, password changes', email: true, inApp: true, push: true },
+        { cat: 'Reports', desc: 'Scheduled reports ready', email: false, inApp: true, push: false },
+        { cat: 'Integrations', desc: 'Connections, errors', email: true, inApp: true, push: false }
+      ];
+      document.getElementById('pref-rows').innerHTML = prefs.map(function (p, i) {
+        function sw(col, val) { return '<td style="text-align:center"><label class="switch sm"><input type="checkbox" data-cat="' + i + '" data-col="' + col + '"' + (val ? ' checked' : '') + '><span class="track"></span></label></td>'; }
+        return '<tr><td><div class="nm" style="font-weight:600">' + p.cat + '</div><div class="text-muted text-sm">' + p.desc + '</div></td>' + sw('email', p.email) + sw('inApp', p.inApp) + sw('push', p.push) + '</tr>';
+      }).join('');
+      document.getElementById('save-prefs').addEventListener('click', function () { NS.toast('Preferences saved', 'success'); });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

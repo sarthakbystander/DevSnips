@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webhooks — Northstar | DevSnips</title>
+  <meta name="description" content="Webhook endpoints, event types, delivery status, retry, and endpoint details. Frontend only.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="webhooks">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="webhooks">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Webhooks</h1>
+          <p class="sub">Receive real-time event notifications at your endpoints.</p>
+        </div>
+        <div class="page-actions"><button class="btn btn-primary" id="new-hook"><span class="btn-text">Add endpoint</span></button></div>
+      </div>
+
+      <div class="settings-layout">
+        <nav class="settings-nav" data-settings-nav></nav>
+        <div>
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>Endpoints</h2><p class="desc">URLs that receive webhook deliveries</p></div></div>
+            <div class="data-table-wrap">
+              <table class="data">
+                <thead><tr><th class="nosort">Endpoint URL</th><th class="nosort">Events</th><th class="nosort">Status</th><th class="nosort hide-sm">Last delivery</th><th class="nosort hide-sm">Last status</th><th class="nosort" style="text-align:right">Actions</th></tr></thead>
+                <tbody id="hook-rows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel mb-0">
+            <div class="panel-head"><div class="titles"><h2>Available events</h2><p class="desc">Events you can subscribe to</p></div></div>
+            <div class="panel-body">
+              <div class="check-list">
+                <li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">customer.created</span><span class="d">A new customer is created</span></span></li>
+                <li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">customer.updated</span><span class="d">A customer's details change</span></span></li>
+                <li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">invoice.paid</span><span class="d">An invoice is successfully paid</span></span></li>
+                <li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">invoice.failed</span><span class="d">A payment attempt fails</span></span></li>
+                <li><input type="checkbox" class="cb"> <span class="txt"><span class="t mono">subscription.updated</span><span class="d">A subscription is upgraded or downgraded</span></span></li>
+                <li><input type="checkbox" class="cb"> <span class="txt"><span class="t mono">subscription.cancelled</span><span class="d">A subscription is cancelled</span></span></li>
+                <li><input type="checkbox" class="cb"> <span class="txt"><span class="t mono">team.member.invited</span><span class="d">A team member is invited</span></span></li>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Settings',href:'settings.html'},{label:'Webhooks'}]);
+      function render() {
+        document.getElementById('hook-rows').innerHTML = DB.webhooks.map(function (w) {
+          return '<tr><td><div class="flex items-center gap-8"><span class="ic" style="display:grid;place-items:center;width:32px;height:32px;border-radius:var(--ds-r-sm);background:var(--ds-accent-soft);color:var(--ds-accent)">' + ICONS.webhooks + '</span><span class="mono ellipsis" style="max-width:260px">' + esc(w.url) + '</span></div></td><td><div class="flex gap-4 flex-wrap">' + w.events.map(function (e) { return '<span class="tag mono" style="font-size:10px">' + esc(e) + '</span>'; }).join('') + '</div></td><td>' + pill(w.status) + '</td><td class="muted hide-sm">' + esc(w.lastDelivery) + '</td><td class="hide-sm">' + pill(w.lastStatus) + '</td><td class="row-acts"><button class="row-act" data-action="details" data-id="' + w.id + '" aria-label="Details">' + ICONS.eye + '</button><button class="row-act" data-action="retry" data-id="' + w.id + '" aria-label="Retry">' + ICONS.refresh + '</button><button class="row-act" data-confirm="Delete this webhook endpoint?" data-confirm-title="Delete endpoint?" data-danger="true" data-confirm-label="Delete" data-id="' + w.id + '" aria-label="Delete">' + ICONS.trash + '</button></td></tr>';
+        }).join('');
+      }
+      render();
+      document.getElementById('hook-rows').addEventListener('click', function (e) {
+        var v = e.target.closest('[data-action="details"]'); if (v) {
+          var w = DB.webhooks.find(function (x) { return x.id === v.dataset.id; });
+          NS.drawer({
+            title: 'Endpoint details',
+            body: '<div class="field"><label class="field-label">URL</label><div class="input-with-btn"><input class="input mono" value="' + esc(w.url) + '" readonly><button class="btn" data-copy="' + esc(w.url) + '">Copy</button></div></div>' +
+              '<div class="field"><label class="field-label">Status</label><div>' + pill(w.status) + '</div></div>' +
+              '<div class="field"><label class="field-label">Subscribed events</label><div class="flex gap-8 flex-wrap">' + w.events.map(function (e) { return '<span class="tag mono">' + esc(e) + '</span>'; }).join('') + '</div></div>' +
+              '<div class="field"><label class="field-label">Signing secret</label><div class="input-with-btn"><input class="input mono" value="whsec_••••••••••••••" readonly><button class="btn" data-toast="Secret revealed">Reveal</button></div></div>' +
+              '<hr class="divider"><h3 class="font-bold mb-8">Recent deliveries</h3>' +
+              '<ul class="notif-center" style="font-size:12px"><li><span class="ic" style="background:var(--ds-success);width:28px;height:28px">' + ICONS.check + '</span><div class="body"><p class="txt mono">invoice.paid · 200 OK</p><p class="when">' + esc(w.lastDelivery) + '</p></div></li>' +
+              '<li><span class="ic" style="background:var(--ds-warning);width:28px;height:28px">' + ICONS.refresh + '</span><div class="body"><p class="txt mono">customer.created · 500 (retrying)</p><p class="when">5 min ago</p></div></li>' +
+              '<li><span class="ic" style="background:var(--ds-success);width:28px;height:28px">' + ICONS.check + '</span><div class="body"><p class="txt mono">invoice.failed · 200 OK</p><p class="when">1 hour ago</p></div></li></ul>',
+            foot: '<button class="btn" data-drawer-close>Close</button><button class="btn btn-primary" id="send-test">Send test event</button>'
+          });
+          var dc = document.querySelector('.drawer [data-drawer-close]'); if (dc) dc.addEventListener('click', function () { document.querySelector('.drawer .modal-close').click(); });
+          var st = document.getElementById('send-test'); if (st) st.addEventListener('click', function () { document.querySelector('.drawer .modal-close').click(); NS.toast('Test event sent to endpoint', 'success'); });
+          return;
+        }
+        var r = e.target.closest('[data-action="retry"]'); if (r) { NS.toast('Retrying failed deliveries', 'success'); return; }
+        var d = e.target.closest('[data-danger="true"]'); if (d) {
+          NS.confirm({ title: 'Delete endpoint?', message: 'This webhook endpoint will be deleted and will stop receiving events.', danger: true, confirmLabel: 'Delete', onConfirm: function () {
+            DB.webhooks = DB.webhooks.filter(function (w) { return w.id !== d.dataset.id; }); render(); NS.toast('Endpoint deleted', 'success');
+          }});
+        }
+      });
+      document.getElementById('new-hook').addEventListener('click', function () {
+        NS.modal({
+          title: 'Add webhook endpoint', sub: 'Receive events at a new URL',
+          body: '<div class="field"><label class="field-label">Endpoint URL <span class="req">*</span></label><input class="input" placeholder="https://example.com/hooks/northstar"></div>' +
+            '<div class="field"><label class="field-label">Description</label><input class="input" placeholder="What is this endpoint for?"></div>' +
+            '<div class="field"><label class="field-label">Events to subscribe</label><ul class="check-list">' +
+            '<li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">customer.created</span></span></li>' +
+            '<li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t mono">invoice.paid</span></span></li>' +
+            '<li><input type="checkbox" class="cb"> <span class="txt"><span class="t mono">invoice.failed</span></span></li>' +
+            '<li><input type="checkbox" class="cb"> <span class="txt"><span class="t mono">subscription.updated</span></span></li>' +
+            '</ul></div>' +
+            '<div class="usage-note"><strong>Signing secret.</strong> A secret will be generated to verify deliveries. You can rotate it anytime.</div>',
+          foot: '<button class="btn" data-cancel-modal>Cancel</button><button class="btn btn-primary" id="add-hook">Add endpoint</button>',
+          onOpen: function (bd, close) { bd.querySelector('[data-cancel-modal]').addEventListener('click', close); bd.querySelector('#add-hook').addEventListener('click', function () { close(); NS.toast('Endpoint added — signing secret generated', 'success'); }); }
+        });
+      });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

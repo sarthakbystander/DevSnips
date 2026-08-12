@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions — Northstar | DevSnips</title>
+  <meta name="description" content="Transaction log with ID, customer, amount, date, payment method, and status.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="transactions">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="transactions">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Transactions</h1>
+          <p class="sub">Every charge, refund, and failed payment across your account.</p>
+        </div>
+        <div class="page-actions"><button class="btn" data-toast="Exporting transactions…"><span class="btn-text">Export</span></button></div>
+      </div>
+
+      <section class="stat-grid mb-16" id="tx-stats"></section>
+
+      <section class="panel mb-0">
+        <div class="table-head">
+          <div class="table-tools">
+            <div class="table-filter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="search" id="tx-filter" placeholder="Search by transaction, customer…">
+            </div>
+            <select class="select" id="tx-status" aria-label="Filter by status"><option value="">All statuses</option><option>paid</option><option>pending</option><option>failed</option><option>refunded</option></select>
+          </div>
+          <select class="select" id="tx-range" aria-label="Date range"><option>All time</option><option>Today</option><option>Last 7 days</option><option>Last 30 days</option></select>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th class="nosort">Transaction ID</th><th class="nosort">Customer</th><th class="nosort hide-sm">Invoice</th><th class="nosort hide-sm">Method</th><th class="nosort">Date</th><th class="nosort" style="text-align:right">Amount</th><th class="nosort">Status</th><th class="nosort" style="text-align:right">Actions</th></tr></thead>
+            <tbody id="tx-rows"></tbody>
+          </table>
+        </div>
+        <div class="table-foot"><span class="page-info" id="pagination"></span></div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, money = NS.money, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Revenue',href:'billing.html'},{label:'Transactions'}]);
+      var paid = DB.transactions.filter(function (t) { return t.status === 'paid'; });
+      var failed = DB.transactions.filter(function (t) { return t.status === 'failed'; });
+      var refunded = DB.transactions.filter(function (t) { return t.status === 'refunded'; });
+      document.getElementById('tx-stats').innerHTML = [
+        { lbl: 'Gross volume', val: NS.money(DB.transactions.reduce(function (s,t){return s+t.amount;},0)) },
+        { lbl: 'Successful', val: NS.money(paid.reduce(function(s,t){return s+t.amount;},0)) + ' / ' + paid.length },
+        { lbl: 'Failed', val: failed.length + ' transactions' },
+        { lbl: 'Refunded', val: NS.money(refunded.reduce(function(s,t){return s+t.amount;},0)) + ' / ' + refunded.length }
+      ].map(function (s) { return '<div class="stat"><div class="lbl">' + s.lbl + '</div><div class="val">' + s.val + '</div></div>'; }).join('');
+
+      var state = { page: 1, perPage: 8, filter: '', status: '' };
+      function filtered() {
+        var f = state.filter.toLowerCase();
+        return DB.transactions.filter(function (t) {
+          return (!f || t.id.toLowerCase().indexOf(f) > -1 || t.customerName.toLowerCase().indexOf(f) > -1 || t.invoice.toLowerCase().indexOf(f) > -1) &&
+                 (!state.status || t.status === state.status);
+        });
+      }
+      function render() {
+        var rows = filtered();
+        var page = rows.slice((state.page - 1) * state.perPage, state.page * state.perPage);
+        document.getElementById('tx-rows').innerHTML = page.map(function (t) {
+          return '<tr><td class="mono">' + esc(t.id) + '</td><td><div class="cust"><span class="pic sm" style="background:var(--ds-accent)">' + esc(t.customerName.slice(0,2)) + '</span><div class="meta"><div class="nm"><a href="customer-details.html?id=' + t.customer + '">' + esc(t.customerName) + '</a></div></div></div></td><td class="mono hide-sm">' + esc(t.invoice) + '</td><td class="muted hide-sm">' + esc(t.method) + '</td><td class="muted">' + esc(t.date) + '</td><td class="amount mono">' + money(t.amount) + '</td><td>' + pill(t.status) + '</td><td class="row-acts"><button class="row-act" data-action="view" data-id="' + t.id + '" aria-label="View">' + ICONS.eye + '</button><button class="row-act" data-action="download" data-id="' + t.id + '" aria-label="Receipt">' + ICONS.download + '</button></td></tr>';
+        }).join('') || '<tr><td colspan="8" class="empty-row">No transactions match your filters.</td></tr>';
+        NS.renderPagination(document.getElementById('pagination'), state, rows.length, render);
+      }
+      render();
+      document.getElementById('tx-filter').addEventListener('input', function () { state.filter = this.value; state.page = 1; render(); });
+      document.getElementById('tx-status').addEventListener('change', function () { state.status = this.value; state.page = 1; render(); });
+      document.getElementById('tx-rows').addEventListener('click', function (e) {
+        var v = e.target.closest('[data-action="view"]'); if (v) {
+          var t = DB.transactions.find(function (x) { return x.id === v.dataset.id; });
+          NS.drawer({
+            title: 'Transaction details',
+            body: '<dl class="dl-grid"><div><dt>Transaction ID</dt><dd class="mono">' + esc(t.id) + '</dd></div><div><dt>Invoice</dt><dd class="mono">' + esc(t.invoice) + '</dd></div><div><dt>Customer</dt><dd>' + esc(t.customerName) + '</dd></div><div><dt>Amount</dt><dd class="mono">' + money(t.amount) + '</dd></div><div><dt>Method</dt><dd>' + esc(t.method) + '</dd></div><div><dt>Status</dt><dd>' + pill(t.status) + '</dd></div><div><dt>Date</dt><dd>' + esc(t.date) + '</dd></div><div><dt>Plan</dt><dd>' + esc(t.plan) + '</dd></div></dl><hr class="divider"><h3 class="font-bold mb-8">Timeline</h3><ul class="timeline-icon"><li><span class="ic" style="background:var(--ds-success)">' + ICONS.check + '</span><div class="body"><p class="ev">Charge captured</p><p class="meta">' + esc(t.date) + '</p></div></li><li><span class="ic" style="background:var(--ds-info)">' + ICONS.card + '</span><div class="body"><p class="ev">Payment submitted via ' + esc(t.method) + '</p><p class="meta">' + esc(t.date) + '</p></div></li></ul>',
+            foot: '<button class="btn" data-drawer-close>Close</button>' + (t.status === 'failed' ? '<button class="btn btn-primary" id="retry-charge">Retry charge</button>' : '')
+          });
+          var dc = document.querySelector('[data-drawer-close]'); if (dc) dc.addEventListener('click', function () { document.querySelector('.drawer .modal-close').click(); });
+          var rc = document.getElementById('retry-charge'); if (rc) rc.addEventListener('click', function () { NS.toast('Charge retried — payment successful', 'success'); });
+          return;
+        }
+        var d = e.target.closest('[data-action="download"]'); if (d) NS.toast('Downloading receipt for ' + d.dataset.id, 'success');
+      });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

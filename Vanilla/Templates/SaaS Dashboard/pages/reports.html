@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports — Northstar | DevSnips</title>
+  <meta name="description" content="Generate, schedule, and export SaaS reports in CSV, PDF, and Excel formats.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="reports">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="reports">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Reports</h1>
+          <p class="sub">Generate, schedule, and export reports across your workspace.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn" data-toast="All scheduled reports refreshed"><span class="btn-text">Refresh</span></button>
+          <button class="btn btn-primary" id="new-report"><span class="btn-text">New report</span></button>
+        </div>
+      </div>
+
+      <div data-tabs class="panel mb-0">
+        <div class="tabs" role="tablist">
+          <button role="tab" data-tab="all" aria-selected="true">All reports</button>
+          <button role="tab" data-tab="scheduled" aria-selected="false">Scheduled <span class="tab-count">5</span></button>
+          <button role="tab" data-tab="recent" aria-selected="false">Recently generated</button>
+        </div>
+        <div class="panel-body flush">
+          <!-- filters -->
+          <div class="table-head">
+            <div class="table-tools">
+              <div class="table-filter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="search" id="rep-filter" placeholder="Search reports…">
+              </div>
+              <select class="select" id="rep-cat" aria-label="Filter by category"><option value="">All categories</option><option>Financial</option><option>Growth</option><option>Workspace</option><option>Developer</option></select>
+              <select class="select" id="rep-format" aria-label="Filter by format"><option value="">All formats</option><option>CSV</option><option>PDF</option><option>Excel</option></select>
+            </div>
+            <select class="select" id="rep-range" aria-label="Date range"><option>Last 30 days</option><option>Last 7 days</option><option>Last 90 days</option><option>This year</option></select>
+          </div>
+          <div class="data-table-wrap">
+            <table class="data">
+              <thead><tr><th data-sort="name">Report</th><th class="nosort">Category</th><th class="nosort">Formats</th><th class="nosort">Schedule</th><th class="nosort hide-sm">Last generated</th><th class="nosort">Status</th><th class="nosort" style="text-align:right">Actions</th></tr></thead>
+              <tbody id="rep-rows"></tbody>
+            </table>
+          </div>
+          <div class="table-foot"><span class="page-info" id="rep-pagination"></span></div>
+        </div>
+      </div>
+
+      <section class="panel mt-16">
+        <div class="panel-head"><div class="titles"><h2>Report preview</h2><p class="desc">Revenue summary — last generated today at 09:00</p></div>
+          <div class="actions"><button class="btn btn-sm" data-copy="INV-2043,INV-2042,INV-2041"><span class="btn-text">Copy data</span></button><button class="btn btn-sm" data-toast="Downloading PDF…">PDF</button><button class="btn btn-sm" data-toast="Downloading CSV…">CSV</button><button class="btn btn-sm" data-toast="Downloading Excel…">Excel</button></div>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th class="nosort">Invoice</th><th class="nosort">Customer</th><th class="nosort">Plan</th><th class="nosort" style="text-align:right">Amount</th><th class="nosort">Status</th></tr></thead>
+            <tbody id="preview-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Overview',href:'dashboard.html'},{label:'Reports'}]);
+      var state = { page: 1, perPage: 6, filter: '', cat: '', format: '', sort: 'name', dir: 1 };
+      function fmtBadges(formats) { return formats.map(function (f) { return '<span class="tag">' + f + '</span>'; }).join(' '); }
+      function filtered() {
+        var f = state.filter.toLowerCase();
+        return DB.reports.filter(function (r) {
+          return (!f || r.name.toLowerCase().indexOf(f) > -1 || r.desc.toLowerCase().indexOf(f) > -1) &&
+                 (!state.cat || r.category === state.cat) &&
+                 (!state.format || r.formats.indexOf(state.format) > -1);
+        });
+      }
+      function render() {
+        var rows = filtered();
+        var start = (state.page - 1) * state.perPage;
+        var page = rows.slice(start, start + state.perPage);
+        document.getElementById('rep-rows').innerHTML = page.map(function (r) {
+          return '<tr>' +
+            '<td data-label="Report"><div class="cust"><span class="pic" style="background:var(--ds-accent-soft);color:var(--ds-accent)">' + ICONS.doc + '</span><div class="meta"><div class="nm">' + esc(r.name) + '</div><div class="em">' + esc(r.desc) + '</div></div></div></td>' +
+            '<td data-label="Category">' + esc(r.category) + '</td>' +
+            '<td data-label="Formats"><div class="flex gap-8 flex-wrap">' + fmtBadges(r.formats) + '</div></td>' +
+            '<td data-label="Schedule">' + esc(r.schedule) + '</td>' +
+            '<td data-label="Last generated" class="muted hide-sm">' + esc(r.lastRun) + '</td>' +
+            '<td data-label="Status">' + pill(r.status) + '</td>' +
+            '<td data-label="Actions" class="row-acts"><button class="row-act" data-toast="Generating ' + esc(r.name) + '…" aria-label="Generate">' + ICONS.refresh + '</button><button class="row-act" data-toast="Downloading ' + esc(r.name) + '" aria-label="Download">' + ICONS.download + '</button></td>' +
+            '</tr>';
+        }).join('') || '<tr><td colspan="7" class="empty-row">No reports match your filters.</td></tr>';
+        NS.renderPagination(document.getElementById('rep-pagination'), state, rows.length, render);
+      }
+      render();
+      document.getElementById('rep-filter').addEventListener('input', function () { state.filter = this.value; state.page = 1; render(); });
+      document.getElementById('rep-cat').addEventListener('change', function () { state.cat = this.value; state.page = 1; render(); });
+      document.getElementById('rep-format').addEventListener('change', function () { state.format = this.value; state.page = 1; render(); });
+      document.querySelector('[data-thead],[data-sort="name"]').closest('thead').addEventListener('click', function (e) {
+        var th = e.target.closest('[data-sort]'); if (!th) return;
+        var k = th.dataset.sort;
+        if (state.sort === k) state.dir *= -1; else { state.sort = k; state.dir = 1; }
+        render();
+      });
+
+      // preview
+      document.getElementById('preview-rows').innerHTML = DB.invoices.slice(0, 6).map(function (inv) {
+        return '<tr><td class="mono">' + esc(inv.id) + '</td><td>' + esc(inv.customerName) + '</td><td>' + esc(inv.plan) + '</td><td class="amount mono">' + NS.money(inv.amount) + '</td><td>' + pill(inv.status) + '</td></tr>';
+      }).join('');
+
+      // new report modal
+      document.getElementById('new-report').addEventListener('click', function () {
+        NS.modal({
+          title: 'New report', sub: 'Configure a custom report',
+          body: '<div class="field"><label class="field-label">Report name <span class="req">*</span></label><input class="input" placeholder="e.g. Q3 revenue breakdown"></div>' +
+            '<div class="field"><label class="field-label">Category</label><select class="select"><option>Financial</option><option>Growth</option><option>Workspace</option><option>Developer</option></select></div>' +
+            '<div class="field"><label class="field-label">Date range</label><select class="select"><option>Last 30 days</option><option>Last 7 days</option><option>Last 90 days</option><option>This year</option></select></div>' +
+            '<div class="field"><label class="field-label">Format</label><div class="check-list"><li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t">CSV</span></span></li><li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t">PDF</span></span></li><li><input type="checkbox" class="cb"> <span class="txt"><span class="t">Excel</span></span></li></div></div>' +
+            '<div class="field"><label class="switch"><input type="checkbox" checked><span class="track"></span><span class="lbl">Schedule this report <span class="sub">Generate automatically on a recurring schedule</span></span></label></div>',
+          foot: '<button class="btn" data-cancel-modal>Cancel</button><button class="btn btn-primary" id="create-report-btn">Create report</button>',
+          onOpen: function (bd, close) {
+            bd.querySelector('[data-cancel-modal]').addEventListener('click', close);
+            bd.querySelector('#create-report-btn').addEventListener('click', function () { close(); NS.toast('Report created and queued for generation', 'success'); });
+          }
+        });
+      });
+    });
+  })();
+  </script>
+  
+</body>
+</html>
