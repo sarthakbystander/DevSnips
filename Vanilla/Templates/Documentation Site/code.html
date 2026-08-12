@@ -1,121 +1,96 @@
 <!--
   Snippet Name: DevSnips Documentation Site (modular)
-  Description: A premium, minimal, light-mode-first developer documentation template built on Pico CSS + the shared DevSnips ds-* token system. Hash-routed single-page app covering 15 documentation sections with nested sidebar, sticky scrollspy TOC, Cmd+K search, syntax-highlighted code blocks with copy + tabs, callouts, responsive tables, badges, API reference blocks, prev/next navigation, edit-on-GitHub metadata, and opt-in dark mode. Responsive: sidebar becomes a drawer, TOC becomes a collapsible panel, zero horizontal overflow from 320px to 1920px. Files: code.html (this file) + style.css + script.js.
+  Description: A premium, minimal, light-mode-first developer documentation template built on the shared DevSnips ds-* token system. Hash-routed single-page app covering documentation sections with nested sidebar, sticky scrollspy TOC, Cmd+K search, syntax-highlighted code blocks with copy and tabs, callouts, responsive tables, badges, API reference blocks, prev/next navigation, edit-on-GitHub metadata, and opt-in dark mode. Responsive: sidebar becomes a drawer, TOC becomes a collapsible panel, zero horizontal overflow from 320px to 1920px. Files: code.html (this file) + style.css + script.js.
   Author: DevSnips Contributors
   Usage Example: Open code.html in a browser, or copy this folder into your project and link code.html (which references style.css and script.js relatively). For a self-contained single-file preview of the UI, open preview.html instead.
 -->
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevSnips — Documentation</title>
-  <meta name="description" content="DevSnips documentation — an open-source, framework-free frontend component library. Introduction, installation, components, templates, design tokens, API reference, guides, and contribution guides.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-  <link rel="stylesheet" href="style.css">
-  <!-- no-flash theme: light by default; honor persisted dark preference before paint -->
-  <script>
-    (function(){try{var t=localStorage.getItem('ds-docs-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSnips — Documentation</title>
+    <meta name="description" content="DevSnips documentation — an open-source, framework-free frontend component library. Introduction, installation, components, templates, design tokens, API reference, guides, and contribution guides.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- no-flash theme: light by default; honor persisted dark preference before paint -->
+    <script>
+        (function() {
+            try {
+                var t = localStorage.getItem('ds-docs-theme-premium');
+                if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body class="no-js">
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="app">
-    <!-- Header -->
-    <header class="app-header">
-      <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
-      </button>
-
-      <a class="brand" href="#/home" aria-label="DevSnips home">
-        <img src="assets/logo.svg" alt="" width="24" height="24">
-        <span class="wordmark">
-          <span>DevSnips</span>
-          <small>Documentation</small>
-        </span>
-      </a>
-
-      <div class="header-search">
-        <button id="header-search" type="button" class="search-input" style="text-align:left" aria-label="Search documentation">
-          <span class="search-icon" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ds-text-muted);pointer-events:none">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </span>
-          <span style="color:var(--ds-text-muted)">Search documentation…</span>
-          <span class="kbd">⌘K</span>
-        </button>
-      </div>
-
-      <div class="header-actions">
-        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-        </button>
-        <a class="icon-btn" href="https://github.com/sarthakbystander/DevSnips" target="_blank" rel="noopener" aria-label="GitHub repository">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1a5.07 5.07 0 0 0-.91 3.77 5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
-      </div>
-    </header>
-
-    <!-- Body grid -->
-    <div class="app-body">
-      <!-- Sidebar -->
-      <aside id="sidebar" class="app-sidebar" aria-label="Documentation navigation">
-        <button id="drawer-close" class="icon-btn drawer-close" aria-label="Close navigation">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-        <input id="nav-filter" class="nav-filter" type="search" placeholder="Filter…" aria-label="Filter navigation">
-        <nav id="sidebar-nav" class="sidebar-nav"></nav>
-      </aside>
-
-      <!-- Main content -->
-      <main id="main" class="app-main">
-        <div id="pages-root"></div>
-      </main>
-
-      <!-- Right TOC -->
-      <aside class="app-toc" aria-label="On this page">
-        <div class="toc-head">On this page</div>
-        <ul id="toc-list" class="toc-list"></ul>
-      </aside>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="app">
+        <header class="app-header">
+            <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            </button>
+            <a class="brand" href="#/home" aria-label="DevSnips home">
+                <span class="brand-icon">D</span>
+                <span class="wordmark"><span>DevSnips</span><small>Documentation</small></span>
+            </a>
+            <div class="header-search">
+                <button id="header-search-trigger" type="button" class="search-trigger" aria-label="Search documentation">
+                    <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+                    Search documentation…
+                    <span class="kbd-hint">⌘K</span>
+                </button>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </button>
+                <a class="icon-btn" href="https://github.com/sarthakbystander/DevSnips" target="_blank" rel="noopener" aria-label="GitHub repository">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1a5.07 5.07 0 0 0-.91 3.77 5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+            </div>
+        </header>
+        <div class="app-body">
+            <aside id="sidebar" class="app-sidebar" aria-label="Documentation navigation">
+                <button id="drawer-close" class="icon-btn drawer-close" aria-label="Close navigation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+                <input id="nav-filter" class="nav-filter" type="search" placeholder="Filter pages…" aria-label="Filter navigation">
+                <nav id="sidebar-nav" class="sidebar-nav"></nav>
+            </aside>
+            <main id="main" class="app-main"><div id="pages-root"></div></main>
+            <aside class="app-toc" aria-label="On this page">
+                <div class="toc-head">On this page</div>
+                <ul id="toc-list" class="toc-list"></ul>
+            </aside>
+        </div>
+        <footer class="app-footer">
+            <div class="footer-inner">
+                <div>© 2026 DevSnips · MIT License</div>
+                <nav class="footer-links">
+                    <a href="#/changelog">Changelog</a>
+                    <a href="#/roadmap">Roadmap</a>
+                    <a href="#/contributing">Contributing</a>
+                    <a href="https://github.com/sarthakbystander/DevSnips" target="_blank" rel="noopener">GitHub</a>
+                </nav>
+            </div>
+        </footer>
     </div>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-      <div class="footer-inner">
-        <div>© 2026 DevSnips · MIT License</div>
-        <nav class="footer-links">
-          <a href="#/changelog">Changelog</a>
-          <a href="#/roadmap">Roadmap</a>
-          <a href="#/contributing">Contributing</a>
-          <a href="https://github.com/sarthakbystander/DevSnips" target="_blank" rel="noopener">GitHub</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Search modal -->
-  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search documentation">
-    <div class="search-panel">
-      <div class="search-field">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input id="search-input" type="search" placeholder="Search documentation…" aria-label="Search" autocomplete="off">
-        <span class="esc-hint">ESC</span>
-      </div>
-      <div id="search-results" class="search-results"></div>
-      <div class="search-footer">
-        <span>Use ↑ ↓ to navigate, Enter to open</span>
-        <span><kbd>⌘K</kbd> to search</span>
-      </div>
+    <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search documentation">
+        <div class="search-panel">
+            <div class="search-field">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input id="search-input" type="search" placeholder="Search documentation…" aria-label="Search" autocomplete="off">
+                <span class="esc-hint">ESC</span>
+            </div>
+            <div id="search-results" class="search-results"></div>
+            <div class="search-footer"><span>↑ ↓ to navigate · Enter to open</span><span><kbd>⌘K</kbd> to search</span></div>
+        </div>
     </div>
-  </div>
-
-  <!-- Drawer backdrop -->
-  <div id="drawer-backdrop" class="drawer-backdrop"></div>
-
-  <script src="script.js" defer></script>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <script src="script.js" defer></script>
 </body>
 </html>
