@@ -5,7 +5,7 @@
   "category": "Components",
   "subcategory": "Buttons",
   "tech": ["Tailwind CSS", "HTML"],
-  "variantCount": 7,
+  "variantCount": 6,
   "variants": [
     {
       "name": "Primary",
@@ -42,12 +42,6 @@
       "description": "Buttons for dark backgrounds",
       "styles": ["White", "Blue", "Muted"],
       "path": "dark/"
-    },
-    {
-      "name": "Sizes",
-      "description": "All button sizes",
-      "sizes": ["Small", "Default", "Large"],
-      "path": "sizes/"
     }
   ],
   "tags": ["button", "outline", "bordered"],

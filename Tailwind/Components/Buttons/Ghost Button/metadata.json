@@ -5,12 +5,12 @@
   "category": "Components",
   "subcategory": "Buttons",
   "tech": ["Tailwind CSS", "HTML"],
-  "variantCount": 5,
+  "variantCount": 4,
   "variants": [
     {
       "name": "Primary",
       "description": "Transparent buttons with blue hover effect",
-      "styles": ["Default", "Disabled", "Solid"],
+      "styles": ["Default", "Disabled", "With Icon"],
       "path": "primary/"
     },
     {
@@ -24,12 +24,6 @@
       "description": "Buttons designed for dark backgrounds",
       "styles": ["White", "Gray", "Blue"],
       "path": "dark/"
-    },
-    {
-      "name": "Sizes",
-      "description": "All button sizes",
-      "sizes": ["Small", "Default", "Large"],
-      "path": "sizes/"
     },
     {
       "name": "Icon",

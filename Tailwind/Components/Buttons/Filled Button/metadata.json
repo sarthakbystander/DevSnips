@@ -5,14 +5,8 @@
   "category": "Components",
   "subcategory": "Buttons",
   "tech": ["Tailwind CSS", "HTML"],
-  "variantCount": 6,
+  "variantCount": 4,
   "variants": [
-    {
-      "name": "Primary",
-      "description": "Solid color filled buttons",
-      "styles": ["Blue", "Indigo", "Violet"],
-      "path": "primary/"
-    },
     {
       "name": "Soft",
       "description": "Soft pastel background buttons",
@@ -36,12 +30,6 @@
       "description": "Buttons for dark themed interfaces",
       "styles": ["White", "Dark Solid", "Blue"],
       "path": "dark/"
-    },
-    {
-      "name": "Sizes",
-      "description": "All button sizes",
-      "sizes": ["Small", "Default", "Large"],
-      "path": "sizes/"
     }
   ],
   "tags": ["button", "filled", "solid", "soft"],
