@@ -78,7 +78,7 @@ def error_page(style, i):
                 '<p class="f-disp text-7xl sm:text-9xl font-bold" style="text-shadow:0 0 40px %s">404</p>'
                 '<h1 class="mt-4 f-disp text-2xl font-bold">Lost in space</h1>'
                 '<p class="mt-2 text-sm %s max-w-md mx-auto">Houston, we cannot find the page you requested.</p>%s</div></div>') % (
-            '<div class="absolute inset-0" style="background-image:radial-gradient(2px 2px at 20%% 30%%, #fff, transparent),radial-gradient(1px 1px at 60%% 70%%, #fff, transparent),radial-gradient(1px 1px at 80%% 20%%, #fff, transparent),radial-gradient(2px 2px at 40%% 80%%, #fff, transparent);opacity:0.5"></div>',
+            '<div class="absolute inset-0" style="background-image:radial-gradient(2px 2px at 20% 30%, #fff, transparent),radial-gradient(1px 1px at 60% 70%, #fff, transparent),radial-gradient(1px 1px at 80% 20%, #fff, transparent),radial-gradient(2px 2px at 40% 80%, #fff, transparent);opacity:0.5"></div>',
             '<span class="flex h-16 w-16 items-center justify-center rounded-full %s">%s</span>' % (b["surface_soft"], ic("satellite", "h-8 w-8")),
             b["accent"], b["text_muted"], actions())
         feat = ["space theme 404", "starfield bg", "satellite icon", "glowing numeral", "dual CTA"]

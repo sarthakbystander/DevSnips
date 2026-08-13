@@ -4,9 +4,9 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 110,
-    "totalVariants": 856,
+    "totalVariants": 852,
     "totalSubVariants": 0,
-    "totalStyles": 2020,
+    "totalStyles": 2014,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -577,7 +577,7 @@
       "tech": "Tailwind CSS",
       "category": "Components",
       "description": "Complete button component family with 15 production-ready variants covering every use case from basic to 3D effects",
-      "variantsCount": 58,
+      "variantsCount": 54,
       "variants": [
         {
           "name": "Animated Arrow Button",
@@ -601,28 +601,6 @@
           ]
         },
         {
-          "name": "Icon Button Basic",
-          "path": "Tailwind/Components/Buttons/Icon Button/basic/",
-          "description": "Basic icon button styles with various colors",
-          "tags": [
-            "button",
-            "icon",
-            "icon-only",
-            "toolbar"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Danger",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "3D Button Basic",
           "path": "Tailwind/Components/Buttons/3D Button/basic/",
           "description": "3D push button effects with depth",
@@ -637,6 +615,28 @@
             "Blue",
             "Gray",
             "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Basic",
+          "path": "Tailwind/Components/Buttons/Icon Button/basic/",
+          "description": "Basic icon button styles with various colors",
+          "tags": [
+            "button",
+            "icon",
+            "icon-only",
+            "toolbar"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Danger",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -709,6 +709,31 @@
           ]
         },
         {
+          "name": "Ghost Colors Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
+          "description": "Ghost buttons available in multiple colors for different actions",
+          "tags": [
+            "button",
+            "ghost",
+            "colors",
+            "red",
+            "green",
+            "purple"
+          ],
+          "styles": [
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Pink"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Outline Colors Button",
           "path": "Tailwind/Components/Buttons/Outline Button/colors/",
           "description": "Outline buttons available in multiple colors",
@@ -734,23 +759,19 @@
           ]
         },
         {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "description": "Ghost buttons available in multiple colors for different actions",
+          "name": "Dark Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
+          "description": "Dark background buttons for dark themed interfaces",
           "tags": [
             "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
+            "filled",
+            "dark",
+            "dark mode"
           ],
           "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
+            "White",
+            "Dark Solid",
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -781,27 +802,6 @@
           ]
         },
         {
-          "name": "Outline on Dark Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/dark/",
-          "description": "Outline buttons designed for dark backgrounds",
-          "tags": [
-            "button",
-            "outline",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Blue",
-            "Muted"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Ghost Dark Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
           "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
@@ -823,6 +823,27 @@
           ]
         },
         {
+          "name": "Outline on Dark Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/dark/",
+          "description": "Outline buttons designed for dark backgrounds",
+          "tags": [
+            "button",
+            "outline",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Blue",
+            "Muted"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Glass Dark Button",
           "path": "Tailwind/Components/Buttons/Glass Button/dark/",
           "description": "Dark glass morphism buttons for dark interfaces",
@@ -836,27 +857,6 @@
             "Default",
             "Disabled",
             "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "description": "Dark background buttons for dark themed interfaces",
-          "tags": [
-            "button",
-            "filled",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
           ],
           "files": [
             "code.html",
@@ -1082,26 +1082,6 @@
           ]
         },
         {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Animated Icon Button",
           "path": "Tailwind/Components/Buttons/Animated Button/icon/",
           "description": "Icon animations on hover for interactive effects",
@@ -1137,6 +1117,26 @@
             "Upload",
             "Add",
             "Delete"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
+          "description": "Split buttons with icon and dropdown",
+          "tags": [
+            "button",
+            "split",
+            "dropdown",
+            "icon"
+          ],
+          "styles": [
+            "Primary",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1272,27 +1272,6 @@
           ]
         },
         {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "description": "Fully rounded gradient buttons with pill shape for modern UI",
@@ -1315,6 +1294,27 @@
           ]
         },
         {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Neumorphism Pressed Button",
           "path": "Tailwind/Components/Buttons/Neumorphism Button/pressed/",
           "description": "Pressed state neumorphism buttons with inset shadows",
@@ -1328,6 +1328,27 @@
             "Default",
             "Pill",
             "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1377,27 +1398,6 @@
           ]
         },
         {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "description": "Transparent buttons with blue hover background effect",
-          "tags": [
-            "button",
-            "ghost",
-            "transparent",
-            "hover"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Primary Button",
           "path": "Tailwind/Components/Buttons/Glass Button/primary/",
           "description": "Color glass morphism buttons with colored backgrounds",
@@ -1411,27 +1411,6 @@
             "Blue",
             "Purple",
             "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Filled Primary Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/primary/",
-          "description": "Solid color filled buttons with primary colors",
-          "tags": [
-            "button",
-            "filled",
-            "solid",
-            "primary"
-          ],
-          "styles": [
-            "Blue",
-            "Indigo",
-            "Violet"
           ],
           "files": [
             "code.html",
@@ -1462,28 +1441,6 @@
           ]
         },
         {
-          "name": "Icon Button Rounded",
-          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
-          "description": "Fully rounded icon button styles",
-          "tags": [
-            "button",
-            "icon",
-            "rounded",
-            "circle"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Gradient",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Rounded Full Button",
           "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
           "description": "Fully rounded pill-shaped filled buttons",
@@ -1498,6 +1455,28 @@
             "Blue Pill",
             "Dark Pill",
             "Gradient Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Rounded",
+          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
+          "description": "Fully rounded icon button styles",
+          "tags": [
+            "button",
+            "icon",
+            "rounded",
+            "circle"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Gradient",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1611,49 +1590,23 @@
           ]
         },
         {
-          "name": "Outline Button Sizes",
-          "path": "Tailwind/Components/Buttons/Outline Button/sizes/",
-          "description": "Outline button sizes from small to large",
-          "tags": [
-            "button",
-            "outline",
-            "sizes",
-            "small",
-            "large"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Button Sizes",
-          "path": "Tailwind/Components/Buttons/Ghost Button/sizes/",
-          "description": "Ghost button sizes from small to large",
-          "tags": [
-            "button",
-            "ghost",
-            "sizes",
-            "small",
-            "large"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Filled Button Sizes",
-          "path": "Tailwind/Components/Buttons/Filled Button/sizes/",
-          "description": "Filled button sizes from small to large",
+          "name": "Soft Background Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
+          "description": "Soft background buttons with pastel colors for subtle actions",
           "tags": [
             "button",
             "filled",
-            "sizes",
-            "small",
-            "large"
+            "soft",
+            "pastel",
+            "subtle"
+          ],
+          "styles": [
+            "Blue",
+            "Green",
+            "Red",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -1697,31 +1650,6 @@
             "Default",
             "Disabled",
             "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Soft Background Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
-          "description": "Soft background buttons with pastel colors for subtle actions",
-          "tags": [
-            "button",
-            "filled",
-            "soft",
-            "pastel",
-            "subtle"
-          ],
-          "styles": [
-            "Blue",
-            "Green",
-            "Red",
-            "Amber",
-            "Purple",
-            "Pink"
           ],
           "files": [
             "code.html",

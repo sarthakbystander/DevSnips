@@ -59,7 +59,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
+<body class="min-h-screen overflow-x-hidden bg-gray-50 text-gray-900 antialiased">
 
   <header class="sticky top-0 z-20 border-b border-gray-200 bg-white/80 backdrop-blur">
     <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
@@ -83,7 +83,7 @@
       <h2 class="text-sm font-semibold text-gray-900">Service health</h2>
       <p class="mt-1 text-xs text-gray-500">Hover a status to see the detail.</p>
       <!-- Component: Status Tooltip -->
-      <div class="mt-5 flex flex-wrap items-center gap-5">
+      <div class="mt-5 flex flex-wrap items-center gap-5 overflow-x-auto">
         <button type="button" class="tt-status group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-full" data-tooltip="All systems operational" data-tooltip-status="success" aria-label="Status: operational" aria-describedby="tt-st-success">
           <span class="status-dot h-2.5 w-2.5 rounded-full bg-green-500 ring-4 ring-green-100"></span>
           <span class="text-sm font-medium text-gray-700">Operational</span>
