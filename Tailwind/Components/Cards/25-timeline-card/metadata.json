@@ -7,7 +7,26 @@
   "description": "Vertical timeline card with connected events, icons, dates, and descriptions.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "timeline", "history", "events", "progress", "milestone"],
-  "related": ["activity-feed-card", "achievement-card", "project-card"],
-  "features": ["vertical timeline", "colored icons", "dates", "descriptions", "connector line"]
+  "tags": [
+    "card",
+    "timeline",
+    "history",
+    "events",
+    "progress",
+    "milestone"
+  ],
+  "related": [
+    "activity-feed-card",
+    "achievement-card",
+    "project-card"
+  ],
+  "features": [
+    "vertical timeline",
+    "colored icons",
+    "dates",
+    "descriptions",
+    "connector line"
+  ],
+  "type": "component",
+  "category": "Components"
 }

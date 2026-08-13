@@ -7,7 +7,27 @@
   "description": "Generic accordion enforcing one-open-at-a-time behavior with an expanding accent bar and a live open-count announcement. For terms, policies, and focused help centers.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["accordion", "single-open", "exclusive", "policy", "help-center", "accessibility"],
-  "related": ["basic-accordion", "faq-accordion", "multi-open-accordion"],
-  "features": ["one-open enforcement", "accent bar reveal", "live open count", "aria-live count", "keyboard support", "focus rings"]
+  "tags": [
+    "accordion",
+    "single-open",
+    "exclusive",
+    "policy",
+    "help-center",
+    "accessibility"
+  ],
+  "related": [
+    "basic-accordion",
+    "faq-accordion",
+    "multi-open-accordion"
+  ],
+  "features": [
+    "one-open enforcement",
+    "accent bar reveal",
+    "live open count",
+    "aria-live count",
+    "keyboard support",
+    "focus rings"
+  ],
+  "type": "component",
+  "category": "Components"
 }

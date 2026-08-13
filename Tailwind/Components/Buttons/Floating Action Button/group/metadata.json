@@ -5,11 +5,31 @@
   "description": "Grouped FABs for multiple actions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "fab", "floating", "action", "group"],
-  "searchTerms": ["fab group", "floating button group", "multiple fab buttons"],
-  "related": ["standard", "extended"],
-  "styles": ["Share", "Bookmark", "Delete"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "fab",
+    "floating",
+    "action",
+    "group"
+  ],
+  "searchTerms": [
+    "fab group",
+    "floating button group",
+    "multiple fab buttons"
+  ],
+  "related": [
+    "standard",
+    "extended"
+  ],
+  "styles": [
+    "Share",
+    "Bookmark",
+    "Delete"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

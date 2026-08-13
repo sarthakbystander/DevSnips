@@ -7,7 +7,26 @@
   "description": "Editorial blog card with featured image, category tag, author info, and social engagement buttons.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "blog", "article", "post", "editorial", "news"],
-  "related": ["product-card", "social-post-card", "event-card"],
-  "features": ["featured image", "category badge", "author avatar", "engagement buttons", "gradient overlay"]
+  "tags": [
+    "card",
+    "blog",
+    "article",
+    "post",
+    "editorial",
+    "news"
+  ],
+  "related": [
+    "product-card",
+    "social-post-card",
+    "event-card"
+  ],
+  "features": [
+    "featured image",
+    "category badge",
+    "author avatar",
+    "engagement buttons",
+    "gradient overlay"
+  ],
+  "type": "component",
+  "category": "Components"
 }

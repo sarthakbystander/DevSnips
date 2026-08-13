@@ -7,7 +7,32 @@
   "description": "Status indicator dot with a color-themed tooltip - success (green), warning (amber), error (red), info (blue). The tooltip background and arrow match the semantic status. Pure CSS, hover or focus to reveal.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tooltip", "status", "indicator", "dot", "success", "warning", "error", "info", "css-only"],
-  "related": ["basic-tooltip", "icon-tooltip", "rich-tooltip"],
-  "features": ["status dot indicators", "4 semantic colors", "themed tooltip + arrow", "data-tooltip-status attribute", "hover + focus triggers", "pure CSS no JS", "aria-label", "role=tooltip companion"]
+  "tags": [
+    "tooltip",
+    "status",
+    "indicator",
+    "dot",
+    "success",
+    "warning",
+    "error",
+    "info",
+    "css-only"
+  ],
+  "related": [
+    "basic-tooltip",
+    "icon-tooltip",
+    "rich-tooltip"
+  ],
+  "features": [
+    "status dot indicators",
+    "4 semantic colors",
+    "themed tooltip + arrow",
+    "data-tooltip-status attribute",
+    "hover + focus triggers",
+    "pure CSS no JS",
+    "aria-label",
+    "role=tooltip companion"
+  ],
+  "type": "component",
+  "category": "Components"
 }

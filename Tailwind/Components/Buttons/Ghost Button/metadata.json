@@ -4,36 +4,66 @@
   "description": "Transparent buttons that reveal background color on hover",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 4,
   "variants": [
     {
       "name": "Primary",
       "description": "Transparent buttons with blue hover effect",
-      "styles": ["Default", "Disabled", "With Icon"],
+      "styles": [
+        "Default",
+        "Disabled",
+        "With Icon"
+      ],
       "path": "primary/"
     },
     {
       "name": "Colors",
       "description": "Multiple color options",
-      "styles": ["Red", "Green", "Amber", "Purple", "Pink"],
+      "styles": [
+        "Red",
+        "Green",
+        "Amber",
+        "Purple",
+        "Pink"
+      ],
       "path": "colors/"
     },
     {
       "name": "Dark",
       "description": "Buttons designed for dark backgrounds",
-      "styles": ["White", "Gray", "Blue"],
+      "styles": [
+        "White",
+        "Gray",
+        "Blue"
+      ],
       "path": "dark/"
     },
     {
       "name": "Icon",
       "description": "Buttons with icons",
-      "styles": ["Upload", "Add", "Delete"],
+      "styles": [
+        "Upload",
+        "Add",
+        "Delete"
+      ],
       "path": "icon/"
     }
   ],
-  "tags": ["button", "ghost", "transparent", "hover"],
-  "searchTerms": ["ghost button", "transparent button", "hover button"],
+  "tags": [
+    "button",
+    "ghost",
+    "transparent",
+    "hover"
+  ],
+  "searchTerms": [
+    "ghost button",
+    "transparent button",
+    "hover button"
+  ],
   "accessibility": {
     "focus": "All buttons include visible focus rings",
     "aria": "Use disabled attribute for disabled state",
@@ -43,5 +73,6 @@
     "Basic Button",
     "Outline Button",
     "Filled Button"
-  ]
+  ],
+  "type": "component"
 }

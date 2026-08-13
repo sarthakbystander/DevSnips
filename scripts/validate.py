@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""Validate the DevSnips repository after the Components+Templates migration.
+"""Validate the DevSnips repository after the three-type Tailwind migration.
+
+Tailwind content is organized into three first-class content types:
+  Components/  (reusable UI building blocks)
+  Sections/    (larger reusable page sections)
+  Templates/   (complete page-level designs)
+Vanilla and React keep the two-type Components/ + Templates/ layout.
 
 Checks:
-  1. Architecture: Vanilla/Tailwind/React each have only Components/ + Templates/.
-  2. No standalone Sections/Utilities/Resources/Snippets content dirs.
-  3. Every component/template folder has a valid metadata.json.
+  1. Architecture: each tech only contains allowed content-type dirs
+     (Tailwind: Components/Sections/Templates; Vanilla/React: Components/Templates).
+  2. No standalone Utilities/Resources/Snippets content dirs.
+  3. Every component/section/template folder has a valid metadata.json.
   4. No orphaned metadata.json (metadata without its expected sibling files).
   5. No duplicate IDs across all metadata.json.
   6. No duplicate variant paths in the index.
   7. Every index variant path exists on disk and has metadata.json.
   8. Every on-disk leaf is present in the index.
   9. No stale Sections/Utilities/Resources path references in the index.
+ 10. Every Tailwind metadata.json carries a `type` (component/section/template).
 """
 import json
 import sys
@@ -44,8 +52,21 @@ def is_leaf(folder, tech):
     if _has_child_meta(folder):
         return False
     if tech == TAILWIND:
+        # Tailwind content folders ship code.html + preview.html (+ metadata).
+        # Tailwind Templates are the exception: they have preview.html +
+        # metadata.json (no code.html) and are indexed as single-variant
+        # families. The Buttons 3-level grouping folders have metadata.json but
+        # no code.html/preview.html, so they are correctly excluded as non-leaves.
         return (folder / "code.html").exists() and (folder / "preview.html").exists()
     return True
+
+
+# Allowed top-level content-type directories per technology.
+ALLOWED_DIRS = {
+    "Tailwind": {"Components", "Sections", "Templates"},
+    "Vanilla": {"Components", "Templates"},
+    "React": {"Components", "Templates"},
+}
 
 
 def check_architecture():
@@ -53,25 +74,36 @@ def check_architecture():
         td = ROOT / tech_dir
         if not td.exists():
             continue
-        allowed = {"Components", "Templates"}
+        allowed = ALLOWED_DIRS.get(tech_dir, {"Components", "Templates"})
         for child in td.iterdir():
             if child.is_dir() and child.name not in allowed:
                 problems.append(
-                    "Architecture: unexpected dir %s/%s/ (only Components/ + Templates/ allowed)"
-                    % (tech_dir, child.name))
-    for forbidden in ("Sections", "Utilities", "Resources", "Snippets", "Pages", "Tools"):
+                    "Architecture: unexpected dir %s/%s/ (allowed: %s)"
+                    % (tech_dir, child.name, ", ".join(sorted(allowed))))
+    # Standalone Sections/ is a first-class Tailwind content type, so it is no
+    # longer forbidden there. It remains forbidden for Vanilla/React (which use
+    # the two-type Components/ + Templates/ layout).
+    for forbidden in ("Utilities", "Resources", "Snippets", "Pages", "Tools"):
         for tech_dir in ("Vanilla", "Tailwind", "React"):
             p = ROOT / tech_dir / forbidden
             if p.exists():
                 problems.append("Architecture: forbidden standalone dir %s" % p)
+    for tech_dir in ("Vanilla", "React"):
+        p = ROOT / tech_dir / "Sections"
+        if p.exists():
+            problems.append(
+                "Architecture: Sections/ is a Tailwind-only content type (%s/Sections/)"
+                % tech_dir)
 
 
 def check_metadata_validity():
     all_ids = {}
     for tech, td in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        comp = ROOT / td / "Components"
-        tmpl = ROOT / td / "Templates"
-        for base in (comp, tmpl):
+        # Tailwind has three content-type buckets; Vanilla has two.
+        buckets = ["Components", "Sections", "Templates"] if tech == TAILWIND \
+            else ["Components", "Templates"]
+        for bucket in buckets:
+            base = ROOT / td / bucket
             if not base.exists():
                 continue
             for mf in base.rglob("metadata.json"):
@@ -80,10 +112,29 @@ def check_metadata_validity():
                 if "__error__" in meta:
                     problems.append("Invalid JSON: %s" % mf)
                     continue
-                if base == comp and tech == TAILWIND and is_leaf(leaf, tech):
+                # Tailwind leaves (components + sections) require code.html +
+                # preview.html. Tailwind templates ship preview.html only.
+                if tech == TAILWIND and bucket in ("Components", "Sections") \
+                        and is_leaf(leaf, tech):
                     for need in ("code.html", "preview.html"):
                         if not (leaf / need).exists():
-                            problems.append("Tailwind component missing %s: %s" % (need, leaf))
+                            problems.append(
+                                "Tailwind %s missing %s: %s" % (bucket.lower(), need, leaf))
+                # Tailwind items must declare a content `type`.
+                if tech == TAILWIND:
+                    mtype = meta.get("type")
+                    if mtype not in ("component", "section", "template"):
+                        problems.append(
+                            "Tailwind metadata missing/invalid `type`: %s" % mf)
+                    elif mtype == "component" and bucket != "Components":
+                        problems.append(
+                            "Tailwind type=component outside Components/: %s" % mf)
+                    elif mtype == "section" and bucket != "Sections":
+                        problems.append(
+                            "Tailwind type=section outside Sections/: %s" % mf)
+                    elif mtype == "template" and bucket != "Templates":
+                        problems.append(
+                            "Tailwind type=template outside Templates/: %s" % mf)
                 mid = meta.get("id") or meta.get("slug")
                 if mid:
                     all_ids.setdefault(mid, []).append(str(mf))
@@ -113,26 +164,39 @@ def check_index_vs_disk():
     dup = {p for p in variant_paths if variant_paths.count(p) > 1}
     for d in dup:
         problems.append("Duplicate index variant path: %s" % d)
+    # Stale path check. `Tailwind/Sections/` is now a first-class content type,
+    # so a /Sections/ segment is valid there. It is only stale under Vanilla
+    # (whose sections were merged into Components/) or anywhere under the
+    # removed Utilities/ and Resources/ collections.
     for fam in idx["families"]:
-        for token in ("/Sections/", "/Utilities/", "/Resources/"):
+        for token in ("/Utilities/", "/Resources/"):
             if token in fam["path"]:
                 problems.append("Stale path in index family: %s" % fam["path"])
+        if "/Sections/" in fam["path"] and not fam["path"].startswith("Tailwind/Sections/"):
+            problems.append("Stale path in index family: %s" % fam["path"])
         for v in fam.get("variants", []):
-            for token in ("/Sections/", "/Utilities/", "/Resources/"):
+            for token in ("/Utilities/", "/Resources/"):
                 if token in v["path"]:
                     problems.append("Stale path in index variant: %s" % v["path"])
+            if "/Sections/" in v["path"] and not v["path"].startswith("Tailwind/Sections/"):
+                problems.append("Stale path in index variant: %s" % v["path"])
     indexed = {v["path"].rstrip("/") for fam in idx["families"]
                for v in fam.get("variants", [])}
     indexed_families = {fam["path"].rstrip("/") for fam in idx["families"]}
     for tech, td in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        comp = ROOT / td / "Components"
-        if comp.exists():
+        # Tailwind components AND sections are both leaf-bearing content trees.
+        content_trees = [ROOT / td / "Components"]
+        if tech == TAILWIND:
+            content_trees.append(ROOT / td / "Sections")
+        for comp in content_trees:
+            if not comp.exists():
+                continue
             for mf in comp.rglob("metadata.json"):
                 leaf = mf.parent
                 if is_leaf(leaf, tech):
                     rel = str(leaf).replace(str(ROOT) + "/", "")
                     if rel not in indexed:
-                        problems.append("On-disk component leaf not indexed: %s" % rel)
+                        problems.append("On-disk content leaf not indexed: %s" % rel)
         tmpl = ROOT / td / "Templates"
         if tmpl.exists():
             for top in tmpl.iterdir():

@@ -5,11 +5,34 @@
   "description": "Frosted glass effect input fields with backdrop blur",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "glass", "glassmorphism", "blur", "frosted"],
-  "searchTerms": ["glassmorphism input", "frosted glass input", "blur input", "backdrop input"],
-  "related": ["gradient-border", "neumorphism", "dark-mode"],
-  "styles": ["Light Background", "Dark Background", "Blur Heavy", "Card Form"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "glass",
+    "glassmorphism",
+    "blur",
+    "frosted"
+  ],
+  "searchTerms": [
+    "glassmorphism input",
+    "frosted glass input",
+    "blur input",
+    "backdrop input"
+  ],
+  "related": [
+    "gradient-border",
+    "neumorphism",
+    "dark-mode"
+  ],
+  "styles": [
+    "Light Background",
+    "Dark Background",
+    "Blur Heavy",
+    "Card Form"
+  ],
   "accessibility": {
     "focus": "Focus ring visible against glass",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

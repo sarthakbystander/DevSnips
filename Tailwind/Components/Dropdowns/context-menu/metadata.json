@@ -7,10 +7,22 @@
   "description": "Right-click context menu with grouped actions, keyboard shortcuts, and screen-edge detection for file management applications.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "menu", "context", "right-click", "file-manager"],
-  "related": ["action-menu", "quick-actions-menu", "sidebar-menu"],
+  "tags": [
+    "dropdown",
+    "menu",
+    "context",
+    "right-click",
+    "file-manager"
+  ],
+  "related": [
+    "action-menu",
+    "quick-actions-menu",
+    "sidebar-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

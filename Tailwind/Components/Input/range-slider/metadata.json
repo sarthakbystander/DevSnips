@@ -5,11 +5,34 @@
   "description": "Range slider components for numeric value selection",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "range", "slider", "volume", "price"],
-  "searchTerms": ["range slider", "slider input", "volume control", "price range"],
-  "related": ["number-stepper", "filled", "outlined"],
-  "styles": ["Standard", "With Labels", "Dual Handle", "With Steps"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "range",
+    "slider",
+    "volume",
+    "price"
+  ],
+  "searchTerms": [
+    "range slider",
+    "slider input",
+    "volume control",
+    "price range"
+  ],
+  "related": [
+    "number-stepper",
+    "filled",
+    "outlined"
+  ],
+  "styles": [
+    "Standard",
+    "With Labels",
+    "Dual Handle",
+    "With Steps"
+  ],
   "accessibility": {
     "focus": "Visible focus state on slider",
     "aria": "Use aria-valuemin, aria-valuemax, aria-valuenow",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,32 @@
   "description": "Arrow slide animations on hover for navigation",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "animated", "arrow", "hover", "navigation"],
-  "searchTerms": ["arrow button", "animated arrow button", "slide arrow button", "navigation button"],
-  "related": ["loading", "icon", "scale"],
-  "styles": ["Slide Right", "Slide Left"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "animated",
+    "arrow",
+    "hover",
+    "navigation"
+  ],
+  "searchTerms": [
+    "arrow button",
+    "animated arrow button",
+    "slide arrow button",
+    "navigation button"
+  ],
+  "related": [
+    "loading",
+    "icon",
+    "scale"
+  ],
+  "styles": [
+    "Slide Right",
+    "Slide Left"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

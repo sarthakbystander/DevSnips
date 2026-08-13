@@ -4,48 +4,83 @@
   "description": "Bordered buttons with transparent backgrounds in solid, thick, and dashed styles",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 6,
   "variants": [
     {
       "name": "Primary",
       "description": "Blue bordered buttons",
-      "styles": ["Default", "Disabled"],
+      "styles": [
+        "Default",
+        "Disabled"
+      ],
       "path": "primary/"
     },
     {
       "name": "Colors",
       "description": "Multiple color options",
-      "styles": ["Red", "Green", "Amber", "Purple", "Dark"],
+      "styles": [
+        "Red",
+        "Green",
+        "Amber",
+        "Purple",
+        "Dark"
+      ],
       "path": "colors/"
     },
     {
       "name": "Thick",
       "description": "Bold thick border styles",
-      "styles": ["Thick Outline", "Invert on Hover", "Offset Border"],
+      "styles": [
+        "Thick Outline",
+        "Invert on Hover",
+        "Offset Border"
+      ],
       "path": "thick/"
     },
     {
       "name": "Dashed",
       "description": "Dashed border variants",
-      "styles": ["Gray", "Blue"],
+      "styles": [
+        "Gray",
+        "Blue"
+      ],
       "path": "dashed/"
     },
     {
       "name": "Pill",
       "description": "Fully rounded pill shapes",
-      "styles": ["Blue", "Pink", "Green"],
+      "styles": [
+        "Blue",
+        "Pink",
+        "Green"
+      ],
       "path": "pill/"
     },
     {
       "name": "Dark",
       "description": "Buttons for dark backgrounds",
-      "styles": ["White", "Blue", "Muted"],
+      "styles": [
+        "White",
+        "Blue",
+        "Muted"
+      ],
       "path": "dark/"
     }
   ],
-  "tags": ["button", "outline", "bordered"],
-  "searchTerms": ["outline button", "bordered button", "outline cta"],
+  "tags": [
+    "button",
+    "outline",
+    "bordered"
+  ],
+  "searchTerms": [
+    "outline button",
+    "bordered button",
+    "outline cta"
+  ],
   "accessibility": {
     "focus": "All buttons include visible focus rings",
     "aria": "Use disabled attribute for disabled state",
@@ -55,5 +90,6 @@
     "Basic Button",
     "Ghost Button",
     "Filled Button"
-  ]
+  ],
+  "type": "component"
 }

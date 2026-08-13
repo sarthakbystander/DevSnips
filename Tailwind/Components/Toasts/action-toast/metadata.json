@@ -7,7 +7,30 @@
   "description": "Toast with an inline action button (Undo). Fires an onAction callback when the action button is clicked, otherwise auto-dismisses after 6 seconds. Ideal for reversible destructive actions like delete.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["toast", "notification", "undo", "action", "destructive", "feedback", "reversible"],
-  "related": ["basic-toast", "status-toasts", "persistent-toast"],
-  "features": ["inline action button", "onAction callback", "6s auto-dismiss", "pause on hover", "close button", "role status", "aria-live polite", "focus-visible ring"]
+  "tags": [
+    "toast",
+    "notification",
+    "undo",
+    "action",
+    "destructive",
+    "feedback",
+    "reversible"
+  ],
+  "related": [
+    "basic-toast",
+    "status-toasts",
+    "persistent-toast"
+  ],
+  "features": [
+    "inline action button",
+    "onAction callback",
+    "6s auto-dismiss",
+    "pause on hover",
+    "close button",
+    "role status",
+    "aria-live polite",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

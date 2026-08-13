@@ -5,11 +5,32 @@
   "description": "Scale animations on hover for interactive feedback",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "animated", "scale", "hover", "transform"],
-  "searchTerms": ["scale button", "hover scale button", "animated scale button"],
-  "related": ["loading", "arrow", "icon"],
-  "styles": ["Scale Up", "Scale Down", "Bounce"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "animated",
+    "scale",
+    "hover",
+    "transform"
+  ],
+  "searchTerms": [
+    "scale button",
+    "hover scale button",
+    "animated scale button"
+  ],
+  "related": [
+    "loading",
+    "arrow",
+    "icon"
+  ],
+  "styles": [
+    "Scale Up",
+    "Scale Down",
+    "Bounce"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

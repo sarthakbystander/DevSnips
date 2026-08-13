@@ -7,7 +7,26 @@
   "description": "Article library table with real-time search functionality. Filters by title, excerpt, author, and category with smooth animations and a no-results empty state.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "search", "searchable", "articles", "blog", "filter"],
-  "related": ["filterable-table", "sortable-table", "basic-table"],
-  "features": ["real-time search", "multi-column filter", "empty state", "article thumbnails", "category badges"]
+  "tags": [
+    "table",
+    "search",
+    "searchable",
+    "articles",
+    "blog",
+    "filter"
+  ],
+  "related": [
+    "filterable-table",
+    "sortable-table",
+    "basic-table"
+  ],
+  "features": [
+    "real-time search",
+    "multi-column filter",
+    "empty state",
+    "article thumbnails",
+    "category badges"
+  ],
+  "type": "component",
+  "category": "Components"
 }

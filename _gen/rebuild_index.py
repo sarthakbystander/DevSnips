@@ -2,20 +2,22 @@
 
 Architecture after migration:
     Vanilla/  -> Components/ + Templates/
-    Tailwind/ -> Components/ + Templates/
+    Tailwind/ -> Components/ + Sections/ + Templates/
     React/    -> Components/ + Templates/  (currently empty)
+
+Tailwind has three first-class content types (Components / Sections /
+Templates); Vanilla and React keep the two-type layout. Every Tailwind entry
+carries a lowercase `type` field (component / section / template) for search
+and filtering, and a Capitalized `category` bucket.
 
 This script:
   1. Loads the existing index to preserve hand-curated family-level
      description / tags / searchTerms and variant-level fields.
-  2. Rewrites every family/variant path from the old Sections/ location to
-     Components/ and flips category Sections -> Components.
-  3. Removes families under the deleted Utilities/ and Resources/ trees.
-  4. Merges the former Vanilla/Sections/Navigation family into the existing
-     Vanilla/Components/Navigation family.
-  5. Cross-validates: every indexed variant must exist on disk, and every
+  2. Re-scans the disk for leaves under each content-type tree and rebuilds
+     every family/variant path + category + type from the on-disk location.
+  3. Cross-validates: every indexed variant must exist on disk, and every
      valid on-disk leaf must be indexed. Reports mismatches.
-  6. Recomputes stats and technologies[].families from the final family set.
+  4. Recomputes stats and technologies[].families from the final family set.
 
 Run:  python3 -m _gen.rebuild_index
 """
@@ -105,212 +107,226 @@ def _template_leaves(family_dir: Path, tech: str):
 
 
 # ---------------------------------------------------------------------------
+# Content-type trees per technology
+# ---------------------------------------------------------------------------
+# (Capitalized bucket, lowercase type, is_template) for each content tree.
+# Tailwind has three first-class types; Vanilla/React have two.
+TAILWIND_TREES = [
+    ("Components", "component", False),
+    ("Sections", "section", False),
+    ("Templates", "template", True),
+]
+VANILLA_TREES = [
+    ("Components", "component", False),
+    ("Templates", "template", True),
+]
+
+
+def _trees_for(tech):
+    return TAILWIND_TREES if tech == TAILWIND else VANILLA_TREES
+
+
+# Curated family-level display names + descriptions for generated Tailwind
+# section categories (these families have no family-level metadata on disk, so
+# without this the family name would fall back to a per-variant name like
+# "Accordion FAQ — Apple Inspired"). Values mirror the pre-migration index.
+SECTION_FAMILY_NAMES = {
+    "404": "404 (Tailwind)",
+    "Blog": "Blog (Tailwind)",
+    "Contact": "Contact (Tailwind)",
+    "FAQ": "FAQ (Tailwind)",
+    "Footer": "Footer (Tailwind)",
+    "Logos": "Logos (Tailwind)",
+    "Navbar": "Navbar (Tailwind)",
+    "Newsletter": "Newsletter (Tailwind)",
+    "Stats": "Stats (Tailwind)",
+    "Team": "Team (Tailwind)",
+    "Testimonials": "Testimonials (Tailwind)",
+    "ai-product": "AI Product (Tailwind)",
+    "app-ui": "App UI (Tailwind)",
+    "developer": "Developer (Tailwind)",
+    "marketing": "Marketing (Tailwind)",
+    "premium-visual": "Premium Visual (Tailwind)",
+    "saas": "SaaS (Tailwind)",
+}
+
+SECTION_FAMILY_DESCRIPTIONS = {
+    "Testimonials": "Customer testimonial layouts with ratings, avatars, and quotes for social proof.",
+    "FAQ": "Frequently-asked-question sections with accordions, search, and categorized layouts.",
+    "Contact": "Contact sections with forms, office locations, support channels, and team directories.",
+    "Footer": "Site footers with multi-column links, newsletters, social, and legal rows.",
+    "Navbar": "Navigation bars — transparent, sticky, mega menu, dashboard, glass, and floating styles.",
+    "Stats": "Stats and metrics sections — KPI cards, dashboards, counters, and progress bars.",
+    "Team": "Team sections — grids, founders, hierarchy, circular, and detailed profile cards.",
+    "Blog": "Blog sections — featured articles, magazine, bento, editorial, and news layouts.",
+    "Logos": "Logo clouds and brand walls — infinite scroll, grids, partners, and trusted-by rows.",
+    "Newsletter": "Newsletter subscribe CTAs — centered, split, glass, gradient, and bento styles.",
+    "404": "404 error pages — minimal, funny, terminal, space, retro, and gradient themes.",
+    "ai-product": "AI product sections — chat interfaces, model comparison, prompt libraries, and agent workflows.",
+    "app-ui": "App UI sections — dashboard overviews and kanban boards for in-product surfaces.",
+    "developer": "Developer sections — code playgrounds and command palettes for dev-tool surfaces.",
+    "marketing": "Marketing sections — feature grids and hero landings for top-of-funnel pages.",
+    "premium-visual": "Premium visual sections — aurora hero and other high-impact, animation-forward headers.",
+    "saas": "SaaS sections — heroes, pricing, testimonials, metrics, CTAs, and footers for SaaS sites.",
+}
+
+
+# ---------------------------------------------------------------------------
 # Build the new index, preserving curated data from the old index
 # ---------------------------------------------------------------------------
 def build_index():
-    """Rebuild the index by transforming existing family paths and re-scanning
-    the disk for leaves. Family granularity is preserved from the old index
-    (per AGENTS.md contract): the index regenerator matches on normalized path.
+    """Rebuild the index by scanning each content-type tree on disk.
+
+    Family granularity follows the on-disk layout (one family per top-level
+    folder under a content tree, except for the multi-concept section categories
+    where each <category>/<section>/ folder is its own family). Hand-curated
+    family-level description / tags / searchTerms and variant-level fields from
+    the previous index are preserved by matching on normalized path.
     """
     old = json.loads(INDEX.read_text(encoding="utf-8"))
-    old_by_path = {norm(f["path"]): f for f in old.get("families", [])}
+    old_fam_by_path = {norm(f["path"]): f for f in old.get("families", [])}
+    # Variant-level curated data from the old index (matched by normalized path).
+    old_var_by_path = {}
+    for f in old.get("families", []):
+        for v in f.get("variants", []):
+            old_var_by_path[norm(v["path"])] = (f, v)
 
-    # 1. Transform each old family: Sections/ -> Components/, drop deleted
-    #    Utilities/Resources trees, flip category Sections -> Components.
-    transformed = []  # list of (new_path_str, old_family_dict)
-    for fam in old.get("families", []):
-        op = fam["path"]
-        # Skip deleted content collections entirely.
-        if "/Utilities/" in op or "/Resources/" in op:
-            continue
-        if op.startswith("Vanilla/Utilities/") or op.startswith("Vanilla/Resources/"):
-            continue
-        np_ = op.replace("/Sections/", "/Components/")
-        # Verify the transformed path exists on disk.
-        if not (ROOT / np_.rstrip("/")).exists():
-            continue
-        new_cat = "Components" if fam.get("category") == "Sections" else fam.get("category", "Components")
-        transformed.append((np_, fam, new_cat))
-
-    # 2. Merge the former Vanilla/Sections/Navigation family into the existing
-    #    Vanilla/Components/Navigation family (both now share the same path).
-    merged = {}
-    order = []
-    for np_, fam, new_cat in transformed:
-        if np_ in merged:
-            # Merge: append the old family's variant disk-leaves.
-            base = merged[np_]
-            base["_extra_old"] = base.get("_extra_old", [])
-            base["_extra_old"].append(fam)
-        else:
-            merged[np_] = {"fam": fam, "category": new_cat, "_extra_old": []}
-            order.append(np_)
+    def lookup_old_fam(fam_path):
+        """Match curated family data by path, including the pre-move
+        Components/ location for section families that were moved to Sections/."""
+        if norm(fam_path) in old_fam_by_path:
+            return old_fam_by_path[norm(fam_path)]
+        if fam_path.startswith("Tailwind/Sections/"):
+            pre = fam_path.replace("Tailwind/Sections/", "Tailwind/Components/", 1)
+            return old_fam_by_path.get(norm(pre), {})
+        return {}
 
     new_families = []
-    for np_ in order:
-        entry = merged[np_]
-        fam = entry["fam"]
-        new_cat = entry["category"]
-        tech = fam["tech"]
-        family_dir = ROOT / np_.rstrip("/")
-        is_template = (new_cat == "Templates")
+
+    def make_variant(leaf, meta, type_val, leaf_rel):
+        ov_fam, ov = old_var_by_path.get(norm(leaf_rel), (None, {}))
+        if not ov and leaf_rel.startswith("Tailwind/Sections/"):
+            pre = leaf_rel.replace("Tailwind/Sections/", "Tailwind/Components/", 1)
+            ov_fam, ov = old_var_by_path.get(norm(pre), (None, {}))
+        v = {
+            "name": meta.get("name") or ov.get("name") or leaf.name,
+            "path": leaf_rel,
+            "type": type_val,
+            "description": meta.get("description") or ov.get("description", ""),
+        }
+        if meta.get("tags"):
+            v["tags"] = meta["tags"]
+        elif ov.get("tags"):
+            v["tags"] = ov["tags"]
+        if meta.get("features"):
+            v["features"] = meta["features"]
+        elif ov.get("features"):
+            v["features"] = ov["features"]
+        style = meta.get("style")
+        if style:
+            v["styles"] = style if isinstance(style, list) else [style]
+        elif ov.get("styles"):
+            v["styles"] = ov["styles"]
+        v["files"] = sorted(p.name for p in leaf.iterdir() if p.is_file())
+        return v
+
+    def add_family(family_dir, tech, category, type_val, is_template):
+        """Index a single family directory (one family per call)."""
         if is_template:
             leaves = _template_leaves(family_dir, tech)
         else:
             leaves = _leaves_in_family_dir(family_dir, tech)
+        if not leaves:
+            return
         leaves = sorted(leaves, key=lambda lm: lm[0].name.lower())
-
-        # Build curated variant lookup across the primary family + any merged
-        # source families (e.g. the former Sections/Navigation).
-        old_variants_by_path = {}
-        for src in [fam] + entry["_extra_old"]:
-            for v in src.get("variants", []):
-                vp = v["path"].replace("/Sections/", "/Components/")
-                old_variants_by_path[norm(vp)] = v
+        rel = str(family_dir).replace(str(ROOT) + "/", "")
+        fam_path = rel + "/"
+        old_fam = lookup_old_fam(fam_path)
 
         variants = []
         for leaf, meta in leaves:
             leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
-            ov = old_variants_by_path.get(norm(leaf_rel), {})
-            v = {
-                "name": meta.get("name") or ov.get("name") or leaf.name,
-                "path": leaf_rel,
-                "description": meta.get("description") or ov.get("description", ""),
-            }
-            if meta.get("tags"):
-                v["tags"] = meta["tags"]
-            elif ov.get("tags"):
-                v["tags"] = ov["tags"]
-            if meta.get("features"):
-                v["features"] = meta["features"]
-            elif ov.get("features"):
-                v["features"] = ov["features"]
-            style = meta.get("style")
-            if style:
-                v["styles"] = style if isinstance(style, list) else [style]
-            elif ov.get("styles"):
-                v["styles"] = ov["styles"]
-            v["files"] = sorted(p.name for p in leaf.iterdir() if p.is_file())
-            variants.append(v)
+            variants.append(make_variant(leaf, meta, type_val, leaf_rel))
+
+        # Family display name resolution order:
+        #   1. curated section-family name (generated section categories have
+        #      no family-level metadata, so this wins over a variant-derived
+        #      name that may already be in the previous index)
+        #   2. curated name from the previous index (path-matched)
+        #   3. the first variant's metadata "section" concept (stable across styles)
+        #   4. the first variant's metadata name
+        #   5. the folder name (title-cased)
+        name = SECTION_FAMILY_NAMES.get(family_dir.name) if category == "Sections" else None
+        if not name:
+            name = old_fam.get("name")
+        if not name:
+            first_meta = leaves[0][1] or {}
+            raw = first_meta.get("name") or family_dir.name
+            looks_like_variant = ("—" in raw) or (
+                "-" in raw and family_dir.name.lower() not in raw.lower())
+            if looks_like_variant:
+                name = first_meta.get("section") or family_dir.name
+            else:
+                name = raw
+            if not name:
+                name = family_dir.name.replace("-", " ").replace("_", " ").title()
+        description = old_fam.get("description", "")
+        if not description and category == "Sections":
+            description = SECTION_FAMILY_DESCRIPTIONS.get(family_dir.name, "")
 
         family = {
-            "name": fam.get("name") or family_dir.name,
-            "path": np_,
+            "name": name,
+            "path": fam_path,
             "tech": tech,
-            "category": new_cat,
-            "description": fam.get("description", ""),
+            "type": type_val,
+            "category": category,
+            "description": description,
             "variantsCount": len(variants),
             "variants": variants,
         }
-        if fam.get("subcategory"):
-            family["subcategory"] = fam["subcategory"]
-        if fam.get("tags"):
-            family["tags"] = fam["tags"]
+        if old_fam.get("subcategory"):
+            family["subcategory"] = old_fam["subcategory"]
+        elif leaves and leaves[0][1] and leaves[0][1].get("subcategory"):
+            family["subcategory"] = leaves[0][1]["subcategory"]
+        if old_fam.get("tags"):
+            family["tags"] = old_fam["tags"]
         else:
             all_tags = set()
             for v in variants:
                 all_tags.update(v.get("tags", []))
             family["tags"] = sorted(all_tags)
-        if fam.get("searchTerms"):
-            family["searchTerms"] = fam["searchTerms"]
+        if old_fam.get("searchTerms"):
+            family["searchTerms"] = old_fam["searchTerms"]
         new_families.append(family)
 
-    # 4. Discovery pass: add any on-disk family not already in the index.
-    indexed_paths = {norm(f["path"]) for f in new_families}
-    # Templates: a top-level Templates/<name>/ with its own metadata.json and no
-    # child metadata-bearing folder is a single-variant template family.
+    # Scan every technology's content-type trees.
     for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        tdir = ROOT / root_dir / "Templates"
-        if not tdir.exists():
-            continue
-        for top in sorted(tdir.iterdir()):
-            if not top.is_dir():
+        for category, type_val, is_template in _trees_for(tech):
+            tree = ROOT / root_dir / category
+            if not tree.exists():
                 continue
-            rel = str(top).replace(str(ROOT) + "/", "")
-            if norm(rel) in indexed_paths:
-                continue
-            meta = _read_meta(top / "metadata.json")
-            if meta is None:
-                continue
-            leaf_rel = rel + "/"
-            v = {
-                "name": meta.get("name") or top.name,
-                "path": leaf_rel,
-                "description": meta.get("description", ""),
-            }
-            if meta.get("tags"):
-                v["tags"] = meta["tags"]
-            if meta.get("features"):
-                v["features"] = meta["features"]
-            style = meta.get("style")
-            if style:
-                v["styles"] = style if isinstance(style, list) else [style]
-            v["files"] = sorted(p.name for p in top.iterdir() if p.is_file())
-            family = {
-                "name": meta.get("name") or top.name,
-                "path": leaf_rel,
-                "tech": tech,
-                "category": "Templates",
-                "description": meta.get("description", ""),
-                "variantsCount": 1,
-                "variants": [v],
-            }
-            family["tags"] = meta.get("tags", [])
-            new_families.append(family)
-            indexed_paths.add(norm(rel))
+            for top in sorted(tree.iterdir()):
+                if not top.is_dir():
+                    continue
+                if is_template:
+                    # Each top-level template folder is one family.
+                    add_family(top, tech, category, type_val, is_template=True)
+                else:
+                    # Components/Sections: a top-level folder is a family
+                    # UNLESS it is a multi-concept section category
+                    # (<category>/<section>/<style>/), in which case each
+                    # <section> sub-folder is its own family.
+                    sub_families = [
+                        c for c in top.iterdir()
+                        if c.is_dir() and _leaves_in_family_dir(c, tech)
+                    ]
+                    if sub_families and not _leaves_in_family_dir(top, tech):
+                        for sub in sorted(sub_families):
+                            add_family(sub, tech, category, type_val, is_template=False)
+                    else:
+                        add_family(top, tech, category, type_val, is_template=False)
 
-    # Components: any top-level Components/<name>/ folder with on-disk leaves
-    # that is not yet indexed becomes its own family (one family per folder).
-    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        comp = ROOT / root_dir / "Components"
-        if not comp.exists():
-            continue
-        for top in sorted(comp.iterdir()):
-            if not top.is_dir():
-                continue
-            rel = str(top).replace(str(ROOT) + "/", "")
-            # Covered if a family path equals rel or starts with rel/
-            if norm(rel) in indexed_paths or any(
-                    norm(p).startswith(norm(rel) + "/") for p in indexed_paths):
-                continue
-            leaves = _leaves_in_family_dir(top, tech)
-            if not leaves:
-                continue
-            leaves = sorted(leaves, key=lambda lm: lm[0].name.lower())
-            variants = []
-            for leaf, meta in leaves:
-                leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
-                v = {
-                    "name": meta.get("name") or leaf.name,
-                    "path": leaf_rel,
-                    "description": meta.get("description", ""),
-                }
-                if meta.get("tags"):
-                    v["tags"] = meta["tags"]
-                if meta.get("features"):
-                    v["features"] = meta["features"]
-                style = meta.get("style")
-                if style:
-                    v["styles"] = style if isinstance(style, list) else [style]
-                v["files"] = sorted(p.name for p in leaf.iterdir() if p.is_file())
-                variants.append(v)
-            all_tags = set()
-            for v in variants:
-                all_tags.update(v.get("tags", []))
-            family = {
-                "name": top.name,
-                "path": rel + "/",
-                "tech": tech,
-                "category": "Components",
-                "description": "",
-                "variantsCount": len(variants),
-                "variants": variants,
-                "tags": sorted(all_tags),
-            }
-            new_families.append(family)
-            indexed_paths.add(norm(rel))
-
-    # 5. Technologies list.
+    # Technologies list.
     techs = []
     for name, path in ((TAILWIND, "Tailwind/"), (VANILLA, "Vanilla/")):
         fam_names = [f["name"] for f in new_families if f["tech"] == name]
@@ -321,6 +337,12 @@ def build_index():
     total_variants = sum(f["variantsCount"] for f in new_families)
     total_styles = sum(len(v.get("styles", [])) or 1
                        for f in new_families for v in f["variants"])
+
+    # Per-type counts for the Tailwind landing/navigation UI.
+    tw_by_type = {"component": 0, "section": 0, "template": 0}
+    for f in new_families:
+        if f["tech"] == TAILWIND:
+            tw_by_type[f["type"]] = tw_by_type.get(f["type"], 0) + f["variantsCount"]
 
     data = {
         "version": old.get("version", "2.0"),
@@ -333,6 +355,7 @@ def build_index():
             "totalSubVariants": 0,
             "totalStyles": total_styles,
             "technologies": [t["name"] for t in techs],
+            "tailwindByType": tw_by_type,
         },
         "families": new_families,
         "technologies": techs,
@@ -348,57 +371,65 @@ def validate(data, families):
     # 1. Every indexed variant path must exist on disk.
     for f in families:
         tech = f["tech"]
-        root_dir = "Tailwind" if tech == TAILWIND else "Vanilla"
         for v in f["variants"]:
             vpath = ROOT / v["path"].rstrip("/")
             mpath = vpath / "metadata.json"
             if not mpath.exists():
                 problems.append(f"Indexed variant missing on disk: {v['path']}")
                 continue
-            # For Tailwind, require code.html + preview.html unless it's a template.
-            if f["category"] == "Components" and tech == TAILWIND:
+            # Tailwind components + sections require code.html + preview.html.
+            # Tailwind templates ship preview.html only.
+            if tech == TAILWIND and f["category"] in ("Components", "Sections"):
+                bucket = f["category"].lower()
                 if not (vpath / "code.html").exists():
                     problems.append(
-                        f"Tailwind component missing code.html: {v['path']}")
+                        f"Tailwind {bucket} missing code.html: {v['path']}")
                 if not (vpath / "preview.html").exists():
                     problems.append(
-                        f"Tailwind component missing preview.html: {v['path']}")
+                        f"Tailwind {bucket} missing preview.html: {v['path']}")
 
-    # 2. Every disk leaf under Components/ must be indexed.
+    # 2. Every disk leaf under each content tree must be indexed.
     indexed = {norm(v["path"]) for f in families for v in f["variants"]}
     for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        comp = ROOT / root_dir / "Components"
-        for leaf, meta in list_leaves_under(comp, tech):
-            leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
-            if norm(leaf_rel) not in indexed:
-                problems.append(f"On-disk leaf NOT indexed: {leaf_rel}")
-
-    # 3. Templates: every template folder with metadata.json indexed.
-    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        tdir = ROOT / root_dir / "Templates"
-        if not tdir.exists():
-            continue
-        for top in tdir.iterdir():
-            if not top.is_dir():
+        for category, _type, _is_template in _trees_for(tech):
+            tree = ROOT / root_dir / category
+            if not tree.exists():
                 continue
-            for leaf, meta in list_leaves_under(top, tech):
+            for leaf, meta in list_leaves_under(tree, tech):
                 leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
                 if norm(leaf_rel) not in indexed:
-                    problems.append(f"On-disk template leaf NOT indexed: {leaf_rel}")
+                    problems.append(f"On-disk leaf NOT indexed: {leaf_rel}")
 
-    # 4. No duplicate paths / duplicate family paths.
+    # 3. No duplicate family paths.
     fam_paths = [f["path"] for f in families]
     dup = {p for p in fam_paths if fam_paths.count(p) > 1}
     for d in dup:
         problems.append(f"Duplicate family path: {d}")
 
-    # 5. No stale Sections/Utilities/Resources references.
+    # 4. No stale Utilities/Resources references; /Sections/ is only valid under
+    #    Tailwind/Sections/.
     for f in families:
-        if "/Sections/" in f["path"] or "/Utilities/" in f["path"] or "/Resources/" in f["path"]:
+        for token in ("/Utilities/", "/Resources/"):
+            if token in f["path"]:
+                problems.append(f"Stale path in family: {f['path']}")
+        if "/Sections/" in f["path"] and not f["path"].startswith("Tailwind/Sections/"):
             problems.append(f"Stale path in family: {f['path']}")
         for v in f["variants"]:
-            if "/Sections/" in v["path"] or "/Utilities/" in v["path"] or "/Resources/" in v["path"]:
+            for token in ("/Utilities/", "/Resources/"):
+                if token in v["path"]:
+                    problems.append(f"Stale path in variant: {v['path']}")
+            if "/Sections/" in v["path"] and not v["path"].startswith("Tailwind/Sections/"):
                 problems.append(f"Stale path in variant: {v['path']}")
+
+    # 5. Every Tailwind entry must carry a valid type.
+    for f in families:
+        if f["tech"] != TAILWIND:
+            continue
+        if f.get("type") not in ("component", "section", "template"):
+            problems.append(f"Tailwind family missing/invalid type: {f['path']}")
+        for v in f["variants"]:
+            if v.get("type") not in ("component", "section", "template"):
+                problems.append(f"Tailwind variant missing/invalid type: {v['path']}")
 
     return problems
 

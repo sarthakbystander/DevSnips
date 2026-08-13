@@ -5,11 +5,34 @@
   "description": "Input fields with character counters, limits, and progress indicators",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "character-count", "counter", "limit", "tags"],
-  "searchTerms": ["character count input", "limit input", "tags input", "counter"],
-  "related": ["textarea", "with-helper", "tag-input"],
-  "styles": ["Tweet Counter", "Warning State", "Tags Input", "Progress Bar"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "character-count",
+    "counter",
+    "limit",
+    "tags"
+  ],
+  "searchTerms": [
+    "character count input",
+    "limit input",
+    "tags input",
+    "counter"
+  ],
+  "related": [
+    "textarea",
+    "with-helper",
+    "tag-input"
+  ],
+  "styles": [
+    "Tweet Counter",
+    "Warning State",
+    "Tags Input",
+    "Progress Bar"
+  ],
   "accessibility": {
     "focus": "Focus ring visible on input",
     "aria": "Counter updates announced appropriately",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

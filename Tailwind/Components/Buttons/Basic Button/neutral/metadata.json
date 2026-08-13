@@ -5,11 +5,31 @@
   "description": "Neutral buttons designed for dark backgrounds with light and dark variants",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "neutral", "dark", "dark mode"],
-  "searchTerms": ["neutral button", "dark mode button", "light on dark button", "dark background button"],
-  "related": ["primary", "secondary", "dark"],
-  "styles": ["Light on Dark", "Dark"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "neutral",
+    "dark",
+    "dark mode"
+  ],
+  "searchTerms": [
+    "neutral button",
+    "dark mode button",
+    "light on dark button",
+    "dark background button"
+  ],
+  "related": [
+    "primary",
+    "secondary",
+    "dark"
+  ],
+  "styles": [
+    "Light on Dark",
+    "Dark"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -7,7 +7,26 @@
   "description": "Compact task card with checkbox, labels, assignee, due date, and comment/attachment counts.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "task", "todo", "kanban", "checkbox", "project-management"],
-  "related": ["project-card", "support-ticket-card", "minimal-card"],
-  "features": ["checkbox", "task labels", "due date", "assignee", "comment count"]
+  "tags": [
+    "card",
+    "task",
+    "todo",
+    "kanban",
+    "checkbox",
+    "project-management"
+  ],
+  "related": [
+    "project-card",
+    "support-ticket-card",
+    "minimal-card"
+  ],
+  "features": [
+    "checkbox",
+    "task labels",
+    "due date",
+    "assignee",
+    "comment count"
+  ],
+  "type": "component",
+  "category": "Components"
 }

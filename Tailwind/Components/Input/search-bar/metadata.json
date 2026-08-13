@@ -5,11 +5,33 @@
   "description": "Dedicated search bar components with modern styling and interactions",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "search", "search-bar", "command-palette"],
-  "searchTerms": ["search bar", "search input", "command palette", "⌘K search"],
-  "related": ["icon-left", "icon-both", "icon-right"],
-  "styles": ["Modern Large", "Compact", "With Filter", "Dark Mode"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "search",
+    "search-bar",
+    "command-palette"
+  ],
+  "searchTerms": [
+    "search bar",
+    "search input",
+    "command palette",
+    "⌘K search"
+  ],
+  "related": [
+    "icon-left",
+    "icon-both",
+    "icon-right"
+  ],
+  "styles": [
+    "Modern Large",
+    "Compact",
+    "With Filter",
+    "Dark Mode"
+  ],
   "accessibility": {
     "focus": "Enhanced focus ring for visibility",
     "aria": "Search role appropriately applied",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

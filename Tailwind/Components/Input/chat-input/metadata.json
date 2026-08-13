@@ -5,11 +5,42 @@
   "description": "Chat input components for messaging interfaces with attachments and emojis",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "chat", "message", "messaging", "chat-input"],
-  "searchTerms": ["chat input", "message input", "messaging", "send message", "chatbox"],
-  "related": ["textarea", "mention-input", "rich-text-editor"],
-  "styles": ["Standard", "Modern", "Dark"],
-  "accessibility": { "focus": "Focus ring on input", "aria": "Send button labeled", "touch": "Touch-friendly buttons" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "chat",
+    "message",
+    "messaging",
+    "chat-input"
+  ],
+  "searchTerms": [
+    "chat input",
+    "message input",
+    "messaging",
+    "send message",
+    "chatbox"
+  ],
+  "related": [
+    "textarea",
+    "mention-input",
+    "rich-text-editor"
+  ],
+  "styles": [
+    "Standard",
+    "Modern",
+    "Dark"
+  ],
+  "accessibility": {
+    "focus": "Focus ring on input",
+    "aria": "Send button labeled",
+    "touch": "Touch-friendly buttons"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

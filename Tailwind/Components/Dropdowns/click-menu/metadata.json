@@ -7,10 +7,22 @@
   "description": "Click-triggered dropdown menu with embedded profile card and user actions.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "click", "menu", "profile", "actions"],
-  "related": ["hover-menu", "basic-dropdown", "action-menu"],
+  "tags": [
+    "dropdown",
+    "click",
+    "menu",
+    "profile",
+    "actions"
+  ],
+  "related": [
+    "hover-menu",
+    "basic-dropdown",
+    "action-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

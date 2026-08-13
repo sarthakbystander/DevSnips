@@ -7,10 +7,22 @@
   "description": "Menu with section dividers and labeled categories for organizing complex action sets.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "divider", "sections", "categorized", "file-manager"],
-  "related": ["action-menu", "context-menu", "sort-menu"],
+  "tags": [
+    "dropdown",
+    "divider",
+    "sections",
+    "categorized",
+    "file-manager"
+  ],
+  "related": [
+    "action-menu",
+    "context-menu",
+    "sort-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

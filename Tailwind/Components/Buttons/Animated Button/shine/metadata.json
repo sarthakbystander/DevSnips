@@ -5,11 +5,34 @@
   "description": "Shine sweep animations on hover for premium feel",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "animated", "shine", "sweep", "premium"],
-  "searchTerms": ["shine button", "shine effect button", "sweep animation button", "premium button"],
-  "related": ["loading", "arrow", "scale"],
-  "styles": ["Default", "Pill", "Gradient"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "animated",
+    "shine",
+    "sweep",
+    "premium"
+  ],
+  "searchTerms": [
+    "shine button",
+    "shine effect button",
+    "sweep animation button",
+    "premium button"
+  ],
+  "related": [
+    "loading",
+    "arrow",
+    "scale"
+  ],
+  "styles": [
+    "Default",
+    "Pill",
+    "Gradient"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

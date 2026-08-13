@@ -7,7 +7,26 @@
   "description": "Event card with date badge, location, attendee avatars, RSVP button, and status badge.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "event", "calendar", "rsvp", "conference", "schedule"],
-  "related": ["blog-card", "course-card", "job-listing-card"],
-  "features": ["date badge", "status badge", "location info", "attendee avatars", "RSVP button"]
+  "tags": [
+    "card",
+    "event",
+    "calendar",
+    "rsvp",
+    "conference",
+    "schedule"
+  ],
+  "related": [
+    "blog-card",
+    "course-card",
+    "job-listing-card"
+  ],
+  "features": [
+    "date badge",
+    "status badge",
+    "location info",
+    "attendee avatars",
+    "RSVP button"
+  ],
+  "type": "component",
+  "category": "Components"
 }

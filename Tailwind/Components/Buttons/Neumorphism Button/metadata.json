@@ -4,30 +4,56 @@
   "description": "Soft UI buttons with neumorphism (soft UI) shadow effects",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
   "variantCount": 3,
   "variants": [
     {
       "name": "Soft",
       "description": "Convex neumorphism with outer shadows",
-      "styles": ["Default", "Pill", "Disabled"],
+      "styles": [
+        "Default",
+        "Pill",
+        "Disabled"
+      ],
       "path": "soft/"
     },
     {
       "name": "Pressed",
       "description": "Concave neumorphism with inset shadows",
-      "styles": ["Default", "Pill", "Disabled"],
+      "styles": [
+        "Default",
+        "Pill",
+        "Disabled"
+      ],
       "path": "pressed/"
     },
     {
       "name": "Bordered",
       "description": "Bordered neumorphism with gradient backgrounds",
-      "styles": ["Blue", "Purple", "Pill"],
+      "styles": [
+        "Blue",
+        "Purple",
+        "Pill"
+      ],
       "path": "bordered/"
     }
   ],
-  "tags": ["button", "neumorphism", "soft ui", "shadow"],
-  "searchTerms": ["neumorphism button", "soft ui button", "shadow button", "neumorphic button"],
+  "tags": [
+    "button",
+    "neumorphism",
+    "soft ui",
+    "shadow"
+  ],
+  "searchTerms": [
+    "neumorphism button",
+    "soft ui button",
+    "shadow button",
+    "neumorphic button"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -36,5 +62,6 @@
   "related": [
     "Glass Button",
     "Basic Button"
-  ]
+  ],
+  "type": "component"
 }

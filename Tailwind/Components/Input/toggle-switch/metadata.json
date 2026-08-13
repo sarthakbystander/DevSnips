@@ -5,11 +5,33 @@
   "description": "Toggle switch components for boolean settings and preferences",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "toggle", "switch", "boolean", "settings"],
-  "searchTerms": ["toggle switch", "toggle input", "on/off switch", "boolean input"],
-  "related": ["checkbox-styled", "outlined", "filled"],
-  "styles": ["Default", "With Labels", "Colored States"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "toggle",
+    "switch",
+    "boolean",
+    "settings"
+  ],
+  "searchTerms": [
+    "toggle switch",
+    "toggle input",
+    "on/off switch",
+    "boolean input"
+  ],
+  "related": [
+    "checkbox-styled",
+    "outlined",
+    "filled"
+  ],
+  "styles": [
+    "Default",
+    "With Labels",
+    "Colored States"
+  ],
   "accessibility": {
     "focus": "Focus visible on toggle button",
     "aria": "Checkbox input for accessibility",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

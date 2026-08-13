@@ -7,10 +7,22 @@
   "description": "Contextual floating menu that appears at click position with screen-edge detection and backdrop blur.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "floating", "contextual", "position", "click"],
-  "related": ["context-menu", "quick-actions-menu", "floating-menu"],
+  "tags": [
+    "dropdown",
+    "floating",
+    "contextual",
+    "position",
+    "click"
+  ],
+  "related": [
+    "context-menu",
+    "quick-actions-menu",
+    "floating-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,36 @@
   "description": "Multi-part input fields for structured data like cards, OTPs, and dates",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "split", "otp", "card", "date", "phone"],
-  "searchTerms": ["split input", "otp input", "card number input", "phone input", "date input"],
-  "related": ["with-prefix", "with-suffix", "number-stepper"],
-  "styles": ["Card Number", "OTP Code", "Phone Number", "Date Picker"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "split",
+    "otp",
+    "card",
+    "date",
+    "phone"
+  ],
+  "searchTerms": [
+    "split input",
+    "otp input",
+    "card number input",
+    "phone input",
+    "date input"
+  ],
+  "related": [
+    "with-prefix",
+    "with-suffix",
+    "number-stepper"
+  ],
+  "styles": [
+    "Card Number",
+    "OTP Code",
+    "Phone Number",
+    "Date Picker"
+  ],
   "accessibility": {
     "focus": "Each part independently focusable",
     "aria": "Labels properly associated",
@@ -18,5 +43,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

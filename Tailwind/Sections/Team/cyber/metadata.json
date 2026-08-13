@@ -1,0 +1,41 @@
+{
+  "id": "team-cyber",
+  "slug": "team-cyber",
+  "name": "Bento Team — Cyber",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "team",
+  "section": "Bento Team",
+  "style": "cyber",
+  "description": "Cyber team layout: Bento team grid.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "team",
+    "people",
+    "about",
+    "profiles",
+    "cyber"
+  ],
+  "features": [
+    "bento team grid",
+    "compact tiles",
+    "8 members",
+    "centered avatars",
+    "responsive 2/4-col"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

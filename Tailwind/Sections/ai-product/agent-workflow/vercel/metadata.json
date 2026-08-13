@@ -1,0 +1,39 @@
+{
+  "name": "Agent Workflow — Vercel",
+  "slug": "agent-workflow-vercel",
+  "category": "Sections",
+  "subcategory": "ai-product",
+  "section": "agent-workflow",
+  "style": "vercel",
+  "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "agent-workflow",
+    "stepper",
+    "vercel",
+    "dark-mode",
+    "workflow",
+    "ai-agent",
+    "progress",
+    "minimal"
+  ],
+  "features": [
+    "dark monochrome palette",
+    "hairline borders + glow",
+    "single teal accent",
+    "step status colors (pending/running/done)",
+    "glowing filling progress bar",
+    "Run button with timer-driven progression",
+    "live run log line",
+    "pulsing active-step node",
+    "prefers-reduced-motion aware",
+    "keyboard accessible buttons"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ],
+  "type": "section"
+}

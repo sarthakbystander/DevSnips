@@ -7,7 +7,31 @@
   "description": "Four semantic toast variants — success, error, warning, info — each with a matching icon, accent color, and ARIA role. Errors and warnings use role=alert; success and info use role=status.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["toast", "notification", "success", "error", "warning", "info", "feedback", "alert"],
-  "related": ["basic-toast", "action-toast", "minimal-toast"],
-  "features": ["4 semantic types", "matching icons and colors", "role=alert for errors/warnings", "role=status for success/info", "auto-dismiss", "pause on hover", "close button", "focus-visible ring"]
+  "tags": [
+    "toast",
+    "notification",
+    "success",
+    "error",
+    "warning",
+    "info",
+    "feedback",
+    "alert"
+  ],
+  "related": [
+    "basic-toast",
+    "action-toast",
+    "minimal-toast"
+  ],
+  "features": [
+    "4 semantic types",
+    "matching icons and colors",
+    "role=alert for errors/warnings",
+    "role=status for success/info",
+    "auto-dismiss",
+    "pause on hover",
+    "close button",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

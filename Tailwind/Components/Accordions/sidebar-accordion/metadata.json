@@ -7,7 +7,27 @@
   "description": "Documentation navigation sidebar where category groups expand to reveal link lists with an active-page marker and connector line. Multi-open so readers keep context while browsing.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["accordion", "sidebar", "navigation", "docs", "multi-open", "links"],
-  "related": ["nested-accordion", "basic-accordion", "multi-open-accordion"],
-  "features": ["active page marker", "connector line", "section counts", "multi-open mode", "90deg chevron", "hover states"]
+  "tags": [
+    "accordion",
+    "sidebar",
+    "navigation",
+    "docs",
+    "multi-open",
+    "links"
+  ],
+  "related": [
+    "nested-accordion",
+    "basic-accordion",
+    "multi-open-accordion"
+  ],
+  "features": [
+    "active page marker",
+    "connector line",
+    "section counts",
+    "multi-open mode",
+    "90deg chevron",
+    "hover states"
+  ],
+  "type": "component",
+  "category": "Components"
 }

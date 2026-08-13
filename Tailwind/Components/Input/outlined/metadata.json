@@ -5,11 +5,33 @@
   "description": "Classic bordered input fields with focus ring effects and multiple sizes",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "outlined", "bordered", "form"],
-  "searchTerms": ["outlined input", "bordered input", "form input", "text input"],
-  "related": ["filled", "underline", "floating-label"],
-  "styles": ["Default", "Small", "Large", "Pre-filled"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "outlined",
+    "bordered",
+    "form"
+  ],
+  "searchTerms": [
+    "outlined input",
+    "bordered input",
+    "form input",
+    "text input"
+  ],
+  "related": [
+    "filled",
+    "underline",
+    "floating-label"
+  ],
+  "styles": [
+    "Default",
+    "Small",
+    "Large",
+    "Pre-filled"
+  ],
   "accessibility": {
     "focus": "Blue focus ring on interaction",
     "aria": "Labels properly associated with inputs",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

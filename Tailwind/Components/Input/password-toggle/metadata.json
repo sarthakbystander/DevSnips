@@ -5,11 +5,34 @@
   "description": "Password inputs with visibility toggle and optional strength indicator",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML", "JavaScript"],
-  "tags": ["input", "password", "toggle", "visibility", "strength"],
-  "searchTerms": ["password input", "show/hide password", "password strength", "eye toggle"],
-  "related": ["icon-right", "validation-states", "with-suffix"],
-  "styles": ["Default", "With Strength Meter", "Matched"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "JavaScript"
+  ],
+  "tags": [
+    "input",
+    "password",
+    "toggle",
+    "visibility",
+    "strength"
+  ],
+  "searchTerms": [
+    "password input",
+    "show/hide password",
+    "password strength",
+    "eye toggle"
+  ],
+  "related": [
+    "icon-right",
+    "validation-states",
+    "with-suffix"
+  ],
+  "styles": [
+    "Default",
+    "With Strength Meter",
+    "Matched"
+  ],
   "accessibility": {
     "focus": "Toggle button focusable independently",
     "aria": "Use aria-label on toggle button",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

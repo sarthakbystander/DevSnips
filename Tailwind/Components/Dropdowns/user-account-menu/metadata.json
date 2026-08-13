@@ -7,10 +7,23 @@
   "description": "Comprehensive account management dropdown with quick stats, settings navigation, and security options.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "menu", "account", "user", "settings", "security"],
-  "related": ["profile-menu", "action-menu", "avatar-menu"],
+  "tags": [
+    "dropdown",
+    "menu",
+    "account",
+    "user",
+    "settings",
+    "security"
+  ],
+  "related": [
+    "profile-menu",
+    "action-menu",
+    "avatar-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

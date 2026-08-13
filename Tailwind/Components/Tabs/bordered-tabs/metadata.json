@@ -7,7 +7,26 @@
   "description": "Bordered enterprise tab set with a connected content panel, status badges, and data tables. Designed for dense operational dashboards like order and inventory management.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "bordered", "enterprise", "dashboard", "operations", "data"],
-  "related": ["dashboard-tabs", "settings-tabs", "card-tabs"],
-  "features": ["connected content panel", "status badges", "data table", "audit log", "arrow-key navigation"]
+  "tags": [
+    "tabs",
+    "bordered",
+    "enterprise",
+    "dashboard",
+    "operations",
+    "data"
+  ],
+  "related": [
+    "dashboard-tabs",
+    "settings-tabs",
+    "card-tabs"
+  ],
+  "features": [
+    "connected content panel",
+    "status badges",
+    "data table",
+    "audit log",
+    "arrow-key navigation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

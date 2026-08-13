@@ -5,11 +5,30 @@
   "description": "Full width buttons for mobile views and prominent call-to-action sections",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "full width", "mobile", "cta"],
-  "searchTerms": ["full width button", "mobile button", "cta button", "block button"],
-  "related": ["primary", "sizes"],
-  "styles": ["Single Full Width", "Split Width"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "full width",
+    "mobile",
+    "cta"
+  ],
+  "searchTerms": [
+    "full width button",
+    "mobile button",
+    "cta button",
+    "block button"
+  ],
+  "related": [
+    "primary",
+    "sizes"
+  ],
+  "styles": [
+    "Single Full Width",
+    "Split Width"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

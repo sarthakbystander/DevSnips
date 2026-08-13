@@ -5,11 +5,33 @@
   "description": "Transparent buttons with blue hover background effect",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "ghost", "transparent", "hover"],
-  "searchTerms": ["ghost button", "transparent button", "hover button", "blue ghost button"],
-  "related": ["colors", "dark", "sizes", "icon"],
-  "styles": ["Default", "Disabled", "Solid (comparison)"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "ghost",
+    "transparent",
+    "hover"
+  ],
+  "searchTerms": [
+    "ghost button",
+    "transparent button",
+    "hover button",
+    "blue ghost button"
+  ],
+  "related": [
+    "colors",
+    "dark",
+    "sizes",
+    "icon"
+  ],
+  "styles": [
+    "Default",
+    "Disabled",
+    "Solid (comparison)"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,32 @@
   "description": "Glass morphism icon buttons for toolbars and actions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "glass", "glassmorphism", "icon"],
-  "searchTerms": ["glass icon button", "glassmorphism icon button"],
-  "related": ["soft", "primary", "dark"],
-  "styles": ["Heart", "Bookmark", "Share", "Add (Pill)"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "glass",
+    "glassmorphism",
+    "icon"
+  ],
+  "searchTerms": [
+    "glass icon button",
+    "glassmorphism icon button"
+  ],
+  "related": [
+    "soft",
+    "primary",
+    "dark"
+  ],
+  "styles": [
+    "Heart",
+    "Bookmark",
+    "Share",
+    "Add (Pill)"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Add aria-label for icon-only buttons",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

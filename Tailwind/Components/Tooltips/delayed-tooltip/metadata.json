@@ -7,7 +7,28 @@
   "description": "Tooltip that waits 600ms before appearing on hover so quick mouse-overs don't flicker, then hides instantly on exit. Uses CSS transition-delay - no JavaScript timers. Appears instantly on keyboard focus.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tooltip", "delay", "hover", "transition-delay", "css-only", "anti-flicker"],
-  "related": ["basic-tooltip", "icon-tooltip", "directional-tooltip"],
-  "features": ["600ms show delay", "instant hide on exit", "instant on keyboard focus", "transition-delay driven", "pure CSS no JS", "role=tooltip", "aria-describedby"]
+  "tags": [
+    "tooltip",
+    "delay",
+    "hover",
+    "transition-delay",
+    "css-only",
+    "anti-flicker"
+  ],
+  "related": [
+    "basic-tooltip",
+    "icon-tooltip",
+    "directional-tooltip"
+  ],
+  "features": [
+    "600ms show delay",
+    "instant hide on exit",
+    "instant on keyboard focus",
+    "transition-delay driven",
+    "pure CSS no JS",
+    "role=tooltip",
+    "aria-describedby"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,32 @@
   "description": "3D push button effects with depth",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "3d", "push", "depth", "3d effect"],
-  "searchTerms": ["3d button", "push button", "3d effect button", "depth button"],
-  "related": ["colored"],
-  "styles": ["Blue", "Gray", "Green"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "3d",
+    "push",
+    "depth",
+    "3d effect"
+  ],
+  "searchTerms": [
+    "3d button",
+    "push button",
+    "3d effect button",
+    "depth button"
+  ],
+  "related": [
+    "colored"
+  ],
+  "styles": [
+    "Blue",
+    "Gray",
+    "Green"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

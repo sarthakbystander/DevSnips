@@ -5,11 +5,30 @@
   "description": "Loading buttons with spinner animations",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "loading", "spinner", "wait"],
-  "searchTerms": ["loading button", "spinner button", "loading state button"],
-  "related": ["progress"],
-  "styles": ["Primary", "Success", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "loading",
+    "spinner",
+    "wait"
+  ],
+  "searchTerms": [
+    "loading button",
+    "spinner button",
+    "loading state button"
+  ],
+  "related": [
+    "progress"
+  ],
+  "styles": [
+    "Primary",
+    "Success",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "N/A - disabled state",
     "aria": "Use disabled attribute and aria-busy",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

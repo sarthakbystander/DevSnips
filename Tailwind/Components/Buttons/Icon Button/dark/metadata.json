@@ -5,11 +5,31 @@
   "description": "Dark themed icon button styles for dark interfaces",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "icon", "dark", "dark mode"],
-  "searchTerms": ["dark icon button", "dark mode icon button", "dark themed icon button"],
-  "related": ["basic", "rounded"],
-  "styles": ["Gray", "Darker", "Light", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "icon",
+    "dark",
+    "dark mode"
+  ],
+  "searchTerms": [
+    "dark icon button",
+    "dark mode icon button",
+    "dark themed icon button"
+  ],
+  "related": [
+    "basic",
+    "rounded"
+  ],
+  "styles": [
+    "Gray",
+    "Darker",
+    "Light",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

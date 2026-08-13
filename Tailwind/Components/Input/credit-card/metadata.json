@@ -5,11 +5,40 @@
   "description": "Credit card input components with visual card styling and form fields",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "credit-card", "payment", "card", "checkout"],
-  "searchTerms": ["credit card input", "payment input", "card details", "checkout form"],
-  "related": ["split-input", "expiration-date", "cvv"],
-  "styles": ["Visual Card", "Form Fields"],
-  "accessibility": { "focus": "Clear focus on inputs", "aria": "Proper label associations", "touch": "Touch-friendly input sizes" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "credit-card",
+    "payment",
+    "card",
+    "checkout"
+  ],
+  "searchTerms": [
+    "credit card input",
+    "payment input",
+    "card details",
+    "checkout form"
+  ],
+  "related": [
+    "split-input",
+    "expiration-date",
+    "cvv"
+  ],
+  "styles": [
+    "Visual Card",
+    "Form Fields"
+  ],
+  "accessibility": {
+    "focus": "Clear focus on inputs",
+    "aria": "Proper label associations",
+    "touch": "Touch-friendly input sizes"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

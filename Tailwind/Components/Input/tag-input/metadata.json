@@ -5,11 +5,33 @@
   "description": "Input fields with tag/chip functionality for multiple selections",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "tag", "chips", "skills", "categories"],
-  "searchTerms": ["tag input", "chips input", "skills input", "multiple tags"],
-  "related": ["character-count", "with-helper", "filled"],
-  "styles": ["Default", "Pill Style", "Categories"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "tag",
+    "chips",
+    "skills",
+    "categories"
+  ],
+  "searchTerms": [
+    "tag input",
+    "chips input",
+    "skills input",
+    "multiple tags"
+  ],
+  "related": [
+    "character-count",
+    "with-helper",
+    "filled"
+  ],
+  "styles": [
+    "Default",
+    "Pill Style",
+    "Categories"
+  ],
   "accessibility": {
     "focus": "Input focusable within tag container",
     "aria": "Tags announced to screen readers",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

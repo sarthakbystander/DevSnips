@@ -7,7 +7,26 @@
   "description": "Subscription management table with complete pagination controls. Features per-page selection, page numbers, previous/next navigation, and result count display.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "pagination", "paginated", "subscriptions", "billing", "navigation"],
-  "related": ["filterable-table", "searchable-table", "basic-table"],
-  "features": ["pagination controls", "per-page selector", "page numbers", "navigation arrows", "result count"]
+  "tags": [
+    "table",
+    "pagination",
+    "paginated",
+    "subscriptions",
+    "billing",
+    "navigation"
+  ],
+  "related": [
+    "filterable-table",
+    "searchable-table",
+    "basic-table"
+  ],
+  "features": [
+    "pagination controls",
+    "per-page selector",
+    "page numbers",
+    "navigation arrows",
+    "result count"
+  ],
+  "type": "component",
+  "category": "Components"
 }

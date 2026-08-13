@@ -5,11 +5,33 @@
   "description": "Color glass morphism buttons with colored backgrounds",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "glass", "glassmorphism", "colored"],
-  "searchTerms": ["colored glass button", "blue glass button", "purple glass button", "pink glass button"],
-  "related": ["soft", "dark", "icon"],
-  "styles": ["Blue", "Purple", "Pink"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "glass",
+    "glassmorphism",
+    "colored"
+  ],
+  "searchTerms": [
+    "colored glass button",
+    "blue glass button",
+    "purple glass button",
+    "pink glass button"
+  ],
+  "related": [
+    "soft",
+    "dark",
+    "icon"
+  ],
+  "styles": [
+    "Blue",
+    "Purple",
+    "Pink"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

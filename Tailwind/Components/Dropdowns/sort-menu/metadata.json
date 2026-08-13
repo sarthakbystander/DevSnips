@@ -7,10 +7,22 @@
   "description": "Sorting dropdown with date, alphabetical, and price sorting options with check indicators.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "sort", "order", "filter", "table"],
-  "related": ["filter-menu", "select-dropdown", "checkbox-menu"],
+  "tags": [
+    "dropdown",
+    "sort",
+    "order",
+    "filter",
+    "table"
+  ],
+  "related": [
+    "filter-menu",
+    "select-dropdown",
+    "checkbox-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

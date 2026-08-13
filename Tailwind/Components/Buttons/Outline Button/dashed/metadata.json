@@ -5,11 +5,30 @@
   "description": "Outline buttons with dashed borders for a modern look",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "outline", "dashed", "border"],
-  "searchTerms": ["dashed outline button", "dashed border button"],
-  "related": ["primary", "colors", "thick", "sizes"],
-  "styles": ["Gray", "Blue"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "outline",
+    "dashed",
+    "border"
+  ],
+  "searchTerms": [
+    "dashed outline button",
+    "dashed border button"
+  ],
+  "related": [
+    "primary",
+    "colors",
+    "thick",
+    "sizes"
+  ],
+  "styles": [
+    "Gray",
+    "Blue"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

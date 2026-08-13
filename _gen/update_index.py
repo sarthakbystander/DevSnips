@@ -64,7 +64,7 @@ def update_index():
     existing_paths = {f["path"] for f in data["families"]}
     new_family_paths = set()
     for ci, (cat, slug, _) in enumerate(BUILDERS):
-        new_family_paths.add("Tailwind/Components/%s/" % cat)
+        new_family_paths.add("Tailwind/Sections/%s/" % cat)
     data["families"] = [f for f in data["families"] if f["path"] not in new_family_paths]
 
     # Also clean technologies[].families list entries we may have added.
@@ -75,22 +75,24 @@ def update_index():
         for n in range(15):
             style_key = style_for(ci, n)
             result = builder(style_key, n)
-            sec_path = "Tailwind/Components/%s/%s/" % (cat, style_key)
+            sec_path = "Tailwind/Sections/%s/%s/" % (cat, style_key)
             variants.append({
                 "name": "%s — %s" % (result["section_name"], STYLE_NAMES[style_key]),
                 "path": sec_path,
+                "type": "section",
                 "description": result["desc"],
                 "styles": [style_key],
                 "features": result["features"],
                 "tags": result["tags"],
                 "files": ["code.html", "preview.html", "metadata.json", "README.md"],
             })
-        fam_path = "Tailwind/Components/%s/" % cat
+        fam_path = "Tailwind/Sections/%s/" % cat
         family = {
             "name": "%s (Tailwind)" % cat,
             "path": fam_path,
             "tech": "Tailwind CSS",
-            "category": "Components",
+            "type": "section",
+            "category": "Sections",
             "subcategory": slug,
             "description": CATEGORY_DESCRIPTIONS[cat],
             "variantsCount": 15,

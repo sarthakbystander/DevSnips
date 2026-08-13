@@ -7,7 +7,29 @@
   "description": "Tooltip on an icon-only button - the key accessibility use case where the tooltip serves as the visible label. Each icon button carries aria-label and a role=tooltip companion so screen readers announce the action. Pure CSS.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tooltip", "icon", "icon-button", "label", "accessibility", "toolbar", "css-only"],
-  "related": ["basic-tooltip", "delayed-tooltip", "status-tooltip"],
-  "features": ["icon-button labeling", "aria-label", "role=tooltip companion", "hover + focus triggers", "compact tooltip sizing", "pure CSS no JS", "focus-visible ring"]
+  "tags": [
+    "tooltip",
+    "icon",
+    "icon-button",
+    "label",
+    "accessibility",
+    "toolbar",
+    "css-only"
+  ],
+  "related": [
+    "basic-tooltip",
+    "delayed-tooltip",
+    "status-tooltip"
+  ],
+  "features": [
+    "icon-button labeling",
+    "aria-label",
+    "role=tooltip companion",
+    "hover + focus triggers",
+    "compact tooltip sizing",
+    "pure CSS no JS",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

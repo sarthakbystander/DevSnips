@@ -7,7 +7,29 @@
   "description": "Top-positioned tooltip with arrow that appears on hover and keyboard focus. Pure CSS via the data-tooltip attribute - no JavaScript required. Accessible with role=tooltip and aria-describedby.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tooltip", "hover", "focus", "arrow", "css-only", "accessibility"],
-  "related": ["directional-tooltip", "icon-tooltip", "delayed-tooltip"],
-  "features": ["top position with arrow", "hover trigger", "focus-visible trigger", "fade + slide animation", "pure CSS no JS", "role=tooltip", "aria-describedby", "z-index layering"]
+  "tags": [
+    "tooltip",
+    "hover",
+    "focus",
+    "arrow",
+    "css-only",
+    "accessibility"
+  ],
+  "related": [
+    "directional-tooltip",
+    "icon-tooltip",
+    "delayed-tooltip"
+  ],
+  "features": [
+    "top position with arrow",
+    "hover trigger",
+    "focus-visible trigger",
+    "fade + slide animation",
+    "pure CSS no JS",
+    "role=tooltip",
+    "aria-describedby",
+    "z-index layering"
+  ],
+  "type": "component",
+  "category": "Components"
 }

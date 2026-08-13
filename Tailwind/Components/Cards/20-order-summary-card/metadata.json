@@ -7,7 +7,26 @@
   "description": "Order tracking card with status badges, product list, delivery info, and action buttons.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "order", "tracking", "delivery", "ecommerce", "status"],
-  "related": ["checkout-summary-card", "product-card", "notification-card"],
-  "features": ["order ID", "status badge", "product list", "delivery date", "action buttons"]
+  "tags": [
+    "card",
+    "order",
+    "tracking",
+    "delivery",
+    "ecommerce",
+    "status"
+  ],
+  "related": [
+    "checkout-summary-card",
+    "product-card",
+    "notification-card"
+  ],
+  "features": [
+    "order ID",
+    "status badge",
+    "product list",
+    "delivery date",
+    "action buttons"
+  ],
+  "type": "component",
+  "category": "Components"
 }

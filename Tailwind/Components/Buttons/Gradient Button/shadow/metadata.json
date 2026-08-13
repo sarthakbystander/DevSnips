@@ -5,12 +5,38 @@
   "description": "Gradient buttons with colored shadow effects that match the gradient",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "shadow", "glow", "elevation"],
-  "searchTerms": ["gradient shadow button", "button with gradient shadow", "glow button", "elevated gradient button"],
-  "related": ["linear", "pill", "dark-background"],
-  "styles": ["Blue", "Pink", "Amber"],
-  "sizes": ["Small", "Default", "Large"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "shadow",
+    "glow",
+    "elevation"
+  ],
+  "searchTerms": [
+    "gradient shadow button",
+    "button with gradient shadow",
+    "glow button",
+    "elevated gradient button"
+  ],
+  "related": [
+    "linear",
+    "pill",
+    "dark-background"
+  ],
+  "styles": [
+    "Blue",
+    "Pink",
+    "Amber"
+  ],
+  "sizes": [
+    "Small",
+    "Default",
+    "Large"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -19,5 +45,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

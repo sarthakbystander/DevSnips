@@ -5,11 +5,42 @@
   "description": "Expiration date input components for card and subscription forms",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "expiration", "date", "card", "subscription"],
-  "searchTerms": ["expiration date input", "card expiry", "valid until", "date input"],
-  "related": ["credit-card", "split-input", "date-picker"],
-  "styles": ["Standard", "Split", "Compact", "Calendar Style"],
-  "accessibility": { "focus": "Clear focus on inputs", "aria": "Proper label associations", "touch": "Touch-friendly dropdowns" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "expiration",
+    "date",
+    "card",
+    "subscription"
+  ],
+  "searchTerms": [
+    "expiration date input",
+    "card expiry",
+    "valid until",
+    "date input"
+  ],
+  "related": [
+    "credit-card",
+    "split-input",
+    "date-picker"
+  ],
+  "styles": [
+    "Standard",
+    "Split",
+    "Compact",
+    "Calendar Style"
+  ],
+  "accessibility": {
+    "focus": "Clear focus on inputs",
+    "aria": "Proper label associations",
+    "touch": "Touch-friendly dropdowns"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

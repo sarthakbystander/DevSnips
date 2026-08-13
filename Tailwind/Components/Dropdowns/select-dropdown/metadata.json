@@ -7,10 +7,22 @@
   "description": "Enhanced select dropdown with icons, descriptions, and smooth arrow rotation animation.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "select", "form", "icons", "categorized"],
-  "related": ["searchable-select", "multi-select", "filter-menu"],
+  "tags": [
+    "dropdown",
+    "select",
+    "form",
+    "icons",
+    "categorized"
+  ],
+  "related": [
+    "searchable-select",
+    "multi-select",
+    "filter-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

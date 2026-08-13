@@ -7,10 +7,22 @@
   "description": "Multi-select dropdown with checkboxes, technology badges, and removable tags for multiple selections.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "multi-select", "checkbox", "tags", "form"],
-  "related": ["select-dropdown", "searchable-select", "checkbox-menu"],
+  "tags": [
+    "dropdown",
+    "multi-select",
+    "checkbox",
+    "tags",
+    "form"
+  ],
+  "related": [
+    "select-dropdown",
+    "searchable-select",
+    "checkbox-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,34 @@
   "description": "Input fields with helper text, hints, and guidance for users",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "helper", "hint", "guidance", "form"],
-  "searchTerms": ["input with helper", "helper text input", "hint input", "form guidance"],
-  "related": ["validation-states", "with-prefix", "outlined"],
-  "styles": ["Plain Text", "Icon Hint", "Tooltip", "With Link"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "helper",
+    "hint",
+    "guidance",
+    "form"
+  ],
+  "searchTerms": [
+    "input with helper",
+    "helper text input",
+    "hint input",
+    "form guidance"
+  ],
+  "related": [
+    "validation-states",
+    "with-prefix",
+    "outlined"
+  ],
+  "styles": [
+    "Plain Text",
+    "Icon Hint",
+    "Tooltip",
+    "With Link"
+  ],
   "accessibility": {
     "focus": "Helper text properly associated",
     "aria": "Use aria-describedby for helper text",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

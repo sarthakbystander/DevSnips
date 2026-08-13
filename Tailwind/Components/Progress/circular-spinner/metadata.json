@@ -7,7 +7,29 @@
   "description": "Spinning ring loading indicator in four sizes (xs, sm, md, lg) and multiple colors, with an optional text label. Pure CSS animation via Tailwind's animate-spin — no JavaScript required.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["progress", "spinner", "loading", "circular", "ring", "indicator", "css-only"],
-  "related": ["linear-bar", "skeleton-loader", "upload-progress"],
-  "features": ["4 sizes", "color variants", "optional label", "pure CSS animation", "role=status", "aria-live polite", "aria-hidden on decorative svg"]
+  "tags": [
+    "progress",
+    "spinner",
+    "loading",
+    "circular",
+    "ring",
+    "indicator",
+    "css-only"
+  ],
+  "related": [
+    "linear-bar",
+    "skeleton-loader",
+    "upload-progress"
+  ],
+  "features": [
+    "4 sizes",
+    "color variants",
+    "optional label",
+    "pure CSS animation",
+    "role=status",
+    "aria-live polite",
+    "aria-hidden on decorative svg"
+  ],
+  "type": "component",
+  "category": "Components"
 }

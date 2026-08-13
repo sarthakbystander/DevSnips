@@ -5,11 +5,40 @@
   "description": "Search input components with filter chips and advanced filtering options",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "search", "filter", "search-bar", "filter-chips"],
-  "searchTerms": ["search with filters", "filter chips", "advanced search"],
-  "related": ["search-bar", "outlined", "icon-left"],
-  "styles": ["Inline", "With Chips", "Advanced"],
-  "accessibility": { "focus": "Focus ring on search input", "aria": "Filter controls labeled", "touch": "Touch-friendly filter chips" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "search",
+    "filter",
+    "search-bar",
+    "filter-chips"
+  ],
+  "searchTerms": [
+    "search with filters",
+    "filter chips",
+    "advanced search"
+  ],
+  "related": [
+    "search-bar",
+    "outlined",
+    "icon-left"
+  ],
+  "styles": [
+    "Inline",
+    "With Chips",
+    "Advanced"
+  ],
+  "accessibility": {
+    "focus": "Focus ring on search input",
+    "aria": "Filter controls labeled",
+    "touch": "Touch-friendly filter chips"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

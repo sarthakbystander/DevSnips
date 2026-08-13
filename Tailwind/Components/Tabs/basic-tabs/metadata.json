@@ -7,7 +7,25 @@
   "description": "Clean documentation tabs with an underline indicator. Ideal for organizing reference material, docs pages, and onboarding steps into focused sections.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "basic", "documentation", "underline", "accessible"],
-  "related": ["underline-tabs", "minimal-tabs", "bordered-tabs"],
-  "features": ["underline active indicator", "arrow-key navigation", "aria tab pattern", "focus-visible ring", "responsive"]
+  "tags": [
+    "tabs",
+    "basic",
+    "documentation",
+    "underline",
+    "accessible"
+  ],
+  "related": [
+    "underline-tabs",
+    "minimal-tabs",
+    "bordered-tabs"
+  ],
+  "features": [
+    "underline active indicator",
+    "arrow-key navigation",
+    "aria tab pattern",
+    "focus-visible ring",
+    "responsive"
+  ],
+  "type": "component",
+  "category": "Components"
 }

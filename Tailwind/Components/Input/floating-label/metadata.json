@@ -5,11 +5,32 @@
   "description": "Material-inspired floating label inputs with smooth animations",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "floating", "label", "material", "animated"],
-  "searchTerms": ["floating label input", "material input", "animated label"],
-  "related": ["underline", "outlined", "filled"],
-  "styles": ["Empty", "Filled", "Password"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "floating",
+    "label",
+    "material",
+    "animated"
+  ],
+  "searchTerms": [
+    "floating label input",
+    "material input",
+    "animated label"
+  ],
+  "related": [
+    "underline",
+    "outlined",
+    "filled"
+  ],
+  "styles": [
+    "Empty",
+    "Filled",
+    "Password"
+  ],
   "accessibility": {
     "focus": "Clear visual focus state with ring",
     "aria": "Labels properly associated via for/id",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

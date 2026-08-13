@@ -5,11 +5,37 @@
   "description": "Outline buttons available in multiple colors",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "outline", "colors", "red", "green", "purple"],
-  "searchTerms": ["outline button colors", "colored outline button", "red outline button", "green outline button"],
-  "related": ["primary", "thick", "dashed", "sizes"],
-  "styles": ["Red", "Green", "Amber", "Purple", "Dark"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "outline",
+    "colors",
+    "red",
+    "green",
+    "purple"
+  ],
+  "searchTerms": [
+    "outline button colors",
+    "colored outline button",
+    "red outline button",
+    "green outline button"
+  ],
+  "related": [
+    "primary",
+    "thick",
+    "dashed",
+    "sizes"
+  ],
+  "styles": [
+    "Red",
+    "Green",
+    "Amber",
+    "Purple",
+    "Dark"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +44,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

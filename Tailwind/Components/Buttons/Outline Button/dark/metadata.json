@@ -5,11 +5,31 @@
   "description": "Outline buttons designed for dark backgrounds",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "outline", "dark", "dark mode"],
-  "searchTerms": ["outline button dark background", "dark mode outline button", "white outline button"],
-  "related": ["primary", "colors", "pill"],
-  "styles": ["White", "Blue", "Muted"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "outline",
+    "dark",
+    "dark mode"
+  ],
+  "searchTerms": [
+    "outline button dark background",
+    "dark mode outline button",
+    "white outline button"
+  ],
+  "related": [
+    "primary",
+    "colors",
+    "pill"
+  ],
+  "styles": [
+    "White",
+    "Blue",
+    "Muted"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

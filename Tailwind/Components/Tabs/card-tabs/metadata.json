@@ -7,7 +7,26 @@
   "description": "Card switching interface where each tab is a selectable pricing card with a radio-style indicator. Selecting a card reveals its feature panel. Ideal for plan pickers.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "cards", "pricing", "plans", "selection", "radio"],
-  "related": ["bordered-tabs", "rounded-tabs", "minimal-tabs"],
-  "features": ["selectable cards", "radio indicator", "popular badge", "feature panels", "arrow-key navigation"]
+  "tags": [
+    "tabs",
+    "cards",
+    "pricing",
+    "plans",
+    "selection",
+    "radio"
+  ],
+  "related": [
+    "bordered-tabs",
+    "rounded-tabs",
+    "minimal-tabs"
+  ],
+  "features": [
+    "selectable cards",
+    "radio indicator",
+    "popular badge",
+    "feature panels",
+    "arrow-key navigation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

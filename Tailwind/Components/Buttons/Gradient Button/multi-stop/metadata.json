@@ -5,11 +5,33 @@
   "description": "Buttons with three or more gradient color stops for rich, complex color transitions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "multi-stop", "spectrum", "three-color"],
-  "searchTerms": ["gradient button", "multi-stop gradient", "spectrum button", "rainbow gradient button"],
-  "related": ["linear", "directional", "pill"],
-  "styles": ["Spectrum", "Deep Blue", "Warm Fire"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "multi-stop",
+    "spectrum",
+    "three-color"
+  ],
+  "searchTerms": [
+    "gradient button",
+    "multi-stop gradient",
+    "spectrum button",
+    "rainbow gradient button"
+  ],
+  "related": [
+    "linear",
+    "directional",
+    "pill"
+  ],
+  "styles": [
+    "Spectrum",
+    "Deep Blue",
+    "Warm Fire"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

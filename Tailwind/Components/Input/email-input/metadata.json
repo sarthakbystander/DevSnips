@@ -5,11 +5,34 @@
   "description": "Email input components with icon, verification, and dark mode styles",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "email", "mail", "verification", "contact"],
-  "searchTerms": ["email input", "mail input", "email field", "contact form"],
-  "related": ["outlined", "icon-left", "with-suffix"],
-  "styles": ["Standard", "With Icon", "Verification", "Dark Mode"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "email",
+    "mail",
+    "verification",
+    "contact"
+  ],
+  "searchTerms": [
+    "email input",
+    "mail input",
+    "email field",
+    "contact form"
+  ],
+  "related": [
+    "outlined",
+    "icon-left",
+    "with-suffix"
+  ],
+  "styles": [
+    "Standard",
+    "With Icon",
+    "Verification",
+    "Dark Mode"
+  ],
   "accessibility": {
     "focus": "Clear focus ring",
     "aria": "Proper label association",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

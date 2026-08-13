@@ -7,7 +7,27 @@
   "description": "Application settings accordion whose panels hold form controls, toggles, and a danger zone. Single-open sections grouped like a real settings page.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["accordion", "settings", "forms", "toggles", "admin", "account"],
-  "related": ["bordered-accordion", "dark-accordion", "single-open-accordion"],
-  "features": ["form controls in panels", "toggle switches", "danger zone", "section icons", "single-open mode", "labeled inputs"]
+  "tags": [
+    "accordion",
+    "settings",
+    "forms",
+    "toggles",
+    "admin",
+    "account"
+  ],
+  "related": [
+    "bordered-accordion",
+    "dark-accordion",
+    "single-open-accordion"
+  ],
+  "features": [
+    "form controls in panels",
+    "toggle switches",
+    "danger zone",
+    "section icons",
+    "single-open mode",
+    "labeled inputs"
+  ],
+  "type": "component",
+  "category": "Components"
 }

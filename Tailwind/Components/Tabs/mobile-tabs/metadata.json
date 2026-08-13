@@ -7,7 +7,26 @@
   "description": "Bottom mobile tab navigation bar with icons, labels, and a notification badge. Switches app screens within a phone-style frame. Built for native-feeling mobile web apps.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "mobile", "bottom-nav", "app", "icons", "navigation"],
-  "related": ["scrollable-tabs", "icon-tabs", "rounded-tabs"],
-  "features": ["bottom tab bar", "icon + label", "notification badge", "app screen panels", "arrow-key navigation"]
+  "tags": [
+    "tabs",
+    "mobile",
+    "bottom-nav",
+    "app",
+    "icons",
+    "navigation"
+  ],
+  "related": [
+    "scrollable-tabs",
+    "icon-tabs",
+    "rounded-tabs"
+  ],
+  "features": [
+    "bottom tab bar",
+    "icon + label",
+    "notification badge",
+    "app screen panels",
+    "arrow-key navigation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

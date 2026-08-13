@@ -7,6 +7,18 @@
   "description": "One-time password verification modal with individual digit inputs, countdown timer, and alternative verification methods.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["modal", "otp", "verification", "security", "auth"],
-  "related": ["login-modal", "reset-password-modal", "multi-step-modal"]
+  "tags": [
+    "modal",
+    "otp",
+    "verification",
+    "security",
+    "auth"
+  ],
+  "related": [
+    "login-modal",
+    "reset-password-modal",
+    "multi-step-modal"
+  ],
+  "type": "component",
+  "category": "Components"
 }

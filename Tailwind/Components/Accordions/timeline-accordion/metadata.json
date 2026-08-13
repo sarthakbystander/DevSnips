@@ -7,7 +7,27 @@
   "description": "Expandable project timeline rendered as a vertical-rail accordion. Each milestone shows date, status dot, and an expandable panel with deliverables and progress.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["accordion", "timeline", "milestones", "roadmap", "project", "status"],
-  "related": ["bordered-accordion", "dark-accordion", "single-open-accordion"],
-  "features": ["vertical rail", "status dots", "progress bars", "deliverable checklists", "date chips", "chevron rotation"]
+  "tags": [
+    "accordion",
+    "timeline",
+    "milestones",
+    "roadmap",
+    "project",
+    "status"
+  ],
+  "related": [
+    "bordered-accordion",
+    "dark-accordion",
+    "single-open-accordion"
+  ],
+  "features": [
+    "vertical rail",
+    "status dots",
+    "progress bars",
+    "deliverable checklists",
+    "date chips",
+    "chevron rotation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

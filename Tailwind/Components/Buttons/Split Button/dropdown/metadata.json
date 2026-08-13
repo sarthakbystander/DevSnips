@@ -5,11 +5,28 @@
   "description": "Split buttons with dropdown menu trigger",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "split", "dropdown", "menu"],
-  "searchTerms": ["split dropdown button", "action split button", "share split button"],
-  "related": ["icon"],
-  "styles": ["Primary", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "split",
+    "dropdown",
+    "menu"
+  ],
+  "searchTerms": [
+    "split dropdown button",
+    "action split button",
+    "share split button"
+  ],
+  "related": [
+    "icon"
+  ],
+  "styles": [
+    "Primary",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "role=group for button groups",
@@ -18,5 +35,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

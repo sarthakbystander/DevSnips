@@ -5,11 +5,34 @@
   "description": "Fully rounded pill-style input fields for modern UI",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "pill", "rounded", "search", "modern"],
-  "searchTerms": ["pill input", "rounded input", "search pill", "modern input"],
-  "related": ["sharp-corner", "search-bar", "icon-left"],
-  "styles": ["Default", "With Icon", "Outlined", "Dark"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "pill",
+    "rounded",
+    "search",
+    "modern"
+  ],
+  "searchTerms": [
+    "pill input",
+    "rounded input",
+    "search pill",
+    "modern input"
+  ],
+  "related": [
+    "sharp-corner",
+    "search-bar",
+    "icon-left"
+  ],
+  "styles": [
+    "Default",
+    "With Icon",
+    "Outlined",
+    "Dark"
+  ],
   "accessibility": {
     "focus": "Clear focus ring indicator",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,34 @@
   "description": "Soft glass morphism buttons with blur effect",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "glass", "glassmorphism", "blur", "frosted"],
-  "searchTerms": ["glass button", "glassmorphism button", "frosted glass button", "blur button"],
-  "related": ["primary", "dark", "icon"],
-  "styles": ["Default", "Disabled", "Pill"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "glass",
+    "glassmorphism",
+    "blur",
+    "frosted"
+  ],
+  "searchTerms": [
+    "glass button",
+    "glassmorphism button",
+    "frosted glass button",
+    "blur button"
+  ],
+  "related": [
+    "primary",
+    "dark",
+    "icon"
+  ],
+  "styles": [
+    "Default",
+    "Disabled",
+    "Pill"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -7,7 +7,26 @@
   "description": "Project management table with expandable rows. Click rows to reveal team members, dates, and budget details with animated expansion and color-coded borders.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "expandable", "accordion", "projects", "nested", "interactive"],
-  "related": ["basic-table", "hover-table", "filterable-table"],
-  "features": ["expandable rows", "team avatars", "progress bars", "animated expansion", "detail panels"]
+  "tags": [
+    "table",
+    "expandable",
+    "accordion",
+    "projects",
+    "nested",
+    "interactive"
+  ],
+  "related": [
+    "basic-table",
+    "hover-table",
+    "filterable-table"
+  ],
+  "features": [
+    "expandable rows",
+    "team avatars",
+    "progress bars",
+    "animated expansion",
+    "detail panels"
+  ],
+  "type": "component",
+  "category": "Components"
 }

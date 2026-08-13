@@ -7,10 +7,22 @@
   "description": "Notification center dropdown with user avatars, unread indicators, timestamps, and read/unread states.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "notification", "alerts", "badge", "bell"],
-  "related": ["profile-menu", "action-menu", "quick-actions-menu"],
+  "tags": [
+    "dropdown",
+    "notification",
+    "alerts",
+    "badge",
+    "bell"
+  ],
+  "related": [
+    "profile-menu",
+    "action-menu",
+    "quick-actions-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

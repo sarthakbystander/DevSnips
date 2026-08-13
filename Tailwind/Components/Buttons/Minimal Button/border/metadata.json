@@ -5,11 +5,29 @@
   "description": "Minimal border button styles",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "minimal", "border", "outline"],
-  "searchTerms": ["minimal border button", "outline button", "minimal outline button"],
-  "related": ["underline"],
-  "styles": ["Pill Border", "Outline Border", "Bold Border"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "minimal",
+    "border",
+    "outline"
+  ],
+  "searchTerms": [
+    "minimal border button",
+    "outline button",
+    "minimal outline button"
+  ],
+  "related": [
+    "underline"
+  ],
+  "styles": [
+    "Pill Border",
+    "Outline Border",
+    "Bold Border"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +36,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

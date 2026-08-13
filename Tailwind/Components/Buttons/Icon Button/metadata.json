@@ -4,30 +4,58 @@
   "description": "Icon-only buttons and icon+text combinations for toolbars and navigation",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 3,
   "variants": [
     {
       "name": "Basic",
       "description": "Basic icon button styles",
-      "styles": ["Primary", "Secondary", "Danger", "Outline"],
+      "styles": [
+        "Primary",
+        "Secondary",
+        "Danger",
+        "Outline"
+      ],
       "path": "basic/"
     },
     {
       "name": "Rounded",
       "description": "Fully rounded circular icon buttons",
-      "styles": ["Primary", "Secondary", "Gradient", "Outline"],
+      "styles": [
+        "Primary",
+        "Secondary",
+        "Gradient",
+        "Outline"
+      ],
       "path": "rounded/"
     },
     {
       "name": "Dark",
       "description": "Dark themed icon buttons",
-      "styles": ["Gray", "Darker", "Light", "Outline"],
+      "styles": [
+        "Gray",
+        "Darker",
+        "Light",
+        "Outline"
+      ],
       "path": "dark/"
     }
   ],
-  "tags": ["button", "icon", "icon-only", "toolbar"],
-  "searchTerms": ["icon button", "icon only button", "toolbar button", "action button"],
+  "tags": [
+    "button",
+    "icon",
+    "icon-only",
+    "toolbar"
+  ],
+  "searchTerms": [
+    "icon button",
+    "icon only button",
+    "toolbar button",
+    "action button"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -36,5 +64,6 @@
   "related": [
     "Animated Button",
     "Split Button"
-  ]
+  ],
+  "type": "component"
 }
