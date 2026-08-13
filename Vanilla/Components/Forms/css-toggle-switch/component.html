@@ -1,16 +1,20 @@
 <!--
-Snippet Name: Responsive Sticky Header With Shadow
-Description: Reusable responsive sticky header with shadow snippet for frontend projects.
+Snippet Name: Css Toggle Switch
+Description: Reusable css toggle switch snippet for frontend projects.
 Author: DevSnips Contributors
-Usage Example: Open `Vanilla/Components/Navigation/responsive-sticky-header-with-shadow/Responsive Sticky Header with Shadow.html` and copy the snippet into your project.
+Usage Example: Open `Vanilla/Components/Forms/css-toggle-switch/component.html` and copy the snippet into your project.
 -->
 
-<header class="sticky-header">My Site</header>
+<label class="switch"><input type="checkbox"><span class="track"></span></label>
 
 
 <style>
-.sticky-header{position:sticky;top:0;background:var(--ds-surface, #fff);padding:1rem;transition:box-shadow .25s}
-.sticky-header.scrolled{box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.switch{display:inline-block}
+.switch input{display:none}
+.switch .track{display:inline-block;width:48px;height:26px;background:var(--ds-border, #ddd);border-radius: var(--ds-radius-full, 999px);position:relative}
+.switch .track::after{content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;background:var(--ds-surface, #fff);border-radius:50%;transition:transform .2s}
+.switch input:checked + .track{background:var(--ds-success, #4caf50)}
+.switch input:checked + .track::after{transform:translateX(22px)}
 
 /* devsnips-qa:quality-bar */
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
@@ -23,8 +27,3 @@ Usage Example: Open `Vanilla/Components/Navigation/responsive-sticky-header-with
 }
 @media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
-
-
-<script>
-const h=document.querySelector('.sticky-header');window.addEventListener('scroll',()=>h.classList.toggle('scrolled',window.scrollY>40));
-</script>

@@ -789,21 +789,20 @@
           ]
         },
         {
-          "name": "Icon Button Dark",
-          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "name": "Dark Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
           "type": "component",
-          "description": "Dark themed icon button styles for dark interfaces",
+          "description": "Dark background buttons for dark themed interfaces",
           "tags": [
             "button",
-            "icon",
+            "filled",
             "dark",
             "dark mode"
           ],
           "styles": [
-            "Gray",
-            "Darker",
-            "Light",
-            "Outline"
+            "White",
+            "Dark Solid",
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -834,28 +833,6 @@
           ]
         },
         {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "type": "component",
-          "description": "Dark background buttons for dark themed interfaces",
-          "tags": [
-            "button",
-            "filled",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Dark Button",
           "path": "Tailwind/Components/Buttons/Glass Button/dark/",
           "type": "component",
@@ -870,6 +847,29 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Dark",
+          "path": "Tailwind/Components/Buttons/Icon Button/dark/",
+          "type": "component",
+          "description": "Dark themed icon button styles for dark interfaces",
+          "tags": [
+            "button",
+            "icon",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "Gray",
+            "Darker",
+            "Light",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1127,27 +1127,6 @@
           ]
         },
         {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "type": "component",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Icon Button",
           "path": "Tailwind/Components/Buttons/Glass Button/icon/",
           "type": "component",
@@ -1171,21 +1150,19 @@
           ]
         },
         {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
           "type": "component",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
+          "description": "Split buttons with icon and dropdown",
           "tags": [
             "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
+            "split",
+            "dropdown",
+            "icon"
           ],
           "styles": [
-            "Upload",
-            "Add",
-            "Delete"
+            "Primary",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1208,6 +1185,29 @@
             "Scale",
             "Rotate",
             "Flip"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Icon Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "type": "component",
+          "description": "Ghost buttons with icons for upload, add, and delete actions",
+          "tags": [
+            "button",
+            "ghost",
+            "icon",
+            "upload",
+            "delete"
+          ],
+          "styles": [
+            "Upload",
+            "Add",
+            "Delete"
           ],
           "files": [
             "code.html",
@@ -1326,28 +1326,6 @@
           ]
         },
         {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "type": "component",
@@ -1363,6 +1341,28 @@
             "Violet",
             "Cyan",
             "Emerald"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "type": "component",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
           ],
           "files": [
             "code.html",
@@ -1393,27 +1393,6 @@
           ]
         },
         {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "type": "component",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Primary Button",
           "path": "Tailwind/Components/Buttons/Basic Button/primary/",
           "type": "component",
@@ -1428,6 +1407,27 @@
             "Default",
             "Disabled",
             "Link"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
+          "type": "component",
+          "description": "Blue bordered buttons with transparent background and hover fill",
+          "tags": [
+            "button",
+            "outline",
+            "bordered",
+            "blue"
+          ],
+          "styles": [
+            "Default",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1503,29 +1503,6 @@
           ]
         },
         {
-          "name": "Icon Button Rounded",
-          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
-          "type": "component",
-          "description": "Fully rounded icon button styles",
-          "tags": [
-            "button",
-            "icon",
-            "rounded",
-            "circle"
-          ],
-          "styles": [
-            "Primary",
-            "Secondary",
-            "Gradient",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Rounded Full Button",
           "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
           "type": "component",
@@ -1541,6 +1518,29 @@
             "Blue Pill",
             "Dark Pill",
             "Gradient Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Icon Button Rounded",
+          "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
+          "type": "component",
+          "description": "Fully rounded icon button styles",
+          "tags": [
+            "button",
+            "icon",
+            "rounded",
+            "circle"
+          ],
+          "styles": [
+            "Primary",
+            "Secondary",
+            "Gradient",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1685,28 +1685,6 @@
           ]
         },
         {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
-          "type": "component",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Soft Button",
           "path": "Tailwind/Components/Buttons/Glass Button/soft/",
           "type": "component",
@@ -1722,6 +1700,28 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
+          "type": "component",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
+          "tags": [
+            "button",
+            "neumorphism",
+            "soft ui",
+            "shadow"
+          ],
+          "styles": [
+            "Default",
+            "Pill",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -14724,41 +14724,6 @@
       "variantsCount": 12,
       "variants": [
         {
-          "name": "Model Comparison — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
-          "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
-            "neo-brutalism",
-            "brutalist",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "ai-product"
-          ],
-          "features": [
-            "side-by-side model cards",
-            "animated metric bars (context, speed, cost, quality)",
-            "Best-for metric selector with winner highlight",
-            "live recommendation footer",
-            "hard offset shadows and flat accent palette",
-            "press-down hover states",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Prompt Library — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
           "type": "section",
@@ -14782,6 +14747,41 @@
             "live search across cards",
             "copy-to-clipboard with Copied! state",
             "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Model Comparison — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "neo-brutalism",
+            "brutalist",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side model cards",
+            "animated metric bars (context, speed, cost, quality)",
+            "Best-for metric selector with winner highlight",
+            "live recommendation footer",
+            "hard offset shadows and flat accent palette",
+            "press-down hover states",
+            "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
           ],
           "styles": [
@@ -14863,41 +14863,6 @@
           ]
         },
         {
-          "name": "Model Comparison — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/model-comparison/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
-          "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
-            "glassmorphism",
-            "frosted-glass",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "ai-product"
-          ],
-          "features": [
-            "side-by-side frosted-glass model cards",
-            "animated gradient metric bars",
-            "Best-for metric selector with glowing winner highlight",
-            "gradient mesh backdrop with cyan glow accents",
-            "live recommendation footer",
-            "backdrop blur and luminous edges",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Prompt Library — Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
           "type": "section",
@@ -14922,6 +14887,41 @@
             "live search across cards",
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Model Comparison — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/model-comparison/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "glassmorphism",
+            "frosted-glass",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side frosted-glass model cards",
+            "animated gradient metric bars",
+            "Best-for metric selector with glowing winner highlight",
+            "gradient mesh backdrop with cyan glow accents",
+            "live recommendation footer",
+            "backdrop blur and luminous edges",
+            "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
           ],
           "styles": [
@@ -15004,41 +15004,6 @@
           ]
         },
         {
-          "name": "Model Comparison — Vercel",
-          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
-          "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
-            "vercel",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "dark",
-            "ai-product"
-          ],
-          "features": [
-            "side-by-side model cards",
-            "animated hairline metric bars",
-            "Best-for metric selector with moving winner marker",
-            "teal accent glow on the winning card",
-            "live recommendation footer",
-            "dark monochrome surfaces with hairline borders",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Prompt Library — Vercel",
           "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
           "type": "section",
@@ -15062,6 +15027,41 @@
             "live search across cards",
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Model Comparison — Vercel",
+          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "vercel",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "dark",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side model cards",
+            "animated hairline metric bars",
+            "Best-for metric selector with moving winner marker",
+            "teal accent glow on the winning card",
+            "live recommendation footer",
+            "dark monochrome surfaces with hairline borders",
+            "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
           ],
           "styles": [
@@ -15196,40 +15196,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Kanban Board — Neo-Brutalism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
-          "tags": [
-            "kanban",
-            "board",
-            "neo-brutalism",
-            "brutalist",
-            "drag-and-drop",
-            "task-board",
-            "app-ui",
-            "project-management"
-          ],
-          "features": [
-            "hard offset shadows on cards and panel",
-            "flat bright accent column headers",
-            "press-down hover states",
-            "HTML5 drag-and-drop between columns",
-            "live-updating count badges",
-            "add-card affordance per column",
-            "placeholder drop indicator",
-            "keyboard-focusable draggable cards"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Dashboard Overview — Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
@@ -15266,34 +15232,32 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
+          "name": "Kanban Board — Neo-Brutalism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
           "tags": [
             "kanban",
             "board",
-            "glassmorphism",
-            "glass",
+            "neo-brutalism",
+            "brutalist",
             "drag-and-drop",
             "task-board",
             "app-ui",
-            "project-management",
-            "gradient",
-            "vibrant"
+            "project-management"
           ],
           "features": [
-            "backdrop-blur glass columns",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlights",
-            "glowing cyan status dots",
-            "gradient priority chips",
+            "hard offset shadows on cards and panel",
+            "flat bright accent column headers",
+            "press-down hover states",
             "HTML5 drag-and-drop between columns",
-            "live-updating count chips",
+            "live-updating count badges",
+            "add-card affordance per column",
+            "placeholder drop indicator",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15342,34 +15306,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Vercel",
-          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "name": "Kanban Board — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
           "tags": [
             "kanban",
             "board",
-            "vercel",
-            "dark-mode",
+            "glassmorphism",
+            "glass",
             "drag-and-drop",
             "task-board",
             "app-ui",
             "project-management",
-            "minimal",
-            "monochrome"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "dark monochrome palette",
-            "hairline borders + radial glow",
-            "glowing teal status dots",
-            "pill count badges",
+            "backdrop-blur glass columns",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlights",
+            "glowing cyan status dots",
+            "gradient priority chips",
             "HTML5 drag-and-drop between columns",
-            "live-updating counts",
-            "dashed add-card affordance",
+            "live-updating count chips",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15406,6 +15370,42 @@
             "hairline borders + subtle glow",
             "recent activity feed",
             "keyboard accessible range buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Kanban Board — Vercel",
+          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "tags": [
+            "kanban",
+            "board",
+            "vercel",
+            "dark-mode",
+            "drag-and-drop",
+            "task-board",
+            "app-ui",
+            "project-management",
+            "minimal",
+            "monochrome"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline borders + radial glow",
+            "glowing teal status dots",
+            "pill count badges",
+            "HTML5 drag-and-drop between columns",
+            "live-updating counts",
+            "dashed add-card affordance",
+            "keyboard-focusable draggable cards"
           ],
           "styles": [
             "vercel"
@@ -15455,41 +15455,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Command Palette — Neo-Brutalism",
-          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
-          "tags": [
-            "command-palette",
-            "cmd-k",
-            "neo-brutalism",
-            "brutalist",
-            "keyboard",
-            "search",
-            "overlay",
-            "dialog",
-            "developer"
-          ],
-          "features": [
-            "hard offset shadows and bright flat accents",
-            "live search filtering across grouped commands",
-            "arrow-key navigation with aria-activedescendant",
-            "Enter runs command with confirmation toast",
-            "Escape closes, Cmd/Ctrl+K toggles open",
-            "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected",
-            "custom scrollbar styling"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Code Playground — Neo-Brutalism",
           "path": "Tailwind/Sections/developer/code-playground/neo-brutalism/",
           "type": "section",
@@ -15527,16 +15492,15 @@
           ]
         },
         {
-          "name": "Command Palette — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
+          "name": "Command Palette — Neo-Brutalism",
+          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
+          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
+            "neo-brutalism",
+            "brutalist",
             "keyboard",
             "search",
             "overlay",
@@ -15544,18 +15508,17 @@
             "developer"
           ],
           "features": [
-            "frosted-glass panel with backdrop blur over animated mesh",
-            "luminous top edge and glow shadows",
-            "gradient active highlight on selected option",
+            "hard offset shadows and bright flat accents",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
             "Escape closes, Cmd/Ctrl+K toggles open",
             "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected"
+            "role dialog and role option with aria-selected",
+            "custom scrollbar styling"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15602,15 +15565,16 @@
           ]
         },
         {
-          "name": "Command Palette — Vercel",
-          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "name": "Command Palette — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "vercel",
-            "dark",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
             "keyboard",
             "search",
             "overlay",
@@ -15618,8 +15582,9 @@
             "developer"
           ],
           "features": [
-            "dark monochrome surface with hairline borders",
-            "single teal accent and radial glow",
+            "frosted-glass panel with backdrop blur over animated mesh",
+            "luminous top edge and glow shadows",
+            "gradient active highlight on selected option",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
@@ -15628,7 +15593,7 @@
             "role dialog and role option with aria-selected"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15663,6 +15628,41 @@
             "live char + line counters",
             "reset control restores defaults",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Command Palette — Vercel",
+          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "tags": [
+            "command-palette",
+            "cmd-k",
+            "vercel",
+            "dark",
+            "keyboard",
+            "search",
+            "overlay",
+            "dialog",
+            "developer"
+          ],
+          "features": [
+            "dark monochrome surface with hairline borders",
+            "single teal accent and radial glow",
+            "live search filtering across grouped commands",
+            "arrow-key navigation with aria-activedescendant",
+            "Enter runs command with confirmation toast",
+            "Escape closes, Cmd/Ctrl+K toggles open",
+            "focus trap while open, focus restore on close",
+            "role dialog and role option with aria-selected"
           ],
           "styles": [
             "vercel"
@@ -15710,6 +15710,41 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
+          "tags": [
+            "feature-grid",
+            "marketing",
+            "neo-brutalism",
+            "brutalist",
+            "features",
+            "landing",
+            "cards",
+            "grid"
+          ],
+          "features": [
+            "bold uppercase section heading",
+            "six feature cards in a responsive grid",
+            "hard black borders + offset shadows",
+            "rotating flat accent icon tiles",
+            "featured card with New badge",
+            "press-down hover states",
+            "staggered entrance animation",
+            "prefers-reduced-motion guard",
+            "keyboard accessible focus states"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Hero Landing — Neo-Brutalism",
           "path": "Tailwind/Sections/marketing/hero-landing/neo-brutalism/",
           "type": "section",
@@ -15745,33 +15780,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
+          "name": "Feature Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
+          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "glass",
             "features",
             "landing",
-            "cards",
-            "grid"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "bold uppercase section heading",
-            "six feature cards in a responsive grid",
-            "hard black borders + offset shadows",
-            "rotating flat accent icon tiles",
-            "featured card with New badge",
-            "press-down hover states",
-            "staggered entrance animation",
+            "backdrop-blur glass cards",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing gradient icon chips",
+            "featured card with gradient tint + glow badge",
+            "lift-on-hover interaction",
+            "staggered IntersectionObserver entrance",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15817,33 +15852,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
+          "name": "Feature Grid — Vercel",
+          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
           "type": "section",
-          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
+          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "glassmorphism",
-            "glass",
+            "vercel",
+            "dark-mode",
             "features",
             "landing",
-            "gradient",
-            "vibrant"
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "backdrop-blur glass cards",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing gradient icon chips",
-            "featured card with gradient tint + glow badge",
-            "lift-on-hover interaction",
+            "dark monochrome palette",
+            "hairline grid divider layout",
+            "masked grid backdrop",
+            "single teal accent",
+            "featured card with glowing badge",
+            "soft hover reveals",
             "staggered IntersectionObserver entrance",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15877,41 +15912,6 @@
             "masked grid backdrop",
             "staggered entrance animation",
             "prefers-reduced-motion guard"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Feature Grid — Vercel",
-          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
-          "tags": [
-            "feature-grid",
-            "marketing",
-            "vercel",
-            "dark-mode",
-            "features",
-            "landing",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline grid divider layout",
-            "masked grid backdrop",
-            "single teal accent",
-            "featured card with glowing badge",
-            "soft hover reveals",
-            "staggered IntersectionObserver entrance",
-            "prefers-reduced-motion guard",
-            "keyboard accessible focus states"
           ],
           "styles": [
             "vercel"
@@ -16093,30 +16093,61 @@
       "variantsCount": 18,
       "variants": [
         {
-          "name": "Pricing Table — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
           "tags": [
             "pricing",
-            "pricing-table",
+            "usage-based",
             "neo-brutalism",
             "brutalist",
-            "billing-toggle",
+            "slider",
+            "metered",
             "saas",
-            "plans",
-            "cta",
-            "monochrome-accents"
+            "offset-shadows"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with badge",
-            "check/dash feature lists",
-            "hard offset shadows",
-            "flat bright accent palette",
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
             "press-down hover states",
-            "keyboard accessible toggle buttons"
+            "keyboard accessible slider"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
+          "tags": [
+            "features",
+            "feature-grid",
+            "neo-brutalism",
+            "brutalist",
+            "saas",
+            "bento",
+            "offset-shadows"
+          ],
+          "features": [
+            "6-up feature grid",
+            "rotating bright accent panels",
+            "numbered monospace tags",
+            "zig-zag offset layout",
+            "thick icon tiles",
+            "offset shadows",
+            "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
@@ -16161,63 +16192,30 @@
           ]
         },
         {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
+          "name": "Pricing Table — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
           "tags": [
             "pricing",
-            "usage-based",
+            "pricing-table",
             "neo-brutalism",
             "brutalist",
-            "slider",
-            "metered",
+            "billing-toggle",
             "saas",
-            "offset-shadows"
+            "plans",
+            "cta",
+            "monochrome-accents"
           ],
           "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with badge",
+            "check/dash feature lists",
+            "hard offset shadows",
+            "flat bright accent palette",
             "press-down hover states",
-            "keyboard accessible slider"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
-          "tags": [
-            "metrics",
-            "stats",
-            "numbers",
-            "neo-brutalism",
-            "brutalist",
-            "count-up",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant featured stat block",
-            "offset grid of stat cards",
-            "rotating bright accent panels",
-            "live count-up ticker on mount",
-            "diagonal grid background",
-            "bold section divider",
-            "press-down hover states",
-            "monospace labels"
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "neo-brutalism"
@@ -16263,27 +16261,29 @@
           ]
         },
         {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
+          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
+          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
           "tags": [
-            "features",
-            "feature-grid",
+            "metrics",
+            "stats",
+            "numbers",
             "neo-brutalism",
             "brutalist",
+            "count-up",
             "saas",
-            "bento",
             "offset-shadows"
           ],
           "features": [
-            "6-up feature grid",
+            "giant featured stat block",
+            "offset grid of stat cards",
             "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
+            "live count-up ticker on mount",
+            "diagonal grid background",
+            "bold section divider",
+            "press-down hover states",
+            "monospace labels"
           ],
           "styles": [
             "neo-brutalism"
@@ -16317,6 +16317,139 @@
             "gradient icon chips",
             "luminous top edges",
             "hover lift states"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Three Tier Pricing — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
+          "tags": [
+            "pricing",
+            "three-tier",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "gradient-mesh"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "hover lift states",
+            "keyboard accessible toggle"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Testimonial Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "tags": [
+            "testimonials",
+            "social-proof",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "quotes",
+            "gradient-mesh"
+          ],
+          "features": [
+            "asymmetric testimonial layout",
+            "large featured quote tile with gradient quote mark",
+            "medium and compact quote tiles",
+            "avatar initials chips",
+            "role and company labels",
+            "luminous top edges",
+            "hover lift states"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
+          "tags": [
+            "hero",
+            "dashboard",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "saas",
+            "analytics"
+          ],
+          "features": [
+            "centered headline with luminous edge highlight",
+            "gradient primary CTA",
+            "frosted-glass dashboard mock",
+            "KPI cards with sparklines",
+            "activity feed",
+            "floating glass stat bubbles",
+            "cyan glow accents",
+            "hover lift states"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "tags": [
+            "screenshots",
+            "gallery",
+            "showcase",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "tabs",
+            "product-preview"
+          ],
+          "features": [
+            "tabbed screenshot gallery",
+            "large framed preview",
+            "thumbnail tabs that swap preview live",
+            "caption metadata rail",
+            "cyan glow accents",
+            "luminous top edges",
+            "scoped keyboard-accessible tabs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -16364,173 +16497,6 @@
           ]
         },
         {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
-          "tags": [
-            "screenshots",
-            "gallery",
-            "showcase",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "tabs",
-            "product-preview"
-          ],
-          "features": [
-            "tabbed screenshot gallery",
-            "large framed preview",
-            "thumbnail tabs that swap preview live",
-            "caption metadata rail",
-            "cyan glow accents",
-            "luminous top edges",
-            "scoped keyboard-accessible tabs"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Three Tier Pricing — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
-          "tags": [
-            "pricing",
-            "three-tier",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "gradient-mesh"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "hover lift states",
-            "keyboard accessible toggle"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
-          "tags": [
-            "hero",
-            "dashboard",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "saas",
-            "analytics"
-          ],
-          "features": [
-            "centered headline with luminous edge highlight",
-            "gradient primary CTA",
-            "frosted-glass dashboard mock",
-            "KPI cards with sparklines",
-            "activity feed",
-            "floating glass stat bubbles",
-            "cyan glow accents",
-            "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Testimonial Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
-          "tags": [
-            "testimonials",
-            "social-proof",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "quotes",
-            "gradient-mesh"
-          ],
-          "features": [
-            "asymmetric testimonial layout",
-            "large featured quote tile with gradient quote mark",
-            "medium and compact quote tiles",
-            "avatar initials chips",
-            "role and company labels",
-            "luminous top edges",
-            "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Enterprise SaaS Footer — Vercel",
-          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
-          "type": "section",
-          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
-          "tags": [
-            "footer",
-            "enterprise",
-            "vercel",
-            "dark",
-            "saas",
-            "newsletter",
-            "compliance",
-            "teal-accent"
-          ],
-          "features": [
-            "newsletter signup with email form",
-            "5-column link grid",
-            "status pill with teal dot",
-            "social icons",
-            "compliance badges row",
-            "bottom legal bar with locale",
-            "hairline borders",
-            "white/white-50/white-35 hierarchy"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Pricing Comparison Table — Vercel",
           "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
           "type": "section",
@@ -16554,6 +16520,72 @@
             "teal accent on popular column",
             "per-column white CTAs",
             "monochrome hierarchy"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Customer Logo Cloud — Vercel",
+          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
+          "type": "section",
+          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
+          "tags": [
+            "logos",
+            "logo-cloud",
+            "customers",
+            "vercel",
+            "dark",
+            "saas",
+            "wordmarks",
+            "teal-accent"
+          ],
+          "features": [
+            "centered headline with count chip",
+            "responsive wordmark-style SVG logo grid",
+            "white/white-40 logo hierarchy",
+            "hairline panel borders",
+            "pull-quote with avatar",
+            "teal accent on count chip",
+            "single teal dot"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Workflow Section — Vercel",
+          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "type": "section",
+          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "tags": [
+            "workflow",
+            "how-it-works",
+            "vercel",
+            "dark",
+            "saas",
+            "steps",
+            "code-preview",
+            "teal-accent"
+          ],
+          "features": [
+            "numbered three-step workflow",
+            "left step rail with teal connectors",
+            "right sticky code/command preview",
+            "working step switcher that swaps preview live",
+            "teal accent on active step",
+            "dark panels and hairline borders",
+            "scoped keyboard-accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -16600,39 +16632,6 @@
           ]
         },
         {
-          "name": "Customer Logo Cloud — Vercel",
-          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
-          "type": "section",
-          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
-          "tags": [
-            "logos",
-            "logo-cloud",
-            "customers",
-            "vercel",
-            "dark",
-            "saas",
-            "wordmarks",
-            "teal-accent"
-          ],
-          "features": [
-            "centered headline with count chip",
-            "responsive wordmark-style SVG logo grid",
-            "white/white-40 logo hierarchy",
-            "hairline panel borders",
-            "pull-quote with avatar",
-            "teal accent on count chip",
-            "single teal dot"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "SaaS Product Hero — Vercel",
           "path": "Tailwind/Sections/saas/product-hero/vercel/",
           "type": "section",
@@ -16668,28 +16667,29 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
-          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "name": "Enterprise SaaS Footer — Vercel",
+          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
           "type": "section",
-          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
           "tags": [
-            "workflow",
-            "how-it-works",
+            "footer",
+            "enterprise",
             "vercel",
             "dark",
             "saas",
-            "steps",
-            "code-preview",
+            "newsletter",
+            "compliance",
             "teal-accent"
           ],
           "features": [
-            "numbered three-step workflow",
-            "left step rail with teal connectors",
-            "right sticky code/command preview",
-            "working step switcher that swaps preview live",
-            "teal accent on active step",
-            "dark panels and hairline borders",
-            "scoped keyboard-accessible buttons"
+            "newsletter signup with email form",
+            "5-column link grid",
+            "status pill with teal dot",
+            "social icons",
+            "compliance badges row",
+            "bottom legal bar with locale",
+            "hairline borders",
+            "white/white-50/white-35 hierarchy"
           ],
           "styles": [
             "vercel"
@@ -16787,10 +16787,12 @@
             "saas",
             "startup",
             "dashboard",
-            "landing-page"
+            "landing-page",
+            "editorial",
+            "terracotta"
           ],
           "styles": [
-            "premium-modern-saas"
+            "editorial-warm-saas"
           ],
           "files": [
             "README.md",
@@ -17443,7 +17445,7 @@
           ],
           "files": [
             "README.md",
-            "accordion.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17474,7 +17476,7 @@
           ],
           "files": [
             "README.md",
-            "accordion-panel.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17503,7 +17505,7 @@
           ],
           "files": [
             "README.md",
-            "collapsible.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17536,7 +17538,7 @@
           ],
           "files": [
             "README.md",
-            "collapsible-accordion.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17566,7 +17568,7 @@
           ],
           "files": [
             "README.md",
-            "css-only-accordion.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -17628,7 +17630,7 @@
           ],
           "files": [
             "README.md",
-            "alert-messages.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17657,7 +17659,7 @@
           ],
           "files": [
             "README.md",
-            "cookie-consent-banner.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -17713,7 +17715,7 @@
           ],
           "files": [
             "README.md",
-            "contact-chip.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -17765,7 +17767,7 @@
           ],
           "files": [
             "README.md",
-            "css-only-notification-badge.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17793,8 +17795,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "notification-badge.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -17850,8 +17852,8 @@
             "shadow"
           ],
           "files": [
-            "3d-button-effect.html",
             "README.md",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17901,7 +17903,7 @@
           ],
           "files": [
             "README.md",
-            "action-buttons.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17933,7 +17935,7 @@
           ],
           "files": [
             "README.md",
-            "back-to-top-button.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17961,7 +17963,7 @@
           ],
           "files": [
             "README.md",
-            "download-button.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -17988,7 +17990,7 @@
           ],
           "files": [
             "README.md",
-            "floating-action-button.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18010,7 +18012,7 @@
           ],
           "files": [
             "README.md",
-            "animated-button.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18032,7 +18034,7 @@
           ],
           "files": [
             "README.md",
-            "gradient-button.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18083,8 +18085,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pulsing-button.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18108,8 +18110,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "radio-button-group.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18138,8 +18140,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "skewed-button.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18167,8 +18169,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "social-buttons.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18196,8 +18198,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "split-button.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -18251,7 +18253,7 @@
           ],
           "files": [
             "README.md",
-            "cta-banner.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18274,7 +18276,7 @@
           ],
           "files": [
             "README.md",
-            "cta-download.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18298,7 +18300,7 @@
           ],
           "files": [
             "README.md",
-            "cta-newsletter.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18321,7 +18323,7 @@
           ],
           "files": [
             "README.md",
-            "cta-split.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -18376,7 +18378,7 @@
           ],
           "files": [
             "README.md",
-            "blog-post-card.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18460,7 +18462,7 @@
           ],
           "files": [
             "README.md",
-            "equal-height-cards-flexbox.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18489,7 +18491,7 @@
           ],
           "files": [
             "README.md",
-            "equal-height-cards-grid.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18519,7 +18521,7 @@
           ],
           "files": [
             "README.md",
-            "flip-card.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18549,7 +18551,7 @@
           ],
           "files": [
             "README.md",
-            "flipping-card.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18578,7 +18580,7 @@
           ],
           "files": [
             "README.md",
-            "frosted-glass-card.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18608,7 +18610,7 @@
           ],
           "files": [
             "README.md",
-            "glassmorphism-card.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18635,8 +18637,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-card.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18661,8 +18663,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "profile-card.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18692,8 +18694,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-card.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18721,8 +18723,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-card.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18750,8 +18752,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "profile-card.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -18779,8 +18781,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "staff-card.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -18834,7 +18836,7 @@
           ],
           "files": [
             "README.md",
-            "contact-cards.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18858,7 +18860,7 @@
           ],
           "files": [
             "README.md",
-            "contact-form.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18882,7 +18884,7 @@
           ],
           "files": [
             "README.md",
-            "contact-office-locations.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -18931,7 +18933,7 @@
           ],
           "files": [
             "README.md",
-            "content-blog-grid.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18955,7 +18957,7 @@
           ],
           "files": [
             "README.md",
-            "content-documentation-preview.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -18979,7 +18981,7 @@
           ],
           "files": [
             "README.md",
-            "content-featured-articles.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19003,7 +19005,7 @@
           ],
           "files": [
             "README.md",
-            "content-resources.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -19055,7 +19057,7 @@
           ],
           "files": [
             "README.md",
-            "dark-mode-toggle.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19082,7 +19084,7 @@
           ],
           "files": [
             "README.md",
-            "footer.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19112,8 +19114,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-footer.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -19142,8 +19144,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "sticky-footer.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -19171,8 +19173,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "table-header-body-footer.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -19293,7 +19295,7 @@
           ],
           "files": [
             "README.md",
-            "faq-accordion.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19316,7 +19318,7 @@
           ],
           "files": [
             "README.md",
-            "faq-searchable.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -19365,7 +19367,7 @@
           ],
           "files": [
             "README.md",
-            "feature-bento.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19388,7 +19390,7 @@
           ],
           "files": [
             "README.md",
-            "feature-comparison.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19412,7 +19414,7 @@
           ],
           "files": [
             "README.md",
-            "feature-grid.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19436,7 +19438,7 @@
           ],
           "files": [
             "README.md",
-            "feature-icons.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19460,7 +19462,7 @@
           ],
           "files": [
             "README.md",
-            "feature-timeline.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -19509,7 +19511,7 @@
           ],
           "files": [
             "README.md",
-            "footer-large.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19531,7 +19533,7 @@
           ],
           "files": [
             "README.md",
-            "footer-minimal.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19555,7 +19557,7 @@
           ],
           "files": [
             "README.md",
-            "footer-multi-column.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -19615,7 +19617,7 @@
           ],
           "files": [
             "README.md",
-            "checkbox-group.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19636,7 +19638,7 @@
           ],
           "files": [
             "README.md",
-            "color-picker.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19663,7 +19665,7 @@
           ],
           "files": [
             "README.md",
-            "contact-form.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19686,7 +19688,7 @@
           ],
           "files": [
             "README.md",
-            "contact-form-basic.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19729,8 +19731,8 @@
             "focus-visible"
           ],
           "files": [
-            "CSS Toggle Switch.html",
             "README.md",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19749,7 +19751,7 @@
           ],
           "files": [
             "README.md",
-            "datalist-autocomplete.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19777,7 +19779,7 @@
           ],
           "files": [
             "README.md",
-            "date-time-picker.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19818,7 +19820,7 @@
           ],
           "files": [
             "README.md",
-            "disabled-input.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19842,7 +19844,7 @@
           ],
           "files": [
             "README.md",
-            "dropdown-menu.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19870,7 +19872,7 @@
           ],
           "files": [
             "README.md",
-            "file-upload-input.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19895,7 +19897,7 @@
           ],
           "files": [
             "README.md",
-            "floating-label.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19918,7 +19920,7 @@
           ],
           "files": [
             "README.md",
-            "form-validation.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19965,7 +19967,7 @@
           ],
           "files": [
             "README.md",
-            "inline-form.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -19986,7 +19988,7 @@
           ],
           "files": [
             "README.md",
-            "input-pattern-validation.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20009,7 +20011,7 @@
           ],
           "files": [
             "README.md",
-            "input-with-min-max.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20029,7 +20031,7 @@
           ],
           "files": [
             "README.md",
-            "keyboard-input.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20051,7 +20053,7 @@
           ],
           "files": [
             "README.md",
-            "login-form.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20079,8 +20081,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "mobile-dropdown.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20099,8 +20101,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "multi-select-dropdown.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20126,8 +20128,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "newsletter-signup.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20147,8 +20149,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "newsletter-signup-form.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20165,8 +20167,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "range-input.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20185,8 +20187,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "readonly-input.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20207,8 +20209,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "registration-form.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20231,8 +20233,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-form.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20259,8 +20261,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "search-autocomplete.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20279,8 +20281,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "search-input.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20300,8 +20302,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "select-dropdown.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20320,8 +20322,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "select-with-optgroup.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20343,8 +20345,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "subscription-form.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20362,8 +20364,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "textarea-label.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20387,8 +20389,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "toggle-switch.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -20435,7 +20437,7 @@
           ],
           "files": [
             "README.md",
-            "gallery-masonry.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20459,7 +20461,7 @@
           ],
           "files": [
             "README.md",
-            "gallery-portfolio.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20483,7 +20485,7 @@
           ],
           "files": [
             "README.md",
-            "gallery-projects.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -20531,7 +20533,7 @@
           ],
           "files": [
             "README.md",
-            "hero-animated.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20555,7 +20557,7 @@
           ],
           "files": [
             "README.md",
-            "hero-bento.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20578,7 +20580,7 @@
           ],
           "files": [
             "README.md",
-            "hero-center.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20602,7 +20604,7 @@
           ],
           "files": [
             "README.md",
-            "hero-gradient.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20626,7 +20628,7 @@
           ],
           "files": [
             "README.md",
-            "hero-image.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20650,7 +20652,7 @@
           ],
           "files": [
             "README.md",
-            "hero-minimal.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20674,7 +20676,7 @@
           ],
           "files": [
             "README.md",
-            "hero-product.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20699,7 +20701,7 @@
           ],
           "files": [
             "README.md",
-            "hero-saas.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20723,7 +20725,7 @@
           ],
           "files": [
             "README.md",
-            "hero-split.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20748,7 +20750,7 @@
           ],
           "files": [
             "README.md",
-            "hero-startup.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -20804,7 +20806,7 @@
           ],
           "files": [
             "README.md",
-            "bouncing-loader.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20834,7 +20836,7 @@
           ],
           "files": [
             "README.md",
-            "circular-progress-bar.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20866,7 +20868,7 @@
           ],
           "files": [
             "README.md",
-            "css-only-progress-bar.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20896,7 +20898,7 @@
           ],
           "files": [
             "README.md",
-            "loader.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20919,7 +20921,7 @@
           ],
           "files": [
             "README.md",
-            "bouncing-dots.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -20945,8 +20947,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "progress-bar.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -20975,8 +20977,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "progress-steps.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21006,8 +21008,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "skeleton-loader.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -21062,7 +21064,7 @@
           ],
           "files": [
             "README.md",
-            "logo-clients.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21085,7 +21087,7 @@
           ],
           "files": [
             "README.md",
-            "logo-cloud.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21108,7 +21110,7 @@
           ],
           "files": [
             "README.md",
-            "logo-trusted-by.html",
+            "component.html",
             "metadata.json"
           ]
         }
@@ -21161,7 +21163,7 @@
           ],
           "files": [
             "README.md",
-            "accordion-faq.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21186,7 +21188,7 @@
           ],
           "files": [
             "README.md",
-            "accordion-faq-layout.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21211,7 +21213,7 @@
           ],
           "files": [
             "README.md",
-            "jumbotron.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21234,8 +21236,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-table.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21259,8 +21261,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-pricing-grid.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21282,8 +21284,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "testimonial-slider.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -21330,7 +21332,7 @@
           ],
           "files": [
             "README.md",
-            "accessible-image.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21353,7 +21355,7 @@
           ],
           "files": [
             "README.md",
-            "audio-embed.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21380,7 +21382,7 @@
           ],
           "files": [
             "README.md",
-            "canvas-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21404,7 +21406,7 @@
           ],
           "files": [
             "README.md",
-            "figure-figcaption.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21433,7 +21435,7 @@
           ],
           "files": [
             "README.md",
-            "figure-with-figcaption.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21458,7 +21460,7 @@
           ],
           "files": [
             "README.md",
-            "full-width-image.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21481,7 +21483,7 @@
           ],
           "files": [
             "README.md",
-            "html5-audio-player.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21504,7 +21506,7 @@
           ],
           "files": [
             "README.md",
-            "html5-video-player.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21529,7 +21531,7 @@
           ],
           "files": [
             "README.md",
-            "iframe-embed.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21557,7 +21559,7 @@
           ],
           "files": [
             "README.md",
-            "image-map.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21587,7 +21589,7 @@
           ],
           "files": [
             "README.md",
-            "image-slider.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21612,8 +21614,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "picture-element.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21643,8 +21645,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pop-up-image.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21702,8 +21704,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-picture.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21731,8 +21733,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-video-container.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21760,8 +21762,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "video-background.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -21821,7 +21823,7 @@
           ],
           "files": [
             "README.md",
-            "device-optimized-modal.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21848,7 +21850,7 @@
           ],
           "files": [
             "README.md",
-            "dialog-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -21911,8 +21913,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "modal-box.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -21941,8 +21943,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "modal-dialog.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22004,8 +22006,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "modal-popup.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22030,8 +22032,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-modal.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22059,8 +22061,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "popup-chat-window.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22091,8 +22093,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "toast-notification.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22122,8 +22124,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "toast-notification-markup.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -22181,7 +22183,7 @@
           ],
           "files": [
             "README.md",
-            "auto-hide-sticky-header.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22205,7 +22207,7 @@
           ],
           "files": [
             "README.md",
-            "basic-navbar.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22228,7 +22230,7 @@
           ],
           "files": [
             "README.md",
-            "bottom-navigation.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22256,7 +22258,7 @@
           ],
           "files": [
             "README.md",
-            "breadcrumb-nav.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22281,7 +22283,7 @@
           ],
           "files": [
             "README.md",
-            "breadcrumbs-navigation.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22304,7 +22306,7 @@
           ],
           "files": [
             "README.md",
-            "circular-menu.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22328,7 +22330,7 @@
           ],
           "files": [
             "README.md",
-            "fixed-header-on-scroll.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22350,7 +22352,7 @@
           ],
           "files": [
             "README.md",
-            "fixed-sidebar.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22395,7 +22397,7 @@
           ],
           "files": [
             "README.md",
-            "hamburger-menu.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22417,7 +22419,7 @@
           ],
           "files": [
             "README.md",
-            "header.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22441,7 +22443,7 @@
           ],
           "files": [
             "README.md",
-            "mega-menu.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22486,8 +22488,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "navbar-mega-menu.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22511,8 +22513,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "navbar-simple.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22536,8 +22538,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "navbar-sticky.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22561,8 +22563,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pagination-component.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22589,8 +22591,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-navbar.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22620,7 +22622,7 @@
           ],
           "files": [
             "README.md",
-            "Responsive Sticky Header with Shadow.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22650,8 +22652,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "scroll-to-top.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22674,8 +22676,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "side-navigation.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22698,8 +22700,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "sidebar-navigation.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22722,8 +22724,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-navigation-menu.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22746,8 +22748,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "sticky-header.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22812,8 +22814,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "top-navigation.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -22834,8 +22836,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "vertical-menu.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -22889,7 +22891,7 @@
           ],
           "files": [
             "README.md",
-            "abbr-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22910,7 +22912,7 @@
           ],
           "files": [
             "README.md",
-            "address-tag.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22936,7 +22938,7 @@
           ],
           "files": [
             "README.md",
-            "bdi-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22962,7 +22964,7 @@
           ],
           "files": [
             "README.md",
-            "blockquote-citation.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -22988,7 +22990,7 @@
           ],
           "files": [
             "README.md",
-            "blockquote-with-cite.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23017,7 +23019,7 @@
           ],
           "files": [
             "README.md",
-            "calendar-widget.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23047,7 +23049,7 @@
           ],
           "files": [
             "README.md",
-            "carousel.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23070,7 +23072,7 @@
           ],
           "files": [
             "README.md",
-            "centered-website.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23096,7 +23098,7 @@
           ],
           "files": [
             "README.md",
-            "code-block.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23119,7 +23121,7 @@
           ],
           "files": [
             "README.md",
-            "content-editable.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23148,7 +23150,7 @@
           ],
           "files": [
             "README.md",
-            "corner-ribbon.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23176,7 +23178,7 @@
           ],
           "files": [
             "README.md",
-            "countdown-timer.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23207,7 +23209,7 @@
           ],
           "files": [
             "README.md",
-            "creative-image-hover.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23298,7 +23300,7 @@
           ],
           "files": [
             "README.md",
-            "dark-mode-toggle.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23320,7 +23322,7 @@
           ],
           "files": [
             "README.md",
-            "definition-list.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23347,7 +23349,7 @@
           ],
           "files": [
             "README.md",
-            "details-summary.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23375,7 +23377,7 @@
           ],
           "files": [
             "README.md",
-            "device-mockups.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23404,7 +23406,7 @@
           ],
           "files": [
             "README.md",
-            "diagonal-background.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23497,7 +23499,7 @@
           ],
           "files": [
             "README.md",
-            "draggable-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23523,7 +23525,7 @@
           ],
           "files": [
             "README.md",
-            "favicon-link.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23547,7 +23549,7 @@
           ],
           "files": [
             "README.md",
-            "fieldset-legend.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23576,7 +23578,7 @@
           ],
           "files": [
             "README.md",
-            "filter-list.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23672,7 +23674,7 @@
           ],
           "files": [
             "README.md",
-            "full-screen-search.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23702,7 +23704,7 @@
           ],
           "files": [
             "README.md",
-            "glowing-icon.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23733,7 +23735,7 @@
           ],
           "files": [
             "README.md",
-            "holy-grail-layout.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23764,7 +23766,7 @@
           ],
           "files": [
             "README.md",
-            "holy-grail-layout.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23785,7 +23787,7 @@
           ],
           "files": [
             "README.md",
-            "horizontal-rule.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23816,7 +23818,7 @@
           ],
           "files": [
             "README.md",
-            "image-overlay-effect.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23847,7 +23849,7 @@
           ],
           "files": [
             "README.md",
-            "image-zoom-on-hover.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23874,7 +23876,7 @@
           ],
           "files": [
             "README.md",
-            "list-group.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23900,7 +23902,7 @@
           ],
           "files": [
             "README.md",
-            "main-element.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23926,7 +23928,7 @@
           ],
           "files": [
             "README.md",
-            "mark-text.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23955,7 +23957,7 @@
           ],
           "files": [
             "README.md",
-            "media-object.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -23978,8 +23980,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "meter-element.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24039,8 +24041,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "mixed-column-layout.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24064,8 +24066,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "output-element.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24093,8 +24095,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "parallax-scrolling-effect.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24120,8 +24122,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "password-visibility-toggle.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24147,8 +24149,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pills.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24176,8 +24178,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "portfolio-gallery.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24201,8 +24203,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "range-slider.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24231,8 +24233,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "responsive-image-gallery.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24296,8 +24298,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "semantic-layout.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24317,8 +24319,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-ordered-list.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24338,8 +24340,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-unordered-list.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24368,8 +24370,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "skill-bar.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24395,8 +24397,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "skip-link.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24446,8 +24448,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "social-media-icons.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24475,8 +24477,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "social-media-share-links.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24498,8 +24500,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "sticky-notes.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24528,8 +24530,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "sticky-social-bar.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24555,8 +24557,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "svg-circle.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24584,8 +24586,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "text-with-background-image.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24610,8 +24612,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "time-element.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24638,8 +24640,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "timeline.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24666,8 +24668,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "weather-widget.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -24721,8 +24723,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-comparison.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24745,8 +24747,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-enterprise.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24769,8 +24771,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-saas.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24793,8 +24795,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "pricing-simple.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -24842,8 +24844,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "process-how-it-works.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24866,8 +24868,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "process-steps.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24890,8 +24892,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "process-timeline.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24914,8 +24916,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "process-workflow.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -24962,8 +24964,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-changelog.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -24986,8 +24988,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-dashboard-preview.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25010,8 +25012,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-integrations.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25034,8 +25036,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-mobile-app.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25058,8 +25060,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-roadmap.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25082,8 +25084,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "product-showcase.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25136,7 +25138,7 @@
           ],
           "files": [
             "README.md",
-            "css-only-star-rating.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -25163,8 +25165,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "rating-stars.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25189,8 +25191,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "user-rating.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25245,8 +25247,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "stats-achievement-numbers.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25269,8 +25271,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "stats-grid.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25293,8 +25295,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "stats-kpi-cards.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25346,8 +25348,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "simple-table.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25368,8 +25370,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "table-caption.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25392,8 +25394,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "table-merged-cells.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25414,8 +25416,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "table-scope.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25487,7 +25489,7 @@
           ],
           "files": [
             "README.md",
-            "full-page-tabs.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -25515,8 +25517,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "tabbed-content.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25545,8 +25547,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "tabs.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25576,8 +25578,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "tabs-component.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25632,8 +25634,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "team-advisors.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25656,8 +25658,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "team-grid.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25680,8 +25682,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "team-leadership.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25729,8 +25731,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "testimonials-cards.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25752,8 +25754,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "testimonials-carousel.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25776,8 +25778,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "testimonials-masonry.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25800,8 +25802,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "testimonials-video.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
@@ -25856,7 +25858,7 @@
           ],
           "files": [
             "README.md",
-            "css-only-tooltip.html",
+            "component.html",
             "metadata.json"
           ]
         },
@@ -25887,8 +25889,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "tooltip.html"
+            "component.html",
+            "metadata.json"
           ]
         },
         {
@@ -25915,8 +25917,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json",
-            "tooltip-text.html"
+            "component.html",
+            "metadata.json"
           ]
         }
       ],
