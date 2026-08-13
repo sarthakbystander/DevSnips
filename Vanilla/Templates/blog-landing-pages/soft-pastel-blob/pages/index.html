@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creative Canvas Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --bg-light: #f4f6f9;
+            --text-dark: #333333;
+            --text-subtle: #777777;
+            --shadow-soft: rgba(0, 0, 0, 0.05);
+            --gradient-1: linear-gradient(135deg, #FFC0CB, #ADD8E6); /* Pink to Light Blue */
+            --gradient-2: linear-gradient(135deg, #98EECC, #B2F4D5); /* Mint to Pastel Green */
+            --gradient-3: linear-gradient(135deg, #FFD700, #FFA500); /* Gold to Orange */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Varela Round', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        /* Buttons & Cards */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            background-color: var(--text-dark);
+            color: var(--bg-light);
+            box-shadow: 0 4px 15px var(--shadow-soft);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px var(--shadow-soft);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Blob Shape Background */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            z-index: -1;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 0% 75%);
+            animation: blob-animate 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob-animate {
+            from {
+                clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 0% 75%);
+            }
+            to {
+                clip-path: polygon(25% 0, 100% 25%, 75% 100%, 0% 75%);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin-bottom: 10px;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--text-dark);
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Featured Article Section */
+        .featured-article {
+            background-color: var(--bg-light);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-soft);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-article-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-article-content {
+            padding: 40px;
+            background: #fff;
+        }
+
+        .featured-article-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .featured-article-summary {
+            color: var(--text-subtle);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .featured-article {
+                grid-template-columns: 1.5fr 1fr;
+                gap: 50px;
+                padding-right: 0;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px var(--shadow-soft);
+            }
+            .featured-article-image {
+                height: auto;
+            }
+            .featured-article-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 40px 0;
+            }
+        }
+
+        /* Blog Grid Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .blog-card:nth-child(1) { background: #E6E6FA; } /* Light Lavender */
+        .blog-card:nth-child(2) { background: #B0E0E6; } /* Powder Blue */
+        .blog-card:nth-child(3) { background: #FFFACD; } /* Lemon Chiffon */
+        .blog-card:nth-child(4) { background: #FFDAB9; } /* Peach Puff */
+        .blog-card:nth-child(5) { background: #E0FFFF; } /* Light Cyan */
+        .blog-card:nth-child(6) { background: #F0F8FF; } /* Alice Blue */
+
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 25px var(--shadow-soft);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-card-summary {
+            color: var(--text-subtle);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Author Section */
+        .author-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .author-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 5px solid var(--gradient-1);
+            transform: rotate(-5deg);
+        }
+
+        .author-bio {
+            color: var(--text-subtle);
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            opacity: 0.7;
+            transform: rotate(0deg);
+        }
+
+        .social-icon:hover {
+            opacity: 1;
+            transform: scale(1.1) rotate(5deg);
+            color: var(--gradient-2);
+        }
+        
+        .social-icon:hover i {
+             background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1 class="hero-title">The Creative Canvas</h1>
+        <p class="hero-tagline">A blog exploring the intersection of design, code, and art. Dive in and get inspired!</p>
+        <a href="#articles" class="btn">Start Sketching &rarr;</a>
+    </section>
+
+    <!-- Featured Article Section -->
+    <section id="featured">
+        <h2>From the Easel</h2>
+        <article class="featured-article is-visible">
+            <img src="https://via.placeholder.com/800x600.png?text=Creative+Code" alt="Featured Article" class="featured-article-image">
+            <div class="featured-article-content">
+                <h3 class="featured-article-title">Painting with Code: A Guide to Generative Art</h3>
+                <p class="featured-article-summary">Discover how to use algorithms to create stunning and unique visual masterpieces. This article explores the tools and concepts behind generative art, turning your code editor into a digital canvas.</p>
+                <a href="#" class="btn">Read Article</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section id="articles">
+        <h2>Fresh Strokes</h2>
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=UI+Animations" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Crafting Playful UI Animations</h3>
+                    <p class="blog-card-summary">Learn how to use CSS and JavaScript to add delightful, micro-interactions that bring your designs to life.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <!-- Blog Card 2 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=UX+Principles" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Thinking Like an Artist: A New Look at UX</h3>
+                    <p class="blog-card-summary">Explore the timeless principles of composition and color theory and how they apply to user experience design.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <!-- Blog Card 3 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=Web+Typography" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">The Art of Typography on the Web</h3>
+                    <p class="blog-card-summary">A deep dive into font pairings, spacing, and hierarchy to make your text a visual masterpiece.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <!-- Blog Card 4 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=CSS+Shapes" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Beyond the Box Model: Creating Custom Shapes</h3>
+                    <p class="blog-card-summary">Break free from rectangles using `clip-path` and `shape-outside` to build more expressive layouts.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author">
+        <h2>Meet the Creator</h2>
+        <div class="author-container is-visible">
+            <img src="https://via.placeholder.com/200.png?text=Author+Photo" alt="Author Photo" class="author-photo">
+            <h3>Alex Chen</h3>
+            <p class="author-bio">Alex is a designer-developer who believes the web is a canvas. They love to experiment with visual effects, modern CSS, and playful interactions to create engaging digital experiences.</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github social-icon"></i></a>
+                <a href="#" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble social-icon"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram social-icon"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 The Creative Canvas. All rights reserved.</p>
+        <p>Crafted with curiosity and code.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect on sections
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

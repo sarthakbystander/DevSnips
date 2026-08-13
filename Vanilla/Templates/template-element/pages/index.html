@@ -1,0 +1,19 @@
+<!--
+  Snippet Name: Template Element
+  Use Case: Holding HTML content that is not to be rendered immediately when a page is loaded.
+  Description: The <template> tag is used as a container to hold some HTML content hidden from the user when the page loads.
+-->
+<template>
+  <h2>Flower</h2>
+  <img src="img_white_flower.jpg" width="214" height="204">
+</template>
+
+<button onclick="showContent()">Show hidden content</button>
+
+<script>
+function showContent() {
+  var temp = document.getElementsByTagName("template")[0];
+  var clon = temp.content.cloneNode(true);
+  document.body.appendChild(clon);
+}
+</script>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetica AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #03040e;
+            --card-bg: #090b1c;
+            --text-primary: #e0e0e0;
+            --text-secondary: #99a2b5;
+            --neon-blue: #00bfff;
+            --neon-cyan: #00ffff;
+            --neon-purple: #8a2be2;
+            --glow-1: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            --glow-2: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            --glow-3: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+            --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        /* Light mode variables */
+        body.light-mode {
+            --dark-bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --neon-blue: #0077b6;
+            --neon-cyan: #00a896;
+            --neon-purple: #5e17eb;
+            --glow-1: 0 0 5px var(--neon-blue);
+            --glow-2: 0 0 5px var(--neon-cyan);
+            --glow-3: 0 0 5px var(--neon-purple);
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Global Sections & Animations --- */
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-primary);
+            text-transform: uppercase;
+            text-shadow: var(--glow-1);
+        }
+
+        .section-header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        body.light-mode .card {
+            border: 1px solid #ddd;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--glow-2), var(--card-shadow);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(3, 4, 14, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+        }
+        
+        body.light-mode header {
+            background: rgba(253, 253, 253, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            text-shadow: var(--glow-1);
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-2);
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--glow-1);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 700px;
+            margin: 20px auto 40px;
+            color: var(--text-secondary);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--glow-3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+        
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-2);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-content p {
+            max-width: 800px;
+            color: var(--text-secondary);
+        }
+
+        /* --- Team Section --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border: 2px solid var(--neon-purple);
+            box-shadow: var(--glow-3);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .team-member img:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-cyan);
+        }
+
+        .team-member h4 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .team-member p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: var(--glow-2);
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- CTA Section --- */
+        .cta-section .card {
+            padding: 50px;
+            text-align: center;
+            background: linear-gradient(90deg, #090b1c, #1a1a22);
+            border: 1px solid #1a1a22;
+        }
+        
+        body.light-mode .cta-section .card {
+            background: linear-gradient(90deg, #f5f5f5, #e0e0e0);
+            border: 1px solid #ccc;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: var(--glow-1);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid #222;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section { padding: 60px 0; }
+            .section-header h2 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .cta-btn { display: block; width: 100%; text-align: center; }
+            .hero p { margin-bottom: 20px; }
+        }
+        
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">SYNTHETICA</a>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#team">Team</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#cta">Contact</a>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">💡</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section is-visible" id="home">
+        <div class="container hero-content">
+            <h1>The Future of AI is Here.</h1>
+            <p>Synthetica seamlessly integrates with your workflow, providing intelligent automation and insights powered by our cutting-edge neural network.</p>
+            <a href="#cta" class="cta-btn">Start Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Intelligent Features</h2>
+                <p>Engineered for maximum efficiency and a superior user experience.</p>
+            </div>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>Autonomous AI</h3>
+                    <p>Our AI learns and adapts to your needs, handling repetitive tasks with precision.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Hyper-Speed Processing</h3>
+                    <p>Process vast amounts of data in milliseconds with our quantum-optimized algorithms.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Anticipate market trends and consumer behavior with our advanced forecasting models.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Secure & Scalable</h3>
+                    <p>Enterprise-grade security and a scalable architecture that grows with your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Mission</h2>
+                <p>To empower humanity with tools that unlock new possibilities and accelerate innovation.</p>
+            </div>
+            <div class="about-content">
+                <p>Synthetica was founded on the belief that artificial intelligence should augment human creativity and productivity, not replace it. We are a team of visionary engineers and data scientists committed to building a smarter, more connected world. Our platform is the culmination of years of research and development, designed to solve the most complex challenges with elegant simplicity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Architects</h2>
+                <p>Meet the brilliant minds behind Synthetica's technology.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=dave" alt="Team Member">
+                    <h4>Dr. Alistair Finch</h4>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=sarah" alt="Team Member">
+                    <h4>Dr. Lena Petrova</h4>
+                    <p>Lead AI Scientist</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=mike" alt="Team Member">
+                    <h4>Javier Lopez</h4>
+                    <p>Head of Product</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=emily" alt="Team Member">
+                    <h4>Chloe Reynolds</h4>
+                    <p>Director of Operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Users Say</h2>
+                <p>Don't take our word for it. Hear from those already using Synthetica.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="card testimonial-card">
+                    <blockquote>"Synthetica's AI has completely transformed our data analysis workflow. The insights we get are unprecedented."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=b" alt="User Avatar">
+                        <div class="author-info">
+                            <h4>Michael Lee</h4>
+                            <p>Senior Analyst, Stratis Global</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"The intuitive interface and powerful features are a perfect combination. It's a game-changer for our team."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=c" alt="User Avatar">
+                        <div class="author-info">
+                            <h4>Dr. Anya Sharma</h4>
+                            <p>CTO, Quantum Dynamics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="cta">
+        <div class="container">
+            <div class="card">
+                <h2>Ready to experience the future?</h2>
+                <p>Join thousands of innovators and streamline your workflow with the power of AI.</p>
+                <a href="#" class="cta-btn" style="margin-top: 20px;">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Synthetica AI. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a> |
+                <a href="#">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Particle background animation
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const numParticles = 100;
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = `rgba(0, 191, 255, ${Math.random() * 0.5 + 0.1})`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.01;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        const initParticles = () => {
+            particles = [];
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        };
+        const animateParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                    particles.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        };
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            initParticles();
+            animateParticles();
+        });
+        window.addEventListener('resize', resizeCanvas);
+
+        // Dark/Light mode toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            toggleButton.textContent = isLightMode ? '🌙' : '💡';
+        });
+    </script>
+</body>
+</html>

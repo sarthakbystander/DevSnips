@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian - Professional Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --accent-color: #e9ecef;
+            --accent-light: #dee2e6;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --border-radius-lg: 12px;
+            --border-radius-sm: 8px;
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-primary: #f8f9fa;
+            --text-secondary: #ced4da;
+            --accent-color: #343a40;
+            --accent-light: #495057;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Global Sections & Animations --- */
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .card {
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            background-color: #343a40;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.dark-mode .cta-btn {
+            background-color: #e9ecef;
+            color: var(--text-primary);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-color);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-soft);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 4rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+        }
+
+        /* --- Team Section --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-member p {
+            color: var(--text-secondary);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .testimonial-author span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section .card {
+            background-color: var(--accent-light);
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--accent-light);
+        }
+        
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero { padding-top: 100px; padding-bottom: 100px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .section { padding: 80px 0; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Elysian</a>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section hero" id="home">
+        <div class="container">
+            <h1>Refined Solutions for the Modern Enterprise.</h1>
+            <p>Our platform elevates your workflow with intuitive design and powerful, data-driven insights. It's not just a tool; it's a strategic advantage.</p>
+            <a href="#contact" class="cta-btn">Learn More</a>
+            <img class="hero-image" src="https://placehold.co/900x500/e9ecef/6c757d?text=Product+Illustration" alt="Product Illustration">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Designed for Excellence</h2>
+                <p>Elysian provides the tools you need to succeed, with an unwavering focus on user experience and performance.</p>
+            </div>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Insightful Analytics</h3>
+                    <p>Transform raw data into actionable insights with our comprehensive reporting tools.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🎨</div>
+                    <h3>Intuitive Interface</h3>
+                    <p>A beautifully simple design that makes powerful features feel effortlessly accessible.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Robust Security</h3>
+                    <p>Your data is protected by enterprise-grade security protocols, ensuring privacy and compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Mission</h2>
+                <p>At Elysian, we believe that the best tools are those that blend seamlessly into your work, empowering you without getting in the way.</p>
+            </div>
+            <div class="about-content">
+                <p>We are a team of dedicated professionals committed to building software that is both powerful and a pleasure to use. Our journey began with a simple idea: to create a platform that respects your time and intelligence, offering sophisticated solutions with clean, minimalist design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet the Team</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=a" alt="Jane Doe">
+                    <h4>Jane Doe</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=b" alt="John Smith">
+                    <h4>John Smith</h4>
+                    <p>Lead Engineer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://i.pravatar.cc/150?u=c" alt="Emily White">
+                    <h4>Emily White</h4>
+                    <p>Head of Product</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="card testimonial-card">
+                    <blockquote>"Elysian's platform has completely transformed our operational efficiency. The elegant design makes it a joy to use daily."</blockquote>
+                    <p class="testimonial-author">Alex Rivera <span>Director of Operations, Innovate Inc.</span></p>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"We were looking for a professional solution that matched our brand's aesthetic. Elysian delivered on every front."</blockquote>
+                    <p class="testimonial-author">Sarah Chen <span>Lead Strategist, Apex Group</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="contact">
+        <div class="container">
+            <div class="card">
+                <h2>Ready to Elevate Your Workflow?</h2>
+                <p>Contact our team today to schedule a personalized demo and see the power of Elysian firsthand.</p>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Elysian. All rights reserved.</p>
+            <div>
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect on sections
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Dark/Light mode toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+    </script>
+
+</body>
+</html>

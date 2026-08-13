@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Editorial Press</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --bg-light: #fefefe;
+            --text-dark: #222222;
+            --text-subtle: #666666;
+            --accent-color: #5d3fd3; /* A deep, elegant purple */
+            --shadow-soft: rgba(0, 0, 0, 0.08);
+            --border-subtle: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(2.2rem, 6vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 2px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            background-color: transparent;
+            color: var(--text-dark);
+        }
+
+        .btn:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-light);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            margin-bottom: 10px;
+        }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-subtle);
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        /* Featured Article Section */
+        .featured-article {
+            position: relative;
+            background-color: var(--text-dark);
+            color: var(--bg-light);
+            overflow: hidden;
+            height: 600px;
+        }
+        
+        .featured-article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+
+        .featured-article-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .featured-article-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .featured-article-summary {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--bg-light);
+            margin-bottom: 30px;
+        }
+
+        /* Blog Grid Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .blog-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            overflow: hidden;
+            text-align: left;
+            cursor: pointer;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 6px 20px var(--shadow-soft);
+        }
+
+        .blog-card-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-card-image {
+            transform: scale(1.1);
+        }
+
+        .blog-card-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .blog-card-summary {
+            color: var(--text-subtle);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .read-more-link {
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Author Section */
+        .author-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .author-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+        }
+
+        .author-bio {
+            color: var(--text-subtle);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1 class="hero-title">The Editorial Press</h1>
+        <p class="hero-tagline">Thoughtful insights on tech, design, and the modern world.</p>
+        <a href="#articles" class="btn">Read Our Latest &darr;</a>
+    </section>
+
+    <!-- Featured Article Section -->
+    <section id="featured">
+        <article class="featured-article is-visible">
+            <img src="https://via.placeholder.com/1400x800.png?text=Creative+Coding" alt="Featured Article" class="featured-article-image">
+            <div class="featured-article-content">
+                <h3 class="featured-article-title">Why Minimalist Design Is More Than Just a Trend</h3>
+                <p class="featured-article-summary">From art to architecture, and now to the digital world, minimalism is a powerful philosophy. We explore its roots and its impact on modern design.</p>
+                <a href="#" class="btn">Read Article</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section id="articles">
+        <h2>From Our Archives</h2>
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <article class="blog-card">
+                <div class="blog-card-image-container">
+                    <img src="https://via.placeholder.com/600x400.png?text=Tech+Ethics" alt="Article Image" class="blog-card-image">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Navigating the Ethics of AI</h3>
+                    <p class="blog-card-summary">As AI becomes more integrated into our daily lives, we must consider the ethical implications of its development.</p>
+                    <a href="#" class="read-more-link">Read More</a>
+                </div>
+            </article>
+            <!-- Blog Card 2 -->
+            <article class="blog-card">
+                <div class="blog-card-image-container">
+                    <img src="https://via.placeholder.com/600x400.png?text=Modern+Workflows" alt="Article Image" class="blog-card-image">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">The Digital Nomad's Toolkit</h3>
+                    <p class="blog-card-summary">From project management to communication, here are the essential tools for a modern, remote workforce.</p>
+                    <a href="#" class="read-more-link">Read More</a>
+                </div>
+            </article>
+            <!-- Blog Card 3 -->
+            <article class="blog-card">
+                <div class="blog-card-image-container">
+                    <img src="https://via.placeholder.com/600x400.png?text=Sustainable+Tech" alt="Article Image" class="blog-card-image">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Building a Greener Internet</h3>
+                    <p class="blog-card-summary">Discover the principles of sustainable web design and how to reduce the environmental footprint of your projects.</p>
+                    <a href="#" class="read-more-link">Read More</a>
+                </div>
+            </article>
+            <!-- Blog Card 4 -->
+            <article class="blog-card">
+                <div class="blog-card-image-container">
+                    <img src="https://via.placeholder.com/600x400.png?text=Future+of+Design" alt="Article Image" class="blog-card-image">
+                </div>
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">The Evolution of User Interfaces</h3>
+                    <p class="blog-card-summary">From command-line to conversational AI, a look back at how we interact with technology and where we're headed.</p>
+                    <a href="#" class="read-more-link">Read More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author">
+        <h2>Our Editor-in-Chief</h2>
+        <div class="author-container is-visible">
+            <img src="https://via.placeholder.com/200.png?text=Author+Photo" alt="Author Photo" class="author-photo">
+            <h3>Sarah James</h3>
+            <p class="author-bio">Sarah is a seasoned writer and design enthusiast who believes in the power of clear communication. She oversees all content at The Editorial Press, ensuring every article is insightful and beautifully presented.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 The Editorial Press. All Rights Reserved.</p>
+        <p>A publication for the curious mind.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect on sections
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

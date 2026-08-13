@@ -159,7 +159,21 @@ Full website templates (not single components). Two scopes exist:
 
 ## Vanilla Templates — `Vanilla/Templates/`
 
-The Vanilla template collection follows the shared `Vanilla/Templates/design-tokens.md` spec (primitive → semantic → template → component `--ds-*` + `--template-*` token layers; neutral-first, one controlled accent, hairline borders, restrained shadows). Each template folder contains exactly one `preview.html` (the canonical DevSnips preview) + `metadata.json` + `README.md` + optional `assets/`. A template folder is a "leaf" in `validate.py` terms (has `metadata.json`, no child folder with `metadata.json`) and is indexed as a single-variant family.
+The Vanilla template collection follows the shared `Vanilla/Templates/design-tokens.md` spec (primitive → semantic → template → component `--ds-*` + `--template-*` token layers; neutral-first, one controlled accent, hairline borders, restrained shadows). Each template folder is a "leaf" in `validate.py` terms (has `metadata.json`, no child folder with `metadata.json`) and is indexed as a single-variant family.
+
+**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (+ optional `assets/` for shared resources); all code files live in a `pages/` sub-directory:
+```
+<Template>/
+├── pages/              ← all the code files
+│   └── index.html      (single-page templates) | code.html + style.css + script.js (modular) | *.html (multi-page)
+├── preview.html        ← thin iframe wrapper loading pages/index.html (opens directly); or the self-contained gallery shell (SaaS Dashboard)
+├── metadata.json
+└── README.md
+```
+- **Single-page leaves** (ai-tool-launch, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, template-element, + every multi-variant style folder under portfolio-site / product-launch / startup-template / blog-landing-pages / Landing-Pages / Standalone): the original self-contained `preview.html` was moved to `pages/index.html`; the root `preview.html` is now a full-viewport `<iframe src="pages/index.html">` wrapper so the preview still opens directly.
+- **Modular leaves** (Agency, Documentation Site, Job Board): `code.html` + `style.css` + `script.js` moved together into `pages/` (their relative `href="style.css"` / `src="script.js"` refs stay valid); `preview.html` is already self-contained (inlined) so it is unchanged. `assets/` (Documentation Site) stays at root; code.html's favicon ref was rewritten to `../assets/favicon.svg`.
+- **SaaS Dashboard**: the 30 page files already lived in `pages/`; only the self-contained `code.html` was moved there. `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
+`snippets-index.json` variants list both root files (`README.md`, `metadata.json`, `preview.html`) and the one-level `pages/*` contents (via `_gen/rebuild_index.py` `make_variant`, which recurses into `pages/`).
 
 ### `Documentation Site` — editorial developer documentation (modular files, Pico CSS, light-mode-first)
 - A premium, minimal, **light-mode-first** **developer documentation** template. **Split into modular files**: `code.html` (HTML structure, links `style.css` + `script.js`) + `style.css` (the design system) + `script.js` (router + content + interactions) + `preview.html` (self-contained single-file preview that inlines CSS+JS so it opens directly) + `metadata.json` + `README.md` + `assets/{logo,favicon}.svg`. Built on **Pico CSS** (CDN) + the shared `--ds-*` token system. **Blue-600 accent** (`#2563eb`) — never violet/neon per `design-tokens.md`. **Light is the default**; dark mode is opt-in (persisted, no-flash pre-paint script).

@@ -227,7 +227,16 @@ def build_index():
             v["styles"] = style if isinstance(style, list) else [style]
         elif ov.get("styles"):
             v["styles"] = ov["styles"]
-        v["files"] = sorted(p.name for p in leaf.iterdir() if p.is_file())
+        # Build the file manifest. Vanilla templates keep their code files in a
+        # `pages/` sub-folder (so the root holds only preview.html +
+        # metadata.json + README.md); include those one level deep, prefixed
+        # `pages/`. Tailwind leaves keep their flat code.html/preview.html.
+        files = sorted(p.name for p in leaf.iterdir() if p.is_file())
+        pages_dir = leaf / "pages"
+        if pages_dir.is_dir():
+            files += sorted("pages/" + p.name
+                            for p in pages_dir.iterdir() if p.is_file())
+        v["files"] = files
         return v
 
     def add_family(family_dir, tech, category, type_val, is_template):

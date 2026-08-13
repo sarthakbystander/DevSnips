@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetica - Launch Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --text-color: #333;
+            --light-bg: #f9fafb;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background: var(--light-bg);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Global styles --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .btn-secondary {
+            background: none;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- Card Styles --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-bg), #eef2f5);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 600px;
+            margin: 1.5rem auto 2.5rem;
+            color: #555;
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card h3 {
+            margin-top: 1rem;
+        }
+        
+        .feature-card .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* --- Product Demo Section --- */
+        .demo-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        
+        .carousel-nav button {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: background 0.3s;
+        }
+        
+        .carousel-nav button:hover {
+            background: white;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            text-align: center;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #777;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: #eef2f5;
+            padding: 40px 0;
+            text-align: center;
+            color: #777;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #777;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero section visible">
+        <div class="container">
+            <h1>Synthetica</h1>
+            <p>Your all-in-one AI platform for creativity and productivity. Synthesize your ideas into reality.</p>
+            <div class="btn-group">
+                <a href="#pricing" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container text-center">
+            <h2>Unlock Your Full Potential</h2>
+            <p class="mb-8">Synthetica provides a suite of tools to help you create, manage, and scale your projects.</p>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon">✨</div>
+                    <h3>AI-Powered Generation</h3>
+                    <p>Generate high-quality content, images, and code with our cutting-edge AI models.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Seamless Workflow</h3>
+                    <p>Integrate Synthetica directly into your existing tools and streamline your creative process.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Gain valuable analytics on your content performance to optimize and grow your audience.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🎨</div>
+                    <h3>Customizable Models</h3>
+                    <p>Train our AI models on your own data to create a truly unique and personalized experience.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>Your data is protected with state-of-the-art encryption and security protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="section">
+        <div class="container text-center">
+            <h2>See Synthetica in Action</h2>
+            <p class="mb-8">A glimpse into the powerful and intuitive interface that awaits you.</p>
+            <div class="demo-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450?text=Dashboard+Overview" alt="Synthetica Dashboard">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450?text=Content+Generation+Panel" alt="Content Generation Panel">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450?text=Analytics+View" alt="Analytics View">
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button id="prevBtn">&lt;</button>
+                    <button id="nextBtn">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container text-center">
+            <h2>What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="card testimonial-card">
+                    <blockquote>"Synthetica has completely changed the way I approach content creation. The speed and quality are unmatched."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=1" alt="User 1">
+                        <div class="author-info">
+                            <h4>Jane Doe</h4>
+                            <p>Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"The intuitive interface and powerful features make complex tasks feel effortless. A must-have tool for any developer."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=2" alt="User 2">
+                        <div class="author-info">
+                            <h4>John Smith</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"Our team's productivity has skyrocketed since we started using Synthetica. The ROI is incredible."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=3" alt="User 3">
+                        <div class="author-info">
+                            <h4>Emily Chen</h4>
+                            <p>Product Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container text-center">
+            <h2>Flexible Plans for Every Need</h2>
+            <p class="mb-8">Choose the plan that's right for you and get started today.</p>
+            <div class="pricing-grid">
+                <div class="card pricing-card">
+                    <h3>Basic</h3>
+                    <p class="price">$19<span>/mo</span></p>
+                    <ul>
+                        <li><span style="color: var(--primary-color);">✔</span> 500 AI credits</li>
+                        <li><span style="color: var(--primary-color);">✔</span> Standard support</li>
+                        <li><span style="color: var(--primary-color);">✔</span> 1 user account</li>
+                        <li><span style="color: #ccc;">✖</span> Customizable models</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Pro</h3>
+                    <p class="price">$49<span>/mo</span></p>
+                    <ul>
+                        <li><span style="color: var(--primary-color);">✔</span> 2,000 AI credits</li>
+                        <li><span style="color: var(--primary-color);">✔</span> Priority support</li>
+                        <li><span style="color: var(--primary-color);">✔</span> 5 user accounts</li>
+                        <li><span style="color: var(--primary-color);">✔</span> Customizable models</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Sign Up Now</a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="price">Contact Us</p>
+                    <p>For custom solutions and dedicated support.</p>
+                    <ul style="opacity: 0;"></ul>
+                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Synthetica. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">X</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animations on scroll
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Carousel functionality for product demo
+        const carouselTrack = document.querySelector('.carousel-track');
+        const slides = Array.from(carouselTrack.children);
+        const nextButton = document.querySelector('#nextBtn');
+        const prevButton = document.querySelector('#prevBtn');
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        let currentIndex = 0;
+
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+
+        slides.forEach(setSlidePosition);
+
+        const moveToSlide = (track, currentSlide, targetSlide) => {
+            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');
+        };
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        });
+        
+        window.addEventListener('resize', () => {
+            // Recalculate slide width on resize
+            const newSlideWidth = slides[0].getBoundingClientRect().width;
+            carouselTrack.style.transform = `translateX(-${currentIndex * newSlideWidth}px)`;
+        });
+    </script>
+
+</body>
+</html>
