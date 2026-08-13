@@ -1,103 +1,163 @@
-# 🚀 DevSnips – Component Library
+# DevSnips
 
-Reusable frontend components organized as design system families.
+**DevSnips is an open-source frontend UI library of reusable components, page sections, and templates.**
 
-## Structure
+The repository is organized for two things: making individual UI pieces easy to discover and keeping the source library maintainable as it grows.
 
-DevSnips organizes content under each supported technology. **Tailwind** has
-three first-class content types — **Components**, **Sections**, and **Templates** —
-so you can browse by the granularity you need. Vanilla and React use the
-two-type Components/ + Templates/ layout.
+## What is in the repository?
 
-```
+DevSnips currently contains **89 families and 852 indexed variants** across Tailwind CSS and Vanilla HTML/CSS/JS. The index is generated from the repository filesystem and is intended to stay in sync with the source content.
+
+| Technology | Components | Sections | Templates | Total |
+|---|---:|---:|---:|---:|
+| Tailwind CSS | 321 | 201 | 9 | 531 |
+| Vanilla HTML/CSS/JS | 297 | — | 24 | 321 |
+| **Total** | **618** | **201** | **33** | **852** |
+
+React directories exist as reserved structure for future content and are not included in the current index totals.
+
+## Repository structure
+
+```text
+DevSnips/
 ├── Tailwind/
-│   ├── Components/            # 13 families, 321 variants — reusable UI building blocks
-│   ├── Sections/              # 16 families, 201 variants — ready-to-use page sections
-│   └── Templates/             # 9 full-site templates — complete page designs
+│   ├── Components/       # focused, reusable UI building blocks
+│   ├── Sections/         # larger page-section compositions
+│   └── Templates/        # complete page/site experiences
 ├── Vanilla/
-│   ├── Components/            # 34 families, 297 variants
-│   └── Templates/             # 14 templates
+│   ├── Components/       # reusable HTML/CSS/JS components
+│   └── Templates/        # complete page/site experiences
 ├── React/
-│   ├── Components/            # (reserved for future React components)
-│   └── Templates/             # (reserved for future React templates)
-├── _gen/                      # Section-style generator + index tooling
-├── scripts/                   # Validation + indexing tooling
-├── snippets-index.json        # Content index (89 families, 852 variants)
+│   ├── Components/       # reserved for future React content
+│   └── Templates/        # reserved for future React content
+├── _gen/                 # generation and index tooling
+├── scripts/              # validation and quality checks
+├── snippets-index.json   # generated global content index
+├── COMPONENT_STRUCTURE.md
+├── CONTRIBUTING.md
+├── CHANGELOG.md
 └── README.md
 ```
 
-> Every Tailwind entry carries a `type` field (`component` · `section` ·
-> `template`) in its `metadata.json` and in `snippets-index.json`, so search and
-> filtering can identify content type without guessing from the URL.
+There are no standalone `Utilities/`, `Resources/`, or `Snippets/` content collections. Content belongs to a technology and an explicit content type.
 
-### Tailwind content types
+## Content types
 
-| Type | What it is | Examples |
-|------|------------|----------|
-| **Components** | One focused UI pattern. | Buttons, Cards, Inputs, Modals, Tables, Tabs, Accordions, Tooltips |
-| **Sections** | A larger composition occupying part of a page. | Hero, Pricing, Testimonials, FAQ, Logos, Stats, Footer |
-| **Templates** | A complete page or substantial page experience. | SaaS, Agency, Dashboard, Store |
+Tailwind has three first-class content types:
 
-Browse the Tailwind library from [`Tailwind/index.html`](Tailwind/index.html)
-(three discovery cards) → `Tailwind/Components/index.html`,
-`Tailwind/Sections/index.html`, `Tailwind/Templates/index.html`.
+- **Components**: one focused interface pattern such as a button, card, modal, table, or accordion.
+- **Sections**: larger compositions such as heroes, pricing sections, testimonials, FAQs, and footers.
+- **Templates**: complete pages or substantial page experiences such as SaaS, agency, conference, or store sites.
 
-## Quick Start
+Vanilla currently uses `Components/` and `Templates/`. Former standalone Vanilla sections were consolidated into Components.
 
-1. Open `index.html` (or `Tailwind/index.html`) to browse by technology/type.
-2. Copy `code.html` (Tailwind) / the `<slug>.html` (Vanilla), customize, and ship.
-3. Each Tailwind variant folder has `code.html` (copy-paste snippet),
-   `preview.html` (full standalone preview), and `metadata.json`.
+Every indexed Tailwind variant has a `type` value of `component`, `section`, or `template` in its metadata and index entry.
 
-## Component Families
+## Tailwind CSS
 
-### Tailwind
+### Components
 
-Tailwind content is split into three first-class types: **Components**,
-**Sections**, and **Templates**.
-
-**Components (13 families, 321 variants)** — reusable UI building blocks:
+321 variants across 13 families:
 
 | Family | Variants |
-|--------|----------|
-| **Accordions** | 15 |
-| **Buttons** | 54 (3-level: 15 style groups × sub-variants) |
-| **Cards** | 40 |
-| **Dropdowns** | 30 |
-| **Input** | 49 |
-| **Modals** | 30 |
-| **Navbar** | 15 (15 design styles) |
-| **Navigation** | 35 |
-| **Progress** | 6 |
-| **Tables** | 20 |
-| **Tabs** | 15 |
-| **Toasts** | 6 |
-| **Tooltips** | 6 |
+|---|---:|
+| Accordions | 15 |
+| Buttons | 54 |
+| Cards | 40 |
+| Dropdowns | 30 |
+| Input | 49 |
+| Modals | 30 |
+| Navbar | 15 |
+| Navigation | 35 |
+| Progress | 6 |
+| Tables | 20 |
+| Tabs | 15 |
+| Toasts | 6 |
+| Tooltips | 6 |
 
-**Sections (16 families, 201 variants)** — ready-to-use page sections:
+### Sections
 
-| Family | Variants |
-|--------|----------|
-| **404 / Blog / Contact / FAQ / Footer / Logos / Newsletter / Stats / Team / Testimonials** | 15 each (10 categories × 15 design styles) |
-| **ai-product** | Agent Workflow, AI Chat Interface, Model Comparison, Prompt Library (3 styles each) |
-| **app-ui** | Dashboard Overview, Kanban Board (3 styles each) |
-| **developer** | Code Playground, Command Palette (3 styles each) |
-| **marketing** | Feature Grid, Hero Landing (3 styles each) |
-| **premium-visual** | Aurora Hero (3 styles) |
-| **saas** | 18 SaaS sections — product-hero, launch-hero, dashboard-hero, feature-grid, bento-showcase, product-workflow, three-tier-pricing, usage-pricing, pricing-comparison, logo-cloud, testimonials, metrics, screenshot-showcase, trial-cta, enterprise-footer |
+201 variants across 16 families. The collection includes common marketing and product sections such as Hero, Pricing, Testimonials, FAQ, Logos, Stats, Team, Footer, SaaS sections, AI product sections, developer sections, app UI, and premium visual sections.
 
-Design-style reference: `Tailwind/Components/STYLE_TOKENS.md` (neo-brutalism, vercel, sharp-glassmorphism, + the 15 generated styles).
+### Templates
 
-**Templates (9):** ai-saas-platform (multipage), baseline-conference (multipage), devsnips-store (multipage), northline-atelier (multipage), krat-adventure (single-page), meridian (single-page), stratum (single-page), vesper (single-page), quiet-place (single-page).
+9 templates:
 
-### Vanilla
+- `ai-saas-platform`
+- `baseline-conference`
+- `devsnips-store`
+- `northline-atelier`
+- `krat-adventure`
+- `meridian`
+- `stratum`
+- `vesper`
+- `quiet-place`
 
-**Components (34 families, 293 variants):** Accordions (5), Alerts (2), Avatars (1), Badges (2), Buttons (14), Cards (15), CTA (4), Contact (3), Content (4), Display (6), Dropdowns (1), FAQ (2), Features (5), Footer (3), Forms (36), Gallery (3), Hero (10), Loaders (8), Logos (3), Marketing (6 — FAQ, Hero, Pricing, Testimonials), Media (17), Modals (11), Navigation (28), Other (65), Pricing (4), Process (4), Products (6), Ratings (3), Statistics (3), Tables (4), Tabs (5), Team (3), Testimonials (4), Tooltips (3).
+See `Tailwind/Components/STYLE_TOKENS.md` for the shared style-token reference used by the section-style component work.
 
-The 15 former Neo-Brutalist Vanilla Sections families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing, Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer) are now merged into `Vanilla/Components/`. Browse them via `Vanilla/Components/sections-index.html` and `Vanilla/Components/sections-showcase.html`.
+## Vanilla HTML/CSS/JS
 
-**Templates (14):** Landing-Pages (one-page-scrolling), Standalone (404-not-found-page, Coming-Soon), ai-tool-launch, blog-landing-pages, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, portfolio-site, product-launch, startup-template, template-element.
+Vanilla contains 297 component variants across 34 families plus 24 templates.
+
+The component library includes common UI families such as Buttons, Cards, Forms, Navigation, Modals, Media, Marketing, Tables, Tabs, Accordions, Loaders, Hero, Pricing, Testimonials, and more.
+
+Former Neo-Brutalist Vanilla sections live under `Vanilla/Components/` rather than a separate Sections collection.
+
+## How an individual entry is organized
+
+A Tailwind component or section normally looks like this:
+
+```text
+Tailwind/Components/<family>/<variant>/
+├── code.html
+├── preview.html
+└── metadata.json
+```
+
+`code.html` is the copy-paste version. `preview.html` is the standalone visual preview. `metadata.json` provides structured information used by indexing, search, and the site.
+
+Templates may use a larger internal structure because they represent complete page experiences.
+
+Vanilla entries use their own documented file convention. See `COMPONENT_STRUCTURE.md` for the full specification.
+
+## Using DevSnips
+
+You can browse the repository directly, copy an individual snippet, or consume the generated `snippets-index.json` for tooling and site generation.
+
+For Tailwind variants, copy the contents of `code.html` into a Tailwind project. `preview.html` is intended for viewing the component in context and may include CDN or demo-specific setup that should not be copied into production blindly.
+
+## Validation and indexing
+
+The repository includes automated checks for architecture, metadata, index consistency, stale paths, duplicate variant paths, and content coverage.
+
+Run the main validation command from the repository root:
+
+```bash
+python3 scripts/validate.py
+```
+
+Regenerate the global index from the filesystem with:
+
+```bash
+python3 -m _gen.rebuild_index
+```
+
+If you change content, regenerate the index and run validation before opening a pull request.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome. New entries should be focused, accessible, responsive, documented through metadata, and placed in the correct technology/content-type directory.
+
+Read `CONTRIBUTING.md` before creating a new component or template.
+
+## Documentation
+
+- `CONTRIBUTING.md` — contribution workflow, quality expectations, and checklist.
+- `COMPONENT_STRUCTURE.md` — repository architecture, naming rules, file conventions, and metadata model.
+- `CHANGELOG.md` — chronological record of repository changes.
+- `PULL_REQUEST_TEMPLATE.md` — pull request review checklist.
+- `AGENTS.md` — repository guidance for automated coding agents and maintainers.
+
+## License
+
+See `LICENSE` for the project's license terms.
