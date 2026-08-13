@@ -1,137 +1,213 @@
-# DevSnips Component Structure Specification
+# DevSnips Content Structure Specification
 
-## Problem
+This document defines how DevSnips organizes components, sections, templates, variants, and metadata. The structure is designed so every useful piece of content can be addressed independently by the repository, indexer, and future website.
 
-Currently, DevSnips treats **categories** as single components. For example:
-- `Buttons/buttons-actions.html` contains 10+ unrelated components
-- `Gradient/Button-Gradient.html` contains all gradient button variants in one file
+## Design goals
 
-This makes components:
-- Unsearchable (can't link directly to "Gradient Pill Button")
-- Hard to navigate (500+ line files)
-- Not SEO-friendly (no pages for specific components)
+DevSnips treats individual variants as first-class content. A variant should be:
 
-## Architecture
+- independently discoverable
+- independently indexable
+- easy to copy and reuse
+- understandable without opening unrelated files
+- stable enough to receive a permanent URL later
 
-DevSnips organizes content under each technology (`Tailwind/`, `Vanilla/`, `React/`)
-into content types. **Tailwind** has three first-class content types;
-**Vanilla** and **React** use two:
+A family groups related variants. A content type describes the size and purpose of the content.
 
-```
-Tailwind/
-├── Components/   # reusable UI building blocks
-├── Sections/     # larger reusable page sections (compositions of components)
-└── Templates/    # complete website / page templates
+## Repository architecture
 
-<Vanilla|React>/
-├── Components/   # reusable UI building blocks (and former sections, merged)
-└── Templates/    # complete website / page templates
-```
-
-There are no standalone `Utilities/` or `Resources/` collections. In Tailwind,
-`Sections/` is a first-class type (distinct from `Components/`); in Vanilla/React
-the former sections are merged into `Components/`.
-
-Every Tailwind item declares its content type via a lowercase `type` field in
-`metadata.json` and in `snippets-index.json`:
-
-| `type` | Category | What it is |
-|--------|----------|------------|
-| `component` | Components | One focused interface pattern (Button, Card, Modal…). |
-| `section` | Sections | A larger composition occupying part of a page (Hero, Pricing, FAQ…). |
-| `template` | Templates | A complete page or substantial page experience (SaaS, Agency…). |
-
-## Desired Structure
-
-Each **variant** becomes its own:
-1. Searchable page
-2. Folder in the filesystem
-3. Indexable by search engines
-
-### Component Folder Structure
-
-```
-<Technology>/Components/
-└── {Component Name}/
-    ├── {Variant-01}/
-    │   ├── preview.html        # Interactive preview (Tailwind) / <slug>.html (Vanilla)
-    │   ├── code.html          # Copy-paste ready code (Tailwind)
-    │   ├── README.md          # Variant-specific documentation (optional)
-    │   └── metadata.json      # Variant metadata
-    ├── {Variant-02}/
-    ├── {Variant-03}/
-    └── metadata.json          # (optional) family/grouping metadata
+```text
+DevSnips/
+├── Tailwind/
+│   ├── Components/
+│   ├── Sections/
+│   └── Templates/
+├── Vanilla/
+│   ├── Components/
+│   └── Templates/
+└── React/
+    ├── Components/
+    └── Templates/
 ```
 
-### Example: Gradient Button
+### Tailwind
 
+Tailwind has three first-class content types:
+
+| Directory | `type` | Purpose |
+|---|---|---|
+| `Components/` | `component` | One focused reusable UI pattern. |
+| `Sections/` | `section` | A larger page-section composition. |
+| `Templates/` | `template` | A complete page or substantial page experience. |
+
+### Vanilla and React
+
+Vanilla and React use `Components/` and `Templates/`. Vanilla's former standalone section collection has been merged into `Components/`.
+
+React is currently reserved for future content. Its structure should follow this specification when React content is introduced.
+
+### Forbidden content collections
+
+Do not create technology-level `Utilities/`, `Resources/`, `Snippets/`, `Pages/`, or `Tools/` collections. If something is a reusable UI pattern, it should have an appropriate component, section, or template classification. Repository tooling belongs under `_gen/` or `scripts/`.
+
+## Family and variant model
+
+A **family** is a group of related UI patterns, such as `Buttons`, `Cards`, `Navigation`, or `Pricing`.
+
+A **variant** is one concrete implementation inside a family, such as `primary-button`, `icon-button`, or `pricing-comparison`.
+
+The preferred structure is:
+
+```text
+<Technology>/<ContentType>/<Family>/<variant>/
 ```
-Buttons/
-└── Gradient Button/
-    ├── linear/
-    │   ├── preview.html
-    │   ├── code.html
-    │   └── metadata.json
-    ├── multi-stop/
-    │   ├── preview.html
-    │   └── ...
-    ├── directional/
-    ├── pill/
-    ├── shadow/
-    ├── dark-background/
-    ├── README.md
-    └── metadata.json
+
+For example:
+
+```text
+Tailwind/Components/Buttons/primary-button/
+├── code.html
+├── preview.html
+└── metadata.json
 ```
 
-### File Types
+Templates are different because they may contain multiple pages and supporting files:
 
-| File | Purpose |
-|------|---------|
-| `preview.html` | Interactive preview with all states |
-| `code.html` | Clean, copy-paste ready code |
-| `README.md` | Usage notes, accessibility, tips |
-| `metadata.json` | SEO, tags, related components |
+```text
+Tailwind/Templates/<template-slug>/
+├── metadata.json
+├── preview.html
+├── README.md
+└── pages/
+    ├── index.html
+    └── ...
+```
 
-## Metadata Schema
+The exact internal template structure may vary when the template requires it. Do not force a multi-page template into the component three-file convention.
+
+## Standard files
+
+| File | Required for | Purpose |
+|---|---|---|
+| `code.html` | Tailwind components/sections | Clean copy-paste implementation. |
+| `preview.html` | Tailwind components/sections | Standalone visual preview and demonstration. |
+| `metadata.json` | Indexed variants | Structured identity, classification, search, and feature data. |
+| `README.md` | When useful / template-specific | Human-readable usage or implementation notes. |
+
+`preview.html` is a demonstration environment. It may contain CDN imports, demo content, page framing, and preview-only JavaScript. `code.html` should not inherit unnecessary preview scaffolding.
+
+## Metadata principles
+
+Metadata is consumed by repository tooling and the future DevSnips website. It should be accurate, deterministic, and consistent with the filesystem.
+
+A Tailwind variant must declare its content type:
 
 ```json
 {
-  "name": "Gradient Button - Linear",
-  "component": "Gradient Button",
-  "variant": "Linear",
-  "description": "Two-color horizontal gradient button",
-  "category": "Components",
-  "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "linear", "blue"],
-  "searchTerms": ["gradient button", "linear gradient", "blue button"],
-  "related": ["gradient-multi-stop", "gradient-pill"],
-  "accessibility": {
-    "focus": "Visible focus ring included",
-    "aria": "Use disabled attribute for disabled state",
-    "touch": "44x44px minimum touch target"
-  }
+  "id": "primary-button-001",
+  "name": "Primary Button",
+  "description": "A primary call-to-action button with a clear focus state.",
+  "type": "component",
+  "category": "components",
+  "subcategory": "buttons",
+  "tags": ["button", "primary", "cta"],
+  "responsive": true
 }
 ```
 
-## Benefits
+The exact metadata schema used by the repository may contain additional fields. When adding fields, keep their meaning consistent across entries rather than creating one-off names.
 
-1. **Search**: Users find "Tailwind Gradient Pill Button" directly
-2. **SEO**: Each variant has its own URL and meta tags
-3. **Scalability**: Add unlimited variants to any component
-4. **Contributions**: Contributors add single variants, not entire categories
-5. **Counts**: "Gradient Button (8 variants)" vs "1 component"
+### Required consistency rules
 
-## Migration
+- `type` must match the directory for Tailwind content.
+- IDs should be globally unique.
+- Names and descriptions should describe the actual implementation.
+- Categories and subcategories should agree with the family structure.
+- Tags should be lowercase and useful for search.
+- Boolean fields should use actual JSON booleans, not strings.
+- Do not claim support for behavior that the code does not implement.
 
-1. Split monolithic files into individual variant folders
-2. Create metadata.json for each variant
-3. Update parent index.json to reference variant paths
-4. Update snippets-index.json for global search
+## Naming conventions
 
-## Naming Conventions
+Filesystem names and IDs should use kebab-case:
 
-- Folder names: kebab-case (`gradient-button`, `pill-button`)
-- Variants: kebab-case (`linear`, `multi-stop`, `dark-background`)
-- Display names: Title Case (`Gradient Button`)
-- Tags: lowercase, hyphenated (`gradient-button`, `cta`)
+```text
+pricing-comparison
+animated-accordion
+multi-step-form
+```
+
+Display names should be human-readable:
+
+```text
+Pricing Comparison
+Animated Accordion
+Multi-Step Form
+```
+
+Avoid generic variants such as `new`, `test`, `final`, or `version-2`.
+
+## Accessibility expectations
+
+Accessibility is part of the component quality bar.
+
+Prefer native HTML semantics over custom ARIA. Interactive controls should be keyboard operable, have visible focus states, and expose an understandable accessible name.
+
+Use `aria-*` attributes when they add semantics that native HTML cannot provide. Do not add ARIA merely to make metadata or a validator look complete.
+
+Animations should respect `prefers-reduced-motion` when motion conveys meaningful movement or transition effects.
+
+## Responsive expectations
+
+Components should remain usable across common mobile and desktop widths. Avoid fixed widths that cause horizontal overflow and make interactive targets difficult to use on touch screens.
+
+A responsive component does not need to look identical at every viewport. It needs to preserve its hierarchy, readability, and usability.
+
+## Design tokens
+
+When a family uses shared design tokens, keep token definitions consistent within that family and avoid unnecessary duplication.
+
+Tailwind's section-style component work has a dedicated token reference at:
+
+```text
+Tailwind/Components/STYLE_TOKENS.md
+```
+
+Do not silently introduce a second token vocabulary for an existing family unless there is a documented reason.
+
+## Indexing model
+
+`snippets-index.json` is generated from repository content and provides the global machine-readable index.
+
+The index contains family and variant records, technology information, content types, paths, descriptions, tags, features, and aggregate statistics.
+
+After adding, moving, renaming, or deleting content, regenerate it with:
+
+```bash
+python3 -m _gen.rebuild_index
+```
+
+Then validate the repository:
+
+```bash
+python3 scripts/validate.py
+```
+
+The validator checks architecture, metadata, index-to-disk consistency, stale paths, duplicate variant paths, and content coverage.
+
+## Migration and refactoring rules
+
+When moving existing content:
+
+1. Preserve existing IDs unless there is a documented reason to change them.
+2. Update metadata to match the new location and content type.
+3. Regenerate the index.
+4. Run validation.
+5. Search for stale paths and references.
+6. Update documentation and the changelog when the repository architecture changes.
+
+Do not perform a large migration by changing folders alone. The index and metadata are part of the same data model.
+
+## Why this structure exists
+
+This model allows DevSnips to grow without turning every category into a large monolithic file. Each variant can eventually have its own website page, search result, metadata, preview, analytics, and canonical URL while families still provide useful organization for humans.
