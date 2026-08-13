@@ -1,41 +1,42 @@
 <!--
 Snippet Name: Nexus AI Buttons
-Description: Premium button system — primary gradient, solid white, ghost, secondary outline, with-arrow, and pill badge variants.
+Description: Quiet button system — terracotta primary, dark-ink solid, outline secondary, ghost, pill badge, and link-with-arrow.
 Author: DevSnips Contributors
 Usage Example: Copy individual button classes into your markup. All use focus-visible rings for accessibility.
 -->
 
-<!-- Primary gradient button -->
-<a href="#" class="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:shadow-indigo-500/40 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B16]">
+<!-- Primary terracotta button -->
+<a href="#" class="group inline-flex items-center gap-2 rounded-lg bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-terracotta-500/25 transition-all hover:bg-terracotta-600 hover:shadow-terracotta-500/30 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-400 focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
   Get started
   <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </a>
 
-<!-- Solid white button (high contrast on dark) -->
-<a href="#" class="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#070B16] shadow-sm transition-all hover:shadow-white/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B16]">
+<!-- Solid dark-ink button (high contrast on light) -->
+<a href="#" class="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
   Start free
 </a>
 
-<!-- Secondary outline button (glass) -->
-<a href="#" class="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B16]">
+<!-- Secondary outline button -->
+<a href="#" class="inline-flex items-center gap-2 rounded-lg border border-hairline bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink/30 hover:bg-paper-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-400 focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
   View docs
 </a>
 
 <!-- Ghost / text button -->
-<a href="#" class="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/[0.06] hover:text-white">
+<a href="#" class="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
   Learn more
   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </a>
 
 <!-- Pill badge / announce link -->
-<a href="#" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1 pl-1 pr-3 text-xs font-medium text-white/80 backdrop-blur transition-colors hover:bg-white/[0.08]">
-  <span class="rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 px-2 py-0.5 text-[10px] font-semibold text-white">New</span>
+<a href="#" class="inline-flex items-center gap-2 rounded-full border border-terracotta-200 bg-terracotta-50 py-1 pl-1 pr-3 text-xs font-medium text-terracotta-600 transition-colors hover:bg-terracotta-100">
+  <span class="rounded-full bg-terracotta-500 px-2 py-0.5 text-[10px] font-semibold text-white">New</span>
   Nexus AI 3.0 is live
-  <svg class="h-3.5 w-3.5 text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+  <svg class="h-3.5 w-3.5 text-terracotta-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
 </a>
 
-<!-- Dark variant (for light sections) -->
-<a href="#" class="inline-flex items-center gap-2 rounded-lg bg-[#070B16] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-all hover:bg-[#0E1530] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2">
-  Explore platform
+<!-- Link with accent underline -->
+<a href="#" class="inline-flex items-center gap-1 text-sm font-medium text-terracotta-600 accent-underline hover:text-terracotta-700">
+  Compare all plans
+  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </a>

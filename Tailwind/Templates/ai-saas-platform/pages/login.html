@@ -3,98 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign in — Nexus AI</title>
+  <title>Nexus AI — Sign in</title>
   <meta name="description" content="Sign in to your Nexus AI workspace.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Nexus AI — Sign in">
+  <meta property="og:description" content="Sign in to your Nexus AI workspace.">
+  <meta property="og:image" content="../assets/images/og-image.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F9F7F4',
+            'paper-dark': '#F3EFEA',
+            ink: '#1C1917',
+            'ink-soft': '#44403C',
+            'ink-muted': '#78716C',
+            terracotta: {
+              50: '#FDF2EF', 100: '#FBE5DE', 200: '#F6C8BC', 300: '#EEA898',
+              400: '#E07A5F', 500: '#C85D42', 600: '#A84A34', 700: '#8A3D2C',
+              800: '#6E3226', 900: '#4E251C',
+            },
+            sand: '#E8E2D9',
+            clay: '#D6CCC2',
+          },
+          fontFamily: { display: ['Fraunces', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'] },
+          boxShadow: {
+            'card': '0 1px 2px rgba(28,25,23,0.04), 0 4px 12px rgba(28,25,23,0.06)',
+            'card-hover': '0 4px 8px rgba(28,25,23,0.08), 0 12px 32px rgba(28,25,23,0.1)',
+            'soft': '0 8px 30px rgba(28,25,23,0.08)',
+          },
+          borderRadius: { 'xl': '0.75rem', '2xl': '1rem', '3xl': '1.5rem' },
+        },
+      },
+    }
+  </script>
   <style>
-    :root { color-scheme: dark; }
-    html, body { background: #070B16; }
-    body { font-family: 'Inter', sans-serif; }
-    ::selection { background: rgba(139,92,246,0.35); }
-    .glow { position: absolute; border-radius: 9999px; filter: blur(80px); pointer-events: none; z-index: 0; }
-    .text-balance { text-wrap: balance; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #F9F7F4; color: #1C1917; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.6; }
+    .font-display { font-family: 'Fraunces', serif; }
+    .border-hairline { border-color: rgba(28,25,23,0.08); }
+    .bg-paper { background-color: #F9F7F4; }
+    .bg-paper-dark { background-color: #F3EFEA; }
+    .text-ink { color: #1C1917; }
+    .text-ink-soft { color: #44403C; }
+    .text-ink-muted { color: #78716C; }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:8px; font-weight:600; font-size:15px; background:#E07A5F; color:#FFFFFF; border:none; cursor:pointer; transition:all .2s ease; text-decoration:none; box-shadow:0 2px 6px rgba(224,122,95,0.25); }
+    .btn-primary:hover { background:#C85D42; box-shadow:0 4px 12px rgba(224,122,95,0.35); transform:translateY(-1px); }
+    .accent-underline { text-decoration:underline; text-decoration-color:#E07A5F; text-decoration-thickness:2px; text-underline-offset:4px; }
+    :focus-visible { outline: 2px solid #E07A5F; outline-offset: 2px; border-radius: 4px; }
+    .field { width:100%; border:1px solid rgba(28,25,23,0.12); background-color:#FFFFFF; border-radius:8px; padding:10px 14px; font-size:15px; color:#1C1917; transition:border-color .2s ease, box-shadow .2s ease; }
+    .field::placeholder { color:#A8A29E; }
+    .field:focus { outline:none; border-color:#E07A5F; box-shadow:0 0 0 3px rgba(224,122,95,0.18); }
+    [data-reveal] { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+    [data-reveal].revealed { opacity:1; transform:translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity:1; transform:none; transition:none; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
   </style>
 </head>
-<body class="min-h-screen bg-[#070B16] text-white antialiased">
+<body class="bg-paper text-ink">
   <div class="grid min-h-screen lg:grid-cols-2">
 
     <!-- Brand panel -->
-    <aside class="relative hidden overflow-hidden border-r border-white/[0.06] bg-[#0B1020] lg:flex lg:flex-col lg:justify-between lg:p-12">
-      <div class="glow left-1/4 top-1/4 h-[360px] w-[360px] bg-violet-600/25"></div>
-      <div class="glow right-0 bottom-0 h-[280px] w-[280px] bg-cyan-500/15"></div>
-      <div class="relative">
-        <a href="../preview.html" class="flex items-center gap-2.5" aria-label="Nexus AI home">
-          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg></span>
-          <span class="text-[15px] font-semibold tracking-tight text-white">Nexus<span class="text-white/50"> AI</span></span>
+    <aside class="relative hidden overflow-hidden bg-terracotta-500 lg:flex lg:flex-col lg:justify-between lg:p-12">
+      <!-- soft tonal overlay for editorial warmth -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-terracotta-500 via-terracotta-500 to-terracotta-600"></div>
+      <div class="relative flex flex-col justify-between h-full">
+        <!-- Logo -->
+        <a href="../preview.html" class="inline-flex items-center gap-2.5" aria-label="Nexus AI home">
+          <span class="grid h-9 w-9 place-items-center rounded-lg bg-white/15 ring-1 ring-inset ring-white/25">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg>
+          </span>
+          <span class="text-[15px] font-semibold tracking-tight text-white">Nexus<span class="text-white/70"> AI</span></span>
         </a>
-      </div>
-      <div class="relative">
-        <blockquote class="max-w-md text-balance text-2xl font-medium leading-snug text-white/90">"Nexus AI replaced four tools and cut our inference cost by more than half — all in a single quarter."</blockquote>
-        <div class="mt-6 flex items-center gap-3">
-          <img src="../assets/placeholders/avatar.svg" alt="" class="h-11 w-11 rounded-full ring-2 ring-white/10"/>
-          <div><p class="text-sm font-medium text-white">Maya Chen</p><p class="text-xs text-white/50">Head of AI · Linearly</p></div>
+
+        <!-- Tagline -->
+        <div class="max-w-md">
+          <p class="text-xs font-medium uppercase tracking-[0.18em] text-white/70">The AI workspace for serious teams</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold leading-tight text-white text-balance">Build, ship and scale intelligent products — without the ops overhead.</h2>
         </div>
-      </div>
-      <div class="relative flex items-center gap-2 text-xs text-white/40">
-        <img src="../assets/illustrations/orb.svg" alt="" class="h-6 w-6 rounded-md"/>
-        <span>SOC 2 Type II · GDPR · 99.99% uptime</span>
+
+        <!-- Testimonial -->
+        <figure class="max-w-md">
+          <blockquote class="font-display text-xl font-medium leading-snug text-white/95 text-balance">“Nexus AI replaced four tools and cut our inference cost by more than half — all in a single quarter.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <img src="../assets/placeholders/avatar.svg" alt="" class="h-11 w-11 rounded-full ring-2 ring-white/30"/>
+            <div>
+              <p class="text-sm font-medium text-white">Maya Chen</p>
+              <p class="text-xs text-white/70">Head of AI · Linearly</p>
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- Compliance -->
+        <div class="flex items-center gap-2 text-xs text-white/75">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linejoin="round"/><path d="M9.5 12l2 2 3.5-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>SOC 2 Type II · GDPR · 99.99% uptime</span>
+        </div>
       </div>
     </aside>
 
     <!-- Form panel -->
-    <main class="relative flex items-center justify-center px-6 py-12 lg:px-8">
+    <main class="relative flex items-center justify-center px-6 py-10 lg:px-8 lg:py-12">
       <div class="w-full max-w-sm">
-        <a href="../preview.html" class="mb-8 flex items-center gap-2.5 lg:hidden" aria-label="Nexus AI home">
-          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg></span>
-          <span class="text-[15px] font-semibold tracking-tight text-white">Nexus<span class="text-white/50"> AI</span></span>
-        </a>
 
-        <h1 class="text-2xl font-semibold tracking-tight text-white">Welcome back</h1>
-        <p class="mt-2 text-sm text-white/55">Sign in to your Nexus AI workspace.</p>
+        <!-- Mobile logo + back link -->
+        <div class="mb-8 flex items-center justify-between">
+          <a href="../preview.html" class="inline-flex items-center gap-2.5 lg:hidden" aria-label="Nexus AI home">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-terracotta-500 text-white shadow-sm shadow-terracotta-500/25"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg></span>
+            <span class="text-[15px] font-semibold tracking-tight text-ink">Nexus<span class="text-ink-muted"> AI</span></span>
+          </a>
+          <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-terracotta-600">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            Back to home
+          </a>
+        </div>
 
-        <!-- Social -->
-        <div class="mt-8 grid grid-cols-2 gap-3">
-          <button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 .8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10Z"/></svg>
+        <header class="mb-8">
+          <h1 class="font-display text-3xl font-semibold tracking-tight text-ink">Welcome back</h1>
+          <p class="mt-2 text-sm text-ink-muted">Sign in to your Nexus AI workspace.</p>
+        </header>
+
+        <!-- Social login -->
+        <div class="grid grid-cols-2 gap-3">
+          <button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline bg-white px-4 py-2.5 text-sm font-medium text-ink transition-all hover:border-ink/25 hover:bg-paper-dark">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1C1917" d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 .8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10Z"/></svg>
             GitHub
           </button>
-          <button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12Z"/></svg>
+          <button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline bg-white px-4 py-2.5 text-sm font-medium text-ink transition-all hover:border-ink/25 hover:bg-paper-dark">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22 12c0-.8-.1-1.6-.2-2.4H12v4.5h5.6c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.8 3.1-4.6 3.1-7.8Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.7-2.4l-3.4-2.6c-.9.6-2.1 1-3.3 1-2.6 0-4.7-1.7-5.5-4H3v2.7C4.7 20 8.1 22 12 22Z"/><path fill="#FBBC05" d="M6.5 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.3H3A10 10 0 0 0 2 12c0 1.6.4 3.1 1 4.7l3.5-2.7Z"/><path fill="#EA4335" d="M12 6.1c1.5 0 2.8.5 3.8 1.5l2.9-2.9C16.9 3.1 14.7 2 12 2 8.1 2 4.7 4 3 7.3L6.5 10c.8-2.3 2.9-3.9 5.5-3.9Z"/></svg>
             Google
           </button>
         </div>
 
-        <div class="my-6 flex items-center gap-3 text-xs text-white/40">
-          <span class="h-px flex-1 bg-white/[0.08]"></span> or continue with email <span class="h-px flex-1 bg-white/[0.08]"></span>
+        <div class="my-6 flex items-center gap-3 text-xs text-ink-muted">
+          <span class="h-px flex-1 bg-ink/10"></span>
+          <span>or continue with email</span>
+          <span class="h-px flex-1 bg-ink/10"></span>
         </div>
 
         <!-- Email/password form -->
-        <form class="space-y-4" aria-label="Sign in form">
+        <form id="signinForm" class="space-y-4" aria-label="Sign in to your Nexus AI workspace" novalidate>
           <div>
-            <label for="email" class="mb-1.5 block text-sm font-medium text-white/80">Email</label>
-            <input id="email" type="email" required autocomplete="email" placeholder="you@company.com" class="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-indigo-400/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"/>
+            <label for="email" class="mb-1.5 block text-sm font-medium text-ink-soft">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" class="field" aria-required="true"/>
           </div>
           <div>
             <div class="mb-1.5 flex items-center justify-between">
-              <label for="password" class="block text-sm font-medium text-white/80">Password</label>
-              <a href="#" class="text-xs text-violet-300 hover:text-violet-200">Forgot?</a>
+              <label for="password" class="block text-sm font-medium text-ink-soft">Password</label>
+              <a href="#" class="text-xs font-medium text-terracotta-600 transition-colors hover:text-terracotta-700">Forgot password?</a>
             </div>
-            <input id="password" type="password" required autocomplete="current-password" placeholder="••••••••" class="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-indigo-400/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"/>
+            <input id="password" name="password" type="password" required autocomplete="current-password" placeholder="••••••••" class="field" aria-required="true"/>
           </div>
-          <label class="flex items-center gap-2 text-sm text-white/60">
-            <input type="checkbox" class="h-4 w-4 rounded border-white/20 bg-white/[0.06] text-indigo-500 focus:ring-indigo-500/30"/>
+          <label class="flex items-center gap-2 text-sm text-ink-soft">
+            <input type="checkbox" name="remember" class="h-4 w-4 rounded border-ink/20 text-terracotta-500 focus:ring-terracotta-400"/>
             Keep me signed in
           </label>
-          <button type="submit" class="group flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:brightness-110">Sign in <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button type="submit" class="btn-primary w-full justify-center">Sign in
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p id="formNote" class="hidden text-center text-xs text-ink-muted" role="status" aria-live="polite">Demo only — no account is created. This form does not submit.</p>
         </form>
 
-        <p class="mt-8 text-center text-sm text-white/55">Don't have an account? <a href="signup.html" class="font-medium text-violet-300 hover:text-violet-200">Create one</a></p>
+        <p class="mt-8 text-center text-sm text-ink-muted">Don't have an account?
+          <a href="signup.html" class="font-medium text-terracotta-600 transition-colors hover:text-terracotta-700 accent-underline">Sign up</a>
+        </p>
       </div>
     </main>
   </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('signinForm');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const note = document.getElementById('formNote');
+        if (note) note.classList.remove('hidden');
+      });
+    })();
+  </script>
 </body>
 </html>
