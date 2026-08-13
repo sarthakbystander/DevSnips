@@ -1,0 +1,48 @@
+<!-- Snippet Name: 404 Not Found Page | Use Case: Error pages | Description: A simple 404 not found page. -->
+<style>
+.not-found-container {
+  height: 100vh;
+  margin: 0;
+  background-image: url('https://via.placeholder.com/1500x1000');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<div class="not-found-container">
+  <div class="topleft">
+    <p>Logo</p>
+  </div>
+  <div class="middle">
+    <h1>404</h1>
+    <hr>
+    <p>Page not found</p>
+  </div>
+  <div class="bottomleft">
+    <p>Some text</p>
+  </div>
+</div>

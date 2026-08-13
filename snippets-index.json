@@ -737,32 +737,6 @@
           ]
         },
         {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "type": "component",
-          "description": "Ghost buttons available in multiple colors for different actions",
-          "tags": [
-            "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline Colors Button",
           "path": "Tailwind/Components/Buttons/Outline Button/colors/",
           "type": "component",
@@ -789,20 +763,24 @@
           ]
         },
         {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
+          "name": "Ghost Colors Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
           "type": "component",
-          "description": "Dark background buttons for dark themed interfaces",
+          "description": "Ghost buttons available in multiple colors for different actions",
           "tags": [
             "button",
-            "filled",
-            "dark",
-            "dark mode"
+            "ghost",
+            "colors",
+            "red",
+            "green",
+            "purple"
           ],
           "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -834,28 +812,6 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "type": "component",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline on Dark Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dark/",
           "type": "component",
@@ -878,6 +834,28 @@
           ]
         },
         {
+          "name": "Dark Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
+          "type": "component",
+          "description": "Dark background buttons for dark themed interfaces",
+          "tags": [
+            "button",
+            "filled",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Dark Solid",
+            "Blue"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Glass Dark Button",
           "path": "Tailwind/Components/Buttons/Glass Button/dark/",
           "type": "component",
@@ -892,6 +870,28 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "type": "component",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "tags": [
+            "button",
+            "ghost",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Gray",
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -1127,6 +1127,50 @@
           ]
         },
         {
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
+          "type": "component",
+          "description": "Split buttons with icon and dropdown",
+          "tags": [
+            "button",
+            "split",
+            "dropdown",
+            "icon"
+          ],
+          "styles": [
+            "Primary",
+            "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
+          "type": "component",
+          "description": "Glass morphism icon buttons for toolbars and actions",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "icon"
+          ],
+          "styles": [
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Ghost Icon Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
           "type": "component",
@@ -1164,50 +1208,6 @@
             "Scale",
             "Rotate",
             "Flip"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "type": "component",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "type": "component",
-          "description": "Glass morphism icon buttons for toolbars and actions",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "icon"
-          ],
-          "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1326,6 +1326,28 @@
           ]
         },
         {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "type": "component",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "type": "component",
@@ -1341,28 +1363,6 @@
             "Violet",
             "Cyan",
             "Emerald"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
           ],
           "files": [
             "code.html",
@@ -1393,20 +1393,19 @@
           ]
         },
         {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
           "type": "component",
-          "description": "Transparent buttons with blue hover background effect",
+          "description": "Blue bordered buttons with transparent background and hover fill",
           "tags": [
             "button",
-            "ghost",
-            "transparent",
-            "hover"
+            "outline",
+            "bordered",
+            "blue"
           ],
           "styles": [
             "Default",
-            "Disabled",
-            "Solid (comparison)"
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1437,27 +1436,6 @@
           ]
         },
         {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "type": "component",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Primary Button",
           "path": "Tailwind/Components/Buttons/Glass Button/primary/",
           "type": "component",
@@ -1472,6 +1450,28 @@
             "Blue",
             "Purple",
             "Pink"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "type": "component",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1503,29 +1503,6 @@
           ]
         },
         {
-          "name": "Rounded Full Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped filled buttons",
-          "tags": [
-            "button",
-            "filled",
-            "rounded",
-            "pill",
-            "full"
-          ],
-          "styles": [
-            "Blue Pill",
-            "Dark Pill",
-            "Gradient Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Rounded",
           "path": "Tailwind/Components/Buttons/Icon Button/rounded/",
           "type": "component",
@@ -1541,6 +1518,29 @@
             "Secondary",
             "Gradient",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Rounded Full Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
+          "type": "component",
+          "description": "Fully rounded pill-shaped filled buttons",
+          "tags": [
+            "button",
+            "filled",
+            "rounded",
+            "pill",
+            "full"
+          ],
+          "styles": [
+            "Blue Pill",
+            "Dark Pill",
+            "Gradient Pill"
           ],
           "files": [
             "code.html",
@@ -14724,41 +14724,6 @@
       "variantsCount": 12,
       "variants": [
         {
-          "name": "Agent Workflow — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "neo-brutalism",
-            "brutalist",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "execution"
-          ],
-          "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "step status colors (pending/running/done)",
-            "filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Model Comparison — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
           "type": "section",
@@ -14829,6 +14794,41 @@
           ]
         },
         {
+          "name": "Agent Workflow — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "neo-brutalism",
+            "brutalist",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "execution"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "step status colors (pending/running/done)",
+            "filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "AI Chat Interface — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
           "type": "section",
@@ -14855,42 +14855,6 @@
           ],
           "styles": [
             "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Agent Workflow — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "glassmorphism",
-            "glass",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "gradient"
-          ],
-          "features": [
-            "backdrop-blur glass panel",
-            "animated gradient mesh backdrop",
-            "luminous edge highlight",
-            "cyan done + fuchsia running node glow",
-            "gradient filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -14970,6 +14934,42 @@
           ]
         },
         {
+          "name": "Agent Workflow — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "glassmorphism",
+            "glass",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "gradient"
+          ],
+          "features": [
+            "backdrop-blur glass panel",
+            "animated gradient mesh backdrop",
+            "luminous edge highlight",
+            "cyan done + fuchsia running node glow",
+            "gradient filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "AI Chat Interface — Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
           "type": "section",
@@ -14996,42 +14996,6 @@
           ],
           "styles": [
             "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Agent Workflow — Vercel",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "vercel",
-            "dark-mode",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "minimal"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "single teal accent",
-            "step status colors (pending/running/done)",
-            "glowing filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
-          ],
-          "styles": [
-            "vercel"
           ],
           "files": [
             "code.html",
@@ -15099,6 +15063,42 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Agent Workflow — Vercel",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "vercel",
+            "dark-mode",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "minimal"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "single teal accent",
+            "step status colors (pending/running/done)",
+            "glowing filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -15196,6 +15196,40 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Kanban Board — Neo-Brutalism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
+          "tags": [
+            "kanban",
+            "board",
+            "neo-brutalism",
+            "brutalist",
+            "drag-and-drop",
+            "task-board",
+            "app-ui",
+            "project-management"
+          ],
+          "features": [
+            "hard offset shadows on cards and panel",
+            "flat bright accent column headers",
+            "press-down hover states",
+            "HTML5 drag-and-drop between columns",
+            "live-updating count badges",
+            "add-card affordance per column",
+            "placeholder drop indicator",
+            "keyboard-focusable draggable cards"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Dashboard Overview — Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
@@ -15232,32 +15266,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Neo-Brutalism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
+          "name": "Kanban Board — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
+          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
           "tags": [
             "kanban",
             "board",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "glass",
             "drag-and-drop",
             "task-board",
             "app-ui",
-            "project-management"
+            "project-management",
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "hard offset shadows on cards and panel",
-            "flat bright accent column headers",
-            "press-down hover states",
+            "backdrop-blur glass columns",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlights",
+            "glowing cyan status dots",
+            "gradient priority chips",
             "HTML5 drag-and-drop between columns",
-            "live-updating count badges",
-            "add-card affordance per column",
-            "placeholder drop indicator",
+            "live-updating count chips",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15306,34 +15342,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
+          "name": "Kanban Board — Vercel",
+          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
           "type": "section",
-          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
           "tags": [
             "kanban",
             "board",
-            "glassmorphism",
-            "glass",
+            "vercel",
+            "dark-mode",
             "drag-and-drop",
             "task-board",
             "app-ui",
             "project-management",
-            "gradient",
-            "vibrant"
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "backdrop-blur glass columns",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlights",
-            "glowing cyan status dots",
-            "gradient priority chips",
+            "dark monochrome palette",
+            "hairline borders + radial glow",
+            "glowing teal status dots",
+            "pill count badges",
             "HTML5 drag-and-drop between columns",
-            "live-updating count chips",
+            "live-updating counts",
+            "dashed add-card affordance",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15370,42 +15406,6 @@
             "hairline borders + subtle glow",
             "recent activity feed",
             "keyboard accessible range buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Kanban Board — Vercel",
-          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
-          "tags": [
-            "kanban",
-            "board",
-            "vercel",
-            "dark-mode",
-            "drag-and-drop",
-            "task-board",
-            "app-ui",
-            "project-management",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + radial glow",
-            "glowing teal status dots",
-            "pill count badges",
-            "HTML5 drag-and-drop between columns",
-            "live-updating counts",
-            "dashed add-card affordance",
-            "keyboard-focusable draggable cards"
           ],
           "styles": [
             "vercel"
@@ -16093,38 +16093,6 @@
       "variantsCount": 18,
       "variants": [
         {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
-          "tags": [
-            "features",
-            "feature-grid",
-            "neo-brutalism",
-            "brutalist",
-            "saas",
-            "bento",
-            "offset-shadows"
-          ],
-          "features": [
-            "6-up feature grid",
-            "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Pricing Table — Neo-Brutalism",
           "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
           "type": "section",
@@ -16149,6 +16117,73 @@
             "flat bright accent palette",
             "press-down hover states",
             "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Free Trial CTA — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/trial-cta/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist full-bleed free trial CTA banner with a giant headline, a no-credit-card checklist strip, dual offset-shadow CTAs, a diagonal grid background, and a rotated guarantee sticker. Press-down hover states and bright accent blocks give it a loud, confident close.",
+          "tags": [
+            "cta",
+            "trial",
+            "neo-brutalism",
+            "brutalist",
+            "saas",
+            "banner",
+            "offset-shadows",
+            "conversion"
+          ],
+          "features": [
+            "full-bleed CTA banner",
+            "giant headline with accent block",
+            "no-credit-card checklist strip",
+            "dual offset-shadow CTAs",
+            "diagonal grid background",
+            "rotated guarantee sticker",
+            "press-down hover states"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+          "tags": [
+            "pricing",
+            "usage-based",
+            "neo-brutalism",
+            "brutalist",
+            "slider",
+            "metered",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
+            "press-down hover states",
+            "keyboard accessible slider"
           ],
           "styles": [
             "neo-brutalism"
@@ -16228,133 +16263,30 @@
           ]
         },
         {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
+          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
           "tags": [
-            "pricing",
-            "usage-based",
+            "features",
+            "feature-grid",
             "neo-brutalism",
             "brutalist",
-            "slider",
-            "metered",
             "saas",
+            "bento",
             "offset-shadows"
           ],
           "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
-            "press-down hover states",
-            "keyboard accessible slider"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Free Trial CTA — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/trial-cta/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist full-bleed free trial CTA banner with a giant headline, a no-credit-card checklist strip, dual offset-shadow CTAs, a diagonal grid background, and a rotated guarantee sticker. Press-down hover states and bright accent blocks give it a loud, confident close.",
-          "tags": [
-            "cta",
-            "trial",
-            "neo-brutalism",
-            "brutalist",
-            "saas",
-            "banner",
-            "offset-shadows",
-            "conversion"
-          ],
-          "features": [
-            "full-bleed CTA banner",
-            "giant headline with accent block",
-            "no-credit-card checklist strip",
-            "dual offset-shadow CTAs",
-            "diagonal grid background",
-            "rotated guarantee sticker",
+            "6-up feature grid",
+            "rotating bright accent panels",
+            "numbered monospace tags",
+            "zig-zag offset layout",
+            "thick icon tiles",
+            "offset shadows",
             "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Three Tier Pricing — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
-          "tags": [
-            "pricing",
-            "three-tier",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "gradient-mesh"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "hover lift states",
-            "keyboard accessible toggle"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
-          "tags": [
-            "hero",
-            "dashboard",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "saas",
-            "analytics"
-          ],
-          "features": [
-            "centered headline with luminous edge highlight",
-            "gradient primary CTA",
-            "frosted-glass dashboard mock",
-            "KPI cards with sparklines",
-            "activity feed",
-            "floating glass stat bubbles",
-            "cyan glow accents",
-            "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -16465,6 +16397,74 @@
           ]
         },
         {
+          "name": "Three Tier Pricing — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
+          "tags": [
+            "pricing",
+            "three-tier",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "gradient-mesh"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "hover lift states",
+            "keyboard accessible toggle"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
+          "tags": [
+            "hero",
+            "dashboard",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "saas",
+            "analytics"
+          ],
+          "features": [
+            "centered headline with luminous edge highlight",
+            "gradient primary CTA",
+            "frosted-glass dashboard mock",
+            "KPI cards with sparklines",
+            "activity feed",
+            "floating glass stat bubbles",
+            "cyan glow accents",
+            "hover lift states"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Testimonial Grid — Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
           "type": "section",
@@ -16497,63 +16497,29 @@
           ]
         },
         {
-          "name": "SaaS Product Hero — Vercel",
-          "path": "Tailwind/Sections/saas/product-hero/vercel/",
+          "name": "Enterprise SaaS Footer — Vercel",
+          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
           "type": "section",
-          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
+          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
           "tags": [
-            "hero",
-            "product-hero",
-            "vercel",
-            "dark",
-            "monochrome",
-            "saas",
-            "product-preview",
-            "trust-logos",
-            "teal-accent"
-          ],
-          "features": [
-            "left-aligned two-line gradient headline",
-            "primary white CTA + secondary ghost demo CTA",
-            "announcement pill with teal dot",
-            "trust logo row",
-            "masked grid backdrop",
-            "framed product UI preview with sidebar and inbox",
-            "floating SLA stat chip",
-            "hairline borders and dark panel"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Customer Logo Cloud — Vercel",
-          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
-          "type": "section",
-          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
-          "tags": [
-            "logos",
-            "logo-cloud",
-            "customers",
+            "footer",
+            "enterprise",
             "vercel",
             "dark",
             "saas",
-            "wordmarks",
+            "newsletter",
+            "compliance",
             "teal-accent"
           ],
           "features": [
-            "centered headline with count chip",
-            "responsive wordmark-style SVG logo grid",
-            "white/white-40 logo hierarchy",
-            "hairline panel borders",
-            "pull-quote with avatar",
-            "teal accent on count chip",
-            "single teal dot"
+            "newsletter signup with email form",
+            "5-column link grid",
+            "status pill with teal dot",
+            "social icons",
+            "compliance badges row",
+            "bottom legal bar with locale",
+            "hairline borders",
+            "white/white-50/white-35 hierarchy"
           ],
           "styles": [
             "vercel"
@@ -16634,29 +16600,63 @@
           ]
         },
         {
-          "name": "Enterprise SaaS Footer — Vercel",
-          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
+          "name": "Customer Logo Cloud — Vercel",
+          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
           "type": "section",
-          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
+          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
           "tags": [
-            "footer",
-            "enterprise",
+            "logos",
+            "logo-cloud",
+            "customers",
             "vercel",
             "dark",
             "saas",
-            "newsletter",
-            "compliance",
+            "wordmarks",
             "teal-accent"
           ],
           "features": [
-            "newsletter signup with email form",
-            "5-column link grid",
-            "status pill with teal dot",
-            "social icons",
-            "compliance badges row",
-            "bottom legal bar with locale",
-            "hairline borders",
-            "white/white-50/white-35 hierarchy"
+            "centered headline with count chip",
+            "responsive wordmark-style SVG logo grid",
+            "white/white-40 logo hierarchy",
+            "hairline panel borders",
+            "pull-quote with avatar",
+            "teal accent on count chip",
+            "single teal dot"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Product Hero — Vercel",
+          "path": "Tailwind/Sections/saas/product-hero/vercel/",
+          "type": "section",
+          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
+          "tags": [
+            "hero",
+            "product-hero",
+            "vercel",
+            "dark",
+            "monochrome",
+            "saas",
+            "product-preview",
+            "trust-logos",
+            "teal-accent"
+          ],
+          "features": [
+            "left-aligned two-line gradient headline",
+            "primary white CTA + secondary ghost demo CTA",
+            "announcement pill with teal dot",
+            "trust logo row",
+            "masked grid backdrop",
+            "framed product UI preview with sidebar and inbox",
+            "floating SLA stat chip",
+            "hairline borders and dark panel"
           ],
           "styles": [
             "vercel"
@@ -16795,7 +16795,18 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/blog-post.html",
+            "pages/blog.html",
+            "pages/customers.html",
+            "pages/dashboard.html",
+            "pages/docs.html",
+            "pages/features.html",
+            "pages/index.html",
+            "pages/integrations.html",
+            "pages/login.html",
+            "pages/pricing.html",
+            "pages/signup.html"
           ]
         }
       ],
@@ -16863,7 +16874,13 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "pages/conduct.html",
+            "pages/index.html",
+            "pages/register.html",
+            "pages/schedule.html",
+            "pages/speakers.html",
+            "pages/venue.html"
           ]
         }
       ],
@@ -16937,7 +16954,14 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/about.html",
+            "pages/cart.html",
+            "pages/checkout.html",
+            "pages/index.html",
+            "pages/journal.html",
+            "pages/product.html",
+            "pages/shop.html"
           ]
         }
       ],
@@ -17064,7 +17088,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -17135,7 +17160,11 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "pages/contact.html",
+            "pages/index.html",
+            "pages/projects.html",
+            "pages/studio.html"
           ]
         }
       ],
@@ -17191,7 +17220,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "pages/index.html"
           ]
         }
       ],
@@ -17259,7 +17289,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -17343,7 +17374,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -25960,11 +25992,11 @@
           ],
           "files": [
             "README.md",
-            "code.html",
             "metadata.json",
             "preview.html",
-            "script.js",
-            "style.css"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
@@ -26057,11 +26089,11 @@
           ],
           "files": [
             "README.md",
-            "code.html",
             "metadata.json",
             "preview.html",
-            "script.js",
-            "style.css"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
@@ -26178,11 +26210,11 @@
           ],
           "files": [
             "README.md",
-            "code.html",
             "metadata.json",
             "preview.html",
-            "script.js",
-            "style.css"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
@@ -26238,7 +26270,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26314,9 +26347,39 @@
           ],
           "files": [
             "README.md",
-            "code.html",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/activity.html",
+            "pages/analytics.html",
+            "pages/api-keys.html",
+            "pages/billing.html",
+            "pages/code.html",
+            "pages/customer-activity.html",
+            "pages/customer-details.html",
+            "pages/customer-segments.html",
+            "pages/customers.html",
+            "pages/dashboard.html",
+            "pages/help-center.html",
+            "pages/inbox.html",
+            "pages/integrations.html",
+            "pages/invitations.html",
+            "pages/invoices.html",
+            "pages/notifications.html",
+            "pages/payment-methods.html",
+            "pages/plans.html",
+            "pages/preferences.html",
+            "pages/profile.html",
+            "pages/reports.html",
+            "pages/roles.html",
+            "pages/security.html",
+            "pages/sessions.html",
+            "pages/settings.html",
+            "pages/support.html",
+            "pages/system-status.html",
+            "pages/team.html",
+            "pages/transactions.html",
+            "pages/webhooks.html",
+            "pages/workspace-settings.html"
           ]
         }
       ],
@@ -26363,7 +26426,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26384,7 +26448,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26431,7 +26496,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26479,7 +26545,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26503,7 +26570,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26527,7 +26595,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26553,7 +26622,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26599,7 +26669,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26645,7 +26716,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26681,7 +26753,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26720,7 +26793,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26766,7 +26840,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26814,7 +26889,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26838,7 +26914,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26864,7 +26941,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26887,7 +26965,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -26933,7 +27012,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26957,7 +27037,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -26984,7 +27065,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -27031,7 +27113,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -27054,7 +27137,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         },
         {
@@ -27079,7 +27163,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -27122,7 +27207,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],

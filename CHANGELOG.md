@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-08-13
+
+### Changed — Vanilla templates folder layout
+- **Standardized every Vanilla template to the same folder shape** so all code files live under a `pages/` sub-directory and only `preview.html` + `metadata.json` + `README.md` (+ optional `assets/`) sit at the root:
+  ```
+  <Template>/
+  ├── pages/              ← all the code files
+  │   └── index.html      (single-page) | code.html + style.css + script.js (modular) | *.html (multi-page)
+  ├── preview.html
+  ├── metadata.json
+  └── README.md
+  ```
+- **Single-page / multi-variant leaves** (24 folders: ai-tool-launch, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, template-element, + every style folder under portfolio-site / product-launch / startup-template / blog-landing-pages / Landing-Pages / Standalone): moved the original self-contained `preview.html` to `pages/index.html`; the root `preview.html` is now a thin full-viewport `<iframe src="pages/index.html">` wrapper so the preview still opens directly (no content duplication).
+- **Modular templates** (Agency, Documentation Site, Job Board): moved `code.html` + `style.css` + `script.js` together into `pages/` (their relative `href="style.css"` / `src="script.js"` refs stay valid since all three move together); `preview.html` is already self-contained (inlined) so it is unchanged. Documentation Site's `assets/` stays at root and the moved `code.html` favicon ref was rewritten `assets/favicon.svg` → `../assets/favicon.svg`.
+- **SaaS Dashboard**: the 30 page files already lived in `pages/`; only the self-contained `code.html` was moved there. `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
+- **Updated `_gen/rebuild_index.py`** `make_variant` to recurse one level into `pages/` so each Vanilla template variant's `files` manifest lists both root files (`README.md`, `metadata.json`, `preview.html`) and the one-level `pages/*` contents (prefixed `pages/`).
+- **Regenerated `snippets-index.json`** via `_gen/rebuild_index.py` — index matches disk exactly (0 mismatches); totals unchanged (**89 families, 852 variants, 2014 styles**; Vanilla 51 families / 321 variants).
+- **Updated `AGENTS.md`** with the canonical Vanilla template folder layout and per-template notes.
+
+### Verified
+- `scripts/validate.py` PASSED (architecture, metadata, and index all consistent). The single pre-existing duplicate-ID note (`feature-grid-neo-brutalism`) is unchanged by this work.
+- `scripts/qa_vanilla.py` — 266 components scanned, 0 required-check failures.
+- Strict HTML5 validation (html5lib) on the new wrapper previews + sampled moved pages passes; `node --check` on all moved JS files passes. (The SaaS Dashboard `preview.html` strict html5lib error pre-existed and that file was not modified.)
+
 ## 2026-08-12
 
 ### Added — Vanilla template
