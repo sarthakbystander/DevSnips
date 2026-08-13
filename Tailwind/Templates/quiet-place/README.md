@@ -8,11 +8,12 @@ A premium single-page landing page built with Tailwind CSS around a calm lakesid
 quiet-place/
 ├── pages/
 │   └── index.html
+├── preview.html
 ├── metadata.json
 └── README.md
 ```
 
-There are no external image assets. The landscape is a handcrafted inline SVG so the trees, clouds, fisherman, shoreline, plants, flowers, water, and reflections remain crisp at every viewport size and can be edited directly in the HTML.
+There are no external image assets. The landscape is a handcrafted inline SVG so the trees, clouds, fisherman, shoreline, plants, flowers, water, and reflections remain crisp at every viewport size and can be edited directly in the HTML. `preview.html` is the template gallery shell (overview + sections index + design-system summary); `pages/index.html` is the live single-page site.
 
 ## Design language
 

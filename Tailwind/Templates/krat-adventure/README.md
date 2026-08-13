@@ -6,12 +6,14 @@ A premium cinematic wilderness landing page built with Tailwind CSS. The visual 
 
 ```text
 krat-adventure/
-├── index.html
+├── pages/
+│   └── index.html
+├── preview.html
 ├── metadata.json
 └── README.md
 ```
 
-There are no local asset, CSS, or JavaScript directories. Tailwind is loaded through the CDN; photography is referenced from fixed Unsplash image URLs and interaction code is scoped to the page.
+There are no local asset, CSS, or JavaScript directories. Tailwind is loaded through the CDN; photography is referenced from fixed Unsplash image URLs and interaction code is scoped to the page. `preview.html` is the template gallery shell (overview + sections index + design-system summary); `pages/index.html` is the live single-page site.
 
 ## Design language
 

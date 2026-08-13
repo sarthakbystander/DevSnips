@@ -27,6 +27,7 @@ baseline-conference/
 │   ├── venue.html          # Venue hero, CSS map illustration, venue info, travel & accessibility
 │   ├── register.html       # Ticket tiers, order summary, registration form with validation
 │   └── conduct.html        # Code of conduct: long-form article with quick-nav
+├── preview.html            # Template gallery shell: overview + pages index + design-system summary
 ├── metadata.json
 └── README.md
 ```

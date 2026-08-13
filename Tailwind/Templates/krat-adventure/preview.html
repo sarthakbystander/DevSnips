@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krat — Adventure Wilderness Template | DevSnips</title>
+  <meta name="description" content="A premium cinematic wilderness landing-page template built with Tailwind CSS — deep navy canvas, oversized editorial type, staggered adventure cards. Production-ready, fully responsive." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Inter', 'ui-sans-serif', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+          },
+          colors: {
+            night: '#070A38',
+            royal: '#3539C8',
+            electric: '#514BFF',
+            ember: '#FF6A1A',
+            sun: '#FFB52E',
+            paper: '#F5F5F0'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #070A38; color: #F5F5F0; font-family: 'Inter', sans-serif; }
+    .display { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .line-grow::after { content: ""; display: block; width: 100%; height: 1px; background: currentColor; transform-origin: left; transition: transform .5s ease; transform: scaleX(.35); }
+    .line-grow:hover::after { transform: scaleX(1); }
+    .press { transition: transform .25s ease, border-color .25s ease; }
+    .press:hover { transform: translateY(-2px); border-color: rgba(255,181,46,.55); }
+    @media (prefers-reduced-motion: reduce) { .press:hover { transform: none; } }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Template shell navbar -->
+  <header class="sticky top-0 z-50 border-b border-white/15 bg-night/85 backdrop-blur-md">
+    <nav class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8" aria-label="Template">
+      <a href="preview.html" class="flex items-center gap-2.5" aria-label="Krat template home">
+        <span class="grid h-8 w-8 place-items-center border border-white/30 font-display text-sm font-bold text-sun">K</span>
+        <span class="display text-[17px] font-semibold tracking-tight">Krat</span>
+        <span class="mono ml-1 hidden border border-white/25 px-1.5 py-0.5 text-[10px] text-white/55 sm:inline">template</span>
+      </a>
+      <div class="hidden items-center gap-3 lg:flex">
+        <span class="mono text-[11px] text-white/55">Single-page · Cinematic editorial</span>
+        <a href="pages/index.html" class="border border-white/30 px-4 py-2 text-[13px] font-medium text-white transition hover:border-white hover:bg-white hover:text-night">Open site →</a>
+      </div>
+      <a href="pages/index.html" class="border border-white/30 px-4 py-2 text-[13px] font-medium text-white transition hover:border-white hover:bg-white hover:text-night lg:hidden">Open →</a>
+    </nav>
+  </header>
+
+  <!-- Template overview -->
+  <section class="relative overflow-hidden border-b border-white/15" aria-labelledby="overview-heading">
+    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-24">
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="mono border border-white/25 px-3 py-1 text-[11px] font-medium tracking-wide text-white/80">Tailwind CSS</span>
+          <span class="mono border border-sun/40 px-3 py-1 text-[11px] font-medium tracking-wide text-sun">Adventure</span>
+          <span class="mono text-[11px] text-white/55">1 page · production-ready</span>
+        </div>
+        <h1 id="overview-heading" class="display mt-6 text-[2.6rem] font-semibold leading-[0.92] tracking-[-.045em] sm:text-5xl lg:text-[4.4rem]">Krat — into the wild.</h1>
+        <p class="mt-6 max-w-xl text-[16px] leading-relaxed text-white/70 lg:text-lg">A cinematic wilderness landing page inspired by premium outdoor editorial campaigns: oversized typography, saturated photography, asymmetrical adventure cards, field-note details, and a deep navy palette.</p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="pages/index.html" class="inline-flex items-center justify-center gap-2 bg-sun px-6 py-3.5 text-sm font-semibold text-night transition hover:bg-ember hover:text-white">
+            Open the live site
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#sections" class="inline-flex items-center justify-center gap-2 border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white">Browse sections</a>
+        </div>
+
+        <dl class="mt-9 grid grid-cols-3 gap-4 border-t border-white/15 pt-5 max-w-lg">
+          <div>
+            <dt class="mono text-[10px] uppercase tracking-wide text-white/50">Design</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">Cinematic</dd>
+          </div>
+          <div>
+            <dt class="mono text-[10px] uppercase tracking-wide text-white/50">Responsive</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">320px → 1920+</dd>
+          </div>
+          <div>
+            <dt class="mono text-[10px] uppercase tracking-wide text-white/50">Build</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">No build</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- preview frame -->
+      <div class="lg:col-span-5">
+        <a href="pages/index.html" class="block" aria-label="Open Krat live site">
+          <div class="border border-white/15 bg-royal/30">
+            <div class="flex items-center justify-between border-b border-white/15 bg-night px-4 py-2">
+              <div class="flex items-center gap-1.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-ember"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-sun"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-electric"></span>
+              </div>
+              <span class="mono text-[10px] text-white/55">krat.adventure</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1200&amp;q=86" alt="Snowy mountain range — Krat template preview" class="h-full w-full object-cover" />
+            </div>
+          </div>
+        </a>
+        <p class="mono mt-3 text-center text-[10px] text-white/50">click the frame to open the full page</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections included -->
+  <section id="sections" class="border-b border-white/15 bg-night" aria-labelledby="sections-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
+      <div class="flex flex-col gap-4 border-b border-white/15 pb-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="mono text-[11px] font-medium uppercase tracking-[0.2em] text-sun">/ Sections</p>
+          <h2 id="sections-heading" class="display mt-3 text-[2rem] font-medium leading-[1.02] tracking-[-.03em] sm:text-4xl">Seven composed sections.</h2>
+        </div>
+        <p class="max-w-md text-[14px] text-white/70">Every section advances the expedition narrative — no filler blocks.</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="pages/index.html#top" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">01</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">Hero</p>
+          <p class="mt-1 text-[13px] text-white/70">Full-screen campaign with oversized KRAT wordmark and saturated photography.</p>
+        </a>
+        <a href="pages/index.html#adventures" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">02</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">Adventures</p>
+          <p class="mt-1 text-[13px] text-white/70">Three staggered, asymmetric route cards with field-note metadata.</p>
+        </a>
+        <a href="pages/index.html#wild" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">03</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">The Wild</p>
+          <p class="mt-1 text-[13px] text-white/70">Editorial image + text feature with oversized display type.</p>
+        </a>
+        <a href="pages/index.html#expedition" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">04</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">Expedition</p>
+          <p class="mt-1 text-[13px] text-white/70">Featured expedition with route statistics and coordinates.</p>
+        </a>
+        <a href="pages/index.html#journal" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">05</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">Journal</p>
+          <p class="mt-1 text-[13px] text-white/70">Three staggered field-note articles in an editorial grid.</p>
+        </a>
+        <a href="pages/index.html#contact" class="press block border border-white/15 bg-sun/15 p-5">
+          <span class="mono text-[10px] text-sun/70">06</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight text-sun">CTA</p>
+          <p class="mt-1 text-[13px] text-white/75">Large conversion section on the sun-yellow field.</p>
+        </a>
+        <a href="pages/index.html" class="press block border border-white/15 bg-royal/20 p-5">
+          <span class="mono text-[10px] text-white/50">07</span>
+          <p class="display mt-2 text-lg font-medium tracking-tight">Footer</p>
+          <p class="mt-1 text-[13px] text-white/70">Minimal navigation and location metadata.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design system summary -->
+  <section class="border-b border-white/15" aria-labelledby="design-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
+      <p class="mono text-[11px] font-medium uppercase tracking-[0.2em] text-sun">/ Design system</p>
+      <h2 id="design-heading" class="display mt-3 text-[2rem] font-medium leading-[1.02] tracking-[-.03em] sm:text-4xl">A cinematic navy palette, not random values.</h2>
+
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <!-- palette -->
+        <div class="border border-white/15 bg-royal/20 p-6">
+          <p class="mono text-[10px] uppercase tracking-wide text-white/50">Palette</p>
+          <div class="mt-4 grid grid-cols-4 gap-3">
+            <div><div class="h-12 border border-white/15 bg-night"></div><p class="mono mt-1 text-[9px]">night</p><p class="mono text-[9px] text-white/50">#070A38</p></div>
+            <div><div class="h-12 border border-white/15 bg-royal"></div><p class="mono mt-1 text-[9px]">royal</p><p class="mono text-[9px] text-white/50">#3539C8</p></div>
+            <div><div class="h-12 border border-white/15 bg-electric"></div><p class="mono mt-1 text-[9px]">electric</p><p class="mono text-[9px] text-white/50">#514BFF</p></div>
+            <div><div class="h-12 border border-white/15 bg-ember"></div><p class="mono mt-1 text-[9px]">ember</p><p class="mono text-[9px] text-white/50">#FF6A1A</p></div>
+            <div><div class="h-12 border border-white/15 bg-sun"></div><p class="mono mt-1 text-[9px]">sun</p><p class="mono text-[9px] text-white/50">#FFB52E</p></div>
+            <div><div class="h-12 border border-white/15 bg-paper"></div><p class="mono mt-1 text-[9px] text-white/80">paper</p><p class="mono text-[9px] text-white/50">#F5F5F0</p></div>
+          </div>
+        </div>
+        <!-- typography -->
+        <div class="border border-white/15 bg-royal/20 p-6">
+          <p class="mono text-[10px] uppercase tracking-wide text-white/50">Typography</p>
+          <p class="display mt-4 text-3xl font-semibold tracking-tight">Space Grotesk</p>
+          <p class="mono text-[11px] text-white/50">display · 400–700</p>
+          <p class="mt-4 text-base font-medium">Inter</p>
+          <p class="mono text-[11px] text-white/50">body · 400–600</p>
+          <p class="mono mt-4 text-sm">JetBrains Mono</p>
+          <p class="mono text-[11px] text-white/50">labels &amp; metadata · 400–500</p>
+        </div>
+        <!-- geometry -->
+        <div class="border border-white/15 bg-royal/20 p-6">
+          <p class="mono text-[10px] uppercase tracking-wide text-white/50">Geometry</p>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-12 w-12 border border-white/15 bg-night"></div>
+            <div>
+              <p class="text-sm font-medium">Fine rules</p>
+              <p class="mono text-[10px] text-white/50">hairline borders · no offset shadows</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm font-medium">Editorial rhythm</p>
+            <p class="mono text-[10px] text-white/50">oversized display type + staggered asymmetric grids</p>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm font-medium">Cinematic imagery</p>
+            <p class="mono text-[10px] text-white/50">saturated photo overlays, field-note coordinates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-night">
+    <div class="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-3 px-5 py-8 sm:flex-row sm:items-center sm:px-8">
+      <p class="mono text-[11px] text-white/50">Krat — fictional brand for template demonstration · DevSnips</p>
+      <a href="pages/index.html" class="mono text-[11px] font-medium text-sun line-grow">Open the live site →</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Northline Atelier — Architecture Template | DevSnips</title>
+  <meta name="description" content="A premium four-page Tailwind CSS template for an architecture studio — Soft Modern design language, warm paper tones, editorial grids. Production-ready, fully responsive." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#f5f2ec;--ink:#20201d;--muted:#77746c;--line:#d9d5cc;--olive:#65705b}
+    body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink)}
+    .display{font-family:'DM Serif Display',serif}
+    .line{border-color:var(--line)}
+    .grain{background-image:radial-gradient(#20201d12 .6px,transparent .6px);background-size:7px 7px}
+    a.card{transition:transform .25s ease}
+    a.card:hover{transform:translateY(-2px)}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Template shell navbar -->
+  <header class="sticky top-0 z-50 border-b line bg-[#f5f2ec]/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Template navigation">
+      <a href="preview.html" class="flex items-center gap-3" aria-label="Northline template home">
+        <span class="grid h-8 w-8 place-items-center border border-[#20201d]"><span class="h-3 w-3 rounded-full bg-[#65705b]"></span></span>
+        <span class="text-sm font-semibold tracking-[-.02em]">Northline Atelier</span>
+        <span class="ml-1 hidden text-[10px] text-[#77746c] sm:inline">template</span>
+      </a>
+      <div class="hidden items-center gap-3 md:flex">
+        <span class="text-[11px] text-[#77746c]">4 pages · Soft Modern</span>
+        <a href="pages/index.html" class="rounded-full border line px-4 py-2 text-[13px] font-medium transition hover:border-[#20201d] hover:bg-[#20201d] hover:text-white">Open site →</a>
+      </div>
+      <a href="pages/index.html" class="rounded-full border line px-4 py-2 text-[13px] font-medium transition hover:border-[#20201d] hover:bg-[#20201d] hover:text-white md:hidden">Open →</a>
+    </nav>
+  </header>
+
+  <!-- Template overview -->
+  <section class="relative overflow-hidden border-b line" aria-labelledby="overview-heading">
+    <div class="pointer-events-none absolute inset-0 grain opacity-70" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-24">
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="rounded-full border line px-3 py-1 text-[11px] font-medium">Tailwind CSS</span>
+          <span class="rounded-full border border-[#65705b]/40 px-3 py-1 text-[11px] font-medium text-[#65705b]">Architecture studio</span>
+          <span class="text-[11px] text-[#77746c]">4 pages · production-ready</span>
+        </div>
+        <p class="mb-5 mt-7 text-xs font-semibold uppercase tracking-[.2em] text-[#65705b]">Architecture · Landscape · Interiors</p>
+        <h1 id="overview-heading" class="display max-w-4xl text-[clamp(2.8rem,6.5vw,5.5rem)] leading-[.86] tracking-[-.045em]">Northline — an architecture studio template.</h1>
+        <p class="mt-6 max-w-xl text-[16px] leading-7 text-[#77746c] lg:text-lg">A premium four-page template pairing an editorial grid with warm neutrals, quiet typography, generous whitespace, and restrained interactions. Built as a responsive Tailwind CSS site without local assets.</p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="pages/index.html" class="inline-flex items-center justify-center gap-3 rounded-full bg-[#20201d] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#65705b]">
+            Open the live site
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#pages-index" class="inline-flex items-center justify-center gap-2 rounded-full border line px-6 py-3.5 text-sm font-semibold transition hover:border-[#20201d]">Browse pages</a>
+        </div>
+
+        <dl class="mt-9 grid grid-cols-3 gap-4 border-t line pt-5 max-w-lg">
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#77746c]">Design</dt>
+            <dd class="display mt-1 text-lg sm:text-xl">Soft Modern</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#77746c]">Responsive</dt>
+            <dd class="display mt-1 text-lg sm:text-xl">320px → 1920+</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#77746c]">Build</dt>
+            <dd class="display mt-1 text-lg sm:text-xl">No build</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- preview frame -->
+      <div class="lg:col-span-5">
+        <a href="pages/index.html" class="card block" aria-label="Open Northline live site">
+          <div class="border line bg-[#ebe8e1]">
+            <div class="flex items-center justify-between border-b line bg-[#f5f2ec] px-4 py-2">
+              <div class="flex items-center gap-1.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#d9d5cc]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#c6c8bf]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#65705b]"></span>
+              </div>
+              <span class="text-[10px] text-[#77746c]">northline.atelier</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#d9d8cf] via-[#a7aca0] to-[#6e7568]">
+              <div class="flex h-full w-full items-end justify-start p-8">
+                <span class="display text-[clamp(2rem,6vw,3.5rem)] leading-[.85] tracking-[-.04em] text-white/90">Places with a<br>quieter presence.</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <p class="mt-3 text-center text-[10px] text-[#77746c]">click the frame to open the full page</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pages index -->
+  <section id="pages-index" class="border-b line bg-[#ebe8e1]" aria-labelledby="pages-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
+      <div class="flex flex-col gap-4 border-b line pb-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[.18em] text-[#65705b]">/ Pages</p>
+          <h2 id="pages-heading" class="display mt-3 text-[2rem] leading-[1.02] tracking-[-.03em] sm:text-4xl">Four connected pages.</h2>
+        </div>
+        <p class="max-w-md text-[14px] text-[#77746c]">Every page shares one Soft Modern design system.</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <a href="pages/index.html" class="card block border line bg-[#f5f2ec] p-5">
+          <span class="text-[10px] text-[#77746c]">01</span>
+          <p class="display mt-2 text-lg tracking-[-.02em]">Home</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#77746c]">Studio introduction, featured project, selected work, approach and CTA.</p>
+        </a>
+        <a href="pages/projects.html" class="card block border line bg-[#f5f2ec] p-5">
+          <span class="text-[10px] text-[#77746c]">02</span>
+          <p class="display mt-2 text-lg tracking-[-.02em]">Projects</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#77746c]">Filterable project archive with categories and project metadata.</p>
+        </a>
+        <a href="pages/studio.html" class="card block border line bg-[#f5f2ec] p-5">
+          <span class="text-[10px] text-[#77746c]">03</span>
+          <p class="display mt-2 text-lg tracking-[-.02em]">Studio</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#77746c]">Practice story, principles, capabilities and team.</p>
+        </a>
+        <a href="pages/contact.html" class="card block border line bg-[#f5f2ec] p-5">
+          <span class="text-[10px] text-[#77746c]">04</span>
+          <p class="display mt-2 text-lg tracking-[-.02em]">Contact</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#77746c]">Project enquiry form, process, contact details and studio hours.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design system summary -->
+  <section class="border-b line bg-[#f5f2ec]" aria-labelledby="design-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
+      <p class="text-xs font-semibold uppercase tracking-[.18em] text-[#65705b]">/ Design system</p>
+      <h2 id="design-heading" class="display mt-3 text-[2rem] leading-[1.02] tracking-[-.03em] sm:text-4xl">Warm neutrals, fine rules, restrained accents.</h2>
+
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <!-- palette -->
+        <div class="border line bg-[#ebe8e1] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#77746c]">Palette</p>
+          <div class="mt-4 grid grid-cols-4 gap-3">
+            <div><div class="h-12 border line bg-[#20201d]"></div><p class="mt-1 text-[9px]">ink</p><p class="text-[9px] text-[#77746c]">#20201D</p></div>
+            <div><div class="h-12 border line bg-[#f5f2ec]"></div><p class="mt-1 text-[9px]">paper</p><p class="text-[9px] text-[#77746c]">#F5F2EC</p></div>
+            <div><div class="h-12 border line bg-[#d9d5cc]"></div><p class="mt-1 text-[9px]">line</p><p class="text-[9px] text-[#77746c]">#D9D5CC</p></div>
+            <div><div class="h-12 border line bg-[#77746c]"></div><p class="mt-1 text-[9px]">muted</p><p class="text-[9px] text-[#77746c]">#77746C</p></div>
+            <div><div class="h-12 border line bg-[#65705b]"></div><p class="mt-1 text-[9px]">olive</p><p class="text-[9px] text-[#77746c]">#65705B</p></div>
+          </div>
+        </div>
+        <!-- typography -->
+        <div class="border line bg-[#ebe8e1] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#77746c]">Typography</p>
+          <p class="display mt-4 text-3xl tracking-[-.02em]">DM Serif Display</p>
+          <p class="text-[11px] text-[#77746c]">display headlines</p>
+          <p class="mt-4 text-base font-medium">DM Sans</p>
+          <p class="text-[11px] text-[#77746c]">body · 400–600</p>
+        </div>
+        <!-- geometry -->
+        <div class="border line bg-[#ebe8e1] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#77746c]">Geometry</p>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-12 w-12 border line bg-[#f5f2ec]"></div>
+            <div>
+              <p class="text-sm font-medium">Fine borders</p>
+              <p class="text-[10px] text-[#77746c]">hairlines instead of heavy cards</p>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-10 w-16 rounded-full bg-[#20201d]"></div>
+            <div>
+              <p class="text-sm font-medium">Restrained radius</p>
+              <p class="text-[10px] text-[#77746c]">rounded pills for active states</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm font-medium">Editorial whitespace</p>
+            <p class="text-[10px] text-[#77746c]">asymmetric grids, oversized serif headlines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-[#f5f2ec]">
+    <div class="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-3 px-5 py-8 sm:flex-row sm:items-center sm:px-8 lg:px-10">
+      <p class="text-[11px] text-[#77746c]">Northline Atelier — fictional brand for template demonstration · DevSnips</p>
+      <a href="pages/index.html" class="text-[11px] font-semibold underline decoration-[#65705b] decoration-2 underline-offset-8">Open the live site →</a>
+    </div>
+  </footer>
+</body>
+</html>

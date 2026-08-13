@@ -737,32 +737,6 @@
           ]
         },
         {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "type": "component",
-          "description": "Ghost buttons available in multiple colors for different actions",
-          "tags": [
-            "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline Colors Button",
           "path": "Tailwind/Components/Buttons/Outline Button/colors/",
           "type": "component",
@@ -781,6 +755,32 @@
             "Amber",
             "Purple",
             "Dark"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Colors Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
+          "type": "component",
+          "description": "Ghost buttons available in multiple colors for different actions",
+          "tags": [
+            "button",
+            "ghost",
+            "colors",
+            "red",
+            "green",
+            "purple"
+          ],
+          "styles": [
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -834,28 +834,6 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "type": "component",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Outline on Dark Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dark/",
           "type": "component",
@@ -870,6 +848,28 @@
             "White",
             "Blue",
             "Muted"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "type": "component",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "tags": [
+            "button",
+            "ghost",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Gray",
+            "Blue"
           ],
           "files": [
             "code.html",
@@ -1127,6 +1127,28 @@
           ]
         },
         {
+          "name": "Animated Icon Button",
+          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "type": "component",
+          "description": "Icon animations on hover for interactive effects",
+          "tags": [
+            "button",
+            "animated",
+            "icon",
+            "hover"
+          ],
+          "styles": [
+            "Scale",
+            "Rotate",
+            "Flip"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Ghost Icon Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
           "type": "component",
@@ -1150,20 +1172,21 @@
           ]
         },
         {
-          "name": "Animated Icon Button",
-          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
           "type": "component",
-          "description": "Icon animations on hover for interactive effects",
+          "description": "Glass morphism icon buttons for toolbars and actions",
           "tags": [
             "button",
-            "animated",
-            "icon",
-            "hover"
+            "glass",
+            "glassmorphism",
+            "icon"
           ],
           "styles": [
-            "Scale",
-            "Rotate",
-            "Flip"
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1185,29 +1208,6 @@
           "styles": [
             "Primary",
             "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "type": "component",
-          "description": "Glass morphism icon buttons for toolbars and actions",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "icon"
-          ],
-          "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1393,6 +1393,27 @@
           ]
         },
         {
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
+          "type": "component",
+          "description": "Blue bordered buttons with transparent background and hover fill",
+          "tags": [
+            "button",
+            "outline",
+            "bordered",
+            "blue"
+          ],
+          "styles": [
+            "Default",
+            "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Ghost Primary Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
           "type": "component",
@@ -1415,49 +1436,6 @@
           ]
         },
         {
-          "name": "Primary Button",
-          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
-          "type": "component",
-          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
-          "tags": [
-            "button",
-            "primary",
-            "basic",
-            "solid"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Link"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "type": "component",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Primary Button",
           "path": "Tailwind/Components/Buttons/Glass Button/primary/",
           "type": "component",
@@ -1472,6 +1450,28 @@
             "Blue",
             "Purple",
             "Pink"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Primary Button",
+          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
+          "type": "component",
+          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
+          "tags": [
+            "button",
+            "primary",
+            "basic",
+            "solid"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Link"
           ],
           "files": [
             "code.html",
@@ -1685,28 +1685,6 @@
           ]
         },
         {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
-          "type": "component",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Glass Soft Button",
           "path": "Tailwind/Components/Buttons/Glass Button/soft/",
           "type": "component",
@@ -1722,6 +1700,28 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
+          "type": "component",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
+          "tags": [
+            "button",
+            "neumorphism",
+            "soft ui",
+            "shadow"
+          ],
+          "styles": [
+            "Default",
+            "Pill",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -14724,6 +14724,40 @@
       "variantsCount": 12,
       "variants": [
         {
+          "name": "AI Chat Interface — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "tags": [
+            "ai-chat",
+            "chatbot",
+            "neo-brutalism",
+            "brutalist",
+            "chat-interface",
+            "assistant",
+            "prompt",
+            "dark-accents"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "press-down hover states",
+            "animated typing indicator",
+            "clickable prompt chips",
+            "wired send + auto-reply",
+            "custom scrollbar styling",
+            "keyboard accessible inputs"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Agent Workflow — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
           "type": "section",
@@ -14829,32 +14863,32 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
+          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
           "tags": [
             "ai-chat",
             "chatbot",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "glass",
             "chat-interface",
             "assistant",
-            "prompt",
-            "dark-accents"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "animated typing indicator",
-            "clickable prompt chips",
-            "wired send + auto-reply",
-            "custom scrollbar styling",
+            "backdrop-blur glass panels",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "gradient send button",
             "keyboard accessible inputs"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -14970,32 +15004,32 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "name": "AI Chat Interface — Vercel",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
           "type": "section",
-          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
           "tags": [
             "ai-chat",
             "chatbot",
-            "glassmorphism",
-            "glass",
+            "vercel",
+            "dark-mode",
             "chat-interface",
             "assistant",
-            "gradient",
-            "vibrant"
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "backdrop-blur glass panels",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
+            "dark monochrome palette",
+            "hairline borders + glow",
             "glowing status dot",
             "bouncing typing indicator",
             "pill prompt chips",
-            "gradient send button",
+            "wired send + auto-reply",
+            "thin custom scrollbar",
             "keyboard accessible inputs"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15099,40 +15133,6 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "AI Chat Interface — Vercel",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "vercel",
-            "dark-mode",
-            "chat-interface",
-            "assistant",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "wired send + auto-reply",
-            "thin custom scrollbar",
-            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -15455,41 +15455,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Command Palette — Neo-Brutalism",
-          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
-          "tags": [
-            "command-palette",
-            "cmd-k",
-            "neo-brutalism",
-            "brutalist",
-            "keyboard",
-            "search",
-            "overlay",
-            "dialog",
-            "developer"
-          ],
-          "features": [
-            "hard offset shadows and bright flat accents",
-            "live search filtering across grouped commands",
-            "arrow-key navigation with aria-activedescendant",
-            "Enter runs command with confirmation toast",
-            "Escape closes, Cmd/Ctrl+K toggles open",
-            "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected",
-            "custom scrollbar styling"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Code Playground — Neo-Brutalism",
           "path": "Tailwind/Sections/developer/code-playground/neo-brutalism/",
           "type": "section",
@@ -15527,16 +15492,15 @@
           ]
         },
         {
-          "name": "Command Palette — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
+          "name": "Command Palette — Neo-Brutalism",
+          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
+          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
+            "neo-brutalism",
+            "brutalist",
             "keyboard",
             "search",
             "overlay",
@@ -15544,18 +15508,17 @@
             "developer"
           ],
           "features": [
-            "frosted-glass panel with backdrop blur over animated mesh",
-            "luminous top edge and glow shadows",
-            "gradient active highlight on selected option",
+            "hard offset shadows and bright flat accents",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
             "Escape closes, Cmd/Ctrl+K toggles open",
             "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected"
+            "role dialog and role option with aria-selected",
+            "custom scrollbar styling"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15602,15 +15565,16 @@
           ]
         },
         {
-          "name": "Command Palette — Vercel",
-          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "name": "Command Palette — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "vercel",
-            "dark",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
             "keyboard",
             "search",
             "overlay",
@@ -15618,8 +15582,9 @@
             "developer"
           ],
           "features": [
-            "dark monochrome surface with hairline borders",
-            "single teal accent and radial glow",
+            "frosted-glass panel with backdrop blur over animated mesh",
+            "luminous top edge and glow shadows",
+            "gradient active highlight on selected option",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
@@ -15628,7 +15593,7 @@
             "role dialog and role option with aria-selected"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15663,6 +15628,41 @@
             "live char + line counters",
             "reset control restores defaults",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Command Palette — Vercel",
+          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "tags": [
+            "command-palette",
+            "cmd-k",
+            "vercel",
+            "dark",
+            "keyboard",
+            "search",
+            "overlay",
+            "dialog",
+            "developer"
+          ],
+          "features": [
+            "dark monochrome surface with hairline borders",
+            "single teal accent and radial glow",
+            "live search filtering across grouped commands",
+            "arrow-key navigation with aria-activedescendant",
+            "Enter runs command with confirmation toast",
+            "Escape closes, Cmd/Ctrl+K toggles open",
+            "focus trap while open, focus restore on close",
+            "role dialog and role option with aria-selected"
           ],
           "styles": [
             "vercel"
@@ -15710,6 +15710,41 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
+          "tags": [
+            "feature-grid",
+            "marketing",
+            "neo-brutalism",
+            "brutalist",
+            "features",
+            "landing",
+            "cards",
+            "grid"
+          ],
+          "features": [
+            "bold uppercase section heading",
+            "six feature cards in a responsive grid",
+            "hard black borders + offset shadows",
+            "rotating flat accent icon tiles",
+            "featured card with New badge",
+            "press-down hover states",
+            "staggered entrance animation",
+            "prefers-reduced-motion guard",
+            "keyboard accessible focus states"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Hero Landing — Neo-Brutalism",
           "path": "Tailwind/Sections/marketing/hero-landing/neo-brutalism/",
           "type": "section",
@@ -15745,33 +15780,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
+          "name": "Feature Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
+          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "glass",
             "features",
             "landing",
-            "cards",
-            "grid"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "bold uppercase section heading",
-            "six feature cards in a responsive grid",
-            "hard black borders + offset shadows",
-            "rotating flat accent icon tiles",
-            "featured card with New badge",
-            "press-down hover states",
-            "staggered entrance animation",
+            "backdrop-blur glass cards",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing gradient icon chips",
+            "featured card with gradient tint + glow badge",
+            "lift-on-hover interaction",
+            "staggered IntersectionObserver entrance",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15817,33 +15852,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
+          "name": "Feature Grid — Vercel",
+          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
           "type": "section",
-          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
+          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "glassmorphism",
-            "glass",
+            "vercel",
+            "dark-mode",
             "features",
             "landing",
-            "gradient",
-            "vibrant"
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "backdrop-blur glass cards",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing gradient icon chips",
-            "featured card with gradient tint + glow badge",
-            "lift-on-hover interaction",
+            "dark monochrome palette",
+            "hairline grid divider layout",
+            "masked grid backdrop",
+            "single teal accent",
+            "featured card with glowing badge",
+            "soft hover reveals",
             "staggered IntersectionObserver entrance",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15877,41 +15912,6 @@
             "masked grid backdrop",
             "staggered entrance animation",
             "prefers-reduced-motion guard"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Feature Grid — Vercel",
-          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
-          "tags": [
-            "feature-grid",
-            "marketing",
-            "vercel",
-            "dark-mode",
-            "features",
-            "landing",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline grid divider layout",
-            "masked grid backdrop",
-            "single teal accent",
-            "featured card with glowing badge",
-            "soft hover reveals",
-            "staggered IntersectionObserver entrance",
-            "prefers-reduced-motion guard",
-            "keyboard accessible focus states"
           ],
           "styles": [
             "vercel"
@@ -16093,6 +16093,108 @@
       "variantsCount": 18,
       "variants": [
         {
+          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
+          "tags": [
+            "metrics",
+            "stats",
+            "numbers",
+            "neo-brutalism",
+            "brutalist",
+            "count-up",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant featured stat block",
+            "offset grid of stat cards",
+            "rotating bright accent panels",
+            "live count-up ticker on mount",
+            "diagonal grid background",
+            "bold section divider",
+            "press-down hover states",
+            "monospace labels"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+          "tags": [
+            "pricing",
+            "usage-based",
+            "neo-brutalism",
+            "brutalist",
+            "slider",
+            "metered",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
+            "press-down hover states",
+            "keyboard accessible slider"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Startup Launch Hero — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/launch-hero/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
+          "tags": [
+            "hero",
+            "launch",
+            "neo-brutalism",
+            "brutalist",
+            "countdown",
+            "saas",
+            "announcement",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant boxed headline with yellow accent",
+            "live countdown ticker script",
+            "dual offset-shadow CTAs",
+            "diagonal grid background",
+            "stacked product-card collage",
+            "bright accent panels",
+            "press-down hover states",
+            "monospace labels"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "SaaS Feature Grid — Neo-Brutalism",
           "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
@@ -16149,108 +16251,6 @@
             "flat bright accent palette",
             "press-down hover states",
             "keyboard accessible toggle buttons"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
-          "tags": [
-            "metrics",
-            "stats",
-            "numbers",
-            "neo-brutalism",
-            "brutalist",
-            "count-up",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant featured stat block",
-            "offset grid of stat cards",
-            "rotating bright accent panels",
-            "live count-up ticker on mount",
-            "diagonal grid background",
-            "bold section divider",
-            "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Startup Launch Hero — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/launch-hero/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
-          "tags": [
-            "hero",
-            "launch",
-            "neo-brutalism",
-            "brutalist",
-            "countdown",
-            "saas",
-            "announcement",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant boxed headline with yellow accent",
-            "live countdown ticker script",
-            "dual offset-shadow CTAs",
-            "diagonal grid background",
-            "stacked product-card collage",
-            "bright accent panels",
-            "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
-          "tags": [
-            "pricing",
-            "usage-based",
-            "neo-brutalism",
-            "brutalist",
-            "slider",
-            "metered",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
-            "press-down hover states",
-            "keyboard accessible slider"
           ],
           "styles": [
             "neo-brutalism"
@@ -16329,28 +16329,26 @@
           ]
         },
         {
-          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
+          "name": "Testimonial Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
+          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
           "tags": [
-            "hero",
-            "dashboard",
+            "testimonials",
+            "social-proof",
             "sharp-glassmorphism",
             "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
             "saas",
-            "analytics"
+            "quotes",
+            "gradient-mesh"
           ],
           "features": [
-            "centered headline with luminous edge highlight",
-            "gradient primary CTA",
-            "frosted-glass dashboard mock",
-            "KPI cards with sparklines",
-            "activity feed",
-            "floating glass stat bubbles",
-            "cyan glow accents",
+            "asymmetric testimonial layout",
+            "large featured quote tile with gradient quote mark",
+            "medium and compact quote tiles",
+            "avatar initials chips",
+            "role and company labels",
+            "luminous top edges",
             "hover lift states"
           ],
           "styles": [
@@ -16465,26 +16463,28 @@
           ]
         },
         {
-          "name": "Testimonial Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
+          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
           "tags": [
-            "testimonials",
-            "social-proof",
+            "hero",
+            "dashboard",
             "sharp-glassmorphism",
             "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
             "saas",
-            "quotes",
-            "gradient-mesh"
+            "analytics"
           ],
           "features": [
-            "asymmetric testimonial layout",
-            "large featured quote tile with gradient quote mark",
-            "medium and compact quote tiles",
-            "avatar initials chips",
-            "role and company labels",
-            "luminous top edges",
+            "centered headline with luminous edge highlight",
+            "gradient primary CTA",
+            "frosted-glass dashboard mock",
+            "KPI cards with sparklines",
+            "activity feed",
+            "floating glass stat bubbles",
+            "cyan glow accents",
             "hover lift states"
           ],
           "styles": [
@@ -16497,30 +16497,28 @@
           ]
         },
         {
-          "name": "SaaS Product Hero — Vercel",
-          "path": "Tailwind/Sections/saas/product-hero/vercel/",
+          "name": "Product Workflow Section — Vercel",
+          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
           "type": "section",
-          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
+          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
           "tags": [
-            "hero",
-            "product-hero",
+            "workflow",
+            "how-it-works",
             "vercel",
             "dark",
-            "monochrome",
             "saas",
-            "product-preview",
-            "trust-logos",
+            "steps",
+            "code-preview",
             "teal-accent"
           ],
           "features": [
-            "left-aligned two-line gradient headline",
-            "primary white CTA + secondary ghost demo CTA",
-            "announcement pill with teal dot",
-            "trust logo row",
-            "masked grid backdrop",
-            "framed product UI preview with sidebar and inbox",
-            "floating SLA stat chip",
-            "hairline borders and dark panel"
+            "numbered three-step workflow",
+            "left step rail with teal connectors",
+            "right sticky code/command preview",
+            "working step switcher that swaps preview live",
+            "teal accent on active step",
+            "dark panels and hairline borders",
+            "scoped keyboard-accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -16554,75 +16552,6 @@
             "pull-quote with avatar",
             "teal accent on count chip",
             "single teal dot"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Comparison Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
-          "type": "section",
-          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
-          "tags": [
-            "pricing",
-            "comparison",
-            "matrix",
-            "vercel",
-            "dark",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "sticky plan header row",
-            "grouped feature sections",
-            "check/dash/slash glyphs",
-            "sticky first column on desktop",
-            "hairline grid borders",
-            "teal accent on popular column",
-            "per-column white CTAs",
-            "monochrome hierarchy"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
-          "type": "section",
-          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
-          "tags": [
-            "pricing",
-            "pricing-table",
-            "vercel",
-            "dark",
-            "monochrome",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with teal dot badge",
-            "check/dash feature lists",
-            "hairline borders and dark panels",
-            "white primary CTA",
-            "subtle hover fills",
-            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16668,28 +16597,99 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
-          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "name": "Pricing Comparison Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
           "type": "section",
-          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
           "tags": [
-            "workflow",
-            "how-it-works",
+            "pricing",
+            "comparison",
+            "matrix",
             "vercel",
             "dark",
             "saas",
-            "steps",
-            "code-preview",
+            "plans",
             "teal-accent"
           ],
           "features": [
-            "numbered three-step workflow",
-            "left step rail with teal connectors",
-            "right sticky code/command preview",
-            "working step switcher that swaps preview live",
-            "teal accent on active step",
-            "dark panels and hairline borders",
-            "scoped keyboard-accessible buttons"
+            "sticky plan header row",
+            "grouped feature sections",
+            "check/dash/slash glyphs",
+            "sticky first column on desktop",
+            "hairline grid borders",
+            "teal accent on popular column",
+            "per-column white CTAs",
+            "monochrome hierarchy"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Product Hero — Vercel",
+          "path": "Tailwind/Sections/saas/product-hero/vercel/",
+          "type": "section",
+          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
+          "tags": [
+            "hero",
+            "product-hero",
+            "vercel",
+            "dark",
+            "monochrome",
+            "saas",
+            "product-preview",
+            "trust-logos",
+            "teal-accent"
+          ],
+          "features": [
+            "left-aligned two-line gradient headline",
+            "primary white CTA + secondary ghost demo CTA",
+            "announcement pill with teal dot",
+            "trust logo row",
+            "masked grid backdrop",
+            "framed product UI preview with sidebar and inbox",
+            "floating SLA stat chip",
+            "hairline borders and dark panel"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Pricing Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
+          "type": "section",
+          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "vercel",
+            "dark",
+            "monochrome",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "teal-accent"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with teal dot badge",
+            "check/dash feature lists",
+            "hairline borders and dark panels",
+            "white primary CTA",
+            "subtle hover fills",
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16863,7 +16863,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -16995,8 +16996,8 @@
           ],
           "files": [
             "README.md",
-            "index.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -17135,7 +17136,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -17191,7 +17193,8 @@
           ],
           "files": [
             "README.md",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
