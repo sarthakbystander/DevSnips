@@ -5,11 +5,41 @@
   "description": "CVV/CVC security code input components for payment forms",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "cvv", "cvc", "security", "payment"],
-  "searchTerms": ["cvv input", "security code", "card verification", "payment input"],
-  "related": ["credit-card", "expiration-date", "split-input"],
-  "styles": ["Standard", "With Help", "Card Visual"],
-  "accessibility": { "focus": "Clear focus on input", "aria": "Proper label association", "touch": "Touch-friendly input size" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "cvv",
+    "cvc",
+    "security",
+    "payment"
+  ],
+  "searchTerms": [
+    "cvv input",
+    "security code",
+    "card verification",
+    "payment input"
+  ],
+  "related": [
+    "credit-card",
+    "expiration-date",
+    "split-input"
+  ],
+  "styles": [
+    "Standard",
+    "With Help",
+    "Card Visual"
+  ],
+  "accessibility": {
+    "focus": "Clear focus on input",
+    "aria": "Proper label association",
+    "touch": "Touch-friendly input size"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

@@ -5,11 +5,34 @@
   "description": "Input fields with disabled and read-only states for non-editable content",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "disabled", "readonly", "form", "locked"],
-  "searchTerms": ["disabled input", "readonly input", "non-editable input", "locked field"],
-  "related": ["outlined", "validation-states", "filled"],
-  "styles": ["Disabled", "Read-only", "Disabled with Icon", "Read-only Card"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "disabled",
+    "readonly",
+    "form",
+    "locked"
+  ],
+  "searchTerms": [
+    "disabled input",
+    "readonly input",
+    "non-editable input",
+    "locked field"
+  ],
+  "related": [
+    "outlined",
+    "validation-states",
+    "filled"
+  ],
+  "styles": [
+    "Disabled",
+    "Read-only",
+    "Disabled with Icon",
+    "Read-only Card"
+  ],
   "accessibility": {
     "focus": "Disabled inputs should not receive focus",
     "aria": "Use disabled and readonly attributes",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

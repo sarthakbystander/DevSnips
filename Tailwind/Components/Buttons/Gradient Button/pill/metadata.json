@@ -5,12 +5,38 @@
   "description": "Fully rounded gradient buttons with pill shape for modern UI",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "pill", "rounded-full", "rounded"],
-  "searchTerms": ["gradient pill button", "rounded gradient button", "pill button", "rounded-full button"],
-  "related": ["linear", "shadow", "dark-background"],
-  "styles": ["Violet", "Cyan", "Emerald"],
-  "sizes": ["Small", "Default", "Large"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "pill",
+    "rounded-full",
+    "rounded"
+  ],
+  "searchTerms": [
+    "gradient pill button",
+    "rounded gradient button",
+    "pill button",
+    "rounded-full button"
+  ],
+  "related": [
+    "linear",
+    "shadow",
+    "dark-background"
+  ],
+  "styles": [
+    "Violet",
+    "Cyan",
+    "Emerald"
+  ],
+  "sizes": [
+    "Small",
+    "Default",
+    "Large"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -19,5 +45,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

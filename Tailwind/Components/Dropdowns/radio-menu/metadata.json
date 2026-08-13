@@ -7,10 +7,22 @@
   "description": "Single-select radio button menu for priority selection with color indicators.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "radio", "priority", "select", "status"],
-  "related": ["checkbox-menu", "status-menu", "select-dropdown"],
+  "tags": [
+    "dropdown",
+    "radio",
+    "priority",
+    "select",
+    "status"
+  ],
+  "related": [
+    "checkbox-menu",
+    "status-menu",
+    "select-dropdown"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

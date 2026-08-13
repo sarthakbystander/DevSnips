@@ -7,10 +7,22 @@
   "description": "Richly animated dropdown with gradient button, staggered entrance animation, icon scaling, and glow effects.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "animated", "gradient", "effects", "staggered"],
-  "related": ["hover-menu", "action-menu", "quick-actions-menu"],
+  "tags": [
+    "dropdown",
+    "animated",
+    "gradient",
+    "effects",
+    "staggered"
+  ],
+  "related": [
+    "hover-menu",
+    "action-menu",
+    "quick-actions-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

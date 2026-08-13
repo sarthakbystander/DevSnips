@@ -4,24 +4,46 @@
   "description": "Buttons with loading states, spinners, and progress indicators",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
   "variantCount": 2,
   "variants": [
     {
       "name": "Spinner",
       "description": "Loading buttons with spinner animations",
-      "styles": ["Primary", "Success", "Outline"],
+      "styles": [
+        "Primary",
+        "Success",
+        "Outline"
+      ],
       "path": "spinner/"
     },
     {
       "name": "Progress",
       "description": "Loading buttons with progress bar",
-      "styles": ["Blue", "Green", "Purple"],
+      "styles": [
+        "Blue",
+        "Green",
+        "Purple"
+      ],
       "path": "progress/"
     }
   ],
-  "tags": ["button", "loading", "spinner", "progress"],
-  "searchTerms": ["loading button", "spinner button", "progress button", "wait button"],
+  "tags": [
+    "button",
+    "loading",
+    "spinner",
+    "progress"
+  ],
+  "searchTerms": [
+    "loading button",
+    "spinner button",
+    "progress button",
+    "wait button"
+  ],
   "accessibility": {
     "focus": "N/A - disabled state",
     "aria": "Use disabled attribute",
@@ -30,5 +52,6 @@
   "related": [
     "Animated Button",
     "Basic Button"
-  ]
+  ],
+  "type": "component"
 }

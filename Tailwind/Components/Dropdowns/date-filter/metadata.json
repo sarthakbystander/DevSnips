@@ -7,10 +7,23 @@
   "description": "Date range filter with quick presets (today, this week, this month) and custom date pickers.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "date", "range", "calendar", "filter", "picker"],
-  "related": ["filter-menu", "sort-menu", "searchable-select"],
+  "tags": [
+    "dropdown",
+    "date",
+    "range",
+    "calendar",
+    "filter",
+    "picker"
+  ],
+  "related": [
+    "filter-menu",
+    "sort-menu",
+    "searchable-select"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,34 @@
   "description": "Sharp rectangular input fields without border radius for data-dense UIs",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "sharp", "rectangular", "industrial", "data"],
-  "searchTerms": ["sharp input", "rectangular input", "industrial input", "data input"],
-  "related": ["rounded-pill", "corporate", "outlined"],
-  "styles": ["Default", "Dense", "Dark/Industrial", "Inline Row"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "sharp",
+    "rectangular",
+    "industrial",
+    "data"
+  ],
+  "searchTerms": [
+    "sharp input",
+    "rectangular input",
+    "industrial input",
+    "data input"
+  ],
+  "related": [
+    "rounded-pill",
+    "corporate",
+    "outlined"
+  ],
+  "styles": [
+    "Default",
+    "Dense",
+    "Dark/Industrial",
+    "Inline Row"
+  ],
   "accessibility": {
     "focus": "Clear focus ring indicator",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

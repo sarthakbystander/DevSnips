@@ -7,10 +7,22 @@
   "description": "Slide-in mobile navigation drawer with overlay, user profile header, and sticky footer actions.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "mobile", "navigation", "drawer", "slide-in"],
-  "related": ["sidebar-menu", "mega-menu", "hover-menu"],
+  "tags": [
+    "dropdown",
+    "mobile",
+    "navigation",
+    "drawer",
+    "slide-in"
+  ],
+  "related": [
+    "sidebar-menu",
+    "mega-menu",
+    "hover-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

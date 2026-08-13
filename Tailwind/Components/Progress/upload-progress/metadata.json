@@ -7,7 +7,31 @@
   "description": "Multi-file upload list where each file shows an animated progress bar and percentage, then transitions to a green success check when complete. Files can be removed mid-upload. Call addFile(name) to push files programmatically.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["progress", "upload", "files", "bar", "queue", "success", "feedback"],
-  "related": ["linear-bar", "step-progress", "skeleton-loader"],
-  "features": ["per-file progress bars", "percentage labels", "success state transition", "remove mid-upload", "programmatic addFile()", "role=progressbar", "aria-valuenow", "tabular-nums", "focus-visible ring"]
+  "tags": [
+    "progress",
+    "upload",
+    "files",
+    "bar",
+    "queue",
+    "success",
+    "feedback"
+  ],
+  "related": [
+    "linear-bar",
+    "step-progress",
+    "skeleton-loader"
+  ],
+  "features": [
+    "per-file progress bars",
+    "percentage labels",
+    "success state transition",
+    "remove mid-upload",
+    "programmatic addFile()",
+    "role=progressbar",
+    "aria-valuenow",
+    "tabular-nums",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

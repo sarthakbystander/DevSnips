@@ -7,7 +7,26 @@
   "description": "Settings tabs with prominent icons in a responsive grid. Active tab highlights its icon container. Great for account, security, and billing configuration.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "icons", "settings", "account", "grid", "responsive"],
-  "related": ["settings-tabs", "vertical-tabs", "card-tabs"],
-  "features": ["icon-led grid layout", "active icon container", "form panels", "arrow-key navigation", "mobile 2-col grid"]
+  "tags": [
+    "tabs",
+    "icons",
+    "settings",
+    "account",
+    "grid",
+    "responsive"
+  ],
+  "related": [
+    "settings-tabs",
+    "vertical-tabs",
+    "card-tabs"
+  ],
+  "features": [
+    "icon-led grid layout",
+    "active icon container",
+    "form panels",
+    "arrow-key navigation",
+    "mobile 2-col grid"
+  ],
+  "type": "component",
+  "category": "Components"
 }

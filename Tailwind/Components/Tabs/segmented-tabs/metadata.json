@@ -7,7 +7,26 @@
   "description": "iOS-style segmented control with a sliding indicator that animates between segments. Used for switching time ranges and compact view modes.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "segmented", "ios", "slider", "indicator", "control"],
-  "related": ["animated-tabs", "pill-tabs", "minimal-tabs"],
-  "features": ["sliding indicator", "smooth animation", "compact control", "arrow-key navigation", "resize-aware"]
+  "tags": [
+    "tabs",
+    "segmented",
+    "ios",
+    "slider",
+    "indicator",
+    "control"
+  ],
+  "related": [
+    "animated-tabs",
+    "pill-tabs",
+    "minimal-tabs"
+  ],
+  "features": [
+    "sliding indicator",
+    "smooth animation",
+    "compact control",
+    "arrow-key navigation",
+    "resize-aware"
+  ],
+  "type": "component",
+  "category": "Components"
 }

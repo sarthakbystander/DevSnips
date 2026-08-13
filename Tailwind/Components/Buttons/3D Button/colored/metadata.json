@@ -5,11 +5,30 @@
   "description": "Colored 3D buttons with gradients",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "3d", "gradient", "colored", "push"],
-  "searchTerms": ["gradient 3d button", "colored 3d button", "gradient push button"],
-  "related": ["basic"],
-  "styles": ["Pink", "Purple", "Orange"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "3d",
+    "gradient",
+    "colored",
+    "push"
+  ],
+  "searchTerms": [
+    "gradient 3d button",
+    "colored 3d button",
+    "gradient push button"
+  ],
+  "related": [
+    "basic"
+  ],
+  "styles": [
+    "Pink",
+    "Purple",
+    "Orange"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

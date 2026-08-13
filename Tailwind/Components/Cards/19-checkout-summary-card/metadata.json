@@ -7,7 +7,26 @@
   "description": "E-commerce checkout summary with items, pricing breakdown, promo code input, and secure checkout CTA.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "checkout", "ecommerce", "cart", "payment", "order"],
-  "related": ["order-summary-card", "product-card", "payment-card"],
-  "features": ["item list", "price breakdown", "promo code", "total", "security badge"]
+  "tags": [
+    "card",
+    "checkout",
+    "ecommerce",
+    "cart",
+    "payment",
+    "order"
+  ],
+  "related": [
+    "order-summary-card",
+    "product-card",
+    "payment-card"
+  ],
+  "features": [
+    "item list",
+    "price breakdown",
+    "promo code",
+    "total",
+    "security badge"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,31 @@
   "description": "Pressed state neumorphism buttons with inset shadows",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "neumorphism", "pressed", "inset"],
-  "searchTerms": ["neumorphism pressed button", "inset shadow button", "pressed neumorphic button"],
-  "related": ["soft", "bordered"],
-  "styles": ["Default", "Pill", "Disabled"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "neumorphism",
+    "pressed",
+    "inset"
+  ],
+  "searchTerms": [
+    "neumorphism pressed button",
+    "inset shadow button",
+    "pressed neumorphic button"
+  ],
+  "related": [
+    "soft",
+    "bordered"
+  ],
+  "styles": [
+    "Default",
+    "Pill",
+    "Disabled"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

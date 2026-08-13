@@ -5,11 +5,32 @@
   "description": "Basic icon button styles with various colors",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "icon", "icon-only", "toolbar"],
-  "searchTerms": ["icon button", "icon only button", "toolbar button", "action button"],
-  "related": ["rounded", "dark"],
-  "styles": ["Primary", "Secondary", "Danger", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "icon",
+    "icon-only",
+    "toolbar"
+  ],
+  "searchTerms": [
+    "icon button",
+    "icon only button",
+    "toolbar button",
+    "action button"
+  ],
+  "related": [
+    "rounded",
+    "dark"
+  ],
+  "styles": [
+    "Primary",
+    "Secondary",
+    "Danger",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

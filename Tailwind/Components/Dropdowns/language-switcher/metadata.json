@@ -7,10 +7,22 @@
   "description": "Language selector dropdown with country flags, search functionality, grouped languages, and RTL support.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "language", "i18n", "locale", "flags"],
-  "related": ["theme-switcher", "select-dropdown", "searchable-select"],
+  "tags": [
+    "dropdown",
+    "language",
+    "i18n",
+    "locale",
+    "flags"
+  ],
+  "related": [
+    "theme-switcher",
+    "select-dropdown",
+    "searchable-select"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

@@ -7,7 +7,30 @@
   "description": "Toast that stays open until explicitly dismissed, with a shrinking progress bar showing the remaining time. The bar pauses on hover and resumes on leave. Ideal for upload results and important notices that shouldn't be missed.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["toast", "notification", "persistent", "progress", "countdown", "upload", "feedback"],
-  "related": ["basic-toast", "action-toast", "stacked-toasts"],
-  "features": ["countdown progress bar", "stays open until dismissed", "pause on hover", "resume on leave", "close button", "role status", "aria-live polite", "focus-visible ring"]
+  "tags": [
+    "toast",
+    "notification",
+    "persistent",
+    "progress",
+    "countdown",
+    "upload",
+    "feedback"
+  ],
+  "related": [
+    "basic-toast",
+    "action-toast",
+    "stacked-toasts"
+  ],
+  "features": [
+    "countdown progress bar",
+    "stays open until dismissed",
+    "pause on hover",
+    "resume on leave",
+    "close button",
+    "role status",
+    "aria-live polite",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

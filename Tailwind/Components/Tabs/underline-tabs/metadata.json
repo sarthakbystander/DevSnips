@@ -7,7 +7,26 @@
   "description": "Modern developer documentation tabs with a moving underline indicator, version badge, and embedded code samples. Built for docs sites and API references.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "underline", "documentation", "developer", "api", "code"],
-  "related": ["basic-tabs", "animated-tabs", "minimal-tabs"],
-  "features": ["moving underline indicator", "version badge", "code samples", "arrow-key navigation", "overflow scroll"]
+  "tags": [
+    "tabs",
+    "underline",
+    "documentation",
+    "developer",
+    "api",
+    "code"
+  ],
+  "related": [
+    "basic-tabs",
+    "animated-tabs",
+    "minimal-tabs"
+  ],
+  "features": [
+    "moving underline indicator",
+    "version badge",
+    "code samples",
+    "arrow-key navigation",
+    "overflow scroll"
+  ],
+  "type": "component",
+  "category": "Components"
 }

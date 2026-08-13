@@ -5,12 +5,38 @@
   "description": "Two-color horizontal gradient buttons with multiple color combinations",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "linear", "two-color"],
-  "searchTerms": ["gradient button", "linear gradient", "blue gradient button", "purple pink gradient"],
-  "related": ["multi-stop", "directional", "pill"],
-  "styles": ["Blue", "Purple Pink", "Cyan Blue", "Green Cyan"],
-  "sizes": ["Small", "Default", "Large"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "linear",
+    "two-color"
+  ],
+  "searchTerms": [
+    "gradient button",
+    "linear gradient",
+    "blue gradient button",
+    "purple pink gradient"
+  ],
+  "related": [
+    "multi-stop",
+    "directional",
+    "pill"
+  ],
+  "styles": [
+    "Blue",
+    "Purple Pink",
+    "Cyan Blue",
+    "Green Cyan"
+  ],
+  "sizes": [
+    "Small",
+    "Default",
+    "Large"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -19,5 +45,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

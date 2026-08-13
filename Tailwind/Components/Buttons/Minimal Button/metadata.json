@@ -4,24 +4,44 @@
   "description": "Minimal button styles with subtle designs",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 2,
   "variants": [
     {
       "name": "Underline",
       "description": "Underline button styles",
-      "styles": ["Underline", "Border Underline", "Animated Underline"],
+      "styles": [
+        "Underline",
+        "Border Underline",
+        "Animated Underline"
+      ],
       "path": "underline/"
     },
     {
       "name": "Border",
       "description": "Border button styles",
-      "styles": ["Pill Border", "Outline Border", "Bold Border"],
+      "styles": [
+        "Pill Border",
+        "Outline Border",
+        "Bold Border"
+      ],
       "path": "border/"
     }
   ],
-  "tags": ["button", "minimal", "underline", "border"],
-  "searchTerms": ["minimal button", "underline button", "minimal border button"],
+  "tags": [
+    "button",
+    "minimal",
+    "underline",
+    "border"
+  ],
+  "searchTerms": [
+    "minimal button",
+    "underline button",
+    "minimal border button"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -30,5 +50,6 @@
   "related": [
     "Basic Button",
     "Ghost Button"
-  ]
+  ],
+  "type": "component"
 }

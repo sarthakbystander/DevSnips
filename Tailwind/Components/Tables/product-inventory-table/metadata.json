@@ -7,7 +7,26 @@
   "description": "E-commerce inventory management table with product images, SKU codes, category badges, stock level bars, and status indicators for stock tracking.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "inventory", "products", "ecommerce", "stock", "catalog"],
-  "related": ["basic-table", "order-management-table", "compact-table"],
-  "features": ["product images", "SKU codes", "stock bars", "category badges", "status indicators"]
+  "tags": [
+    "table",
+    "inventory",
+    "products",
+    "ecommerce",
+    "stock",
+    "catalog"
+  ],
+  "related": [
+    "basic-table",
+    "order-management-table",
+    "compact-table"
+  ],
+  "features": [
+    "product images",
+    "SKU codes",
+    "stock bars",
+    "category badges",
+    "status indicators"
+  ],
+  "type": "component",
+  "category": "Components"
 }

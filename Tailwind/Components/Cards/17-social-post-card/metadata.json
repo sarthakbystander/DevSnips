@@ -7,7 +7,26 @@
   "description": "Social media post card with user info, content, image, hashtags, and interaction buttons.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "social", "post", "twitter", "facebook", "feed"],
-  "related": ["blog-card", "testimonial-card", "activity-feed-card"],
-  "features": ["user profile", "verified badge", "post content", "image", "engagement buttons"]
+  "tags": [
+    "card",
+    "social",
+    "post",
+    "twitter",
+    "facebook",
+    "feed"
+  ],
+  "related": [
+    "blog-card",
+    "testimonial-card",
+    "activity-feed-card"
+  ],
+  "features": [
+    "user profile",
+    "verified badge",
+    "post content",
+    "image",
+    "engagement buttons"
+  ],
+  "type": "component",
+  "category": "Components"
 }

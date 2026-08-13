@@ -5,11 +5,31 @@
   "description": "Google sign-in buttons",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "social", "google", "oauth", "signin"],
-  "searchTerms": ["google button", "google sign in", "oauth google button", "google login"],
-  "related": ["facebook", "github"],
-  "styles": ["Outline", "Filled"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "social",
+    "google",
+    "oauth",
+    "signin"
+  ],
+  "searchTerms": [
+    "google button",
+    "google sign in",
+    "oauth google button",
+    "google login"
+  ],
+  "related": [
+    "facebook",
+    "github"
+  ],
+  "styles": [
+    "Outline",
+    "Filled"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

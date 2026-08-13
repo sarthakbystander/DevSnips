@@ -7,10 +7,22 @@
   "description": "Icon-only menu dropdowns with notification badges for home, settings, notifications, and user profile.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "icon", "navigation", "badge", "toolbar"],
-  "related": ["notification-menu", "avatar-menu", "action-menu"],
+  "tags": [
+    "dropdown",
+    "icon",
+    "navigation",
+    "badge",
+    "toolbar"
+  ],
+  "related": [
+    "notification-menu",
+    "avatar-menu",
+    "action-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

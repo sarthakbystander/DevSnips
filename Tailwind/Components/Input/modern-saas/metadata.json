@@ -5,11 +5,33 @@
   "description": "Modern SaaS-style inputs with premium feel and visual polish",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "saas", "modern", "premium", "startup"],
-  "searchTerms": ["modern input", "saas input", "startup input", "premium input"],
-  "related": ["gradient-border", "glassmorphism", "filled"],
-  "styles": ["Clean Card", "Gradient CTA", "Stats Display"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "saas",
+    "modern",
+    "premium",
+    "startup"
+  ],
+  "searchTerms": [
+    "modern input",
+    "saas input",
+    "startup input",
+    "premium input"
+  ],
+  "related": [
+    "gradient-border",
+    "glassmorphism",
+    "filled"
+  ],
+  "styles": [
+    "Clean Card",
+    "Gradient CTA",
+    "Stats Display"
+  ],
   "accessibility": {
     "focus": "Soft focus ring with opacity",
     "aria": "Labels properly associated",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

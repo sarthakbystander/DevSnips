@@ -7,7 +7,26 @@
   "description": "Professional admin table for managing users with avatars, role icons, department assignments, online status indicators, and action menus. Includes sidebar navigation for admin dashboard context.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "admin", "dashboard", "users", "management", "team"],
-  "related": ["analytics-table", "selectable-table", "filterable-table"],
-  "features": ["user avatars", "status indicators", "role icons", "action menus", "department display"]
+  "tags": [
+    "table",
+    "admin",
+    "dashboard",
+    "users",
+    "management",
+    "team"
+  ],
+  "related": [
+    "analytics-table",
+    "selectable-table",
+    "filterable-table"
+  ],
+  "features": [
+    "user avatars",
+    "status indicators",
+    "role icons",
+    "action menus",
+    "department display"
+  ],
+  "type": "component",
+  "category": "Components"
 }

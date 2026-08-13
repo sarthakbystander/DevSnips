@@ -5,11 +5,41 @@
   "description": "One-time password input components with verification code styling",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "otp", "verification", "code", "auth"],
-  "searchTerms": ["otp input", "verification code", "2fa", "one time password"],
-  "related": ["split-input", "validation-states", "number-stepper"],
-  "styles": ["Standard", "Dark", "With Resend"],
-  "accessibility": { "focus": "Each digit independently focusable", "aria": "Labels properly associated", "touch": "Touch-friendly digit sizes" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "otp",
+    "verification",
+    "code",
+    "auth"
+  ],
+  "searchTerms": [
+    "otp input",
+    "verification code",
+    "2fa",
+    "one time password"
+  ],
+  "related": [
+    "split-input",
+    "validation-states",
+    "number-stepper"
+  ],
+  "styles": [
+    "Standard",
+    "Dark",
+    "With Resend"
+  ],
+  "accessibility": {
+    "focus": "Each digit independently focusable",
+    "aria": "Labels properly associated",
+    "touch": "Touch-friendly digit sizes"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

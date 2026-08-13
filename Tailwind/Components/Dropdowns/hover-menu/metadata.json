@@ -7,10 +7,22 @@
   "description": "Dropdown menu that opens on hover with smooth fade-in and slide-up animations.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "hover", "animation", "tooltip", "css-only"],
-  "related": ["click-menu", "animated-menu", "basic-dropdown"],
+  "tags": [
+    "dropdown",
+    "hover",
+    "animation",
+    "tooltip",
+    "css-only"
+  ],
+  "related": [
+    "click-menu",
+    "animated-menu",
+    "basic-dropdown"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

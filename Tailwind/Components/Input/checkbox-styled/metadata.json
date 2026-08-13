@@ -5,11 +5,33 @@
   "description": "Styled checkbox components with various designs and descriptions",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "checkbox", "toggle", "select", "form"],
-  "searchTerms": ["checkbox", "check input", "selection", "form checkbox"],
-  "related": ["toggle-switch", "radio-styled", "outlined"],
-  "styles": ["Default", "Custom Styled", "With Description"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "checkbox",
+    "toggle",
+    "select",
+    "form"
+  ],
+  "searchTerms": [
+    "checkbox",
+    "check input",
+    "selection",
+    "form checkbox"
+  ],
+  "related": [
+    "toggle-switch",
+    "radio-styled",
+    "outlined"
+  ],
+  "styles": [
+    "Default",
+    "Custom Styled",
+    "With Description"
+  ],
   "accessibility": {
     "focus": "Focus ring on checkbox",
     "aria": "Use proper label associations",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

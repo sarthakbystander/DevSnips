@@ -5,11 +5,35 @@
   "description": "Gradient buttons designed to stand out on dark backgrounds with light or bright gradients",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "dark", "dark mode", "dark background", "glow"],
-  "searchTerms": ["gradient button dark background", "dark mode gradient button", "glow button dark", "light gradient button"],
-  "related": ["linear", "shadow", "pill"],
-  "styles": ["Light on Gray", "Bright on Gray", "Cyan on Purple", "Warm on Purple"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "dark",
+    "dark mode",
+    "dark background",
+    "glow"
+  ],
+  "searchTerms": [
+    "gradient button dark background",
+    "dark mode gradient button",
+    "glow button dark",
+    "light gradient button"
+  ],
+  "related": [
+    "linear",
+    "shadow",
+    "pill"
+  ],
+  "styles": [
+    "Light on Gray",
+    "Bright on Gray",
+    "Cyan on Purple",
+    "Warm on Purple"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +42,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

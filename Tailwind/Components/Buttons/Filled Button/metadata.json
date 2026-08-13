@@ -4,36 +4,68 @@
   "description": "Solid and soft background filled buttons in multiple colors and styles",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 4,
   "variants": [
     {
       "name": "Soft",
       "description": "Soft pastel background buttons",
-      "styles": ["Blue", "Green", "Red", "Amber", "Purple", "Pink"],
+      "styles": [
+        "Blue",
+        "Green",
+        "Red",
+        "Amber",
+        "Purple",
+        "Pink"
+      ],
       "path": "soft/"
     },
     {
       "name": "Rounded",
       "description": "Fully rounded pill-shaped buttons",
-      "styles": ["Blue Pill", "Dark Pill", "Gradient Pill"],
+      "styles": [
+        "Blue Pill",
+        "Dark Pill",
+        "Gradient Pill"
+      ],
       "path": "rounded/"
     },
     {
       "name": "Muted",
       "description": "Muted background for less prominent actions",
-      "styles": ["Gray", "Dark", "Slate"],
+      "styles": [
+        "Gray",
+        "Dark",
+        "Slate"
+      ],
       "path": "muted/"
     },
     {
       "name": "Dark",
       "description": "Buttons for dark themed interfaces",
-      "styles": ["White", "Dark Solid", "Blue"],
+      "styles": [
+        "White",
+        "Dark Solid",
+        "Blue"
+      ],
       "path": "dark/"
     }
   ],
-  "tags": ["button", "filled", "solid", "soft"],
-  "searchTerms": ["filled button", "solid button", "soft button", "pastel button"],
+  "tags": [
+    "button",
+    "filled",
+    "solid",
+    "soft"
+  ],
+  "searchTerms": [
+    "filled button",
+    "solid button",
+    "soft button",
+    "pastel button"
+  ],
   "accessibility": {
     "focus": "All buttons include visible focus rings",
     "aria": "Use disabled attribute for disabled state",
@@ -43,5 +75,6 @@
     "Basic Button",
     "Ghost Button",
     "Outline Button"
-  ]
+  ],
+  "type": "component"
 }

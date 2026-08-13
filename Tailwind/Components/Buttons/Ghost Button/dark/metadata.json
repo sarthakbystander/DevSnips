@@ -5,11 +5,31 @@
   "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "ghost", "dark", "dark mode"],
-  "searchTerms": ["ghost button dark background", "dark mode ghost button", "white ghost button"],
-  "related": ["primary", "colors", "sizes"],
-  "styles": ["White", "Gray", "Blue"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "ghost",
+    "dark",
+    "dark mode"
+  ],
+  "searchTerms": [
+    "ghost button dark background",
+    "dark mode ghost button",
+    "white ghost button"
+  ],
+  "related": [
+    "primary",
+    "colors",
+    "sizes"
+  ],
+  "styles": [
+    "White",
+    "Gray",
+    "Blue"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

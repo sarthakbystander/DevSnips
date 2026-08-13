@@ -7,7 +7,26 @@
   "description": "Professional team member card with avatar, role, bio excerpt, skill tags, and social links.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "team", "member", "about", "company", "social"],
-  "related": ["profile-card", "testimonial-card", "corporate-card"],
-  "features": ["verified badge", "bio excerpt", "skill tags", "social links", "decorative corner"]
+  "tags": [
+    "card",
+    "team",
+    "member",
+    "about",
+    "company",
+    "social"
+  ],
+  "related": [
+    "profile-card",
+    "testimonial-card",
+    "corporate-card"
+  ],
+  "features": [
+    "verified badge",
+    "bio excerpt",
+    "skill tags",
+    "social links",
+    "decorative corner"
+  ],
+  "type": "component",
+  "category": "Components"
 }

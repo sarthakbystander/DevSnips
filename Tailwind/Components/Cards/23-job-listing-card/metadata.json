@@ -7,7 +7,26 @@
   "description": "Professional job listing card with company info, salary range, tags, description, and applicant count.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "job", "career", "hiring", "employment", "recruitment"],
-  "related": ["course-card", "event-card", "corporate-card"],
-  "features": ["company logo", "salary range", "job tags", "applicant avatars", "save button"]
+  "tags": [
+    "card",
+    "job",
+    "career",
+    "hiring",
+    "employment",
+    "recruitment"
+  ],
+  "related": [
+    "course-card",
+    "event-card",
+    "corporate-card"
+  ],
+  "features": [
+    "company logo",
+    "salary range",
+    "job tags",
+    "applicant avatars",
+    "save button"
+  ],
+  "type": "component",
+  "category": "Components"
 }

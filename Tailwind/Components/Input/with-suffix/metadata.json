@@ -5,11 +5,34 @@
   "description": "Input fields with suffixed text, units, or action buttons",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "suffix", "unit", "measurement", "form"],
-  "searchTerms": ["input with suffix", "unit input", "measurement input", "suffixed input"],
-  "related": ["with-prefix", "icon-right", "number-stepper"],
-  "styles": ["Unit Suffix", "Action Button", "Dimension Fields", "Select Unit"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "suffix",
+    "unit",
+    "measurement",
+    "form"
+  ],
+  "searchTerms": [
+    "input with suffix",
+    "unit input",
+    "measurement input",
+    "suffixed input"
+  ],
+  "related": [
+    "with-prefix",
+    "icon-right",
+    "number-stepper"
+  ],
+  "styles": [
+    "Unit Suffix",
+    "Action Button",
+    "Dimension Fields",
+    "Select Unit"
+  ],
   "accessibility": {
     "focus": "Focus ring includes embedded button if present",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

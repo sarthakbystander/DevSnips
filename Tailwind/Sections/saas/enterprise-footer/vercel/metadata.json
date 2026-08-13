@@ -1,0 +1,37 @@
+{
+  "name": "Enterprise SaaS Footer — Vercel",
+  "slug": "enterprise-footer-vercel",
+  "category": "Sections",
+  "subcategory": "saas",
+  "section": "enterprise-footer",
+  "style": "vercel",
+  "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "footer",
+    "enterprise",
+    "vercel",
+    "dark",
+    "saas",
+    "newsletter",
+    "compliance",
+    "teal-accent"
+  ],
+  "features": [
+    "newsletter signup with email form",
+    "5-column link grid",
+    "status pill with teal dot",
+    "social icons",
+    "compliance badges row",
+    "bottom legal bar with locale",
+    "hairline borders",
+    "white/white-50/white-35 hierarchy"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ],
+  "type": "section"
+}

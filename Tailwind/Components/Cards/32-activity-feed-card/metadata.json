@@ -7,7 +7,26 @@
   "description": "Activity feed card with grouped events, icons, user avatars, timestamps, and amounts.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "activity", "feed", "events", "notifications", "timeline"],
-  "related": ["notification-card", "chat-conversation-card", "timeline-card"],
-  "features": ["activity list", "icons", "user avatars", "timestamps", "amount badges"]
+  "tags": [
+    "card",
+    "activity",
+    "feed",
+    "events",
+    "notifications",
+    "timeline"
+  ],
+  "related": [
+    "notification-card",
+    "chat-conversation-card",
+    "timeline-card"
+  ],
+  "features": [
+    "activity list",
+    "icons",
+    "user avatars",
+    "timestamps",
+    "amount badges"
+  ],
+  "type": "component",
+  "category": "Components"
 }

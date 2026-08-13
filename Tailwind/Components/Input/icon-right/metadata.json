@@ -5,11 +5,33 @@
   "description": "Input fields with icons or action buttons on the right side",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "icon", "right-icon", "clear", "validation"],
-  "searchTerms": ["input with right icon", "clear button input", "validation input"],
-  "related": ["icon-left", "icon-both", "password-toggle"],
-  "styles": ["Clear Button", "Valid State", "Loading", "Help Icon"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "icon",
+    "right-icon",
+    "clear",
+    "validation"
+  ],
+  "searchTerms": [
+    "input with right icon",
+    "clear button input",
+    "validation input"
+  ],
+  "related": [
+    "icon-left",
+    "icon-both",
+    "password-toggle"
+  ],
+  "styles": [
+    "Clear Button",
+    "Valid State",
+    "Loading",
+    "Help Icon"
+  ],
   "accessibility": {
     "focus": "Focus ring includes the icon button area",
     "aria": "Icon buttons have appropriate roles",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

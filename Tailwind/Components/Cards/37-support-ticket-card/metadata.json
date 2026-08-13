@@ -7,7 +7,26 @@
   "description": "Customer support ticket card with priority badge, conversation thread, timestamps, and action buttons.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "support", "ticket", "helpdesk", "customer-service", "chat"],
-  "related": ["chat-conversation-card", "notification-card", "task-card"],
-  "features": ["ticket ID", "priority badge", "conversation", "customer info", "action buttons"]
+  "tags": [
+    "card",
+    "support",
+    "ticket",
+    "helpdesk",
+    "customer-service",
+    "chat"
+  ],
+  "related": [
+    "chat-conversation-card",
+    "notification-card",
+    "task-card"
+  ],
+  "features": [
+    "ticket ID",
+    "priority badge",
+    "conversation",
+    "customer info",
+    "action buttons"
+  ],
+  "type": "component",
+  "category": "Components"
 }

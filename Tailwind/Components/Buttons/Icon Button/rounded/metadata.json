@@ -5,11 +5,31 @@
   "description": "Fully rounded icon button styles",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "icon", "rounded", "circle"],
-  "searchTerms": ["rounded icon button", "circular icon button", "fab icon button"],
-  "related": ["basic", "dark"],
-  "styles": ["Primary", "Secondary", "Gradient", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "icon",
+    "rounded",
+    "circle"
+  ],
+  "searchTerms": [
+    "rounded icon button",
+    "circular icon button",
+    "fab icon button"
+  ],
+  "related": [
+    "basic",
+    "dark"
+  ],
+  "styles": [
+    "Primary",
+    "Secondary",
+    "Gradient",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

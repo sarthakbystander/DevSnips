@@ -7,10 +7,22 @@
   "description": "Multi-select checkbox menu for toggling table column visibility with count badge and reset functionality.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "checkbox", "multi-select", "table", "columns"],
-  "related": ["multi-select", "filter-menu", "radio-menu"],
+  "tags": [
+    "dropdown",
+    "checkbox",
+    "multi-select",
+    "table",
+    "columns"
+  ],
+  "related": [
+    "multi-select",
+    "filter-menu",
+    "radio-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

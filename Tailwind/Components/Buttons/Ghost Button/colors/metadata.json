@@ -5,11 +5,36 @@
   "description": "Ghost buttons available in multiple colors for different actions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "ghost", "colors", "red", "green", "purple"],
-  "searchTerms": ["ghost button colors", "red ghost button", "green ghost button", "purple ghost button"],
-  "related": ["primary", "dark", "sizes"],
-  "styles": ["Red", "Green", "Amber", "Purple", "Pink"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "ghost",
+    "colors",
+    "red",
+    "green",
+    "purple"
+  ],
+  "searchTerms": [
+    "ghost button colors",
+    "red ghost button",
+    "green ghost button",
+    "purple ghost button"
+  ],
+  "related": [
+    "primary",
+    "dark",
+    "sizes"
+  ],
+  "styles": [
+    "Red",
+    "Green",
+    "Amber",
+    "Purple",
+    "Pink"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +43,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

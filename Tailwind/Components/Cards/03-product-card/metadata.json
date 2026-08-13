@@ -7,7 +7,26 @@
   "description": "E-commerce product card with image zoom, badges, ratings, and quick actions. Perfect for online stores.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "product", "ecommerce", "shop", "image", "ratings"],
-  "related": ["checkout-summary-card", "order-summary-card", "blog-card"],
-  "features": ["image hover zoom", "badges", "star ratings", "wishlist button", "add to cart"]
+  "tags": [
+    "card",
+    "product",
+    "ecommerce",
+    "shop",
+    "image",
+    "ratings"
+  ],
+  "related": [
+    "checkout-summary-card",
+    "order-summary-card",
+    "blog-card"
+  ],
+  "features": [
+    "image hover zoom",
+    "badges",
+    "star ratings",
+    "wishlist button",
+    "add to cart"
+  ],
+  "type": "component",
+  "category": "Components"
 }

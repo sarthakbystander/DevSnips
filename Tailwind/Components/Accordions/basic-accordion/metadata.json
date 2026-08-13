@@ -7,7 +7,27 @@
   "description": "Simple documentation accordion with chevron rotation and smooth height animation. Clean, accessible, and ready for knowledge bases and developer docs.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["accordion", "basic", "documentation", "collapsible", "faq", "expandable"],
-  "related": ["minimal-accordion", "single-open-accordion", "faq-accordion"],
-  "features": ["chevron rotation", "height animation", "independent toggles", "focus rings", "aria-expanded", "grid-rows animation"]
+  "tags": [
+    "accordion",
+    "basic",
+    "documentation",
+    "collapsible",
+    "faq",
+    "expandable"
+  ],
+  "related": [
+    "minimal-accordion",
+    "single-open-accordion",
+    "faq-accordion"
+  ],
+  "features": [
+    "chevron rotation",
+    "height animation",
+    "independent toggles",
+    "focus rings",
+    "aria-expanded",
+    "grid-rows animation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,29 @@
   "description": "Split buttons with icon and dropdown",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "split", "dropdown", "icon"],
-  "searchTerms": ["split button", "dropdown button", "button with dropdown", "split dropdown"],
-  "related": ["dropdown"],
-  "styles": ["Primary", "Outline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "split",
+    "dropdown",
+    "icon"
+  ],
+  "searchTerms": [
+    "split button",
+    "dropdown button",
+    "button with dropdown",
+    "split dropdown"
+  ],
+  "related": [
+    "dropdown"
+  ],
+  "styles": [
+    "Primary",
+    "Outline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "role=group for button groups",
@@ -18,5 +36,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

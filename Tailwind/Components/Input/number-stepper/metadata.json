@@ -5,11 +5,34 @@
   "description": "Input fields with increment/decrement buttons for quantity selection",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "number", "stepper", "quantity", "counter"],
-  "searchTerms": ["number stepper", "quantity input", "counter input", "increment input"],
-  "related": ["split-input", "with-suffix", "range-slider"],
-  "styles": ["Default", "Compact", "Pill", "With Limits"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "number",
+    "stepper",
+    "quantity",
+    "counter"
+  ],
+  "searchTerms": [
+    "number stepper",
+    "quantity input",
+    "counter input",
+    "increment input"
+  ],
+  "related": [
+    "split-input",
+    "with-suffix",
+    "range-slider"
+  ],
+  "styles": [
+    "Default",
+    "Compact",
+    "Pill",
+    "With Limits"
+  ],
   "accessibility": {
     "focus": "Buttons are independently focusable",
     "aria": "Use aria-label for button actions",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

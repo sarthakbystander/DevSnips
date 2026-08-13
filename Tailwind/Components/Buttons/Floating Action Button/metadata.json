@@ -4,30 +4,55 @@
   "description": "Floating action buttons (FAB) for primary actions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 3,
   "variants": [
     {
       "name": "Standard",
       "description": "Standard circular FABs",
-      "styles": ["Primary", "Outline", "Pink"],
+      "styles": [
+        "Primary",
+        "Outline",
+        "Pink"
+      ],
       "path": "standard/"
     },
     {
       "name": "Extended",
       "description": "FAB with icon and text",
-      "styles": ["Primary", "Outline", "Success"],
+      "styles": [
+        "Primary",
+        "Outline",
+        "Success"
+      ],
       "path": "extended/"
     },
     {
       "name": "Group",
       "description": "Grouped FABs for multiple actions",
-      "styles": ["Share", "Bookmark", "Delete"],
+      "styles": [
+        "Share",
+        "Bookmark",
+        "Delete"
+      ],
       "path": "group/"
     }
   ],
-  "tags": ["button", "fab", "floating", "action"],
-  "searchTerms": ["floating action button", "fab", "fab button", "action button"],
+  "tags": [
+    "button",
+    "fab",
+    "floating",
+    "action"
+  ],
+  "searchTerms": [
+    "floating action button",
+    "fab",
+    "fab button",
+    "action button"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -36,5 +61,6 @@
   "related": [
     "Icon Button",
     "Animated Button"
-  ]
+  ],
+  "type": "component"
 }

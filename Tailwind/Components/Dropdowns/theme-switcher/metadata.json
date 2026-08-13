@@ -7,10 +7,22 @@
   "description": "Theme switcher dropdown with light, dark, system, and sepia themes plus accent color selection.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "theme", "dark-mode", "light-mode", "appearance"],
-  "related": ["language-switcher", "select-dropdown", "profile-menu"],
+  "tags": [
+    "dropdown",
+    "theme",
+    "dark-mode",
+    "light-mode",
+    "appearance"
+  ],
+  "related": [
+    "language-switcher",
+    "select-dropdown",
+    "profile-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

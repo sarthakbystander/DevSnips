@@ -5,11 +5,32 @@
   "description": "Fully rounded pill-shaped outline buttons",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "outline", "pill", "rounded"],
-  "searchTerms": ["outline pill button", "rounded outline button", "pill shaped button"],
-  "related": ["primary", "colors", "thick", "sizes"],
-  "styles": ["Blue", "Pink", "Green"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "outline",
+    "pill",
+    "rounded"
+  ],
+  "searchTerms": [
+    "outline pill button",
+    "rounded outline button",
+    "pill shaped button"
+  ],
+  "related": [
+    "primary",
+    "colors",
+    "thick",
+    "sizes"
+  ],
+  "styles": [
+    "Blue",
+    "Pink",
+    "Green"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

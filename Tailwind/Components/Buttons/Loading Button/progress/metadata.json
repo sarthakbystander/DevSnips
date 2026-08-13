@@ -5,11 +5,30 @@
   "description": "Loading buttons with progress bar indicator",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "loading", "progress", "upload", "download"],
-  "searchTerms": ["progress button", "upload button", "loading progress button"],
-  "related": ["spinner"],
-  "styles": ["Blue", "Green", "Purple"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "loading",
+    "progress",
+    "upload",
+    "download"
+  ],
+  "searchTerms": [
+    "progress button",
+    "upload button",
+    "loading progress button"
+  ],
+  "related": [
+    "spinner"
+  ],
+  "styles": [
+    "Blue",
+    "Green",
+    "Purple"
+  ],
   "accessibility": {
     "focus": "N/A - disabled state",
     "aria": "Use disabled attribute",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

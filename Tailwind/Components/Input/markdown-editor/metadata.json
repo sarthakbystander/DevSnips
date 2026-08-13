@@ -5,11 +5,41 @@
   "description": "Markdown editor with toolbar and dark mode support",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "markdown", "editor", "textarea", "content"],
-  "searchTerms": ["markdown editor", "text editor", "content input", "writing"],
-  "related": ["textarea", "rich-text-editor", "with-helper"],
-  "styles": ["Simple", "With Toolbar", "Dark Mode"],
-  "accessibility": { "focus": "Focus ring on textarea", "aria": "Proper label association", "touch": "Resizable for touch" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "markdown",
+    "editor",
+    "textarea",
+    "content"
+  ],
+  "searchTerms": [
+    "markdown editor",
+    "text editor",
+    "content input",
+    "writing"
+  ],
+  "related": [
+    "textarea",
+    "rich-text-editor",
+    "with-helper"
+  ],
+  "styles": [
+    "Simple",
+    "With Toolbar",
+    "Dark Mode"
+  ],
+  "accessibility": {
+    "focus": "Focus ring on textarea",
+    "aria": "Proper label association",
+    "touch": "Resizable for touch"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

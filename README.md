@@ -4,61 +4,87 @@ Reusable frontend components organized as design system families.
 
 ## Structure
 
-DevSnips is organized around two content types — **Components** (reusable UI building blocks and sections) and **Templates** (complete website/page templates) — under each supported technology.
+DevSnips organizes content under each supported technology. **Tailwind** has
+three first-class content types — **Components**, **Sections**, and **Templates** —
+so you can browse by the granularity you need. Vanilla and React use the
+two-type Components/ + Templates/ layout.
 
 ```
 ├── Tailwind/
-│   ├── Components/            # 50 families, 526 variants
-│   └── Templates/             # 9 full-site templates
+│   ├── Components/            # 13 families, 321 variants — reusable UI building blocks
+│   ├── Sections/              # 16 families, 201 variants — ready-to-use page sections
+│   └── Templates/             # 9 full-site templates — complete page designs
 ├── Vanilla/
 │   ├── Components/            # 34 families, 297 variants
 │   └── Templates/             # 14 templates
 ├── React/
 │   ├── Components/            # (reserved for future React components)
 │   └── Templates/             # (reserved for future React templates)
-├── _gen/                      # Section-style component generator
+├── _gen/                      # Section-style generator + index tooling
 ├── scripts/                   # Validation + indexing tooling
-├── snippets-index.json        # Content index (110 families, 856 variants)
+├── snippets-index.json        # Content index (89 families, 852 variants)
 └── README.md
 ```
 
-> The former `Sections/`, `Utilities/`, and `Resources/` collections have been
-> consolidated. All former Sections are now Components; the standalone
-> Utilities and Resources product categories have been removed.
+> Every Tailwind entry carries a `type` field (`component` · `section` ·
+> `template`) in its `metadata.json` and in `snippets-index.json`, so search and
+> filtering can identify content type without guessing from the URL.
+
+### Tailwind content types
+
+| Type | What it is | Examples |
+|------|------------|----------|
+| **Components** | One focused UI pattern. | Buttons, Cards, Inputs, Modals, Tables, Tabs, Accordions, Tooltips |
+| **Sections** | A larger composition occupying part of a page. | Hero, Pricing, Testimonials, FAQ, Logos, Stats, Footer |
+| **Templates** | A complete page or substantial page experience. | SaaS, Agency, Dashboard, Store |
+
+Browse the Tailwind library from [`Tailwind/index.html`](Tailwind/index.html)
+(three discovery cards) → `Tailwind/Components/index.html`,
+`Tailwind/Sections/index.html`, `Tailwind/Templates/index.html`.
 
 ## Quick Start
 
-1. Browse `Tailwind/Components/` for ready-to-use Tailwind components
-2. Check `Vanilla/Components/` for HTML/CSS/JS patterns
-3. Copy, customize, and ship
+1. Open `index.html` (or `Tailwind/index.html`) to browse by technology/type.
+2. Copy `code.html` (Tailwind) / the `<slug>.html` (Vanilla), customize, and ship.
+3. Each Tailwind variant folder has `code.html` (copy-paste snippet),
+   `preview.html` (full standalone preview), and `metadata.json`.
 
 ## Component Families
 
 ### Tailwind
 
-**Components (50 families, 526 variants):**
+Tailwind content is split into three first-class types: **Components**,
+**Sections**, and **Templates**.
+
+**Components (13 families, 321 variants)** — reusable UI building blocks:
 
 | Family | Variants |
 |--------|----------|
 | **Accordions** | 15 |
-| **Buttons** | 58 (3-level: 15 style groups × sub-variants) |
+| **Buttons** | 54 (3-level: 15 style groups × sub-variants) |
 | **Cards** | 40 |
 | **Dropdowns** | 30 |
 | **Input** | 49 |
 | **Modals** | 30 |
+| **Navbar** | 15 (15 design styles) |
 | **Navigation** | 35 |
 | **Progress** | 6 |
 | **Tables** | 20 |
 | **Tabs** | 15 |
 | **Toasts** | 6 |
 | **Tooltips** | 6 |
-| **404 / Blog / Contact / FAQ / Footer / Logos / Navbar / Newsletter / Stats / Team / Testimonials** | 15 each (11 categories × 15 design styles) |
+
+**Sections (16 families, 201 variants)** — ready-to-use page sections:
+
+| Family | Variants |
+|--------|----------|
+| **404 / Blog / Contact / FAQ / Footer / Logos / Newsletter / Stats / Team / Testimonials** | 15 each (10 categories × 15 design styles) |
 | **ai-product** | Agent Workflow, AI Chat Interface, Model Comparison, Prompt Library (3 styles each) |
 | **app-ui** | Dashboard Overview, Kanban Board (3 styles each) |
 | **developer** | Code Playground, Command Palette (3 styles each) |
 | **marketing** | Feature Grid, Hero Landing (3 styles each) |
 | **premium-visual** | Aurora Hero (3 styles) |
-| **saas** | 15 SaaS sections — product-hero, launch-hero, dashboard-hero, feature-grid, bento-showcase, product-workflow, three-tier-pricing, usage-pricing, pricing-comparison, logo-cloud, testimonials, metrics, screenshot-showcase, trial-cta, enterprise-footer |
+| **saas** | 18 SaaS sections — product-hero, launch-hero, dashboard-hero, feature-grid, bento-showcase, product-workflow, three-tier-pricing, usage-pricing, pricing-comparison, logo-cloud, testimonials, metrics, screenshot-showcase, trial-cta, enterprise-footer |
 
 Design-style reference: `Tailwind/Components/STYLE_TOKENS.md` (neo-brutalism, vercel, sharp-glassmorphism, + the 15 generated styles).
 

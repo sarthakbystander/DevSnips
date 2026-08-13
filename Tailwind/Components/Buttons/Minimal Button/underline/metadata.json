@@ -5,11 +5,30 @@
   "description": "Minimal underline button styles",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "minimal", "underline", "text"],
-  "searchTerms": ["minimal button", "underline button", "text button", "link button"],
-  "related": ["border"],
-  "styles": ["Underline", "Border Underline", "Animated Underline"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "minimal",
+    "underline",
+    "text"
+  ],
+  "searchTerms": [
+    "minimal button",
+    "underline button",
+    "text button",
+    "link button"
+  ],
+  "related": [
+    "border"
+  ],
+  "styles": [
+    "Underline",
+    "Border Underline",
+    "Animated Underline"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +37,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

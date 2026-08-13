@@ -7,7 +7,26 @@
   "description": "E-commerce order tracking table with customer info, order details, status badges with animations, shipping locations, and action buttons for order management.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "orders", "ecommerce", "shipping", "tracking", "management"],
-  "related": ["product-inventory-table", "invoice-table", "filterable-table"],
-  "features": ["order IDs", "customer avatars", "status badges", "shipping locations", "action buttons"]
+  "tags": [
+    "table",
+    "orders",
+    "ecommerce",
+    "shipping",
+    "tracking",
+    "management"
+  ],
+  "related": [
+    "product-inventory-table",
+    "invoice-table",
+    "filterable-table"
+  ],
+  "features": [
+    "order IDs",
+    "customer avatars",
+    "status badges",
+    "shipping locations",
+    "action buttons"
+  ],
+  "type": "component",
+  "category": "Components"
 }

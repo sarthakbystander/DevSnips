@@ -5,11 +5,32 @@
   "description": "Standard floating action buttons (FAB)",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "fab", "floating", "action", "icon"],
-  "searchTerms": ["floating action button", "fab", "fab button", "action button"],
-  "related": ["extended", "group"],
-  "styles": ["Primary", "Outline", "Pink"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "fab",
+    "floating",
+    "action",
+    "icon"
+  ],
+  "searchTerms": [
+    "floating action button",
+    "fab",
+    "fab button",
+    "action button"
+  ],
+  "related": [
+    "extended",
+    "group"
+  ],
+  "styles": [
+    "Primary",
+    "Outline",
+    "Pink"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "aria-label required for icon-only buttons",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -7,7 +7,25 @@
   "description": "Documentation sidebar with vertical tabs controlling article content. Collapses to a horizontal scroll on mobile. Ideal for docs sites and onboarding flows.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "vertical", "sidebar", "documentation", "onboarding"],
-  "related": ["icon-tabs", "settings-tabs", "basic-tabs"],
-  "features": ["vertical orientation", "aria-orientation", "arrow up/down nav", "mobile horizontal scroll", "article panels"]
+  "tags": [
+    "tabs",
+    "vertical",
+    "sidebar",
+    "documentation",
+    "onboarding"
+  ],
+  "related": [
+    "icon-tabs",
+    "settings-tabs",
+    "basic-tabs"
+  ],
+  "features": [
+    "vertical orientation",
+    "aria-orientation",
+    "arrow up/down nav",
+    "mobile horizontal scroll",
+    "article panels"
+  ],
+  "type": "component",
+  "category": "Components"
 }

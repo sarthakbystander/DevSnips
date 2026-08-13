@@ -5,11 +5,34 @@
   "description": "Input fields designed for dark backgrounds with terminal styles",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "dark", "dark-mode", "terminal", "code"],
-  "searchTerms": ["dark input", "dark mode input", "terminal input", "code input"],
-  "related": ["neumorphism", "glassmorphism", "outlined"],
-  "styles": ["Standard", "Subtle Border", "Glow Effect", "Terminal"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "dark",
+    "dark-mode",
+    "terminal",
+    "code"
+  ],
+  "searchTerms": [
+    "dark input",
+    "dark mode input",
+    "terminal input",
+    "code input"
+  ],
+  "related": [
+    "neumorphism",
+    "glassmorphism",
+    "outlined"
+  ],
+  "styles": [
+    "Standard",
+    "Subtle Border",
+    "Glow Effect",
+    "Terminal"
+  ],
   "accessibility": {
     "focus": "High contrast focus indicators",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,37 @@
   "description": "Gradient buttons with all 8 directional options for creative layouts",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["gradient", "button", "directional", "diagonal", "gradient-direction"],
-  "searchTerms": ["gradient button", "directional gradient", "diagonal gradient button", "gradient direction"],
-  "related": ["linear", "multi-stop", "pill"],
-  "styles": ["Left to Right", "Right to Left", "Top to Bottom", "Bottom Right", "Bottom Left", "Top Left", "Top Right"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "gradient",
+    "button",
+    "directional",
+    "diagonal",
+    "gradient-direction"
+  ],
+  "searchTerms": [
+    "gradient button",
+    "directional gradient",
+    "diagonal gradient button",
+    "gradient direction"
+  ],
+  "related": [
+    "linear",
+    "multi-stop",
+    "pill"
+  ],
+  "styles": [
+    "Left to Right",
+    "Right to Left",
+    "Top to Bottom",
+    "Bottom Right",
+    "Bottom Left",
+    "Top Left",
+    "Top Right"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +44,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

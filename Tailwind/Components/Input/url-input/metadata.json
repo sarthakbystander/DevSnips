@@ -5,11 +5,40 @@
   "description": "URL input components with prefix, icon, and link preview styles",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "url", "link", "website"],
-  "searchTerms": ["url input", "link input", "website input"],
-  "related": ["with-prefix", "icon-left", "outlined"],
-  "styles": ["Standard", "With Prefix", "With Icon", "Link Preview"],
-  "accessibility": { "focus": "Clear focus ring", "aria": "Proper label association", "touch": "Standard touch targets" },
-  "files": { "preview": "preview.html", "code": "code.html" }
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "url",
+    "link",
+    "website"
+  ],
+  "searchTerms": [
+    "url input",
+    "link input",
+    "website input"
+  ],
+  "related": [
+    "with-prefix",
+    "icon-left",
+    "outlined"
+  ],
+  "styles": [
+    "Standard",
+    "With Prefix",
+    "With Icon",
+    "Link Preview"
+  ],
+  "accessibility": {
+    "focus": "Clear focus ring",
+    "aria": "Proper label association",
+    "touch": "Standard touch targets"
+  },
+  "files": {
+    "preview": "preview.html",
+    "code": "code.html"
+  },
+  "type": "component"
 }

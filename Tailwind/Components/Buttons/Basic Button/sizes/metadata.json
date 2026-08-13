@@ -5,11 +5,33 @@
   "description": "Button sizes from extra small to extra large for different use cases",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "sizes", "small", "large", "responsive"],
-  "searchTerms": ["button sizes", "small button", "large button", "extra large button"],
-  "related": ["primary", "secondary"],
-  "sizes": ["Small", "Default", "Large", "Extra Large"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "sizes",
+    "small",
+    "large",
+    "responsive"
+  ],
+  "searchTerms": [
+    "button sizes",
+    "small button",
+    "large button",
+    "extra large button"
+  ],
+  "related": [
+    "primary",
+    "secondary"
+  ],
+  "sizes": [
+    "Small",
+    "Default",
+    "Large",
+    "Extra Large"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

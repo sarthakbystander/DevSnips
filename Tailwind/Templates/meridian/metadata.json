@@ -2,8 +2,8 @@
   "name": "Meridian Incident Command Platform",
   "slug": "meridian",
   "technology": "tailwind",
-  "category": "templates",
-  "type": "single-page",
+  "category": "Templates",
+  "type": "template",
   "pages": 1,
   "style": "neo-industrial-swiss-minimal",
   "responsive": true,
@@ -44,7 +44,10 @@
     "semantic HTML, skip link, ARIA, visible focus states, and prefers-reduced-motion support",
     "Tailwind CSS via CDN with no build step"
   ],
-  "related": ["stratum", "ai-saas-platform"],
+  "related": [
+    "stratum",
+    "ai-saas-platform"
+  ],
   "searchTerms": [
     "incident management template",
     "on-call landing page",

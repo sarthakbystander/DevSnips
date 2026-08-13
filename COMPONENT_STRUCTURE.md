@@ -14,17 +14,32 @@ This makes components:
 ## Architecture
 
 DevSnips organizes content under each technology (`Tailwind/`, `Vanilla/`, `React/`)
-into exactly two content types:
+into content types. **Tailwind** has three first-class content types;
+**Vanilla** and **React** use two:
 
 ```
-<Technology>/
-├── Components/   # reusable UI building blocks and sections
-└── Templates/     # complete website / page templates
+Tailwind/
+├── Components/   # reusable UI building blocks
+├── Sections/     # larger reusable page sections (compositions of components)
+└── Templates/    # complete website / page templates
+
+<Vanilla|React>/
+├── Components/   # reusable UI building blocks (and former sections, merged)
+└── Templates/    # complete website / page templates
 ```
 
-There are no standalone `Sections/`, `Utilities/`, or `Resources/` collections —
-former sections are merged into `Components`, and the standalone Utilities/Resources
-categories have been removed.
+There are no standalone `Utilities/` or `Resources/` collections. In Tailwind,
+`Sections/` is a first-class type (distinct from `Components/`); in Vanilla/React
+the former sections are merged into `Components/`.
+
+Every Tailwind item declares its content type via a lowercase `type` field in
+`metadata.json` and in `snippets-index.json`:
+
+| `type` | Category | What it is |
+|--------|----------|------------|
+| `component` | Components | One focused interface pattern (Button, Card, Modal…). |
+| `section` | Sections | A larger composition occupying part of a page (Hero, Pricing, FAQ…). |
+| `template` | Templates | A complete page or substantial page experience (SaaS, Agency…). |
 
 ## Desired Structure
 

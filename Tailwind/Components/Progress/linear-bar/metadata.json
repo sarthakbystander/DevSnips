@@ -7,7 +7,30 @@
   "description": "Animated horizontal progress bar with percentage label and gradient fill. Includes determinate (value-driven), completed (green), and indeterminate (sliding) modes. Accessible via role=progressbar with aria-valuenow/valuetext.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["progress", "bar", "linear", "loading", "determinate", "indeterminate", "percentage"],
-  "related": ["circular-spinner", "upload-progress", "step-progress"],
-  "features": ["determinate fill animation", "indeterminate sliding mode", "percentage label", "gradient fill", "completed state", "role=progressbar", "aria-valuenow/valuetext", "tabular-nums"]
+  "tags": [
+    "progress",
+    "bar",
+    "linear",
+    "loading",
+    "determinate",
+    "indeterminate",
+    "percentage"
+  ],
+  "related": [
+    "circular-spinner",
+    "upload-progress",
+    "step-progress"
+  ],
+  "features": [
+    "determinate fill animation",
+    "indeterminate sliding mode",
+    "percentage label",
+    "gradient fill",
+    "completed state",
+    "role=progressbar",
+    "aria-valuenow/valuetext",
+    "tabular-nums"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -7,10 +7,21 @@
   "description": "Simple, clean dropdown menu with click-to-toggle interaction and standard navigation options.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "menu", "basic", "navigation"],
-  "related": ["action-menu", "click-menu", "hover-menu"],
+  "tags": [
+    "dropdown",
+    "menu",
+    "basic",
+    "navigation"
+  ],
+  "related": [
+    "action-menu",
+    "click-menu",
+    "hover-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

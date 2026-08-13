@@ -7,7 +7,26 @@
   "description": "Chat interface card with conversation thread, message bubbles, timestamps, and input field.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "chat", "messaging", "conversation", "messenger", "communication"],
-  "related": ["notification-card", "activity-feed-card", "support-ticket-card"],
-  "features": ["user header", "message bubbles", "timestamps", "input field", "action buttons"]
+  "tags": [
+    "card",
+    "chat",
+    "messaging",
+    "conversation",
+    "messenger",
+    "communication"
+  ],
+  "related": [
+    "notification-card",
+    "activity-feed-card",
+    "support-ticket-card"
+  ],
+  "features": [
+    "user header",
+    "message bubbles",
+    "timestamps",
+    "input field",
+    "action buttons"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,34 @@
   "description": "Input fields with smooth animated focus transitions",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "animated", "focus", "transition", "smooth"],
-  "searchTerms": ["animated input", "focus animation", "transition input", "smooth input"],
-  "related": ["floating-label", "underline", "outlined"],
-  "styles": ["Ring Expand", "Border Slide", "Floating Label", "Underline Expand"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "animated",
+    "focus",
+    "transition",
+    "smooth"
+  ],
+  "searchTerms": [
+    "animated input",
+    "focus animation",
+    "transition input",
+    "smooth input"
+  ],
+  "related": [
+    "floating-label",
+    "underline",
+    "outlined"
+  ],
+  "styles": [
+    "Ring Expand",
+    "Border Slide",
+    "Floating Label",
+    "Underline Expand"
+  ],
   "accessibility": {
     "focus": "Smooth animation provides clear feedback",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

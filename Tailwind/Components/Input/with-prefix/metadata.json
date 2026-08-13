@@ -5,11 +5,34 @@
   "description": "Input fields with prefixed text or symbols for context",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "prefix", "url", "phone", "form"],
-  "searchTerms": ["input with prefix", "url input", "phone input", "prefixed input"],
-  "related": ["with-suffix", "icon-left", "icon-both"],
-  "styles": ["HTTPS", "At Symbol", "Phone Code", "Domain Suffix"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "prefix",
+    "url",
+    "phone",
+    "form"
+  ],
+  "searchTerms": [
+    "input with prefix",
+    "url input",
+    "phone input",
+    "prefixed input"
+  ],
+  "related": [
+    "with-suffix",
+    "icon-left",
+    "icon-both"
+  ],
+  "styles": [
+    "HTTPS",
+    "At Symbol",
+    "Phone Code",
+    "Domain Suffix"
+  ],
   "accessibility": {
     "focus": "Focus ring on entire input including prefix",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

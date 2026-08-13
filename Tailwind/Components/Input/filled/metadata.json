@@ -5,11 +5,32 @@
   "description": "Input fields with solid background colors that shift on focus",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "filled", "background", "solid"],
-  "searchTerms": ["filled input", "solid input", "background input"],
-  "related": ["outlined", "underline", "glassmorphism"],
-  "styles": ["Default Gray", "Colored", "Dark", "Pill Rounded"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "filled",
+    "background",
+    "solid"
+  ],
+  "searchTerms": [
+    "filled input",
+    "solid input",
+    "background input"
+  ],
+  "related": [
+    "outlined",
+    "underline",
+    "glassmorphism"
+  ],
+  "styles": [
+    "Default Gray",
+    "Colored",
+    "Dark",
+    "Pill Rounded"
+  ],
   "accessibility": {
     "focus": "Background shift + ring on focus",
     "aria": "Labels properly associated",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,33 @@
   "description": "Fully rounded pill-shaped filled buttons",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "filled", "rounded", "pill", "full"],
-  "searchTerms": ["pill button", "rounded button", "full rounded button"],
-  "related": ["primary", "soft", "muted", "sizes"],
-  "styles": ["Blue Pill", "Dark Pill", "Gradient Pill"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "filled",
+    "rounded",
+    "pill",
+    "full"
+  ],
+  "searchTerms": [
+    "pill button",
+    "rounded button",
+    "full rounded button"
+  ],
+  "related": [
+    "primary",
+    "soft",
+    "muted",
+    "sizes"
+  ],
+  "styles": [
+    "Blue Pill",
+    "Dark Pill",
+    "Gradient Pill"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

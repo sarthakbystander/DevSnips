@@ -5,11 +5,31 @@
   "description": "Dark background buttons for dark themed interfaces",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "filled", "dark", "dark mode"],
-  "searchTerms": ["dark button", "dark mode button", "white button on dark"],
-  "related": ["primary", "soft", "muted"],
-  "styles": ["White", "Dark Solid", "Blue"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "filled",
+    "dark",
+    "dark mode"
+  ],
+  "searchTerms": [
+    "dark button",
+    "dark mode button",
+    "white button on dark"
+  ],
+  "related": [
+    "primary",
+    "soft",
+    "muted"
+  ],
+  "styles": [
+    "White",
+    "Dark Solid",
+    "Blue"
+  ],
   "accessibility": {
     "focus": "Visible focus ring with dark offset",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -5,11 +5,32 @@
   "description": "Loading state animations with spinner icons",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML", "CSS"],
-  "tags": ["button", "animated", "loading", "spinner"],
-  "searchTerms": ["loading button", "spinner button", "animated button", "loading state button"],
-  "related": ["progress", "arrow", "scale"],
-  "styles": ["Blue", "Green"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML",
+    "CSS"
+  ],
+  "tags": [
+    "button",
+    "animated",
+    "loading",
+    "spinner"
+  ],
+  "searchTerms": [
+    "loading button",
+    "spinner button",
+    "animated button",
+    "loading state button"
+  ],
+  "related": [
+    "progress",
+    "arrow",
+    "scale"
+  ],
+  "styles": [
+    "Blue",
+    "Green"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use aria-disabled or disabled attribute",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

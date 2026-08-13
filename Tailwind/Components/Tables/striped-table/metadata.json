@@ -7,7 +7,25 @@
   "description": "Recruitment pipeline table with alternating row colors for improved readability. Features candidate photos, match scores with progress bars, and application status badges.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["table", "striped", "recruitment", "candidates", "pipeline"],
-  "related": ["basic-table", "hover-table", "sortable-table"],
-  "features": ["alternating rows", "candidate photos", "match scores", "progress bars", "status badges"]
+  "tags": [
+    "table",
+    "striped",
+    "recruitment",
+    "candidates",
+    "pipeline"
+  ],
+  "related": [
+    "basic-table",
+    "hover-table",
+    "sortable-table"
+  ],
+  "features": [
+    "alternating rows",
+    "candidate photos",
+    "match scores",
+    "progress bars",
+    "status badges"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,34 @@
   "description": "Input fields with icons positioned on the left side for visual context",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "icon", "left-icon", "search", "form"],
-  "searchTerms": ["input with icon", "icon input", "search input", "form icon"],
-  "related": ["icon-right", "icon-both", "search-bar"],
-  "styles": ["Search", "Email", "User", "Password"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "icon",
+    "left-icon",
+    "search",
+    "form"
+  ],
+  "searchTerms": [
+    "input with icon",
+    "icon input",
+    "search input",
+    "form icon"
+  ],
+  "related": [
+    "icon-right",
+    "icon-both",
+    "search-bar"
+  ],
+  "styles": [
+    "Search",
+    "Email",
+    "User",
+    "Password"
+  ],
   "accessibility": {
     "focus": "Icon remains visible, focus ring on input",
     "aria": "Decorative icons marked as pointer-events-none",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -4,42 +4,74 @@
   "description": "Foundation button styles with semantic color variants",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 5,
   "variants": [
     {
       "name": "Primary",
       "description": "Primary action buttons with blue color",
-      "styles": ["Default", "Disabled", "Link"],
+      "styles": [
+        "Default",
+        "Disabled",
+        "Link"
+      ],
       "path": "primary/"
     },
     {
       "name": "Secondary",
       "description": "Secondary buttons with multiple color options",
-      "styles": ["Gray", "Indigo", "Violet"],
+      "styles": [
+        "Gray",
+        "Indigo",
+        "Violet"
+      ],
       "path": "secondary/"
     },
     {
       "name": "Neutral",
       "description": "Buttons designed for dark backgrounds",
-      "styles": ["Light on Dark", "Dark"],
+      "styles": [
+        "Light on Dark",
+        "Dark"
+      ],
       "path": "neutral/"
     },
     {
       "name": "Sizes",
       "description": "All button sizes from small to extra large",
-      "sizes": ["Small", "Default", "Large", "Extra Large"],
+      "sizes": [
+        "Small",
+        "Default",
+        "Large",
+        "Extra Large"
+      ],
       "path": "sizes/"
     },
     {
       "name": "Full Width",
       "description": "Full width and split width buttons",
-      "styles": ["Single Full Width", "Split Width"],
+      "styles": [
+        "Single Full Width",
+        "Split Width"
+      ],
       "path": "full-width/"
     }
   ],
-  "tags": ["button", "basic", "primary", "solid"],
-  "searchTerms": ["basic button", "solid button", "primary button", "submit button"],
+  "tags": [
+    "button",
+    "basic",
+    "primary",
+    "solid"
+  ],
+  "searchTerms": [
+    "basic button",
+    "solid button",
+    "primary button",
+    "submit button"
+  ],
   "accessibility": {
     "focus": "All buttons include visible focus rings",
     "aria": "Use disabled attribute for disabled state",
@@ -49,5 +81,6 @@
     "Ghost Button",
     "Outline Button",
     "Filled Button"
-  ]
+  ],
+  "type": "component"
 }

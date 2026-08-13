@@ -7,7 +7,26 @@
   "description": "Tabs with a smoothly animating sliding underline indicator that glides between active tabs. Great for project management workspaces with board, timeline, calendar, and files views.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tabs", "animated", "indicator", "slider", "project", "workspace"],
-  "related": ["underline-tabs", "segmented-tabs", "dashboard-tabs"],
-  "features": ["sliding underline", "smooth transition", "resize-aware", "kanban/timeline/calendar panels", "arrow-key navigation"]
+  "tags": [
+    "tabs",
+    "animated",
+    "indicator",
+    "slider",
+    "project",
+    "workspace"
+  ],
+  "related": [
+    "underline-tabs",
+    "segmented-tabs",
+    "dashboard-tabs"
+  ],
+  "features": [
+    "sliding underline",
+    "smooth transition",
+    "resize-aware",
+    "kanban/timeline/calendar panels",
+    "arrow-key navigation"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -5,11 +5,33 @@
   "description": "Styled radio button components with card and button group styles",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "radio", "select", "option", "form"],
-  "searchTerms": ["radio button", "radio input", "select option", "form radio"],
-  "related": ["checkbox-styled", "toggle-switch", "outlined"],
-  "styles": ["Default", "Card Style", "Button Group"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "radio",
+    "select",
+    "option",
+    "form"
+  ],
+  "searchTerms": [
+    "radio button",
+    "radio input",
+    "select option",
+    "form radio"
+  ],
+  "related": [
+    "checkbox-styled",
+    "toggle-switch",
+    "outlined"
+  ],
+  "styles": [
+    "Default",
+    "Card Style",
+    "Button Group"
+  ],
   "accessibility": {
     "focus": "Focus visible on radio buttons",
     "aria": "Proper radio group semantics",
@@ -18,5 +40,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

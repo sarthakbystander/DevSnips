@@ -5,11 +5,34 @@
   "description": "Input fields with gradient border effects for visual impact",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "gradient", "border", "colorful", "modern"],
-  "searchTerms": ["gradient border input", "colorful input", "gradient input", "modern input"],
-  "related": ["modern-saas", "filled", "glassmorphism"],
-  "styles": ["Blue Purple", "Cyan Blue", "Warm Dark", "Dark Inner"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "gradient",
+    "border",
+    "colorful",
+    "modern"
+  ],
+  "searchTerms": [
+    "gradient border input",
+    "colorful input",
+    "gradient input",
+    "modern input"
+  ],
+  "related": [
+    "modern-saas",
+    "filled",
+    "glassmorphism"
+  ],
+  "styles": [
+    "Blue Purple",
+    "Cyan Blue",
+    "Warm Dark",
+    "Dark Inner"
+  ],
   "accessibility": {
     "focus": "Gradient border visible on focus",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "faq-bento-grid",
+  "slug": "faq-bento-grid",
+  "name": "Two-Column FAQ — Bento Grid",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "faq",
+  "section": "Two-Column FAQ",
+  "style": "bento-grid",
+  "description": "Bento Grid FAQ layout: Two-column layout.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "faq",
+    "accordion",
+    "questions",
+    "bento-grid"
+  ],
+  "features": [
+    "two-column layout",
+    "8 questions",
+    "responsive collapse",
+    "native accordions",
+    "balanced height"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

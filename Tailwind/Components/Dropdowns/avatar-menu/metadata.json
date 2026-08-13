@@ -7,10 +7,22 @@
   "description": "Avatar dropdown with gradient profile header, online status indicator, quick stats, and badges.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "avatar", "profile", "user", "online-status"],
-  "related": ["profile-menu", "user-account-menu", "notification-menu"],
+  "tags": [
+    "dropdown",
+    "avatar",
+    "profile",
+    "user",
+    "online-status"
+  ],
+  "related": [
+    "profile-menu",
+    "user-account-menu",
+    "notification-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

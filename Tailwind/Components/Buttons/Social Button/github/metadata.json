@@ -5,11 +5,31 @@
   "description": "GitHub sign-in buttons",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "social", "github", "oauth", "signin"],
-  "searchTerms": ["github button", "github sign in", "oauth github button", "github login"],
-  "related": ["google", "facebook"],
-  "styles": ["Light", "Dark"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "social",
+    "github",
+    "oauth",
+    "signin"
+  ],
+  "searchTerms": [
+    "github button",
+    "github sign in",
+    "oauth github button",
+    "github login"
+  ],
+  "related": [
+    "google",
+    "facebook"
+  ],
+  "styles": [
+    "Light",
+    "Dark"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +38,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

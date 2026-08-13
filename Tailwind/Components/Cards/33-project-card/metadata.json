@@ -7,7 +7,26 @@
   "description": "Project overview card with gradient header, progress bar, team avatars, status badge, and metadata.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["card", "project", "management", "progress", "team", "kanban"],
-  "related": ["task-card", "analytics-card", "timeline-card"],
-  "features": ["gradient header", "status badge", "progress bar", "team avatars", "task count"]
+  "tags": [
+    "card",
+    "project",
+    "management",
+    "progress",
+    "team",
+    "kanban"
+  ],
+  "related": [
+    "task-card",
+    "analytics-card",
+    "timeline-card"
+  ],
+  "features": [
+    "gradient header",
+    "status badge",
+    "progress bar",
+    "team avatars",
+    "task count"
+  ],
+  "type": "component",
+  "category": "Components"
 }

@@ -7,10 +7,22 @@
   "description": "Rich mega menu navigation with multi-column layouts, category sections, icons, and featured promotional area.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "mega-menu", "navigation", "header", "multi-column"],
-  "related": ["multi-level-menu", "sidebar-menu", "mobile-menu"],
+  "tags": [
+    "dropdown",
+    "mega-menu",
+    "navigation",
+    "header",
+    "multi-column"
+  ],
+  "related": [
+    "multi-level-menu",
+    "sidebar-menu",
+    "mobile-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

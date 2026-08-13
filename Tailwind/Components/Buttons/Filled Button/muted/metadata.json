@@ -5,11 +5,32 @@
   "description": "Muted background buttons for less prominent actions",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["button", "filled", "muted", "gray"],
-  "searchTerms": ["muted button", "gray button", "subtle button"],
-  "related": ["primary", "soft", "rounded", "sizes"],
-  "styles": ["Gray", "Dark", "Slate"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "button",
+    "filled",
+    "muted",
+    "gray"
+  ],
+  "searchTerms": [
+    "muted button",
+    "gray button",
+    "subtle button"
+  ],
+  "related": [
+    "primary",
+    "soft",
+    "rounded",
+    "sizes"
+  ],
+  "styles": [
+    "Gray",
+    "Dark",
+    "Slate"
+  ],
   "accessibility": {
     "focus": "Visible focus ring included",
     "aria": "Use disabled attribute for disabled state",
@@ -18,5 +39,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

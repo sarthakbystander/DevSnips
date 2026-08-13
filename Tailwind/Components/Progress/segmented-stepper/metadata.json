@@ -7,7 +7,30 @@
   "description": "Horizontal multi-step progress stepper for checkouts and wizards. Each step shows completed (checkmark, filled), current (number, outlined), or upcoming (muted) state, with a connecting progress line that fills as steps complete.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["progress", "stepper", "wizard", "checkout", "steps", "multi-step", "navigation"],
-  "related": ["step-progress", "linear-bar", "upload-progress"],
-  "features": ["completed/current/upcoming states", "connecting progress line", "checkmark on completed steps", "responsive labels", "interactive next/back", "data-stepper-step driven", "aria-hidden on decorative icons", "focus-visible ring"]
+  "tags": [
+    "progress",
+    "stepper",
+    "wizard",
+    "checkout",
+    "steps",
+    "multi-step",
+    "navigation"
+  ],
+  "related": [
+    "step-progress",
+    "linear-bar",
+    "upload-progress"
+  ],
+  "features": [
+    "completed/current/upcoming states",
+    "connecting progress line",
+    "checkmark on completed steps",
+    "responsive labels",
+    "interactive next/back",
+    "data-stepper-step driven",
+    "aria-hidden on decorative icons",
+    "focus-visible ring"
+  ],
+  "type": "component",
+  "category": "Components"
 }

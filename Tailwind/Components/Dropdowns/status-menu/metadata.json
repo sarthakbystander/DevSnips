@@ -7,10 +7,22 @@
   "description": "User status selector dropdown with active, away, busy, offline, and do not disturb options with animated indicators.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "status", "online", "presence", "chat"],
-  "related": ["avatar-menu", "radio-menu", "profile-menu"],
+  "tags": [
+    "dropdown",
+    "status",
+    "online",
+    "presence",
+    "chat"
+  ],
+  "related": [
+    "avatar-menu",
+    "radio-menu",
+    "profile-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

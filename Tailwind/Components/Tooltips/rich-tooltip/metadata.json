@@ -7,7 +7,31 @@
   "description": "Wide tooltip with rich content - a title plus a multi-line description - ideal for help text on form fields and complex UI elements. Pure CSS using two data attributes, hover or focus to reveal.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["tooltip", "rich", "help", "multiline", "form", "css-only", "accessibility"],
-  "related": ["basic-tooltip", "directional-tooltip", "status-tooltip"],
-  "features": ["title + description content", "multi-line wrapping", "wider tooltip box", "hover + focus triggers", "shadow elevation", "pure CSS no JS", "role=tooltip", "aria-describedby", "icon trigger"]
+  "tags": [
+    "tooltip",
+    "rich",
+    "help",
+    "multiline",
+    "form",
+    "css-only",
+    "accessibility"
+  ],
+  "related": [
+    "basic-tooltip",
+    "directional-tooltip",
+    "status-tooltip"
+  ],
+  "features": [
+    "title + description content",
+    "multi-line wrapping",
+    "wider tooltip box",
+    "hover + focus triggers",
+    "shadow elevation",
+    "pure CSS no JS",
+    "role=tooltip",
+    "aria-describedby",
+    "icon trigger"
+  ],
+  "type": "component",
+  "category": "Components"
 }

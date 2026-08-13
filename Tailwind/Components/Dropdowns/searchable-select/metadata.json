@@ -7,10 +7,22 @@
   "description": "Searchable dropdown with real-time filtering, country flags, and no-results state for large lists.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["dropdown", "select", "search", "filter", "autocomplete"],
-  "related": ["select-dropdown", "multi-select", "command-menu"],
+  "tags": [
+    "dropdown",
+    "select",
+    "search",
+    "filter",
+    "autocomplete"
+  ],
+  "related": [
+    "select-dropdown",
+    "multi-select",
+    "command-menu"
+  ],
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component",
+  "category": "Components"
 }

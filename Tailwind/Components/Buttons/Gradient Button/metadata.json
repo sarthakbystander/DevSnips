@@ -4,48 +4,91 @@
   "description": "Gradient buttons with linear, multi-stop, directional, pill, shadow, and dark background variants",
   "category": "Components",
   "subcategory": "Buttons",
-  "tech": ["Tailwind CSS", "HTML"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
   "variantCount": 6,
   "variants": [
     {
       "name": "Linear",
       "description": "Two-color horizontal gradient buttons",
-      "styles": ["Blue", "Purple Pink", "Cyan Blue", "Green Cyan"],
+      "styles": [
+        "Blue",
+        "Purple Pink",
+        "Cyan Blue",
+        "Green Cyan"
+      ],
       "path": "linear/"
     },
     {
       "name": "Multi-Stop",
       "description": "Three or more gradient color stops",
-      "styles": ["Spectrum", "Deep Blue", "Warm Fire"],
+      "styles": [
+        "Spectrum",
+        "Deep Blue",
+        "Warm Fire"
+      ],
       "path": "multi-stop/"
     },
     {
       "name": "Directional",
       "description": "All 8 gradient directions",
-      "styles": ["Left to Right", "Right to Left", "Top to Bottom", "Bottom Right", "Bottom Left", "Top Left", "Top Right"],
+      "styles": [
+        "Left to Right",
+        "Right to Left",
+        "Top to Bottom",
+        "Bottom Right",
+        "Bottom Left",
+        "Top Left",
+        "Top Right"
+      ],
       "path": "directional/"
     },
     {
       "name": "Pill",
       "description": "Fully rounded pill-shaped gradient buttons",
-      "styles": ["Violet", "Cyan", "Emerald"],
+      "styles": [
+        "Violet",
+        "Cyan",
+        "Emerald"
+      ],
       "path": "pill/"
     },
     {
       "name": "Shadow",
       "description": "Gradient buttons with colored shadows",
-      "styles": ["Blue", "Pink", "Amber"],
+      "styles": [
+        "Blue",
+        "Pink",
+        "Amber"
+      ],
       "path": "shadow/"
     },
     {
       "name": "Dark Background",
       "description": "Buttons designed for dark backgrounds",
-      "styles": ["Light on Gray", "Bright on Gray", "Cyan on Purple", "Warm on Purple"],
+      "styles": [
+        "Light on Gray",
+        "Bright on Gray",
+        "Cyan on Purple",
+        "Warm on Purple"
+      ],
       "path": "dark-background/"
     }
   ],
-  "tags": ["gradient", "button", "cta", "call to action"],
-  "searchTerms": ["gradient button", "gradient buttons tailwind", "color gradient button", "multi color button"],
+  "tags": [
+    "gradient",
+    "button",
+    "cta",
+    "call to action"
+  ],
+  "searchTerms": [
+    "gradient button",
+    "gradient buttons tailwind",
+    "color gradient button",
+    "multi color button"
+  ],
   "accessibility": {
     "focus": "All buttons include visible focus rings",
     "aria": "Use disabled attribute for disabled state",
@@ -55,5 +98,6 @@
     "Glass Button",
     "Animated Button",
     "Icon Button"
-  ]
+  ],
+  "type": "component"
 }

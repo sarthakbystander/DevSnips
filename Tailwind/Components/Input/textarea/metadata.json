@@ -5,11 +5,34 @@
   "description": "Multi-line text input components with various styling options",
   "category": "Components",
   "subcategory": "Input",
-  "tech": ["Tailwind CSS", "HTML"],
-  "tags": ["input", "textarea", "multi-line", "form", "text"],
-  "searchTerms": ["textarea", "multi-line input", "text area", "form textarea"],
-  "related": ["outlined", "character-count", "with-helper"],
-  "styles": ["Default", "Auto-resize", "With Counter", "Chat Style"],
+  "tech": [
+    "Tailwind CSS",
+    "HTML"
+  ],
+  "tags": [
+    "input",
+    "textarea",
+    "multi-line",
+    "form",
+    "text"
+  ],
+  "searchTerms": [
+    "textarea",
+    "multi-line input",
+    "text area",
+    "form textarea"
+  ],
+  "related": [
+    "outlined",
+    "character-count",
+    "with-helper"
+  ],
+  "styles": [
+    "Default",
+    "Auto-resize",
+    "With Counter",
+    "Chat Style"
+  ],
   "accessibility": {
     "focus": "Clear focus ring indicator",
     "aria": "Labels properly associated",
@@ -18,5 +41,6 @@
   "files": {
     "preview": "preview.html",
     "code": "code.html"
-  }
+  },
+  "type": "component"
 }

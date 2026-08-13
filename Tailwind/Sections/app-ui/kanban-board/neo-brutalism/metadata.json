@@ -1,0 +1,37 @@
+{
+  "name": "Kanban Board — Neo-Brutalism",
+  "slug": "kanban-board-neo-brutalism",
+  "category": "Sections",
+  "subcategory": "app-ui",
+  "section": "kanban-board",
+  "style": "neo-brutalism",
+  "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "kanban",
+    "board",
+    "neo-brutalism",
+    "brutalist",
+    "drag-and-drop",
+    "task-board",
+    "app-ui",
+    "project-management"
+  ],
+  "features": [
+    "hard offset shadows on cards and panel",
+    "flat bright accent column headers",
+    "press-down hover states",
+    "HTML5 drag-and-drop between columns",
+    "live-updating count badges",
+    "add-card affordance per column",
+    "placeholder drop indicator",
+    "keyboard-focusable draggable cards"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Archivo, JetBrains Mono"
+  ],
+  "type": "section"
+}
