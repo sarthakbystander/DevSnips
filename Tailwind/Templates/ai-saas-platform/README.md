@@ -6,13 +6,13 @@ Brand used in the template: **Nexus AI** — a fictional unified AI inference pl
 
 ## Design language
 
-Inspired by the aesthetics of Linear, Vercel, Raycast, Stripe, and Framer (used as quality references, not copied):
+A quiet, editorial, light-mode-first design:
 
-- Dark premium background (`#070B16`) with a refined neutral palette
-- Gradient accents (violet → indigo → cyan)
-- Glass panels (`backdrop-blur` over `white/[0.03]`), soft shadows, hairline borders
-- Large, tight-tracked Inter headlines with `text-balance`
-- Floating UI elements, subtle marquee + floaty animations
+- Warm paper background (`#F9F7F4`) with a refined neutral ink ramp (`#1C1917` → `#78716C`)
+- A single terracotta accent (`#E07A5F` / `#C85D42`) — used sparingly for CTAs, active states, and emphasis
+- Fraunces (display serif) + Inter (body) typography; oversized, tight-tracked, balanced headlines
+- White cards, 1px hairline borders (`rgba(28,25,23,0.08)`), restrained soft shadows — no gradients as a primary visual language
+- Subtle scroll-reveal, marquee, and float animations (all `prefers-reduced-motion` safe)
 - Consistent spacing system and visual hierarchy across every page
 
 ## Structure
@@ -32,10 +32,10 @@ ai-saas-platform/
 │   ├── signup.html         # Split-screen: benefits panel + registration form + social signup
 │   └── dashboard.html      # App UI: sidebar, top nav, analytics cards, charts, model mix, activity, cost
 ├── components/
-│   ├── navbar.html         # Sticky glass navbar + mobile menu (scoped JS)
+│   ├── navbar.html         # Sticky paper navbar + mobile menu (scoped JS)
 │   ├── footer.html         # Brand, link columns, newsletter, social, legal bar
-│   ├── buttons.html        # Button system: gradient, solid, outline, ghost, pill badge, dark variant
-│   └── reusable-ui.html    # Eyebrow, gradient text, glass card, stat, avatars, marquee, accordion
+│   ├── buttons.html        # Button system: terracotta primary, dark-ink solid, outline, ghost, pill badge, link-with-arrow
+│   └── reusable-ui.html    # Eyebrow, accent headline, paper card, stat, avatars, marquee, accordion
 ├── assets/
 │   ├── icons/              # logo.svg + feature icons (ai, chart, shield, grid, integrations, bolt, users, clock, check)
 │   ├── images/             # dashboard-mockup.svg, workflow-mockup.svg, og-image.svg
@@ -92,11 +92,11 @@ python3 -m http.server
 ## Tech
 
 - Tailwind CSS via CDN (`https://cdn.tailwindcss.com`)
-- Google Fonts: Inter (+ JetBrains Mono on docs/dashboard)
+- Google Fonts: Fraunces (display) + Inter (body)
 - Pure HTML + scoped vanilla JS. No React/Vue/Bootstrap/DaisyUI/Flowbite.
 
 ## Customization
 
 - Swap the brand name/mark, copy, and colors to fit your product.
-- Colors live inline in Tailwind classes (violet/indigo/cyan accents over `#070B16`). Adjust the gradient stops and the `--bg`/glow values to retheme.
+- The palette lives inline in the per-page `tailwind.config` (`paper` / `ink` / `terracotta` ramp). Adjust those values to retheme every page at once.
 - Replace SVG placeholders in `assets/` with real product screenshots when ready.
