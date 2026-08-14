@@ -1,9 +1,0 @@
-/*
-Snippet Name: CSS Variable Fallback Chaining
-Use Case: To provide multiple fallback values for a CSS custom property, ensuring that if a variable isn't defined, it can check for another variable before resorting to a hardcoded value.
-Description: This snippet demonstrates how to chain `var()` functions. The browser will use `--custom-color` if it's defined, fall back to `--fallback-color` if the first is not, and finally use `#333` if neither variable is set.
-*/
-.some-element {
-  /* var(custom-property, fallback-value) */
-  color: var(--custom-color, var(--fallback-color, #333));
-}

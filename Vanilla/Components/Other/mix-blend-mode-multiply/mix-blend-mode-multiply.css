@@ -1,9 +1,0 @@
-/*
-Snippet Name: Mix Blend Mode
-Use Case: To control how an element's content should blend with the content of the element's background. It's great for creating effects like image overlays or artistic text.
-Description: This snippet demonstrates the `mix-blend-mode` property. The `multiply` value will darken the background by blending the element's content (e.g., text or an image) with its background color.
-*/
-.blend-multiply {
-  mix-blend-mode: multiply;
-  background-color: steelblue; /* Example background color */
-}

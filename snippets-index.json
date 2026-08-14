@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-13",
+  "lastUpdated": "2026-08-14",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 89,
-    "totalVariants": 852,
+    "totalFamilies": 87,
+    "totalVariants": 750,
     "totalSubVariants": 0,
-    "totalStyles": 2014,
+    "totalStyles": 1732,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -737,32 +737,6 @@
           ]
         },
         {
-          "name": "Outline Colors Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
-          "type": "component",
-          "description": "Outline buttons available in multiple colors",
-          "tags": [
-            "button",
-            "outline",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Ghost Colors Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
           "type": "component",
@@ -789,6 +763,32 @@
           ]
         },
         {
+          "name": "Outline Colors Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
+          "type": "component",
+          "description": "Outline buttons available in multiple colors",
+          "tags": [
+            "button",
+            "outline",
+            "colors",
+            "red",
+            "green",
+            "purple"
+          ],
+          "styles": [
+            "Red",
+            "Green",
+            "Amber",
+            "Purple",
+            "Dark"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Icon Button Dark",
           "path": "Tailwind/Components/Buttons/Icon Button/dark/",
           "type": "component",
@@ -804,6 +804,50 @@
             "Darker",
             "Light",
             "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Dark Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
+          "type": "component",
+          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
+          "tags": [
+            "button",
+            "ghost",
+            "dark",
+            "dark mode"
+          ],
+          "styles": [
+            "White",
+            "Gray",
+            "Blue"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Dark Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
+          "type": "component",
+          "description": "Dark glass morphism buttons for dark interfaces",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "dark"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Pill"
           ],
           "files": [
             "code.html",
@@ -847,50 +891,6 @@
           "styles": [
             "White",
             "Dark Solid",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Dark Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
-          "type": "component",
-          "description": "Dark glass morphism buttons for dark interfaces",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "dark"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "type": "component",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
             "Blue"
           ],
           "files": [
@@ -1127,6 +1127,28 @@
           ]
         },
         {
+          "name": "Animated Icon Button",
+          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "type": "component",
+          "description": "Icon animations on hover for interactive effects",
+          "tags": [
+            "button",
+            "animated",
+            "icon",
+            "hover"
+          ],
+          "styles": [
+            "Scale",
+            "Rotate",
+            "Flip"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Split Button Icon",
           "path": "Tailwind/Components/Buttons/Split Button/icon/",
           "type": "component",
@@ -1140,29 +1162,6 @@
           "styles": [
             "Primary",
             "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
-          "type": "component",
-          "description": "Glass morphism icon buttons for toolbars and actions",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "icon"
-          ],
-          "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1194,20 +1193,21 @@
           ]
         },
         {
-          "name": "Animated Icon Button",
-          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
           "type": "component",
-          "description": "Icon animations on hover for interactive effects",
+          "description": "Glass morphism icon buttons for toolbars and actions",
           "tags": [
             "button",
-            "animated",
-            "icon",
-            "hover"
+            "glass",
+            "glassmorphism",
+            "icon"
           ],
           "styles": [
-            "Scale",
-            "Rotate",
-            "Flip"
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -1326,28 +1326,6 @@
           ]
         },
         {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Pill Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
           "type": "component",
@@ -1371,6 +1349,28 @@
           ]
         },
         {
+          "name": "Outline Pill Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
+          "type": "component",
+          "description": "Fully rounded pill-shaped outline buttons",
+          "tags": [
+            "button",
+            "outline",
+            "pill",
+            "rounded"
+          ],
+          "styles": [
+            "Blue",
+            "Pink",
+            "Green"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Neumorphism Pressed Button",
           "path": "Tailwind/Components/Buttons/Neumorphism Button/pressed/",
           "type": "component",
@@ -1385,6 +1385,50 @@
             "Default",
             "Pill",
             "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Ghost Primary Button",
+          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
+          "type": "component",
+          "description": "Transparent buttons with blue hover background effect",
+          "tags": [
+            "button",
+            "ghost",
+            "transparent",
+            "hover"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Solid (comparison)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Primary Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
+          "type": "component",
+          "description": "Color glass morphism buttons with colored backgrounds",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "colored"
+          ],
+          "styles": [
+            "Blue",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -1428,50 +1472,6 @@
             "Default",
             "Disabled",
             "Link"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Primary Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
-          "type": "component",
-          "description": "Color glass morphism buttons with colored backgrounds",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "colored"
-          ],
-          "styles": [
-            "Blue",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Primary Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
-          "type": "component",
-          "description": "Transparent buttons with blue hover background effect",
-          "tags": [
-            "button",
-            "ghost",
-            "transparent",
-            "hover"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Solid (comparison)"
           ],
           "files": [
             "code.html",
@@ -1659,32 +1659,6 @@
           ]
         },
         {
-          "name": "Soft Background Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
-          "type": "component",
-          "description": "Soft background buttons with pastel colors for subtle actions",
-          "tags": [
-            "button",
-            "filled",
-            "soft",
-            "pastel",
-            "subtle"
-          ],
-          "styles": [
-            "Blue",
-            "Green",
-            "Red",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Neumorphism Soft Button",
           "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
           "type": "component",
@@ -1722,6 +1696,32 @@
             "Default",
             "Disabled",
             "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Soft Background Button",
+          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
+          "type": "component",
+          "description": "Soft background buttons with pastel colors for subtle actions",
+          "tags": [
+            "button",
+            "filled",
+            "soft",
+            "pastel",
+            "subtle"
+          ],
+          "styles": [
+            "Blue",
+            "Green",
+            "Red",
+            "Amber",
+            "Purple",
+            "Pink"
           ],
           "files": [
             "code.html",
@@ -14724,6 +14724,41 @@
       "variantsCount": 12,
       "variants": [
         {
+          "name": "Prompt Library — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist gallery of reusable prompt templates — hard black borders, offset drop shadows, and flat bright accents per category. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a brief 'Copied!' state.",
+          "tags": [
+            "prompt-library",
+            "prompts",
+            "templates",
+            "neo-brutalism",
+            "brutalist",
+            "copy-clipboard",
+            "filter",
+            "gallery",
+            "ai-product"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "press-down hover states",
+            "category filter chips (Writing/Code/Analysis/Image)",
+            "live search across cards",
+            "copy-to-clipboard with Copied! state",
+            "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Model Comparison — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
           "type": "section",
@@ -14759,30 +14794,29 @@
           ]
         },
         {
-          "name": "Prompt Library — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
+          "name": "AI Chat Interface — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist gallery of reusable prompt templates — hard black borders, offset drop shadows, and flat bright accents per category. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a brief 'Copied!' state.",
+          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
           "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
+            "ai-chat",
+            "chatbot",
             "neo-brutalism",
             "brutalist",
-            "copy-clipboard",
-            "filter",
-            "gallery",
-            "ai-product"
+            "chat-interface",
+            "assistant",
+            "prompt",
+            "dark-accents"
           ],
           "features": [
             "hard offset shadows",
             "flat bright accent palette",
             "press-down hover states",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
+            "animated typing indicator",
+            "clickable prompt chips",
+            "wired send + auto-reply",
+            "custom scrollbar styling",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "neo-brutalism"
@@ -14829,32 +14863,34 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
+          "name": "Prompt Library — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh — translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
           "tags": [
-            "ai-chat",
-            "chatbot",
-            "neo-brutalism",
-            "brutalist",
-            "chat-interface",
-            "assistant",
-            "prompt",
-            "dark-accents"
+            "prompt-library",
+            "prompts",
+            "templates",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "copy-clipboard",
+            "filter",
+            "ai-product"
           ],
           "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "animated typing indicator",
-            "clickable prompt chips",
-            "wired send + auto-reply",
-            "custom scrollbar styling",
-            "keyboard accessible inputs"
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "gradient primary accents and cyan glow dot",
+            "luminous top-edge highlight",
+            "category filter chips (Writing/Code/Analysis/Image)",
+            "live search across cards",
+            "copy-to-clipboard with checkmark Copied! state",
+            "empty state for no matches",
+            "keyboard accessible controls"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -14898,31 +14934,29 @@
           ]
         },
         {
-          "name": "Prompt Library — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
+          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh — translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
+          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
           "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
+            "ai-chat",
+            "chatbot",
             "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "copy-clipboard",
-            "filter",
-            "ai-product"
+            "glass",
+            "chat-interface",
+            "assistant",
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "frosted-glass panels with backdrop blur",
+            "backdrop-blur glass panels",
             "animated gradient mesh backdrop",
-            "gradient primary accents and cyan glow dot",
-            "luminous top-edge highlight",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with checkmark Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
+            "luminous edge highlights",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "gradient send button",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -14970,32 +15004,33 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "name": "Prompt Library — Vercel",
+          "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
           "type": "section",
-          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
           "tags": [
-            "ai-chat",
-            "chatbot",
-            "glassmorphism",
-            "glass",
-            "chat-interface",
-            "assistant",
-            "gradient",
-            "vibrant"
+            "prompt-library",
+            "prompts",
+            "templates",
+            "vercel",
+            "dark",
+            "copy-clipboard",
+            "filter",
+            "gallery",
+            "ai-product"
           ],
           "features": [
-            "backdrop-blur glass panels",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "gradient send button",
-            "keyboard accessible inputs"
+            "dark monochrome surfaces",
+            "hairline borders and subtle hover",
+            "single teal accent dot",
+            "category filter chips (Writing/Code/Analysis/Image)",
+            "live search across cards",
+            "copy-to-clipboard with checkmark Copied! state",
+            "empty state for no matches",
+            "keyboard accessible controls"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15039,30 +15074,29 @@
           ]
         },
         {
-          "name": "Prompt Library — Vercel",
-          "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
+          "name": "AI Chat Interface — Vercel",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
+          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
           "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
+            "ai-chat",
+            "chatbot",
             "vercel",
-            "dark",
-            "copy-clipboard",
-            "filter",
-            "gallery",
-            "ai-product"
+            "dark-mode",
+            "chat-interface",
+            "assistant",
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "dark monochrome surfaces",
-            "hairline borders and subtle hover",
-            "single teal accent dot",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with checkmark Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "wired send + auto-reply",
+            "thin custom scrollbar",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -15099,40 +15133,6 @@
             "pulsing active-step node",
             "prefers-reduced-motion aware",
             "keyboard accessible buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "AI Chat Interface — Vercel",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "vercel",
-            "dark-mode",
-            "chat-interface",
-            "assistant",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "wired send + auto-reply",
-            "thin custom scrollbar",
-            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -15196,40 +15196,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Kanban Board — Neo-Brutalism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
-          "tags": [
-            "kanban",
-            "board",
-            "neo-brutalism",
-            "brutalist",
-            "drag-and-drop",
-            "task-board",
-            "app-ui",
-            "project-management"
-          ],
-          "features": [
-            "hard offset shadows on cards and panel",
-            "flat bright accent column headers",
-            "press-down hover states",
-            "HTML5 drag-and-drop between columns",
-            "live-updating count badges",
-            "add-card affordance per column",
-            "placeholder drop indicator",
-            "keyboard-focusable draggable cards"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Dashboard Overview — Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
@@ -15266,34 +15232,32 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
+          "name": "Kanban Board — Neo-Brutalism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
           "tags": [
             "kanban",
             "board",
-            "glassmorphism",
-            "glass",
+            "neo-brutalism",
+            "brutalist",
             "drag-and-drop",
             "task-board",
             "app-ui",
-            "project-management",
-            "gradient",
-            "vibrant"
+            "project-management"
           ],
           "features": [
-            "backdrop-blur glass columns",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlights",
-            "glowing cyan status dots",
-            "gradient priority chips",
+            "hard offset shadows on cards and panel",
+            "flat bright accent column headers",
+            "press-down hover states",
             "HTML5 drag-and-drop between columns",
-            "live-updating count chips",
+            "live-updating count badges",
+            "add-card affordance per column",
+            "placeholder drop indicator",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15342,34 +15306,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Vercel",
-          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "name": "Kanban Board — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
           "tags": [
             "kanban",
             "board",
-            "vercel",
-            "dark-mode",
+            "glassmorphism",
+            "glass",
             "drag-and-drop",
             "task-board",
             "app-ui",
             "project-management",
-            "minimal",
-            "monochrome"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "dark monochrome palette",
-            "hairline borders + radial glow",
-            "glowing teal status dots",
-            "pill count badges",
+            "backdrop-blur glass columns",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlights",
+            "glowing cyan status dots",
+            "gradient priority chips",
             "HTML5 drag-and-drop between columns",
-            "live-updating counts",
-            "dashed add-card affordance",
+            "live-updating count chips",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15406,6 +15370,42 @@
             "hairline borders + subtle glow",
             "recent activity feed",
             "keyboard accessible range buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Kanban Board — Vercel",
+          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "tags": [
+            "kanban",
+            "board",
+            "vercel",
+            "dark-mode",
+            "drag-and-drop",
+            "task-board",
+            "app-ui",
+            "project-management",
+            "minimal",
+            "monochrome"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline borders + radial glow",
+            "glowing teal status dots",
+            "pill count badges",
+            "HTML5 drag-and-drop between columns",
+            "live-updating counts",
+            "dashed add-card affordance",
+            "keyboard-focusable draggable cards"
           ],
           "styles": [
             "vercel"
@@ -15455,41 +15455,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Command Palette — Neo-Brutalism",
-          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
-          "tags": [
-            "command-palette",
-            "cmd-k",
-            "neo-brutalism",
-            "brutalist",
-            "keyboard",
-            "search",
-            "overlay",
-            "dialog",
-            "developer"
-          ],
-          "features": [
-            "hard offset shadows and bright flat accents",
-            "live search filtering across grouped commands",
-            "arrow-key navigation with aria-activedescendant",
-            "Enter runs command with confirmation toast",
-            "Escape closes, Cmd/Ctrl+K toggles open",
-            "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected",
-            "custom scrollbar styling"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Code Playground — Neo-Brutalism",
           "path": "Tailwind/Sections/developer/code-playground/neo-brutalism/",
           "type": "section",
@@ -15527,16 +15492,15 @@
           ]
         },
         {
-          "name": "Command Palette — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
+          "name": "Command Palette — Neo-Brutalism",
+          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
+          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
+            "neo-brutalism",
+            "brutalist",
             "keyboard",
             "search",
             "overlay",
@@ -15544,18 +15508,17 @@
             "developer"
           ],
           "features": [
-            "frosted-glass panel with backdrop blur over animated mesh",
-            "luminous top edge and glow shadows",
-            "gradient active highlight on selected option",
+            "hard offset shadows and bright flat accents",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
             "Escape closes, Cmd/Ctrl+K toggles open",
             "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected"
+            "role dialog and role option with aria-selected",
+            "custom scrollbar styling"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15602,15 +15565,16 @@
           ]
         },
         {
-          "name": "Command Palette — Vercel",
-          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "name": "Command Palette — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "vercel",
-            "dark",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
             "keyboard",
             "search",
             "overlay",
@@ -15618,8 +15582,9 @@
             "developer"
           ],
           "features": [
-            "dark monochrome surface with hairline borders",
-            "single teal accent and radial glow",
+            "frosted-glass panel with backdrop blur over animated mesh",
+            "luminous top edge and glow shadows",
+            "gradient active highlight on selected option",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
@@ -15628,7 +15593,7 @@
             "role dialog and role option with aria-selected"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15663,6 +15628,41 @@
             "live char + line counters",
             "reset control restores defaults",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Command Palette — Vercel",
+          "path": "Tailwind/Sections/developer/command-palette/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "tags": [
+            "command-palette",
+            "cmd-k",
+            "vercel",
+            "dark",
+            "keyboard",
+            "search",
+            "overlay",
+            "dialog",
+            "developer"
+          ],
+          "features": [
+            "dark monochrome surface with hairline borders",
+            "single teal accent and radial glow",
+            "live search filtering across grouped commands",
+            "arrow-key navigation with aria-activedescendant",
+            "Enter runs command with confirmation toast",
+            "Escape closes, Cmd/Ctrl+K toggles open",
+            "focus trap while open, focus restore on close",
+            "role dialog and role option with aria-selected"
           ],
           "styles": [
             "vercel"
@@ -16093,30 +16093,29 @@
       "variantsCount": 18,
       "variants": [
         {
-          "name": "Pricing Table — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
           "tags": [
             "pricing",
-            "pricing-table",
+            "usage-based",
             "neo-brutalism",
             "brutalist",
-            "billing-toggle",
+            "slider",
+            "metered",
             "saas",
-            "plans",
-            "cta",
-            "monochrome-accents"
+            "offset-shadows"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with badge",
-            "check/dash feature lists",
-            "hard offset shadows",
-            "flat bright accent palette",
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
             "press-down hover states",
-            "keyboard accessible toggle buttons"
+            "keyboard accessible slider"
           ],
           "styles": [
             "neo-brutalism"
@@ -16150,40 +16149,6 @@
             "diagonal grid background",
             "rotated guarantee sticker",
             "press-down hover states"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
-          "tags": [
-            "pricing",
-            "usage-based",
-            "neo-brutalism",
-            "brutalist",
-            "slider",
-            "metered",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
-            "press-down hover states",
-            "keyboard accessible slider"
           ],
           "styles": [
             "neo-brutalism"
@@ -16263,6 +16228,41 @@
           ]
         },
         {
+          "name": "Pricing Table — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "neo-brutalism",
+            "brutalist",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "cta",
+            "monochrome-accents"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with badge",
+            "check/dash feature lists",
+            "hard offset shadows",
+            "flat bright accent palette",
+            "press-down hover states",
+            "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "SaaS Feature Grid — Neo-Brutalism",
           "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
@@ -16287,142 +16287,6 @@
           ],
           "styles": [
             "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Bento Feature Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/bento-showcase/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
-          "tags": [
-            "bento",
-            "bento-grid",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "features",
-            "gradient-mesh"
-          ],
-          "features": [
-            "asymmetric bento layout",
-            "large hero tile with animated waveform",
-            "integration grid tile",
-            "mini command palette tile",
-            "security + global edge tiles",
-            "gradient icon chips",
-            "luminous top edges",
-            "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Table — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
-          "tags": [
-            "pricing",
-            "pricing-table",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "billing-toggle",
-            "saas",
-            "plans"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check/dash feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlight lines",
-            "hover lift states",
-            "keyboard accessible toggle buttons"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
-          "tags": [
-            "screenshots",
-            "gallery",
-            "showcase",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "tabs",
-            "product-preview"
-          ],
-          "features": [
-            "tabbed screenshot gallery",
-            "large framed preview",
-            "thumbnail tabs that swap preview live",
-            "caption metadata rail",
-            "cyan glow accents",
-            "luminous top edges",
-            "scoped keyboard-accessible tabs"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Three Tier Pricing — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
-          "tags": [
-            "pricing",
-            "three-tier",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "gradient-mesh"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "hover lift states",
-            "keyboard accessible toggle"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -16497,6 +16361,142 @@
           ]
         },
         {
+          "name": "Three Tier Pricing — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
+          "tags": [
+            "pricing",
+            "three-tier",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "gradient-mesh"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "hover lift states",
+            "keyboard accessible toggle"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "tags": [
+            "screenshots",
+            "gallery",
+            "showcase",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "tabs",
+            "product-preview"
+          ],
+          "features": [
+            "tabbed screenshot gallery",
+            "large framed preview",
+            "thumbnail tabs that swap preview live",
+            "caption metadata rail",
+            "cyan glow accents",
+            "luminous top edges",
+            "scoped keyboard-accessible tabs"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Pricing Table — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "billing-toggle",
+            "saas",
+            "plans"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check/dash feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlight lines",
+            "hover lift states",
+            "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Bento Feature Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/bento-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
+          "tags": [
+            "bento",
+            "bento-grid",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "features",
+            "gradient-mesh"
+          ],
+          "features": [
+            "asymmetric bento layout",
+            "large hero tile with animated waveform",
+            "integration grid tile",
+            "mini command palette tile",
+            "security + global edge tiles",
+            "gradient icon chips",
+            "luminous top edges",
+            "hover lift states"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Enterprise SaaS Footer — Vercel",
           "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
           "type": "section",
@@ -16520,75 +16520,6 @@
             "bottom legal bar with locale",
             "hairline borders",
             "white/white-50/white-35 hierarchy"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Comparison Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
-          "type": "section",
-          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
-          "tags": [
-            "pricing",
-            "comparison",
-            "matrix",
-            "vercel",
-            "dark",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "sticky plan header row",
-            "grouped feature sections",
-            "check/dash/slash glyphs",
-            "sticky first column on desktop",
-            "hairline grid borders",
-            "teal accent on popular column",
-            "per-column white CTAs",
-            "monochrome hierarchy"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
-          "type": "section",
-          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
-          "tags": [
-            "pricing",
-            "pricing-table",
-            "vercel",
-            "dark",
-            "monochrome",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with teal dot badge",
-            "check/dash feature lists",
-            "hairline borders and dark panels",
-            "white primary CTA",
-            "subtle hover fills",
-            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16668,6 +16599,40 @@
           ]
         },
         {
+          "name": "Pricing Comparison Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
+          "type": "section",
+          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
+          "tags": [
+            "pricing",
+            "comparison",
+            "matrix",
+            "vercel",
+            "dark",
+            "saas",
+            "plans",
+            "teal-accent"
+          ],
+          "features": [
+            "sticky plan header row",
+            "grouped feature sections",
+            "check/dash/slash glyphs",
+            "sticky first column on desktop",
+            "hairline grid borders",
+            "teal accent on popular column",
+            "per-column white CTAs",
+            "monochrome hierarchy"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Product Workflow Section — Vercel",
           "path": "Tailwind/Sections/saas/product-workflow/vercel/",
           "type": "section",
@@ -16690,6 +16655,41 @@
             "teal accent on active step",
             "dark panels and hairline borders",
             "scoped keyboard-accessible buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Pricing Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
+          "type": "section",
+          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "vercel",
+            "dark",
+            "monochrome",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "teal-accent"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with teal dot badge",
+            "check/dash feature lists",
+            "hairline borders and dark panels",
+            "white primary CTA",
+            "subtle hover fills",
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16787,10 +16787,12 @@
             "saas",
             "startup",
             "dashboard",
-            "landing-page"
+            "landing-page",
+            "editorial",
+            "terracotta"
           ],
           "styles": [
-            "premium-modern-saas"
+            "editorial-warm-saas"
           ],
           "files": [
             "README.md",
@@ -17414,39 +17416,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla accordion and collapsible components with pure HTML, CSS, and minimal JavaScript. Includes CSS-only accordions, panels, and animated collapsibles.",
-      "variantsCount": 5,
+      "variantsCount": 2,
       "variants": [
-        {
-          "name": "Accordion",
-          "path": "Vanilla/Components/Accordions/accordion/",
-          "type": "component",
-          "description": "Accordion.",
-          "tags": [
-            "accordion",
-            "animation",
-            "responsive",
-            "layout",
-            "form",
-            "dropdown",
-            "typography"
-          ],
-          "features": [
-            "responsive",
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "accordion",
-            "animation",
-            "responsive",
-            "layout"
-          ],
-          "files": [
-            "README.md",
-            "accordion.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Accordion Panel",
           "path": "Vanilla/Components/Accordions/accordion-panel/",
@@ -17475,35 +17446,6 @@
           "files": [
             "README.md",
             "accordion-panel.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Collapsible",
-          "path": "Vanilla/Components/Accordions/collapsible/",
-          "type": "component",
-          "description": "Collapsible and hover interactions.",
-          "tags": [
-            "accordion",
-            "hover-effect",
-            "layout",
-            "button",
-            "typography",
-            "color",
-            "border"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "accordion",
-            "hover-effect",
-            "layout",
-            "button"
-          ],
-          "files": [
-            "README.md",
-            "collapsible.html",
             "metadata.json"
           ]
         },
@@ -17537,36 +17479,6 @@
           "files": [
             "README.md",
             "collapsible-accordion.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Css Only Accordion",
-          "path": "Vanilla/Components/Accordions/css-only-accordion/",
-          "type": "component",
-          "description": "Css Only Accordion.",
-          "tags": [
-            "accordion",
-            "theming",
-            "accessibility",
-            "animation",
-            "layout",
-            "form",
-            "color"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "accordion",
-            "theming",
-            "accessibility",
-            "animation"
-          ],
-          "files": [
-            "README.md",
-            "css-only-accordion.html",
             "metadata.json"
           ]
         }
@@ -17738,37 +17650,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla notification badge components including CSS-only and interactive variants.",
-      "variantsCount": 2,
+      "variantsCount": 1,
       "variants": [
-        {
-          "name": "Css Only Notification Badge",
-          "path": "Vanilla/Components/Badges/css-only-notification-badge/",
-          "type": "component",
-          "description": "Css Only Notification Badge.",
-          "tags": [
-            "badge",
-            "theming",
-            "accessibility",
-            "animation",
-            "form",
-            "typography",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "badge",
-            "theming",
-            "accessibility",
-            "animation"
-          ],
-          "files": [
-            "README.md",
-            "css-only-notification-badge.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Notification Badge",
           "path": "Vanilla/Components/Badges/notification-badge/",
@@ -17823,7 +17706,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla button components in many styles - 3D, gradient, neumorphic, floating action, social, split, and more. Pure HTML, CSS, and JS.",
-      "variantsCount": 14,
+      "variantsCount": 8,
       "variants": [
         {
           "name": "3d Button Effect",
@@ -17852,56 +17735,6 @@
           "files": [
             "3d-button-effect.html",
             "README.md",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "3d Press Button",
-          "path": "Vanilla/Components/Buttons/3d-press-button/",
-          "type": "component",
-          "description": "3d Press Button.",
-          "tags": [
-            "button",
-            "keyboard",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-24-3d-press-button.css"
-          ]
-        },
-        {
-          "name": "Action Buttons",
-          "path": "Vanilla/Components/Buttons/action-buttons/",
-          "type": "component",
-          "description": "Action Buttons and hover interactions.",
-          "tags": [
-            "button",
-            "landing-page",
-            "hover-effect",
-            "tabs",
-            "typography",
-            "color",
-            "border"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "button",
-            "landing-page",
-            "hover-effect",
-            "tabs"
-          ],
-          "files": [
-            "README.md",
-            "action-buttons.html",
             "metadata.json"
           ]
         },
@@ -17993,71 +17826,6 @@
           ]
         },
         {
-          "name": "Nested Animated Button",
-          "path": "Vanilla/Components/Buttons/nested-animated-button/",
-          "type": "component",
-          "description": "Nested Animated Button.",
-          "tags": [
-            "animation",
-            "button"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "animation",
-            "button"
-          ],
-          "files": [
-            "README.md",
-            "animated-button.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Nested Gradient Button",
-          "path": "Vanilla/Components/Buttons/nested-gradient-button/",
-          "type": "component",
-          "description": "Nested Gradient Button.",
-          "tags": [
-            "gradient",
-            "button"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "gradient",
-            "button"
-          ],
-          "files": [
-            "README.md",
-            "gradient-button.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Neumorphic Button",
-          "path": "Vanilla/Components/Buttons/neumorphic-button/",
-          "type": "component",
-          "description": "Neumorphic Button.",
-          "tags": [
-            "shadow",
-            "button",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "responsive",
-            "center",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-21-neumorphic-button.css"
-          ]
-        },
-        {
           "name": "Pulsing Button",
           "path": "Vanilla/Components/Buttons/pulsing-button/",
           "type": "component",
@@ -18085,31 +17853,6 @@
             "README.md",
             "metadata.json",
             "pulsing-button.html"
-          ]
-        },
-        {
-          "name": "Radio Button Group",
-          "path": "Vanilla/Components/Buttons/radio-button-group/",
-          "type": "component",
-          "description": "Radio Button Group.",
-          "tags": [
-            "button",
-            "form",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "button",
-            "form",
-            "table",
-            "form-element"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "radio-button-group.html"
           ]
         },
         {
@@ -18348,7 +18091,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla card components - product cards, profile cards, pricing cards, flip cards, glassmorphism cards, and equal-height layouts.",
-      "variantsCount": 15,
+      "variantsCount": 7,
       "variants": [
         {
           "name": "Blog Post Card",
@@ -18381,90 +18124,6 @@
           ]
         },
         {
-          "name": "Container Query Card",
-          "path": "Vanilla/Components/Cards/container-query-card/",
-          "type": "component",
-          "description": "Container Query Card.",
-          "tags": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown",
-            "tabs"
-          ],
-          "features": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown"
-          ],
-          "styles": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries"
-          ],
-          "files": [
-            "README.md",
-            "container-query-card.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Equal Height Cards",
-          "path": "Vanilla/Components/Cards/equal-height-cards/",
-          "type": "component",
-          "description": "Equal Height Cards.",
-          "tags": [
-            "404",
-            "card",
-            "typography",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-04-equal-height-cards.css"
-          ]
-        },
-        {
-          "name": "Equal Height Cards Flexbox",
-          "path": "Vanilla/Components/Cards/equal-height-cards-flexbox/",
-          "type": "component",
-          "description": "Equal Height Cards Flexbox.",
-          "tags": [
-            "card",
-            "typography",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "layout",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "typography",
-            "shadow",
-            "responsive"
-          ],
-          "files": [
-            "README.md",
-            "equal-height-cards-flexbox.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Equal Height Cards Grid",
           "path": "Vanilla/Components/Cards/equal-height-cards-grid/",
           "type": "component",
@@ -18490,36 +18149,6 @@
           "files": [
             "README.md",
             "equal-height-cards-grid.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Flip Card",
-          "path": "Vanilla/Components/Cards/flip-card/",
-          "type": "component",
-          "description": "Flip Card.",
-          "tags": [
-            "card",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "flexbox",
-            "center",
-            "form"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "flip-card.html",
             "metadata.json"
           ]
         },
@@ -18554,35 +18183,6 @@
           ]
         },
         {
-          "name": "Frosted Glass Card",
-          "path": "Vanilla/Components/Cards/frosted-glass-card/",
-          "type": "component",
-          "description": "Frosted Glass Card.",
-          "tags": [
-            "glassmorphism",
-            "card",
-            "shadow",
-            "center",
-            "modal",
-            "typography",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "glassmorphism",
-            "card",
-            "shadow",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "frosted-glass-card.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Glassmorphism Card",
           "path": "Vanilla/Components/Cards/glassmorphism-card/",
           "type": "component",
@@ -18610,59 +18210,6 @@
             "README.md",
             "glassmorphism-card.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Nested Product Card",
-          "path": "Vanilla/Components/Cards/nested-product-card/",
-          "type": "component",
-          "description": "Nested Product Card.",
-          "tags": [
-            "card",
-            "ecommerce",
-            "image",
-            "icon",
-            "svg"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "ecommerce",
-            "image",
-            "icon"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-card.html"
-          ]
-        },
-        {
-          "name": "Nested Profile Card",
-          "path": "Vanilla/Components/Cards/nested-profile-card/",
-          "type": "component",
-          "description": "Nested Profile Card.",
-          "tags": [
-            "card",
-            "image",
-            "icon",
-            "svg"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "image",
-            "icon",
-            "svg"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "profile-card.html"
           ]
         },
         {
@@ -18752,35 +18299,6 @@
             "README.md",
             "metadata.json",
             "profile-card.html"
-          ]
-        },
-        {
-          "name": "Staff Card",
-          "path": "Vanilla/Components/Cards/staff-card/",
-          "type": "component",
-          "description": "Staff Card.",
-          "tags": [
-            "card",
-            "center",
-            "form",
-            "typography",
-            "color",
-            "border",
-            "image"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "center",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "staff-card.html"
           ]
         }
       ],
@@ -19030,62 +18548,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla display and layout components - dark mode toggle, footers, sticky footers, table layouts, and visibility toggles.",
-      "variantsCount": 6,
+      "variantsCount": 2,
       "variants": [
-        {
-          "name": "Dark Mode Toggle",
-          "path": "Vanilla/Components/Display/dark-mode-toggle/",
-          "type": "component",
-          "description": "Dark Mode Toggle, supports dark mode.",
-          "tags": [
-            "dark-mode",
-            "button",
-            "color",
-            "border",
-            "click"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "dark-mode",
-            "button",
-            "color",
-            "border"
-          ],
-          "files": [
-            "README.md",
-            "dark-mode-toggle.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Footer",
-          "path": "Vanilla/Components/Display/footer/",
-          "type": "component",
-          "description": "Footer.",
-          "tags": [
-            "card",
-            "semantic",
-            "center",
-            "typography",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "semantic",
-            "center",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "footer.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Simple Footer",
           "path": "Vanilla/Components/Display/simple-footer/",
@@ -19145,57 +18609,6 @@
             "metadata.json",
             "sticky-footer.html"
           ]
-        },
-        {
-          "name": "Table Header Body Footer",
-          "path": "Vanilla/Components/Display/table-header-body-footer/",
-          "type": "component",
-          "description": "Table Header Body Footer.",
-          "tags": [
-            "card",
-            "navbar",
-            "tabs",
-            "semantic",
-            "typography",
-            "color",
-            "border"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "card",
-            "navbar",
-            "tabs",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "table-header-body-footer.html"
-          ]
-        },
-        {
-          "name": "Toggle Element Visibility",
-          "path": "Vanilla/Components/Display/toggle-element-visibility/",
-          "type": "component",
-          "description": "Toggle Element Visibility.",
-          "tags": [
-            "web-components"
-          ],
-          "features": [
-            "web-components",
-            "table"
-          ],
-          "styles": [
-            "web-components",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "toggle-element-visibility.js"
-          ]
         }
       ],
       "subcategory": "dark-mode-toggle",
@@ -19218,52 +18631,6 @@
       ],
       "searchTerms": [
         "display"
-      ]
-    },
-    {
-      "name": "Dropdowns",
-      "path": "Vanilla/Components/Dropdowns/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Vanilla dropdown components including hover-triggered CSS dropdowns.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Hover Dropdown",
-          "path": "Vanilla/Components/Dropdowns/hover-dropdown/",
-          "type": "component",
-          "description": "Hover Dropdown.",
-          "tags": [
-            "hover-effect",
-            "dropdown",
-            "tooltip",
-            "drag",
-            "pseudo-class",
-            "animation",
-            "shadow",
-            "responsive"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-12-hover-dropdown.css"
-          ]
-        }
-      ],
-      "subcategory": "dropdowns",
-      "tags": [
-        "animation",
-        "drag",
-        "dropdown",
-        "hover-effect",
-        "pseudo-class",
-        "responsive",
-        "shadow",
-        "tooltip"
-      ],
-      "searchTerms": [
-        "dropdowns"
       ]
     },
     {
@@ -19582,25 +18949,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla form components organized by type - contact, login, register, newsletter, search, and other form inputs.",
-      "variantsCount": 36,
+      "variantsCount": 22,
       "variants": [
-        {
-          "name": "Auto Resizing Textarea",
-          "path": "Vanilla/Components/Forms/auto-resizing-textarea/",
-          "type": "component",
-          "description": "Auto Resizing Textarea.",
-          "tags": [
-            "form",
-            "typography",
-            "scroll",
-            "utility"
-          ],
-          "files": [
-            "README.md",
-            "auto-resizing-textarea.css",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Checkbox Group",
           "path": "Vanilla/Components/Forms/checkbox-group/",
@@ -19616,27 +18966,6 @@
           "files": [
             "README.md",
             "checkbox-group.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Color Picker",
-          "path": "Vanilla/Components/Forms/color-picker/",
-          "type": "component",
-          "description": "Color Picker.",
-          "tags": [
-            "color",
-            "modern-css",
-            "form",
-            "dropdown",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "color-picker.html",
             "metadata.json"
           ]
         },
@@ -19664,73 +18993,6 @@
           "files": [
             "README.md",
             "contact-form.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Contact Form Basic",
-          "path": "Vanilla/Components/Forms/contact-form-basic/",
-          "type": "component",
-          "description": "Contact Form Basic.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "button",
-            "typography",
-            "color",
-            "border"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "contact-form-basic.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Css Only Toggle Switch",
-          "path": "Vanilla/Components/Forms/css-only-toggle-switch/",
-          "type": "component",
-          "description": "Css Only Toggle Switch.",
-          "tags": [
-            "theming",
-            "accessibility",
-            "animation",
-            "shadow",
-            "form",
-            "carousel",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "css-only-toggle-switch.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Css Toggle Switch",
-          "path": "Vanilla/Components/Forms/css-toggle-switch/",
-          "type": "component",
-          "description": "Css Toggle Switch.",
-          "tags": [
-            "theming",
-            "animation",
-            "form",
-            "color",
-            "border",
-            "clipboard",
-            "form-element"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "files": [
-            "CSS Toggle Switch.html",
-            "README.md",
             "metadata.json"
           ]
         },
@@ -19778,47 +19040,6 @@
           "files": [
             "README.md",
             "date-time-picker.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Debounced Input Handler Js",
-          "path": "Vanilla/Components/Forms/debounced-input-handler-js/",
-          "type": "component",
-          "description": "Debounced Input Handler Js.",
-          "tags": [
-            "bounce",
-            "form",
-            "debounce",
-            "dropdown",
-            "utility",
-            "date",
-            "clipboard"
-          ],
-          "files": [
-            "Debounced Input Handler (JS).js",
-            "README.md",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Disabled Input",
-          "path": "Vanilla/Components/Forms/disabled-input/",
-          "type": "component",
-          "description": "Disabled Input.",
-          "tags": [
-            "form",
-            "button",
-            "typography",
-            "click",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "disabled-input.html",
             "metadata.json"
           ]
         },
@@ -19923,26 +19144,6 @@
           ]
         },
         {
-          "name": "Form Validator",
-          "path": "Vanilla/Components/Forms/form-validator/",
-          "type": "component",
-          "description": "Form Validator.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "validation",
-            "date",
-            "array",
-            "string"
-          ],
-          "files": [
-            "README.md",
-            "form-validator.js",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Inline Form",
           "path": "Vanilla/Components/Forms/inline-form/",
           "type": "component",
@@ -19987,49 +19188,6 @@
           "files": [
             "README.md",
             "input-pattern-validation.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Input With Min Max",
-          "path": "Vanilla/Components/Forms/input-with-min-max/",
-          "type": "component",
-          "description": "Input With Min Max.",
-          "tags": [
-            "form",
-            "theming",
-            "media-query",
-            "dashboard",
-            "coming-soon",
-            "modern-css",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "input-with-min-max.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Keyboard Input",
-          "path": "Vanilla/Components/Forms/keyboard-input/",
-          "type": "component",
-          "description": "Keyboard Input.",
-          "tags": [
-            "form",
-            "keyboard",
-            "typography",
-            "clipboard"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "keyboard-input.html",
             "metadata.json"
           ]
         },
@@ -20131,16 +19289,14 @@
           ]
         },
         {
-          "name": "Newsletter Signup Form",
-          "path": "Vanilla/Components/Forms/newsletter-signup-form/",
+          "name": "Radio Button Group",
+          "path": "Vanilla/Components/Forms/radio-button-group/",
           "type": "component",
-          "description": "Newsletter Signup Form.",
+          "description": "Radio Button Group.",
           "tags": [
-            "animation",
             "form",
             "form-element",
-            "login",
-            "button"
+            "radio"
           ],
           "features": [
             "focus-visible"
@@ -20148,45 +19304,7 @@
           "files": [
             "README.md",
             "metadata.json",
-            "newsletter-signup-form.html"
-          ]
-        },
-        {
-          "name": "Range Input",
-          "path": "Vanilla/Components/Forms/range-input/",
-          "type": "component",
-          "description": "Range Input.",
-          "tags": [
-            "form",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "range-input.html"
-          ]
-        },
-        {
-          "name": "Readonly Input",
-          "path": "Vanilla/Components/Forms/readonly-input/",
-          "type": "component",
-          "description": "Readonly Input.",
-          "tags": [
-            "form",
-            "tabs",
-            "typography",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "readonly-input.html"
+            "radio-button-group.html"
           ]
         },
         {
@@ -20264,26 +19382,6 @@
           ]
         },
         {
-          "name": "Search Input",
-          "path": "Vanilla/Components/Forms/search-input/",
-          "type": "component",
-          "description": "Search Input.",
-          "tags": [
-            "form",
-            "button",
-            "typography",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "search-input.html"
-          ]
-        },
-        {
           "name": "Select Dropdown",
           "path": "Vanilla/Components/Forms/select-dropdown/",
           "type": "component",
@@ -20322,29 +19420,6 @@
             "README.md",
             "metadata.json",
             "select-with-optgroup.html"
-          ]
-        },
-        {
-          "name": "Subscription Form",
-          "path": "Vanilla/Components/Forms/subscription-form/",
-          "type": "component",
-          "description": "Subscription Form.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "center",
-            "button",
-            "typography",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "subscription-form.html"
           ]
         },
         {
@@ -20775,7 +19850,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla loading indicators - bouncing loaders, progress bars, circular progress, skeleton loaders, and progress steps.",
-      "variantsCount": 8,
+      "variantsCount": 6,
       "variants": [
         {
           "name": "Bouncing Loader",
@@ -20898,55 +19973,6 @@
             "README.md",
             "loader.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Nested Bouncing Dots",
-          "path": "Vanilla/Components/Loaders/nested-bouncing-dots/",
-          "type": "component",
-          "description": "Nested Bouncing Dots.",
-          "tags": [
-            "bounce",
-            "loader"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible"
-          ],
-          "styles": [
-            "bounce",
-            "loader"
-          ],
-          "files": [
-            "README.md",
-            "bouncing-dots.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Progress Bar",
-          "path": "Vanilla/Components/Loaders/progress-bar/",
-          "type": "component",
-          "description": "Progress Bar.",
-          "tags": [
-            "navbar",
-            "sidebar",
-            "loader",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "navbar",
-            "sidebar",
-            "loader",
-            "form-element"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "progress-bar.html"
           ]
         },
         {
@@ -21129,234 +20155,14 @@
       ]
     },
     {
-      "name": "Marketing",
-      "path": "Vanilla/Components/Marketing/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Vanilla marketing section components - FAQ accordions, hero jumbotrons, pricing tables, and testimonial sliders.",
-      "variantsCount": 6,
-      "variants": [
-        {
-          "name": "Accordion Faq",
-          "path": "Vanilla/Components/Marketing/FAQ/accordion-faq/",
-          "type": "component",
-          "description": "Accordion Faq.",
-          "tags": [
-            "404",
-            "accordion",
-            "animation",
-            "flexbox",
-            "center",
-            "layout",
-            "button",
-            "form"
-          ],
-          "features": [
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML",
-            "keyboard nav"
-          ],
-          "files": [
-            "README.md",
-            "accordion-faq.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Accordion Faq Layout",
-          "path": "Vanilla/Components/Marketing/FAQ/accordion-faq-layout/",
-          "type": "component",
-          "description": "Accordion Faq Layout.",
-          "tags": [
-            "layout",
-            "accordion",
-            "typography",
-            "keyboard",
-            "accessibility",
-            "clipboard",
-            "semantic"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "accordion-faq-layout.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Jumbotron",
-          "path": "Vanilla/Components/Marketing/Hero/jumbotron/",
-          "type": "component",
-          "description": "Jumbotron.",
-          "tags": [
-            "layout",
-            "button",
-            "form",
-            "typography",
-            "color",
-            "border",
-            "accessibility"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible",
-            "keyboard nav"
-          ],
-          "files": [
-            "README.md",
-            "jumbotron.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Pricing Table",
-          "path": "Vanilla/Components/Marketing/Pricing/pricing-table/",
-          "type": "component",
-          "description": "Pricing Table.",
-          "tags": [
-            "tabs",
-            "ecommerce",
-            "responsive",
-            "flexbox",
-            "center",
-            "button",
-            "form"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "pricing-table.html"
-          ]
-        },
-        {
-          "name": "Responsive Pricing Grid",
-          "path": "Vanilla/Components/Marketing/Pricing/responsive-pricing-grid/",
-          "type": "component",
-          "description": "Responsive Pricing Grid.",
-          "tags": [
-            "responsive",
-            "grid",
-            "ecommerce",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "center",
-            "button"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "responsive-pricing-grid.html"
-          ]
-        },
-        {
-          "name": "Testimonial Slider",
-          "path": "Vanilla/Components/Marketing/Testimonials/testimonial-slider/",
-          "type": "component",
-          "description": "Testimonial Slider.",
-          "tags": [
-            "carousel",
-            "center",
-            "typography",
-            "border",
-            "image",
-            "utility",
-            "api"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "testimonial-slider.html"
-          ]
-        }
-      ],
-      "subcategory": "snippet-04-accordion-faq",
-      "tags": [
-        "faq",
-        "hero",
-        "marketing",
-        "pricing",
-        "testimonials"
-      ],
-      "searchTerms": [
-        "marketing"
-      ]
-    },
-    {
       "name": "Media",
       "path": "Vanilla/Components/Media/",
       "tech": "Vanilla HTML/CSS/JS",
       "type": "component",
       "category": "Components",
       "description": "Vanilla media components - images, audio/video players, iframes, canvas, picture element, image maps, sliders, and responsive embeds.",
-      "variantsCount": 17,
+      "variantsCount": 10,
       "variants": [
-        {
-          "name": "Accessible Image",
-          "path": "Vanilla/Components/Media/accessible-image/",
-          "type": "component",
-          "description": "Accessible Image.",
-          "tags": [
-            "image",
-            "accessibility",
-            "typography",
-            "api"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "image",
-            "accessibility",
-            "table",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "accessible-image.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Audio Embed",
-          "path": "Vanilla/Components/Media/audio-embed/",
-          "type": "component",
-          "description": "Audio Embed.",
-          "tags": [
-            "video",
-            "image"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "video",
-            "table",
-            "image"
-          ],
-          "files": [
-            "README.md",
-            "audio-embed.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Canvas Element",
           "path": "Vanilla/Components/Media/canvas-element/",
@@ -21405,60 +20211,6 @@
           "files": [
             "README.md",
             "figure-figcaption.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Figure With Figcaption",
-          "path": "Vanilla/Components/Media/figure-with-figcaption/",
-          "type": "component",
-          "description": "Figure With Figcaption.",
-          "tags": [
-            "center",
-            "typography",
-            "color",
-            "border",
-            "image",
-            "api"
-          ],
-          "features": [
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "styles": [
-            "table",
-            "center",
-            "typography",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "figure-with-figcaption.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Full Width Image",
-          "path": "Vanilla/Components/Media/full-width-image/",
-          "type": "component",
-          "description": "Full Width Image.",
-          "tags": [
-            "image",
-            "media-query",
-            "api"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "table",
-            "image",
-            "media-query",
-            "api"
-          ],
-          "files": [
-            "README.md",
-            "full-width-image.html",
             "metadata.json"
           ]
         },
@@ -21534,34 +20286,6 @@
           ]
         },
         {
-          "name": "Image Map",
-          "path": "Vanilla/Components/Media/image-map/",
-          "type": "component",
-          "description": "Image Map.",
-          "tags": [
-            "image",
-            "array",
-            "button",
-            "click",
-            "portfolio",
-            "clip-path"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "image",
-            "array",
-            "button",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "image-map.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Image Slider",
           "path": "Vanilla/Components/Media/image-slider/",
           "type": "component",
@@ -21589,31 +20313,6 @@
             "README.md",
             "image-slider.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Picture Element",
-          "path": "Vanilla/Components/Media/picture-element/",
-          "type": "component",
-          "description": "Picture Element.",
-          "tags": [
-            "image",
-            "web-components",
-            "media-query"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "image",
-            "web-components",
-            "table",
-            "media-query"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "picture-element.html"
           ]
         },
         {
@@ -21645,39 +20344,6 @@
             "README.md",
             "metadata.json",
             "pop-up-image.html"
-          ]
-        },
-        {
-          "name": "Responsive Embed",
-          "path": "Vanilla/Components/Media/responsive-embed/",
-          "type": "component",
-          "description": "Responsive Embed.",
-          "tags": [
-            "responsive",
-            "video",
-            "layout",
-            "color",
-            "border",
-            "semantic"
-          ],
-          "features": [
-            "responsive",
-            "video",
-            "layout",
-            "table",
-            "color",
-            "border"
-          ],
-          "styles": [
-            "responsive",
-            "video",
-            "layout",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "responsive-embed.css"
           ]
         },
         {
@@ -21794,7 +20460,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla modal and dialog components - modal boxes, dialogs, focus-trap modals, popup chat windows, toast notifications, and device-optimized modals.",
-      "variantsCount": 11,
+      "variantsCount": 4,
       "variants": [
         {
           "name": "Device Optimized Modal",
@@ -21850,188 +20516,6 @@
             "README.md",
             "dialog-element.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Focus Trap Modal",
-          "path": "Vanilla/Components/Modals/focus-trap-modal/",
-          "type": "component",
-          "description": "Focus Trap Modal.",
-          "tags": [
-            "modal",
-            "keyboard",
-            "pseudo-class",
-            "layout",
-            "button",
-            "form",
-            "dropdown"
-          ],
-          "features": [
-            "modal",
-            "table",
-            "keyboard",
-            "pseudo-class",
-            "layout",
-            "button"
-          ],
-          "styles": [
-            "modal",
-            "table",
-            "keyboard",
-            "pseudo-class"
-          ],
-          "files": [
-            "Focus Trap (modal).js",
-            "README.md",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Modal Box",
-          "path": "Vanilla/Components/Modals/modal-box/",
-          "type": "component",
-          "description": "Modal Box.",
-          "tags": [
-            "shadow",
-            "form",
-            "modal",
-            "dropdown",
-            "aspect-ratio",
-            "center",
-            "button"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "shadow",
-            "form",
-            "modal",
-            "dropdown"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "modal-box.html"
-          ]
-        },
-        {
-          "name": "Modal Dialog",
-          "path": "Vanilla/Components/Modals/modal-dialog/",
-          "type": "component",
-          "description": "Modal Dialog.",
-          "tags": [
-            "modal",
-            "button",
-            "form",
-            "typography",
-            "accessibility",
-            "form-element",
-            "login"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible"
-          ],
-          "styles": [
-            "modal",
-            "button",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "modal-dialog.html"
-          ]
-        },
-        {
-          "name": "Modal Dialog Backdrop",
-          "path": "Vanilla/Components/Modals/modal-dialog-backdrop/",
-          "type": "component",
-          "description": "Modal Dialog Backdrop.",
-          "tags": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter",
-            "shadow",
-            "color",
-            "border"
-          ],
-          "features": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter",
-            "shadow",
-            "table"
-          ],
-          "styles": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "modal-dialog-backdrop.css"
-          ]
-        },
-        {
-          "name": "Modal Popup",
-          "path": "Vanilla/Components/Modals/modal-popup/",
-          "type": "component",
-          "description": "Modal Popup.",
-          "tags": [
-            "modal",
-            "flexbox",
-            "center",
-            "button",
-            "color",
-            "border",
-            "click"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "modal",
-            "flexbox",
-            "center",
-            "button"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "modal-popup.html"
-          ]
-        },
-        {
-          "name": "Nested Simple Modal",
-          "path": "Vanilla/Components/Modals/nested-simple-modal/",
-          "type": "component",
-          "description": "Nested Simple Modal.",
-          "tags": [
-            "modal",
-            "button",
-            "date"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible"
-          ],
-          "styles": [
-            "modal",
-            "button",
-            "table",
-            "date"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "simple-modal.html"
           ]
         },
         {
@@ -22094,37 +20578,6 @@
             "metadata.json",
             "toast-notification.html"
           ]
-        },
-        {
-          "name": "Toast Notification Markup",
-          "path": "Vanilla/Components/Modals/toast-notification-markup/",
-          "type": "component",
-          "description": "Toast Notification Markup.",
-          "tags": [
-            "badge",
-            "layout",
-            "button",
-            "accessibility",
-            "date",
-            "semantic",
-            "form-element"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "styles": [
-            "badge",
-            "layout",
-            "button",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "toast-notification-markup.html"
-          ]
         }
       ],
       "subcategory": "modals",
@@ -22156,59 +20609,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla navigation components - breadcrumbs, menus, navbars, pagination, sidebars, scroll-to-top, and sticky headers.",
-      "variantsCount": 28,
+      "variantsCount": 17,
       "variants": [
-        {
-          "name": "Sticky Header",
-          "path": "Vanilla/Components/Navigation/Navbar/auto-hide-sticky-header/",
-          "type": "component",
-          "description": "Sticky Header.",
-          "tags": [
-            "card",
-            "navbar",
-            "semantic",
-            "animation",
-            "shadow",
-            "flexbox",
-            "center",
-            "form"
-          ],
-          "features": [
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "auto-hide-sticky-header.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Basic Navbar",
-          "path": "Vanilla/Components/Navigation/Navbar/basic-navbar/",
-          "type": "component",
-          "description": "Basic Navbar and hover interactions.",
-          "tags": [
-            "navbar",
-            "semantic",
-            "hover-effect",
-            "flexbox",
-            "typography",
-            "color",
-            "pseudo-class"
-          ],
-          "features": [
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "basic-navbar.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Bottom Navigation",
           "path": "Vanilla/Components/Navigation/Pagination/bottom-navigation/",
@@ -22261,31 +20663,6 @@
           ]
         },
         {
-          "name": "Breadcrumbs Navigation",
-          "path": "Vanilla/Components/Navigation/Breadcrumb/breadcrumbs-navigation/",
-          "type": "component",
-          "description": "Breadcrumbs Navigation.",
-          "tags": [
-            "navbar",
-            "semantic",
-            "flexbox",
-            "color",
-            "border",
-            "accessibility",
-            "form-element"
-          ],
-          "features": [
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "breadcrumbs-navigation.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Circular Menu",
           "path": "Vanilla/Components/Navigation/Menu/circular-menu/",
           "type": "component",
@@ -22309,30 +20686,6 @@
           ]
         },
         {
-          "name": "Fixed Header On Scroll",
-          "path": "Vanilla/Components/Navigation/Navbar/fixed-header-on-scroll/",
-          "type": "component",
-          "description": "Fixed Header On Scroll.",
-          "tags": [
-            "animation",
-            "hover-effect",
-            "gradient",
-            "parallax",
-            "responsive",
-            "flexbox",
-            "layout",
-            "button"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "fixed-header-on-scroll.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Fixed Sidebar",
           "path": "Vanilla/Components/Navigation/Sidebar/fixed-sidebar/",
           "type": "component",
@@ -22352,27 +20705,6 @@
             "README.md",
             "fixed-sidebar.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Glassmorphism Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/glassmorphism-nav/",
-          "type": "component",
-          "description": "Glassmorphism Nav.",
-          "tags": [
-            "glassmorphism",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-20-glassmorphism-nav.css"
           ]
         },
         {
@@ -22400,28 +20732,6 @@
           ]
         },
         {
-          "name": "Header",
-          "path": "Vanilla/Components/Navigation/Navbar/header/",
-          "type": "component",
-          "description": "Header.",
-          "tags": [
-            "card",
-            "navbar",
-            "semantic",
-            "center",
-            "typography",
-            "color"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "files": [
-            "README.md",
-            "header.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Mega Menu",
           "path": "Vanilla/Components/Navigation/Menu/mega-menu/",
           "type": "component",
@@ -22443,27 +20753,6 @@
             "README.md",
             "mega-menu.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Mobile Bottom Nav",
-          "path": "Vanilla/Components/Navigation/Pagination/mobile-bottom-nav/",
-          "type": "component",
-          "description": "Mobile Bottom Nav.",
-          "tags": [
-            "responsive",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-15-mobile-bottom-nav.css"
           ]
         },
         {
@@ -22594,37 +20883,6 @@
           ]
         },
         {
-          "name": "Responsive Sticky Header With Shadow",
-          "path": "Vanilla/Components/Navigation/responsive-sticky-header-with-shadow/",
-          "type": "component",
-          "description": "Responsive Sticky Header With Shadow.",
-          "tags": [
-            "shadow",
-            "responsive",
-            "card",
-            "navbar",
-            "semantic",
-            "web-components",
-            "animation"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "styles": [
-            "shadow",
-            "responsive",
-            "card",
-            "navbar"
-          ],
-          "files": [
-            "README.md",
-            "Responsive Sticky Header with Shadow.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Scroll To Top",
           "path": "Vanilla/Components/Navigation/scroll-to-top/",
           "type": "component",
@@ -22727,72 +20985,6 @@
           ]
         },
         {
-          "name": "Sticky Header",
-          "path": "Vanilla/Components/Navigation/Navbar/sticky-header/",
-          "type": "component",
-          "description": "Sticky Header.",
-          "tags": [
-            "card",
-            "navbar",
-            "semantic",
-            "center",
-            "typography",
-            "color",
-            "scroll"
-          ],
-          "features": [
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "sticky-header.html"
-          ]
-        },
-        {
-          "name": "Sticky Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/sticky-nav/",
-          "type": "component",
-          "description": "Sticky Nav.",
-          "tags": [
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "glassmorphism",
-            "shadow",
-            "responsive"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-14-sticky-nav.css"
-          ]
-        },
-        {
-          "name": "Sticky Sidebar",
-          "path": "Vanilla/Components/Navigation/Sidebar/sticky-sidebar/",
-          "type": "component",
-          "description": "Sticky Sidebar.",
-          "tags": [
-            "sidebar",
-            "animation",
-            "shadow",
-            "responsive",
-            "grid",
-            "layout",
-            "form",
-            "dropdown"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-10-sticky-sidebar.css"
-          ]
-        },
-        {
           "name": "Top Navigation",
           "path": "Vanilla/Components/Navigation/Other/top-navigation/",
           "type": "component",
@@ -22868,78 +21060,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla misc components - a large collection of UI elements including carousels, timelines, calendars, code blocks, countdown timers, social media, layouts, semantic elements, and more.",
-      "variantsCount": 65,
+      "variantsCount": 38,
       "variants": [
-        {
-          "name": "Abbr Element",
-          "path": "Vanilla/Components/Other/abbr-element/",
-          "type": "component",
-          "description": "Abbr Element.",
-          "tags": [
-            "web-components",
-            "image"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "web-components",
-            "table",
-            "image"
-          ],
-          "files": [
-            "README.md",
-            "abbr-element.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Address Tag",
-          "path": "Vanilla/Components/Other/address-tag/",
-          "type": "component",
-          "description": "Address Tag.",
-          "tags": [
-            "semantic"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "table",
-            "semantic"
-          ],
-          "files": [
-            "README.md",
-            "address-tag.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Bdi Element",
-          "path": "Vanilla/Components/Other/bdi-element/",
-          "type": "component",
-          "description": "Bdi Element.",
-          "tags": [
-            "web-components",
-            "form",
-            "typography",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "web-components",
-            "form",
-            "table",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "bdi-element.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Blockquote Citation",
           "path": "Vanilla/Components/Other/blockquote-citation/",
@@ -22963,32 +21085,6 @@
           "files": [
             "README.md",
             "blockquote-citation.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Blockquote With Cite",
-          "path": "Vanilla/Components/Other/blockquote-with-cite/",
-          "type": "component",
-          "description": "Blockquote With Cite.",
-          "tags": [
-            "layout",
-            "typography",
-            "api",
-            "semantic"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "table",
-            "layout",
-            "typography",
-            "api"
-          ],
-          "files": [
-            "README.md",
-            "blockquote-with-cite.html",
             "metadata.json"
           ]
         },
@@ -23101,29 +21197,6 @@
           ]
         },
         {
-          "name": "Content Editable",
-          "path": "Vanilla/Components/Other/content-editable/",
-          "type": "component",
-          "description": "Content Editable.",
-          "tags": [
-            "tabs",
-            "typography"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "tabs",
-            "table",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "content-editable.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Corner Ribbon",
           "path": "Vanilla/Components/Other/corner-ribbon/",
           "type": "component",
@@ -23212,70 +21285,6 @@
           ]
         },
         {
-          "name": "Css Triangle Shape",
-          "path": "Vanilla/Components/Other/css-triangle-shape/",
-          "type": "component",
-          "description": "Css Triangle Shape.",
-          "tags": [
-            "theming",
-            "clip-path",
-            "form",
-            "dropdown",
-            "tooltip",
-            "color",
-            "border"
-          ],
-          "features": [
-            "table",
-            "theming",
-            "clip-path",
-            "form",
-            "dropdown",
-            "tooltip"
-          ],
-          "styles": [
-            "table",
-            "theming",
-            "clip-path",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "css-triangle-shape.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Css Variable Fallback",
-          "path": "Vanilla/Components/Other/css-variable-fallback/",
-          "type": "component",
-          "description": "Css Variable Fallback.",
-          "tags": [
-            "theming",
-            "css-variable",
-            "color",
-            "utility"
-          ],
-          "features": [
-            "theming",
-            "css-variable",
-            "table",
-            "color",
-            "utility"
-          ],
-          "styles": [
-            "theming",
-            "css-variable",
-            "table",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "css-variable-fallback.css",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Dark Mode Toggle",
           "path": "Vanilla/Components/Other/dark-mode-toggle/",
           "type": "component",
@@ -23299,55 +21308,6 @@
           "files": [
             "README.md",
             "dark-mode-toggle.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Definition List",
-          "path": "Vanilla/Components/Other/definition-list/",
-          "type": "component",
-          "description": "Definition List.",
-          "tags": [
-            "form-element",
-            "typography"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "form-element",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "definition-list.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Details Summary",
-          "path": "Vanilla/Components/Other/details-summary/",
-          "type": "component",
-          "description": "Details Summary.",
-          "tags": [
-            "accordion",
-            "button",
-            "form",
-            "click",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "accordion",
-            "button",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "details-summary.html",
             "metadata.json"
           ]
         },
@@ -23409,125 +21369,6 @@
           ]
         },
         {
-          "name": "Direction Aware Hover",
-          "path": "Vanilla/Components/Other/direction-aware-hover/",
-          "type": "component",
-          "description": "Direction Aware Hover.",
-          "tags": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class",
-            "animation",
-            "form",
-            "card",
-            "modal"
-          ],
-          "features": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class",
-            "animation",
-            "form"
-          ],
-          "styles": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class"
-          ],
-          "files": [
-            "README.md",
-            "direction-aware-hover.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Dotted Separator",
-          "path": "Vanilla/Components/Other/dotted-separator/",
-          "type": "component",
-          "description": "Dotted Separator.",
-          "tags": [
-            "gradient",
-            "layout",
-            "color",
-            "border",
-            "image",
-            "semantic"
-          ],
-          "features": [
-            "gradient",
-            "layout",
-            "table",
-            "color",
-            "border",
-            "image"
-          ],
-          "styles": [
-            "gradient",
-            "layout",
-            "table",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "dotted-separator.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Draggable Element",
-          "path": "Vanilla/Components/Other/draggable-element/",
-          "type": "component",
-          "description": "Draggable Element.",
-          "tags": [
-            "drag",
-            "web-components",
-            "typography"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "drag",
-            "web-components",
-            "table",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "draggable-element.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Favicon Link",
-          "path": "Vanilla/Components/Other/favicon-link/",
-          "type": "component",
-          "description": "Favicon Link.",
-          "tags": [
-            "typing-effect",
-            "icon",
-            "tabs",
-            "image"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "typing-effect",
-            "icon",
-            "tabs",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "favicon-link.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Fieldset Legend",
           "path": "Vanilla/Components/Other/fieldset-legend/",
           "type": "component",
@@ -23577,73 +21418,6 @@
           "files": [
             "README.md",
             "filter-list.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Focus Visible Accessibility",
-          "path": "Vanilla/Components/Other/focus-visible-accessibility/",
-          "type": "component",
-          "description": "Focus Visible Accessibility.",
-          "tags": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form",
-            "dropdown",
-            "navbar",
-            "tabs",
-            "accordion"
-          ],
-          "features": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form",
-            "dropdown",
-            "navbar"
-          ],
-          "styles": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "focus-visible-accessibility.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Full Screen Overlay",
-          "path": "Vanilla/Components/Other/full-screen-overlay/",
-          "type": "component",
-          "description": "Full Screen Overlay.",
-          "tags": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader",
-            "color"
-          ],
-          "features": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader",
-            "table",
-            "color"
-          ],
-          "styles": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader"
-          ],
-          "files": [
-            "README.md",
-            "full-screen-overlay.css",
             "metadata.json"
           ]
         },
@@ -23707,37 +21481,6 @@
           ]
         },
         {
-          "name": "Holy Grail Layout Flex",
-          "path": "Vanilla/Components/Other/holy-grail-layout-flex/",
-          "type": "component",
-          "description": "Holy Grail Layout Flex.",
-          "tags": [
-            "flexbox",
-            "layout",
-            "responsive",
-            "navbar",
-            "sidebar",
-            "color",
-            "semantic",
-            "blog"
-          ],
-          "features": [
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "styles": [
-            "flexbox",
-            "layout",
-            "responsive",
-            "navbar"
-          ],
-          "files": [
-            "README.md",
-            "holy-grail-layout.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Holy Grail Layout Grid",
           "path": "Vanilla/Components/Other/holy-grail-layout-grid/",
           "type": "component",
@@ -23765,58 +21508,6 @@
           "files": [
             "README.md",
             "holy-grail-layout.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Horizontal Rule",
-          "path": "Vanilla/Components/Other/horizontal-rule/",
-          "type": "component",
-          "description": "Horizontal Rule.",
-          "tags": [
-            "typography"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "table",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "horizontal-rule.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Image Overlay Effect",
-          "path": "Vanilla/Components/Other/image-overlay-effect/",
-          "type": "component",
-          "description": "Image Overlay Effect.",
-          "tags": [
-            "ripple",
-            "modal",
-            "image",
-            "animation",
-            "hover-effect",
-            "center",
-            "layout",
-            "form"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "ripple",
-            "modal",
-            "image",
-            "animation"
-          ],
-          "files": [
-            "README.md",
-            "image-overlay-effect.html",
             "metadata.json"
           ]
         },
@@ -23879,58 +21570,6 @@
           ]
         },
         {
-          "name": "Main Element",
-          "path": "Vanilla/Components/Other/main-element/",
-          "type": "component",
-          "description": "Main Element.",
-          "tags": [
-            "semantic",
-            "coming-soon",
-            "web-components"
-          ],
-          "features": [
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "styles": [
-            "semantic",
-            "coming-soon",
-            "web-components",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "main-element.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Mark Text",
-          "path": "Vanilla/Components/Other/mark-text/",
-          "type": "component",
-          "description": "Mark Text.",
-          "tags": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas"
-          ],
-          "files": [
-            "README.md",
-            "mark-text.html",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Media Object",
           "path": "Vanilla/Components/Other/media-object/",
           "type": "component",
@@ -23980,39 +21619,6 @@
             "README.md",
             "metadata.json",
             "meter-element.html"
-          ]
-        },
-        {
-          "name": "Mix Blend Mode Multiply",
-          "path": "Vanilla/Components/Other/mix-blend-mode-multiply/",
-          "type": "component",
-          "description": "Mix Blend Mode Multiply.",
-          "tags": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "typography",
-            "color",
-            "image"
-          ],
-          "features": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "table",
-            "typography",
-            "color"
-          ],
-          "styles": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "mix-blend-mode-multiply.css"
           ]
         },
         {
@@ -24236,41 +21842,6 @@
           ]
         },
         {
-          "name": "Scroll Snap Container",
-          "path": "Vanilla/Components/Other/scroll-snap-container/",
-          "type": "component",
-          "description": "Scroll Snap Container.",
-          "tags": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown"
-          ],
-          "features": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior",
-            "container-query",
-            "container-queries"
-          ],
-          "styles": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "scroll-snap-container.css"
-          ]
-        },
-        {
           "name": "Semantic Layout",
           "path": "Vanilla/Components/Other/semantic-layout/",
           "type": "component",
@@ -24298,48 +21869,6 @@
             "README.md",
             "metadata.json",
             "semantic-layout.html"
-          ]
-        },
-        {
-          "name": "Simple Ordered List",
-          "path": "Vanilla/Components/Other/simple-ordered-list/",
-          "type": "component",
-          "description": "Simple Ordered List.",
-          "tags": [
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "form-element",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "simple-ordered-list.html"
-          ]
-        },
-        {
-          "name": "Simple Unordered List",
-          "path": "Vanilla/Components/Other/simple-unordered-list/",
-          "type": "component",
-          "description": "Simple Unordered List.",
-          "tags": [
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "form-element",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "simple-unordered-list.html"
           ]
         },
         {
@@ -24397,27 +21926,6 @@
             "README.md",
             "metadata.json",
             "skip-link.html"
-          ]
-        },
-        {
-          "name": "Sliding Indicator",
-          "path": "Vanilla/Components/Other/sliding-indicator/",
-          "type": "component",
-          "description": "Sliding Indicator.",
-          "tags": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "gradient",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-19-sliding-indicator.css"
           ]
         },
         {
@@ -24533,33 +22041,6 @@
           ]
         },
         {
-          "name": "Svg Circle",
-          "path": "Vanilla/Components/Other/svg-circle/",
-          "type": "component",
-          "description": "Svg Circle.",
-          "tags": [
-            "icon",
-            "svg",
-            "layout",
-            "color",
-            "canvas"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "icon",
-            "svg",
-            "layout",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "svg-circle.html"
-          ]
-        },
-        {
           "name": "Text With Background Image",
           "path": "Vanilla/Components/Other/text-with-background-image/",
           "type": "component",
@@ -24586,32 +22067,6 @@
             "README.md",
             "metadata.json",
             "text-with-background-image.html"
-          ]
-        },
-        {
-          "name": "Time Element",
-          "path": "Vanilla/Components/Other/time-element/",
-          "type": "component",
-          "description": "Time Element.",
-          "tags": [
-            "date",
-            "web-components",
-            "form",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "date",
-            "web-components",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "time-element.html"
           ]
         },
         {
@@ -25109,7 +22564,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla rating components - CSS-only star ratings, interactive rating stars, and user rating widgets.",
-      "variantsCount": 3,
+      "variantsCount": 2,
       "variants": [
         {
           "name": "Css Only Star Rating",
@@ -25165,32 +22620,6 @@
             "README.md",
             "metadata.json",
             "rating-stars.html"
-          ]
-        },
-        {
-          "name": "User Rating",
-          "path": "Vanilla/Components/Ratings/user-rating/",
-          "type": "component",
-          "description": "User Rating.",
-          "tags": [
-            "typography",
-            "color",
-            "api",
-            "icons"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "table",
-            "typography",
-            "color",
-            "api"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "user-rating.html"
           ]
         }
       ],
@@ -25320,7 +22749,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla table components - simple tables, captions, merged cells, and scoped tables.",
-      "variantsCount": 4,
+      "variantsCount": 5,
       "variants": [
         {
           "name": "Simple Table",
@@ -25370,6 +22799,27 @@
             "README.md",
             "metadata.json",
             "table-caption.html"
+          ]
+        },
+        {
+          "name": "Table Header Body Footer",
+          "path": "Vanilla/Components/Tables/table-header-body-footer/",
+          "type": "component",
+          "description": "Table Header Body Footer.",
+          "tags": [
+            "table",
+            "semantic",
+            "thead",
+            "tbody",
+            "tfoot"
+          ],
+          "features": [
+            "focus-visible"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "table-header-body-footer.html"
           ]
         },
         {
@@ -25439,29 +22889,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla tab components - tabbed content, CSS tabs, full-page tabs, and tab components.",
-      "variantsCount": 5,
+      "variantsCount": 2,
       "variants": [
-        {
-          "name": "Css Tabs",
-          "path": "Vanilla/Components/Tabs/css-tabs/",
-          "type": "component",
-          "description": "Css Tabs.",
-          "tags": [
-            "tabs",
-            "theming",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-18-css-tabs.css"
-          ]
-        },
         {
           "name": "Full Page Tabs",
           "path": "Vanilla/Components/Tabs/full-page-tabs/",
@@ -25517,67 +22946,6 @@
             "README.md",
             "metadata.json",
             "tabbed-content.html"
-          ]
-        },
-        {
-          "name": "Tabs",
-          "path": "Vanilla/Components/Tabs/tabs/",
-          "type": "component",
-          "description": "Tabs.",
-          "tags": [
-            "tabs",
-            "animation",
-            "hover-effect",
-            "typing-effect",
-            "button",
-            "color",
-            "border"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "tabs",
-            "animation",
-            "hover-effect",
-            "typing-effect"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "tabs.html"
-          ]
-        },
-        {
-          "name": "Tabs Component",
-          "path": "Vanilla/Components/Tabs/tabs-component/",
-          "type": "component",
-          "description": "Tabs Component.",
-          "tags": [
-            "tabs",
-            "web-components",
-            "animation",
-            "flexbox",
-            "button",
-            "form",
-            "dropdown",
-            "navbar"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "tabs",
-            "web-components",
-            "animation",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "tabs-component.html"
           ]
         }
       ],
@@ -25827,39 +23195,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla tooltip components - CSS-only tooltips, interactive tooltips, and tooltip text variants.",
-      "variantsCount": 3,
+      "variantsCount": 1,
       "variants": [
-        {
-          "name": "Css Only Tooltip",
-          "path": "Vanilla/Components/Tooltips/css-only-tooltip/",
-          "type": "component",
-          "description": "Css Only Tooltip.",
-          "tags": [
-            "tooltip",
-            "theming",
-            "accessibility",
-            "animation",
-            "hover-effect",
-            "center",
-            "button",
-            "form"
-          ],
-          "features": [
-            "reduced-motion",
-            "focus-visible"
-          ],
-          "styles": [
-            "tooltip",
-            "theming",
-            "accessibility",
-            "animation"
-          ],
-          "files": [
-            "README.md",
-            "css-only-tooltip.html",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Tooltip",
           "path": "Vanilla/Components/Tooltips/tooltip/",
@@ -25889,34 +23226,6 @@
             "README.md",
             "metadata.json",
             "tooltip.html"
-          ]
-        },
-        {
-          "name": "Tooltip Text",
-          "path": "Vanilla/Components/Tooltips/tooltip-text/",
-          "type": "component",
-          "description": "Tooltip Text and hover interactions.",
-          "tags": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas",
-            "hover-effect",
-            "form-element"
-          ],
-          "features": [
-            "focus-visible"
-          ],
-          "styles": [
-            "form",
-            "tooltip",
-            "typography",
-            "canvas"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "tooltip-text.html"
           ]
         }
       ],
@@ -27286,7 +24595,6 @@
         "Contact",
         "Content",
         "Display",
-        "Dropdowns",
         "FAQ",
         "Features",
         "Footer",
@@ -27295,7 +24603,6 @@
         "Hero",
         "Loaders",
         "Logos",
-        "Marketing",
         "Media",
         "Modals",
         "Navigation",
