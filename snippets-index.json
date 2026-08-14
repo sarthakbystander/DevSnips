@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-13",
+  "lastUpdated": "2026-08-14",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 89,
-    "totalVariants": 852,
+    "totalFamilies": 88,
+    "totalVariants": 825,
     "totalSubVariants": 0,
-    "totalStyles": 2014,
+    "totalStyles": 1950,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
@@ -17825,7 +17825,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla button components in many styles - 3D, gradient, neumorphic, floating action, social, split, and more. Pure HTML, CSS, and JS.",
-      "variantsCount": 14,
+      "variantsCount": 12,
       "variants": [
         {
           "name": "3d Button Effect",
@@ -17855,27 +17855,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "3d Press Button",
-          "path": "Vanilla/Components/Buttons/3d-press-button/",
-          "type": "component",
-          "description": "3d Press Button.",
-          "tags": [
-            "button",
-            "keyboard",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-24-3d-press-button.css"
           ]
         },
         {
@@ -18036,27 +18015,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Neumorphic Button",
-          "path": "Vanilla/Components/Buttons/neumorphic-button/",
-          "type": "component",
-          "description": "Neumorphic Button.",
-          "tags": [
-            "shadow",
-            "button",
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "responsive",
-            "center",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-21-neumorphic-button.css"
           ]
         },
         {
@@ -18350,7 +18308,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla card components - product cards, profile cards, pricing cards, flip cards, glassmorphism cards, and equal-height layouts.",
-      "variantsCount": 15,
+      "variantsCount": 13,
       "variants": [
         {
           "name": "Blog Post Card",
@@ -18380,61 +18338,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Container Query Card",
-          "path": "Vanilla/Components/Cards/container-query-card/",
-          "type": "component",
-          "description": "Container Query Card.",
-          "tags": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown",
-            "tabs"
-          ],
-          "features": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown"
-          ],
-          "styles": [
-            "layout",
-            "card",
-            "container-query",
-            "container-queries"
-          ],
-          "files": [
-            "README.md",
-            "container-query-card.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Equal Height Cards",
-          "path": "Vanilla/Components/Cards/equal-height-cards/",
-          "type": "component",
-          "description": "Equal Height Cards.",
-          "tags": [
-            "404",
-            "card",
-            "typography",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-04-equal-height-cards.css"
           ]
         },
         {
@@ -19032,7 +18935,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla display and layout components - dark mode toggle, footers, sticky footers, table layouts, and visibility toggles.",
-      "variantsCount": 6,
+      "variantsCount": 5,
       "variants": [
         {
           "name": "Dark Mode Toggle",
@@ -19176,28 +19079,6 @@
             "component.html",
             "metadata.json"
           ]
-        },
-        {
-          "name": "Toggle Element Visibility",
-          "path": "Vanilla/Components/Display/toggle-element-visibility/",
-          "type": "component",
-          "description": "Toggle Element Visibility.",
-          "tags": [
-            "web-components"
-          ],
-          "features": [
-            "web-components",
-            "table"
-          ],
-          "styles": [
-            "web-components",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "toggle-element-visibility.js"
-          ]
         }
       ],
       "subcategory": "dark-mode-toggle",
@@ -19220,52 +19101,6 @@
       ],
       "searchTerms": [
         "display"
-      ]
-    },
-    {
-      "name": "Dropdowns",
-      "path": "Vanilla/Components/Dropdowns/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Vanilla dropdown components including hover-triggered CSS dropdowns.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Hover Dropdown",
-          "path": "Vanilla/Components/Dropdowns/hover-dropdown/",
-          "type": "component",
-          "description": "Hover Dropdown.",
-          "tags": [
-            "hover-effect",
-            "dropdown",
-            "tooltip",
-            "drag",
-            "pseudo-class",
-            "animation",
-            "shadow",
-            "responsive"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-12-hover-dropdown.css"
-          ]
-        }
-      ],
-      "subcategory": "dropdowns",
-      "tags": [
-        "animation",
-        "drag",
-        "dropdown",
-        "hover-effect",
-        "pseudo-class",
-        "responsive",
-        "shadow",
-        "tooltip"
-      ],
-      "searchTerms": [
-        "dropdowns"
       ]
     },
     {
@@ -19584,25 +19419,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla form components organized by type - contact, login, register, newsletter, search, and other form inputs.",
-      "variantsCount": 36,
+      "variantsCount": 32,
       "variants": [
-        {
-          "name": "Auto Resizing Textarea",
-          "path": "Vanilla/Components/Forms/auto-resizing-textarea/",
-          "type": "component",
-          "description": "Auto Resizing Textarea.",
-          "tags": [
-            "form",
-            "typography",
-            "scroll",
-            "utility"
-          ],
-          "files": [
-            "README.md",
-            "auto-resizing-textarea.css",
-            "metadata.json"
-          ]
-        },
         {
           "name": "Checkbox Group",
           "path": "Vanilla/Components/Forms/checkbox-group/",
@@ -19693,26 +19511,6 @@
           ]
         },
         {
-          "name": "Css Only Toggle Switch",
-          "path": "Vanilla/Components/Forms/css-only-toggle-switch/",
-          "type": "component",
-          "description": "Css Only Toggle Switch.",
-          "tags": [
-            "theming",
-            "accessibility",
-            "animation",
-            "shadow",
-            "form",
-            "carousel",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "css-only-toggle-switch.css",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Css Toggle Switch",
           "path": "Vanilla/Components/Forms/css-toggle-switch/",
           "type": "component",
@@ -19780,26 +19578,6 @@
           "files": [
             "README.md",
             "component.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Debounced Input Handler Js",
-          "path": "Vanilla/Components/Forms/debounced-input-handler-js/",
-          "type": "component",
-          "description": "Debounced Input Handler Js.",
-          "tags": [
-            "bounce",
-            "form",
-            "debounce",
-            "dropdown",
-            "utility",
-            "date",
-            "clipboard"
-          ],
-          "files": [
-            "Debounced Input Handler (JS).js",
-            "README.md",
             "metadata.json"
           ]
         },
@@ -19921,26 +19699,6 @@
           "files": [
             "README.md",
             "component.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Form Validator",
-          "path": "Vanilla/Components/Forms/form-validator/",
-          "type": "component",
-          "description": "Form Validator.",
-          "tags": [
-            "animation",
-            "form",
-            "form-element",
-            "validation",
-            "date",
-            "array",
-            "string"
-          ],
-          "files": [
-            "README.md",
-            "form-validator.js",
             "metadata.json"
           ]
         },
@@ -21308,7 +21066,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla media components - images, audio/video players, iframes, canvas, picture element, image maps, sliders, and responsive embeds.",
-      "variantsCount": 17,
+      "variantsCount": 16,
       "variants": [
         {
           "name": "Accessible Image",
@@ -21650,39 +21408,6 @@
           ]
         },
         {
-          "name": "Responsive Embed",
-          "path": "Vanilla/Components/Media/responsive-embed/",
-          "type": "component",
-          "description": "Responsive Embed.",
-          "tags": [
-            "responsive",
-            "video",
-            "layout",
-            "color",
-            "border",
-            "semantic"
-          ],
-          "features": [
-            "responsive",
-            "video",
-            "layout",
-            "table",
-            "color",
-            "border"
-          ],
-          "styles": [
-            "responsive",
-            "video",
-            "layout",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "responsive-embed.css"
-          ]
-        },
-        {
           "name": "Responsive Picture",
           "path": "Vanilla/Components/Media/responsive-picture/",
           "type": "component",
@@ -21796,7 +21521,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla modal and dialog components - modal boxes, dialogs, focus-trap modals, popup chat windows, toast notifications, and device-optimized modals.",
-      "variantsCount": 11,
+      "variantsCount": 9,
       "variants": [
         {
           "name": "Device Optimized Modal",
@@ -21851,40 +21576,6 @@
           "files": [
             "README.md",
             "component.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Focus Trap Modal",
-          "path": "Vanilla/Components/Modals/focus-trap-modal/",
-          "type": "component",
-          "description": "Focus Trap Modal.",
-          "tags": [
-            "modal",
-            "keyboard",
-            "pseudo-class",
-            "layout",
-            "button",
-            "form",
-            "dropdown"
-          ],
-          "features": [
-            "modal",
-            "table",
-            "keyboard",
-            "pseudo-class",
-            "layout",
-            "button"
-          ],
-          "styles": [
-            "modal",
-            "table",
-            "keyboard",
-            "pseudo-class"
-          ],
-          "files": [
-            "Focus Trap (modal).js",
-            "README.md",
             "metadata.json"
           ]
         },
@@ -21945,40 +21636,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Modal Dialog Backdrop",
-          "path": "Vanilla/Components/Modals/modal-dialog-backdrop/",
-          "type": "component",
-          "description": "Modal Dialog Backdrop.",
-          "tags": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter",
-            "shadow",
-            "color",
-            "border"
-          ],
-          "features": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter",
-            "shadow",
-            "table"
-          ],
-          "styles": [
-            "glassmorphism",
-            "modal",
-            "drag",
-            "backdrop-filter"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "modal-dialog-backdrop.css"
           ]
         },
         {
@@ -22158,7 +21815,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla navigation components - breadcrumbs, menus, navbars, pagination, sidebars, scroll-to-top, and sticky headers.",
-      "variantsCount": 28,
+      "variantsCount": 24,
       "variants": [
         {
           "name": "Sticky Header",
@@ -22357,27 +22014,6 @@
           ]
         },
         {
-          "name": "Glassmorphism Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/glassmorphism-nav/",
-          "type": "component",
-          "description": "Glassmorphism Nav.",
-          "tags": [
-            "glassmorphism",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-20-glassmorphism-nav.css"
-          ]
-        },
-        {
           "name": "Hamburger Menu",
           "path": "Vanilla/Components/Navigation/Menu/hamburger-menu/",
           "type": "component",
@@ -22445,27 +22081,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Mobile Bottom Nav",
-          "path": "Vanilla/Components/Navigation/Pagination/mobile-bottom-nav/",
-          "type": "component",
-          "description": "Mobile Bottom Nav.",
-          "tags": [
-            "responsive",
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "hover-effect",
-            "shadow"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-15-mobile-bottom-nav.css"
           ]
         },
         {
@@ -22753,48 +22368,6 @@
           ]
         },
         {
-          "name": "Sticky Nav",
-          "path": "Vanilla/Components/Navigation/Navbar/sticky-nav/",
-          "type": "component",
-          "description": "Sticky Nav.",
-          "tags": [
-            "navbar",
-            "sidebar",
-            "pagination",
-            "semantic",
-            "animation",
-            "glassmorphism",
-            "shadow",
-            "responsive"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-14-sticky-nav.css"
-          ]
-        },
-        {
-          "name": "Sticky Sidebar",
-          "path": "Vanilla/Components/Navigation/Sidebar/sticky-sidebar/",
-          "type": "component",
-          "description": "Sticky Sidebar.",
-          "tags": [
-            "sidebar",
-            "animation",
-            "shadow",
-            "responsive",
-            "grid",
-            "layout",
-            "form",
-            "dropdown"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-10-sticky-sidebar.css"
-          ]
-        },
-        {
           "name": "Top Navigation",
           "path": "Vanilla/Components/Navigation/Other/top-navigation/",
           "type": "component",
@@ -22870,7 +22443,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla misc components - a large collection of UI elements including carousels, timelines, calendars, code blocks, countdown timers, social media, layouts, semantic elements, and more.",
-      "variantsCount": 65,
+      "variantsCount": 56,
       "variants": [
         {
           "name": "Abbr Element",
@@ -23214,70 +22787,6 @@
           ]
         },
         {
-          "name": "Css Triangle Shape",
-          "path": "Vanilla/Components/Other/css-triangle-shape/",
-          "type": "component",
-          "description": "Css Triangle Shape.",
-          "tags": [
-            "theming",
-            "clip-path",
-            "form",
-            "dropdown",
-            "tooltip",
-            "color",
-            "border"
-          ],
-          "features": [
-            "table",
-            "theming",
-            "clip-path",
-            "form",
-            "dropdown",
-            "tooltip"
-          ],
-          "styles": [
-            "table",
-            "theming",
-            "clip-path",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "css-triangle-shape.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Css Variable Fallback",
-          "path": "Vanilla/Components/Other/css-variable-fallback/",
-          "type": "component",
-          "description": "Css Variable Fallback.",
-          "tags": [
-            "theming",
-            "css-variable",
-            "color",
-            "utility"
-          ],
-          "features": [
-            "theming",
-            "css-variable",
-            "table",
-            "color",
-            "utility"
-          ],
-          "styles": [
-            "theming",
-            "css-variable",
-            "table",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "css-variable-fallback.css",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Dark Mode Toggle",
           "path": "Vanilla/Components/Other/dark-mode-toggle/",
           "type": "component",
@@ -23411,74 +22920,6 @@
           ]
         },
         {
-          "name": "Direction Aware Hover",
-          "path": "Vanilla/Components/Other/direction-aware-hover/",
-          "type": "component",
-          "description": "Direction Aware Hover.",
-          "tags": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class",
-            "animation",
-            "form",
-            "card",
-            "modal"
-          ],
-          "features": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class",
-            "animation",
-            "form"
-          ],
-          "styles": [
-            "hover-effect",
-            "flexbox",
-            "tooltip",
-            "pseudo-class"
-          ],
-          "files": [
-            "README.md",
-            "direction-aware-hover.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Dotted Separator",
-          "path": "Vanilla/Components/Other/dotted-separator/",
-          "type": "component",
-          "description": "Dotted Separator.",
-          "tags": [
-            "gradient",
-            "layout",
-            "color",
-            "border",
-            "image",
-            "semantic"
-          ],
-          "features": [
-            "gradient",
-            "layout",
-            "table",
-            "color",
-            "border",
-            "image"
-          ],
-          "styles": [
-            "gradient",
-            "layout",
-            "table",
-            "color"
-          ],
-          "files": [
-            "README.md",
-            "dotted-separator.css",
-            "metadata.json"
-          ]
-        },
-        {
           "name": "Draggable Element",
           "path": "Vanilla/Components/Other/draggable-element/",
           "type": "component",
@@ -23579,73 +23020,6 @@
           "files": [
             "README.md",
             "component.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Focus Visible Accessibility",
-          "path": "Vanilla/Components/Other/focus-visible-accessibility/",
-          "type": "component",
-          "description": "Focus Visible Accessibility.",
-          "tags": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form",
-            "dropdown",
-            "navbar",
-            "tabs",
-            "accordion"
-          ],
-          "features": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form",
-            "dropdown",
-            "navbar"
-          ],
-          "styles": [
-            "keyboard",
-            "pseudo-class",
-            "button",
-            "form"
-          ],
-          "files": [
-            "README.md",
-            "focus-visible-accessibility.css",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Full Screen Overlay",
-          "path": "Vanilla/Components/Other/full-screen-overlay/",
-          "type": "component",
-          "description": "Full Screen Overlay.",
-          "tags": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader",
-            "color"
-          ],
-          "features": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader",
-            "table",
-            "color"
-          ],
-          "styles": [
-            "modal",
-            "accessibility",
-            "badge",
-            "loader"
-          ],
-          "files": [
-            "README.md",
-            "full-screen-overlay.css",
             "metadata.json"
           ]
         },
@@ -23985,39 +23359,6 @@
           ]
         },
         {
-          "name": "Mix Blend Mode Multiply",
-          "path": "Vanilla/Components/Other/mix-blend-mode-multiply/",
-          "type": "component",
-          "description": "Mix Blend Mode Multiply.",
-          "tags": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "typography",
-            "color",
-            "image"
-          ],
-          "features": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "table",
-            "typography",
-            "color"
-          ],
-          "styles": [
-            "dark-mode",
-            "modern-css",
-            "modal",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "mix-blend-mode-multiply.css"
-          ]
-        },
-        {
           "name": "Mixed Column Layout",
           "path": "Vanilla/Components/Other/mixed-column-layout/",
           "type": "component",
@@ -24238,41 +23579,6 @@
           ]
         },
         {
-          "name": "Scroll Snap Container",
-          "path": "Vanilla/Components/Other/scroll-snap-container/",
-          "type": "component",
-          "description": "Scroll Snap Container.",
-          "tags": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior",
-            "container-query",
-            "container-queries",
-            "flexbox",
-            "dropdown"
-          ],
-          "features": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior",
-            "container-query",
-            "container-queries"
-          ],
-          "styles": [
-            "parallax",
-            "layout",
-            "scroll",
-            "scroll-behavior"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "scroll-snap-container.css"
-          ]
-        },
-        {
           "name": "Semantic Layout",
           "path": "Vanilla/Components/Other/semantic-layout/",
           "type": "component",
@@ -24399,27 +23705,6 @@
             "README.md",
             "component.html",
             "metadata.json"
-          ]
-        },
-        {
-          "name": "Sliding Indicator",
-          "path": "Vanilla/Components/Other/sliding-indicator/",
-          "type": "component",
-          "description": "Sliding Indicator.",
-          "tags": [
-            "badge",
-            "animation",
-            "hover-effect",
-            "gradient",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "center"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-19-sliding-indicator.css"
           ]
         },
         {
@@ -25441,29 +24726,8 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla tab components - tabbed content, CSS tabs, full-page tabs, and tab components.",
-      "variantsCount": 5,
+      "variantsCount": 4,
       "variants": [
-        {
-          "name": "Css Tabs",
-          "path": "Vanilla/Components/Tabs/css-tabs/",
-          "type": "component",
-          "description": "Css Tabs.",
-          "tags": [
-            "tabs",
-            "theming",
-            "animation",
-            "hover-effect",
-            "responsive",
-            "flexbox",
-            "center",
-            "layout"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "snippet-18-css-tabs.css"
-          ]
-        },
         {
           "name": "Full Page Tabs",
           "path": "Vanilla/Components/Tabs/full-page-tabs/",
@@ -27288,7 +26552,6 @@
         "Contact",
         "Content",
         "Display",
-        "Dropdowns",
         "FAQ",
         "Features",
         "Footer",
