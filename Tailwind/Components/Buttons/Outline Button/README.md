@@ -7,11 +7,8 @@ Bordered buttons with transparent backgrounds in solid, thick, and dashed styles
 | Variant | Description |
 |---------|-------------|
 | [Primary](./primary/) | Blue bordered buttons |
-| [Colors](./colors/) | Multiple color options |
 | [Thick](./thick/) | Bold thick border styles |
 | [Dashed](./dashed/) | Dashed border variants |
-| [Pill](./pill/) | Fully rounded pill shapes |
-| [Dark](./dark/) | Buttons for dark backgrounds |
 | [Sizes](./sizes/) | All button sizes |
 
 ## Quick Start

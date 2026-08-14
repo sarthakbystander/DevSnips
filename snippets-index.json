@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 88,
-    "totalVariants": 825,
+    "totalVariants": 757,
     "totalSubVariants": 0,
-    "totalStyles": 1950,
+    "totalStyles": 1724,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 321,
+      "component": 253,
       "section": 201,
       "template": 9
     }
@@ -25,42 +25,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete accordion component family with 15 production-ready variants covering every use case from basic documentation to timelines and settings panels",
-      "variantsCount": 15,
+      "variantsCount": 14,
       "variants": [
-        {
-          "name": "Animated Accordion",
-          "path": "Tailwind/Components/Accordions/animated-accordion/",
-          "type": "component",
-          "description": "Premium accordion with a plus-to-close rotating circle indicator, content fade+slide-in, and an accent border that scales in on open. Showcase-grade motion polish.",
-          "tags": [
-            "accordion",
-            "animated",
-            "motion",
-            "premium",
-            "fade",
-            "slide",
-            "indicator"
-          ],
-          "features": [
-            "rotating plus indicator",
-            "accent border reveal",
-            "content fade+slide",
-            "circle color shift",
-            "hover lift",
-            "staggered transitions"
-          ],
-          "styles": [
-            "animated",
-            "motion",
-            "premium",
-            "fade"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Basic Accordion",
           "path": "Tailwind/Components/Accordions/basic-accordion/",
@@ -599,7 +565,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete button component family with 15 production-ready variants covering every use case from basic to 3D effects",
-      "variantsCount": 54,
+      "variantsCount": 37,
       "variants": [
         {
           "name": "Animated Arrow Button",
@@ -639,29 +605,6 @@
             "Secondary",
             "Danger",
             "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "3D Button Basic",
-          "path": "Tailwind/Components/Buttons/3D Button/basic/",
-          "type": "component",
-          "description": "3D push button effects with depth",
-          "tags": [
-            "button",
-            "3d",
-            "push",
-            "depth",
-            "3d effect"
-          ],
-          "styles": [
-            "Blue",
-            "Gray",
-            "Green"
           ],
           "files": [
             "code.html",
@@ -737,124 +680,6 @@
           ]
         },
         {
-          "name": "Outline Colors Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
-          "type": "component",
-          "description": "Outline buttons available in multiple colors",
-          "tags": [
-            "button",
-            "outline",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "type": "component",
-          "description": "Ghost buttons available in multiple colors for different actions",
-          "tags": [
-            "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "type": "component",
-          "description": "Dark background buttons for dark themed interfaces",
-          "tags": [
-            "button",
-            "filled",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline on Dark Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/dark/",
-          "type": "component",
-          "description": "Outline buttons designed for dark backgrounds",
-          "tags": [
-            "button",
-            "outline",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Blue",
-            "Muted"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Dark Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/dark/",
-          "type": "component",
-          "description": "Dark glass morphism buttons for dark interfaces",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "dark"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Dark",
           "path": "Tailwind/Components/Buttons/Icon Button/dark/",
           "type": "component",
@@ -878,53 +703,6 @@
           ]
         },
         {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "type": "component",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Gradient on Dark Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/dark-background/",
-          "type": "component",
-          "description": "Gradient buttons designed to stand out on dark backgrounds with light or bright gradients",
-          "tags": [
-            "gradient",
-            "button",
-            "dark",
-            "dark mode",
-            "dark background",
-            "glow"
-          ],
-          "styles": [
-            "Light on Gray",
-            "Bright on Gray",
-            "Cyan on Purple",
-            "Warm on Purple"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Dashed Outline Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dashed/",
           "type": "component",
@@ -938,33 +716,6 @@
           "styles": [
             "Gray",
             "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Directional Gradient Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/directional/",
-          "type": "component",
-          "description": "Gradient buttons with all 8 directional options for creative layouts",
-          "tags": [
-            "gradient",
-            "button",
-            "directional",
-            "diagonal",
-            "gradient-direction"
-          ],
-          "styles": [
-            "Left to Right",
-            "Right to Left",
-            "Top to Bottom",
-            "Bottom Right",
-            "Bottom Left",
-            "Top Left",
-            "Top Right"
           ],
           "files": [
             "code.html",
@@ -1193,29 +944,6 @@
           ]
         },
         {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
-          "type": "component",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
-          "tags": [
-            "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
-          ],
-          "styles": [
-            "Upload",
-            "Add",
-            "Delete"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Linear Gradient Button",
           "path": "Tailwind/Components/Buttons/Gradient Button/linear/",
           "type": "component",
@@ -1260,51 +988,6 @@
           ]
         },
         {
-          "name": "Multi-Stop Gradient Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/multi-stop/",
-          "type": "component",
-          "description": "Buttons with three or more gradient color stops for rich, complex color transitions",
-          "tags": [
-            "gradient",
-            "button",
-            "multi-stop",
-            "spectrum",
-            "three-color"
-          ],
-          "styles": [
-            "Spectrum",
-            "Deep Blue",
-            "Warm Fire"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Muted Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/muted/",
-          "type": "component",
-          "description": "Muted background buttons for less prominent actions",
-          "tags": [
-            "button",
-            "filled",
-            "muted",
-            "gray"
-          ],
-          "styles": [
-            "Gray",
-            "Dark",
-            "Slate"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Neutral Button",
           "path": "Tailwind/Components/Buttons/Basic Button/neutral/",
           "type": "component",
@@ -1318,73 +1001,6 @@
           "styles": [
             "Light on Dark",
             "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Gradient Pill Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
-          "type": "component",
-          "description": "Fully rounded gradient buttons with pill shape for modern UI",
-          "tags": [
-            "gradient",
-            "button",
-            "pill",
-            "rounded-full",
-            "rounded"
-          ],
-          "styles": [
-            "Violet",
-            "Cyan",
-            "Emerald"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Neumorphism Pressed Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/pressed/",
-          "type": "component",
-          "description": "Pressed state neumorphism buttons with inset shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "pressed",
-            "inset"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1436,28 +1052,6 @@
           ]
         },
         {
-          "name": "Glass Primary Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
-          "type": "component",
-          "description": "Color glass morphism buttons with colored backgrounds",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "colored"
-          ],
-          "styles": [
-            "Blue",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Ghost Primary Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
           "type": "component",
@@ -1495,29 +1089,6 @@
             "Blue",
             "Green",
             "Purple"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Rounded Full Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped filled buttons",
-          "tags": [
-            "button",
-            "filled",
-            "rounded",
-            "pill",
-            "full"
-          ],
-          "styles": [
-            "Blue Pill",
-            "Dark Pill",
-            "Gradient Pill"
           ],
           "files": [
             "code.html",
@@ -1934,7 +1505,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete card component family with 40 production-ready variants covering every use case from profile and pricing cards to dashboard stats and CTA",
-      "variantsCount": 40,
+      "variantsCount": 33,
       "variants": [
         {
           "name": "Profile Card",
@@ -2225,70 +1796,6 @@
           ]
         },
         {
-          "name": "KPI Card",
-          "path": "Tailwind/Components/Cards/10-kpi-card/",
-          "type": "component",
-          "description": "Executive KPI card with 2x2 grid of metrics, progress bars, status badges, and color-coded gradients.",
-          "tags": [
-            "card",
-            "kpi",
-            "metrics",
-            "performance",
-            "dashboard",
-            "executive"
-          ],
-          "features": [
-            "2x2 grid",
-            "progress bars",
-            "status badges",
-            "gradient backgrounds",
-            "color coding"
-          ],
-          "styles": [
-            "kpi",
-            "metrics",
-            "performance",
-            "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Statistics Card",
-          "path": "Tailwind/Components/Cards/11-statistics-card/",
-          "type": "component",
-          "description": "Dark-themed statistics card with gradient icons, live badge, progress bar, and avatar group.",
-          "tags": [
-            "card",
-            "statistics",
-            "dark",
-            "metrics",
-            "social",
-            "dashboard"
-          ],
-          "features": [
-            "dark theme",
-            "gradient icons",
-            "live badge",
-            "progress bar",
-            "avatar group"
-          ],
-          "styles": [
-            "statistics",
-            "dark",
-            "metrics",
-            "social"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Notification Card",
           "path": "Tailwind/Components/Cards/12-notification-card/",
           "type": "component",
@@ -2536,38 +2043,6 @@
             "ecommerce",
             "cart",
             "payment"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Order Summary Card",
-          "path": "Tailwind/Components/Cards/20-order-summary-card/",
-          "type": "component",
-          "description": "Order tracking card with status badges, product list, delivery info, and action buttons.",
-          "tags": [
-            "card",
-            "order",
-            "tracking",
-            "delivery",
-            "ecommerce",
-            "status"
-          ],
-          "features": [
-            "order ID",
-            "status badge",
-            "product list",
-            "delivery date",
-            "action buttons"
-          ],
-          "styles": [
-            "order",
-            "tracking",
-            "delivery",
-            "ecommerce"
           ],
           "files": [
             "code.html",
@@ -2832,38 +2307,6 @@
           ]
         },
         {
-          "name": "Modern SaaS Card",
-          "path": "Tailwind/Components/Cards/29-modern-saas-card/",
-          "type": "component",
-          "description": "Modern SaaS dashboard card with analytics chart, trend indicator, filter dropdown, and mini stats.",
-          "tags": [
-            "card",
-            "saas",
-            "dashboard",
-            "analytics",
-            "modern",
-            "metrics"
-          ],
-          "features": [
-            "gradient icon",
-            "chart visualization",
-            "trend badge",
-            "filter dropdown",
-            "mini stats grid"
-          ],
-          "styles": [
-            "saas",
-            "dashboard",
-            "analytics",
-            "modern"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Card",
           "path": "Tailwind/Components/Cards/30-gradient-card/",
           "type": "component",
@@ -2888,38 +2331,6 @@
             "colorful",
             "earnings",
             "progress"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "User Profile Overview Card",
-          "path": "Tailwind/Components/Cards/31-user-profile-overview-card/",
-          "type": "component",
-          "description": "Comprehensive user profile card with header banner, avatar overlap, bio, skills, stats, and location.",
-          "tags": [
-            "card",
-            "profile",
-            "user",
-            "overview",
-            "social",
-            "header"
-          ],
-          "features": [
-            "gradient header",
-            "overlapping avatar",
-            "bio section",
-            "skill badges",
-            "stats grid"
-          ],
-          "styles": [
-            "profile",
-            "user",
-            "overview",
-            "social"
           ],
           "files": [
             "code.html",
@@ -3056,38 +2467,6 @@
           ]
         },
         {
-          "name": "Metric Card",
-          "path": "Tailwind/Components/Cards/36-metric-card/",
-          "type": "component",
-          "description": "Compact metric card with mini sparkline chart, trend indicator, icon, and current value.",
-          "tags": [
-            "card",
-            "metric",
-            "kpi",
-            "sparkline",
-            "dashboard",
-            "stats"
-          ],
-          "features": [
-            "sparkline chart",
-            "trend badge",
-            "icon",
-            "value display",
-            "compact layout"
-          ],
-          "styles": [
-            "metric",
-            "kpi",
-            "sparkline",
-            "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Support Ticket Card",
           "path": "Tailwind/Components/Cards/37-support-ticket-card/",
           "type": "component",
@@ -3112,38 +2491,6 @@
             "ticket",
             "helpdesk",
             "customer-service"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "FAQ Card",
-          "path": "Tailwind/Components/Cards/38-faq-card/",
-          "type": "component",
-          "description": "Expandable FAQ card with accordion items, expand/collapse animations, and contact CTA.",
-          "tags": [
-            "card",
-            "faq",
-            "accordion",
-            "help",
-            "questions",
-            "support"
-          ],
-          "features": [
-            "accordion items",
-            "expand/collapse",
-            "chevron animation",
-            "support CTA",
-            "clean layout"
-          ],
-          "styles": [
-            "faq",
-            "accordion",
-            "help",
-            "questions"
           ],
           "files": [
             "code.html",
@@ -3377,7 +2724,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete dropdown component family with 30 production-ready variants covering every use case from basic menus to mega menus, command palettes, and context menus",
-      "variantsCount": 30,
+      "variantsCount": 20,
       "variants": [
         {
           "name": "Action Menu",
@@ -3409,35 +2756,6 @@
           ]
         },
         {
-          "name": "Animated Menu",
-          "path": "Tailwind/Components/Dropdowns/animated-menu/",
-          "type": "component",
-          "description": "Richly animated dropdown with gradient button, staggered entrance animation, icon scaling, and glow effects.",
-          "tags": [
-            "dropdown",
-            "animated",
-            "gradient",
-            "effects",
-            "staggered"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "animated",
-            "gradient",
-            "effects",
-            "staggered"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Avatar Menu",
           "path": "Tailwind/Components/Dropdowns/avatar-menu/",
           "type": "component",
@@ -3459,62 +2777,6 @@
             "profile",
             "user",
             "online-status"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Dropdown",
-          "path": "Tailwind/Components/Dropdowns/basic-dropdown/",
-          "type": "component",
-          "description": "Simple, clean dropdown menu with click-to-toggle interaction and standard navigation options.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "basic",
-            "navigation"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "basic",
-            "navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Checkbox Menu",
-          "path": "Tailwind/Components/Dropdowns/checkbox-menu/",
-          "type": "component",
-          "description": "Multi-select checkbox menu for toggling table column visibility with count badge and reset functionality.",
-          "tags": [
-            "dropdown",
-            "checkbox",
-            "multi-select",
-            "table",
-            "columns"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "checkbox",
-            "multi-select",
-            "table",
-            "columns"
           ],
           "files": [
             "code.html",
@@ -3727,64 +2989,6 @@
           ]
         },
         {
-          "name": "Hover Menu",
-          "path": "Tailwind/Components/Dropdowns/hover-menu/",
-          "type": "component",
-          "description": "Dropdown menu that opens on hover with smooth fade-in and slide-up animations.",
-          "tags": [
-            "dropdown",
-            "hover",
-            "animation",
-            "tooltip",
-            "css-only"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "hover",
-            "animation",
-            "tooltip",
-            "css-only"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Menu",
-          "path": "Tailwind/Components/Dropdowns/icon-menu/",
-          "type": "component",
-          "description": "Icon-only menu dropdowns with notification badges for home, settings, notifications, and user profile.",
-          "tags": [
-            "dropdown",
-            "icon",
-            "navigation",
-            "badge",
-            "toolbar"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "icon",
-            "navigation",
-            "badge",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Language Switcher",
           "path": "Tailwind/Components/Dropdowns/language-switcher/",
           "type": "component",
@@ -3835,35 +3039,6 @@
             "navigation",
             "header",
             "multi-column"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Mobile Menu",
-          "path": "Tailwind/Components/Dropdowns/mobile-menu/",
-          "type": "component",
-          "description": "Slide-in mobile navigation drawer with overlay, user profile header, and sticky footer actions.",
-          "tags": [
-            "dropdown",
-            "mobile",
-            "navigation",
-            "drawer",
-            "slide-in"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "mobile",
-            "navigation",
-            "drawer",
-            "slide-in"
           ],
           "files": [
             "code.html",
@@ -3959,64 +3134,6 @@
           ]
         },
         {
-          "name": "Profile Menu",
-          "path": "Tailwind/Components/Dropdowns/profile-menu/",
-          "type": "component",
-          "description": "User profile dropdown with gradient header, avatar, and comprehensive account actions including settings, billing, and sign out.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "profile",
-            "user",
-            "account"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "profile",
-            "user",
-            "account"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Quick Actions Menu",
-          "path": "Tailwind/Components/Dropdowns/quick-actions-menu/",
-          "type": "component",
-          "description": "Grid-based quick actions menu with 8 action buttons, icon scaling on hover, and colorful icons.",
-          "tags": [
-            "dropdown",
-            "quick-actions",
-            "grid",
-            "icon-buttons",
-            "toolbar"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "quick-actions",
-            "grid",
-            "icon-buttons",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Radio Menu",
           "path": "Tailwind/Components/Dropdowns/radio-menu/",
           "type": "component",
@@ -4104,35 +3221,6 @@
           ]
         },
         {
-          "name": "Sidebar Menu",
-          "path": "Tailwind/Components/Dropdowns/sidebar-menu/",
-          "type": "component",
-          "description": "Dark sidebar navigation with expandable submenus, status indicators, and badge notifications.",
-          "tags": [
-            "dropdown",
-            "sidebar",
-            "navigation",
-            "admin",
-            "dark-mode"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "sidebar",
-            "navigation",
-            "admin",
-            "dark-mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Sort Menu",
           "path": "Tailwind/Components/Dropdowns/sort-menu/",
           "type": "component",
@@ -4212,36 +3300,6 @@
             "dark-mode",
             "light-mode",
             "appearance"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "User Account Menu",
-          "path": "Tailwind/Components/Dropdowns/user-account-menu/",
-          "type": "component",
-          "description": "Comprehensive account management dropdown with quick stats, settings navigation, and security options.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "account",
-            "user",
-            "settings",
-            "security"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "account",
-            "user",
-            "settings"
           ],
           "files": [
             "code.html",
@@ -4346,7 +3404,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete input component family with 35 production-ready variants covering every input type from text to file uploads",
-      "variantsCount": 49,
+      "variantsCount": 38,
       "variants": [
         {
           "name": "Animated Focus Input",
@@ -4473,29 +3531,6 @@
           ]
         },
         {
-          "name": "Corporate Input",
-          "path": "Tailwind/Components/Input/corporate/",
-          "type": "component",
-          "description": "Enterprise-style form inputs with proper hierarchy and professional appearance",
-          "tags": [
-            "input",
-            "corporate",
-            "enterprise",
-            "form",
-            "business"
-          ],
-          "styles": [
-            "Form Header",
-            "Card Form",
-            "Grid Layout"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Credit Card Input",
           "path": "Tailwind/Components/Input/credit-card/",
           "type": "component",
@@ -4548,36 +3583,6 @@
             "Euro",
             "Multi-currency",
             "Display"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CVV Input",
-          "path": "Tailwind/Components/Input/cvv/",
-          "type": "component",
-          "description": "CVV/CVC security code input components for payment forms",
-          "tags": [
-            "input",
-            "cvv",
-            "cvc",
-            "security",
-            "payment"
-          ],
-          "features": [
-            "input",
-            "cvv",
-            "cvc",
-            "security",
-            "payment"
-          ],
-          "styles": [
-            "Standard",
-            "With Help",
-            "Card Visual"
           ],
           "files": [
             "code.html",
@@ -4650,68 +3655,6 @@
             "Read-only",
             "Disabled with Icon",
             "Read-only Card"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Email Input",
-          "path": "Tailwind/Components/Input/email-input/",
-          "type": "component",
-          "description": "Email input components with icon, verification, and dark mode styles",
-          "tags": [
-            "input",
-            "email",
-            "mail",
-            "verification",
-            "contact"
-          ],
-          "features": [
-            "input",
-            "email",
-            "mail",
-            "verification",
-            "contact"
-          ],
-          "styles": [
-            "Standard",
-            "With Icon",
-            "Verification",
-            "Dark Mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Expiration Date Input",
-          "path": "Tailwind/Components/Input/expiration-date/",
-          "type": "component",
-          "description": "Expiration date input components for card and subscription forms",
-          "tags": [
-            "input",
-            "expiration",
-            "date",
-            "card",
-            "subscription"
-          ],
-          "features": [
-            "input",
-            "expiration",
-            "date",
-            "card",
-            "subscription"
-          ],
-          "styles": [
-            "Standard",
-            "Split",
-            "Compact",
-            "Calendar Style"
           ],
           "files": [
             "code.html",
@@ -4837,30 +3780,6 @@
           ]
         },
         {
-          "name": "Icon Both Input",
-          "path": "Tailwind/Components/Input/icon-both/",
-          "type": "component",
-          "description": "Input fields with icons on both left and right sides for context and actions",
-          "tags": [
-            "input",
-            "icon",
-            "both-sides",
-            "search",
-            "form"
-          ],
-          "styles": [
-            "Search Clear",
-            "Currency",
-            "URL",
-            "Phone"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Left Input",
           "path": "Tailwind/Components/Input/icon-left/",
           "type": "component",
@@ -4877,30 +3796,6 @@
             "Email",
             "User",
             "Password"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Right Input",
-          "path": "Tailwind/Components/Input/icon-right/",
-          "type": "component",
-          "description": "Input fields with icons or action buttons on the right side",
-          "tags": [
-            "input",
-            "icon",
-            "right-icon",
-            "clear",
-            "validation"
-          ],
-          "styles": [
-            "Clear Button",
-            "Valid State",
-            "Loading",
-            "Help Icon"
           ],
           "files": [
             "code.html",
@@ -4961,29 +3856,6 @@
             "Standard",
             "Tag Style",
             "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Modern SaaS Input",
-          "path": "Tailwind/Components/Input/modern-saas/",
-          "type": "component",
-          "description": "Modern SaaS-style inputs with premium feel and visual polish",
-          "tags": [
-            "input",
-            "saas",
-            "modern",
-            "premium",
-            "startup"
-          ],
-          "styles": [
-            "Clean Card",
-            "Gradient CTA",
-            "Stats Display"
           ],
           "files": [
             "code.html",
@@ -5223,53 +4095,6 @@
           ]
         },
         {
-          "name": "Rounded Pill Input",
-          "path": "Tailwind/Components/Input/rounded-pill/",
-          "type": "component",
-          "description": "Fully rounded pill-style input fields for modern UI",
-          "tags": [
-            "input",
-            "pill",
-            "rounded",
-            "search",
-            "modern"
-          ],
-          "styles": [
-            "Default",
-            "With Icon",
-            "Outlined",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Search Bar",
-          "path": "Tailwind/Components/Input/search-bar/",
-          "type": "component",
-          "description": "Dedicated search bar components with modern styling and interactions",
-          "tags": [
-            "input",
-            "search",
-            "search-bar",
-            "command-palette"
-          ],
-          "styles": [
-            "Modern Large",
-            "Compact",
-            "With Filter",
-            "Dark Mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Search with Autocomplete",
           "path": "Tailwind/Components/Input/search-with-autocomplete/",
           "type": "component",
@@ -5321,30 +4146,6 @@
             "Inline",
             "With Chips",
             "Advanced"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Sharp Corner Input",
-          "path": "Tailwind/Components/Input/sharp-corner/",
-          "type": "component",
-          "description": "Sharp rectangular input fields without border radius for data-dense UIs",
-          "tags": [
-            "input",
-            "sharp",
-            "rectangular",
-            "industrial",
-            "data"
-          ],
-          "styles": [
-            "Default",
-            "Dense",
-            "Dark/Industrial",
-            "Inline Row"
           ],
           "files": [
             "code.html",
@@ -5462,35 +4263,6 @@
             "Default",
             "With Value",
             "Dark Variant"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "URL Input",
-          "path": "Tailwind/Components/Input/url-input/",
-          "type": "component",
-          "description": "URL input components with prefix, icon, and link preview styles",
-          "tags": [
-            "input",
-            "url",
-            "link",
-            "website"
-          ],
-          "features": [
-            "input",
-            "url",
-            "link",
-            "website"
-          ],
-          "styles": [
-            "Standard",
-            "With Prefix",
-            "With Icon",
-            "Link Preview"
           ],
           "files": [
             "code.html",
@@ -5755,29 +4527,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete modal component family with 30 production-ready variants covering every use case from basic to advanced interactions",
-      "variantsCount": 30,
+      "variantsCount": 24,
       "variants": [
-        {
-          "name": "Basic Modal",
-          "path": "Tailwind/Components/Modals/basic-modal/",
-          "type": "component",
-          "description": "Foundation modal component with header, body, and footer sections. Includes backdrop, close button, and action buttons.",
-          "tags": [
-            "modal",
-            "dialog",
-            "basic",
-            "overlay",
-            "popup"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Bottom Sheet",
           "path": "Tailwind/Components/Modals/bottom-sheet/",
@@ -5905,27 +4656,6 @@
           ]
         },
         {
-          "name": "Drawer Modal",
-          "path": "Tailwind/Components/Modals/drawer-modal/",
-          "type": "component",
-          "description": "Slide-in drawer panel from the right with team members list, search functionality, and role badges.",
-          "tags": [
-            "modal",
-            "drawer",
-            "sidebar",
-            "team",
-            "slide-in"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Error Modal",
           "path": "Tailwind/Components/Modals/error-modal/",
           "type": "component",
@@ -5957,27 +4687,6 @@
             "rating",
             "review",
             "survey"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Forgot Password Modal",
-          "path": "Tailwind/Components/Modals/forgot-password-modal/",
-          "type": "component",
-          "description": "Password reset request modal with email input, send reset link button, and helpful information box.",
-          "tags": [
-            "modal",
-            "password",
-            "reset",
-            "forgot",
-            "authentication"
           ],
           "styles": [
             "Default"
@@ -6115,27 +4824,6 @@
           ]
         },
         {
-          "name": "Notification Modal",
-          "path": "Tailwind/Components/Modals/notification-modal/",
-          "type": "component",
-          "description": "Notification panel modal with tabs, categorized notifications, unread indicators, and timestamps.",
-          "tags": [
-            "modal",
-            "notification",
-            "alert",
-            "toast",
-            "panel"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "OTP Verification Modal",
           "path": "Tailwind/Components/Modals/otp-verification-modal/",
           "type": "component",
@@ -6167,27 +4855,6 @@
             "credit card",
             "checkout",
             "billing"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Reset Password Modal",
-          "path": "Tailwind/Components/Modals/reset-password-modal/",
-          "type": "component",
-          "description": "Password reset form modal with new password input, confirmation, and password requirements checklist.",
-          "tags": [
-            "modal",
-            "password",
-            "reset",
-            "security",
-            "authentication"
           ],
           "styles": [
             "Default"
@@ -6272,27 +4939,6 @@
             "task",
             "details",
             "sidebar"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Subscription Modal",
-          "path": "Tailwind/Components/Modals/subscription-modal/",
-          "type": "component",
-          "description": "Premium subscription upgrade modal with feature comparison, pricing plans, and subscription options for SaaS products.",
-          "tags": [
-            "modal",
-            "subscription",
-            "pricing",
-            "upgrade",
-            "saas"
           ],
           "styles": [
             "Default"
@@ -6499,7 +5145,7 @@
       "type": "component",
       "category": "Components",
       "description": "Navigation bars — transparent, sticky, mega menu, dashboard, glass, and floating styles.",
-      "variantsCount": 15,
+      "variantsCount": 11,
       "variants": [
         {
           "name": "Documentation Navbar — Apple Inspired",
@@ -6577,62 +5223,6 @@
           ],
           "styles": [
             "cyber"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Bold Navbar — Dark Premium",
-          "path": "Tailwind/Components/Navbar/dark-premium/",
-          "type": "component",
-          "description": "Dark Premium navbar: Bold brutalist nav.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "dark-premium"
-          ],
-          "features": [
-            "bold brutalist nav",
-            "uppercase mono links",
-            "hard borders",
-            "edge CTA",
-            "responsive"
-          ],
-          "styles": [
-            "dark-premium"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Transparent Navbar — Edge Glassmorphism",
-          "path": "Tailwind/Components/Navbar/edge-glassmorphism/",
-          "type": "component",
-          "description": "Edge Glassmorphism navbar: Transparent navbar.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "edge-glassmorphism"
-          ],
-          "features": [
-            "transparent navbar",
-            "centered links",
-            "CTA + sign-in",
-            "mobile menu button",
-            "responsive"
-          ],
-          "styles": [
-            "edge-glassmorphism"
           ],
           "files": [
             "README.md",
@@ -6726,34 +5316,6 @@
           ]
         },
         {
-          "name": "Vercel-Style Navbar — Gradient Mesh",
-          "path": "Tailwind/Components/Navbar/gradient-mesh/",
-          "type": "component",
-          "description": "Gradient Mesh navbar: Vercel-style nav.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "gradient-mesh"
-          ],
-          "features": [
-            "vercel-style nav",
-            "low height bar",
-            "github star badge",
-            "ghost links",
-            "CTA actions"
-          ],
-          "styles": [
-            "gradient-mesh"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mega Menu Navbar — Minimal",
           "path": "Tailwind/Components/Navbar/minimal/",
           "type": "component",
@@ -6773,34 +5335,6 @@
           ],
           "styles": [
             "minimal"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Minimal Navbar — Monochrome",
-          "path": "Tailwind/Components/Navbar/monochrome/",
-          "type": "component",
-          "description": "Monochrome navbar: Minimal navbar.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "monochrome"
-          ],
-          "features": [
-            "minimal navbar",
-            "low height",
-            "bare links",
-            "no hamburger",
-            "single CTA"
-          ],
-          "styles": [
-            "monochrome"
           ],
           "files": [
             "README.md",
@@ -6956,7 +5490,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete navigation component family with 35 production-ready variants covering every use case from basic navbars to sidebars, breadcrumbs, pagination, and mega navigation",
-      "variantsCount": 35,
+      "variantsCount": 30,
       "variants": [
         {
           "name": "Admin Sidebar",
@@ -7101,35 +5635,6 @@
             "breadcrumb",
             "path",
             "hierarchy"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Category Navigation",
-          "path": "Tailwind/Components/Navigation/category-navigation/",
-          "type": "component",
-          "description": "Hierarchical category tree navigation with emoji icons and item counts. Perfect for marketplaces and directories.",
-          "tags": [
-            "navigation",
-            "category",
-            "tree",
-            "directory"
-          ],
-          "features": [
-            "Expandable categories",
-            "Emoji icons",
-            "Item counts",
-            "Nested links",
-            "Active state"
-          ],
-          "styles": [
-            "category",
-            "tree",
-            "directory"
           ],
           "files": [
             "code.html",
@@ -7435,95 +5940,6 @@
           ]
         },
         {
-          "name": "Hamburger Menu",
-          "path": "Tailwind/Components/Navigation/hamburger-menu/",
-          "type": "component",
-          "description": "Animated hamburger menu with slide-out panel and X transformation. Perfect for mobile menus and user dropdowns.",
-          "tags": [
-            "navigation",
-            "hamburger",
-            "menu",
-            "mobile",
-            "dropdown"
-          ],
-          "features": [
-            "Animated hamburger-to-X transformation",
-            "Slide-out menu animation",
-            "User profile header",
-            "Sign out action",
-            "Click-outside dismiss"
-          ],
-          "styles": [
-            "hamburger",
-            "menu",
-            "mobile",
-            "dropdown"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Horizontal Navigation",
-          "path": "Tailwind/Components/Navigation/horizontal-navigation/",
-          "type": "component",
-          "description": "Wide horizontal menu with optional dropdowns. Multiple styles including standard, dropdown, and pills variants.",
-          "tags": [
-            "navigation",
-            "horizontal",
-            "menu",
-            "tabs"
-          ],
-          "features": [
-            "Horizontal layout",
-            "Dropdown support",
-            "Active state styling",
-            "Pills variant",
-            "Hover transitions"
-          ],
-          "styles": [
-            "horizontal",
-            "menu",
-            "tabs"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Navigation",
-          "path": "Tailwind/Components/Navigation/icon-navigation/",
-          "type": "component",
-          "description": "Icon-driven navigation with optional labels. Compact and standard variants for space-efficient navigation.",
-          "tags": [
-            "navigation",
-            "icon",
-            "compact",
-            "toolbar"
-          ],
-          "features": [
-            "Icon-only layout",
-            "aria-label for accessibility",
-            "Active state styling",
-            "Compact and standard sizes",
-            "Hover transitions"
-          ],
-          "styles": [
-            "icon",
-            "compact",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mega Navigation",
           "path": "Tailwind/Components/Navigation/mega-navigation/",
           "type": "component",
@@ -7785,35 +6201,6 @@
             "search",
             "filter",
             "finder"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Settings Navigation",
-          "path": "Tailwind/Components/Navigation/settings-navigation/",
-          "type": "component",
-          "description": "Settings page navigation with grouped options. Perfect for account settings, preferences, and admin panels.",
-          "tags": [
-            "navigation",
-            "settings",
-            "preferences",
-            "account"
-          ],
-          "features": [
-            "Vertical navigation sidebar",
-            "Active state highlighting",
-            "Settings form example",
-            "Icon support",
-            "Responsive layout"
-          ],
-          "styles": [
-            "settings",
-            "preferences",
-            "account"
           ],
           "files": [
             "code.html",
@@ -8354,7 +6741,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete table component family with 20 production-ready variants covering every use case from basic data tables to expandable rows, filters, sorting, and pagination",
-      "variantsCount": 20,
+      "variantsCount": 18,
       "variants": [
         {
           "name": "Analytics Table",
@@ -8412,38 +6799,6 @@
             "data",
             "projects",
             "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Bordered Table",
-          "path": "Tailwind/Components/Tables/bordered-table/",
-          "type": "component",
-          "description": "Financial performance table with full grid borders. Features gradient header, growth indicators with arrows, and a summary footer row with totals.",
-          "tags": [
-            "table",
-            "bordered",
-            "finance",
-            "financial",
-            "business",
-            "revenue"
-          ],
-          "features": [
-            "full grid borders",
-            "gradient header",
-            "growth indicators",
-            "totals footer",
-            "hover states"
-          ],
-          "styles": [
-            "bordered",
-            "finance",
-            "financial",
-            "business"
           ],
           "files": [
             "code.html",
@@ -8572,37 +6927,6 @@
             "filterable",
             "tasks",
             "project"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Hover Table",
-          "path": "Tailwind/Components/Tables/hover-table/",
-          "type": "component",
-          "description": "Event management table with rich hover interactions. Features color-coded hover states, animated action buttons that appear on row hover, attendee avatars, and status indicators with pulse animations.",
-          "tags": [
-            "table",
-            "hover",
-            "events",
-            "interactive",
-            "animated"
-          ],
-          "features": [
-            "color-coded hover",
-            "animated actions",
-            "attendee avatars",
-            "status badges",
-            "pulse animation"
-          ],
-          "styles": [
-            "hover",
-            "events",
-            "interactive",
-            "animated"
           ],
           "files": [
             "code.html",
@@ -9088,7 +7412,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete tab component family with 15 production-ready variants covering documentation, dashboards, settings, mobile navigation, and animated indicators",
-      "variantsCount": 15,
+      "variantsCount": 12,
       "variants": [
         {
           "name": "Animated Tabs",
@@ -9116,38 +7440,6 @@
             "resize-aware",
             "kanban/timeline/calendar panels",
             "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Tabs",
-          "path": "Tailwind/Components/Tabs/basic-tabs/",
-          "type": "component",
-          "description": "Clean documentation tabs with an underline indicator. Ideal for organizing reference material, docs pages, and onboarding steps into focused sections.",
-          "tags": [
-            "tabs",
-            "basic",
-            "documentation",
-            "underline",
-            "accessible"
-          ],
-          "features": [
-            "underline active indicator",
-            "arrow-key navigation",
-            "aria tab pattern",
-            "focus-visible ring",
-            "responsive"
-          ],
-          "styles": [
-            "underline active indicator",
-            "arrow-key navigation",
-            "aria tab pattern",
-            "focus-visible ring",
-            "responsive"
           ],
           "files": [
             "code.html",
@@ -9288,38 +7580,6 @@
           ]
         },
         {
-          "name": "Minimal Tabs",
-          "path": "Tailwind/Components/Tabs/minimal-tabs/",
-          "type": "component",
-          "description": "Ultra-clean minimal inbox tabs with a thin sliding indicator, count annotations, and a search action. Designed for distraction-free content like email and notes apps.",
-          "tags": [
-            "tabs",
-            "minimal",
-            "inbox",
-            "clean",
-            "indicator"
-          ],
-          "features": [
-            "thin sliding indicator",
-            "counts",
-            "search action",
-            "minimal styling",
-            "arrow-key navigation"
-          ],
-          "styles": [
-            "thin sliding indicator",
-            "counts",
-            "search action",
-            "minimal styling",
-            "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mobile Tabs",
           "path": "Tailwind/Components/Tabs/mobile-tabs/",
           "type": "component",
@@ -9377,39 +7637,6 @@
             "count badges",
             "action toolbar",
             "responsive wrap",
-            "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Rounded Tabs",
-          "path": "Tailwind/Components/Tabs/rounded-tabs/",
-          "type": "component",
-          "description": "Soft rounded navigation tabs with a gradient active state, set in a pill container. Suited to music and media apps browsing playlists, artists, albums, and podcasts.",
-          "tags": [
-            "tabs",
-            "rounded",
-            "soft",
-            "music",
-            "media",
-            "gradient"
-          ],
-          "features": [
-            "gradient active pill",
-            "rounded container",
-            "media grids",
-            "artist circles",
-            "arrow-key navigation"
-          ],
-          "styles": [
-            "gradient active pill",
-            "rounded container",
-            "media grids",
-            "artist circles",
             "arrow-key navigation"
           ],
           "files": [
@@ -9598,7 +7825,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete toast notification family with 6 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
-      "variantsCount": 6,
+      "variantsCount": 5,
       "variants": [
         {
           "name": "Action Toast",
@@ -9628,40 +7855,6 @@
             "Undo action",
             "Destructive feedback",
             "Reversible"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Toast",
-          "path": "Tailwind/Components/Toasts/basic-toast/",
-          "type": "component",
-          "description": "Auto-dismissing success toast with icon, message, and close button. Slides in from the corner, pauses for 4s, then fades out. Pauses on hover for accessibility.",
-          "tags": [
-            "toast",
-            "notification",
-            "basic",
-            "success",
-            "feedback",
-            "auto-dismiss"
-          ],
-          "features": [
-            "auto-dismiss after 4s",
-            "pause on hover",
-            "close button",
-            "aria-live polite region",
-            "role status",
-            "template-based rendering",
-            "focus-visible ring",
-            "slide-in transition"
-          ],
-          "styles": [
-            "Success",
-            "Auto-dismiss",
-            "Hover to pause"
           ],
           "files": [
             "code.html",
@@ -9851,41 +8044,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete tooltip component family with 6 production-ready variants covering every use case from basic hover hints to directional positioning, rich help content, delayed reveal, icon-button labeling, and status indicators. Pure CSS - no JavaScript.",
-      "variantsCount": 6,
+      "variantsCount": 5,
       "variants": [
-        {
-          "name": "Basic Tooltip",
-          "path": "Tailwind/Components/Tooltips/basic-tooltip/",
-          "type": "component",
-          "description": "Top-positioned tooltip with arrow that appears on hover and keyboard focus. Pure CSS via the data-tooltip attribute - no JavaScript required. Accessible with role=tooltip and aria-describedby.",
-          "tags": [
-            "tooltip",
-            "hover",
-            "focus",
-            "arrow",
-            "css-only",
-            "accessibility"
-          ],
-          "features": [
-            "top position with arrow",
-            "hover trigger",
-            "focus-visible trigger",
-            "fade + slide animation",
-            "pure CSS no JS",
-            "role=tooltip",
-            "aria-describedby",
-            "z-index layering"
-          ],
-          "styles": [
-            "Top",
-            "With arrow"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Delayed Tooltip",
           "path": "Tailwind/Components/Tooltips/delayed-tooltip/",

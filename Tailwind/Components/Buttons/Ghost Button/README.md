@@ -7,10 +7,7 @@ Transparent buttons that reveal background color on hover.
 | Variant | Description |
 |---------|-------------|
 | [Primary](./primary/) | Transparent buttons with blue hover effect |
-| [Colors](./colors/) | Multiple color options |
-| [Dark](./dark/) | Buttons designed for dark backgrounds |
 | [Sizes](./sizes/) | All button sizes |
-| [Icon](./icon/) | Buttons with icons |
 
 ## Quick Start
 

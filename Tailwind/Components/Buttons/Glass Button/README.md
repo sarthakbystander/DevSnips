@@ -7,8 +7,6 @@ Glass morphism buttons with backdrop blur effects.
 | Variant | Description |
 |---------|-------------|
 | [Soft](./soft/) | Light glass buttons with subtle blur |
-| [Primary](./primary/) | Colored glass buttons |
-| [Dark](./dark/) | Dark glass buttons for dark interfaces |
 | [Icon](./icon/) | Glass icon buttons |
 
 ## Quick Start
