@@ -1,7 +1,7 @@
 {
   "name": "Floating Action Button Standard",
-  "component": "Floating Action Button",
-  "variant": "Standard",
+  "component": "floating action button",
+  "variant": "standard",
   "description": "Standard floating action buttons (FAB)",
   "category": "Components",
   "subcategory": "Buttons",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "standard",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

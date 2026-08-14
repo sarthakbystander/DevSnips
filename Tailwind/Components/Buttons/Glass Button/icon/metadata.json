@@ -1,7 +1,7 @@
 {
   "name": "Glass Icon Button",
-  "component": "Glass Button",
-  "variant": "Icon",
+  "component": "glass button",
+  "variant": "icon",
   "description": "Glass morphism icon buttons for toolbars and actions",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "icon",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

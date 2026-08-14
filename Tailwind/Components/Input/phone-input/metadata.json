@@ -1,7 +1,7 @@
 {
   "name": "Phone Input",
-  "component": "Input",
-  "variant": "Phone",
+  "component": "input",
+  "variant": "phone",
   "description": "Phone number input components with country code selection and formatting",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "phone-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Password Toggle Input",
-  "component": "Input",
-  "variant": "Password Toggle",
+  "component": "input",
+  "variant": "password toggle",
   "description": "Password inputs with visibility toggle and optional strength indicator",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "password-toggle",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

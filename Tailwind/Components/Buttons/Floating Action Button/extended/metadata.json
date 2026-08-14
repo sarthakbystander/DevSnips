@@ -1,7 +1,7 @@
 {
   "name": "Floating Action Button Extended",
-  "component": "Floating Action Button",
-  "variant": "Extended",
+  "component": "floating action button",
+  "variant": "extended",
   "description": "Extended FAB with icon and text",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "extended",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

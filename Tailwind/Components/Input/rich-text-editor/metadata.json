@@ -1,7 +1,7 @@
 {
   "name": "Rich Text Editor",
-  "component": "Input",
-  "variant": "Rich Text Editor",
+  "component": "input",
+  "variant": "rich text editor",
   "description": "Rich text editor components with formatting toolbar and comment styles",
   "category": "Components",
   "subcategory": "Input",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "rich-text-editor",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

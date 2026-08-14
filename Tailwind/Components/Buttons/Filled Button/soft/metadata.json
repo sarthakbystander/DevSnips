@@ -1,7 +1,7 @@
 {
   "name": "Soft Background Button",
-  "component": "Filled Button",
-  "variant": "Soft",
+  "component": "filled button",
+  "variant": "soft",
   "description": "Soft background buttons with pastel colors for subtle actions",
   "category": "Components",
   "subcategory": "Buttons",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "soft",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

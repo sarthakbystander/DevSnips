@@ -1,7 +1,7 @@
 {
   "name": "Neumorphism Soft Button",
-  "component": "Neumorphism Button",
-  "variant": "Soft",
+  "component": "neumorphism button",
+  "variant": "soft",
   "description": "Soft UI neumorphism buttons with subtle shadows",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "soft",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

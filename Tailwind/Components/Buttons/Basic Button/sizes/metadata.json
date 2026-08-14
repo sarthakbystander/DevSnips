@@ -1,7 +1,7 @@
 {
   "name": "Button Sizes",
-  "component": "Basic Button",
-  "variant": "Sizes",
+  "component": "basic button",
+  "variant": "sizes",
   "description": "Button sizes from extra small to extra large for different use cases",
   "category": "Components",
   "subcategory": "Buttons",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "sizes",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

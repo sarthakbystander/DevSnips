@@ -1,7 +1,7 @@
 {
   "name": "Social Button GitHub",
-  "component": "Social Button",
-  "variant": "GitHub",
+  "component": "social button",
+  "variant": "github",
   "description": "GitHub sign-in buttons",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "github",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

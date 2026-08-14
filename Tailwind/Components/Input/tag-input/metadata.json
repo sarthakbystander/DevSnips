@@ -1,7 +1,7 @@
 {
   "name": "Tag Input",
-  "component": "Input",
-  "variant": "Tag",
+  "component": "input",
+  "variant": "tag",
   "description": "Input fields with tag/chip functionality for multiple selections",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "tag-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

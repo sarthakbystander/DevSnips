@@ -1,7 +1,7 @@
 {
   "name": "Validation States Input",
-  "component": "Input",
-  "variant": "Validation States",
+  "component": "input",
+  "variant": "validation states",
   "description": "Input fields with validation feedback states for error, success, warning, and info",
   "category": "Components",
   "subcategory": "Input",
@@ -43,5 +43,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "validation-states",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

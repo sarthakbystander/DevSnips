@@ -1,7 +1,7 @@
 {
   "name": "Animated Shine Button",
-  "component": "Animated Button",
-  "variant": "Shine",
+  "component": "animated button",
+  "variant": "shine",
   "description": "Shine sweep animations on hover for premium feel",
   "category": "Components",
   "subcategory": "Buttons",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "shine",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

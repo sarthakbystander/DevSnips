@@ -1,7 +1,7 @@
 {
   "name": "Loading Button Progress",
-  "component": "Loading Button",
-  "variant": "Progress",
+  "component": "loading button",
+  "variant": "progress",
   "description": "Loading buttons with progress bar indicator",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "progress",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

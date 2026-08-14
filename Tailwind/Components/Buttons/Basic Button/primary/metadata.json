@@ -1,7 +1,7 @@
 {
   "name": "Primary Button",
-  "component": "Basic Button",
-  "variant": "Primary",
+  "component": "basic button",
+  "variant": "primary",
   "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
   "category": "Components",
   "subcategory": "Buttons",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "primary",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

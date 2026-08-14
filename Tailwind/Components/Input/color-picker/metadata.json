@@ -1,7 +1,7 @@
 {
   "name": "Color Picker Input",
-  "component": "Input",
-  "variant": "Color Picker",
+  "component": "input",
+  "variant": "color picker",
   "description": "Color selection components including native picker and preset swatches",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "color-picker",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

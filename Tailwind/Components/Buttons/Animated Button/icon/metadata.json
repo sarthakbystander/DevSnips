@@ -1,7 +1,7 @@
 {
   "name": "Animated Icon Button",
-  "component": "Animated Button",
-  "variant": "Icon",
+  "component": "animated button",
+  "variant": "icon",
   "description": "Icon animations on hover for interactive effects",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "icon",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

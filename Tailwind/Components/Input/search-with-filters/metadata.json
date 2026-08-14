@@ -1,7 +1,7 @@
 {
   "name": "Search with Filters",
-  "component": "Input",
-  "variant": "Search with Filters",
+  "component": "input",
+  "variant": "search with filters",
   "description": "Search input components with filter chips and advanced filtering options",
   "category": "Components",
   "subcategory": "Input",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "search-with-filters",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

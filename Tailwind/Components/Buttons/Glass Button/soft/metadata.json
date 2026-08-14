@@ -1,7 +1,7 @@
 {
   "name": "Glass Soft Button",
-  "component": "Glass Button",
-  "variant": "Soft",
+  "component": "glass button",
+  "variant": "soft",
   "description": "Soft glass morphism buttons with blur effect",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "soft",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

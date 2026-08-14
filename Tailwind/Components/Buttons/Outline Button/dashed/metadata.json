@@ -1,7 +1,7 @@
 {
   "name": "Dashed Outline Button",
-  "component": "Outline Button",
-  "variant": "Dashed",
+  "component": "outline button",
+  "variant": "dashed",
   "description": "Outline buttons with dashed borders for a modern look",
   "category": "Components",
   "subcategory": "Buttons",
@@ -36,5 +36,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "dashed",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

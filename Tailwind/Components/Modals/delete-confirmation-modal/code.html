@@ -68,3 +68,9 @@
     }
   });
 </script>
+<script>
+  // Self-contained modal open/close + Esc dismissal (DevSnips snippet helper).
+  function openModal(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');document.body.style.overflow='hidden';}}
+  function closeModal(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');}document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.fixed.inset-0.z-50:not(.hidden)').forEach(function(m){m.classList.add('hidden');});document.body.style.overflow='';}});
+</script>

@@ -1,7 +1,7 @@
 {
   "name": "Floating Label Input",
-  "component": "Input",
-  "variant": "Floating Label",
+  "component": "input",
+  "variant": "floating label",
   "description": "Material-inspired floating label inputs with smooth animations",
   "category": "Components",
   "subcategory": "Input",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "floating-label",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

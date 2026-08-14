@@ -1,7 +1,7 @@
 {
   "name": "Animated Arrow Button",
-  "component": "Animated Button",
-  "variant": "Arrow",
+  "component": "animated button",
+  "variant": "arrow",
   "description": "Arrow slide animations on hover for navigation",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "arrow",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

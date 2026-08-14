@@ -1,7 +1,7 @@
 {
   "name": "With Helper Input",
-  "component": "Input",
-  "variant": "With Helper",
+  "component": "input",
+  "variant": "with helper",
   "description": "Input fields with helper text, hints, and guidance for users",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "with-helper",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

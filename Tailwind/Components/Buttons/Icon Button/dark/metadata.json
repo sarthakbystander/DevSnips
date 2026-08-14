@@ -1,7 +1,7 @@
 {
   "name": "Icon Button Dark",
-  "component": "Icon Button",
-  "variant": "Dark",
+  "component": "icon button",
+  "variant": "dark",
   "description": "Dark themed icon button styles for dark interfaces",
   "category": "Components",
   "subcategory": "Buttons",
@@ -36,5 +36,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "dark",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

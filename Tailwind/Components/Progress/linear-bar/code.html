@@ -29,5 +29,22 @@ Usage Example: Drop into dashboards or async task panels. Set data-value to cont
     const fill = root.querySelector('.progress-fill');
     const label = root.querySelector('.progress-label');
     const bar = root.querySelector('[role="progressbar"]');
+
+    function setProgress(v) {
+      const value = Math.max(0, Math.min(100, Math.round(v)));
+      fill.style.width = value + '%';
+      label.textContent = value + '%';
+      bar.setAttribute('aria-valuenow', String(value));
+      bar.setAttribute('aria-valuetext', value + ' percent');
+    }
+    root.setProgress = setProgress;
+
+    // Demo simulation — remove and call setProgress(n) yourself.
+    let value = 0;
+    const timer = setInterval(() => {
+      value = Math.min(100, value + Math.random() * 14);
+      setProgress(value);
+      if (value >= 100) clearInterval(timer);
+    }, 600);
   })();
 </script>

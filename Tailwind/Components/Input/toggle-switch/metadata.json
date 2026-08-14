@@ -1,7 +1,7 @@
 {
   "name": "Toggle Switch Input",
-  "component": "Input",
-  "variant": "Toggle Switch",
+  "component": "input",
+  "variant": "toggle switch",
   "description": "Toggle switch components for boolean settings and preferences",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "toggle-switch",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

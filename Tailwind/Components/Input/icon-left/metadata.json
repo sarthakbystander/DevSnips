@@ -1,7 +1,7 @@
 {
   "name": "Icon Left Input",
-  "component": "Input",
-  "variant": "Icon Left",
+  "component": "input",
+  "variant": "icon left",
   "description": "Input fields with icons positioned on the left side for visual context",
   "category": "Components",
   "subcategory": "Input",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "icon-left",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

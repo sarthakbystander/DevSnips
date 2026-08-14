@@ -1,7 +1,7 @@
 {
   "name": "Thick Border Outline Button",
-  "component": "Outline Button",
-  "variant": "Thick",
+  "component": "outline button",
+  "variant": "thick",
   "description": "Bold outline buttons with thick borders and special effects",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "thick",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

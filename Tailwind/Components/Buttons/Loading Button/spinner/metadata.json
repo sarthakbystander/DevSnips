@@ -1,7 +1,7 @@
 {
   "name": "Loading Button Spinner",
-  "component": "Loading Button",
-  "variant": "Spinner",
+  "component": "loading button",
+  "variant": "spinner",
   "description": "Loading buttons with spinner animations",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "spinner",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

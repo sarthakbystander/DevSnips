@@ -1,7 +1,7 @@
 {
   "name": "Gradient Shadow Button",
-  "component": "Gradient Button",
-  "variant": "Shadow",
+  "component": "gradient button",
+  "variant": "shadow",
   "description": "Gradient buttons with colored shadow effects that match the gradient",
   "category": "Components",
   "subcategory": "Buttons",
@@ -44,5 +44,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "shadow",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

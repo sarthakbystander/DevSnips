@@ -1,7 +1,7 @@
 {
   "name": "OTP 6-Digit Input",
-  "component": "Input",
-  "variant": "OTP 6-Digit",
+  "component": "input",
+  "variant": "otp 6-digit",
   "description": "One-time password input components with verification code styling",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "otp-6-digit",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

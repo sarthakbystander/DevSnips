@@ -1,7 +1,7 @@
 {
   "name": "Split Button Dropdown",
-  "component": "Split Button",
-  "variant": "Dropdown",
+  "component": "split button",
+  "variant": "dropdown",
   "description": "Split buttons with dropdown menu trigger",
   "category": "Components",
   "subcategory": "Buttons",
@@ -34,5 +34,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "dropdown",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Outline Primary Button",
-  "component": "Outline Button",
-  "variant": "Primary",
+  "component": "outline button",
+  "variant": "primary",
   "description": "Blue bordered buttons with transparent background and hover fill",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "primary",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

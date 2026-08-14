@@ -1,7 +1,7 @@
 {
   "name": "Minimal Underline Button",
-  "component": "Minimal Button",
-  "variant": "Underline",
+  "component": "minimal button",
+  "variant": "underline",
   "description": "Minimal underline button styles",
   "category": "Components",
   "subcategory": "Buttons",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "underline",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

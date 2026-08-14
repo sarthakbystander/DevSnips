@@ -1,7 +1,7 @@
 {
   "name": "Mention Input",
-  "component": "Input",
-  "variant": "Mention",
+  "component": "input",
+  "variant": "mention",
   "description": "Mention input components with user suggestions and tag styles",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "mention-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

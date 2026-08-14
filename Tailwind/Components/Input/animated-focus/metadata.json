@@ -1,7 +1,7 @@
 {
   "name": "Animated Focus Input",
-  "component": "Input",
-  "variant": "Animated Focus",
+  "component": "input",
+  "variant": "animated focus",
   "description": "Input fields with smooth animated focus transitions",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "animated-focus",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

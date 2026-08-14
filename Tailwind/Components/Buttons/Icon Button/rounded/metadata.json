@@ -1,7 +1,7 @@
 {
   "name": "Icon Button Rounded",
-  "component": "Icon Button",
-  "variant": "Rounded",
+  "component": "icon button",
+  "variant": "rounded",
   "description": "Fully rounded icon button styles",
   "category": "Components",
   "subcategory": "Buttons",
@@ -36,5 +36,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "rounded",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

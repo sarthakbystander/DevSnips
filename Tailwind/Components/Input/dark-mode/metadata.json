@@ -1,7 +1,7 @@
 {
   "name": "Dark Mode Input",
-  "component": "Input",
-  "variant": "Dark Mode",
+  "component": "input",
+  "variant": "dark mode",
   "description": "Input fields designed for dark backgrounds with terminal styles",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "dark-mode",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

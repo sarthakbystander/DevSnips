@@ -1,7 +1,7 @@
 {
   "name": "Icon Button Basic",
-  "component": "Icon Button",
-  "variant": "Basic",
+  "component": "icon button",
+  "variant": "basic",
   "description": "Basic icon button styles with various colors",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "basic",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Neumorphism Bordered Button",
-  "component": "Neumorphism Button",
-  "variant": "Bordered",
+  "component": "neumorphism button",
+  "variant": "bordered",
   "description": "Bordered neumorphism buttons with gradient backgrounds",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "bordered",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

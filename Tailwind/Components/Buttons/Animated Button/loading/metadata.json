@@ -1,7 +1,7 @@
 {
   "name": "Animated Loading Button",
-  "component": "Animated Button",
-  "variant": "Loading",
+  "component": "animated button",
+  "variant": "loading",
   "description": "Loading state animations with spinner icons",
   "category": "Components",
   "subcategory": "Buttons",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "loading",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

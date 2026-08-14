@@ -1,7 +1,7 @@
 {
   "name": "Chat Input",
-  "component": "Input",
-  "variant": "Chat",
+  "component": "input",
+  "variant": "chat",
   "description": "Chat input components for messaging interfaces with attachments and emojis",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "chat-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Search with Autocomplete",
-  "component": "Input",
-  "variant": "Search with Autocomplete",
+  "component": "input",
+  "variant": "search with autocomplete",
   "description": "Search input components with autocomplete dropdown suggestions",
   "category": "Components",
   "subcategory": "Input",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "search-with-autocomplete",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

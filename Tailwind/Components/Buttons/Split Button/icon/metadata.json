@@ -1,7 +1,7 @@
 {
   "name": "Split Button Icon",
-  "component": "Split Button",
-  "variant": "Icon",
+  "component": "split button",
+  "variant": "icon",
   "description": "Split buttons with icon and dropdown",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "icon",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

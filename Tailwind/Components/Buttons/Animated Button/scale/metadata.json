@@ -1,7 +1,7 @@
 {
   "name": "Animated Scale Button",
-  "component": "Animated Button",
-  "variant": "Scale",
+  "component": "animated button",
+  "variant": "scale",
   "description": "Scale animations on hover for interactive feedback",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "scale",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

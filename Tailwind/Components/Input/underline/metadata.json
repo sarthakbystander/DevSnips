@@ -1,7 +1,7 @@
 {
   "name": "Underline Input",
-  "component": "Input",
-  "variant": "Underline",
+  "component": "input",
+  "variant": "underline",
   "description": "Minimal underline style input fields with floating labels that animate on focus",
   "category": "Components",
   "subcategory": "Input",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "underline",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

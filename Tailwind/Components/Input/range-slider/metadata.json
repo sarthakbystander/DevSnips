@@ -1,7 +1,7 @@
 {
   "name": "Range Slider Input",
-  "component": "Input",
-  "variant": "Range Slider",
+  "component": "input",
+  "variant": "range slider",
   "description": "Range slider components for numeric value selection",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "range-slider",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

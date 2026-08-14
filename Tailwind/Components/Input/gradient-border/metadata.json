@@ -1,7 +1,7 @@
 {
   "name": "Gradient Border Input",
-  "component": "Input",
-  "variant": "Gradient Border",
+  "component": "input",
+  "variant": "gradient border",
   "description": "Input fields with gradient border effects for visual impact",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "gradient-border",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

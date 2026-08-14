@@ -1,7 +1,7 @@
 {
   "name": "File Upload Input",
-  "component": "Input",
-  "variant": "File Upload",
+  "component": "input",
+  "variant": "file upload",
   "description": "File upload components with drag-drop, preview, and progress states",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "file-upload",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

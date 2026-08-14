@@ -1,7 +1,7 @@
 {
   "name": "Checkbox Styled Input",
-  "component": "Input",
-  "variant": "Checkbox Styled",
+  "component": "input",
+  "variant": "checkbox styled",
   "description": "Styled checkbox components with various designs and descriptions",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "checkbox-styled",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

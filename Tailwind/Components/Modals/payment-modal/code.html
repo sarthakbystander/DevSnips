@@ -42,8 +42,8 @@
               </svg>
             </div>
             <div class="absolute inset-y-0 right-3 flex items-center gap-1">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" class="h-6 w-auto opacity-60" alt="Visa">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" class="h-6 w-auto opacity-60" alt="Mastercard">
+              <svg class="h-6 w-auto opacity-60" viewBox="0 0 48 16" role="img" aria-label="Visa"><text x="0" y="13" font-family="Arial, sans-serif" font-size="14" font-weight="700" font-style="italic" fill="#1a1f71">VISA</text></svg>
+              <svg class="h-6 w-auto opacity-60" viewBox="0 0 48 32" role="img" aria-label="Mastercard"><circle cx="18" cy="16" r="12" fill="#eb001b"/><circle cx="30" cy="16" r="12" fill="#f79e1b"/><path d="M24 7a12 12 0 0 1 0 18 12 12 0 0 1 0-18z" fill="#ff5f00"/></svg>
             </div>
           </div>
         </div>
@@ -103,3 +103,9 @@
 
 <!-- Demo Trigger Button -->
 <button onclick="openModal('payment-modal')" class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-medium rounded-xl hover:from-rose-600 hover:to-pink-700 transition-all focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">Open Payment Modal</button>
+<script>
+  // Self-contained modal open/close + Esc dismissal (DevSnips snippet helper).
+  function openModal(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');document.body.style.overflow='hidden';}}
+  function closeModal(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');}document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.fixed.inset-0.z-50:not(.hidden)').forEach(function(m){m.classList.add('hidden');});document.body.style.overflow='';}});
+</script>

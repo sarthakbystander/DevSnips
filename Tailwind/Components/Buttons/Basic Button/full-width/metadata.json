@@ -1,7 +1,7 @@
 {
   "name": "Full Width Button",
-  "component": "Basic Button",
-  "variant": "Full Width",
+  "component": "basic button",
+  "variant": "full width",
   "description": "Full width buttons for mobile views and prominent call-to-action sections",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "full-width",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

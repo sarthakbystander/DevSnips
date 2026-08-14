@@ -1,7 +1,7 @@
 {
   "name": "Minimal Border Button",
-  "component": "Minimal Button",
-  "variant": "Border",
+  "component": "minimal button",
+  "variant": "border",
   "description": "Minimal border button styles",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "border",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

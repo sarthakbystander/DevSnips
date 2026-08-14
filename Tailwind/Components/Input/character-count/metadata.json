@@ -1,7 +1,7 @@
 {
   "name": "Character Count Input",
-  "component": "Input",
-  "variant": "Character Count",
+  "component": "input",
+  "variant": "character count",
   "description": "Input fields with character counters, limits, and progress indicators",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "character-count",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

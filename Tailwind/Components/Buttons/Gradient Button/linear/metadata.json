@@ -1,7 +1,7 @@
 {
   "name": "Linear Gradient Button",
-  "component": "Gradient Button",
-  "variant": "Linear",
+  "component": "gradient button",
+  "variant": "linear",
   "description": "Two-color horizontal gradient buttons with multiple color combinations",
   "category": "Components",
   "subcategory": "Buttons",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "linear",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

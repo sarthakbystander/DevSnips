@@ -32,6 +32,25 @@
           <button class="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-full">Images</button>
         </div>
       </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Advanced</label>
+        <div class="p-4 bg-gray-50 rounded-xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="relative flex-1">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </div>
+              <input type="text" placeholder="Search users, projects..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors" />
+            </div>
+            <button class="px-4 py-2.5 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors">Search</button>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 text-sm">
+            <span class="text-gray-500">Filters:</span>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" checked class="rounded border-gray-300 text-blue-600" /><span>Active</span></label>
+            <select class="px-2 py-1 bg-white border border-gray-200 rounded text-sm"><option>All Types</option></select>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </body>

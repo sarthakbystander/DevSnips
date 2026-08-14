@@ -1,7 +1,7 @@
 {
   "name": "Markdown Editor",
-  "component": "Input",
-  "variant": "Markdown Editor",
+  "component": "input",
+  "variant": "markdown editor",
   "description": "Markdown editor with toolbar and dark mode support",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "markdown-editor",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

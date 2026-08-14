@@ -1,7 +1,7 @@
 {
   "name": "Textarea",
-  "component": "Input",
-  "variant": "Textarea",
+  "component": "input",
+  "variant": "textarea",
   "description": "Multi-line text input components with various styling options",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "textarea",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

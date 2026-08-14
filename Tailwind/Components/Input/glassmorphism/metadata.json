@@ -1,7 +1,7 @@
 {
   "name": "Glassmorphism Input",
-  "component": "Input",
-  "variant": "Glassmorphism",
+  "component": "input",
+  "variant": "glassmorphism",
   "description": "Frosted glass effect input fields with backdrop blur",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "glassmorphism",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

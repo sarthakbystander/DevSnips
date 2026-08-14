@@ -1,7 +1,7 @@
 {
   "name": "Split Input",
-  "component": "Input",
-  "variant": "Split",
+  "component": "input",
+  "variant": "split",
   "description": "Multi-part input fields for structured data like cards, OTPs, and dates",
   "category": "Components",
   "subcategory": "Input",
@@ -44,5 +44,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "split-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

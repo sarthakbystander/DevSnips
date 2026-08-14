@@ -1,7 +1,7 @@
 {
   "name": "Neutral Button",
-  "component": "Basic Button",
-  "variant": "Neutral",
+  "component": "basic button",
+  "variant": "neutral",
   "description": "Neutral buttons designed for dark backgrounds with light and dark variants",
   "category": "Components",
   "subcategory": "Buttons",
@@ -37,5 +37,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "neutral",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

@@ -1,7 +1,7 @@
 {
   "name": "With Prefix Input",
-  "component": "Input",
-  "variant": "With Prefix",
+  "component": "input",
+  "variant": "with prefix",
   "description": "Input fields with prefixed text or symbols for context",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "with-prefix",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

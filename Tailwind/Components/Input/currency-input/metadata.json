@@ -1,7 +1,7 @@
 {
   "name": "Currency Input",
-  "component": "Input",
-  "variant": "Currency",
+  "component": "input",
+  "variant": "currency",
   "description": "Currency input components with symbols and preset amounts",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "currency-input",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

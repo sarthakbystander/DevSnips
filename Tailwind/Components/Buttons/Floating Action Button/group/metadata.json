@@ -1,7 +1,7 @@
 {
   "name": "Floating Action Button Group",
-  "component": "Floating Action Button",
-  "variant": "Group",
+  "component": "floating action button",
+  "variant": "group",
   "description": "Grouped FABs for multiple actions",
   "category": "Components",
   "subcategory": "Buttons",
@@ -39,5 +39,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "group",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

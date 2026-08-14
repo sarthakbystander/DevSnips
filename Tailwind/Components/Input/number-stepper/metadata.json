@@ -1,7 +1,7 @@
 {
   "name": "Number Stepper Input",
-  "component": "Input",
-  "variant": "Number Stepper",
+  "component": "input",
+  "variant": "number stepper",
   "description": "Input fields with increment/decrement buttons for quantity selection",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "number-stepper",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

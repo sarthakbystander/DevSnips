@@ -108,3 +108,9 @@
 
 <!-- Demo Trigger Button -->
 <button onclick="openModal('form-modal')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Open Form Modal</button>
+<script>
+  // Self-contained modal open/close + Esc dismissal (DevSnips snippet helper).
+  function openModal(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');document.body.style.overflow='hidden';}}
+  function closeModal(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');}document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.fixed.inset-0.z-50:not(.hidden)').forEach(function(m){m.classList.add('hidden');});document.body.style.overflow='';}});
+</script>

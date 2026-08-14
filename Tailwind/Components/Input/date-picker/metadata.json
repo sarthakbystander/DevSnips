@@ -1,7 +1,7 @@
 {
   "name": "Date Picker Input",
-  "component": "Input",
-  "variant": "Date Picker",
+  "component": "input",
+  "variant": "date picker",
   "description": "Date input components with calendar styling and date range support",
   "category": "Components",
   "subcategory": "Input",
@@ -42,5 +42,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "date-picker",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

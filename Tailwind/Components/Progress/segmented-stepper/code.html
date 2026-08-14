@@ -37,3 +37,36 @@ Usage Example: Drop into a multi-step form. Add data-stepper-step="n" to the con
     </div>
   </li>
 </ol>
+
+<script>
+  // Self-contained stepper renderer: set data-stepper-step to highlight step n.
+  (function () {
+    var stepper = document.currentScript.closest('[data-stepper]');
+    if (!stepper) return;
+    var step = Number(stepper.getAttribute('data-stepper-step')) || 1;
+    stepper.querySelectorAll('[data-stepper-item]').forEach(function (item) {
+      var n = Number(item.getAttribute('data-stepper-item'));
+      var marker = item.querySelector('.stepper-marker');
+      var num = item.querySelector('.stepper-num');
+      var check = item.querySelector('.stepper-check');
+      var line = item.querySelector('.stepper-line');
+      marker.classList.remove('border-blue-600', 'bg-blue-600', 'text-white', 'border-gray-300', 'bg-white', 'text-blue-600', 'text-gray-400');
+      if (n < step) {
+        marker.classList.add('border-blue-600', 'bg-blue-600', 'text-white');
+        if (check) check.classList.remove('hidden');
+        if (num) num.classList.add('hidden');
+        if (line) { line.classList.remove('bg-gray-200'); line.classList.add('bg-blue-600'); }
+      } else if (n === step) {
+        marker.classList.add('border-blue-600', 'bg-white', 'text-blue-600');
+        if (check) check.classList.add('hidden');
+        if (num) num.classList.remove('hidden');
+        if (line) { line.classList.remove('bg-blue-600'); line.classList.add('bg-gray-200'); }
+      } else {
+        marker.classList.add('border-gray-300', 'bg-white', 'text-gray-400');
+        if (check) check.classList.add('hidden');
+        if (num) num.classList.remove('hidden');
+        if (line) { line.classList.remove('bg-blue-600'); line.classList.add('bg-gray-200'); }
+      }
+    });
+  })();
+</script>

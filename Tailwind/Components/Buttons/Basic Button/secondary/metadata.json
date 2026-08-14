@@ -1,7 +1,7 @@
 {
   "name": "Secondary Button",
-  "component": "Basic Button",
-  "variant": "Secondary",
+  "component": "basic button",
+  "variant": "secondary",
   "description": "Secondary action buttons with gray, indigo, and violet color options",
   "category": "Components",
   "subcategory": "Buttons",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "secondary",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

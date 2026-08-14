@@ -1,7 +1,7 @@
 {
   "name": "3D Button Colored",
-  "component": "3D Button",
-  "variant": "Colored",
+  "component": "3d button",
+  "variant": "colored",
   "description": "Colored 3D buttons with gradients",
   "category": "Components",
   "subcategory": "Buttons",
@@ -36,5 +36,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "colored",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "buttons"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Credit Card Input",
-  "component": "Input",
-  "variant": "Credit Card",
+  "component": "input",
+  "variant": "credit card",
   "description": "Credit card input components with visual card styling and form fields",
   "category": "Components",
   "subcategory": "Input",
@@ -38,5 +38,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "credit-card",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

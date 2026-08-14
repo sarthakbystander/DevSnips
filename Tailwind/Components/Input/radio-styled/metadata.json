@@ -1,7 +1,7 @@
 {
   "name": "Radio Styled Input",
-  "component": "Input",
-  "variant": "Radio Styled",
+  "component": "input",
+  "variant": "radio styled",
   "description": "Styled radio button components with card and button group styles",
   "category": "Components",
   "subcategory": "Input",
@@ -41,5 +41,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "radio-styled",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }

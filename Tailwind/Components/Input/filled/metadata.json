@@ -1,7 +1,7 @@
 {
   "name": "Filled Input",
-  "component": "Input",
-  "variant": "Filled",
+  "component": "input",
+  "variant": "filled",
   "description": "Input fields with solid background colors that shift on focus",
   "category": "Components",
   "subcategory": "Input",
@@ -40,5 +40,9 @@
     "preview": "preview.html",
     "code": "code.html"
   },
-  "type": "component"
+  "type": "component",
+  "slug": "filled",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "family": "input"
 }
