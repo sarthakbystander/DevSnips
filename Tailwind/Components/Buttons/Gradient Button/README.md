@@ -7,11 +7,7 @@ A collection of gradient button components with various styles and effects.
 | Variant | Description |
 |---------|-------------|
 | [Linear](./linear/) | Two-color horizontal gradient buttons |
-| [Multi-Stop](./multi-stop/) | Three or more gradient color stops |
-| [Directional](./directional/) | All 8 gradient directions |
-| [Pill](./pill/) | Fully rounded pill-shaped gradient buttons |
 | [Shadow](./shadow/) | Gradient buttons with colored shadows |
-| [Dark Background](./dark-background/) | Buttons designed for dark backgrounds |
 
 ## Quick Start
 
