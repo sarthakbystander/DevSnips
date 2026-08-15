@@ -11,6 +11,7 @@ northline-atelier/
 │   ├── projects.html    # Project archive with category filters
 │   ├── studio.html      # Studio profile, principles, team, capabilities
 │   └── contact.html     # Enquiry form, studio details, process
+├── preview.html         # Template gallery shell: overview + pages index + design-system summary
 ├── metadata.json
 └── README.md
 ```

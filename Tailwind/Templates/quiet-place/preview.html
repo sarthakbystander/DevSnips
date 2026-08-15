@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A calm illustration-led Tailwind CSS landing-page template — mint canvas, coral CTAs, handcrafted inline SVG pixel-art landscape. Production-ready, fully responsive." />
+  <title>Quiet Place — Mindfulness Template | DevSnips</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#0b302e;
+      --mint:#cfe1de;
+      --coral:#eb6665;
+      --lake:#8eb8b6;
+      --paper:#f5f7f6;
+    }
+    body { font-family:"DM Mono",monospace; background:var(--paper); color:var(--ink); }
+    .display { font-family:"Barlow Condensed",sans-serif; }
+    .soft-link { transition:opacity .2s ease; }
+    .soft-link:hover { opacity:.62; }
+    .cta { transition:transform .2s ease, box-shadow .2s ease; }
+    .cta:hover { transform:translateY(-2px); box-shadow:0 5px 0 rgba(11,48,46,.10); }
+    @media (prefers-reduced-motion: reduce) { .cta:hover { transform:none; box-shadow:none; } }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Template shell navbar -->
+  <header class="sticky top-0 z-50 border-b border-[#cfe1de] bg-[#f5f7f6]/95 backdrop-blur">
+    <nav class="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8" aria-label="Template">
+      <a href="preview.html" class="flex items-center gap-2.5" aria-label="Quiet Place template home">
+        <span class="grid h-8 w-8 place-items-center rounded-full bg-[#cfe1de]"><span class="h-3 w-3 rounded-full bg-[#eb6665]"></span></span>
+        <span class="display text-[18px] font-semibold tracking-[-.01em]">Quiet Place</span>
+        <span class="ml-1 hidden text-[10px] text-[#0b302e]/55 sm:inline">template</span>
+      </a>
+      <div class="hidden items-center gap-3 lg:flex">
+        <span class="text-[11px] text-[#0b302e]/60">Single-page · Soft illustration</span>
+        <a href="pages/index.html" class="cta rounded-full bg-[#eb6665] px-4 py-2 text-[13px] font-medium text-white">Open site →</a>
+      </div>
+      <a href="pages/index.html" class="cta rounded-full bg-[#eb6665] px-4 py-2 text-[13px] font-medium text-white lg:hidden">Open →</a>
+    </nav>
+  </header>
+
+  <!-- Template overview -->
+  <section class="relative overflow-hidden border-b border-[#cfe1de] bg-[#eef3f0]" aria-labelledby="overview-heading">
+    <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-24">
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="rounded-full border border-[#8eb8b6] px-3 py-1 text-[11px] font-medium">Tailwind CSS</span>
+          <span class="rounded-full border border-[#eb6665]/40 px-3 py-1 text-[11px] font-medium text-[#eb6665]">Mindfulness</span>
+          <span class="text-[11px] text-[#0b302e]/60">1 page · production-ready</span>
+        </div>
+        <h1 id="overview-heading" class="display mt-6 text-[clamp(2.8rem,7vw,5rem)] font-semibold leading-[.9] tracking-[-.025em]">Where calm meets creativity.</h1>
+        <p class="mt-6 max-w-xl text-[15px] leading-7 text-[#0b302e]/70 lg:text-lg">A calm, illustration-led Tailwind landing page inspired by a quiet lakeside sanctuary — a muted mint canvas, condensed editorial typography, soft coral CTAs, and a detailed inline SVG pixel-art landscape.</p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="pages/index.html" class="cta inline-flex items-center justify-center gap-2 rounded-full bg-[#eb6665] px-6 py-3.5 text-sm font-medium text-white">
+            Open the live site
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#sections" class="cta inline-flex items-center justify-center gap-2 rounded-full border border-[#8eb8b6] px-6 py-3.5 text-sm font-medium transition hover:border-[#0b302e]">Browse sections</a>
+        </div>
+
+        <dl class="mt-9 grid grid-cols-3 gap-4 border-t border-[#cfe1de] pt-5 max-w-lg">
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Design</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">Soft illustration</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Responsive</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">320px → 1920+</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Build</dt>
+            <dd class="display mt-1 text-lg font-semibold sm:text-xl">No build</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- preview frame -->
+      <div class="lg:col-span-5">
+        <a href="pages/index.html" class="block" aria-label="Open Quiet Place live site">
+          <div class="rounded-[8px] border border-[#cfe1de] bg-[#cfe1de]">
+            <div class="flex items-center justify-between rounded-t-[8px] border-b border-[#8eb8b6] bg-[#f5f7f6] px-4 py-2">
+              <div class="flex items-center gap-1.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#eb6665]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#8eb8b6]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#cfe1de]"></span>
+              </div>
+              <span class="text-[10px] text-[#0b302e]/55">quiet.place</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden rounded-b-[8px] bg-gradient-to-b from-[#cfe1de] to-[#8eb8b6]">
+              <div class="flex h-full w-full items-center justify-center p-8">
+                <span class="display text-center text-[clamp(2rem,6vw,3.5rem)] font-semibold leading-[.85] text-[#0b302e]">Make room<br><span class="text-[#0b302e]/50">for quiet.</span></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <p class="mt-3 text-center text-[10px] text-[#0b302e]/55">click the frame to open the full page</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections included -->
+  <section id="sections" class="border-b border-[#cfe1de] bg-[#f5f7f6]" aria-labelledby="sections-heading">
+    <div class="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:py-24">
+      <div class="flex flex-col gap-4 border-b border-[#cfe1de] pb-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-[#eb6665]">/ Sections</p>
+          <h2 id="sections-heading" class="display mt-3 text-[2rem] font-semibold leading-[1.02] sm:text-4xl">Four composed sections.</h2>
+        </div>
+        <p class="max-w-md text-[14px] text-[#0b302e]/70">A single, focused landing page — no filler blocks.</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <a href="pages/index.html#home" class="cta block rounded-[8px] border border-[#cfe1de] bg-[#eef3f0] p-5">
+          <span class="text-[10px] text-[#0b302e]/55">01</span>
+          <p class="display mt-2 text-lg font-semibold">Hero</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#0b302e]/70">Illustration-led hero with mint canvas, condensed headline, and lakeside SVG.</p>
+        </a>
+        <a href="pages/index.html#features" class="cta block rounded-[8px] border border-[#cfe1de] bg-[#eef3f0] p-5">
+          <span class="text-[10px] text-[#0b302e]/55">02</span>
+          <p class="display mt-2 text-lg font-semibold">Features</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#0b302e]/70">Three centered feature blocks: mindful tools, creative space, gentle reminders.</p>
+        </a>
+        <a href="pages/index.html#about" class="cta block rounded-[8px] border border-[#cfe1de] bg-[#eef3f0] p-5">
+          <span class="text-[10px] text-[#0b302e]/55">03</span>
+          <p class="display mt-2 text-lg font-semibold">About</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#0b302e]/70">Calm editorial block introducing the sanctuary idea.</p>
+        </a>
+        <a href="pages/index.html#contact" class="cta block rounded-[8px] border border-[#eb6665]/40 bg-[#cfe1de] p-5">
+          <span class="text-[10px] text-[#eb6665]">04</span>
+          <p class="display mt-2 text-lg font-semibold text-[#eb6665]">Contact</p>
+          <p class="mt-1 text-[13px] leading-6 text-[#0b302e]/75">Soft conversion section on the mint canvas with coral CTAs.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design system summary -->
+  <section class="border-b border-[#cfe1de] bg-[#eef3f0]" aria-labelledby="design-heading">
+    <div class="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:py-24">
+      <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-[#eb6665]">/ Design system</p>
+      <h2 id="design-heading" class="display mt-3 text-[2rem] font-semibold leading-[1.02] sm:text-4xl">A muted, illustration-first palette.</h2>
+
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <!-- palette -->
+        <div class="rounded-[8px] border border-[#cfe1de] bg-[#f5f7f6] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Palette</p>
+          <div class="mt-4 grid grid-cols-4 gap-3">
+            <div><div class="h-12 rounded border border-[#cfe1de] bg-[#0b302e]"></div><p class="mt-1 text-[9px]">ink</p><p class="text-[9px] text-[#0b302e]/55">#0b302e</p></div>
+            <div><div class="h-12 rounded border border-[#cfe1de] bg-[#cfe1de]"></div><p class="mt-1 text-[9px]">mint</p><p class="text-[9px] text-[#0b302e]/55">#cfe1de</p></div>
+            <div><div class="h-12 rounded border border-[#cfe1de] bg-[#eb6665]"></div><p class="mt-1 text-[9px]">coral</p><p class="text-[9px] text-[#0b302e]/55">#eb6665</p></div>
+            <div><div class="h-12 rounded border border-[#cfe1de] bg-[#8eb8b6]"></div><p class="mt-1 text-[9px]">lake</p><p class="text-[9px] text-[#0b302e]/55">#8eb8b6</p></div>
+            <div><div class="h-12 rounded border border-[#cfe1de] bg-[#f5f7f6]"></div><p class="mt-1 text-[9px]">paper</p><p class="text-[9px] text-[#0b302e]/55">#f5f7f6</p></div>
+          </div>
+        </div>
+        <!-- typography -->
+        <div class="rounded-[8px] border border-[#cfe1de] bg-[#f5f7f6] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Typography</p>
+          <p class="display mt-4 text-3xl font-semibold">Barlow Condensed</p>
+          <p class="text-[11px] text-[#0b302e]/55">display · 500–700</p>
+          <p class="mt-4 text-base font-medium">DM Mono</p>
+          <p class="text-[11px] text-[#0b302e]/55">interface &amp; body · 400–500</p>
+        </div>
+        <!-- geometry -->
+        <div class="rounded-[8px] border border-[#cfe1de] bg-[#f5f7f6] p-6">
+          <p class="text-[10px] uppercase tracking-wide text-[#0b302e]/55">Geometry</p>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-12 w-12 rounded-[8px] border border-[#cfe1de] bg-[#cfe1de]"></div>
+            <div>
+              <p class="text-sm font-medium">Rounded canvas</p>
+              <p class="text-[10px] text-[#0b302e]/55">restrained borders, no heavy shadows</p>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-10 w-16 rounded-full bg-[#eb6665]"></div>
+            <div>
+              <p class="text-sm font-medium">Coral pill CTAs</p>
+              <p class="text-[10px] text-[#0b302e]/55">quiet hover lift</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm font-medium">Handcrafted SVG</p>
+            <p class="text-[10px] text-[#0b302e]/55">pixel-art lakeside landscape, no stock imagery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-[#f5f7f6]">
+    <div class="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 px-5 py-8 sm:flex-row sm:items-center sm:px-8">
+      <p class="text-[11px] text-[#0b302e]/55">Quiet Place — fictional brand for template demonstration · DevSnips</p>
+      <a href="pages/index.html" class="text-[11px] font-medium text-[#eb6665] soft-link">Open the live site →</a>
+    </div>
+  </footer>
+</body>
+</html>
