@@ -386,6 +386,27 @@
             });
           });
 
+
+          // Keyboard reordering: ArrowUp/Down moves within a column,
+          // ArrowLeft/Right moves the card to the previous/next column.
+          // Reuses the same DOM-move + updateCounts() logic as drag-and-drop.
+          root.querySelectorAll('.vc-card').forEach(function (card) {
+            card.addEventListener('keydown', function (e) {
+              var list = card.parentNode;
+              if (!list || !list.hasAttribute('data-list')) return;
+              var colsArr = Array.prototype.slice.call(cols);
+              var colIdx = colsArr.indexOf(list);
+              var cards = Array.prototype.slice.call(list.querySelectorAll('.vc-card'));
+              var idx = cards.indexOf(card);
+              function moveTo(targetList) { targetList.appendChild(card); updateCounts(); card.focus(); }
+              switch (e.key) {
+                case 'ArrowUp': e.preventDefault(); if (idx > 0) { list.insertBefore(card, cards[idx - 1]); updateCounts(); card.focus(); } break;
+                case 'ArrowDown': e.preventDefault(); if (idx < cards.length - 1) { list.insertBefore(card, cards[idx + 1].nextSibling); updateCounts(); card.focus(); } break;
+                case 'ArrowLeft': e.preventDefault(); if (colIdx > 0) { moveTo(colsArr[colIdx - 1]); } break;
+                case 'ArrowRight': e.preventDefault(); if (colIdx < colsArr.length - 1) { moveTo(colsArr[colIdx + 1]); } break;
+              }
+            });
+          });
           updateCounts();
         })();
       </script>
