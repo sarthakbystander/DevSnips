@@ -3,260 +3,580 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard — Nexus AI</title>
+  <title>Nexus AI — Dashboard</title>
   <meta name="description" content="Nexus AI application dashboard — analytics, AI usage metrics, charts, and recent activity.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Nexus AI — Dashboard">
+  <meta property="og:description" content="Nexus AI application dashboard — analytics, AI usage metrics, charts, and recent activity.">
+  <meta property="og:image" content="../assets/images/og-image.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F9F7F4',
+            'paper-dark': '#F3EFEA',
+            ink: '#1C1917',
+            'ink-soft': '#44403C',
+            'ink-muted': '#78716C',
+            terracotta: {
+              50: '#FDF2EF', 100: '#FBE5DE', 200: '#F6C8BC', 300: '#EEA898',
+              400: '#E07A5F', 500: '#C85D42', 600: '#A84A34', 700: '#8A3D2C',
+              800: '#6E3226', 900: '#4E251C',
+            },
+            sand: '#E8E2D9',
+            clay: '#D6CCC2',
+          },
+          fontFamily: { display: ['Fraunces', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'] },
+          boxShadow: {
+            'card': '0 1px 2px rgba(28,25,23,0.04), 0 4px 12px rgba(28,25,23,0.06)',
+            'card-hover': '0 4px 8px rgba(28,25,23,0.08), 0 12px 32px rgba(28,25,23,0.1)',
+            'soft': '0 8px 30px rgba(28,25,23,0.08)',
+          },
+          borderRadius: { 'xl': '0.75rem', '2xl': '1rem', '3xl': '1.5rem' },
+        },
+      },
+    }
+  </script>
   <style>
-    :root { color-scheme: dark; }
-    html, body { background: #070B16; }
-    body { font-family: 'Inter', sans-serif; }
-    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
-    ::selection { background: rgba(139,92,246,0.35); }
-    .glow { position: absolute; border-radius: 9999px; filter: blur(80px); pointer-events: none; z-index: 0; }
-    .dash-link.active { background: rgba(139,92,246,0.12); color: #fff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #F9F7F4; color: #1C1917; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.6; }
+    .font-display { font-family: 'Fraunces', serif; }
+    .border-hairline { border-color: rgba(28,25,23,0.08); }
+    .bg-paper { background-color: #F9F7F4; }
+    .bg-paper-dark { background-color: #F3EFEA; }
+    .text-ink { color: #1C1917; }
+    .text-ink-soft { color: #44403C; }
+    .text-ink-muted { color: #78716C; }
+    .badge-pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:9999px; font-size:13px; font-weight:500; background:#FDF2EF; border:1px solid #FBE5DE; color:#C85D42; }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:8px; font-weight:600; font-size:15px; background:#E07A5F; color:#FFFFFF; border:none; cursor:pointer; transition:all .2s ease; text-decoration:none; box-shadow:0 2px 6px rgba(224,122,95,0.25); }
+    .btn-primary:hover { background:#C85D42; box-shadow:0 4px 12px rgba(224,122,95,0.35); transform:translateY(-1px); }
+    .btn-secondary { display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:8px; font-weight:600; font-size:15px; background:transparent; color:#1C1917; border:1px solid rgba(28,25,23,0.15); cursor:pointer; transition:all .2s ease; text-decoration:none; }
+    .btn-secondary:hover { border-color:rgba(28,25,23,0.4); background:rgba(28,25,23,0.03); }
+    .accent-underline { text-decoration:underline; text-decoration-color:#E07A5F; text-decoration-thickness:2px; text-underline-offset:4px; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    ::selection { background: rgba(224,122,95,0.22); }
+
+    /* Focus-visible rings (terracotta) */
+    a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #F9F7F4, 0 0 0 4px #E07A5F;
+      border-radius: 8px;
+    }
+
+    /* Active sidebar link: terracotta tint + left bar */
+    .nav-link { position: relative; }
+    .nav-link[aria-current="page"]::before {
+      content: ""; position: absolute; left: 0; top: 6px; bottom: 6px;
+      width: 3px; border-radius: 2px; background: #E07A5F;
+    }
+
+    /* Chart grid line helper */
+    .chart-grid { stroke: rgba(28,25,23,0.08); }
+
+    /* Bar chart grow animation (guarded) */
     @media (prefers-reduced-motion: no-preference) {
       @keyframes growbar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-      .bar { transform-origin: bottom; animation: growbar .8s ease-out both; }
+      .bar { transform-origin: bottom; animation: growbar .8s cubic-bezier(0.22,1,0.36,1) both; }
+      @keyframes drawline { from { stroke-dashoffset: var(--dash, 1200); } to { stroke-dashoffset: 0; } }
+      .draw-line { stroke-dasharray: var(--dash, 1200); animation: drawline 1.6s ease-out forwards; }
+      @keyframes fadearea { from { opacity: 0; } to { opacity: 1; } }
+      .fade-area { animation: fadearea 1.6s ease-out forwards; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bar { transform: none !important; animation: none !important; }
+      .draw-line { stroke-dashoffset: 0 !important; animation: none !important; }
+      .fade-area { opacity: 1 !important; animation: none !important; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+
+    /* Mobile sidebar drawer */
+    .sidebar-closed { transform: translateX(-100%); }
+    @media (min-width: 1024px) {
+      .sidebar-closed { transform: translateX(0); }
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#070B16] text-white antialiased">
+<body class="bg-paper text-ink">
   <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <aside class="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-white/[0.06] bg-[#0B1020] px-4 py-6 lg:flex" aria-label="App navigation">
-      <a href="../preview.html" class="flex items-center gap-2.5 px-2" aria-label="Nexus AI home">
-        <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg></span>
-        <span class="text-[15px] font-semibold tracking-tight text-white">Nexus<span class="text-white/50"> AI</span></span>
-      </a>
+    <!-- Mobile sidebar backdrop -->
+    <div id="sidebarBackdrop" class="fixed inset-0 z-30 hidden bg-ink/30 backdrop-blur-sm lg:hidden" aria-hidden="true"></div>
 
-      <nav class="mt-8 space-y-1 text-sm">
-        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">Workspace</p>
-        <a href="dashboard.html" class="dash-link active flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> Overview</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg> Requests</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg> Analytics</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 2 .8 3.5 2 5 1 1.2 1.5 2.4 1.5 4h7c0-1.6.5-2.8 1.5-4 1.2-1.5 2-3 2-5a7 7 0 0 0-7-7Z"/></svg> Models</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Guardrails</a>
+    <!-- App Sidebar -->
+    <aside id="appSidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 flex-col border-r border-hairline bg-white transition-transform duration-300 lg:translate-x-0 sidebar-closed" aria-label="App navigation">
+      <!-- Logo -->
+      <div class="flex h-16 items-center justify-between border-b border-hairline px-5">
+        <a href="../preview.html" class="flex items-center gap-2.5" aria-label="Nexus AI home">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-terracotta-400 text-white shadow-sm shadow-terracotta-400/30">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg>
+          </span>
+          <span class="font-display text-[17px] font-semibold tracking-tight text-ink">Nexus AI</span>
+        </a>
+        <button type="button" id="sidebarClose" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink-muted hover:bg-paper-dark lg:hidden" aria-label="Close menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
 
-        <p class="px-3 pb-2 pt-6 text-xs font-semibold uppercase tracking-wider text-white/40">Account</p>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Team</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Billing</a>
-        <a href="#" class="dash-link flex items-center gap-3 rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.6 14H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 8a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 4.6V4a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.6 1.6 0 0 0 19.4 10H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg> Settings</a>
+      <!-- Nav -->
+      <nav class="flex-1 overflow-y-auto px-3 py-5" aria-label="Primary">
+        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">Workspace</p>
+        <ul class="space-y-1">
+          <li>
+            <a href="dashboard.html" class="nav-link flex items-center gap-3 rounded-lg bg-terracotta-50 px-3 py-2.5 text-sm font-medium text-terracotta-600" aria-current="page">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+              Overview
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+              Models
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Evals
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg>
+              Observability
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5 3 22l5.5-1.5"/><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+              Deployments
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.6 14H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 8a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 4.6V4a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.6 1.6 0 0 0 19.4 10H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+              Settings
+            </a>
+          </li>
+        </ul>
+
+        <p class="px-3 pb-2 pt-6 text-xs font-semibold uppercase tracking-wider text-ink-muted">Account</p>
+        <ul class="space-y-1">
+          <li>
+            <a href="#" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+              Team
+            </a>
+          </li>
+          <li>
+            <a href="pricing.html" class="nav-link flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              Billing
+            </a>
+          </li>
+        </ul>
       </nav>
 
       <!-- Usage card -->
-      <div class="mt-auto rounded-xl border border-white/[0.08] bg-white/[0.03] p-4">
-        <div class="flex items-center justify-between text-xs"><span class="text-white/60">Token usage</span><span class="mono text-white/50">68%</span></div>
-        <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[68%] rounded-full bg-gradient-to-r from-violet-400 to-cyan-400"></div></div>
-        <p class="mt-2 text-xs text-white/45">34M / 50M used this month</p>
-        <a href="pricing.html" class="mt-3 block rounded-lg bg-white/[0.06] py-2 text-center text-xs font-medium text-white transition-colors hover:bg-white/[0.1]">Upgrade plan</a>
+      <div class="mx-3 mb-5 rounded-xl border border-hairline bg-paper-dark p-4">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-medium text-ink-soft">Token usage</span>
+          <span class="mono text-ink-muted">68%</span>
+        </div>
+        <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-clay">
+          <div class="h-full w-[68%] rounded-full bg-terracotta-400"></div>
+        </div>
+        <p class="mt-2 text-xs text-ink-muted">34M / 50M used this month</p>
+        <a href="pricing.html" class="mt-3 block rounded-lg border border-terracotta-200 bg-terracotta-50 py-2 text-center text-xs font-semibold text-terracotta-600 transition-colors hover:bg-terracotta-100">Upgrade plan</a>
+      </div>
+
+      <!-- User block -->
+      <div class="border-t border-hairline px-3 py-3">
+        <div class="flex items-center gap-3 rounded-lg px-2 py-2">
+          <img src="../assets/placeholders/avatar.svg" alt="" class="h-9 w-9 rounded-full ring-1 ring-hairline"/>
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-medium text-ink">Alex Rivera</p>
+            <p class="truncate text-xs text-ink-muted">Pro plan</p>
+          </div>
+          <button type="button" class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted hover:bg-paper-dark" aria-label="Account menu">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+          </button>
+        </div>
       </div>
     </aside>
 
     <!-- Main column -->
-    <div class="flex min-w-0 flex-1 flex-col lg:pl-64">
-      <!-- Top nav -->
-      <header class="sticky top-0 z-30 border-b border-white/[0.06] bg-[#070B16]/80 backdrop-blur-xl">
-        <div class="flex h-16 items-center gap-4 px-6 lg:px-8">
-          <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/80 lg:hidden" aria-label="Open menu"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-          <div class="hidden items-center gap-2 text-sm text-white/50 sm:flex">
-            <a href="../preview.html" class="hover:text-white">Workspace</a><span>/</span><span class="text-white">Overview</span>
+    <div class="flex min-w-0 flex-1 flex-col lg:pl-72">
+      <!-- Topbar -->
+      <header class="sticky top-0 z-20 border-b border-hairline bg-paper/90 backdrop-blur-xl">
+        <div class="flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
+          <button type="button" id="sidebarOpen" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-white text-ink-soft hover:bg-paper-dark lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="appSidebar">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+
+          <div class="hidden items-center gap-2 text-sm sm:flex">
+            <a href="../preview.html" class="text-ink-muted hover:text-ink">Workspace</a>
+            <span class="text-ink-muted">/</span>
+            <span class="font-medium text-ink">Overview</span>
           </div>
+
           <!-- Search -->
           <div class="ml-auto hidden flex-1 justify-end sm:flex">
-            <div class="relative w-full max-w-xs">
-              <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="search" placeholder="Search…" class="w-full rounded-lg border border-white/10 bg-white/[0.04] py-2 pl-9 pr-3 text-sm text-white placeholder:text-white/35 focus:border-indigo-400/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"/>
+            <div class="relative w-full max-w-sm">
+              <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="search" placeholder="Search models, evals, logs…" class="w-full rounded-lg border border-hairline bg-paper py-2 pl-9 pr-3 text-sm text-ink placeholder:text-ink-muted focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"/>
             </div>
           </div>
-          <button type="button" class="relative inline-flex h-9 w-9 items-center justify-center rounded-lg text-white/70 hover:bg-white/[0.06]" aria-label="Notifications">
+
+          <!-- Notifications -->
+          <button type="button" class="relative inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline bg-white text-ink-soft hover:bg-paper-dark" aria-label="Notifications (3 unread)">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
-            <span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-cyan-400 ring-2 ring-[#070B16]"></span>
+            <span class="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-terracotta-500 ring-2 ring-paper"></span>
           </button>
-          <!-- Profile -->
-          <div class="flex items-center gap-2.5">
-            <img src="../assets/placeholders/avatar.svg" alt="" class="h-8 w-8 rounded-full ring-2 ring-white/10"/>
-            <div class="hidden sm:block"><p class="text-sm font-medium leading-tight text-white">Alex Rivera</p><p class="text-xs text-white/45">Pro plan</p></div>
-          </div>
+
+          <!-- New project -->
+          <a href="#" class="hidden md:inline-flex items-center gap-2 rounded-lg bg-terracotta-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-terracotta-500/25 transition-all hover:bg-terracotta-600 hover:shadow-md">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            New project
+          </a>
+
+          <!-- User avatar -->
+          <button type="button" class="flex items-center gap-2.5 rounded-lg p-1 pr-2 hover:bg-paper-dark" aria-label="User menu">
+            <img src="../assets/placeholders/avatar.svg" alt="Alex Rivera" class="h-8 w-8 rounded-full ring-1 ring-hairline"/>
+            <svg class="hidden h-4 w-4 text-ink-muted sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
         </div>
       </header>
 
-      <main class="flex-1 px-6 py-8 lg:px-8 lg:py-10">
+      <main class="bg-paper px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <!-- Page header -->
         <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h1 class="text-2xl font-semibold tracking-tight text-white">Welcome back, Alex</h1>
-            <p class="mt-1 text-sm text-white/55">Here's what's happening with your AI workspace today.</p>
+            <h1 class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-[34px]">Welcome back, Alex</h1>
+            <p class="mt-1 text-sm text-ink-muted">Here's what's happening with your AI workspace today.</p>
           </div>
           <div class="flex items-center gap-2">
-            <button type="button" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]">
+            <button type="button" class="inline-flex items-center gap-2 rounded-lg border border-hairline bg-white px-3.5 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-dark">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
               Last 30 days
             </button>
-            <a href="docs.html" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:brightness-110">New request</a>
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg bg-terracotta-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-terracotta-500/25 transition-all hover:bg-terracotta-600 hover:shadow-md">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              New request
+            </a>
           </div>
         </div>
 
-        <!-- Analytics cards -->
+        <!-- Analytics stat cards -->
         <section class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Key metrics">
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur">
-            <div class="flex items-center justify-between"><span class="text-sm text-white/55">Total requests</span><span class="rounded-md bg-emerald-400/10 px-1.5 py-0.5 text-xs font-medium text-emerald-300">+12%</span></div>
-            <p class="mt-3 text-3xl font-semibold tracking-tight text-white">284,920</p>
-            <div class="mt-3 flex h-10 items-end gap-1" aria-hidden="true">
-              <div class="bar w-full rounded-t bg-white/10" style="height:30%"></div><div class="bar w-full rounded-t bg-white/10" style="height:50%"></div><div class="bar w-full rounded-t bg-white/10" style="height:40%"></div><div class="bar w-full rounded-t bg-white/10" style="height:70%"></div><div class="bar w-full rounded-t bg-white/10" style="height:55%"></div><div class="bar w-full rounded-t bg-gradient-to-t from-violet-500 to-cyan-400" style="height:90%"></div><div class="bar w-full rounded-t bg-white/10" style="height:60%"></div>
+          <!-- Total requests -->
+          <article class="rounded-2xl border border-hairline bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-terracotta-400/40 hover:shadow-card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Total requests</span>
+              <span class="inline-flex items-center gap-1 rounded-md bg-terracotta-50 px-1.5 py-0.5 text-xs font-semibold text-terracotta-600">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+                +12%
+              </span>
             </div>
-          </div>
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur">
-            <div class="flex items-center justify-between"><span class="text-sm text-white/55">Tokens used</span><span class="rounded-md bg-emerald-400/10 px-1.5 py-0.5 text-xs font-medium text-emerald-300">+8%</span></div>
-            <p class="mt-3 text-3xl font-semibold tracking-tight text-white">34.2M</p>
-            <p class="mt-3 text-xs text-white/45">of 50M monthly</p>
-            <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[68%] rounded-full bg-gradient-to-r from-violet-400 to-cyan-400"></div></div>
-          </div>
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur">
-            <div class="flex items-center justify-between"><span class="text-sm text-white/55">Avg latency</span><span class="rounded-md bg-emerald-400/10 px-1.5 py-0.5 text-xs font-medium text-emerald-300">-18%</span></div>
-            <p class="mt-3 text-3xl font-semibold tracking-tight text-white">142<span class="text-base font-normal text-white/45">ms</span></p>
-            <p class="mt-3 text-xs text-white/45">p95 · last 24h</p>
-          </div>
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur">
-            <div class="flex items-center justify-between"><span class="text-sm text-white/55">Eval pass rate</span><span class="rounded-md bg-violet-400/10 px-1.5 py-0.5 text-xs font-medium text-violet-300">+6%</span></div>
-            <p class="mt-3 text-3xl font-semibold tracking-tight text-white">94%</p>
-            <p class="mt-3 text-xs text-white/45">golden-v3 dataset</p>
-          </div>
+            <p class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">284,920</p>
+            <div class="mt-3 flex h-10 items-end gap-1" aria-hidden="true">
+              <div class="bar w-full rounded-t bg-sand" style="height:30%"></div>
+              <div class="bar w-full rounded-t bg-sand" style="height:50%"></div>
+              <div class="bar w-full rounded-t bg-sand" style="height:40%"></div>
+              <div class="bar w-full rounded-t bg-sand" style="height:70%"></div>
+              <div class="bar w-full rounded-t bg-sand" style="height:55%"></div>
+              <div class="bar w-full rounded-t bg-sand" style="height:40%"></div>
+              <div class="bar w-full rounded-t bg-terracotta-400" style="height:90%"></div>
+            </div>
+          </article>
+
+          <!-- Tokens used -->
+          <article class="rounded-2xl border border-hairline bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-terracotta-400/40 hover:shadow-card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Tokens used</span>
+              <span class="inline-flex items-center gap-1 rounded-md bg-terracotta-50 px-1.5 py-0.5 text-xs font-semibold text-terracotta-600">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+                +8%
+              </span>
+            </div>
+            <p class="mt-3 font-display text-3xl font-semibold tracking-tight text-terracotta-500">34.2M</p>
+            <p class="mt-3 text-xs text-ink-muted">of 50M monthly</p>
+            <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-sand">
+              <div class="h-full w-[68%] rounded-full bg-terracotta-400"></div>
+            </div>
+          </article>
+
+          <!-- Avg latency -->
+          <article class="rounded-2xl border border-hairline bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-terracotta-400/40 hover:shadow-card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Avg latency</span>
+              <span class="inline-flex items-center gap-1 rounded-md bg-terracotta-50 px-1.5 py-0.5 text-xs font-semibold text-terracotta-600">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+                -18%
+              </span>
+            </div>
+            <p class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">142<span class="text-base font-normal text-ink-muted">ms</span></p>
+            <p class="mt-3 text-xs text-ink-muted">p95 · last 24h</p>
+          </article>
+
+          <!-- Eval pass rate -->
+          <article class="rounded-2xl border border-hairline bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-terracotta-400/40 hover:shadow-card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-ink-muted">Eval pass rate</span>
+              <span class="inline-flex items-center gap-1 rounded-md bg-terracotta-50 px-1.5 py-0.5 text-xs font-semibold text-terracotta-600">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+                +6%
+              </span>
+            </div>
+            <p class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">94%</p>
+            <p class="mt-3 text-xs text-ink-muted">golden-v3 dataset</p>
+          </article>
         </section>
 
-        <!-- Charts + activity -->
+        <!-- Charts: usage + model mix -->
         <section class="mt-6 grid gap-4 lg:grid-cols-3">
           <!-- Usage chart -->
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur lg:col-span-2">
+          <article class="rounded-2xl border border-hairline bg-white p-6 shadow-card lg:col-span-2">
             <div class="flex items-center justify-between">
-              <div><h2 class="text-base font-semibold text-white">Request volume</h2><p class="text-sm text-white/45">Daily requests across all models</p></div>
-              <div class="flex gap-1 text-xs">
-                <button class="rounded-md bg-white/[0.08] px-2.5 py-1 font-medium text-white">30d</button>
-                <button class="rounded-md px-2.5 py-1 text-white/50 hover:bg-white/[0.06]">7d</button>
-                <button class="rounded-md px-2.5 py-1 text-white/50 hover:bg-white/[0.06]">24h</button>
+              <div>
+                <h2 class="font-display text-lg font-semibold text-ink">Request volume</h2>
+                <p class="text-sm text-ink-muted">Daily requests across all models</p>
+              </div>
+              <div class="flex gap-1 text-xs" role="group" aria-label="Time range">
+                <button type="button" class="rounded-md bg-terracotta-50 px-2.5 py-1 font-semibold text-terracotta-600">30d</button>
+                <button type="button" class="rounded-md px-2.5 py-1 text-ink-muted hover:bg-paper-dark">7d</button>
+                <button type="button" class="rounded-md px-2.5 py-1 text-ink-muted hover:bg-paper-dark">24h</button>
               </div>
             </div>
-            <!-- Bar chart -->
-            <div class="mt-6 flex h-56 items-end gap-1.5" role="img" aria-label="Bar chart of daily request volume over 30 days">
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:35%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:48%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:30%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:62%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:55%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:40%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:72%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:50%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:65%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:45%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:80%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:58%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:70%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:42%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:88%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-cyan-500/50 to-cyan-300" style="height:96%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:60%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:75%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:50%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:68%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:52%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:84%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:46%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:78%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:64%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:90%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:54%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:72%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:48%"></div>
-              <div class="bar w-full rounded-t bg-gradient-to-t from-violet-500/40 to-violet-400" style="height:66%"></div>
-            </div>
-            <div class="mt-3 flex justify-between text-xs text-white/35"><span>Jul 8</span><span>Jul 22</span><span>Aug 5</span></div>
-          </div>
 
-          <!-- AI usage metrics / model mix -->
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur">
-            <h2 class="text-base font-semibold text-white">Model mix</h2>
-            <p class="text-sm text-white/45">Requests by provider</p>
-            <div class="mt-6 space-y-4">
-              <div>
-                <div class="flex items-center justify-between text-sm"><span class="text-white/70">Claude 3.5</span><span class="mono text-white/55">48%</span></div>
-                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[48%] rounded-full bg-gradient-to-r from-violet-400 to-indigo-400"></div></div>
-              </div>
-              <div>
-                <div class="flex items-center justify-between text-sm"><span class="text-white/70">GPT-4o</span><span class="mono text-white/55">31%</span></div>
-                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[31%] rounded-full bg-gradient-to-r from-indigo-400 to-cyan-400"></div></div>
-              </div>
-              <div>
-                <div class="flex items-center justify-between text-sm"><span class="text-white/70">Llama 3.1</span><span class="mono text-white/55">14%</span></div>
-                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[14%] rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400"></div></div>
-              </div>
-              <div>
-                <div class="flex items-center justify-between text-sm"><span class="text-white/70">Self-hosted</span><span class="mono text-white/55">7%</span></div>
-                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-white/10"><div class="h-full w-[7%] rounded-full bg-white/40"></div></div>
+            <!-- SVG area + line chart (recolored to terracotta, draw animation guarded) -->
+            <div class="mt-6">
+              <svg viewBox="0 0 720 240" class="h-56 w-full" role="img" aria-label="Area chart of daily request volume over 30 days, trending upward">
+                <defs>
+                  <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#E07A5F" stop-opacity="0.18"/>
+                    <stop offset="100%" stop-color="#E07A5F" stop-opacity="0.02"/>
+                  </linearGradient>
+                </defs>
+                <!-- grid lines -->
+                <g class="chart-grid" stroke-width="1">
+                  <line x1="0" y1="40" x2="720" y2="40"/>
+                  <line x1="0" y1="100" x2="720" y2="100"/>
+                  <line x1="0" y1="160" x2="720" y2="160"/>
+                  <line x1="0" y1="220" x2="720" y2="220"/>
+                </g>
+                <!-- area -->
+                <path class="fade-area" d="M0,180 L24,150 L48,174 L72,114 L96,126 L120,150 L72,90 L168,138 L192,108 L216,126 L252,78 L288,30 L312,90 L336,66 L360,138 L384,60 L408,102 L432,18 L454,138 L480,66 L504,90 L528,42 L552,150 L576,54 L600,102 L624,24 L648,114 L672,66 L696,102 L720,66 L720,240 L0,240 Z" fill="url(#areaFill)"/>
+                <!-- line -->
+                <path class="draw-line" style="--dash:1200;" d="M0,180 L24,150 L48,174 L72,114 L96,126 L120,150 L72,90 L168,138 L192,108 L216,126 L252,78 L288,30 L312,90 L336,66 L360,138 L384,60 L408,102 L432,18 L454,138 L480,66 L504,90 L528,42 L552,150 L576,54 L600,102 L624,24 L648,114 L672,66 L696,102 L720,66" fill="none" stroke="#E07A5F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- peak marker -->
+                <circle cx="288" cy="30" r="4" fill="#C85D42" stroke="#FFFFFF" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="mt-3 flex justify-between text-xs text-ink-muted">
+              <span>Jul 8</span><span>Jul 22</span><span>Aug 5</span>
+            </div>
+          </article>
+
+          <!-- Model mix -->
+          <article class="rounded-2xl border border-hairline bg-white p-6 shadow-card">
+            <h2 class="font-display text-lg font-semibold text-ink">Model mix</h2>
+            <p class="text-sm text-ink-muted">Requests by provider</p>
+
+            <!-- Stacked horizontal bar -->
+            <div class="mt-5">
+              <div class="flex h-3 w-full overflow-hidden rounded-full" role="img" aria-label="Model mix: Claude 3.5 48%, GPT-4o 31%, Llama 3.1 14%, Self-hosted 7%">
+                <div class="h-full bg-terracotta-400" style="width:48%"></div>
+                <div class="h-full bg-ink-soft" style="width:31%"></div>
+                <div class="h-full bg-sand" style="width:14%"></div>
+                <div class="h-full bg-clay" style="width:7%"></div>
               </div>
             </div>
-            <div class="mt-6 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
-              <p class="text-xs text-white/45">Cache hit rate</p>
-              <p class="mt-1 text-2xl font-semibold text-white">62%</p>
-              <p class="mt-1 text-xs text-emerald-300">Saving ~$1,240 / mo</p>
+
+            <!-- Legend / breakdown -->
+            <ul class="mt-5 space-y-3 text-sm">
+              <li class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-terracotta-400"></span> Claude 3.5</span>
+                <span class="mono text-ink-muted">48%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-ink-soft"></span> GPT-4o</span>
+                <span class="mono text-ink-muted">31%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-sand"></span> Llama 3.1</span>
+                <span class="mono text-ink-muted">14%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-clay"></span> Self-hosted</span>
+                <span class="mono text-ink-muted">7%</span>
+              </li>
+            </ul>
+
+            <div class="mt-6 rounded-xl border border-hairline bg-paper-dark p-4">
+              <p class="text-xs text-ink-muted">Cache hit rate</p>
+              <p class="mt-1 font-display text-2xl font-semibold text-ink">62%</p>
+              <p class="mt-1 text-xs font-medium text-terracotta-600">Saving ~$1,240 / mo</p>
             </div>
-          </div>
+          </article>
         </section>
 
         <!-- Recent activity + cost -->
         <section class="mt-6 grid gap-4 lg:grid-cols-3">
           <!-- Recent activity -->
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur lg:col-span-2">
-            <div class="flex items-center justify-between"><h2 class="text-base font-semibold text-white">Recent activity</h2><a href="#" class="text-sm text-violet-300 hover:text-violet-200">View all</a></div>
-            <ul class="mt-4 divide-y divide-white/[0.06]">
+          <article class="rounded-2xl border border-hairline bg-white p-6 shadow-card lg:col-span-2">
+            <div class="flex items-center justify-between">
+              <h2 class="font-display text-lg font-semibold text-ink">Recent activity</h2>
+              <a href="#" class="text-sm font-medium text-terracotta-600 hover:text-terracotta-700">View all</a>
+            </div>
+            <ul class="mt-4 divide-y divide-hairline">
               <li class="flex items-center gap-3 py-3">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-400/10 text-emerald-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24A12 12 0 0 0 12 0Zm3.7 6.2-4 4.3a1 1 0 0 1-1.4 0L6.3 6.6a1 1 0 1 1 1.4-1.4l1.3 1.3 3.3-3.5a1 1 0 1 1 1.4 1.2Z"/></svg></span>
-                <div class="min-w-0 flex-1"><p class="truncate text-sm text-white">Eval suite <span class="mono text-white/60">golden-v3</span> passed</p><p class="text-xs text-white/45">2 minutes ago · 94% accuracy</p></div>
-                <span class="mono rounded-md bg-emerald-400/10 px-2 py-0.5 text-xs text-emerald-300">pass</span>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-terracotta-50 text-terracotta-600 ring-1 ring-inset ring-terracotta-100">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm text-ink">Eval suite <span class="mono text-ink-soft">golden-v3</span> passed</p>
+                  <p class="text-xs text-ink-muted">2 minutes ago · 94% accuracy</p>
+                </div>
+                <span class="mono rounded-md bg-terracotta-50 px-2 py-0.5 text-xs font-medium text-terracotta-600">pass</span>
               </li>
               <li class="flex items-center gap-3 py-3">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-cyan-400/10 text-cyan-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
-                <div class="min-w-0 flex-1"><p class="truncate text-sm text-white">Fallback to <span class="mono text-white/60">gpt-4o</span> triggered</p><p class="text-xs text-white/45">11 minutes ago · provider timeout</p></div>
-                <span class="mono rounded-md bg-amber-400/10 px-2 py-0.5 text-xs text-amber-300">warn</span>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-paper-dark text-ink-soft ring-1 ring-inset ring-hairline">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm text-ink">Fallback to <span class="mono text-ink-soft">gpt-4o</span> triggered</p>
+                  <p class="text-xs text-ink-muted">11 minutes ago · provider timeout</p>
+                </div>
+                <span class="mono rounded-md bg-paper-dark px-2 py-0.5 text-xs font-medium text-ink-soft">warn</span>
               </li>
               <li class="flex items-center gap-3 py-3">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-violet-400/10 text-violet-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 2 .8 3.5 2 5 1 1.2 1.5 2.4 1.5 4h7c0-1.6.5-2.8 1.5-4 1.2-1.5 2-3 2-5a7 7 0 0 0-7-7Z"/></svg></span>
-                <div class="min-w-0 flex-1"><p class="truncate text-sm text-white">New model <span class="mono text-white/60">claude-3.5-sonnet</span> added</p><p class="text-xs text-white/45">1 hour ago · by Alex Rivera</p></div>
-                <span class="mono rounded-md bg-white/[0.06] px-2 py-0.5 text-xs text-white/60">info</span>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-terracotta-50 text-terracotta-600 ring-1 ring-inset ring-terracotta-100">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 2 .8 3.5 2 5 1 1.2 1.5 2.4 1.5 4h7c0-1.6.5-2.8 1.5-4 1.2-1.5 2-3 2-5a7 7 0 0 0-7-7Z"/></svg>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm text-ink">New model <span class="mono text-ink-soft">claude-3.5-sonnet</span> added</p>
+                  <p class="text-xs text-ink-muted">1 hour ago · by Alex Rivera</p>
+                </div>
+                <span class="mono rounded-md bg-paper-dark px-2 py-0.5 text-xs font-medium text-ink-soft">info</span>
               </li>
               <li class="flex items-center gap-3 py-3">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-rose-400/10 text-rose-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                <div class="min-w-0 flex-1"><p class="truncate text-sm text-white">Guardrail <span class="mono text-white/60">pii</span> blocked a request</p><p class="text-xs text-white/45">3 hours ago · redacted output</p></div>
-                <span class="mono rounded-md bg-rose-400/10 px-2 py-0.5 text-xs text-rose-300">block</span>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-red-50 text-red-600 ring-1 ring-inset ring-red-100">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm text-ink">Guardrail <span class="mono text-ink-soft">pii</span> blocked a request</p>
+                  <p class="text-xs text-ink-muted">3 hours ago · redacted output</p>
+                </div>
+                <span class="mono rounded-md bg-red-50 px-2 py-0.5 text-xs font-medium text-red-600">block</span>
               </li>
               <li class="flex items-center gap-3 py-3">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-400/10 text-emerald-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24A12 12 0 0 0 12 0Zm3.7 6.2-4 4.3a1 1 0 0 1-1.4 0L6.3 6.6a1 1 0 1 1 1.4-1.4l1.3 1.3 3.3-3.5a1 1 0 1 1 1.4 1.2Z"/></svg></span>
-                <div class="min-w-0 flex-1"><p class="truncate text-sm text-white">Deploy <span class="mono text-white/60">prompt-v12</span> promoted to production</p><p class="text-xs text-white/45">5 hours ago · by Maya Chen</p></div>
-                <span class="mono rounded-md bg-emerald-400/10 px-2 py-0.5 text-xs text-emerald-300">pass</span>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-terracotta-50 text-terracotta-600 ring-1 ring-inset ring-terracotta-100">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+                </span>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm text-ink">Deploy <span class="mono text-ink-soft">prompt-v12</span> promoted to production</p>
+                  <p class="text-xs text-ink-muted">5 hours ago · by Maya Chen</p>
+                </div>
+                <span class="mono rounded-md bg-terracotta-50 px-2 py-0.5 text-xs font-medium text-terracotta-600">pass</span>
               </li>
             </ul>
-          </div>
+          </article>
 
           <!-- Cost analytics -->
-          <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur">
-            <h2 class="text-base font-semibold text-white">Cost analytics</h2>
-            <p class="text-sm text-white/45">This month</p>
-            <p class="mt-4 text-3xl font-semibold tracking-tight text-white">$2,184</p>
-            <p class="mt-1 text-xs text-emerald-300">↓ 18% vs last month</p>
-            <div class="mt-6 space-y-3 text-sm">
-              <div class="flex items-center justify-between"><span class="text-white/65">Inference</span><span class="mono text-white/80">$1,420</span></div>
-              <div class="flex items-center justify-between"><span class="text-white/65">Embeddings</span><span class="mono text-white/80">$312</span></div>
-              <div class="flex items-center justify-between"><span class="text-white/65">Cache (saved)</span><span class="mono text-emerald-300">-$1,240</span></div>
-              <div class="flex items-center justify-between border-t border-white/[0.06] pt-3"><span class="font-medium text-white">Estimated</span><span class="mono font-semibold text-white">$1,492</span></div>
+          <article class="rounded-2xl border border-hairline bg-white p-6 shadow-card">
+            <h2 class="font-display text-lg font-semibold text-ink">Cost analytics</h2>
+            <p class="text-sm text-ink-muted">This month</p>
+            <p class="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">$2,184</p>
+            <p class="mt-1 inline-flex items-center gap-1 text-xs font-medium text-terracotta-600">
+              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+              18% vs last month
+            </p>
+
+            <!-- Mini bar breakdown -->
+            <div class="mt-5 flex h-2.5 w-full overflow-hidden rounded-full" role="img" aria-label="Cost breakdown: inference $1,420, embeddings $312">
+              <div class="h-full bg-terracotta-400" style="width:82%"></div>
+              <div class="h-full bg-sand" style="width:18%"></div>
             </div>
-            <a href="#" class="mt-6 block rounded-lg border border-white/10 bg-white/[0.04] py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-white/[0.08]">View detailed report</a>
-          </div>
+
+            <div class="mt-5 space-y-3 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-terracotta-400"></span> Inference</span>
+                <span class="mono text-ink">$1,420</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-ink-soft"><span class="h-2.5 w-2.5 rounded-full bg-sand"></span> Embeddings</span>
+                <span class="mono text-ink">$312</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-ink-soft">Cache (saved)</span>
+                <span class="mono text-terracotta-600">-$1,240</span>
+              </div>
+              <div class="flex items-center justify-between border-t border-hairline pt-3">
+                <span class="font-medium text-ink">Estimated</span>
+                <span class="mono font-semibold text-ink">$1,492</span>
+              </div>
+            </div>
+            <a href="#" class="mt-6 block rounded-lg border border-hairline bg-paper-dark py-2.5 text-center text-sm font-medium text-ink transition-colors hover:bg-sand">View detailed report</a>
+          </article>
         </section>
       </main>
     </div>
   </div>
+
+  <script>
+    // Mobile sidebar toggle (scoped)
+    (function () {
+      var sidebar = document.getElementById('appSidebar');
+      var backdrop = document.getElementById('sidebarBackdrop');
+      var openBtn = document.getElementById('sidebarOpen');
+      var closeBtn = document.getElementById('sidebarClose');
+      if (!sidebar || !openBtn) return;
+
+      function setOpen(open) {
+        if (open) {
+          sidebar.classList.remove('sidebar-closed');
+          if (backdrop) backdrop.classList.remove('hidden');
+          openBtn.setAttribute('aria-expanded', 'true');
+          if (backdrop) backdrop.setAttribute('aria-hidden', 'false');
+        } else {
+          sidebar.classList.add('sidebar-closed');
+          if (backdrop) backdrop.classList.add('hidden');
+          openBtn.setAttribute('aria-expanded', 'false');
+          if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      openBtn.addEventListener('click', function () {
+        setOpen(sidebar.classList.contains('sidebar-closed'));
+      });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+      if (backdrop) backdrop.addEventListener('click', function () { setOpen(false); });
+
+      // Reset on resize to desktop
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) {
+          if (backdrop) backdrop.classList.add('hidden');
+          openBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Chart draw animation: set dash lengths from path length (guarded)
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        document.querySelectorAll('.draw-line').forEach(function (path) {
+          try {
+            var len = path.getTotalLength();
+            path.style.setProperty('--dash', String(len));
+            path.style.strokeDasharray = String(len);
+          } catch (e) { /* getTotalLength may fail in some browsers; CSS fallback applies */ }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

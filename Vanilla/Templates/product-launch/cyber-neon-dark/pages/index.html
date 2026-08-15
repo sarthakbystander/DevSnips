@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumCore - Launch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0A0A0E;
+            --card-bg: #1A1A22;
+            --text-light: #E0E0E0;
+            --text-dim: #999;
+            --neon-blue: #00BFFF;
+            --neon-cyan: #00FFFF;
+            --neon-purple: #8A2BE2;
+            --glow-1: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            --glow-2: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            --glow-3: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Global Styles --- */
+        .section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--text-light);
+            text-transform: uppercase;
+            text-shadow: var(--glow-1);
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.1) 0%, rgba(10, 10, 14, 0.8) 70%, rgba(10, 10, 14, 1) 100%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 700px;
+            margin: 20px auto 40px;
+            color: var(--text-dim);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .cta-btn span {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: -150%;
+            left: -150%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .cta-btn:hover::before {
+            top: 0;
+            left: 0;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-blue);
+            text-shadow: var(--glow-1);
+        }
+
+        /* --- Demo Section --- */
+        .demo-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .demo-image {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue), inset 0 0 15px var(--neon-blue);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-card blockquote::before {
+            content: '“';
+            font-size: 3rem;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-2);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .author-info h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-purple);
+            text-shadow: var(--glow-3);
+        }
+        
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-dim);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #282830;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dim);
+        }
+
+        .pricing-card li .check {
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-2);
+        }
+        
+        .pricing-card .cta-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-dim);
+            border-top: 1px solid #222;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-dim);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-blue);
+            text-shadow: var(--glow-1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0; }
+            .section { padding: 80px 0; }
+            .section-header h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>QuantumCore</h1>
+            <p>Future-proof your workflow with unparalleled speed and precision. The next generation of intelligence is here.</p>
+            <a href="#pricing" class="cta-btn"><span>Get Started</span></a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>Engineered for performance, designed for the future.</p>
+            </div>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon">💻</div>
+                    <h3>Neural Integration</h3>
+                    <p>Connect and synchronize with your existing data streams for seamless operation.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Hyper-Speed Processing</h3>
+                    <p>Execute complex tasks in nanoseconds with our quantum-optimized algorithms.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Adaptive AI</h3>
+                    <p>Our AI learns and evolves with every interaction, tailoring its capabilities to your needs.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon">🔗</div>
+                    <h3>Secure & Encrypted</h3>
+                    <p>Your data is protected by unbreakable, decentralized encryption protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Demo Section -->
+    <section class="section" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience the Interface</h2>
+                <p>A glimpse into the future of user-centric design.</p>
+            </div>
+            <div class="demo-content">
+                <img src="https://placehold.co/800x450/1A1A22/00FFFF?text=QuantumCore+UI+Demo" alt="QuantumCore User Interface" class="demo-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Beta Testers Say</h2>
+                <p>From the minds that are already shaping tomorrow.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="card testimonial-card">
+                    <blockquote>"QuantumCore has revolutionized my data analysis. The speed is simply mind-blowing."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=a" alt="User Avatar">
+                        <div class="author-info">
+                            <h4>Dr. Anya Sharma</h4>
+                            <p>Lead Data Scientist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"The adaptive AI feature feels like having a brilliant co-pilot for every project."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=b" alt="User Avatar">
+                        <div class="author-info">
+                            <h4>Michael Lee</h4>
+                            <p>Software Architect</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <blockquote>"Security is paramount for us, and QuantumCore's encryption is second to none."</blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/50?u=c" alt="User Avatar">
+                        <div class="author-info">
+                            <h4>Sarah Khan</h4>
+                            <p>Cybersecurity Expert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment in the Future</h2>
+                <p>Choose the core that powers your ambition.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="card pricing-card">
+                    <h3>Pulsar</h3>
+                    <div class="price">$49<span>/mo</span></div>
+                    <ul>
+                        <li><span class="check">✔</span> 1000 API calls/month</li>
+                        <li><span class="check">✔</span> Standard model access</li>
+                        <li><span class="check">✔</span> Community support</li>
+                        <li><span class="check">✔</span> 5 GB encrypted storage</li>
+                    </ul>
+                    <a href="#" class="cta-btn"><span>Choose Plan</span></a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Neutron</h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul>
+                        <li><span class="check">✔</span> 5000 API calls/month</li>
+                        <li><span class="check">✔</span> Advanced model access</li>
+                        <li><span class="check">✔</span> Priority support</li>
+                        <li><span class="check">✔</span> 50 GB encrypted storage</li>
+                    </ul>
+                    <a href="#" class="cta-btn"><span>Choose Plan</span></a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Quasar</h3>
+                    <div class="price">$299<span>/mo</span></div>
+                    <ul>
+                        <li><span class="check">✔</span> Unlimited API calls</li>
+                        <li><span class="check">✔</span> Custom model training</li>
+                        <li><span class="check">✔</span> Dedicated account manager</li>
+                        <li><span class="check">✔</span> 500 GB encrypted storage</li>
+                    </ul>
+                    <a href="#" class="cta-btn"><span>Choose Plan</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 QuantumCore. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">X</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

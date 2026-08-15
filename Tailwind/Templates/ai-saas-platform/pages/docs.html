@@ -3,188 +3,451 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentation — Nexus AI</title>
+  <title>Nexus AI — Documentation</title>
   <meta name="description" content="Nexus AI developer documentation — quickstart, API reference, SDKs, and guides.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Nexus AI — Documentation">
+  <meta property="og:description" content="Nexus AI developer documentation — quickstart, API reference, SDKs, and guides.">
+  <meta property="og:image" content="../assets/images/og-image.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F9F7F4',
+            'paper-dark': '#F3EFEA',
+            ink: '#1C1917',
+            'ink-soft': '#44403C',
+            'ink-muted': '#78716C',
+            terracotta: {
+              50: '#FDF2EF', 100: '#FBE5DE', 200: '#F6C8BC', 300: '#EEA898',
+              400: '#E07A5F', 500: '#C85D42', 600: '#A84A34', 700: '#8A3D2C',
+              800: '#6E3226', 900: '#4E251C',
+            },
+            sand: '#E8E2D9',
+            clay: '#D6CCC2',
+          },
+          fontFamily: { display: ['Fraunces', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'] },
+          boxShadow: {
+            'card': '0 1px 2px rgba(28,25,23,0.04), 0 4px 12px rgba(28,25,23,0.06)',
+            'card-hover': '0 4px 8px rgba(28,25,23,0.08), 0 12px 32px rgba(28,25,23,0.1)',
+            'soft': '0 8px 30px rgba(28,25,23,0.08)',
+          },
+          borderRadius: { 'xl': '0.75rem', '2xl': '1rem', '3xl': '1.5rem' },
+        },
+      },
+    }
+  </script>
   <style>
-    :root { color-scheme: dark; }
-    html, body { background: #070B16; }
-    body { font-family: 'Inter', sans-serif; }
-    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
-    ::selection { background: rgba(139,92,246,0.35); }
-    .text-balance { text-wrap: balance; }
-    .docs-nav .active { background: rgba(255,255,255,0.06); color: #fff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #F9F7F4; color: #1C1917; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.6; }
+    .font-display { font-family: 'Fraunces', serif; }
+    .border-hairline { border-color: rgba(28,25,23,0.08); }
+    .bg-paper { background-color: #F9F7F4; }
+    .bg-paper-dark { background-color: #F3EFEA; }
+    .text-ink { color: #1C1917; }
+    .text-ink-soft { color: #44403C; }
+    .text-ink-muted { color: #78716C; }
+    .badge-pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:9999px; font-size:13px; font-weight:500; background:#FDF2EF; border:1px solid #FBE5DE; color:#C85D42; }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:8px; font-weight:600; font-size:15px; background:#E07A5F; color:#FFFFFF; border:none; cursor:pointer; transition:all .2s ease; text-decoration:none; box-shadow:0 2px 6px rgba(224,122,95,0.25); }
+    .btn-primary:hover { background:#C85D42; box-shadow:0 4px 12px rgba(224,122,95,0.35); transform:translateY(-1px); }
+    .btn-secondary { display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:8px; font-weight:600; font-size:15px; background:transparent; color:#1C1917; border:1px solid rgba(28,25,23,0.15); cursor:pointer; transition:all .2s ease; text-decoration:none; }
+    .btn-secondary:hover { border-color:rgba(28,25,23,0.4); background:rgba(28,25,23,0.03); }
+    .accent-underline { text-decoration:underline; text-decoration-color:#E07A5F; text-decoration-thickness:2px; text-underline-offset:4px; }
+    .font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    :focus-visible { outline: 2px solid #E07A5F; outline-offset: 2px; border-radius: 4px; }
+    [data-reveal] { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+    [data-reveal].revealed { opacity:1; transform:translateY(0); }
+    /* Sidebar link active: left terracotta bar */
+    .doc-link { position: relative; }
+    .doc-link.active { color:#C85D42; font-weight:500; }
+    .doc-link.active::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); height:1.25rem; width:2px; border-radius:9999px; background:#C85D42; }
+    .toc-link.active { color:#C85D42; font-weight:500; }
+    .copy-btn.copied::after { content:' ✓'; color:#C85D42; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity:1; transform:none; transition:none; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
   </style>
 </head>
-<body class="min-h-screen bg-[#070B16] text-white antialiased">
+<body class="bg-paper text-ink">
 
-  <!-- Top navbar (docs variant, with search) -->
-  <header data-navbar class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#070B16]/80 backdrop-blur-xl">
-    <nav class="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6 lg:px-8" aria-label="Primary">
+  <!-- Navbar (shared, verbatim) — docs active -->
+  <header data-navbar class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-hairline">
+    <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
       <a href="../preview.html" class="flex items-center gap-2.5" aria-label="Nexus AI home">
-        <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-violet-500 via-indigo-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/30"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg></span>
-        <span class="text-[15px] font-semibold tracking-tight text-white">Nexus<span class="text-white/50"> AI</span></span>
-        <span class="mono ml-2 hidden rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[10px] text-white/50 sm:inline">docs</span>
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-terracotta-500 text-white shadow-sm shadow-terracotta-500/20">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg>
+        </span>
+        <span class="font-display text-[17px] font-semibold tracking-tight text-ink">Nexus <span class="text-terracotta-500">AI</span></span>
       </a>
-      <!-- Search -->
-      <div class="hidden flex-1 px-8 lg:block">
-        <button type="button" class="group flex w-full max-w-md items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white/40 backdrop-blur transition-colors hover:bg-white/[0.06]" aria-label="Search docs">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          Search the docs…
-          <kbd class="mono ml-auto rounded border border-white/10 bg-white/[0.06] px-1.5 text-[10px] text-white/50">⌘K</kbd>
-        </button>
+
+      <div class="hidden items-center gap-1 md:flex">
+        <a href="features.html" data-nav-link="features" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-500">Features</a>
+        <a href="integrations.html" data-nav-link="integrations" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-500">Integrations</a>
+        <a href="pricing.html" data-nav-link="pricing" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-500">Pricing</a>
+        <a href="customers.html" data-nav-link="customers" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-500">Customers</a>
+        <a href="blog.html" data-nav-link="blog" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-500">Blog</a>
+        <a href="docs.html" data-nav-link="docs" aria-current="page" class="rounded-lg px-3 py-2 text-sm font-medium text-terracotta-500 transition-colors">Docs</a>
       </div>
-      <div class="hidden items-center gap-2 lg:flex">
-        <a href="docs.html" class="rounded-lg bg-white/[0.06] px-3 py-2 text-sm text-white">Docs</a>
-        <a href="signup.html" class="group inline-flex items-center gap-1.5 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#070B16] shadow-sm transition-all hover:shadow-white/20 hover:shadow-lg">Get API key <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+      <div class="hidden items-center gap-3 md:flex">
+        <a href="login.html" class="text-sm font-medium text-ink-soft transition-colors hover:text-ink">Sign in</a>
+        <a href="signup.html" class="inline-flex items-center gap-1.5 rounded-lg bg-terracotta-500 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-terracotta-500/25 transition-all hover:bg-terracotta-600 hover:shadow-terracotta-500/30">
+          Start free
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
-      <button type="button" data-nav-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/80 lg:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+
+      <button type="button" data-nav-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink-soft hover:bg-black/5 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </nav>
-    <div id="mobile-menu" data-mobile-menu class="hidden border-t border-white/[0.06] bg-[#070B16] px-6 py-4 lg:hidden">
+
+    <div id="mobile-menu" data-mobile-menu class="hidden border-t border-hairline bg-paper px-4 py-3 md:hidden">
       <div class="flex flex-col gap-1">
-        <a href="features.html" class="rounded-lg px-3 py-2.5 text-sm text-white/80 hover:bg-white/[0.06]">Features</a>
-        <a href="pricing.html" class="rounded-lg px-3 py-2.5 text-sm text-white/80 hover:bg-white/[0.06]">Pricing</a>
-        <a href="blog.html" class="rounded-lg px-3 py-2.5 text-sm text-white/80 hover:bg-white/[0.06]">Blog</a>
-        <a href="docs.html" class="rounded-lg px-3 py-2.5 text-sm text-white/80 hover:bg-white/[0.06]">Docs</a>
+        <a href="features.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Features</a>
+        <a href="integrations.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Integrations</a>
+        <a href="pricing.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Pricing</a>
+        <a href="customers.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Customers</a>
+        <a href="blog.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Blog</a>
+        <a href="docs.html" class="rounded-lg px-3 py-2.5 text-sm text-ink-soft hover:bg-paper-dark">Docs</a>
+        <div class="mt-3 flex gap-2">
+          <a href="login.html" class="flex-1 rounded-lg border border-hairline px-4 py-2.5 text-center text-sm font-medium text-ink">Sign in</a>
+          <a href="signup.html" class="flex-1 rounded-lg bg-terracotta-500 px-4 py-2.5 text-center text-sm font-semibold text-white">Start free</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <div class="mx-auto flex max-w-[1600px]">
-    <!-- Sidebar -->
-    <aside class="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto border-r border-white/[0.06] px-4 py-8 lg:block" aria-label="Documentation navigation">
-      <nav class="docs-nav space-y-1 text-sm">
-        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">Getting started</p>
-        <a href="#quickstart" class="active block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Quickstart</a>
-        <a href="#installation" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Installation</a>
-        <a href="#auth" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Authentication</a>
+  <!-- Docs layout: sidebar | content | TOC -->
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
 
-        <p class="px-3 pb-2 pt-6 text-xs font-semibold uppercase tracking-wider text-white/40">Core concepts</p>
-        <a href="#inference" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Inference</a>
-        <a href="#streaming" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Streaming</a>
-        <a href="#evals" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Evaluations</a>
-        <a href="#guardrails" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Guardrails</a>
+      <!-- Mobile sidebar toggle -->
+      <div class="flex items-center justify-between py-4 lg:hidden">
+        <span class="font-display text-sm font-semibold text-ink">Documentation</span>
+        <button type="button" data-docs-sidebar-toggle aria-expanded="false" aria-controls="docs-sidebar" class="inline-flex items-center gap-1.5 rounded-lg border border-hairline bg-white px-3 py-2 text-sm font-medium text-ink-soft">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          Contents
+        </button>
+      </div>
 
-        <p class="px-3 pb-2 pt-6 text-xs font-semibold uppercase tracking-wider text-white/40">Reference</p>
-        <a href="#api" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">API reference</a>
-        <a href="#sdks" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">SDKs</a>
-        <a href="#errors" class="block rounded-lg px-3 py-2 text-white/70 transition-colors hover:bg-white/[0.06]">Error codes</a>
-      </nav>
-    </aside>
+      <!-- Left sidebar -->
+      <aside id="docs-sidebar" data-docs-sidebar class="hidden lg:col-span-3 lg:block" aria-label="Documentation navigation">
+        <div class="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pb-8">
+          <!-- Search -->
+          <div class="relative mt-2 lg:mt-0">
+            <label for="docs-search" class="sr-only">Search documentation</label>
+            <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="docs-search" type="search" data-docs-search placeholder="Search the docs…" autocomplete="off" class="w-full rounded-lg border border-hairline bg-white py-2 pl-9 pr-3 text-sm text-ink placeholder:text-ink-muted focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500/20" />
+          </div>
 
-    <main class="min-w-0 flex-1 px-6 py-12 lg:px-12 lg:py-16">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm text-white/45">Getting started</p>
-        <h1 id="quickstart" class="mt-2 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">Quickstart</h1>
-        <p class="mt-4 text-lg text-white/60">Get from zero to your first streamed completion in under five minutes.</p>
+          <p class="mt-6 px-3 text-xs font-semibold uppercase tracking-wider text-ink-muted" data-nav-group>Getting started</p>
+          <nav class="mt-2 space-y-0.5" aria-label="Getting started">
+            <a href="#quickstart" class="doc-link active block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Quickstart</a>
+            <a href="#installation" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Installation</a>
+            <a href="#auth" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Authentication</a>
+          </nav>
 
-        <div class="mt-8 flex items-center gap-2 text-sm text-white/50">
-          <span class="mono rounded-md border border-white/10 bg-white/[0.04] px-2 py-0.5">5 min</span>
-          <span>·</span><span>Last updated Aug 2026</span>
+          <p class="mt-6 px-3 text-xs font-semibold uppercase tracking-wider text-ink-muted" data-nav-group>Core concepts</p>
+          <nav class="mt-2 space-y-0.5" aria-label="Core concepts">
+            <a href="#inference" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Inference</a>
+            <a href="#streaming" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Streaming</a>
+            <a href="#evals" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Evaluations</a>
+            <a href="#guardrails" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Guardrails</a>
+          </nav>
+
+          <p class="mt-6 px-3 text-xs font-semibold uppercase tracking-wider text-ink-muted" data-nav-group>Reference</p>
+          <nav class="mt-2 space-y-0.5" aria-label="Reference">
+            <a href="#api" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">API reference</a>
+            <a href="#sdks" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">SDKs</a>
+            <a href="#errors" class="doc-link block rounded-md py-1.5 pl-4 pr-3 text-sm text-ink-soft transition-colors hover:text-terracotta-500">Error codes</a>
+          </nav>
+
+          <p class="hidden px-3 py-4 text-xs text-ink-muted" data-docs-no-results>No matching pages.</p>
         </div>
+      </aside>
 
-        <!-- Step 1 -->
-        <h2 id="installation" class="mt-12 text-2xl font-semibold tracking-tight text-white">1. Install the SDK</h2>
-        <p class="mt-3 text-white/65">Install the Nexus AI SDK for your language. All SDKs are open source and fully typed.</p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
-          <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2 text-xs text-white/40"><span class="mono">bash</span><button class="mono ml-auto rounded px-2 py-0.5 text-white/50 hover:bg-white/[0.06]">copy</button></div>
-          <pre class="mono overflow-x-auto p-4 text-xs leading-relaxed text-cyan-200"><code>npm install @nexus/sdk
+      <!-- Main content -->
+      <main class="min-w-0 lg:col-span-7 lg:py-12 lg:px-2">
+        <article class="mx-auto max-w-3xl pb-16 lg:pb-20">
+          <!-- Eyebrow + title -->
+          <div class="inline-flex items-center gap-2 rounded-full border border-terracotta-200 bg-terracotta-50 px-3 py-1 text-xs font-medium text-terracotta-600">
+            <span class="h-1.5 w-1.5 rounded-full bg-terracotta-500"></span> Getting started
+          </div>
+          <h1 id="quickstart" class="mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">Quickstart</h1>
+          <p class="mt-4 text-lg text-ink-soft">Get from zero to your first streamed completion in under five minutes.</p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-2 text-sm text-ink-muted">
+            <span class="font-mono rounded-md border border-hairline bg-paper-dark px-2 py-0.5 text-xs">5 min</span>
+            <span>·</span><span>Last updated Aug 2026</span>
+          </div>
+
+          <!-- Step 1 -->
+          <h2 id="installation" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">1. Install the SDK</h2>
+          <p class="mt-3 text-ink-soft">Install the Nexus AI SDK for your language. All SDKs are open source and fully typed.</p>
+          <div class="mt-4" data-code-block>
+            <div class="overflow-hidden rounded-lg border border-hairline bg-paper-dark">
+              <div class="flex items-center justify-between border-b border-hairline px-4 py-2">
+                <span class="font-mono text-xs text-ink-muted">bash</span>
+                <button type="button" class="copy-btn inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs text-ink-muted hover:bg-white hover:text-terracotta-500" aria-label="Copy code">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  copy
+                </button>
+              </div>
+              <pre class="overflow-x-auto p-4 text-sm leading-relaxed"><code class="font-mono text-ink-soft">npm install @nexus/sdk
 # or
 pip install nexus-ai</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <h2 id="auth" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">2. Get an API key</h2>
+          <p class="mt-3 text-ink-soft">Create a project in the dashboard and copy your API key. Store it as an environment variable — never commit it to source control.</p>
+
+          <!-- Callout: note -->
+          <div class="mt-4 flex gap-3 rounded-lg border border-terracotta-200 border-l-4 bg-terracotta-50/60 p-4" role="note">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-terracotta-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <div class="text-sm text-ink-soft"><strong class="text-ink">Keep it secret.</strong> Treat your API key like a password. Rotate it immediately if it leaks, and never hard-code it in client-side code.</div>
+          </div>
+
+          <div class="mt-4" data-code-block>
+            <div class="overflow-hidden rounded-lg border border-hairline bg-paper-dark">
+              <div class="flex items-center justify-between border-b border-hairline px-4 py-2">
+                <span class="font-mono text-xs text-ink-muted">bash</span>
+                <button type="button" class="copy-btn inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs text-ink-muted hover:bg-white hover:text-terracotta-500" aria-label="Copy code">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  copy
+                </button>
+              </div>
+              <pre class="overflow-x-auto p-4 text-sm leading-relaxed"><code class="font-mono text-ink-soft">export NEXUS_API_KEY="nx_live_********"</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <h2 id="inference" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">3. Make your first request</h2>
+          <p class="mt-3 text-ink-soft">Initialize the client and run a completion. The same code works across every provider — just change the model alias.</p>
+          <div class="mt-4" data-code-block>
+            <div class="overflow-hidden rounded-lg border border-hairline bg-paper-dark">
+              <div class="flex items-center justify-between border-b border-hairline px-4 py-2">
+                <span class="font-mono text-xs text-ink-muted">typescript</span>
+                <button type="button" class="copy-btn inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs text-ink-muted hover:bg-white hover:text-terracotta-500" aria-label="Copy code">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  copy
+                </button>
+              </div>
+              <pre class="overflow-x-auto p-4 text-sm leading-relaxed"><code class="font-mono text-ink-soft">import { Nexus } from "@nexus/sdk";
+
+const nexus = new Nexus(process.env.NEXUS_API_KEY);
+
+const res = await nexus.complete({
+  model: "smart-chat",
+  input: "Explain vector search in one sentence.",
+});
+
+console.log(res.text);</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <h2 id="streaming" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">4. Stream tokens</h2>
+          <p class="mt-3 text-ink-soft">For real-time UX, stream the response token by token. Streaming is first-byte optimized and works across all providers.</p>
+          <div class="mt-4" data-code-block>
+            <div class="overflow-hidden rounded-lg border border-hairline bg-paper-dark">
+              <div class="flex items-center justify-between border-b border-hairline px-4 py-2">
+                <span class="font-mono text-xs text-ink-muted">typescript</span>
+                <button type="button" class="copy-btn inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs text-ink-muted hover:bg-white hover:text-terracotta-500" aria-label="Copy code">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  copy
+                </button>
+              </div>
+              <pre class="overflow-x-auto p-4 text-sm leading-relaxed"><code class="font-mono text-ink-soft">const stream = await nexus.stream({
+  model: "smart-chat",
+  input: "Draft a release note.",
+});
+
+for await (const chunk of stream) {
+  process.stdout.write(chunk.text);
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Evals -->
+          <h2 id="evals" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">Run evaluations</h2>
+          <p class="mt-3 text-ink-soft">Define a golden dataset and a set of metrics, then run regressions before every release. Gate deploys on a quality threshold.</p>
+          <div class="mt-4" data-code-block>
+            <div class="overflow-hidden rounded-lg border border-hairline bg-paper-dark">
+              <div class="flex items-center justify-between border-b border-hairline px-4 py-2">
+                <span class="font-mono text-xs text-ink-muted">typescript</span>
+                <button type="button" class="copy-btn inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs text-ink-muted hover:bg-white hover:text-terracotta-500" aria-label="Copy code">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  copy
+                </button>
+              </div>
+              <pre class="overflow-x-auto p-4 text-sm leading-relaxed"><code class="font-mono text-ink-soft">const result = await nexus.evals.run({
+  dataset: "golden-v3",
+  models: ["smart-chat"],
+  metrics: ["accuracy", "latency", "cost"],
+});
+
+// → { accuracy: 0.94, latency: 142ms, cost: 0.02 }</code></pre>
+            </div>
+          </div>
+
+          <!-- Error codes reference table -->
+          <h2 id="errors" class="mt-12 font-display text-2xl font-semibold tracking-tight text-ink">Error codes</h2>
+          <p class="mt-3 text-ink-soft">Common error codes returned by the API and how to handle them.</p>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full min-w-[28rem] border-collapse text-sm">
+              <thead>
+                <tr class="border-b border-hairline text-left text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                  <th class="py-2 pr-4 font-semibold">Code</th>
+                  <th class="py-2 pr-4 font-semibold">Meaning</th>
+                  <th class="py-2 font-semibold">Recommended action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-hairline">
+                <tr>
+                  <td class="py-3 pr-4"><code class="font-mono text-terracotta-600">401</code></td>
+                  <td class="py-3 pr-4 text-ink-soft">Unauthorized — missing or invalid API key.</td>
+                  <td class="py-3 text-ink-soft">Verify the key and re-issue the request.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4"><code class="font-mono text-terracotta-600">429</code></td>
+                  <td class="py-3 pr-4 text-ink-soft">Rate limited — too many requests.</td>
+                  <td class="py-3 text-ink-soft">Back off with exponential retry.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4"><code class="font-mono text-terracotta-600">5xx</code></td>
+                  <td class="py-3 pr-4 text-ink-soft">Server error on our side.</td>
+                  <td class="py-3 text-ink-soft">Retry; check status page.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Callout: warning -->
+          <div id="guardrails" class="mt-12 flex gap-3 rounded-lg border border-amber-300 border-l-4 bg-amber-50/70 p-4" role="note">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+            <div class="text-sm text-ink-soft"><strong class="text-ink">Add safety guardrails.</strong> In production, always wrap calls with content filters and usage caps. See the guardrails guide before going live.</div>
+          </div>
+
+          <!-- Next steps card -->
+          <div class="mt-12 rounded-2xl border border-hairline bg-white p-6 shadow-card">
+            <h2 class="font-display text-lg font-semibold text-ink">Next steps</h2>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a href="#guardrails" class="text-terracotta-500 transition-colors hover:text-terracotta-600">Add safety guardrails →</a></li>
+              <li><a href="#api" class="text-terracotta-500 transition-colors hover:text-terracotta-600">Explore the full API reference →</a></li>
+              <li><a href="integrations.html" class="text-terracotta-500 transition-colors hover:text-terracotta-600">Browse integrations →</a></li>
+            </ul>
+          </div>
+
+          <!-- Help footer -->
+          <div class="mt-12 flex items-center justify-between border-t border-hairline pt-6 text-sm text-ink-muted">
+            <a href="#" class="transition-colors hover:text-terracotta-500">← Previous</a>
+            <a href="#" class="transition-colors hover:text-terracotta-500">Edit this page</a>
+            <a href="#" class="transition-colors hover:text-terracotta-500">Next →</a>
+          </div>
+        </article>
+      </main>
+
+      <!-- Right TOC -->
+      <aside class="hidden lg:col-span-2 lg:block" aria-label="On this page">
+        <div class="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto pb-8">
+          <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">On this page</p>
+          <nav class="space-y-1 text-sm" data-toc>
+            <a href="#quickstart" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Quickstart</a>
+            <a href="#installation" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Install the SDK</a>
+            <a href="#auth" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Get an API key</a>
+            <a href="#inference" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">First request</a>
+            <a href="#streaming" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Stream tokens</a>
+            <a href="#evals" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Run evaluations</a>
+            <a href="#errors" class="toc-link block rounded-md px-3 py-1.5 text-ink-muted transition-colors hover:text-terracotta-500">Error codes</a>
+          </nav>
         </div>
+      </aside>
 
-        <!-- Step 2 -->
-        <h2 id="auth" class="mt-12 text-2xl font-semibold tracking-tight text-white">2. Get an API key</h2>
-        <p class="mt-3 text-white/65">Create a project in the dashboard and copy your API key. Store it as an environment variable — never commit it to source control.</p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
-          <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2 text-xs text-white/40"><span class="mono">bash</span></div>
-          <pre class="mono overflow-x-auto p-4 text-xs leading-relaxed text-cyan-200"><code>export NEXUS_API_KEY="nx_live_********"</code></pre>
-        </div>
-
-        <!-- Step 3 -->
-        <h2 id="inference" class="mt-12 text-2xl font-semibold tracking-tight text-white">3. Make your first request</h2>
-        <p class="mt-3 text-white/65">Initialize the client and run a completion. The same code works across every provider — just change the model alias.</p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
-          <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2 text-xs text-white/40"><span class="mono">typescript</span><button class="mono ml-auto rounded px-2 py-0.5 text-white/50 hover:bg-white/[0.06]">copy</button></div>
-          <pre class="mono overflow-x-auto p-4 text-xs leading-relaxed"><code><span class="text-violet-300">import</span> <span class="text-white/90">{ Nexus }</span> <span class="text-violet-300">from</span> <span class="text-emerald-300">"@nexus/sdk"</span><span class="text-white/90">;</span>
-
-<span class="text-violet-300">const</span> nexus <span class="text-white/90">=</span> <span class="text-violet-300">new</span> <span class="text-cyan-300">Nexus</span><span class="text-white/90">(process.env.NEXUS_API_KEY);</span>
-
-<span class="text-violet-300">const</span> res <span class="text-white/90">= await nexus.</span><span class="text-cyan-300">complete</span><span class="text-white/90">({</span>
-  model<span class="text-white/90">:</span> <span class="text-emerald-300">"smart-chat"</span><span class="text-white/90">,</span>
-  input<span class="text-white/90">:</span> <span class="text-emerald-300">"Explain vector search in one sentence."</span><span class="text-white/90">,</span>
-<span class="text-white/90">});</span>
-
-console.<span class="text-cyan-300">log</span><span class="text-white/90">(res.text);</span></code></pre>
-        </div>
-
-        <!-- Step 4 -->
-        <h2 id="streaming" class="mt-12 text-2xl font-semibold tracking-tight text-white">4. Stream tokens</h2>
-        <p class="mt-3 text-white/65">For real-time UX, stream the response token by token. Streaming is first-byte optimized and works across all providers.</p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
-          <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2 text-xs text-white/40"><span class="mono">typescript</span><button class="mono ml-auto rounded px-2 py-0.5 text-white/50 hover:bg-white/[0.06]">copy</button></div>
-          <pre class="mono overflow-x-auto p-4 text-xs leading-relaxed"><code><span class="text-violet-300">const</span> stream <span class="text-white/90">= await nexus.</span><span class="text-cyan-300">stream</span><span class="text-white/90">({</span>
-  model<span class="text-white/90">:</span> <span class="text-emerald-300">"smart-chat"</span><span class="text-white/90">,</span>
-  input<span class="text-white/90">:</span> <span class="text-emerald-300">"Draft a release note."</span><span class="text-white/90">,</span>
-<span class="text-white/90">});</span>
-
-<span class="text-violet-300">for await</span> <span class="text-white/90">(</span><span class="text-violet-300">const</span> chunk <span class="text-violet-300">of</span> stream<span class="text-white/90">) {</span>
-  process.stdout.<span class="text-cyan-300">write</span><span class="text-white/90">(chunk.text);</span>
-<span class="text-white/90">}</span></code></pre>
-        </div>
-
-        <!-- Evals -->
-        <h2 id="evals" class="mt-12 text-2xl font-semibold tracking-tight text-white">Run evaluations</h2>
-        <p class="mt-3 text-white/65">Define a golden dataset and a set of metrics, then run regressions before every release. Gate deploys on a quality threshold.</p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
-          <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2 text-xs text-white/40"><span class="mono">typescript</span></div>
-          <pre class="mono overflow-x-auto p-4 text-xs leading-relaxed"><code><span class="text-violet-300">const</span> result <span class="text-white/90">= await nexus.</span><span class="text-cyan-300">evals</span><span class="text-white/90">.</span><span class="text-cyan-300">run</span><span class="text-white/90">({</span>
-  dataset<span class="text-white/90">:</span> <span class="text-emerald-300">"golden-v3"</span><span class="text-white/90">,</span>
-  models<span class="text-white/90">: [</span><span class="text-emerald-300">"smart-chat"</span><span class="text-white/90">],</span>
-  metrics<span class="text-white/90">: [</span><span class="text-emerald-300">"accuracy"</span><span class="text-white/90">,</span> <span class="text-emerald-300">"latency"</span><span class="text-white/90">,</span> <span class="text-emerald-300">"cost"</span><span class="text-white/90">],</span>
-<span class="text-white/90">});</span>
-
-<span class="text-slate-400">// → { accuracy: 0.94, latency: 142ms, cost: 0.02 }</span></code></pre>
-        </div>
-
-        <!-- Next steps -->
-        <div class="mt-12 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur">
-          <h2 class="text-lg font-semibold text-white">Next steps</h2>
-          <ul class="mt-3 space-y-2 text-sm text-white/65">
-            <li><a href="#guardrails" class="text-violet-300 hover:text-violet-200">Add safety guardrails →</a></li>
-            <li><a href="#api" class="text-violet-300 hover:text-violet-200">Explore the full API reference →</a></li>
-            <li><a href="integrations.html" class="text-violet-300 hover:text-violet-200">Browse integrations →</a></li>
-          </ul>
-        </div>
-
-        <!-- Help footer -->
-        <div class="mt-12 flex items-center justify-between border-t border-white/[0.06] pt-6 text-sm text-white/45">
-          <a href="#" class="hover:text-white">← Previous</a>
-          <a href="#" class="hover:text-white">Edit this page</a>
-          <a href="#" class="hover:text-white">Next →</a>
-        </div>
-      </div>
-    </main>
-
-    <!-- On-this-page TOC -->
-    <aside class="sticky top-16 hidden h-[calc(100vh-4rem)] w-56 shrink-0 overflow-y-auto border-l border-white/[0.06] px-4 py-8 xl:block" aria-label="On this page">
-      <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">On this page</p>
-      <nav class="space-y-1 text-sm">
-        <a href="#quickstart" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">Quickstart</a>
-        <a href="#installation" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">Install the SDK</a>
-        <a href="#auth" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">Get an API key</a>
-        <a href="#inference" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">First request</a>
-        <a href="#streaming" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">Stream tokens</a>
-        <a href="#evals" class="block rounded-lg px-3 py-1.5 text-white/55 hover:text-white">Run evaluations</a>
-      </nav>
-    </aside>
+    </div>
   </div>
 
+  <!-- Footer (shared, verbatim) -->
+  <footer data-footer class="border-t border-hairline bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <a href="../preview.html" class="flex items-center gap-2.5" aria-label="Nexus AI home">
+            <span class="grid h-8 w-8 place-items-center rounded-lg bg-terracotta-500 text-white shadow-sm shadow-terracotta-500/20">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18V6l10 12V6"/></svg>
+            </span>
+            <span class="font-display text-[17px] font-semibold tracking-tight text-ink">Nexus <span class="text-terracotta-500">AI</span></span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">The AI workspace for modern teams. Build, ship, and scale intelligent products from a single platform.</p>
+          <form class="mt-6 max-w-sm" aria-label="Newsletter signup">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <div class="flex gap-2">
+              <input id="footer-email" type="email" required placeholder="Enter your email" class="w-full rounded-lg border border-hairline bg-paper px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500/20"/>
+              <button type="submit" class="shrink-0 rounded-lg bg-terracotta-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-terracotta-600">Subscribe</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-ink-muted">Product</h3>
+            <ul class="mt-4 space-y-3 text-sm">
+              <li><a href="features.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Features</a></li>
+              <li><a href="integrations.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Integrations</a></li>
+              <li><a href="pricing.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Pricing</a></li>
+              <li><a href="dashboard.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Dashboard</a></li>
+              <li><a href="docs.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Documentation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-ink-muted">Company</h3>
+            <ul class="mt-4 space-y-3 text-sm">
+              <li><a href="customers.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Customers</a></li>
+              <li><a href="blog.html" class="text-ink-soft transition-colors hover:text-terracotta-500">Blog</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Careers</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">About</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-ink-muted">Resources</h3>
+            <ul class="mt-4 space-y-3 text-sm">
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Changelog</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Community</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Support</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Status</a></li>
+              <li><a href="#" class="text-ink-soft transition-colors hover:text-terracotta-500">Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 sm:flex-row">
+        <p class="text-sm text-ink-muted">© 2026 Nexus AI, Inc. All rights reserved.</p>
+        <div class="flex items-center gap-5 text-ink-muted">
+          <a href="#" class="transition-colors hover:text-terracotta-500" aria-label="X"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7 8 8.5 12h-6.6l-5.2-6.8L6 22H3l7.5-8.6L2 2h6.8l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 4H5.4l12.4 16Z"/></svg></a>
+          <a href="#" class="transition-colors hover:text-terracotta-500" aria-label="GitHub"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+          <a href="#" class="transition-colors hover:text-terracotta-500" aria-label="LinkedIn"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.1V21h-4v-5.34c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H9z"/></svg></a>
+        </div>
+        <div class="flex gap-5 text-sm">
+          <a href="#" class="text-ink-muted transition-colors hover:text-terracotta-500">Privacy</a>
+          <a href="#" class="text-ink-muted transition-colors hover:text-terracotta-500">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared page-end scripts -->
   <script>
+    // Navbar toggle
     (function () {
       const nav = document.querySelector('[data-navbar]');
       if (!nav) return;
@@ -194,8 +457,113 @@ console.<span class="text-cyan-300">log</span><span class="text-white/90">(res.t
       toggle.addEventListener('click', () => {
         const open = menu.classList.toggle('hidden') === false;
         toggle.setAttribute('aria-expanded', String(open));
+        const svg = toggle.querySelector('svg');
+        if (svg) svg.innerHTML = open
+          ? '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>'
+          : '<path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>';
       });
     })();
+    // Reveal on scroll
+    (function () {
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window) || !els.length) { els.forEach(e => e.classList.add('revealed')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(e => io.observe(e));
+    })();
   </script>
+
+  <!-- Scoped docs JS -->
+  <script>
+    // Mobile sidebar toggle (below lg)
+    (function () {
+      const btn = document.querySelector('[data-docs-sidebar-toggle]');
+      const sb = document.querySelector('[data-docs-sidebar]');
+      if (!btn || !sb) return;
+      btn.addEventListener('click', () => {
+        const open = sb.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    })();
+
+    // Sidebar search filter (case-insensitive substring on link text)
+    (function () {
+      const input = document.querySelector('[data-docs-search]');
+      const sb = document.querySelector('[data-docs-sidebar]');
+      if (!input || !sb) return;
+      const links = Array.from(sb.querySelectorAll('a.doc-link'));
+      const groups = Array.from(sb.querySelectorAll('[data-nav-group]'));
+      const noResults = sb.querySelector('[data-docs-no-results]');
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+        links.forEach((link) => {
+          const match = !q || link.textContent.trim().toLowerCase().includes(q);
+          link.classList.toggle('hidden', !match);
+          if (match) visibleCount++;
+        });
+        // Hide group headings with no visible links
+        groups.forEach((g) => {
+          let next = g.nextElementSibling;
+          let anyVisible = false;
+          while (next && !next.matches('[data-nav-group]')) {
+            if (next.matches('nav')) {
+              anyVisible = Array.from(next.querySelectorAll('a')).some((a) => !a.classList.contains('hidden'));
+              break;
+            }
+            next = next.nextElementSibling;
+          }
+          g.classList.toggle('hidden', !anyVisible);
+        });
+        if (noResults) noResults.classList.toggle('hidden', visibleCount !== 0);
+      });
+    })();
+
+    // Code copy-to-clipboard (per code block)
+    (function () {
+      const buttons = document.querySelectorAll('.copy-btn');
+      if (!navigator.clipboard) return;
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const block = btn.closest('[data-code-block]');
+          if (!block) return;
+          const code = block.querySelector('code');
+          if (!code) return;
+          try {
+            await navigator.clipboard.writeText(code.textContent);
+            const label = btn.lastChild;
+            const orig = btn.innerHTML;
+            btn.classList.add('copied');
+            btn.innerHTML = btn.innerHTML.replace(/copy(\s*✓)?/, 'copied');
+            setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 1600);
+          } catch (e) { /* clipboard unavailable */ }
+        });
+      });
+    })();
+
+    // TOC + sidebar scrollspy via IntersectionObserver
+    (function () {
+      const tocLinks = Array.from(document.querySelectorAll('[data-toc] a'));
+      const sbLinks = Array.from(document.querySelectorAll('aside[data-docs-sidebar] a.doc-link'));
+      const ids = tocLinks.map((a) => a.getAttribute('href').replace('#', ''));
+      const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+      if (!('IntersectionObserver' in window) || !sections.length) return;
+
+      const setActive = (id) => {
+        tocLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        sbLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      };
+
+      const io = new IntersectionObserver((entries) => {
+        const visible = entries.filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+      sections.forEach((s) => io.observe(s));
+    })();
+  </script>
+
 </body>
 </html>

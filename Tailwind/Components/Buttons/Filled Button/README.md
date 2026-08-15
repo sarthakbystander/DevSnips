@@ -8,9 +8,6 @@ Solid and soft background filled buttons in multiple colors and styles.
 |---------|-------------|
 | [Primary](./primary/) | Solid color filled buttons |
 | [Soft](./soft/) | Soft pastel background buttons |
-| [Rounded](./rounded/) | Fully rounded pill-shaped buttons |
-| [Muted](./muted/) | Muted background for less prominent actions |
-| [Dark](./dark/) | Buttons for dark themed interfaces |
 | [Sizes](./sizes/) | All button sizes |
 
 ## Quick Start

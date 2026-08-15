@@ -27,7 +27,7 @@ Every Tailwind variant folder (kebab-case) must contain exactly three files:
 - `preview.html` ‚Äî full `<!DOCTYPE html>` page with Tailwind CDN (`https://cdn.tailwindcss.com`), Inter font, responsive layout, and realistic application context around the component.
 - `metadata.json` ‚Äî see schema below.
 
-Vanilla variant folders contain a self-contained `<slug>.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper).
+Vanilla variant folders contain a self-contained `component.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper). The directory name remains the canonical component id/slug; the single primary component source file is always named `component.html`.
 
 The `code.html` snippet comment header is optional but follows CONTRIBUTING.md:
 `<!-- Snippet Name / Description / Author: DevSnips Contributors / Usage Example -->`
@@ -100,8 +100,8 @@ JS scoped via `document.currentScript.closest('[data-<thing>="<style>"]')` so sn
 
 ## Vanilla Sections (Neo-Brutalist) ‚Äî `Vanilla/Components/` (merged ‚Äî formerly `Vanilla/Sections/`)
 - 65 self-contained website sections across 16 families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing, Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer).
-- Folder = `Vanilla/Components/<Family>/<kebab-slug>/` containing exactly: `<slug>.html` (self-contained: inline `<style>` + `<script>`, full `<!DOCTYPE html>`, body class `nb`), `metadata.json`, `README.md`. This matches the existing Vanilla component convention (one `.html` per variant), NOT the Tailwind code.html/preview.html split.
-- Shared design tokens embedded in each `.html` `<style>` `:root`: `--bg --surface --foreground --muted --border --primary --accent --pink --lime --cyan --radius --shadow --shadow-lg --ring --container --gutter`. Light + dark via `prefers-color-scheme`. Reduced-motion safe.
+- Folder = `Vanilla/Components/<Family>/<kebab-slug>/` containing exactly: `component.html` (self-contained: inline `<style>` + `<script>`, full `<!DOCTYPE html>`, body class `nb`), `metadata.json`, `README.md`. This matches the existing Vanilla component convention (one `component.html` per variant), NOT the Tailwind code.html/preview.html split.
+- Shared design tokens embedded in each `component.html` `<style>` `:root`: `--bg --surface --foreground --muted --border --primary --accent --pink --lime --cyan --radius --shadow --shadow-lg --ring --container --gutter`. Light + dark via `prefers-color-scheme`. Reduced-motion safe.
 - `metadata.json` keys: id, name, slug, component, family, variant, description, framework, language, technology, category, subcategory, tags, features, responsive, darkMode, accessibility, browserSupport, dependencies, source, related.
 - Browse via `Vanilla/Components/sections-index.html` (filterable gallery) and `Vanilla/Components/sections-showcase.html` (all sections live, each in an isolated iframe).
 - Registered in `snippets-index.json` `families[]` with `tech: "Vanilla HTML/CSS/JS"`, `category: "Components"`; also listed under `technologies[].families` for the Vanilla tech.
@@ -159,7 +159,21 @@ Full website templates (not single components). Two scopes exist:
 
 ## Vanilla Templates — `Vanilla/Templates/`
 
-The Vanilla template collection follows the shared `Vanilla/Templates/design-tokens.md` spec (primitive → semantic → template → component `--ds-*` + `--template-*` token layers; neutral-first, one controlled accent, hairline borders, restrained shadows). Each template folder contains exactly one `preview.html` (the canonical DevSnips preview) + `metadata.json` + `README.md` + optional `assets/`. A template folder is a "leaf" in `validate.py` terms (has `metadata.json`, no child folder with `metadata.json`) and is indexed as a single-variant family.
+The Vanilla template collection follows the shared `Vanilla/Templates/design-tokens.md` spec (primitive → semantic → template → component `--ds-*` + `--template-*` token layers; neutral-first, one controlled accent, hairline borders, restrained shadows). Each template folder is a "leaf" in `validate.py` terms (has `metadata.json`, no child folder with `metadata.json`) and is indexed as a single-variant family.
+
+**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (+ optional `assets/` for shared resources); all code files live in a `pages/` sub-directory:
+```
+<Template>/
+├── pages/              ← all the code files
+│   └── index.html      (single-page templates) | code.html + style.css + script.js (modular) | *.html (multi-page)
+├── preview.html        ← thin iframe wrapper loading pages/index.html (opens directly); or the self-contained gallery shell (SaaS Dashboard)
+├── metadata.json
+└── README.md
+```
+- **Single-page leaves** (ai-tool-launch, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, template-element, + every multi-variant style folder under portfolio-site / product-launch / startup-template / blog-landing-pages / Landing-Pages / Standalone): the original self-contained `preview.html` was moved to `pages/index.html`; the root `preview.html` is now a full-viewport `<iframe src="pages/index.html">` wrapper so the preview still opens directly.
+- **Modular leaves** (Agency, Documentation Site, Job Board): `code.html` + `style.css` + `script.js` moved together into `pages/` (their relative `href="style.css"` / `src="script.js"` refs stay valid); `preview.html` is already self-contained (inlined) so it is unchanged. `assets/` (Documentation Site) stays at root; code.html's favicon ref was rewritten to `../assets/favicon.svg`.
+- **SaaS Dashboard**: the 30 page files already lived in `pages/`; only the self-contained `code.html` was moved there. `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
+`snippets-index.json` variants list both root files (`README.md`, `metadata.json`, `preview.html`) and the one-level `pages/*` contents (via `_gen/rebuild_index.py` `make_variant`, which recurses into `pages/`).
 
 ### `Documentation Site` — editorial developer documentation (modular files, Pico CSS, light-mode-first)
 - A premium, minimal, **light-mode-first** **developer documentation** template. **Split into modular files**: `code.html` (HTML structure, links `style.css` + `script.js`) + `style.css` (the design system) + `script.js` (router + content + interactions) + `preview.html` (self-contained single-file preview that inlines CSS+JS so it opens directly) + `metadata.json` + `README.md` + `assets/{logo,favicon}.svg`. Built on **Pico CSS** (CDN) + the shared `--ds-*` token system. **Blue-600 accent** (`#2563eb`) — never violet/neon per `design-tokens.md`. **Light is the default**; dark mode is opt-in (persisted, no-flash pre-paint script).

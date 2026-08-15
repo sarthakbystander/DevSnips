@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSnips Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --bg-light: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --text-subtle: #666666;
+            --accent-color: #5a7dff; /* A soft, modern blue */
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --border-subtle: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            background-color: var(--accent-color);
+            color: var(--bg-light);
+            box-shadow: 0 4px 15px rgba(90, 125, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(90, 125, 255, 0.4);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 10px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--text-subtle);
+            margin-bottom: 30px;
+        }
+
+        /* Featured Article Section */
+        .featured-article {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow-light);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .featured-article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-article-content {
+            padding: 40px;
+        }
+
+        .featured-article-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .featured-article-summary {
+            color: var(--text-subtle);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        /* Blog Grid Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-light);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-card-summary {
+            color: var(--text-subtle);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Author Section */
+        .author-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            padding: 40px;
+        }
+
+        .author-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .author-bio {
+            color: var(--text-subtle);
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--text-subtle);
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .featured-article {
+                flex-direction: row;
+            }
+            .featured-article-image {
+                flex: 1;
+            }
+            .featured-article-content {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <h1 class="hero-title">DevSnips Blog</h1>
+        <p class="hero-tagline">Code snippets, dev insights, and tech stories. Your daily dose of inspiration.</p>
+        <a href="#articles" class="btn">Explore Articles</a>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Article</h2>
+        <article class="featured-article is-visible">
+            <img src="https://via.placeholder.com/800x600.png?text=Article+Image" alt="Featured Article" class="featured-article-image">
+            <div class="featured-article-content">
+                <h3 class="featured-article-title">The Future of Web Development: AI-Powered Tools</h3>
+                <p class="featured-article-summary">Explore how artificial intelligence is revolutionizing the way we build websites and applications, from code generation to automated testing. This article dives into the top AI tools for developers and what to expect in the coming years.</p>
+                <a href="#" class="btn">Read Article</a>
+            </div>
+        </article>
+    </section>
+
+    <section id="articles">
+        <h2>Recent Articles</h2>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=CSS+Tips" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">10 CSS Tricks You Should Know</h3>
+                    <p class="blog-card-summary">Level up your styling game with these powerful CSS tips and techniques for modern web design.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=React+Hooks" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Mastering React Hooks for Beginners</h3>
+                    <p class="blog-card-summary">A comprehensive guide to understanding and effectively using React's useState and useEffect hooks.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=JS+Async" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Async/Await in JavaScript Explained</h3>
+                    <p class="blog-card-summary">Demystify asynchronous JavaScript with a clear, simple breakdown of async/await syntax.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=Performance+Optim" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Boost Your Website's Performance</h3>
+                    <p class="blog-card-summary">Learn key strategies to optimize your website for lightning-fast loading and a better user experience.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=Git+Workflow" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">A Git Workflow for Solo Developers</h3>
+                    <p class="blog-card-summary">Adopt a simple yet effective Git workflow to manage your personal projects with ease and confidence.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/600x400.png?text=Frontend+Testing" alt="Article Image" class="blog-card-image">
+                <div class="blog-card-content">
+                    <h3 class="blog-card-title">Essential Frontend Testing Strategies</h3>
+                    <p class="blog-card-summary">Ensure your code is robust and bug-free by implementing these essential testing practices.</p>
+                    <a href="#">Read More &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="author">
+        <h2>About the Author</h2>
+        <div class="author-container is-visible">
+            <img src="https://via.placeholder.com/200.png?text=Author+Photo" alt="Author Photo" class="author-photo">
+            <h3 style="font-weight: 600; font-size: 1.5rem; margin-bottom: 5px;">Jane Doe</h3>
+            <p class="author-bio">Jane is a seasoned web developer and writer passionate about sharing knowledge. She focuses on frontend technologies, performance optimization, and clean code principles.</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github social-icon"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in social-icon"></i></a>
+                <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter social-icon"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 DevSnips Blog. All Rights Reserved.</p>
+        <p>Built with ❤️ and Code. <a href="#">View on GitHub</a></p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect on sections
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
