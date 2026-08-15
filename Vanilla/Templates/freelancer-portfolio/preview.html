@@ -3,13 +3,488 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freelancer Portfolio — Preview</title>
+  <title>Alex Rivera — Developer Portfolio</title>
+  <meta name="description" content="Product-minded frontend engineer. Building clear interfaces and reliable systems.">
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
-    body > iframe { display: block; width: 100%; height: 100%; border: 0; }
+    :root {
+      --ds-gray-0: #ffffff;
+      --ds-gray-50: #fafafa;
+      --ds-gray-100: #f5f5f5;
+      --ds-gray-200: #e7e7e7;
+      --ds-gray-300: #d7d7d7;
+      --ds-gray-400: #b8b8b8;
+      --ds-gray-500: #8f8f8f;
+      --ds-gray-600: #6b6b6b;
+      --ds-gray-700: #4a4a4a;
+      --ds-gray-800: #2f2f2f;
+      --ds-gray-900: #171717;
+      --ds-gray-1000: #000000;
+      --ds-bg-canvas: var(--ds-gray-0);
+      --ds-bg-surface: var(--ds-gray-0);
+      --ds-bg-surface-subtle: var(--ds-gray-50);
+      --ds-text-primary: #111111;
+      --ds-text-secondary: #4b4b4b;
+      --ds-text-muted: #707070;
+      --ds-border-default: #e5e5e5;
+      --ds-border-strong: #d2d2d2;
+      --ds-border-focus: #111111;
+      --ds-action-primary: #111111;
+      --ds-action-primary-hover: #222222;
+      --ds-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ds-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --ds-text-sm: 13px;
+      --ds-text-md: 14px;
+      --ds-text-lg: 16px;
+      --ds-text-xl: 18px;
+      --ds-text-2xl: 22px;
+      --ds-text-3xl: 28px;
+      --ds-text-4xl: 36px;
+      --ds-weight-regular: 400;
+      --ds-weight-medium: 500;
+      --ds-weight-semibold: 600;
+      --ds-weight-bold: 700;
+      --ds-leading-tight: 1.15;
+      --ds-leading-snug: 1.3;
+      --ds-leading-normal: 1.5;
+      --ds-space-2: 8px;
+      --ds-space-3: 12px;
+      --ds-space-4: 16px;
+      --ds-space-5: 20px;
+      --ds-space-6: 24px;
+      --ds-space-8: 32px;
+      --ds-space-10: 40px;
+      --ds-space-12: 48px;
+      --ds-space-16: 64px;
+      --ds-space-20: 80px;
+      --ds-radius-sm: 4px;
+      --ds-radius-md: 6px;
+      --ds-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+      --ds-content-default: 720px;
+      --ds-container-md: 960px;
+      --ds-page-padding: 24px;
+    }
+    [data-theme="dark"] {
+      --ds-bg-canvas: #0a0a0a;
+      --ds-bg-surface: #111111;
+      --ds-bg-surface-subtle: #171717;
+      --ds-text-primary: #f5f5f5;
+      --ds-text-secondary: #c8c8c8;
+      --ds-text-muted: #909090;
+      --ds-border-default: #272727;
+      --ds-border-strong: #363636;
+      --ds-border-focus: #ffffff;
+      --ds-action-primary: #f5f5f5;
+      --ds-action-primary-hover: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+    body {
+      margin: 0;
+      font-family: var(--ds-font-sans);
+      font-size: var(--ds-text-md);
+      line-height: var(--ds-leading-normal);
+      color: var(--ds-text-primary);
+      background: var(--ds-bg-canvas);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--ds-border-focus); outline-offset: 2px; }
+    .container {
+      width: 100%;
+      max-width: var(--ds-container-md);
+      margin: 0 auto;
+      padding-left: var(--ds-page-padding);
+      padding-right: var(--ds-page-padding);
+    }
+    .narrow { max-width: var(--ds-content-default); }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--ds-bg-canvas) 92%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ds-border-default);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .logo {
+      font-weight: var(--ds-weight-semibold);
+      font-size: var(--ds-text-lg);
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: var(--ds-space-6);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      font-size: var(--ds-text-sm);
+      color: var(--ds-text-secondary);
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      color: var(--ds-text-primary);
+      text-decoration: none;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--ds-space-3);
+    }
+    .theme-toggle {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--ds-border-default);
+      border-radius: var(--ds-radius-sm);
+      background: var(--ds-bg-surface);
+      color: var(--ds-text-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .theme-toggle:hover { background: var(--ds-bg-surface-subtle); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 14px;
+      font-size: var(--ds-text-sm);
+      font-weight: var(--ds-weight-medium);
+      border-radius: var(--ds-radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--ds-action-primary);
+      color: var(--ds-bg-canvas);
+    }
+    .btn-primary:hover {
+      background: var(--ds-action-primary-hover);
+      text-decoration: none;
+    }
+    .btn-secondary {
+      background: var(--ds-bg-surface);
+      color: var(--ds-text-primary);
+      border-color: var(--ds-border-default);
+    }
+    .btn-secondary:hover {
+      background: var(--ds-bg-surface-subtle);
+      text-decoration: none;
+    }
+    .hero { padding: var(--ds-space-20) 0 var(--ds-space-16); }
+    .hero-eyebrow {
+      font-size: var(--ds-text-sm);
+      color: var(--ds-text-muted);
+      margin-bottom: var(--ds-space-4);
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: var(--ds-weight-semibold);
+      line-height: var(--ds-leading-tight);
+      letter-spacing: -0.03em;
+      margin: 0 0 var(--ds-space-5);
+      max-width: 18ch;
+    }
+    .hero-lead {
+      font-size: var(--ds-text-xl);
+      color: var(--ds-text-secondary);
+      line-height: var(--ds-leading-snug);
+      margin: 0 0 var(--ds-space-8);
+      max-width: 42ch;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--ds-space-4) var(--ds-space-6);
+      font-size: var(--ds-text-sm);
+      color: var(--ds-text-muted);
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-meta .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+    section { padding: var(--ds-space-16) 0; }
+    .section-label {
+      font-size: var(--ds-text-sm);
+      font-weight: var(--ds-weight-medium);
+      color: var(--ds-text-muted);
+      margin-bottom: var(--ds-space-3);
+      letter-spacing: 0.02em;
+    }
+    .section-title {
+      font-size: var(--ds-text-2xl);
+      font-weight: var(--ds-weight-semibold);
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--ds-space-8);
+    }
+    .about-text {
+      font-size: var(--ds-text-lg);
+      color: var(--ds-text-secondary);
+      line-height: 1.65;
+      margin: 0 0 var(--ds-space-6);
+    }
+    .about-text:last-child { margin-bottom: 0; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--ds-space-3);
+    }
+    .skill-tag {
+      border: 1px solid var(--ds-border-default);
+      border-radius: var(--ds-radius-sm);
+      padding: 10px 14px;
+      font-size: var(--ds-text-sm);
+      color: var(--ds-text-secondary);
+      background: var(--ds-bg-surface);
+    }
+    .projects { border-top: 1px solid var(--ds-border-default); }
+    .project-list { display: flex; flex-direction: column; gap: 0; }
+    .project {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--ds-space-6);
+      padding: var(--ds-space-8) 0;
+      border-bottom: 1px solid var(--ds-border-default);
+      align-items: start;
+    }
+    .project:first-child { border-top: 1px solid var(--ds-border-default); }
+    .project-title {
+      font-size: var(--ds-text-xl);
+      font-weight: var(--ds-weight-semibold);
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--ds-space-2);
+    }
+    .project-desc {
+      font-size: var(--ds-text-md);
+      color: var(--ds-text-secondary);
+      margin: 0 0 var(--ds-space-4);
+      max-width: 52ch;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 12px;
+      color: var(--ds-text-muted);
+      border: 1px solid var(--ds-border-default);
+      border-radius: var(--ds-radius-sm);
+      padding: 2px 8px;
+    }
+    .project-links {
+      display: flex;
+      gap: var(--ds-space-3);
+      flex-shrink: 0;
+    }
+    .contact {
+      border-top: 1px solid var(--ds-border-default);
+      padding-bottom: var(--ds-space-20);
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--ds-space-4);
+      margin-top: var(--ds-space-6);
+    }
+    .site-footer {
+      border-top: 1px solid var(--ds-border-default);
+      padding: var(--ds-space-8) 0;
+      font-size: var(--ds-text-sm);
+      color: var(--ds-text-muted);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--ds-space-4);
+    }
+    .footer-links { display: flex; gap: var(--ds-space-5); }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .project { grid-template-columns: 1fr; }
+      .project-links { margin-top: var(--ds-space-2); }
+      :root { --ds-page-padding: 16px; }
+    }
   </style>
 </head>
 <body>
-  <iframe src="pages/index.html" title="Freelancer Portfolio" loading="lazy"></iframe>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Alex Rivera</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme" id="theme-toggle">◐</button>
+        <a href="#contact" class="btn btn-primary">Hire me</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container narrow">
+        <p class="hero-eyebrow">Product-minded frontend engineer</p>
+        <h1>I design and build clear interfaces for complex products.</h1>
+        <p class="hero-lead">Currently focused on design systems, developer tools, and high-signal product surfaces. Previously at Linear and Vercel.</p>
+        <div class="hero-meta">
+          <span><span class="dot" aria-hidden="true"></span> Available for select projects</span>
+          <span>Based in Berlin</span>
+          <span>Working worldwide</span>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="container narrow">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Background</h2>
+        <p class="about-text">I care about reducing cognitive load. Most of my work sits at the intersection of product design and engineering — turning dense requirements into interfaces that stay calm under complexity.</p>
+        <p class="about-text">I prefer systems that age well: restrained typography, predictable spacing, and components that communicate without decoration.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <p class="section-label">Capabilities</p>
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-tag">TypeScript</div>
+          <div class="skill-tag">React / Next.js</div>
+          <div class="skill-tag">Design Systems</div>
+          <div class="skill-tag">CSS Architecture</div>
+          <div class="skill-tag">Accessibility</div>
+          <div class="skill-tag">Figma</div>
+          <div class="skill-tag">Node.js</div>
+          <div class="skill-tag">Technical Writing</div>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="projects">
+      <div class="container">
+        <p class="section-label">Selected work</p>
+        <h2 class="section-title">Projects</h2>
+        <div class="project-list">
+          <article class="project">
+            <div>
+              <h3 class="project-title">Stratum Design System</h3>
+              <p class="project-desc">A token-driven component library and documentation site used by three product teams. Focused on density, keyboard support, and long-term maintainability.</p>
+              <div class="project-tags">
+                <span class="tag">Design System</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Documentation</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-secondary">Case study</a>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3 class="project-title">Orbit Analytics Dashboard</h3>
+              <p class="project-desc">Real-time analytics interface for a B2B SaaS platform. Rebuilt tables, filters, and chart surfaces for clarity under high data volume.</p>
+              <div class="project-tags">
+                <span class="tag">SaaS</span>
+                <span class="tag">Data Viz</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-secondary">View</a>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3 class="project-title">DevSnips Templates</h3>
+              <p class="project-desc">Open-source collection of production-grade Vanilla HTML/CSS/JS templates with a shared design token system and zero-build philosophy.</p>
+              <div class="project-tags">
+                <span class="tag">Open Source</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">Design Tokens</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-secondary">GitHub</a>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3 class="project-title">Field Notes</h3>
+              <p class="project-desc">Personal writing on interface craft, design systems, and the quiet details that make software feel intentional.</p>
+              <div class="project-tags">
+                <span class="tag">Writing</span>
+                <span class="tag">Editorial</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-secondary">Read</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="container narrow">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Let’s work together</h2>
+        <p class="about-text">I’m currently taking on a small number of product and design-system engagements. If you have a clear problem and value deliberate craft, reach out.</p>
+        <div class="contact-row">
+          <a href="mailto:alex@example.com" class="btn btn-primary">alex@example.com</a>
+          <a href="https://github.com" class="btn btn-secondary">GitHub</a>
+          <a href="https://linkedin.com" class="btn btn-secondary">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Alex Rivera</span>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Colophon</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const stored = localStorage.getItem('ds-theme');
+      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.setAttribute('data-theme', 'dark');
+      }
+      toggle.addEventListener('click', () => {
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('ds-theme', 'light');
+        } else {
+          root.setAttribute('data-theme', 'dark');
+          localStorage.setItem('ds-theme', 'dark');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
