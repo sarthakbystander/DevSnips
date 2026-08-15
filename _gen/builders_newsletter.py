@@ -27,10 +27,12 @@ def newsletter(style, i):
     def form(inline=False):
         if inline:
             return ('<form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto w-full">'
-                    '<input type="email" placeholder="you@email.com" class="%s flex-1" aria-label="Email">'
+                    '<label for="nl-email" class="sr-only">Email address</label>'
+                    '<input id="nl-email" type="email" placeholder="you@email.com" class="%s flex-1" aria-label="Email">'
                     '<button type="submit" class="%s justify-center">%s Subscribe</button></form>') % (b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
         return ('<form class="flex flex-col gap-2 max-w-md mx-auto w-full">'
-                '<input type="email" placeholder="you@email.com" class="%s" aria-label="Email">'
+                '<label for="nl-email" class="sr-only">Email address</label>'
+                '<input id="nl-email" type="email" placeholder="you@email.com" class="%s" aria-label="Email">'
                 '<button type="submit" class="%s justify-center">%s Subscribe to the newsletter</button></form>') % (b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
 
     h = head("Newsletter", "mail", "Stay in the loop", "Monthly product updates and ideas. No spam, unsubscribe anytime.", style)
@@ -54,7 +56,7 @@ def newsletter(style, i):
 
     elif key == "glass":
         body = ('<div class="%s %s p-8 sm:p-12 text-center relative overflow-hidden">'
-                '<div class="absolute inset-0 opacity-30" style="background:radial-gradient(circle at 30%% 20%%,%s,transparent 50%%)" aria-hidden="true"></div>'
+                '<div class="absolute inset-0 opacity-30" style="background:radial-gradient(circle at 30%% 20%%,#%s,transparent 50%%)" aria-hidden="true"></div>'
                 '<div class="relative z-10"><h3 class="f-disp text-2xl sm:text-3xl font-bold">Never miss an update</h3>'
                 '<p class="mt-3 text-sm %s max-w-md mx-auto">The product letter for teams who ship.</p>'
                 '<div class="mt-6">%s</div></div></div>') % (
@@ -62,7 +64,7 @@ def newsletter(style, i):
         feat = ["floating glass CTA", "radial glow", "centered headline", "inline form", "responsive"]
 
     elif key == "brutalist":
-        body = ('<div class="%s p-8 sm:p-10 text-center" style="background:linear-gradient(135deg,%s22,transparent)">'
+        body = ('<div class="%s p-8 sm:p-10 text-center" style="background:linear-gradient(135deg,#%s22,transparent)">'
                 '<div class="mb-4 flex justify-center">%s</div>'
                 '<h3 class="f-disp text-2xl sm:text-3xl font-bold">SUBSCRIBE</h3>'
                 '<p class="mt-3 text-sm %s">One email a month. Pure signal.</p>'
@@ -76,7 +78,8 @@ def newsletter(style, i):
                 '<div class="relative z-10"><h3 class="f-disp text-2xl sm:text-3xl font-bold">Join the inner circle</h3>'
                 '<p class="mt-3 text-sm text-white/80 max-w-md mx-auto">Monthly insights from the team. No fluff.</p>'
                 '<div class="mt-6"><form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto w-full">'
-                '<input type="email" placeholder="you@email.com" class="flex-1 rounded-full px-4 py-3 bg-white/20 border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50" aria-label="Email">'
+                '<label for="nl-email" class="sr-only">Email address</label>'
+                '<input id="nl-email" type="email" placeholder="you@email.com" class="flex-1 rounded-full px-4 py-3 bg-white/20 border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50" aria-label="Email">'
                 '<button type="submit" class="rounded-full bg-white px-6 py-3 font-bold hover:bg-white/90">%s Subscribe</button></form></div></div></div>') % (
             b["accent"], b.get("accent2") or b["accent"], ic("send", "h-4 w-4"))
         feat = ["gradient CTA", "full-bleed color", "glass input", "white CTA button", "centered"]
@@ -124,7 +127,7 @@ def newsletter(style, i):
     elif key == "inline":
         body = ('<div class="%s p-5 flex flex-col sm:flex-row items-center justify-between gap-4">'
                 '<div><h3 class="font-semibold">Get the newsletter</h3><p class="text-sm %s">Monthly. No spam.</p></div>'
-                '<form class="flex gap-2 w-full sm:w-auto"><input type="email" placeholder="you@email.com" class="%s flex-1 sm:w-64" aria-label="Email">'
+                '<form class="flex gap-2 w-full sm:w-auto"><label for="nl-email" class="sr-only">Email address</label><input id="nl-email" type="email" placeholder="you@email.com" class="%s flex-1 sm:w-64" aria-label="Email">'
                 '<button type="submit" class="%s">Subscribe</button></form></div>') % (
             b["surface_soft"], b["text_muted"], b["input"], b["btn_primary"])
         feat = ["inline strip", "horizontal layout", "compact form", "side-by-side", "responsive stack"]
@@ -162,7 +165,7 @@ def newsletter(style, i):
         body = ('<div class="%s %s p-6 flex flex-col sm:flex-row items-center gap-4">'
                 '<div class="text-center sm:text-left sm:flex-1"><h3 class="font-semibold">Subscribe</h3>'
                 '<p class="text-xs %s">Monthly. Free.</p></div>'
-                '<form class="flex gap-2 w-full sm:w-auto"><input type="email" placeholder="Email" class="%s flex-1 sm:w-48" aria-label="Email">'
+                '<form class="flex gap-2 w-full sm:w-auto"><label for="nl-email" class="sr-only">Email address</label><input id="nl-email" type="email" placeholder="Email" class="%s flex-1 sm:w-48" aria-label="Email">'
                 '<button type="submit" class="%s">%s</button></form></div>') % (
             b["surface"], b["hover_card"], b["text_muted"], b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
         feat = ["compact newsletter CTA", "horizontal panel", "inline mini form", "responsive stack", "low height"]

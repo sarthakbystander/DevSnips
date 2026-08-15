@@ -59,7 +59,7 @@ def contact(style, i):
             ic("pin", "h-5 w-5"), b["text_muted"], ic("clock", "h-5 w-5"), b["text_muted"])
         body = ('<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">'
                 '<div class="%s overflow-hidden"><div class="relative h-64 lg:h-full min-h-[280px] %s" aria-label="Map placeholder">'
-                '<div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(0deg,%s11 1px,transparent 1px),linear-gradient(90deg,%s11 1px,transparent 1px);background-size:28px 28px"></div>'
+                '<div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(0deg,#%s11 1px,transparent 1px),linear-gradient(90deg,#%s11 1px,transparent 1px);background-size:28px 28px"></div>'
                 '<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"><div class="flex h-12 w-12 items-center justify-center rounded-full %s">%s</div>'
                 '<p class="mt-2 text-center text-xs %s">You are here</p></div></div></div>'
                 '<div class="space-y-6"><div class="%s p-6">%s</div>%s</div></div>') % (

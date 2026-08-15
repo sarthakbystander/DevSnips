@@ -22,7 +22,7 @@ def section(heading_block, body, style, scope_attr=None, max_w="max-w-7xl", deco
 
 def head(eyebrow, eyebrow_icon, heading, subhead, style, align="center"):
     b = TOKENS[style]
-    icn = (icon(eyebrow_icon, "h-3.5 w-3.5") + " ") if eyebrow_icon else ""
+    icn = (ic(eyebrow_icon, "h-3.5 w-3.5") + " ") if eyebrow_icon else ""
     badge = '<p class="mb-4"><span class="%s">%s%s</span></p>' % (b["badge"], icn, eyebrow) if eyebrow else ""
     align_cls = "text-center mx-auto" if align == "center" else ""
     sub = '<p class="mt-4 max-w-2xl %s text-base sm:text-lg leading-relaxed %s">%s</p>' % (
@@ -110,8 +110,8 @@ def testimonials(style, i):
         pr = P(0)
         body = (
             '<div class="relative">'
-            '<div class="%s %s overflow-hidden p-8 sm:p-12">'
-            '<div class="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">'
+            + ('<div class="%s %s overflow-hidden p-8 sm:p-12">' % (b["surface"], b["hover_card"]))
+            + '<div class="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">'
             + "".join(
                 '<figure class="snap-center shrink-0 w-[300px] sm:w-[420px] %s p-6"><div class="mb-4">%s</div><blockquote class="text-base leading-relaxed">"%s"</blockquote><figcaption class="mt-6 flex items-center gap-3">%s<div><p class="text-sm font-semibold">%s</p><p class="text-xs %s">%s · %s</p></div></figcaption></figure>' % (
                     b["surface_soft"], star_row((n % 2) + 4, style), Q(n), avatar(P(n)[0], n), P(n)[0], b["text_muted"], P(n)[1], P(n)[2])
@@ -138,7 +138,7 @@ def testimonials(style, i):
     elif key == "avatars":
         grid = "".join(
             '<figure class="group flex flex-col items-center text-center"><div class="rounded-full">%s</div><figcaption class="mt-3 text-sm font-medium">%s</figcaption><p class="text-xs %s">%s</p></figure>' % (
-                avatar(P(n)[0], n, "ring-2 ring-offset-2 " + ("ring-current/20" if style not in ("soft-ui",) else "")), P(n)[0], b["text_muted"], P(n)[1])
+                avatar(P(n)[0], n, "ring-2 ring-offset-2 " + ("ring-white/20" if style not in ("soft-ui",) else "")), P(n)[0], b["text_muted"], P(n)[1])
             for n in range(12))
         pr = P(7)
         body = ('<div class="%s %s p-8 mb-8"><blockquote class="f-disp text-xl sm:text-2xl font-medium leading-snug">"%s"</blockquote><div class="mt-5 flex items-center gap-3">%s<div><p class="text-sm font-semibold">%s</p><p class="text-xs %s">%s</p></div></div></div>'
@@ -151,8 +151,9 @@ def testimonials(style, i):
         pr = P(0)
         body = (
             '<div class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">'
-            '<div class="%s p-8"><div class="flex items-end gap-3"><span class="f-disp text-5xl font-bold">4.9</span><span class="text-sm %s pb-1">/ 5.0</span></div><div class="mt-3">%s</div><p class="mt-3 text-sm %s">Based on 2,847 verified reviews</p>'
-            '<div class="mt-6 space-y-2">' + "".join(
+            + ('<div class="%s p-8"><div class="flex items-end gap-3"><span class="f-disp text-5xl font-bold">4.9</span><span class="text-sm %s pb-1">/ 5.0</span></div><div class="mt-3">%s</div><p class="mt-3 text-sm %s">Based on 2,847 verified reviews</p>' % (
+                b["surface"], b["text_muted"], star_row(5, style), b["text_muted"]))
+            + '<div class="mt-6 space-y-2">' + "".join(
                 '<div class="flex items-center gap-2"><span class="w-4 text-xs %s">%d</span><div class="h-2 flex-1 rounded-full %s overflow-hidden"><div class="h-full rounded-full" style="width:%s%%"></div></div><span class="w-10 text-right text-xs %s">%d</span></div>' % (
                     b["text_muted"], star, b["surface_soft"] if style != "soft-ui" else "neu-in", pct, b["text_muted"], count)
                 for star, pct, count in [(5, 86, 2450), (4, 10, 284), (3, 3, 85), (2, 1, 28)]
@@ -168,7 +169,7 @@ def testimonials(style, i):
         tiles = ""
         for n in range(3):
             pr = P(n)
-            tiles += '<article class="%s %s p-0 overflow-hidden"><div class="relative aspect-[4/3] flex items-center justify-center" style="background:linear-gradient(135deg,%s22,%s11)"><button type="button" class="flex h-16 w-16 items-center justify-center rounded-full %s" aria-label="Play %s testimonial">%s</button><span class="absolute bottom-3 left-3 %s">2:14</span></div><div class="p-5"><div class="flex items-center gap-3">%s<div><p class="text-sm font-semibold">%s</p><p class="text-xs %s">%s · %s</p></div></div></div></article>' % (
+            tiles += '<article class="%s %s p-0 overflow-hidden"><div class="relative aspect-[4/3] flex items-center justify-center" style="background:linear-gradient(135deg,#%s22,#%s11)"><button type="button" class="flex h-16 w-16 items-center justify-center rounded-full %s" aria-label="Play %s testimonial">%s</button><span class="absolute bottom-3 left-3 %s">2:14</span></div><div class="p-5"><div class="flex items-center gap-3">%s<div><p class="text-sm font-semibold">%s</p><p class="text-xs %s">%s · %s</p></div></div></div></article>' % (
                 b["surface"], b["hover_card"], b["accent"].lstrip("#"), b["accent2"].lstrip("#") if b.get("accent2") else b["accent"].lstrip("#"), b["btn_primary"], pr[0], b["badge"], ic("play", "h-7 w-7"), avatar(pr[0], n), pr[0], b["text_muted"], pr[1], pr[2])
         body = '<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">%s</div>' % tiles
         feat = ["video placeholder tiles", "play button overlay", "duration badge", "gradient poster", "captioned profiles"]
@@ -177,8 +178,9 @@ def testimonials(style, i):
         pr = P(3)
         body = (
             '<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">'
-            '<div class="%s p-8 sm:p-12"><div class="mb-5">%s</div><blockquote class="f-disp text-2xl sm:text-3xl font-medium leading-snug">"%s"</blockquote><div class="mt-8 flex items-center gap-4">%s<div><p class="font-semibold">%s</p><p class="text-sm %s">%s, %s</p></div></div></div>'
-            '<div class="grid grid-cols-2 gap-4">' + "".join(
+            + ('<div class="%s p-8 sm:p-12"><div class="mb-5">%s</div><blockquote class="f-disp text-2xl sm:text-3xl font-medium leading-snug">"%s"</blockquote><div class="mt-8 flex items-center gap-4">%s<div><p class="font-semibold">%s</p><p class="text-sm %s">%s, %s</p></div></div></div>' % (
+                b["surface"], star_row(5, style), Q(3), avatar(pr[0], 3), pr[0], b["text_muted"], pr[1], pr[2]))
+            + '<div class="grid grid-cols-2 gap-4">' + "".join(
                 '<figure class="%s %s p-5"><div class="mb-3">%s</div><blockquote class="text-sm leading-relaxed">"%s"</blockquote><figcaption class="mt-4 text-xs %s">%s</figcaption></figure>' % (
                     b["surface_soft"], b["hover_card"], star_row(5, style), Q(n + 1), b["text_muted"], P(n + 1)[0])
                 for n in range(4)) + '</div></div>'
@@ -263,7 +265,7 @@ def testimonials(style, i):
             b["surface_soft"], b["badge"], ic("warning", "h-3.5 w-3.5"), b["text_muted"],
             "We were drowning in disconnected tools and slow replies.",
             b["text_muted"], pr[0], pr[2],
-            b["surface"], ("background:linear-gradient(135deg,%s15,transparent)" % b["accent"].lstrip("#")) if b["accent"].startswith("#") else "",
+            b["surface"], ("background:linear-gradient(135deg,#%s15,transparent)" % b["accent"].lstrip("#")) if b["accent"].startswith("#") else "",
             b["badge"], ic("check", "h-3.5 w-3.5"),
             "Now everything lives in one fast, calm workspace.",
             b["text_muted"], pr[0], pr[2])

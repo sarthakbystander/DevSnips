@@ -150,7 +150,7 @@ def logos(style, i):
         feat = ["stat + logos", "headline count", "split layout", "6 tiles", "responsive"]
 
     elif key == "gradient":
-        body = ('<div class="relative %s p-8 sm:p-12 overflow-hidden" style="background:linear-gradient(120deg,%s22,%s22,transparent)">'
+        body = ('<div class="relative %s p-8 sm:p-12 overflow-hidden" style="background:linear-gradient(120deg,#%s22,#%s22,transparent)">'
                 '<div class="relative z-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">%s</div></div>') % (
             b["surface"], b["accent"].lstrip("#"), (b.get("accent2") or b["accent"]).lstrip("#"), "".join(
                 '<span class="opacity-90 hover:opacity-100">%s</span>' % _mark(BRANDS[n % len(BRANDS)], n, style) for n in range(8)))
