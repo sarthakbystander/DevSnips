@@ -3,13 +3,262 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Conference — Preview</title>
+  <title>Signal 2026 — Design systems conference</title>
+  <meta name="description" content="A two-day conference on design systems, product interfaces, and the craft of building calm software.">
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
-    body > iframe { display: block; width: 100%; height: 100%; border: 0; }
+/* DevSnips Event Conference — standalone preview */
+:root {
+  --ds-gray-0: #ffffff; --ds-gray-50: #fafafa; --ds-gray-100: #f5f5f5; --ds-gray-200: #e7e7e7;
+  --ds-bg-canvas: #ffffff; --ds-bg-surface: #ffffff; --ds-bg-surface-subtle: #fafafa;
+  --ds-text-primary: #111111; --ds-text-secondary: #4b4b4b; --ds-text-muted: #707070;
+  --ds-border-default: #e5e5e5; --ds-border-focus: #111111;
+  --ds-action-primary: #111111; --ds-action-primary-hover: #222222;
+  --ds-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ds-text-sm: 13px; --ds-text-md: 14px; --ds-text-lg: 16px; --ds-text-xl: 18px; --ds-text-2xl: 22px; --ds-text-3xl: 28px;
+  --ds-weight-medium: 500; --ds-weight-semibold: 600;
+  --ds-leading-tight: 1.15; --ds-leading-snug: 1.3; --ds-leading-normal: 1.5;
+  --ds-space-2: 8px; --ds-space-3: 12px; --ds-space-4: 16px; --ds-space-5: 20px; --ds-space-6: 24px;
+  --ds-space-8: 32px; --ds-space-10: 40px; --ds-space-12: 48px; --ds-space-16: 64px; --ds-space-20: 80px;
+  --ds-radius-sm: 4px; --ds-container: 960px; --ds-page-padding: 24px; --ds-nav-height: 56px;
+}
+[data-theme="dark"] {
+  --ds-bg-canvas: #0a0a0a; --ds-bg-surface: #111111; --ds-bg-surface-subtle: #171717;
+  --ds-text-primary: #f5f5f5; --ds-text-secondary: #c8c8c8; --ds-text-muted: #909090;
+  --ds-border-default: #272727; --ds-border-focus: #ffffff;
+  --ds-action-primary: #f5f5f5; --ds-action-primary-hover: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; font-family: var(--ds-font-sans); font-size: var(--ds-text-md); line-height: var(--ds-leading-normal); color: var(--ds-text-primary); background: var(--ds-bg-canvas); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--ds-border-focus); outline-offset: 2px; }
+.container { width: 100%; max-width: var(--ds-container); margin: 0 auto; padding-left: var(--ds-page-padding); padding-right: var(--ds-page-padding); }
+.site-header { position: sticky; top: 0; z-index: 50; height: var(--ds-nav-height); background: color-mix(in srgb, var(--ds-bg-canvas) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--ds-border-default); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--ds-nav-height); }
+.logo { font-weight: var(--ds-weight-semibold); font-size: var(--ds-text-lg); letter-spacing: -0.02em; text-decoration: none; }
+.logo:hover { text-decoration: none; }
+.nav-links { display: flex; gap: var(--ds-space-6); list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-size: var(--ds-text-sm); color: var(--ds-text-secondary); text-decoration: none; }
+.nav-links a:hover { color: var(--ds-text-primary); text-decoration: none; }
+.nav-actions { display: flex; align-items: center; gap: var(--ds-space-3); }
+.theme-toggle, .menu-toggle { width: 32px; height: 32px; border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface); color: var(--ds-text-primary); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+.menu-toggle { display: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); border-radius: var(--ds-radius-sm); border: 1px solid transparent; cursor: pointer; text-decoration: none; font-family: inherit; }
+.btn-primary { background: var(--ds-action-primary); color: var(--ds-bg-canvas); }
+.btn-primary:hover { background: var(--ds-action-primary-hover); text-decoration: none; }
+.btn-lg { height: 44px; padding: 0 20px; font-size: var(--ds-text-md); }
+.hero { padding: var(--ds-space-20) 0 var(--ds-space-16); border-bottom: 1px solid var(--ds-border-default); }
+.hero-eyebrow { font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-4); }
+.hero h1 { font-size: clamp(28px, 5vw, 40px); font-weight: var(--ds-weight-semibold); line-height: var(--ds-leading-tight); letter-spacing: -0.03em; margin: 0 0 var(--ds-space-4); max-width: 18ch; }
+.hero-lead { font-size: var(--ds-text-xl); color: var(--ds-text-secondary); line-height: var(--ds-leading-snug); margin: 0 0 var(--ds-space-6); max-width: 42ch; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: var(--ds-space-4) var(--ds-space-6); font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin-bottom: var(--ds-space-8); }
+.countdown { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
+.countdown-item { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: var(--ds-space-3) var(--ds-space-4); min-width: 72px; text-align: center; background: var(--ds-bg-surface); }
+.countdown-item strong { display: block; font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; }
+.countdown-item span { font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.section { padding: var(--ds-space-16) 0; border-bottom: 1px solid var(--ds-border-default); }
+.section-label { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-3); }
+.section-title { font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; margin: 0 0 var(--ds-space-8); }
+.speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--ds-space-6); }
+.speaker-card { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: var(--ds-space-6); background: var(--ds-bg-surface); }
+.speaker-card h3 { font-size: var(--ds-text-lg); font-weight: var(--ds-weight-semibold); margin: 0 0 4px; }
+.speaker-role { font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-3); }
+.speaker-card p { margin: 0; font-size: var(--ds-text-md); color: var(--ds-text-secondary); line-height: 1.55; }
+.schedule-tabs { display: flex; flex-wrap: wrap; gap: var(--ds-space-2); margin-bottom: var(--ds-space-6); }
+.tab-btn { height: 36px; padding: 0 14px; font-size: var(--ds-text-sm); font-family: inherit; font-weight: var(--ds-weight-medium); border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface); color: var(--ds-text-secondary); cursor: pointer; }
+.tab-btn[aria-selected="true"] { background: var(--ds-action-primary); color: var(--ds-bg-canvas); border-color: var(--ds-action-primary); }
+.tab-panel { display: none; }
+.tab-panel.is-active { display: block; }
+.schedule-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ds-border-default); }
+.schedule-list li { display: grid; grid-template-columns: 100px 1fr; gap: var(--ds-space-4); padding: var(--ds-space-4) 0; border-bottom: 1px solid var(--ds-border-default); }
+.schedule-list time { font-size: var(--ds-text-sm); color: var(--ds-text-muted); font-variant-numeric: tabular-nums; }
+.schedule-list strong { display: block; font-weight: var(--ds-weight-semibold); margin-bottom: 2px; }
+.schedule-list span { font-size: var(--ds-text-sm); color: var(--ds-text-secondary); }
+.reg-form { display: flex; flex-direction: column; gap: var(--ds-space-3); max-width: 400px; }
+.reg-form label { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-secondary); }
+.reg-form input { height: 44px; padding: 0 14px; font-size: var(--ds-text-md); font-family: inherit; color: var(--ds-text-primary); background: var(--ds-bg-surface); border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); }
+.reg-form input:focus { outline: none; border-color: var(--ds-border-focus); }
+.reg-success { display: none; padding: var(--ds-space-4); border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface-subtle); color: var(--ds-text-secondary); }
+.reg-success.is-visible { display: block; }
+.sponsors { display: flex; flex-wrap: wrap; gap: var(--ds-space-4) var(--ds-space-8); font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.sponsors span { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: 8px 14px; }
+.site-footer { padding: var(--ds-space-8) 0; font-size: var(--ds-text-sm); color: var(--ds-text-muted); border-top: 1px solid var(--ds-border-default); }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--ds-space-4); }
+@media (max-width: 640px) {
+  :root { --ds-page-padding: 16px; }
+  .nav-links { display: none; position: absolute; top: var(--ds-nav-height); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ds-bg-canvas); border-bottom: 1px solid var(--ds-border-default); padding: var(--ds-space-3) var(--ds-page-padding); }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: var(--ds-space-3) 0; }
+  .menu-toggle { display: inline-flex; }
+  .schedule-list li { grid-template-columns: 1fr; gap: 4px; }
+}
   </style>
 </head>
 <body>
-  <iframe src="pages/index.html" title="Event Conference" loading="lazy"></iframe>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Signal 2026</a>
+      <ul class="nav-links" data-nav-links>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">◐</button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#register" class="btn btn-primary">Register</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Berlin · 15–16 September 2026</p>
+        <h1>A conference for people who ship interfaces.</h1>
+        <p class="hero-lead">Two days on design systems, product craft, and the quiet details that make software feel intentional.</p>
+        <div class="hero-meta">
+          <span>Venue: Radialsystem</span>
+          <span>200 seats</span>
+          <span>In person + live stream</span>
+        </div>
+        <div class="countdown" aria-live="polite">
+          <div class="countdown-item"><strong id="cd-days">00</strong><span>Days</span></div>
+          <div class="countdown-item"><strong id="cd-hours">00</strong><span>Hours</span></div>
+          <div class="countdown-item"><strong id="cd-mins">00</strong><span>Mins</span></div>
+          <div class="countdown-item"><strong id="cd-secs">00</strong><span>Secs</span></div>
+        </div>
+        <a href="#register" class="btn btn-primary btn-lg">Get a ticket</a>
+      </div>
+    </section>
+    <section class="section" id="speakers">
+      <div class="container">
+        <p class="section-label">Speakers</p>
+        <h2 class="section-title">Who’s on stage</h2>
+        <div class="speakers-grid">
+          <article class="speaker-card"><h3>Mira Chen</h3><p class="speaker-role">Design Systems Lead, Linear</p><p>Talk: Maintaining a system under product velocity without losing coherence.</p></article>
+          <article class="speaker-card"><h3>Jonas Berg</h3><p class="speaker-role">Staff Engineer, Vercel</p><p>Talk: Token architecture that scales past the first product team.</p></article>
+          <article class="speaker-card"><h3>Aisha Okonkwo</h3><p class="speaker-role">Head of Product Design, Notion</p><p>Talk: Density, hierarchy, and when whitespace becomes noise.</p></article>
+          <article class="speaker-card"><h3>Theo Martins</h3><p class="speaker-role">Accessibility Lead, GitHub</p><p>Workshop: Practical focus management and reduced-motion patterns.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="schedule">
+      <div class="container">
+        <p class="section-label">Schedule</p>
+        <h2 class="section-title">Two days, focused sessions</h2>
+        <div class="schedule-tabs" role="tablist">
+          <button type="button" class="tab-btn" data-tab="day1" aria-selected="true" role="tab">Day 1 · 15 Sep</button>
+          <button type="button" class="tab-btn" data-tab="day2" aria-selected="false" role="tab">Day 2 · 16 Sep</button>
+        </div>
+        <div class="tab-panel is-active" data-panel="day1" role="tabpanel">
+          <ul class="schedule-list">
+            <li><time>09:00</time><div><strong>Doors & coffee</strong><span>Radialsystem foyer</span></div></li>
+            <li><time>10:00</time><div><strong>Opening keynote — Mira Chen</strong><span>Main hall</span></div></li>
+            <li><time>11:15</time><div><strong>Token architecture that scales — Jonas Berg</strong><span>Main hall</span></div></li>
+            <li><time>13:00</time><div><strong>Lunch</strong><span>Courtyard</span></div></li>
+            <li><time>14:30</time><div><strong>Density & hierarchy — Aisha Okonkwo</strong><span>Main hall</span></div></li>
+            <li><time>16:00</time><div><strong>Lightning talks</strong><span>Studio room</span></div></li>
+          </ul>
+        </div>
+        <div class="tab-panel" data-panel="day2" role="tabpanel">
+          <ul class="schedule-list">
+            <li><time>09:30</time><div><strong>Workshop: Focus & reduced motion — Theo Martins</strong><span>Studio room</span></div></li>
+            <li><time>11:30</time><div><strong>Panel: Systems teams in product orgs</strong><span>Main hall</span></div></li>
+            <li><time>13:00</time><div><strong>Lunch</strong><span>Courtyard</span></div></li>
+            <li><time>14:30</time><div><strong>Case studies & open floor</strong><span>Main hall</span></div></li>
+            <li><time>16:30</time><div><strong>Closing notes</strong><span>Main hall</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="register">
+      <div class="container">
+        <p class="section-label">Tickets</p>
+        <h2 class="section-title">Register for Signal 2026</h2>
+        <p style="color:var(--ds-text-secondary);max-width:42ch;margin:0 0 24px;line-height:1.55">Early-bird seats are limited. You’ll receive a confirmation email with payment details.</p>
+        <form class="reg-form" data-reg-form action="#" method="post">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Request ticket</button>
+        </form>
+        <div class="reg-success" data-reg-success role="status">Thanks — check your inbox for next steps.</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Sponsors</p>
+        <h2 class="section-title">Supported by</h2>
+        <div class="sponsors"><span>Stratum</span><span>Field Notes</span><span>Orbit Labs</span><span>DevSnips</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Signal Conference</span>
+      <span>Berlin · Design systems · Product craft</span>
+    </div>
+  </footer>
+  <script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var stored = localStorage.getItem('ds-theme');
+  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    root.setAttribute('data-theme', 'dark');
+  }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('ds-theme', 'light'); }
+      else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('ds-theme', 'dark'); }
+    });
+  });
+  var menuToggle = document.querySelector('[data-menu-toggle]');
+  var navLinks = document.querySelector('[data-nav-links]');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  var tabs = document.querySelectorAll('[data-tab]');
+  var panels = document.querySelectorAll('[data-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = tab.getAttribute('data-tab');
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+  var eventDate = new Date('2026-09-15T09:00:00Z').getTime();
+  function tick() {
+    var dist = eventDate - Date.now();
+    var days = document.getElementById('cd-days');
+    var hours = document.getElementById('cd-hours');
+    var mins = document.getElementById('cd-mins');
+    var secs = document.getElementById('cd-secs');
+    if (!days) return;
+    if (dist < 0) { days.textContent = hours.textContent = mins.textContent = secs.textContent = '00'; return; }
+    days.textContent = String(Math.floor(dist / 86400000)).padStart(2, '0');
+    hours.textContent = String(Math.floor((dist % 86400000) / 3600000)).padStart(2, '0');
+    mins.textContent = String(Math.floor((dist % 3600000) / 60000)).padStart(2, '0');
+    secs.textContent = String(Math.floor((dist % 60000) / 1000)).padStart(2, '0');
+  }
+  tick(); setInterval(tick, 1000);
+  var form = document.querySelector('[data-reg-form]');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      var success = document.querySelector('[data-reg-success]');
+      if (success) success.classList.add('is-visible');
+    });
+  }
+})();
+  </script>
 </body>
 </html>
