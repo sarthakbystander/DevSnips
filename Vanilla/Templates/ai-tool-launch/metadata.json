@@ -1,36 +1,51 @@
 {
-  "id": "ai-tool-launch-001",
-  "name": "Ai Tool Launch",
-  "description": "Ai Tool Launch.",
+  "id": "product-launch-001",
+  "name": "Product Launch",
+  "description": "Multi-page product launch and waitlist template. Clean editorial design with design tokens, dark mode, home, features, pricing, and FAQ.",
   "technology": "vanilla",
   "category": "templates",
-  "subcategory": "ai-tool-launch",
+  "subcategory": "product-launch",
   "tags": [
-    "layout",
-    "accordion",
-    "tooltip",
-    "semantic",
-    "container-query",
-    "coming-soon",
-    "container-queries",
-    "animation"
+    "product-launch",
+    "waitlist",
+    "landing",
+    "multi-page",
+    "design-tokens",
+    "dark-mode",
+    "responsive",
+    "accessible"
   ],
-  "responsive": false,
+  "responsive": true,
   "browserSupport": [
     "chrome",
     "firefox",
     "safari",
     "edge"
   ],
-  "dependencies": [
-    "Segoe UI"
-  ],
+  "dependencies": [],
   "source": "DevSnips",
-  "darkMode": false,
+  "darkMode": true,
   "accessibility": [
-    "semantic HTML"
+    "semantic HTML",
+    "focus-visible",
+    "prefers-reduced-motion",
+    "ARIA labels",
+    "aria-current"
   ],
   "features": [
-    "semantic HTML"
+    "multi-page",
+    "design-tokens",
+    "dark mode toggle",
+    "waitlist form",
+    "pricing table",
+    "FAQ accordion",
+    "sticky header",
+    "mobile nav"
+  ],
+  "pages": [
+    "index.html",
+    "features.html",
+    "pricing.html",
+    "faq.html"
   ]
 }
