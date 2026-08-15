@@ -1,13 +1,29 @@
-# Micro Saas Product
+# Micro SaaS Product (Pulse)
 
-Micro Saas Product with responsive design with animations and hover interactions.
+Restrained product landing page for a focused status/uptime tool.
 
-**Technology:** vanilla
-**Category:** templates
-**Subcategory:** micro-saas-product
+**Technology:** Vanilla HTML / CSS / JS  
+**Design system:** Shared `--ds-*` tokens from `design-tokens.md`
 
-**Tags:** ecommerce, animation, hover-effect, gradient, shadow, responsive, flexbox, grid
+## Structure
 
-**Dependencies:** Poppins
+```
+micro-saas-product/
+├── pages/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── preview.html
+├── metadata.json
+└── README.md
+```
 
-**Responsive:** Yes
+## Features
+
+- Neutral-first layout, dark mode toggle
+- Problem / solution split
+- Feature cards
+- Monthly / yearly pricing toggle
+- Mobile nav + accessibility basics
+
+Open `preview.html` or `pages/index.html` directly.
