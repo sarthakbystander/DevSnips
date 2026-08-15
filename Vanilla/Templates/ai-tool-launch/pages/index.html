@@ -1,459 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tool Launch</title>
-    <style>
-/* General Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #f4f7f6;
-    color: #333;
-}
-
-h1, h2 {
-    text-align: center;
-    color: #2c3e50;
-}
-
-section {
-    padding: 60px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Header */
-header {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #c7d2fe;
-}
-
-/* Hero Section */
-#hero {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    padding: 100px 20px;
-}
-
-.hero-content {
-    max-width: 600px;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-align: left;
-    color: white;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    background-color: #ff4757;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #e04150;
-}
-
-.hero-illustration img {
-    max-width: 100%;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-/* Features Section */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.feature-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    color: #6a11cb;
-    margin-bottom: 20px;
-}
-
-/* Integrations Section */
-#integrations {
-    background-color: #eef2f5;
-}
-
-.logos-carousel {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 50px; /* Height of logos */
-}
-
-.logos-carousel .logo-slide {
-    display: flex;
-    animation: scroll 20s linear infinite;
-}
-
-.logos-carousel img {
-    height: 50px;
-    margin: 0 40px;
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-}
-
-.logos-carousel img:hover {
-    filter: grayscale(0%);
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-
-/* Testimonials Section */
-.testimonial-carousel {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.testimonial {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    max-width: 400px;
-    flex-grow: 1;
-}
-
-.testimonial p {
-    font-style: italic;
-}
-
-.testimonial h4 {
-    text-align: right;
-    color: #6a11cb;
-}
-
-/* Pricing Section */
-.pricing-table {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.pricing-plan {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    flex-basis: 300px;
-    flex-grow: 1;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pricing-plan.featured {
-    transform: scale(1.05);
-    border: 2px solid #6a11cb;
-}
-
-.pricing-plan:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-}
-
-.pricing-plan h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.price span {
-    font-size: 1rem;
-    font-weight: normal;
-    color: #7f8c8d;
-}
-
-.pricing-plan ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-}
-
-.pricing-plan ul li {
-    margin-bottom: 10px;
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    #hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content h1 {
-        text-align: center;
-    }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ledger — Clarity for product decisions</title>
+  <meta name="description" content="Ledger helps product teams turn scattered feedback into clear priorities. Join the waitlist.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">AI Power</div>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">Ledger</a>
+      <ul class="nav-links" data-nav-links>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">◐</button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+      </div>
+    </div>
+  </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Launch Your AI Tool with a Stunning Landing Page</h1>
-            <p>Create a powerful first impression with a modern and animated landing page designed to convert.</p>
-            <a href="#pricing" class="cta-button">Get Started</a>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Product decision platform</p>
+        <h1>Turn scattered feedback into clear priorities.</h1>
+        <p class="hero-lead">Ledger brings customer requests, support tickets, and roadmap signals into one calm surface so your team can decide what ships next.</p>
+        <div class="hero-actions">
+          <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist</a>
+          <a href="features.html" class="btn btn-secondary btn-lg">See features</a>
         </div>
-        <div class="hero-illustration">
-            <img src="https://via.placeholder.com/500" alt="AI Illustration">
+        <div class="hero-meta">
+          <span>Early access opens Q3 2026</span>
+          <span>Built for product & ops teams</span>
         </div>
+      </div>
     </section>
 
-    <section id="features">
-        <h2>Features</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">&#x1F9E0;</div>
-                <h3>Intelligent Automation</h3>
-                <p>Automate your workflows with our cutting-edge AI.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">&#x1F4A1;</div>
-                <h3>Advanced Analytics</h3>
-                <p>Gain deep insights with our powerful analytics engine.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">&#x1F512;</div>
-                <h3>Secure & Reliable</h3>
-                <p>Your data is safe with our enterprise-grade security.</p>
-            </div>
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Why Ledger</p>
+        <h2 class="section-title">Designed for clarity under volume</h2>
+        <p class="section-lead">Most tools optimize for capture. Ledger optimizes for judgment — so priorities stay visible when the noise is high.</p>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Unified intake</h3>
+            <p>Connect support, sales notes, and in-app feedback. Everything lands in one structured queue.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Priority scoring</h3>
+            <p>Weight requests by impact, effort, and customer segment without building a spreadsheet.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Roadmap alignment</h3>
+            <p>Link decisions back to themes and releases so stakeholders see the same source of truth.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section id="integrations">
-        <h2>Integrations</h2>
-        <div class="logos-carousel">
-            <div class="logo-slide"><img src="https://via.placeholder.com/150x50?text=Logo1" alt="Integration Logo 1"></div>
-            <div class="logo-slide"><img src="https://via.placeholder.com/150x50?text=Logo2" alt="Integration Logo 2"></div>
-            <div class="logo-slide"><img src="https://via.placeholder.com/150x50?text=Logo3" alt="Integration Logo 3"></div>
-            <div class="logo-slide"><img src="https://via.placeholder.com/150x50?text=Logo4" alt="Integration Logo 4"></div>
-            <div class="logo-slide"><img src="https://via.placeholder.com/150x50?text=Logo5" alt="Integration Logo 5"></div>
+    <section class="section" id="waitlist">
+      <div class="container narrow">
+        <p class="section-label">Early access</p>
+        <h2 class="section-title">Join the waitlist</h2>
+        <p class="section-lead">We’re onboarding a limited set of product teams. Leave your work email and we’ll invite you when a seat opens.</p>
+
+        <form class="waitlist-form" data-waitlist-form action="#" method="post">
+          <label class="visually-hidden" for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Work email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Request access</button>
+        </form>
+        <p class="waitlist-note">No spam. One email when your invite is ready.</p>
+        <div class="waitlist-success" data-waitlist-success>
+          You’re on the list. We’ll be in touch when early access opens.
         </div>
+      </div>
     </section>
 
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-carousel">
-            <div class="testimonial">
-                <p>"This AI tool has revolutionized our workflow. A must-have for any serious business."</p>
-                <h4>- John Doe, CEO of ExampleCorp</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Incredible support and a fantastic product. Highly recommended!"</p>
-                <h4>- Jane Smith, CTO of Innovate LLC</h4>
-            </div>
+    <section class="cta-band">
+      <div class="container">
+        <h2>See how Ledger fits your process</h2>
+        <p>Explore features, pricing, and answers to common questions — then join the waitlist when you’re ready.</p>
+        <div class="hero-actions">
+          <a href="features.html" class="btn btn-secondary">Features</a>
+          <a href="pricing.html" class="btn btn-secondary">Pricing</a>
+          <a href="faq.html" class="btn btn-secondary">FAQ</a>
         </div>
+      </div>
     </section>
+  </main>
 
-    <section id="pricing">
-        <h2>Pricing</h2>
-        <div class="pricing-table">
-            <div class="pricing-plan">
-                <h3>Basic</h3>
-                <p class="price">$29<span>/mo</span></p>
-                <ul>
-                    <li>Feature 1</li>
-                    <li>Feature 2</li>
-                    <li>Feature 3</li>
-                </ul>
-                <a href="#" class="cta-button">Choose Plan</a>
-            </div>
-            <div class="pricing-plan featured">
-                <h3>Pro</h3>
-                <p class="price">$59<span>/mo</span></p>
-                <ul>
-                    <li>All Basic Features</li>
-                    <li>Feature 4</li>
-                    <li>Feature 5</li>
-                </ul>
-                <a href="#" class="cta-button">Choose Plan</a>
-            </div>
-            <div class="pricing-plan">
-                <h3>Enterprise</h3>
-                <p class="price">Contact Us</p>
-                <ul>
-                    <li>All Pro Features</li>
-                    <li>Dedicated Support</li>
-                    <li>Custom Integrations</li>
-                </ul>
-                <a href="#" class="cta-button">Contact Us</a>
-            </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Ledger</div>
+          <p>Clarity for product decisions. Built for teams who ship with intention.</p>
         </div>
-    </section>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Ledger</span>
+        <span>Built with DevSnips design tokens</span>
+      </div>
+    </div>
+  </footer>
 
-    <footer>
-        <p>&copy; 2024 AI Power. All rights reserved.</p>
-    </footer>
-
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Integration Logos Carousel
-    const logosContainer = document.querySelector('.logos-carousel .logo-slide');
-    if (logosContainer) {
-        // Clone logos to create a seamless loop
-        const logos = logosContainer.querySelectorAll('img');
-        logos.forEach(logo => {
-            const clone = logo.cloneNode(true);
-            logosContainer.appendChild(clone);
-        });
-        // This is a simple CSS-driven animation. If more complex controls are needed,
-        // a library like Swiper.js or a custom JS implementation would be better.
-    }
-
-
-    // Testimonial Carousel
-    const testimonialContainer = document.querySelector('.testimonial-carousel');
-    if (testimonialContainer) {
-        const testimonials = testimonialContainer.querySelectorAll('.testimonial');
-        let currentIndex = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.style.display = i === index ? 'block' : 'none';
-            });
-        }
-
-        function nextTestimonial() {
-            currentIndex = (currentIndex + 1) % testimonials.length;
-            showTestimonial(currentIndex);
-        }
-
-        // Initially, hide all but the first testimonial
-        if (testimonials.length > 1) {
-             testimonials.forEach((testimonial, i) => {
-                if (i !== 0) testimonial.style.display = 'none';
-            });
-            // Change testimonial every 5 seconds
-            setInterval(nextTestimonial, 5000);
-        }
-    }
-});
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
