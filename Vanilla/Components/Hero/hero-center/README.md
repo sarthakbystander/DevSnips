@@ -13,6 +13,6 @@ Center-stage hero with social proof avatars.
 
 ## Usage
 
-1. Copy the contents of `component.html` into your page.
+1. Copy the contents of `hero-center.html` into your page.
 2. The section is self-contained (inline CSS + JS). No build step.
 3. Tweak the CSS variables in `:root` to rebrand.
