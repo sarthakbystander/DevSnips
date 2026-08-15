@@ -1,18 +1,18 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-14",
+  "lastUpdated": "2026-08-15",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 87,
-    "totalVariants": 750,
+    "totalFamilies": 78,
+    "totalVariants": 662,
     "totalSubVariants": 0,
-    "totalStyles": 1732,
+    "totalStyles": 1486,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 321,
+      "component": 253,
       "section": 201,
       "template": 9
     }
@@ -25,42 +25,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete accordion component family with 15 production-ready variants covering every use case from basic documentation to timelines and settings panels",
-      "variantsCount": 15,
+      "variantsCount": 14,
       "variants": [
-        {
-          "name": "Animated Accordion",
-          "path": "Tailwind/Components/Accordions/animated-accordion/",
-          "type": "component",
-          "description": "Premium accordion with a plus-to-close rotating circle indicator, content fade+slide-in, and an accent border that scales in on open. Showcase-grade motion polish.",
-          "tags": [
-            "accordion",
-            "animated",
-            "motion",
-            "premium",
-            "fade",
-            "slide",
-            "indicator"
-          ],
-          "features": [
-            "rotating plus indicator",
-            "accent border reveal",
-            "content fade+slide",
-            "circle color shift",
-            "hover lift",
-            "staggered transitions"
-          ],
-          "styles": [
-            "animated",
-            "motion",
-            "premium",
-            "fade"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Basic Accordion",
           "path": "Tailwind/Components/Accordions/basic-accordion/",
@@ -599,7 +565,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete button component family with 15 production-ready variants covering every use case from basic to 3D effects",
-      "variantsCount": 54,
+      "variantsCount": 37,
       "variants": [
         {
           "name": "Animated Arrow Button",
@@ -639,29 +605,6 @@
             "Secondary",
             "Danger",
             "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "3D Button Basic",
-          "path": "Tailwind/Components/Buttons/3D Button/basic/",
-          "type": "component",
-          "description": "3D push button effects with depth",
-          "tags": [
-            "button",
-            "3d",
-            "push",
-            "depth",
-            "3d effect"
-          ],
-          "styles": [
-            "Blue",
-            "Gray",
-            "Green"
           ],
           "files": [
             "code.html",
@@ -737,58 +680,6 @@
           ]
         },
         {
-          "name": "Outline Colors Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/colors/",
-          "type": "component",
-          "description": "Outline buttons available in multiple colors",
-          "tags": [
-            "button",
-            "outline",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Colors Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/colors/",
-          "type": "component",
-          "description": "Ghost buttons available in multiple colors for different actions",
-          "tags": [
-            "button",
-            "ghost",
-            "colors",
-            "red",
-            "green",
-            "purple"
-          ],
-          "styles": [
-            "Red",
-            "Green",
-            "Amber",
-            "Purple",
-            "Pink"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Button Dark",
           "path": "Tailwind/Components/Buttons/Icon Button/dark/",
           "type": "component",
@@ -812,97 +703,6 @@
           ]
         },
         {
-          "name": "Outline on Dark Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/dark/",
-          "type": "component",
-          "description": "Outline buttons designed for dark backgrounds",
-          "tags": [
-            "button",
-            "outline",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Blue",
-            "Muted"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Dark Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/dark/",
-          "type": "component",
-          "description": "Ghost buttons designed for dark backgrounds with subtle hover effects",
-          "tags": [
-            "button",
-            "ghost",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Gray",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Dark Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/dark/",
-          "type": "component",
-          "description": "Dark background buttons for dark themed interfaces",
-          "tags": [
-            "button",
-            "filled",
-            "dark",
-            "dark mode"
-          ],
-          "styles": [
-            "White",
-            "Dark Solid",
-            "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Gradient on Dark Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/dark-background/",
-          "type": "component",
-          "description": "Gradient buttons designed to stand out on dark backgrounds with light or bright gradients",
-          "tags": [
-            "gradient",
-            "button",
-            "dark",
-            "dark mode",
-            "dark background",
-            "glow"
-          ],
-          "styles": [
-            "Light on Gray",
-            "Bright on Gray",
-            "Cyan on Purple",
-            "Warm on Purple"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Dashed Outline Button",
           "path": "Tailwind/Components/Buttons/Outline Button/dashed/",
           "type": "component",
@@ -916,33 +716,6 @@
           "styles": [
             "Gray",
             "Blue"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Directional Gradient Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/directional/",
-          "type": "component",
-          "description": "Gradient buttons with all 8 directional options for creative layouts",
-          "tags": [
-            "gradient",
-            "button",
-            "directional",
-            "diagonal",
-            "gradient-direction"
-          ],
-          "styles": [
-            "Left to Right",
-            "Right to Left",
-            "Top to Bottom",
-            "Bottom Right",
-            "Bottom Left",
-            "Top Left",
-            "Top Right"
           ],
           "files": [
             "code.html",
@@ -1127,44 +900,19 @@
           ]
         },
         {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/Split Button/icon/",
           "type": "component",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
+          "description": "Split buttons with icon and dropdown",
           "tags": [
             "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
+            "split",
+            "dropdown",
+            "icon"
           ],
           "styles": [
-            "Upload",
-            "Add",
-            "Delete"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Ghost Icon Button",
-          "path": "Tailwind/Components/Buttons/Ghost Button/icon/",
-          "type": "component",
-          "description": "Ghost buttons with icons for upload, add, and delete actions",
-          "tags": [
-            "button",
-            "ghost",
-            "icon",
-            "upload",
-            "delete"
-          ],
-          "styles": [
-            "Upload",
-            "Add",
-            "Delete"
+            "Primary",
+            "Outline"
           ],
           "files": [
             "code.html",
@@ -1188,27 +936,6 @@
             "Bookmark",
             "Share",
             "Add (Pill)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/Split Button/icon/",
-          "type": "component",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
           ],
           "files": [
             "code.html",
@@ -1261,51 +988,6 @@
           ]
         },
         {
-          "name": "Multi-Stop Gradient Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/multi-stop/",
-          "type": "component",
-          "description": "Buttons with three or more gradient color stops for rich, complex color transitions",
-          "tags": [
-            "gradient",
-            "button",
-            "multi-stop",
-            "spectrum",
-            "three-color"
-          ],
-          "styles": [
-            "Spectrum",
-            "Deep Blue",
-            "Warm Fire"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Muted Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/muted/",
-          "type": "component",
-          "description": "Muted background buttons for less prominent actions",
-          "tags": [
-            "button",
-            "filled",
-            "muted",
-            "gray"
-          ],
-          "styles": [
-            "Gray",
-            "Dark",
-            "Slate"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Neutral Button",
           "path": "Tailwind/Components/Buttons/Basic Button/neutral/",
           "type": "component",
@@ -1319,94 +1001,6 @@
           "styles": [
             "Light on Dark",
             "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Gradient Pill Button",
-          "path": "Tailwind/Components/Buttons/Gradient Button/pill/",
-          "type": "component",
-          "description": "Fully rounded gradient buttons with pill shape for modern UI",
-          "tags": [
-            "gradient",
-            "button",
-            "pill",
-            "rounded-full",
-            "rounded"
-          ],
-          "styles": [
-            "Violet",
-            "Cyan",
-            "Emerald"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline Pill Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/pill/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped outline buttons",
-          "tags": [
-            "button",
-            "outline",
-            "pill",
-            "rounded"
-          ],
-          "styles": [
-            "Blue",
-            "Pink",
-            "Green"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Neumorphism Pressed Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/pressed/",
-          "type": "component",
-          "description": "Pressed state neumorphism buttons with inset shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "pressed",
-            "inset"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "type": "component",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1437,20 +1031,19 @@
           ]
         },
         {
-          "name": "Glass Primary Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/primary/",
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
           "type": "component",
-          "description": "Color glass morphism buttons with colored backgrounds",
+          "description": "Blue bordered buttons with transparent background and hover fill",
           "tags": [
             "button",
-            "glass",
-            "glassmorphism",
-            "colored"
+            "outline",
+            "bordered",
+            "blue"
           ],
           "styles": [
-            "Blue",
-            "Purple",
-            "Pink"
+            "Default",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1519,29 +1112,6 @@
             "Secondary",
             "Gradient",
             "Outline"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Rounded Full Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/rounded/",
-          "type": "component",
-          "description": "Fully rounded pill-shaped filled buttons",
-          "tags": [
-            "button",
-            "filled",
-            "rounded",
-            "pill",
-            "full"
-          ],
-          "styles": [
-            "Blue Pill",
-            "Dark Pill",
-            "Gradient Pill"
           ],
           "files": [
             "code.html",
@@ -1660,24 +1230,20 @@
           ]
         },
         {
-          "name": "Soft Background Button",
-          "path": "Tailwind/Components/Buttons/Filled Button/soft/",
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
           "type": "component",
-          "description": "Soft background buttons with pastel colors for subtle actions",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
           "tags": [
             "button",
-            "filled",
-            "soft",
-            "pastel",
-            "subtle"
+            "neumorphism",
+            "soft ui",
+            "shadow"
           ],
           "styles": [
-            "Blue",
-            "Green",
-            "Red",
-            "Amber",
-            "Purple",
-            "Pink"
+            "Default",
+            "Pill",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1701,28 +1267,6 @@
             "Default",
             "Disabled",
             "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/Neumorphism Button/soft/",
-          "type": "component",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
           ],
           "files": [
             "code.html",
@@ -1961,7 +1505,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete card component family with 40 production-ready variants covering every use case from profile and pricing cards to dashboard stats and CTA",
-      "variantsCount": 40,
+      "variantsCount": 33,
       "variants": [
         {
           "name": "Profile Card",
@@ -2252,70 +1796,6 @@
           ]
         },
         {
-          "name": "KPI Card",
-          "path": "Tailwind/Components/Cards/10-kpi-card/",
-          "type": "component",
-          "description": "Executive KPI card with 2x2 grid of metrics, progress bars, status badges, and color-coded gradients.",
-          "tags": [
-            "card",
-            "kpi",
-            "metrics",
-            "performance",
-            "dashboard",
-            "executive"
-          ],
-          "features": [
-            "2x2 grid",
-            "progress bars",
-            "status badges",
-            "gradient backgrounds",
-            "color coding"
-          ],
-          "styles": [
-            "kpi",
-            "metrics",
-            "performance",
-            "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Statistics Card",
-          "path": "Tailwind/Components/Cards/11-statistics-card/",
-          "type": "component",
-          "description": "Dark-themed statistics card with gradient icons, live badge, progress bar, and avatar group.",
-          "tags": [
-            "card",
-            "statistics",
-            "dark",
-            "metrics",
-            "social",
-            "dashboard"
-          ],
-          "features": [
-            "dark theme",
-            "gradient icons",
-            "live badge",
-            "progress bar",
-            "avatar group"
-          ],
-          "styles": [
-            "statistics",
-            "dark",
-            "metrics",
-            "social"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Notification Card",
           "path": "Tailwind/Components/Cards/12-notification-card/",
           "type": "component",
@@ -2563,38 +2043,6 @@
             "ecommerce",
             "cart",
             "payment"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Order Summary Card",
-          "path": "Tailwind/Components/Cards/20-order-summary-card/",
-          "type": "component",
-          "description": "Order tracking card with status badges, product list, delivery info, and action buttons.",
-          "tags": [
-            "card",
-            "order",
-            "tracking",
-            "delivery",
-            "ecommerce",
-            "status"
-          ],
-          "features": [
-            "order ID",
-            "status badge",
-            "product list",
-            "delivery date",
-            "action buttons"
-          ],
-          "styles": [
-            "order",
-            "tracking",
-            "delivery",
-            "ecommerce"
           ],
           "files": [
             "code.html",
@@ -2859,38 +2307,6 @@
           ]
         },
         {
-          "name": "Modern SaaS Card",
-          "path": "Tailwind/Components/Cards/29-modern-saas-card/",
-          "type": "component",
-          "description": "Modern SaaS dashboard card with analytics chart, trend indicator, filter dropdown, and mini stats.",
-          "tags": [
-            "card",
-            "saas",
-            "dashboard",
-            "analytics",
-            "modern",
-            "metrics"
-          ],
-          "features": [
-            "gradient icon",
-            "chart visualization",
-            "trend badge",
-            "filter dropdown",
-            "mini stats grid"
-          ],
-          "styles": [
-            "saas",
-            "dashboard",
-            "analytics",
-            "modern"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Gradient Card",
           "path": "Tailwind/Components/Cards/30-gradient-card/",
           "type": "component",
@@ -2915,38 +2331,6 @@
             "colorful",
             "earnings",
             "progress"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "User Profile Overview Card",
-          "path": "Tailwind/Components/Cards/31-user-profile-overview-card/",
-          "type": "component",
-          "description": "Comprehensive user profile card with header banner, avatar overlap, bio, skills, stats, and location.",
-          "tags": [
-            "card",
-            "profile",
-            "user",
-            "overview",
-            "social",
-            "header"
-          ],
-          "features": [
-            "gradient header",
-            "overlapping avatar",
-            "bio section",
-            "skill badges",
-            "stats grid"
-          ],
-          "styles": [
-            "profile",
-            "user",
-            "overview",
-            "social"
           ],
           "files": [
             "code.html",
@@ -3083,38 +2467,6 @@
           ]
         },
         {
-          "name": "Metric Card",
-          "path": "Tailwind/Components/Cards/36-metric-card/",
-          "type": "component",
-          "description": "Compact metric card with mini sparkline chart, trend indicator, icon, and current value.",
-          "tags": [
-            "card",
-            "metric",
-            "kpi",
-            "sparkline",
-            "dashboard",
-            "stats"
-          ],
-          "features": [
-            "sparkline chart",
-            "trend badge",
-            "icon",
-            "value display",
-            "compact layout"
-          ],
-          "styles": [
-            "metric",
-            "kpi",
-            "sparkline",
-            "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Support Ticket Card",
           "path": "Tailwind/Components/Cards/37-support-ticket-card/",
           "type": "component",
@@ -3139,38 +2491,6 @@
             "ticket",
             "helpdesk",
             "customer-service"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "FAQ Card",
-          "path": "Tailwind/Components/Cards/38-faq-card/",
-          "type": "component",
-          "description": "Expandable FAQ card with accordion items, expand/collapse animations, and contact CTA.",
-          "tags": [
-            "card",
-            "faq",
-            "accordion",
-            "help",
-            "questions",
-            "support"
-          ],
-          "features": [
-            "accordion items",
-            "expand/collapse",
-            "chevron animation",
-            "support CTA",
-            "clean layout"
-          ],
-          "styles": [
-            "faq",
-            "accordion",
-            "help",
-            "questions"
           ],
           "files": [
             "code.html",
@@ -3404,7 +2724,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete dropdown component family with 30 production-ready variants covering every use case from basic menus to mega menus, command palettes, and context menus",
-      "variantsCount": 30,
+      "variantsCount": 20,
       "variants": [
         {
           "name": "Action Menu",
@@ -3436,35 +2756,6 @@
           ]
         },
         {
-          "name": "Animated Menu",
-          "path": "Tailwind/Components/Dropdowns/animated-menu/",
-          "type": "component",
-          "description": "Richly animated dropdown with gradient button, staggered entrance animation, icon scaling, and glow effects.",
-          "tags": [
-            "dropdown",
-            "animated",
-            "gradient",
-            "effects",
-            "staggered"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "animated",
-            "gradient",
-            "effects",
-            "staggered"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Avatar Menu",
           "path": "Tailwind/Components/Dropdowns/avatar-menu/",
           "type": "component",
@@ -3486,62 +2777,6 @@
             "profile",
             "user",
             "online-status"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Dropdown",
-          "path": "Tailwind/Components/Dropdowns/basic-dropdown/",
-          "type": "component",
-          "description": "Simple, clean dropdown menu with click-to-toggle interaction and standard navigation options.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "basic",
-            "navigation"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "basic",
-            "navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Checkbox Menu",
-          "path": "Tailwind/Components/Dropdowns/checkbox-menu/",
-          "type": "component",
-          "description": "Multi-select checkbox menu for toggling table column visibility with count badge and reset functionality.",
-          "tags": [
-            "dropdown",
-            "checkbox",
-            "multi-select",
-            "table",
-            "columns"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "checkbox",
-            "multi-select",
-            "table",
-            "columns"
           ],
           "files": [
             "code.html",
@@ -3754,64 +2989,6 @@
           ]
         },
         {
-          "name": "Hover Menu",
-          "path": "Tailwind/Components/Dropdowns/hover-menu/",
-          "type": "component",
-          "description": "Dropdown menu that opens on hover with smooth fade-in and slide-up animations.",
-          "tags": [
-            "dropdown",
-            "hover",
-            "animation",
-            "tooltip",
-            "css-only"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "hover",
-            "animation",
-            "tooltip",
-            "css-only"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Menu",
-          "path": "Tailwind/Components/Dropdowns/icon-menu/",
-          "type": "component",
-          "description": "Icon-only menu dropdowns with notification badges for home, settings, notifications, and user profile.",
-          "tags": [
-            "dropdown",
-            "icon",
-            "navigation",
-            "badge",
-            "toolbar"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "icon",
-            "navigation",
-            "badge",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Language Switcher",
           "path": "Tailwind/Components/Dropdowns/language-switcher/",
           "type": "component",
@@ -3862,35 +3039,6 @@
             "navigation",
             "header",
             "multi-column"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Mobile Menu",
-          "path": "Tailwind/Components/Dropdowns/mobile-menu/",
-          "type": "component",
-          "description": "Slide-in mobile navigation drawer with overlay, user profile header, and sticky footer actions.",
-          "tags": [
-            "dropdown",
-            "mobile",
-            "navigation",
-            "drawer",
-            "slide-in"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "mobile",
-            "navigation",
-            "drawer",
-            "slide-in"
           ],
           "files": [
             "code.html",
@@ -3986,64 +3134,6 @@
           ]
         },
         {
-          "name": "Profile Menu",
-          "path": "Tailwind/Components/Dropdowns/profile-menu/",
-          "type": "component",
-          "description": "User profile dropdown with gradient header, avatar, and comprehensive account actions including settings, billing, and sign out.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "profile",
-            "user",
-            "account"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "profile",
-            "user",
-            "account"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Quick Actions Menu",
-          "path": "Tailwind/Components/Dropdowns/quick-actions-menu/",
-          "type": "component",
-          "description": "Grid-based quick actions menu with 8 action buttons, icon scaling on hover, and colorful icons.",
-          "tags": [
-            "dropdown",
-            "quick-actions",
-            "grid",
-            "icon-buttons",
-            "toolbar"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "quick-actions",
-            "grid",
-            "icon-buttons",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Radio Menu",
           "path": "Tailwind/Components/Dropdowns/radio-menu/",
           "type": "component",
@@ -4131,35 +3221,6 @@
           ]
         },
         {
-          "name": "Sidebar Menu",
-          "path": "Tailwind/Components/Dropdowns/sidebar-menu/",
-          "type": "component",
-          "description": "Dark sidebar navigation with expandable submenus, status indicators, and badge notifications.",
-          "tags": [
-            "dropdown",
-            "sidebar",
-            "navigation",
-            "admin",
-            "dark-mode"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "sidebar",
-            "navigation",
-            "admin",
-            "dark-mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Sort Menu",
           "path": "Tailwind/Components/Dropdowns/sort-menu/",
           "type": "component",
@@ -4239,36 +3300,6 @@
             "dark-mode",
             "light-mode",
             "appearance"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "User Account Menu",
-          "path": "Tailwind/Components/Dropdowns/user-account-menu/",
-          "type": "component",
-          "description": "Comprehensive account management dropdown with quick stats, settings navigation, and security options.",
-          "tags": [
-            "dropdown",
-            "menu",
-            "account",
-            "user",
-            "settings",
-            "security"
-          ],
-          "features": [
-            "Tailwind CSS",
-            "Responsive",
-            "Accessible"
-          ],
-          "styles": [
-            "menu",
-            "account",
-            "user",
-            "settings"
           ],
           "files": [
             "code.html",
@@ -4373,7 +3404,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete input component family with 35 production-ready variants covering every input type from text to file uploads",
-      "variantsCount": 49,
+      "variantsCount": 38,
       "variants": [
         {
           "name": "Animated Focus Input",
@@ -4500,29 +3531,6 @@
           ]
         },
         {
-          "name": "Corporate Input",
-          "path": "Tailwind/Components/Input/corporate/",
-          "type": "component",
-          "description": "Enterprise-style form inputs with proper hierarchy and professional appearance",
-          "tags": [
-            "input",
-            "corporate",
-            "enterprise",
-            "form",
-            "business"
-          ],
-          "styles": [
-            "Form Header",
-            "Card Form",
-            "Grid Layout"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Credit Card Input",
           "path": "Tailwind/Components/Input/credit-card/",
           "type": "component",
@@ -4575,36 +3583,6 @@
             "Euro",
             "Multi-currency",
             "Display"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CVV Input",
-          "path": "Tailwind/Components/Input/cvv/",
-          "type": "component",
-          "description": "CVV/CVC security code input components for payment forms",
-          "tags": [
-            "input",
-            "cvv",
-            "cvc",
-            "security",
-            "payment"
-          ],
-          "features": [
-            "input",
-            "cvv",
-            "cvc",
-            "security",
-            "payment"
-          ],
-          "styles": [
-            "Standard",
-            "With Help",
-            "Card Visual"
           ],
           "files": [
             "code.html",
@@ -4677,68 +3655,6 @@
             "Read-only",
             "Disabled with Icon",
             "Read-only Card"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Email Input",
-          "path": "Tailwind/Components/Input/email-input/",
-          "type": "component",
-          "description": "Email input components with icon, verification, and dark mode styles",
-          "tags": [
-            "input",
-            "email",
-            "mail",
-            "verification",
-            "contact"
-          ],
-          "features": [
-            "input",
-            "email",
-            "mail",
-            "verification",
-            "contact"
-          ],
-          "styles": [
-            "Standard",
-            "With Icon",
-            "Verification",
-            "Dark Mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Expiration Date Input",
-          "path": "Tailwind/Components/Input/expiration-date/",
-          "type": "component",
-          "description": "Expiration date input components for card and subscription forms",
-          "tags": [
-            "input",
-            "expiration",
-            "date",
-            "card",
-            "subscription"
-          ],
-          "features": [
-            "input",
-            "expiration",
-            "date",
-            "card",
-            "subscription"
-          ],
-          "styles": [
-            "Standard",
-            "Split",
-            "Compact",
-            "Calendar Style"
           ],
           "files": [
             "code.html",
@@ -4864,30 +3780,6 @@
           ]
         },
         {
-          "name": "Icon Both Input",
-          "path": "Tailwind/Components/Input/icon-both/",
-          "type": "component",
-          "description": "Input fields with icons on both left and right sides for context and actions",
-          "tags": [
-            "input",
-            "icon",
-            "both-sides",
-            "search",
-            "form"
-          ],
-          "styles": [
-            "Search Clear",
-            "Currency",
-            "URL",
-            "Phone"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Icon Left Input",
           "path": "Tailwind/Components/Input/icon-left/",
           "type": "component",
@@ -4904,30 +3796,6 @@
             "Email",
             "User",
             "Password"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Right Input",
-          "path": "Tailwind/Components/Input/icon-right/",
-          "type": "component",
-          "description": "Input fields with icons or action buttons on the right side",
-          "tags": [
-            "input",
-            "icon",
-            "right-icon",
-            "clear",
-            "validation"
-          ],
-          "styles": [
-            "Clear Button",
-            "Valid State",
-            "Loading",
-            "Help Icon"
           ],
           "files": [
             "code.html",
@@ -4988,29 +3856,6 @@
             "Standard",
             "Tag Style",
             "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Modern SaaS Input",
-          "path": "Tailwind/Components/Input/modern-saas/",
-          "type": "component",
-          "description": "Modern SaaS-style inputs with premium feel and visual polish",
-          "tags": [
-            "input",
-            "saas",
-            "modern",
-            "premium",
-            "startup"
-          ],
-          "styles": [
-            "Clean Card",
-            "Gradient CTA",
-            "Stats Display"
           ],
           "files": [
             "code.html",
@@ -5250,53 +4095,6 @@
           ]
         },
         {
-          "name": "Rounded Pill Input",
-          "path": "Tailwind/Components/Input/rounded-pill/",
-          "type": "component",
-          "description": "Fully rounded pill-style input fields for modern UI",
-          "tags": [
-            "input",
-            "pill",
-            "rounded",
-            "search",
-            "modern"
-          ],
-          "styles": [
-            "Default",
-            "With Icon",
-            "Outlined",
-            "Dark"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Search Bar",
-          "path": "Tailwind/Components/Input/search-bar/",
-          "type": "component",
-          "description": "Dedicated search bar components with modern styling and interactions",
-          "tags": [
-            "input",
-            "search",
-            "search-bar",
-            "command-palette"
-          ],
-          "styles": [
-            "Modern Large",
-            "Compact",
-            "With Filter",
-            "Dark Mode"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Search with Autocomplete",
           "path": "Tailwind/Components/Input/search-with-autocomplete/",
           "type": "component",
@@ -5348,30 +4146,6 @@
             "Inline",
             "With Chips",
             "Advanced"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Sharp Corner Input",
-          "path": "Tailwind/Components/Input/sharp-corner/",
-          "type": "component",
-          "description": "Sharp rectangular input fields without border radius for data-dense UIs",
-          "tags": [
-            "input",
-            "sharp",
-            "rectangular",
-            "industrial",
-            "data"
-          ],
-          "styles": [
-            "Default",
-            "Dense",
-            "Dark/Industrial",
-            "Inline Row"
           ],
           "files": [
             "code.html",
@@ -5489,35 +4263,6 @@
             "Default",
             "With Value",
             "Dark Variant"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "URL Input",
-          "path": "Tailwind/Components/Input/url-input/",
-          "type": "component",
-          "description": "URL input components with prefix, icon, and link preview styles",
-          "tags": [
-            "input",
-            "url",
-            "link",
-            "website"
-          ],
-          "features": [
-            "input",
-            "url",
-            "link",
-            "website"
-          ],
-          "styles": [
-            "Standard",
-            "With Prefix",
-            "With Icon",
-            "Link Preview"
           ],
           "files": [
             "code.html",
@@ -5782,29 +4527,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete modal component family with 30 production-ready variants covering every use case from basic to advanced interactions",
-      "variantsCount": 30,
+      "variantsCount": 24,
       "variants": [
-        {
-          "name": "Basic Modal",
-          "path": "Tailwind/Components/Modals/basic-modal/",
-          "type": "component",
-          "description": "Foundation modal component with header, body, and footer sections. Includes backdrop, close button, and action buttons.",
-          "tags": [
-            "modal",
-            "dialog",
-            "basic",
-            "overlay",
-            "popup"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Bottom Sheet",
           "path": "Tailwind/Components/Modals/bottom-sheet/",
@@ -5932,27 +4656,6 @@
           ]
         },
         {
-          "name": "Drawer Modal",
-          "path": "Tailwind/Components/Modals/drawer-modal/",
-          "type": "component",
-          "description": "Slide-in drawer panel from the right with team members list, search functionality, and role badges.",
-          "tags": [
-            "modal",
-            "drawer",
-            "sidebar",
-            "team",
-            "slide-in"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Error Modal",
           "path": "Tailwind/Components/Modals/error-modal/",
           "type": "component",
@@ -5984,27 +4687,6 @@
             "rating",
             "review",
             "survey"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Forgot Password Modal",
-          "path": "Tailwind/Components/Modals/forgot-password-modal/",
-          "type": "component",
-          "description": "Password reset request modal with email input, send reset link button, and helpful information box.",
-          "tags": [
-            "modal",
-            "password",
-            "reset",
-            "forgot",
-            "authentication"
           ],
           "styles": [
             "Default"
@@ -6142,27 +4824,6 @@
           ]
         },
         {
-          "name": "Notification Modal",
-          "path": "Tailwind/Components/Modals/notification-modal/",
-          "type": "component",
-          "description": "Notification panel modal with tabs, categorized notifications, unread indicators, and timestamps.",
-          "tags": [
-            "modal",
-            "notification",
-            "alert",
-            "toast",
-            "panel"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "OTP Verification Modal",
           "path": "Tailwind/Components/Modals/otp-verification-modal/",
           "type": "component",
@@ -6194,27 +4855,6 @@
             "credit card",
             "checkout",
             "billing"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Reset Password Modal",
-          "path": "Tailwind/Components/Modals/reset-password-modal/",
-          "type": "component",
-          "description": "Password reset form modal with new password input, confirmation, and password requirements checklist.",
-          "tags": [
-            "modal",
-            "password",
-            "reset",
-            "security",
-            "authentication"
           ],
           "styles": [
             "Default"
@@ -6299,27 +4939,6 @@
             "task",
             "details",
             "sidebar"
-          ],
-          "styles": [
-            "Default"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Subscription Modal",
-          "path": "Tailwind/Components/Modals/subscription-modal/",
-          "type": "component",
-          "description": "Premium subscription upgrade modal with feature comparison, pricing plans, and subscription options for SaaS products.",
-          "tags": [
-            "modal",
-            "subscription",
-            "pricing",
-            "upgrade",
-            "saas"
           ],
           "styles": [
             "Default"
@@ -6526,7 +5145,7 @@
       "type": "component",
       "category": "Components",
       "description": "Navigation bars — transparent, sticky, mega menu, dashboard, glass, and floating styles.",
-      "variantsCount": 15,
+      "variantsCount": 11,
       "variants": [
         {
           "name": "Documentation Navbar — Apple Inspired",
@@ -6604,62 +5223,6 @@
           ],
           "styles": [
             "cyber"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Bold Navbar — Dark Premium",
-          "path": "Tailwind/Components/Navbar/dark-premium/",
-          "type": "component",
-          "description": "Dark Premium navbar: Bold brutalist nav.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "dark-premium"
-          ],
-          "features": [
-            "bold brutalist nav",
-            "uppercase mono links",
-            "hard borders",
-            "edge CTA",
-            "responsive"
-          ],
-          "styles": [
-            "dark-premium"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Transparent Navbar — Edge Glassmorphism",
-          "path": "Tailwind/Components/Navbar/edge-glassmorphism/",
-          "type": "component",
-          "description": "Edge Glassmorphism navbar: Transparent navbar.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "edge-glassmorphism"
-          ],
-          "features": [
-            "transparent navbar",
-            "centered links",
-            "CTA + sign-in",
-            "mobile menu button",
-            "responsive"
-          ],
-          "styles": [
-            "edge-glassmorphism"
           ],
           "files": [
             "README.md",
@@ -6753,34 +5316,6 @@
           ]
         },
         {
-          "name": "Vercel-Style Navbar — Gradient Mesh",
-          "path": "Tailwind/Components/Navbar/gradient-mesh/",
-          "type": "component",
-          "description": "Gradient Mesh navbar: Vercel-style nav.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "gradient-mesh"
-          ],
-          "features": [
-            "vercel-style nav",
-            "low height bar",
-            "github star badge",
-            "ghost links",
-            "CTA actions"
-          ],
-          "styles": [
-            "gradient-mesh"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mega Menu Navbar — Minimal",
           "path": "Tailwind/Components/Navbar/minimal/",
           "type": "component",
@@ -6800,34 +5335,6 @@
           ],
           "styles": [
             "minimal"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Minimal Navbar — Monochrome",
-          "path": "Tailwind/Components/Navbar/monochrome/",
-          "type": "component",
-          "description": "Monochrome navbar: Minimal navbar.",
-          "tags": [
-            "navbar",
-            "navigation",
-            "header",
-            "monochrome"
-          ],
-          "features": [
-            "minimal navbar",
-            "low height",
-            "bare links",
-            "no hamburger",
-            "single CTA"
-          ],
-          "styles": [
-            "monochrome"
           ],
           "files": [
             "README.md",
@@ -6983,7 +5490,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete navigation component family with 35 production-ready variants covering every use case from basic navbars to sidebars, breadcrumbs, pagination, and mega navigation",
-      "variantsCount": 35,
+      "variantsCount": 30,
       "variants": [
         {
           "name": "Admin Sidebar",
@@ -7128,35 +5635,6 @@
             "breadcrumb",
             "path",
             "hierarchy"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Category Navigation",
-          "path": "Tailwind/Components/Navigation/category-navigation/",
-          "type": "component",
-          "description": "Hierarchical category tree navigation with emoji icons and item counts. Perfect for marketplaces and directories.",
-          "tags": [
-            "navigation",
-            "category",
-            "tree",
-            "directory"
-          ],
-          "features": [
-            "Expandable categories",
-            "Emoji icons",
-            "Item counts",
-            "Nested links",
-            "Active state"
-          ],
-          "styles": [
-            "category",
-            "tree",
-            "directory"
           ],
           "files": [
             "code.html",
@@ -7462,95 +5940,6 @@
           ]
         },
         {
-          "name": "Hamburger Menu",
-          "path": "Tailwind/Components/Navigation/hamburger-menu/",
-          "type": "component",
-          "description": "Animated hamburger menu with slide-out panel and X transformation. Perfect for mobile menus and user dropdowns.",
-          "tags": [
-            "navigation",
-            "hamburger",
-            "menu",
-            "mobile",
-            "dropdown"
-          ],
-          "features": [
-            "Animated hamburger-to-X transformation",
-            "Slide-out menu animation",
-            "User profile header",
-            "Sign out action",
-            "Click-outside dismiss"
-          ],
-          "styles": [
-            "hamburger",
-            "menu",
-            "mobile",
-            "dropdown"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Horizontal Navigation",
-          "path": "Tailwind/Components/Navigation/horizontal-navigation/",
-          "type": "component",
-          "description": "Wide horizontal menu with optional dropdowns. Multiple styles including standard, dropdown, and pills variants.",
-          "tags": [
-            "navigation",
-            "horizontal",
-            "menu",
-            "tabs"
-          ],
-          "features": [
-            "Horizontal layout",
-            "Dropdown support",
-            "Active state styling",
-            "Pills variant",
-            "Hover transitions"
-          ],
-          "styles": [
-            "horizontal",
-            "menu",
-            "tabs"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Icon Navigation",
-          "path": "Tailwind/Components/Navigation/icon-navigation/",
-          "type": "component",
-          "description": "Icon-driven navigation with optional labels. Compact and standard variants for space-efficient navigation.",
-          "tags": [
-            "navigation",
-            "icon",
-            "compact",
-            "toolbar"
-          ],
-          "features": [
-            "Icon-only layout",
-            "aria-label for accessibility",
-            "Active state styling",
-            "Compact and standard sizes",
-            "Hover transitions"
-          ],
-          "styles": [
-            "icon",
-            "compact",
-            "toolbar"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mega Navigation",
           "path": "Tailwind/Components/Navigation/mega-navigation/",
           "type": "component",
@@ -7812,35 +6201,6 @@
             "search",
             "filter",
             "finder"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Settings Navigation",
-          "path": "Tailwind/Components/Navigation/settings-navigation/",
-          "type": "component",
-          "description": "Settings page navigation with grouped options. Perfect for account settings, preferences, and admin panels.",
-          "tags": [
-            "navigation",
-            "settings",
-            "preferences",
-            "account"
-          ],
-          "features": [
-            "Vertical navigation sidebar",
-            "Active state highlighting",
-            "Settings form example",
-            "Icon support",
-            "Responsive layout"
-          ],
-          "styles": [
-            "settings",
-            "preferences",
-            "account"
           ],
           "files": [
             "code.html",
@@ -8381,7 +6741,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete table component family with 20 production-ready variants covering every use case from basic data tables to expandable rows, filters, sorting, and pagination",
-      "variantsCount": 20,
+      "variantsCount": 18,
       "variants": [
         {
           "name": "Analytics Table",
@@ -8439,38 +6799,6 @@
             "data",
             "projects",
             "dashboard"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Bordered Table",
-          "path": "Tailwind/Components/Tables/bordered-table/",
-          "type": "component",
-          "description": "Financial performance table with full grid borders. Features gradient header, growth indicators with arrows, and a summary footer row with totals.",
-          "tags": [
-            "table",
-            "bordered",
-            "finance",
-            "financial",
-            "business",
-            "revenue"
-          ],
-          "features": [
-            "full grid borders",
-            "gradient header",
-            "growth indicators",
-            "totals footer",
-            "hover states"
-          ],
-          "styles": [
-            "bordered",
-            "finance",
-            "financial",
-            "business"
           ],
           "files": [
             "code.html",
@@ -8599,37 +6927,6 @@
             "filterable",
             "tasks",
             "project"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Hover Table",
-          "path": "Tailwind/Components/Tables/hover-table/",
-          "type": "component",
-          "description": "Event management table with rich hover interactions. Features color-coded hover states, animated action buttons that appear on row hover, attendee avatars, and status indicators with pulse animations.",
-          "tags": [
-            "table",
-            "hover",
-            "events",
-            "interactive",
-            "animated"
-          ],
-          "features": [
-            "color-coded hover",
-            "animated actions",
-            "attendee avatars",
-            "status badges",
-            "pulse animation"
-          ],
-          "styles": [
-            "hover",
-            "events",
-            "interactive",
-            "animated"
           ],
           "files": [
             "code.html",
@@ -9115,7 +7412,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete tab component family with 15 production-ready variants covering documentation, dashboards, settings, mobile navigation, and animated indicators",
-      "variantsCount": 15,
+      "variantsCount": 12,
       "variants": [
         {
           "name": "Animated Tabs",
@@ -9143,38 +7440,6 @@
             "resize-aware",
             "kanban/timeline/calendar panels",
             "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Tabs",
-          "path": "Tailwind/Components/Tabs/basic-tabs/",
-          "type": "component",
-          "description": "Clean documentation tabs with an underline indicator. Ideal for organizing reference material, docs pages, and onboarding steps into focused sections.",
-          "tags": [
-            "tabs",
-            "basic",
-            "documentation",
-            "underline",
-            "accessible"
-          ],
-          "features": [
-            "underline active indicator",
-            "arrow-key navigation",
-            "aria tab pattern",
-            "focus-visible ring",
-            "responsive"
-          ],
-          "styles": [
-            "underline active indicator",
-            "arrow-key navigation",
-            "aria tab pattern",
-            "focus-visible ring",
-            "responsive"
           ],
           "files": [
             "code.html",
@@ -9315,38 +7580,6 @@
           ]
         },
         {
-          "name": "Minimal Tabs",
-          "path": "Tailwind/Components/Tabs/minimal-tabs/",
-          "type": "component",
-          "description": "Ultra-clean minimal inbox tabs with a thin sliding indicator, count annotations, and a search action. Designed for distraction-free content like email and notes apps.",
-          "tags": [
-            "tabs",
-            "minimal",
-            "inbox",
-            "clean",
-            "indicator"
-          ],
-          "features": [
-            "thin sliding indicator",
-            "counts",
-            "search action",
-            "minimal styling",
-            "arrow-key navigation"
-          ],
-          "styles": [
-            "thin sliding indicator",
-            "counts",
-            "search action",
-            "minimal styling",
-            "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Mobile Tabs",
           "path": "Tailwind/Components/Tabs/mobile-tabs/",
           "type": "component",
@@ -9404,39 +7637,6 @@
             "count badges",
             "action toolbar",
             "responsive wrap",
-            "arrow-key navigation"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Rounded Tabs",
-          "path": "Tailwind/Components/Tabs/rounded-tabs/",
-          "type": "component",
-          "description": "Soft rounded navigation tabs with a gradient active state, set in a pill container. Suited to music and media apps browsing playlists, artists, albums, and podcasts.",
-          "tags": [
-            "tabs",
-            "rounded",
-            "soft",
-            "music",
-            "media",
-            "gradient"
-          ],
-          "features": [
-            "gradient active pill",
-            "rounded container",
-            "media grids",
-            "artist circles",
-            "arrow-key navigation"
-          ],
-          "styles": [
-            "gradient active pill",
-            "rounded container",
-            "media grids",
-            "artist circles",
             "arrow-key navigation"
           ],
           "files": [
@@ -9625,7 +7825,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete toast notification family with 6 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
-      "variantsCount": 6,
+      "variantsCount": 5,
       "variants": [
         {
           "name": "Action Toast",
@@ -9655,40 +7855,6 @@
             "Undo action",
             "Destructive feedback",
             "Reversible"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Basic Toast",
-          "path": "Tailwind/Components/Toasts/basic-toast/",
-          "type": "component",
-          "description": "Auto-dismissing success toast with icon, message, and close button. Slides in from the corner, pauses for 4s, then fades out. Pauses on hover for accessibility.",
-          "tags": [
-            "toast",
-            "notification",
-            "basic",
-            "success",
-            "feedback",
-            "auto-dismiss"
-          ],
-          "features": [
-            "auto-dismiss after 4s",
-            "pause on hover",
-            "close button",
-            "aria-live polite region",
-            "role status",
-            "template-based rendering",
-            "focus-visible ring",
-            "slide-in transition"
-          ],
-          "styles": [
-            "Success",
-            "Auto-dismiss",
-            "Hover to pause"
           ],
           "files": [
             "code.html",
@@ -9878,41 +8044,8 @@
       "type": "component",
       "category": "Components",
       "description": "Complete tooltip component family with 6 production-ready variants covering every use case from basic hover hints to directional positioning, rich help content, delayed reveal, icon-button labeling, and status indicators. Pure CSS - no JavaScript.",
-      "variantsCount": 6,
+      "variantsCount": 5,
       "variants": [
-        {
-          "name": "Basic Tooltip",
-          "path": "Tailwind/Components/Tooltips/basic-tooltip/",
-          "type": "component",
-          "description": "Top-positioned tooltip with arrow that appears on hover and keyboard focus. Pure CSS via the data-tooltip attribute - no JavaScript required. Accessible with role=tooltip and aria-describedby.",
-          "tags": [
-            "tooltip",
-            "hover",
-            "focus",
-            "arrow",
-            "css-only",
-            "accessibility"
-          ],
-          "features": [
-            "top position with arrow",
-            "hover trigger",
-            "focus-visible trigger",
-            "fade + slide animation",
-            "pure CSS no JS",
-            "role=tooltip",
-            "aria-describedby",
-            "z-index layering"
-          ],
-          "styles": [
-            "Top",
-            "With arrow"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
         {
           "name": "Delayed Tooltip",
           "path": "Tailwind/Components/Tooltips/delayed-tooltip/",
@@ -14751,75 +12884,6 @@
       "variantsCount": 12,
       "variants": [
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "neo-brutalism",
-            "brutalist",
-            "chat-interface",
-            "assistant",
-            "prompt",
-            "dark-accents"
-          ],
-          "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "animated typing indicator",
-            "clickable prompt chips",
-            "wired send + auto-reply",
-            "custom scrollbar styling",
-            "keyboard accessible inputs"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Agent Workflow — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist gallery of reusable prompt templates — hard black borders, offset drop shadows, and flat bright accents per category. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a brief 'Copied!' state.",
-          "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
-            "neo-brutalism",
-            "brutalist",
-            "copy-clipboard",
-            "filter",
-            "gallery",
-            "ai-product"
-          ],
-          "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Model Comparison — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
           "type": "section",
@@ -14844,6 +12908,41 @@
             "press-down hover states",
             "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Agent Workflow — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "neo-brutalism",
+            "brutalist",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "execution"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "step status colors (pending/running/done)",
+            "filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
           ],
           "styles": [
             "neo-brutalism"
@@ -14890,103 +12989,32 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "name": "AI Chat Interface — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
           "tags": [
             "ai-chat",
             "chatbot",
-            "glassmorphism",
-            "glass",
-            "chat-interface",
-            "assistant",
-            "gradient",
-            "vibrant"
-          ],
-          "features": [
-            "backdrop-blur glass panels",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "gradient send button",
-            "keyboard accessible inputs"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Agent Workflow — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
             "neo-brutalism",
             "brutalist",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "execution"
+            "chat-interface",
+            "assistant",
+            "prompt",
+            "dark-accents"
           ],
           "features": [
             "hard offset shadows",
             "flat bright accent palette",
-            "step status colors (pending/running/done)",
-            "filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
+            "press-down hover states",
+            "animated typing indicator",
+            "clickable prompt chips",
+            "wired send + auto-reply",
+            "custom scrollbar styling",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Prompt Library — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh — translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
-          "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "copy-clipboard",
-            "filter",
-            "ai-product"
-          ],
-          "features": [
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "gradient primary accents and cyan glow dot",
-            "luminous top-edge highlight",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with checkmark Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15022,40 +13050,6 @@
           ],
           "styles": [
             "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "AI Chat Interface — Vercel",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "vercel",
-            "dark-mode",
-            "chat-interface",
-            "assistant",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "wired send + auto-reply",
-            "thin custom scrollbar",
-            "keyboard accessible inputs"
-          ],
-          "styles": [
-            "vercel"
           ],
           "files": [
             "code.html",
@@ -15100,6 +13094,147 @@
           ]
         },
         {
+          "name": "Prompt Library — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh — translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
+          "tags": [
+            "prompt-library",
+            "prompts",
+            "templates",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "copy-clipboard",
+            "filter",
+            "ai-product"
+          ],
+          "features": [
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "gradient primary accents and cyan glow dot",
+            "luminous top-edge highlight",
+            "category filter chips (Writing/Code/Analysis/Image)",
+            "live search across cards",
+            "copy-to-clipboard with checkmark Copied! state",
+            "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "tags": [
+            "ai-chat",
+            "chatbot",
+            "glassmorphism",
+            "glass",
+            "chat-interface",
+            "assistant",
+            "gradient",
+            "vibrant"
+          ],
+          "features": [
+            "backdrop-blur glass panels",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "gradient send button",
+            "keyboard accessible inputs"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Model Comparison — Vercel",
+          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "vercel",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "dark",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side model cards",
+            "animated hairline metric bars",
+            "Best-for metric selector with moving winner marker",
+            "teal accent glow on the winning card",
+            "live recommendation footer",
+            "dark monochrome surfaces with hairline borders",
+            "radiogroup semantics with aria-checked",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Agent Workflow — Vercel",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "vercel",
+            "dark-mode",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "minimal"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "single teal accent",
+            "step status colors (pending/running/done)",
+            "glowing filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Prompt Library — Vercel",
           "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
           "type": "section",
@@ -15135,30 +13270,29 @@
           ]
         },
         {
-          "name": "Model Comparison — Vercel",
-          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
+          "name": "AI Chat Interface — Vercel",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
           "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
+            "ai-chat",
+            "chatbot",
             "vercel",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "dark",
-            "ai-product"
+            "dark-mode",
+            "chat-interface",
+            "assistant",
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "side-by-side model cards",
-            "animated hairline metric bars",
-            "Best-for metric selector with moving winner marker",
-            "teal accent glow on the winning card",
-            "live recommendation footer",
-            "dark monochrome surfaces with hairline borders",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "wired send + auto-reply",
+            "thin custom scrollbar",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -15481,6 +13615,41 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Command Palette — Neo-Brutalism",
+          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "tags": [
+            "command-palette",
+            "cmd-k",
+            "neo-brutalism",
+            "brutalist",
+            "keyboard",
+            "search",
+            "overlay",
+            "dialog",
+            "developer"
+          ],
+          "features": [
+            "hard offset shadows and bright flat accents",
+            "live search filtering across grouped commands",
+            "arrow-key navigation with aria-activedescendant",
+            "Enter runs command with confirmation toast",
+            "Escape closes, Cmd/Ctrl+K toggles open",
+            "focus trap while open, focus restore on close",
+            "role dialog and role option with aria-selected",
+            "custom scrollbar styling"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Code Playground — Neo-Brutalism",
           "path": "Tailwind/Sections/developer/code-playground/neo-brutalism/",
           "type": "section",
@@ -15518,15 +13687,16 @@
           ]
         },
         {
-          "name": "Command Palette — Neo-Brutalism",
-          "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
+          "name": "Command Palette — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
+          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
             "keyboard",
             "search",
             "overlay",
@@ -15534,17 +13704,18 @@
             "developer"
           ],
           "features": [
-            "hard offset shadows and bright flat accents",
+            "frosted-glass panel with backdrop blur over animated mesh",
+            "luminous top edge and glow shadows",
+            "gradient active highlight on selected option",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
             "Escape closes, Cmd/Ctrl+K toggles open",
             "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected",
-            "custom scrollbar styling"
+            "role dialog and role option with aria-selected"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15591,16 +13762,15 @@
           ]
         },
         {
-          "name": "Command Palette — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
+          "name": "Command Palette — Vercel",
+          "path": "Tailwind/Sections/developer/command-palette/vercel/",
           "type": "section",
-          "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
+          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
           "tags": [
             "command-palette",
             "cmd-k",
-            "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
+            "vercel",
+            "dark",
             "keyboard",
             "search",
             "overlay",
@@ -15608,9 +13778,8 @@
             "developer"
           ],
           "features": [
-            "frosted-glass panel with backdrop blur over animated mesh",
-            "luminous top edge and glow shadows",
-            "gradient active highlight on selected option",
+            "dark monochrome surface with hairline borders",
+            "single teal accent and radial glow",
             "live search filtering across grouped commands",
             "arrow-key navigation with aria-activedescendant",
             "Enter runs command with confirmation toast",
@@ -15619,7 +13788,7 @@
             "role dialog and role option with aria-selected"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -15654,41 +13823,6 @@
             "live char + line counters",
             "reset control restores defaults",
             "keyboard accessible controls"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Command Palette — Vercel",
-          "path": "Tailwind/Sections/developer/command-palette/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
-          "tags": [
-            "command-palette",
-            "cmd-k",
-            "vercel",
-            "dark",
-            "keyboard",
-            "search",
-            "overlay",
-            "dialog",
-            "developer"
-          ],
-          "features": [
-            "dark monochrome surface with hairline borders",
-            "single teal accent and radial glow",
-            "live search filtering across grouped commands",
-            "arrow-key navigation with aria-activedescendant",
-            "Enter runs command with confirmation toast",
-            "Escape closes, Cmd/Ctrl+K toggles open",
-            "focus trap while open, focus restore on close",
-            "role dialog and role option with aria-selected"
           ],
           "styles": [
             "vercel"
@@ -15736,41 +13870,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
-          "tags": [
-            "feature-grid",
-            "marketing",
-            "neo-brutalism",
-            "brutalist",
-            "features",
-            "landing",
-            "cards",
-            "grid"
-          ],
-          "features": [
-            "bold uppercase section heading",
-            "six feature cards in a responsive grid",
-            "hard black borders + offset shadows",
-            "rotating flat accent icon tiles",
-            "featured card with New badge",
-            "press-down hover states",
-            "staggered entrance animation",
-            "prefers-reduced-motion guard",
-            "keyboard accessible focus states"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Hero Landing — Neo-Brutalism",
           "path": "Tailwind/Sections/marketing/hero-landing/neo-brutalism/",
           "type": "section",
@@ -15806,33 +13905,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
+          "name": "Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
+          "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "glassmorphism",
-            "glass",
+            "neo-brutalism",
+            "brutalist",
             "features",
             "landing",
-            "gradient",
-            "vibrant"
+            "cards",
+            "grid"
           ],
           "features": [
-            "backdrop-blur glass cards",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing gradient icon chips",
-            "featured card with gradient tint + glow badge",
-            "lift-on-hover interaction",
-            "staggered IntersectionObserver entrance",
+            "bold uppercase section heading",
+            "six feature cards in a responsive grid",
+            "hard black borders + offset shadows",
+            "rotating flat accent icon tiles",
+            "featured card with New badge",
+            "press-down hover states",
+            "staggered entrance animation",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -15878,33 +13977,33 @@
           ]
         },
         {
-          "name": "Feature Grid — Vercel",
-          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
+          "name": "Feature Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
+          "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
           "tags": [
             "feature-grid",
             "marketing",
-            "vercel",
-            "dark-mode",
+            "glassmorphism",
+            "glass",
             "features",
             "landing",
-            "minimal",
-            "monochrome"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "dark monochrome palette",
-            "hairline grid divider layout",
-            "masked grid backdrop",
-            "single teal accent",
-            "featured card with glowing badge",
-            "soft hover reveals",
+            "backdrop-blur glass cards",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing gradient icon chips",
+            "featured card with gradient tint + glow badge",
+            "lift-on-hover interaction",
             "staggered IntersectionObserver entrance",
             "prefers-reduced-motion guard",
             "keyboard accessible focus states"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -15938,6 +14037,41 @@
             "masked grid backdrop",
             "staggered entrance animation",
             "prefers-reduced-motion guard"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Feature Grid — Vercel",
+          "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
+          "tags": [
+            "feature-grid",
+            "marketing",
+            "vercel",
+            "dark-mode",
+            "features",
+            "landing",
+            "minimal",
+            "monochrome"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline grid divider layout",
+            "masked grid backdrop",
+            "single teal accent",
+            "featured card with glowing badge",
+            "soft hover reveals",
+            "staggered IntersectionObserver entrance",
+            "prefers-reduced-motion guard",
+            "keyboard accessible focus states"
           ],
           "styles": [
             "vercel"
@@ -16119,29 +14253,28 @@
       "variantsCount": 18,
       "variants": [
         {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
+          "name": "Free Trial CTA — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/trial-cta/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
+          "description": "Brutalist full-bleed free trial CTA banner with a giant headline, a no-credit-card checklist strip, dual offset-shadow CTAs, a diagonal grid background, and a rotated guarantee sticker. Press-down hover states and bright accent blocks give it a loud, confident close.",
           "tags": [
-            "metrics",
-            "stats",
-            "numbers",
+            "cta",
+            "trial",
             "neo-brutalism",
             "brutalist",
-            "count-up",
             "saas",
-            "offset-shadows"
+            "banner",
+            "offset-shadows",
+            "conversion"
           ],
           "features": [
-            "giant featured stat block",
-            "offset grid of stat cards",
-            "rotating bright accent panels",
-            "live count-up ticker on mount",
+            "full-bleed CTA banner",
+            "giant headline with accent block",
+            "no-credit-card checklist strip",
+            "dual offset-shadow CTAs",
             "diagonal grid background",
-            "bold section divider",
-            "press-down hover states",
-            "monospace labels"
+            "rotated guarantee sticker",
+            "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
@@ -16176,72 +14309,6 @@
             "bright accent panels",
             "press-down hover states",
             "keyboard accessible slider"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Startup Launch Hero — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/launch-hero/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
-          "tags": [
-            "hero",
-            "launch",
-            "neo-brutalism",
-            "brutalist",
-            "countdown",
-            "saas",
-            "announcement",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant boxed headline with yellow accent",
-            "live countdown ticker script",
-            "dual offset-shadow CTAs",
-            "diagonal grid background",
-            "stacked product-card collage",
-            "bright accent panels",
-            "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
-          "tags": [
-            "features",
-            "feature-grid",
-            "neo-brutalism",
-            "brutalist",
-            "saas",
-            "bento",
-            "offset-shadows"
-          ],
-          "features": [
-            "6-up feature grid",
-            "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
@@ -16288,6 +14355,74 @@
           ]
         },
         {
+          "name": "Startup Launch Hero — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/launch-hero/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
+          "tags": [
+            "hero",
+            "launch",
+            "neo-brutalism",
+            "brutalist",
+            "countdown",
+            "saas",
+            "announcement",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant boxed headline with yellow accent",
+            "live countdown ticker script",
+            "dual offset-shadow CTAs",
+            "diagonal grid background",
+            "stacked product-card collage",
+            "bright accent panels",
+            "press-down hover states",
+            "monospace labels"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
+          "tags": [
+            "metrics",
+            "stats",
+            "numbers",
+            "neo-brutalism",
+            "brutalist",
+            "count-up",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant featured stat block",
+            "offset grid of stat cards",
+            "rotating bright accent panels",
+            "live count-up ticker on mount",
+            "diagonal grid background",
+            "bold section divider",
+            "press-down hover states",
+            "monospace labels"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "SaaS Feature Grid — Neo-Brutalism",
           "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
@@ -16320,29 +14455,98 @@
           ]
         },
         {
-          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
+          "name": "Pricing Table — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
+          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
           "tags": [
-            "hero",
-            "dashboard",
+            "pricing",
+            "pricing-table",
             "sharp-glassmorphism",
             "glassmorphism",
             "frosted-glass",
             "gradient-mesh",
+            "billing-toggle",
             "saas",
-            "analytics"
+            "plans"
           ],
           "features": [
-            "centered headline with luminous edge highlight",
-            "gradient primary CTA",
-            "frosted-glass dashboard mock",
-            "KPI cards with sparklines",
-            "activity feed",
-            "floating glass stat bubbles",
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check/dash feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlight lines",
+            "hover lift states",
+            "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "tags": [
+            "screenshots",
+            "gallery",
+            "showcase",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "tabs",
+            "product-preview"
+          ],
+          "features": [
+            "tabbed screenshot gallery",
+            "large framed preview",
+            "thumbnail tabs that swap preview live",
+            "caption metadata rail",
             "cyan glow accents",
-            "hover lift states"
+            "luminous top edges",
+            "scoped keyboard-accessible tabs"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Three Tier Pricing — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
+          "tags": [
+            "pricing",
+            "three-tier",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "gradient-mesh"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "hover lift states",
+            "keyboard accessible toggle"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -16389,91 +14593,25 @@
           "name": "Bento Feature Showcase — Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/bento-showcase/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
           "tags": [
-            "testimonials",
-            "social-proof",
+            "bento",
+            "bento-grid",
             "sharp-glassmorphism",
             "glassmorphism",
             "saas",
-            "quotes",
+            "features",
             "gradient-mesh"
           ],
           "features": [
-            "asymmetric testimonial layout",
-            "large featured quote tile with gradient quote mark",
-            "medium and compact quote tiles",
-            "avatar initials chips",
-            "role and company labels",
+            "asymmetric bento layout",
+            "large hero tile with animated waveform",
+            "integration grid tile",
+            "mini command palette tile",
+            "security + global edge tiles",
+            "gradient icon chips",
             "luminous top edges",
             "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Three Tier Pricing — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass three-tier pricing over an animated gradient mesh — translucent panels with backdrop blur, a gradient CTA on the popular tier with a cyan glow badge, check feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth.",
-          "tags": [
-            "pricing",
-            "three-tier",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "gradient-mesh"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "hover lift states",
-            "keyboard accessible toggle"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
-          "tags": [
-            "screenshots",
-            "gallery",
-            "showcase",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "tabs",
-            "product-preview"
-          ],
-          "features": [
-            "tabbed screenshot gallery",
-            "large framed preview",
-            "thumbnail tabs that swap preview live",
-            "caption metadata rail",
-            "cyan glow accents",
-            "luminous top edges",
-            "scoped keyboard-accessible tabs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -16519,61 +14657,30 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
-          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "name": "Pricing Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
           "type": "section",
-          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
           "tags": [
-            "workflow",
-            "how-it-works",
+            "pricing",
+            "pricing-table",
             "vercel",
             "dark",
+            "monochrome",
+            "billing-toggle",
             "saas",
-            "steps",
-            "code-preview",
+            "plans",
             "teal-accent"
           ],
           "features": [
-            "numbered three-step workflow",
-            "left step rail with teal connectors",
-            "right sticky code/command preview",
-            "working step switcher that swaps preview live",
-            "teal accent on active step",
-            "dark panels and hairline borders",
-            "scoped keyboard-accessible buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Customer Logo Cloud — Vercel",
-          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
-          "type": "section",
-          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
-          "tags": [
-            "logos",
-            "logo-cloud",
-            "customers",
-            "vercel",
-            "dark",
-            "saas",
-            "wordmarks",
-            "teal-accent"
-          ],
-          "features": [
-            "centered headline with count chip",
-            "responsive wordmark-style SVG logo grid",
-            "white/white-40 logo hierarchy",
-            "hairline panel borders",
-            "pull-quote with avatar",
-            "teal accent on count chip",
-            "single teal dot"
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with teal dot badge",
+            "check/dash feature lists",
+            "hairline borders and dark panels",
+            "white primary CTA",
+            "subtle hover fills",
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16653,6 +14760,72 @@
           ]
         },
         {
+          "name": "Customer Logo Cloud — Vercel",
+          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
+          "type": "section",
+          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
+          "tags": [
+            "logos",
+            "logo-cloud",
+            "customers",
+            "vercel",
+            "dark",
+            "saas",
+            "wordmarks",
+            "teal-accent"
+          ],
+          "features": [
+            "centered headline with count chip",
+            "responsive wordmark-style SVG logo grid",
+            "white/white-40 logo hierarchy",
+            "hairline panel borders",
+            "pull-quote with avatar",
+            "teal accent on count chip",
+            "single teal dot"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Workflow Section — Vercel",
+          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "type": "section",
+          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "tags": [
+            "workflow",
+            "how-it-works",
+            "vercel",
+            "dark",
+            "saas",
+            "steps",
+            "code-preview",
+            "teal-accent"
+          ],
+          "features": [
+            "numbered three-step workflow",
+            "left step rail with teal connectors",
+            "right sticky code/command preview",
+            "working step switcher that swaps preview live",
+            "teal accent on active step",
+            "dark panels and hairline borders",
+            "scoped keyboard-accessible buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "SaaS Product Hero — Vercel",
           "path": "Tailwind/Sections/saas/product-hero/vercel/",
           "type": "section",
@@ -16677,41 +14850,6 @@
             "framed product UI preview with sidebar and inbox",
             "floating SLA stat chip",
             "hairline borders and dark panel"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
-          "type": "section",
-          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
-          "tags": [
-            "pricing",
-            "pricing-table",
-            "vercel",
-            "dark",
-            "monochrome",
-            "billing-toggle",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with teal dot badge",
-            "check/dash feature lists",
-            "hairline borders and dark panels",
-            "white primary CTA",
-            "subtle hover fills",
-            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "vercel"
@@ -16899,7 +15037,13 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/conduct.html",
+            "pages/index.html",
+            "pages/register.html",
+            "pages/schedule.html",
+            "pages/speakers.html",
+            "pages/venue.html"
           ]
         }
       ],
@@ -17039,7 +15183,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -17180,7 +15325,11 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/contact.html",
+            "pages/index.html",
+            "pages/projects.html",
+            "pages/studio.html"
           ]
         }
       ],
@@ -17237,7 +15386,8 @@
           "files": [
             "README.md",
             "metadata.json",
-            "preview.html"
+            "preview.html",
+            "pages/index.html"
           ]
         }
       ],
@@ -23315,6 +21465,7 @@
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -23412,6 +21563,7 @@
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -23533,6 +21685,7 @@
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -23564,50 +21717,6 @@
         "dark-mode",
         "design-system",
         "data-dense"
-      ]
-    },
-    {
-      "name": "Landing-Pages",
-      "path": "Vanilla/Templates/Landing-Pages/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Landing-Pages website template (Vanilla HTML/CSS/JS).",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "One Page Scrolling",
-          "path": "Vanilla/Templates/Landing-Pages/one-page-scrolling/",
-          "type": "template",
-          "description": "One Page Scrolling.",
-          "tags": [
-            "404",
-            "pagination",
-            "scroll",
-            "web-components",
-            "flexbox",
-            "center",
-            "layout",
-            "typography"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "one-page-scrolling",
-      "tags": [
-        "404",
-        "center",
-        "flexbox",
-        "layout",
-        "pagination",
-        "scroll",
-        "typography",
-        "web-components"
       ]
     },
     {
@@ -23670,6 +21779,7 @@
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/activity.html",
@@ -23723,243 +21833,71 @@
       ]
     },
     {
-      "name": "Standalone",
-      "path": "Vanilla/Templates/Standalone/",
+      "name": "Developer Portfolio",
+      "path": "Vanilla/Templates/developer-portfolio/",
       "tech": "Vanilla HTML/CSS/JS",
       "type": "template",
       "category": "Templates",
-      "description": "Standalone website template (Vanilla HTML/CSS/JS).",
-      "variantsCount": 2,
-      "variants": [
-        {
-          "name": "404 Not Found Page",
-          "path": "Vanilla/Templates/Standalone/404-not-found-page/",
-          "type": "template",
-          "description": "404 Not Found Page.",
-          "tags": [
-            "404",
-            "badge",
-            "pagination",
-            "animation",
-            "center",
-            "layout",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Coming Soon Page",
-          "path": "Vanilla/Templates/Standalone/Coming-Soon/",
-          "type": "template",
-          "description": "Coming Soon Page.",
-          "tags": [
-            "404",
-            "pagination",
-            "coming-soon",
-            "animation",
-            "center",
-            "layout",
-            "form",
-            "table"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "404-not-found-page",
-      "tags": [
-        "404",
-        "animation",
-        "badge",
-        "center",
-        "coming-soon",
-        "form",
-        "layout",
-        "pagination",
-        "table"
-      ]
-    },
-    {
-      "name": "Ai Tool Launch",
-      "path": "Vanilla/Templates/ai-tool-launch/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Ai Tool Launch with responsive design with animations and hover interactions.",
+      "description": "",
       "variantsCount": 1,
       "variants": [
         {
-          "name": "Ai Tool Launch",
-          "path": "Vanilla/Templates/ai-tool-launch/",
+          "name": "Developer Portfolio",
+          "path": "Vanilla/Templates/developer-portfolio/",
           "type": "template",
-          "description": "Ai Tool Launch.",
+          "description": "A personal, technical, editorial-minimal portfolio template for a software / design engineer, built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, anchor nav, theme toggle, and a responsive mobile drawer; an editorial intro with a clamp() lead, status badge, and metadata grid; a selected-work list of project cards (index, title, role, year, description, stack tags, case-study link); an about/capabilities split with a capability table and a four-up stat row; a notes/writing list with date + category meta; and a contact section with a lead, channels list, and footer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with light-default + calm opt-in dark mode and reduced-motion guard) + script.js (theme toggle, mobile nav, scrollspy active nav, IntersectionObserver reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.",
           "tags": [
-            "layout",
-            "accordion",
-            "tooltip",
-            "semantic",
-            "container-query",
-            "coming-soon",
-            "container-queries",
-            "animation"
-          ],
-          "features": [
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "ai-tool-launch",
-      "tags": [
-        "layout",
-        "accordion",
-        "tooltip",
-        "semantic",
-        "container-query",
-        "coming-soon",
-        "container-queries",
-        "animation"
-      ]
-    },
-    {
-      "name": "Blog Landing Pages",
-      "path": "Vanilla/Templates/blog-landing-pages/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Blog Landing Pages with responsive design with animations and hover interactions.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Cyber Neon Dark",
-          "path": "Vanilla/Templates/blog-landing-pages/cyber-neon-dark/",
-          "type": "template",
-          "description": "Dark cyber blog landing with cyan and purple neon glow and particle effects.",
-          "tags": [
-            "blog",
-            "landing-page",
-            "cyber",
-            "neon",
-            "dark",
-            "gradient"
-          ],
-          "features": [
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "cyber-neon-dark"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Editorial Magazine",
-          "path": "Vanilla/Templates/blog-landing-pages/editorial-magazine/",
-          "type": "template",
-          "description": "Minimal serif magazine blog landing with editorial typography.",
-          "tags": [
-            "blog",
-            "landing-page",
+            "portfolio",
+            "developer",
+            "personal",
             "editorial",
-            "serif",
-            "minimal"
-          ],
-          "features": [
-            "responsive"
-          ],
-          "styles": [
-            "editorial-magazine"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Minimal Soft Blue",
-          "path": "Vanilla/Templates/blog-landing-pages/minimal-soft-blue/",
-          "type": "template",
-          "description": "Clean light blog landing with soft-blue accents and gentle shadows.",
-          "tags": [
-            "blog",
-            "landing-page",
             "minimal",
-            "soft-blue",
-            "shadow"
+            "design-system",
+            "css-variables",
+            "responsive",
+            "dark-mode",
+            "accessibility",
+            "vanilla-js",
+            "typography",
+            "scrollspy",
+            "reveal",
+            "light-default"
           ],
           "features": [
-            "responsive"
-          ],
-          "styles": [
-            "minimal-soft-blue"
+            "sticky header with brand mark, anchor nav, theme toggle, and responsive mobile drawer (aria-expanded)",
+            "editorial intro with clamp() oversized lead, availability status badge, and metadata grid",
+            "selected-work list of project cards (index, title, role, year, description, stack tags, case-study link)",
+            "about / capabilities split layout with capability table and four-up stat row",
+            "notes / writing list with date + category meta and hover affordance",
+            "contact section with lead, channels list (email / GitHub / calendar), and footer",
+            "light-default theme with calm opt-in dark mode (no-flash pre-paint script + persisted toggle)",
+            "scrollspy active nav state (aria-current=location via IntersectionObserver)",
+            "IntersectionObserver scroll-reveal (.reveal -> .is-visible, threshold 0.12, unobserved after)",
+            "DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens on top",
+            "hairline 1px borders, small controlled radii, restrained shadows, single controlled accent",
+            "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Soft Pastel Blob",
-          "path": "Vanilla/Templates/blog-landing-pages/soft-pastel-blob/",
-          "type": "template",
-          "description": "Pastel blog landing with morphing blob hero and gradient cards.",
-          "tags": [
-            "blog",
-            "landing-page",
-            "pastel",
-            "gradient",
-            "animation"
-          ],
-          "features": [
-            "animation",
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "soft-pastel-blob"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
-      "subcategory": "blog-landing-pages",
+      "subcategory": "freelancer-portfolio",
       "tags": [
-        "landing-page",
-        "blog",
         "animation",
+        "center",
+        "flexbox",
+        "grid",
         "hover-effect",
-        "glassmorphism",
-        "gradient",
-        "shadow",
-        "parallax"
+        "portfolio",
+        "responsive",
+        "shadow"
       ]
     },
     {
@@ -23975,25 +21913,53 @@
           "name": "Event Conference",
           "path": "Vanilla/Templates/event-conference/",
           "type": "template",
-          "description": "Event Conference.",
+          "description": "A dense, structured single-track conference website template built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, date, anchor nav, theme toggle, and responsive mobile drawer; an editorial hero with a clamp() headline, facts grid (dates / location / talks / capacity), and a live countdown card; an about section with highlights table and a four-up stat row; a speakers grid (avatar initials, name, role, talk); a two-day schedule with an ARIA tablist (arrow-key nav, Home/End) and a time-rail slot list; a venue section with details table; a capped sponsorship tier list; and a three-tier register panel (early-bird / standard / workshop) + footer. Split into modular files: code.html + style.css (the --ds-* design-token system from design-tokens.md, light-default + calm opt-in dark mode, reduced-motion guard) + script.js (theme toggle, mobile nav, schedule tabs, live countdown, reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.",
           "tags": [
-            "animation",
-            "hover-effect",
-            "gradient",
-            "shadow",
-            "typing-effect",
-            "flexbox",
-            "grid",
-            "center"
+            "event",
+            "conference",
+            "schedule",
+            "speakers",
+            "tickets",
+            "countdown",
+            "tabs",
+            "tablist",
+            "venue",
+            "sponsors",
+            "pricing",
+            "design-system",
+            "css-variables",
+            "responsive",
+            "dark-mode",
+            "accessibility",
+            "vanilla-js",
+            "editorial",
+            "minimal",
+            "light-default"
           ],
           "features": [
-            "semantic HTML"
+            "sticky header with brand mark, date, anchor nav, theme toggle, and responsive mobile drawer (aria-expanded)",
+            "editorial hero with clamp() headline and facts grid (dates / location / talks / capacity)",
+            "live countdown card counting down to event start (days/hours/mins/secs), paused when tab hidden",
+            "about section with highlights table and four-up stat row",
+            "speakers grid (avatar initials, name, role, talk title)",
+            "two-day schedule with ARIA tablist (arrow-key + Home/End navigation) and time-rail slot list",
+            "venue section with details table (venue / address / transit / doors / access)",
+            "capped sponsorship tier list (Partner / Supporter)",
+            "three-tier register panel (early-bird / standard / workshop) with feature lists",
+            "light-default theme with calm opt-in dark mode (no-flash pre-paint script + persisted toggle)",
+            "IntersectionObserver scroll-reveal (.reveal -> .is-visible, reduced-motion safe)",
+            "DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens on top",
+            "hairline 1px borders, small controlled radii, restrained shadows, single controlled accent",
+            "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
-            "pages/index.html"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
@@ -24010,53 +21976,6 @@
       ]
     },
     {
-      "name": "Freelancer Portfolio",
-      "path": "Vanilla/Templates/freelancer-portfolio/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Freelancer Portfolio with responsive design with animations and hover interactions.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Freelancer Portfolio",
-          "path": "Vanilla/Templates/freelancer-portfolio/",
-          "type": "template",
-          "description": "Freelancer Portfolio.",
-          "tags": [
-            "portfolio",
-            "animation",
-            "hover-effect",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "grid",
-            "center"
-          ],
-          "features": [
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "freelancer-portfolio",
-      "tags": [
-        "portfolio",
-        "animation",
-        "hover-effect",
-        "shadow",
-        "responsive",
-        "flexbox",
-        "grid",
-        "center"
-      ]
-    },
-    {
       "name": "Html5 Boilerplate",
       "path": "Vanilla/Templates/html5-boilerplate/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -24066,12 +21985,31 @@
       "variantsCount": 1,
       "variants": [
         {
-          "name": "Html5 Boilerplate",
+          "name": "HTML5 Boilerplate",
           "path": "Vanilla/Templates/html5-boilerplate/",
           "type": "template",
-          "description": "Html5 Boilerplate.",
+          "description": "A minimal, clean HTML5 starter template aligned with the DevSnips design system. A single self-contained index.html with the doctype, head, and body, plus the core --ds-* design-token foundation (light-default + calm opt-in dark mode via [data-theme=\"dark\"]), a no-flash pre-paint theme script, system-font stack (Inter + JetBrains Mono with fallbacks), box-sizing reset, :focus-visible ring, and a prefers-reduced-motion guard. Intentionally bare so a new page can build on the shared token base from the first line. No framework, no build step, no external dependencies.",
           "tags": [
-            "table"
+            "boilerplate",
+            "starter",
+            "html5",
+            "minimal",
+            "design-system",
+            "css-variables",
+            "dark-mode",
+            "accessibility",
+            "reduced-motion",
+            "light-default"
+          ],
+          "features": [
+            "minimal HTML5 document skeleton (doctype, head, body)",
+            "core --ds-* design-token foundation (semantic + accent tokens, fonts, radii, spacing, motion)",
+            "light-default theme with calm opt-in dark mode via [data-theme=\"dark\"]",
+            "no-flash pre-paint theme script (saved preference or system preference)",
+            "system-font stack (Inter + JetBrains Mono with fallbacks; no external download required to function)",
+            "box-sizing reset and base body styles on tokens",
+            ":focus-visible ring for keyboard users",
+            "prefers-reduced-motion guard"
           ],
           "files": [
             "README.md",
@@ -24087,309 +22025,63 @@
       ]
     },
     {
-      "name": "Micro Saas Product",
-      "path": "Vanilla/Templates/micro-saas-product/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Micro Saas Product with responsive design with animations and hover interactions.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Micro Saas Product",
-          "path": "Vanilla/Templates/micro-saas-product/",
-          "type": "template",
-          "description": "Micro Saas Product.",
-          "tags": [
-            "ecommerce",
-            "animation",
-            "hover-effect",
-            "gradient",
-            "shadow",
-            "responsive",
-            "flexbox",
-            "grid"
-          ],
-          "features": [
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "micro-saas-product",
-      "tags": [
-        "ecommerce",
-        "animation",
-        "hover-effect",
-        "gradient",
-        "shadow",
-        "responsive",
-        "flexbox",
-        "grid"
-      ]
-    },
-    {
-      "name": "Nft Web3 Project",
-      "path": "Vanilla/Templates/nft-web3-project/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Nft Web3 Project with responsive design with animations and hover interactions.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Nft Web3 Project",
-          "path": "Vanilla/Templates/nft-web3-project/",
-          "type": "template",
-          "description": "Nft Web3 Project.",
-          "tags": [
-            "animation",
-            "hover-effect",
-            "glassmorphism",
-            "gradient",
-            "shadow",
-            "pulse",
-            "responsive",
-            "flexbox"
-          ],
-          "features": [
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "nft-web3-project",
-      "tags": [
-        "animation",
-        "hover-effect",
-        "glassmorphism",
-        "gradient",
-        "shadow",
-        "pulse",
-        "responsive",
-        "flexbox"
-      ]
-    },
-    {
-      "name": "Portfolio Site",
-      "path": "Vanilla/Templates/portfolio-site/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Portfolio Site with responsive design with animations and hover interactions, supports dark mode.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Bold Gradient Blob",
-          "path": "Vanilla/Templates/portfolio-site/bold-gradient-blob/",
-          "type": "template",
-          "description": "Dark portfolio with bold multi-color gradients and blurred blobs.",
-          "tags": [
-            "portfolio",
-            "gradient",
-            "blob",
-            "glassmorphism",
-            "dark"
-          ],
-          "features": [
-            "glassmorphism",
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "bold-gradient-blob"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Cyber Neon Grid",
-          "path": "Vanilla/Templates/portfolio-site/cyber-neon-grid/",
-          "type": "template",
-          "description": "Dark portfolio with animated dot-grid background and neon accents.",
-          "tags": [
-            "portfolio",
-            "cyber",
-            "neon",
-            "grid",
-            "dark"
-          ],
-          "features": [
-            "responsive"
-          ],
-          "styles": [
-            "cyber-neon-grid"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Dark Glassmorphism Purple",
-          "path": "Vanilla/Templates/portfolio-site/dark-glassmorphism-purple/",
-          "type": "template",
-          "description": "Dark portfolio with glassmorphism nav and purple accents.",
-          "tags": [
-            "portfolio",
-            "glassmorphism",
-            "dark",
-            "purple",
-            "gradient"
-          ],
-          "features": [
-            "glassmorphism",
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "dark-glassmorphism-purple"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Minimal Editorial Light",
-          "path": "Vanilla/Templates/portfolio-site/minimal-editorial-light/",
-          "type": "template",
-          "description": "White minimal portfolio with pastel accent and editorial layout.",
-          "tags": [
-            "portfolio",
-            "minimal",
-            "editorial",
-            "light"
-          ],
-          "features": [
-            "responsive"
-          ],
-          "styles": [
-            "minimal-editorial-light"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "portfolio-site",
-      "tags": [
-        "portfolio",
-        "404",
-        "animation",
-        "hover-effect",
-        "glassmorphism",
-        "gradient",
-        "shadow",
-        "parallax"
-      ]
-    },
-    {
       "name": "Product Launch",
       "path": "Vanilla/Templates/product-launch/",
       "tech": "Vanilla HTML/CSS/JS",
       "type": "template",
       "category": "Templates",
       "description": "Product Launch with responsive design with animations and hover interactions.",
-      "variantsCount": 3,
+      "variantsCount": 1,
       "variants": [
         {
-          "name": "Cyber Neon Dark",
-          "path": "Vanilla/Templates/product-launch/cyber-neon-dark/",
+          "name": "Product Launch",
+          "path": "Vanilla/Templates/product-launch/",
           "type": "template",
-          "description": "Dark launch page with neon cyan glow and futuristic typography.",
+          "description": "A clean, restrained product launch / waitlist landing page for a dev-focused product, built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, anchor nav, theme toggle, and responsive mobile drawer; an editorial hero with a clamp() headline, status meta, and a working waitlist card (name + email validation, simulated submission, success state, beta-capacity progress bar); a social-proof logo row; a three-column feature grid; a four-step how-it-works list; a two-plan pricing teaser; a single-open FAQ accordion (CSS-grid 0fr->1fr, aria-expanded/controls/region); and a final CTA panel + footer. Split into modular files: code.html + style.css (the --ds-* design-token system from design-tokens.md, light-default + calm opt-in dark mode, reduced-motion guard) + script.js (theme toggle, mobile nav, accordion, waitlist form validation, reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.",
           "tags": [
-            "ecommerce",
-            "landing-page",
-            "cyber",
-            "neon",
-            "dark"
-          ],
-          "features": [
-            "responsive"
-          ],
-          "styles": [
-            "cyber-neon-dark"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Gradient SaaS",
-          "path": "Vanilla/Templates/product-launch/gradient-saas/",
-          "type": "template",
-          "description": "Clean SaaS launch page with a single purple-to-blue gradient hero.",
-          "tags": [
-            "ecommerce",
+            "product-launch",
+            "waitlist",
             "landing-page",
             "saas",
-            "gradient"
+            "beta",
+            "pricing",
+            "faq",
+            "accordion",
+            "form-validation",
+            "design-system",
+            "css-variables",
+            "responsive",
+            "dark-mode",
+            "accessibility",
+            "vanilla-js",
+            "editorial",
+            "minimal",
+            "light-default"
           ],
           "features": [
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "gradient-saas"
+            "sticky header with brand mark, version badge, anchor nav, theme toggle, and responsive mobile drawer (aria-expanded)",
+            "editorial hero with clamp() headline, status meta row (status / launch / platforms)",
+            "working waitlist card: name + work-email fields with inline validation, simulated submission, success state, and beta-capacity progress bar",
+            "social-proof logo row",
+            "three-column responsive feature grid (six features)",
+            "four-step how-it-works list with numbered rail",
+            "two-plan pricing teaser (Free / Team) with per-team pricing and feature lists",
+            "single-open FAQ accordion (CSS-grid 0fr->1fr, aria-expanded/aria-controls/role=region, chevron rotate)",
+            "final CTA panel with primary + secondary actions",
+            "light-default theme with calm opt-in dark mode (no-flash pre-paint script + persisted toggle)",
+            "IntersectionObserver scroll-reveal (.reveal -> .is-visible, reduced-motion safe)",
+            "DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens on top",
+            "hairline 1px borders, small controlled radii, restrained shadows, single controlled accent",
+            "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
             "README.md",
+            "agent_instruction.md",
             "metadata.json",
             "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Playful Pastel Rotated",
-          "path": "Vanilla/Templates/product-launch/playful-pastel-rotated/",
-          "type": "template",
-          "description": "Playful launch page with rotated cards and pastel blob gradients.",
-          "tags": [
-            "ecommerce",
-            "landing-page",
-            "playful",
-            "pastel",
-            "gradient",
-            "animation"
-          ],
-          "features": [
-            "animation",
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "playful-pastel-rotated"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
+            "pages/code.html",
+            "pages/script.js",
+            "pages/style.css"
           ]
         }
       ],
@@ -24403,148 +22095,6 @@
         "shadow",
         "parallax",
         "pulse"
-      ]
-    },
-    {
-      "name": "Startup Template",
-      "path": "Vanilla/Templates/startup-template/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Startup Template with responsive design with animations and hover interactions, supports dark mode.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Cyber Neon Startup",
-          "path": "Vanilla/Templates/startup-template/cyber-neon-startup/",
-          "type": "template",
-          "description": "Dark startup template with glassmorphism header and neon accents.",
-          "tags": [
-            "startup",
-            "cyber",
-            "neon",
-            "glassmorphism",
-            "dark"
-          ],
-          "features": [
-            "glassmorphism",
-            "responsive"
-          ],
-          "styles": [
-            "cyber-neon-startup"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Minimal Professional",
-          "path": "Vanilla/Templates/startup-template/minimal-professional/",
-          "type": "template",
-          "description": "Neutral professional startup template with light/dark toggle and soft shadows.",
-          "tags": [
-            "startup",
-            "minimal",
-            "professional",
-            "neutral"
-          ],
-          "features": [
-            "responsive"
-          ],
-          "styles": [
-            "minimal-professional"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        },
-        {
-          "name": "Soft Gradient Shapes",
-          "path": "Vanilla/Templates/startup-template/soft-gradient-shapes/",
-          "type": "template",
-          "description": "Light startup template with soft pastel gradients and floating SVG shapes.",
-          "tags": [
-            "startup",
-            "gradient",
-            "pastel",
-            "animation"
-          ],
-          "features": [
-            "animation",
-            "gradient",
-            "responsive"
-          ],
-          "styles": [
-            "soft-gradient-shapes"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "startup-template",
-      "tags": [
-        "grid",
-        "animation",
-        "hover-effect",
-        "glassmorphism",
-        "gradient",
-        "shadow",
-        "parallax",
-        "responsive"
-      ]
-    },
-    {
-      "name": "Template Element",
-      "path": "Vanilla/Templates/template-element/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "template",
-      "category": "Templates",
-      "description": "Template Element.",
-      "variantsCount": 1,
-      "variants": [
-        {
-          "name": "Template Element",
-          "path": "Vanilla/Templates/template-element/",
-          "type": "template",
-          "description": "Template Element.",
-          "tags": [
-            "grid",
-            "web-components",
-            "layout",
-            "button",
-            "table",
-            "image",
-            "click",
-            "utility"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "preview.html",
-            "pages/index.html"
-          ]
-        }
-      ],
-      "subcategory": "template-element",
-      "tags": [
-        "grid",
-        "web-components",
-        "layout",
-        "button",
-        "table",
-        "image",
-        "click",
-        "utility"
       ]
     }
   ],
@@ -24634,20 +22184,11 @@
         "Agency",
         "Documentation Site",
         "Job Board",
-        "Landing-Pages",
         "SaaS Dashboard",
-        "Standalone",
-        "Ai Tool Launch",
-        "Blog Landing Pages",
+        "Developer Portfolio",
         "Event Conference",
-        "Freelancer Portfolio",
         "Html5 Boilerplate",
-        "Micro Saas Product",
-        "Nft Web3 Project",
-        "Portfolio Site",
-        "Product Launch",
-        "Startup Template",
-        "Template Element"
+        "Product Launch"
       ]
     }
   ],
