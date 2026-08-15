@@ -3,13 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Micro Saas Product — Preview</title>
+  <title>Pulse — Status pages that stay calm</title>
+  <meta name="description" content="Pulse is a focused status and uptime tool for small product teams.">
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
-    body > iframe { display: block; width: 100%; height: 100%; border: 0; }
+:root {
+  --ds-bg-canvas: #ffffff; --ds-bg-surface: #ffffff; --ds-bg-surface-subtle: #fafafa;
+  --ds-text-primary: #111111; --ds-text-secondary: #4b4b4b; --ds-text-muted: #707070;
+  --ds-border-default: #e5e5e5; --ds-border-subtle: #f0f0f0; --ds-border-focus: #111111;
+  --ds-action-primary: #111111; --ds-action-primary-hover: #222222;
+  --ds-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ds-text-sm: 13px; --ds-text-md: 14px; --ds-text-lg: 16px; --ds-text-xl: 18px; --ds-text-2xl: 22px; --ds-text-3xl: 28px;
+  --ds-weight-medium: 500; --ds-weight-semibold: 600;
+  --ds-leading-tight: 1.15; --ds-leading-snug: 1.3; --ds-leading-normal: 1.5;
+  --ds-space-2: 8px; --ds-space-3: 12px; --ds-space-4: 16px; --ds-space-6: 24px; --ds-space-8: 32px; --ds-space-10: 40px; --ds-space-16: 64px; --ds-space-20: 80px;
+  --ds-radius-sm: 4px; --ds-container: 960px; --ds-page-padding: 24px; --ds-nav-height: 56px;
+}
+[data-theme="dark"] {
+  --ds-bg-canvas: #0a0a0a; --ds-bg-surface: #111111; --ds-bg-surface-subtle: #171717;
+  --ds-text-primary: #f5f5f5; --ds-text-secondary: #c8c8c8; --ds-text-muted: #909090;
+  --ds-border-default: #272727; --ds-border-subtle: #1a1a1a; --ds-border-focus: #ffffff;
+  --ds-action-primary: #f5f5f5; --ds-action-primary-hover: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; font-family: var(--ds-font-sans); font-size: var(--ds-text-md); line-height: var(--ds-leading-normal); color: var(--ds-text-primary); background: var(--ds-bg-canvas); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--ds-border-focus); outline-offset: 2px; }
+.container { width: 100%; max-width: var(--ds-container); margin: 0 auto; padding-left: var(--ds-page-padding); padding-right: var(--ds-page-padding); }
+.site-header { position: sticky; top: 0; z-index: 50; height: var(--ds-nav-height); background: color-mix(in srgb, var(--ds-bg-canvas) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--ds-border-default); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--ds-nav-height); }
+.logo { font-weight: var(--ds-weight-semibold); font-size: var(--ds-text-lg); letter-spacing: -0.02em; text-decoration: none; }
+.logo:hover { text-decoration: none; }
+.nav-links { display: flex; gap: var(--ds-space-6); list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-size: var(--ds-text-sm); color: var(--ds-text-secondary); text-decoration: none; }
+.nav-links a:hover { color: var(--ds-text-primary); text-decoration: none; }
+.nav-actions { display: flex; align-items: center; gap: var(--ds-space-3); }
+.theme-toggle, .menu-toggle { width: 32px; height: 32px; border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface); color: var(--ds-text-primary); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+.menu-toggle { display: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); border-radius: var(--ds-radius-sm); border: 1px solid transparent; cursor: pointer; text-decoration: none; font-family: inherit; }
+.btn-primary { background: var(--ds-action-primary); color: var(--ds-bg-canvas); }
+.btn-primary:hover { background: var(--ds-action-primary-hover); text-decoration: none; }
+.btn-secondary { background: var(--ds-bg-surface); color: var(--ds-text-primary); border-color: var(--ds-border-default); }
+.btn-secondary:hover { background: var(--ds-bg-surface-subtle); text-decoration: none; }
+.btn-lg { height: 44px; padding: 0 20px; font-size: var(--ds-text-md); }
+.hero { padding: var(--ds-space-20) 0 var(--ds-space-16); border-bottom: 1px solid var(--ds-border-default); }
+.hero-eyebrow { font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-4); }
+.hero h1 { font-size: clamp(28px, 5vw, 40px); font-weight: var(--ds-weight-semibold); line-height: var(--ds-leading-tight); letter-spacing: -0.03em; margin: 0 0 var(--ds-space-4); max-width: 16ch; }
+.hero-lead { font-size: var(--ds-text-xl); color: var(--ds-text-secondary); line-height: var(--ds-leading-snug); margin: 0 0 var(--ds-space-8); max-width: 42ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); }
+.section { padding: var(--ds-space-16) 0; border-bottom: 1px solid var(--ds-border-default); }
+.section-label { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-3); }
+.section-title { font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; margin: 0 0 var(--ds-space-4); }
+.section-lead { font-size: var(--ds-text-lg); color: var(--ds-text-secondary); line-height: 1.55; margin: 0 0 var(--ds-space-10); max-width: 48ch; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-10); }
+.split h3 { font-size: var(--ds-text-lg); font-weight: var(--ds-weight-semibold); margin: 0 0 var(--ds-space-2); }
+.split p { margin: 0; color: var(--ds-text-secondary); line-height: 1.55; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--ds-space-6); }
+.feature-card { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: var(--ds-space-6); background: var(--ds-bg-surface); }
+.feature-card h3 { font-size: var(--ds-text-lg); font-weight: var(--ds-weight-semibold); margin: 0 0 var(--ds-space-2); }
+.feature-card p { margin: 0; color: var(--ds-text-secondary); line-height: 1.55; }
+.pricing-toggle { display: flex; align-items: center; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
+.pricing-toggle button { height: 32px; padding: 0 12px; border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface); color: var(--ds-text-secondary); font-family: inherit; font-size: var(--ds-text-sm); cursor: pointer; }
+.pricing-toggle button[aria-pressed="true"] { background: var(--ds-action-primary); color: var(--ds-bg-canvas); border-color: var(--ds-action-primary); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--ds-space-6); }
+.pricing-card { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: var(--ds-space-8); background: var(--ds-bg-surface); display: flex; flex-direction: column; }
+.pricing-card.is-featured { border-color: var(--ds-text-primary); }
+.pricing-card h3 { font-size: var(--ds-text-lg); font-weight: var(--ds-weight-semibold); margin: 0 0 var(--ds-space-2); }
+.price { font-size: var(--ds-text-3xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; margin: 0 0 4px; }
+.price span { font-size: var(--ds-text-md); font-weight: 400; color: var(--ds-text-muted); }
+.pricing-desc { font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-6); }
+.pricing-list { list-style: none; margin: 0 0 var(--ds-space-8); padding: 0; flex: 1; }
+.pricing-list li { padding: var(--ds-space-2) 0; border-bottom: 1px solid var(--ds-border-subtle); color: var(--ds-text-secondary); font-size: var(--ds-text-md); }
+.pricing-list li:last-child { border-bottom: none; }
+.site-footer { padding: var(--ds-space-8) 0; font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--ds-space-4); }
+@media (max-width: 720px) {
+  :root { --ds-page-padding: 16px; }
+  .split { grid-template-columns: 1fr; }
+  .nav-links { display: none; position: absolute; top: var(--ds-nav-height); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ds-bg-canvas); border-bottom: 1px solid var(--ds-border-default); padding: var(--ds-space-3) var(--ds-page-padding); }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: var(--ds-space-3) 0; }
+  .menu-toggle { display: inline-flex; }
+}
   </style>
 </head>
 <body>
-  <iframe src="pages/index.html" title="Micro Saas Product" loading="lazy"></iframe>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Pulse</a>
+      <ul class="nav-links" data-nav-links>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">◐</button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#pricing" class="btn btn-primary">Start free</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Status & uptime for small teams</p>
+        <h1>Status pages that stay calm under pressure.</h1>
+        <p class="hero-lead">Pulse helps you publish clear incident updates and uptime history without a heavy ops stack.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg">Start free</a>
+          <a href="#features" class="btn btn-secondary btn-lg">See features</a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div><h3>The problem</h3><p>When something breaks, customers need a single trustworthy place to look. Spreadsheets and Twitter threads don’t scale, and full observability suites are overkill for many teams.</p></div>
+          <div><h3>Our approach</h3><p>Pulse is a narrow tool: monitors you care about, a public status page, and incident posts that read like product writing — not noise.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="container">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Built for clarity, not dashboards</h2>
+        <p class="section-lead">A small surface area so you can ship updates in minutes, not configure a platform for weeks.</p>
+        <div class="feature-grid">
+          <article class="feature-card"><h3>Public status page</h3><p>Hosted page with component health, uptime history, and a clean incident feed.</p></article>
+          <article class="feature-card"><h3>Incident composer</h3><p>Write updates with severity, impact, and next steps. Subscribers get email or webhook notifications.</p></article>
+          <article class="feature-card"><h3>Simple checks</h3><p>HTTP and TCP checks on a schedule you control. No agent install for the default setup.</p></article>
+          <article class="feature-card"><h3>Quiet design</h3><p>Status UI that matches a product-minded brand — restrained typography, no alarmist chrome.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="pricing">
+      <div class="container">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title">Simple plans</h2>
+        <p class="section-lead">Start free. Upgrade when you need more monitors or a custom domain.</p>
+        <div class="pricing-toggle">
+          <button type="button" data-billing="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" data-billing="yearly" aria-pressed="false">Yearly (−20%)</button>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3>Free</h3>
+            <p class="price" data-price-monthly="$0" data-price-yearly="$0">$0<span>/mo</span></p>
+            <p class="pricing-desc">For side projects and early products.</p>
+            <ul class="pricing-list"><li>1 status page</li><li>3 monitors</li><li>Pulse subdomain</li><li>Email alerts</li></ul>
+            <a href="#" class="btn btn-secondary">Start free</a>
+          </article>
+          <article class="pricing-card is-featured">
+            <h3>Team</h3>
+            <p class="price" data-price-monthly="$19" data-price-yearly="$15">$19<span>/mo</span></p>
+            <p class="pricing-desc">For product teams with real traffic.</p>
+            <ul class="pricing-list"><li>3 status pages</li><li>25 monitors</li><li>Custom domain</li><li>Slack + webhooks</li><li>Subscriber list</li></ul>
+            <a href="#" class="btn btn-primary">Start trial</a>
+          </article>
+          <article class="pricing-card">
+            <h3>Business</h3>
+            <p class="price" data-price-monthly="$59" data-price-yearly="$47">$59<span>/mo</span></p>
+            <p class="pricing-desc">For multi-product companies.</p>
+            <ul class="pricing-list"><li>Unlimited pages</li><li>100 monitors</li><li>SSO (soon)</li><li>Priority support</li></ul>
+            <a href="#" class="btn btn-secondary">Contact sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Pulse</span>
+      <span>Status pages without the noise</span>
+    </div>
+  </footer>
+  <script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var stored = localStorage.getItem('ds-theme');
+  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) root.setAttribute('data-theme', 'dark');
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('ds-theme', 'light'); }
+      else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('ds-theme', 'dark'); }
+    });
+  });
+  var menuToggle = document.querySelector('[data-menu-toggle]');
+  var navLinks = document.querySelector('[data-nav-links]');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  var toggleBtns = document.querySelectorAll('[data-billing]');
+  var prices = document.querySelectorAll('[data-price-monthly]');
+  toggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var mode = btn.getAttribute('data-billing');
+      toggleBtns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      prices.forEach(function (el) {
+        var monthly = el.getAttribute('data-price-monthly');
+        var yearly = el.getAttribute('data-price-yearly');
+        el.innerHTML = mode === 'yearly' ? yearly + '<span>/mo</span>' : monthly + '<span>/mo</span>';
+      });
+    });
+  });
+})();
+  </script>
 </body>
 </html>
