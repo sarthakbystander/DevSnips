@@ -58,10 +58,11 @@ def faq(style, i):
     key, title = concepts[i]
     h = head("FAQ", "help", "Frequently asked questions", "Everything you need to know about the product, billing, and onboarding.", style)
 
-    def qrow(idx):
+    def qrow(idx, qid=None):
         q, a = QA[idx % len(QA)]
+        id_attr = ' id="q%d"' % qid if qid is not None else ""
         return (
-            '<details class="group %s %s"><summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold">'
+            '<details class="group %s %s"' + id_attr + '><summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold">'
             '<span>%s</span><svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>'
             '<div class="px-5 pb-5 text-sm leading-relaxed %s">%s</div></details>' % (
                 b["surface"], b["hover_card"], q, b["text_muted"], a)
@@ -142,7 +143,7 @@ def faq(style, i):
         ) % (b["surface_soft"], b["text_muted"],
              "".join('<li><a href="#q%d" class="block rounded px-2 py-1.5 %s hover:bg-current/5">%.2d. %s</a></li>' % (
                  n, b["text_muted"] if n else "", n, QA[n % len(QA)][0][:24]) for n in range(6)),
-             "".join(qrow(n) for n in range(6)))
+             "".join(qrow(n, qid=n) for n in range(6)))
         feat = ["docs-style anchor nav", "table of contents", "numbered questions", "scoped accordions", "responsive stack"]
 
     elif key == "glass":

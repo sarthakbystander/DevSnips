@@ -31,7 +31,7 @@ def error_page(style, i):
             b["btn_primary"], ic("home", "h-4 w-4"), b["btn_secondary"], ic("search", "h-4 w-4"))
 
     if key == "minimal":
-        body = ('<div class="text-center"><p class="f-disp text-7xl sm:text-9xl font-bold tracking-tight">404</p>'
+        body = ('<div class="text-center"><h1 class="f-disp text-7xl sm:text-9xl font-bold tracking-tight">404</h1>'
                 '<p class="mt-4 text-lg %s">This page could not be found.</p>'
                 '<p class="mt-2 text-sm %s">The page you are looking for may have moved or been removed.</p>%s</div>') % (
             b["text_muted"], b["text_muted"], actions())
@@ -47,7 +47,7 @@ def error_page(style, i):
 
     elif key == "dark":
         body = ('<div class="text-center relative">'
-                '<div class="absolute inset-0 -z-10 opacity-40" style="background:radial-gradient(circle at 50%% 30%%,%s,transparent 60%%)" aria-hidden="true"></div>'
+                '<div class="absolute inset-0 -z-10 opacity-40" style="background:radial-gradient(circle at 50%% 30%%,#%s,transparent 60%%)" aria-hidden="true"></div>'
                 '<p class="f-disp text-8xl sm:text-[10rem] font-bold leading-none" style="color:%s">404</p>'
                 '<h1 class="mt-4 f-disp text-2xl font-bold">Lost in the dark</h1>'
                 '<p class="mt-2 text-sm %s max-w-md mx-auto">The page you are after has vanished into the void.</p>%s</div>') % (
@@ -64,9 +64,9 @@ def error_page(style, i):
 
     elif key == "glass":
         body = ('<div class="%s %s p-8 sm:p-12 text-center relative overflow-hidden max-w-xl mx-auto">'
-                '<div class="absolute inset-0 opacity-30" style="background:radial-gradient(circle at 50%% 0%%,%s,transparent 60%%)" aria-hidden="true"></div>'
+                '<div class="absolute inset-0 opacity-30" style="background:radial-gradient(circle at 50%% 0%%,#%s,transparent 60%%)" aria-hidden="true"></div>'
                 '<div class="relative z-10"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center %s">%s</div>'
-                '<p class="f-disp text-6xl sm:text-7xl font-bold">404</p>'
+                '<h1 class="f-disp text-6xl sm:text-7xl font-bold">404</h1>'
                 '<p class="mt-3 text-sm %s">This page drifted off the map.</p>%s</div></div>') % (
             b["surface"], b["hover_card"], b["accent"].lstrip("#"), b["surface_soft"], ic("compass", "h-7 w-7"), b["text_muted"], actions())
         feat = ["spotlight 404", "glass panel", "radial glow", "compass icon", "dual CTA"]
@@ -86,7 +86,7 @@ def error_page(style, i):
     elif key == "developer":
         body = ('<div class="max-w-2xl mx-auto"><div class="%s overflow-hidden">'
                 '<div class="flex items-center gap-2 border-b border-current/10 px-4 py-3">%s%s'
-                '<span class="ml-auto %s">404.sh</span></div>'
+                '<h1 class="ml-auto %s text-base font-semibold">404.sh</h1></div>'
                 '<div class="p-6 font-mono text-sm space-y-2">'
                 '<p class="%s">$ curl <span class="font-semibold">https://yoursite.com/missing</span></p>'
                 '<p>status: <span style="color:%s">404</span> Not Found</p>'
@@ -104,7 +104,7 @@ def error_page(style, i):
                 '<p class="text-sm"><span style="color:%s">user@host</span>:<span class="%s">~</span>$ ls /pages/</p>'
                 '<p class="mt-2 text-sm %s">ls: cannot access \'/pages/missing\': No such file or directory</p>'
                 '<p class="mt-2 text-sm"><span style="color:%s">user@host</span>:<span class="%s">~</span>$ <span class="inline-block w-2 h-4 align-middle" style="background:%s;animation:blink 1s steps(1) infinite"></span></p>'
-                '<p class="mt-6 f-disp text-4xl font-bold" style="font-family:%s">404</p>'
+                '<h1 class="mt-6 f-disp text-4xl font-bold" style="font-family:%s">404</h1>'
                 '<p class="mt-2 text-sm %s">exit code 404 — page not found</p>'
                 '<div class="mt-6">%s</div>'
                 '<style>@keyframes blink{50%%{opacity:0}}</style></div>') % (
@@ -127,7 +127,7 @@ def error_page(style, i):
     elif key == "premium-saas":
         body = ('<div class="text-center"><div class="mx-auto mb-6">%s</div>'
                 '<span class="%s mb-4 inline-flex">%s Error 404</span>'
-                '<p class="f-disp text-6xl sm:text-7xl font-bold">Page not found</p>'
+                '<h1 class="f-disp text-6xl sm:text-7xl font-bold">Page not found</h1>'
                 '<p class="mt-4 text-sm %s max-w-md mx-auto">The page you are looking for does not exist or has been moved.</p>'
                 '<div class="mt-6">%s</div></div>') % (
             logo_svg("Flowbase"), b["badge"], ic("warning", "h-3.5 w-3.5"), b["text_muted"], actions())
@@ -139,7 +139,7 @@ def error_page(style, i):
                 '<div class="flex items-center gap-2">%s<span class="text-sm font-medium">Workspace</span></div>'
                 '<span class="%s">404</span></div>'
                 '<div class="text-center py-6"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center %s">%s</div>'
-                '<p class="font-semibold">Resource not found</p>'
+                '<h1 class="font-semibold">Resource not found</h1>'
                 '<p class="mt-1 text-sm %s">This item may have been deleted or you lack access.</p></div>'
                 '<div class="flex gap-2">%s<a href="#" class="%s flex-1 justify-center">%s Report</a></div></div>') % (
             b["surface"], b["hover_card"], logo_svg("Flowbase"), b["badge"], b["surface_soft"], ic("warning", "h-7 w-7"), b["text_muted"],
@@ -149,7 +149,7 @@ def error_page(style, i):
 
     elif key == "retro":
         body = ('<div class="text-center" style="font-family:%s">'
-                '<p class="f-disp text-7xl sm:text-8xl font-bold" style="text-shadow:4px 4px 0 %s">404</p>'
+                '<h1 class="f-disp text-7xl sm:text-8xl font-bold" style="text-shadow:4px 4px 0 %s">404</h1>'
                 '<p class="mt-4 text-lg font-bold uppercase tracking-widest">Page Not Found</p>'
                 '<p class="mt-2 text-sm %s">Error 404 — the page has left the building.</p>'
                 '<div class="mt-6">%s</div></div>') % (b["font_display"], b["accent"], b["text_muted"], actions())

@@ -50,7 +50,7 @@ def team(style, i):
                 '<h3 class="font-semibold">%s</h3><p class="text-sm %s">%s</p>'
                 '<p class="mt-3 text-sm %s leading-relaxed">%s</p>'
                 '<div class="mt-5">%s</div></article>') % (
-            b["surface"], b["hover_card"], avatar(name, n, "ring-2 ring-offset-2 ring-offset-transparent ring-current/15"), name, b["text_muted"], role, b["text_muted"], bio, socials())
+            b["surface"], b["hover_card"], avatar(name, n, "ring-2 ring-offset-2 ring-offset-transparent ring-white/15"), name, b["text_muted"], role, b["text_muted"], bio, socials())
 
     if key == "grid":
         body = '<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">%s</div>' % "".join(
@@ -102,7 +102,7 @@ def team(style, i):
     elif key == "circular":
         body = '<div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">%s</div>' % "".join(
             '<figure class="text-center"><div class="mx-auto">%s</div><figcaption class="mt-3"><p class="font-semibold text-sm">%s</p><p class="text-xs %s">%s</p></figcaption></figure>' % (
-                avatar(name, n, "h-24 w-24 ring-2 ring-offset-4 ring-offset-transparent ring-current/15"), name, b["text_muted"], role)
+                avatar(name, n, "h-24 w-24 ring-2 ring-offset-4 ring-offset-transparent ring-white/15"), name, b["text_muted"], role)
             for n, (name, role, bio) in enumerate(TEAM[:6]))
         feat = ["circular profiles", "6 members", "ringed avatars", "centered captions", "responsive 2/3/6-col"]
 
@@ -179,7 +179,7 @@ def team(style, i):
                 '<h3 class="f-disp text-2xl font-bold">We are 340 strong</h3><p class="mt-2 text-sm %s">Across 6 offices and 42 countries.</p>'
                 '<a href="#" class="mt-5 inline-flex items-center gap-2 %s">%s Join the team</a></div>') % (
             b["surface"], b["hover_card"],
-            "".join(avatar(TEAM[n % len(TEAM)][0], n, "h-12 w-12 ring-2 ring-offset-2 ring-offset-transparent ring-current/10") for n in range(24)),
+            "".join(avatar(TEAM[n % len(TEAM)][0], n, "h-12 w-12 ring-2 ring-offset-2 ring-offset-transparent ring-white/10") for n in range(24)),
             b["text_muted"], b["btn_primary"], ic("arrow", "h-4 w-4"))
         feat = ["avatar wall", "24 avatars", "headline count", "careers CTA", "centered composition"]
 
@@ -188,7 +188,7 @@ def team(style, i):
             ('<article class="%s %s p-6 text-center"><div class="mx-auto mb-4">%s</div>'
              '<h3 class="font-semibold">%s</h3><p class="text-sm %s">%s</p>'
              '<div class="mt-4 flex justify-center">%s</div></article>') % (
-                b["surface"], b["hover_card"], avatar(name, n, "h-24 w-24 ring-2 ring-offset-4 ring-offset-transparent ring-current/15"), name, b["text_muted"], role, socials())
+                b["surface"], b["hover_card"], avatar(name, n, "h-24 w-24 ring-2 ring-offset-4 ring-offset-transparent ring-white/15"), name, b["text_muted"], role, socials())
             for n, (name, role, bio) in enumerate(TEAM[:4]))
         feat = ["leadership row", "4 executives", "centered cards", "ringed avatars", "responsive 1/2/4-col"]
 

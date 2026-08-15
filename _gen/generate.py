@@ -91,7 +91,15 @@ def code_snippet(builder_result, style):
         "<!--\nSnippet Name: %s — %s\nDescription: %s\nAuthor: DevSnips Contributors\n"
         "Usage Example: Drop this snippet into any Tailwind CSS page.\n-->"
     ) % (builder_result["section_name"], STYLE_NAMES[style], builder_result["desc"])
-    return snippet_comment + "\n" + builder_result["code"]
+    # Inject the style-helper CSS (f-sans/f-mono/f-disp + style-specific
+    # classes like nb-shadow, eg-glass, ft-glow, vc-panel, neu, cy-clip) so the
+    # snippet is self-contained and renders correctly without preview.html.
+    head_css = TOKENS[style]["head_css"]
+    helper_block = (
+        "\n<style>\n  /* DevSnips style-helper classes (self-contained snippet) */\n  %s\n</style>\n"
+        % head_css
+    ) if head_css else ""
+    return snippet_comment + helper_block + "\n" + builder_result["code"]
 
 
 def metadata(builder_result, style, cat, n, style_key):

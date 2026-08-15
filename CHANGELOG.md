@@ -1,5 +1,36 @@
 # Changelog
 
+## 2026-08-15
+
+### Fixed — Tailwind Sections critical + significant quality defects
+Targeted curation pass on `Tailwind/Sections/` (now **200 variants** across 16 families). All fixes preserve original design intent; no section was redesigned. The section-style generator sources (`_gen/builders_*.py`, `_gen/generate.py`) were fixed alongside the generated files so future regeneration stays correct.
+
+#### Critical (broken / non-functional)
+- **Testimonials — `>heart<` literal in badge SVG** (all 15 styles, code.html + preview.html): the eyebrow-icon name was embedded as literal text instead of the icon path. Fixed `builders_testimonials.py` `head()` to use `ic()` (ICONS lookup) instead of the raw `icon()` wrapper; patched all 30 files with the canonical heart path.
+- **Testimonials — unfilled `%s` template placeholders** (bento-grid/ratings 4, dark-premium/split 8, vercel/carousel 2): Python `%`-formatting leaks in the static panel strings. Fixed the generator builders (ratings/split/carousel) to format the panel strings and patched the 6 files with the correct token-derived values (surface, star_row, avatar, quote, person).
+- **command-palette — double-encoded UTF-8 mojibake** (×3 styles, code.html + preview.html): `⌘`/`↑`/`↓`/`↵`/`…`/`—` were mis-encoded as `â`-prefixed byte sequences. Repaired the byte sequences to proper UTF-8 glyphs (verified at byte level).
+- **Stats/futuristic — counter snippet non-functional standalone**: `code.html` showed `0k/0%/0+/0M+` with `data-counter` hooks but no script (the count-up JS lived only in preview). Set the static final values (`128k/99%/42+/7M+`) as the initial text and added a scoped, reduced-motion-safe count-up `<script>` (IntersectionObserver) to both code.html and preview.html.
+- **Broken hex gradients missing `#`** (8 sections × code+preview = 16 files: Logos/neo-brutalism, Newsletter/futuristic, Newsletter/startup-landing, Contact/futuristic, Testimonials/editorial, Testimonials/elegant-luxury, 404/elegant-luxury, 404/cyber): gradient color stops like `FF4FA322` silently failed. Root cause was `.lstrip("#")` in the builders feeding templates that didn't re-add `#`. Fixed all generator gradient templates to use `#%s` and patched the 16 files.
+- **Index ↔ disk synchronization**: `snippets-index.json` had 4 duplicated variant paths (ai-product/agent-workflow/neo-brutalism, saas/feature-grid/neo-brutalism, saas/dashboard-hero/sharp-glassmorphism) and 4 on-disk leaves missing from the index (agent-workflow/vercel, pricing-table/sharp-glassmorphism, trial-cta/neo-brutalism). Ran `_gen/rebuild_index.py` — index now matches disk exactly.
+
+#### Significant (a11y / semantics / self-containment)
+- **404 — missing `<h1>`** (8 styles: apple-inspired, bento-grid, edge-glassmorphism, editorial, elegant-luxury, gradient-mesh, vercel): the page title was a `<p>`/`<span>`. Converted the main title element to `<h1>` (preserving classes) in files + generator; all 15 styles now have exactly one `<h1>`.
+- **Metadata description mismatches**: 3 metadata.json files described their style as "Brutalist" when it wasn't (Stats/elegant-luxury, Team/edge-glassmorphism, 404/monochrome). Corrected to "Bold …" matching the `section` field.
+- **FAQ/soft-ui — broken in-page anchors**: `href="#q0"`…`#q5"` had no matching `id` targets. Added `id="qN"` to the 6 `<details>` elements (files + generator `qrow()` now accepts a `qid` param).
+- **Self-contained `code.html` CSS** (150 files): the copy-paste snippets referenced style-helper classes (`f-disp`, `f-mono`, `neu`, `eg-glass`, `ft-glow`, `vc-panel`, `nb-shadow`, `cy-clip`, …) defined only in preview.html. Injected a `<style>` block (marked `/* DevSnips style-helper classes (self-contained snippet) */`) into every 10-style code.html so each snippet renders correctly without preview. Generator `generate.py` `code_snippet()` now injects `head_css` too.
+- **Newsletter — missing form labels** (all 15 styles × code+preview = 30 files): email inputs had only `aria-label`. Added `<label for="nl-email" class="sr-only">Email address</label>` + `id` to each input (files + generator `form()` + 3 inline forms).
+- **kanban-board — mouse-only drag-and-drop** (×3 styles): cards had `tabindex="0"` but no keyboard move handler. Added a scoped `keydown` handler (ArrowUp/Down reorder within a column, ArrowLeft/Right move to adjacent column) reusing the existing `updateCounts()` logic.
+- **Invalid `ring-current/N` Tailwind classes** (10 files: Team/dark-premium, Team/elegant-luxury, Team/futuristic, Team/startup-landing, Testimonials/apple-inspired): the opacity modifier doesn't apply to `currentColor`. Replaced with `ring-white/N` (all affected elements have `text-white`) in files + generator.
+
+### Changed — Curation
+- **Removed `Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/`** — a near-duplicate of `saas/pricing-table/sharp-glassmorphism/` (same style, same monthly/annual billing toggle, same 3-tier card grid with check/dash lists, same `data-pricing="sg"` selector). `pricing-table/sg` is the richer version (212 vs 109 lines) and already provides the "popular tier" highlight. The single-style `three-tier-pricing` leaf added no structural variation. No coverage loss — `pricing-table` ships all 3 styles (nb/sg/vc). Index rebuilt.
+
+### Verified
+- `scripts/validate.py` PASSED — architecture, metadata, and index all consistent (indexed content matches disk exactly).
+- All 14 fix categories verified programmatically (see post-fix audit); `node --check` on kanban JS passes; metadata.json all valid JSON; `<style>` tags balanced.
+- Browser visual checks: Testimonials/vercel (heart icon renders as path, no `%s`), command-palette (⌘K/↑↓/↵ glyphs render), Stats/futuristic (128k/99%/42+/7M+ display), 404/edge-glassmorphism (`404.sh` as h1).
+- Section count: **201 → 200** (one redundant merge). Generator + generated files kept in sync.
+
 ## 2026-08-13
 
 ### Changed — Vanilla templates folder layout
