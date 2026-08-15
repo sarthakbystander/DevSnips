@@ -7,7 +7,6 @@ Soft UI buttons with neumorphism (soft UI) shadow effects.
 | Variant | Description |
 |---------|-------------|
 | [Soft](./soft/) | Convex neumorphism with outer shadows |
-| [Pressed](./pressed/) | Concave neumorphism with inset shadows |
 | [Bordered](./bordered/) | Bordered neumorphism with gradient backgrounds |
 
 ## Quick Start

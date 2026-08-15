@@ -15,9 +15,6 @@ This component family covers every input type and style you need for building pr
 | 3 | [Filled](./filled/) | Filled background style |
 | 4 | [Floating Label](./floating-label/) | Animated floating label input |
 | 5 | [Icon Left](./icon-left/) | Left-aligned icon input |
-| 6 | [Icon Right](./icon-right/) | Right-aligned icon input |
-| 7 | [Icon Both](./icon-both/) | Icons on both sides |
-| 8 | [Search Bar](./search-bar/) | Search-specific styling |
 | 9 | [With Prefix](./with-prefix/) | Text prefix (e.g., $) |
 | 10 | [With Suffix](./with-suffix/) | Text suffix (e.g., .com) |
 | 11 | [Password Toggle](./password-toggle/) | Password with show/hide |
@@ -26,14 +23,10 @@ This component family covers every input type and style you need for building pr
 | 14 | [Validation States](./validation-states/) | Success/error/warning states |
 | 15 | [With Helper Text](./with-helper/) | Helper/error messages |
 | 16 | [Disabled Readonly](./disabled-readonly/) | Disabled and readonly |
-| 17 | [Rounded Pill](./rounded-pill/) | Fully rounded pill-style |
-| 18 | [Sharp Corner](./sharp-corner/) | Sharp rectangular style |
 | 19 | [Gradient Border](./gradient-border/) | Gradient border effect |
 | 20 | [Glassmorphism](./glassmorphism/) | Frosted glass effect |
 | 21 | [Neumorphism](./neumorphism/) | Soft UI shadow style |
 | 22 | [Dark Mode](./dark-mode/) | Dark background inputs |
-| 23 | [Corporate](./corporate/) | Enterprise-style forms |
-| 24 | [Modern SaaS](./modern-saas/) | Premium SaaS feel |
 | 25 | [Animated Focus](./animated-focus/) | Smooth focus transitions |
 | 26 | [Split Input](./split-input/) | Multi-part inputs (OTP, cards) |
 | 27 | [Tag Input](./tag-input/) | Tag/chip functionality |

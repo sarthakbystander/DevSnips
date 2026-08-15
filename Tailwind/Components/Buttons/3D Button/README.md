@@ -6,7 +6,6 @@ Buttons with 3D depth effects and push animations.
 
 | Variant | Description |
 |---------|-------------|
-| [Basic](./basic/) | Basic 3D buttons with solid colors |
 | [Colored](./colored/) | Colored 3D buttons with gradients |
 
 ## Quick Start

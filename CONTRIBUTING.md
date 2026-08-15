@@ -70,7 +70,16 @@ The value must agree with the directory in which the metadata lives.
 
 ## Vanilla structure
 
-Vanilla component variants use the existing self-contained HTML convention documented in `COMPONENT_STRUCTURE.md`. Do not introduce a second file convention for a new family without a clear repository-level reason.
+Vanilla component variants use a single self-contained source file named `component.html` (inline `<style>` + `<script>`):
+
+```text
+<variant>/
+├── component.html
+├── README.md
+└── metadata.json
+```
+
+The directory name is the canonical component id/slug; the primary component source file is always `component.html`. Do not introduce a second file convention for a new family without a clear repository-level reason.
 
 Templates may have multiple HTML, CSS, JS, and documentation files because they represent complete experiences rather than isolated snippets.
 
