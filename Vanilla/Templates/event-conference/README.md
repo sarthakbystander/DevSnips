@@ -1,13 +1,30 @@
-# Event Conference
+# Event Conference (Signal 2026)
 
-Event Conference with animations and hover interactions.
+Editorial conference landing page with speakers, schedule tabs, countdown, and registration.
 
-**Technology:** vanilla
-**Category:** templates
-**Subcategory:** event-conference
+**Technology:** Vanilla HTML / CSS / JS  
+**Design system:** Shared `--ds-*` tokens from `design-tokens.md`
 
-**Tags:** animation, hover-effect, gradient, shadow, typing-effect, flexbox, grid, center
+## Structure
 
-**Dependencies:** Montserrat
+```
+event-conference/
+├── pages/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── preview.html
+├── metadata.json
+└── README.md
+```
 
-**Responsive:** Yes
+## Features
+
+- Neutral-first layout, dark mode toggle
+- Countdown to fixed event date
+- Speakers grid with realistic bios
+- Accessible schedule tabs (Day 1 / Day 2)
+- Registration form (front-end demo success)
+- Mobile nav + focus-visible / reduced-motion
+
+Open `preview.html` or `pages/index.html` directly.

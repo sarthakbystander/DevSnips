@@ -1,468 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Conference</title>
-    <style>
-/* General Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    background-color: #fff;
-    color: #333;
-}
-
-h1, h2 {
-    text-align: center;
-    color: #1a237e;
-    font-weight: 700;
-}
-
-section {
-    padding: 60px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.cta-button {
-    background-color: #ff4081;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    display: inline-block;
-}
-
-.cta-button:hover {
-    background-color: #f50057;
-    transform: translateY(-3px);
-}
-
-/* Header */
-header {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #1a237e;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ff4081;
-}
-
-/* Hero Section */
-#hero {
-    background: linear-gradient(45deg, #1a237e, #ff4081);
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-}
-
-#countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-}
-
-#countdown-timer div {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px 20px;
-    border-radius: 5px;
-}
-
-#countdown-timer span {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-/* Speakers Section */
-.speakers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.speaker-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.speaker-card img {
-    width: 100%;
-    display: block;
-}
-
-.speaker-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(26, 35, 126, 0.8);
-    color: white;
-    padding: 15px;
-    transform: translateY(100%);
-    transition: transform 0.4s ease-out;
-}
-
-.speaker-card:hover .speaker-info {
-    transform: translateY(0);
-}
-
-.speaker-bio {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-}
-
-.speaker-card:hover .speaker-bio {
-    max-height: 100px; /* Adjust as needed */
-    margin-top: 10px;
-}
-
-/* Schedule Section */
-#schedule {
-    background-color: #f9f9f9;
-}
-
-.schedule-tabs {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.tab-link {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: color 0.3s, border-bottom 0.3s;
-    border-bottom: 2px solid transparent;
-}
-
-.tab-link.active {
-    color: #ff4081;
-    border-bottom: 2px solid #ff4081;
-}
-
-.tab-content {
-    display: none;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.tab-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.tab-content li {
-    background: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-left: 5px solid #1a237e;
-}
-
-/* Registration Form */
-.registration-form {
-    max-width: 600px;
-    margin: 30px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.registration-form input {
-    padding: 15px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Sponsors Section */
-#sponsors {
-    background-color: #f9f9f9;
-}
-
-.sponsors-carousel {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.sponsors-carousel img {
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-}
-
-.sponsors-carousel img:hover {
-    filter: grayscale(0%);
-}
-
-/* Footer */
-footer {
-    background-color: #1a237e;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal 2026 — Design systems conference</title>
+  <meta name="description" content="A two-day conference on design systems, product interfaces, and the craft of building calm software.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">TechCon 2024</div>
-            <ul>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#register">Register</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Signal 2026</a>
+      <ul class="nav-links" data-nav-links>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">◐</button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#register" class="btn btn-primary">Register</a>
+      </div>
+    </div>
+  </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>The Future of Technology is Here</h1>
-            <p>Join us for three days of innovation, networking, and learning.</p>
-            <div id="countdown-timer">
-                <div><span id="days">00</span> Days</div>
-                <div><span id="hours">00</span> Hours</div>
-                <div><span id="minutes">00</span> Minutes</div>
-                <div><span id="seconds">00</span> Seconds</div>
-            </div>
-            <a href="#register" class="cta-button">Register Now</a>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Berlin · 15–16 September 2026</p>
+        <h1>A conference for people who ship interfaces.</h1>
+        <p class="hero-lead">Two days on design systems, product craft, and the quiet details that make software feel intentional.</p>
+        <div class="hero-meta">
+          <span>Venue: Radialsystem</span>
+          <span>200 seats</span>
+          <span>In person + live stream</span>
         </div>
+        <div class="countdown" aria-live="polite">
+          <div class="countdown-item"><strong id="cd-days">00</strong><span>Days</span></div>
+          <div class="countdown-item"><strong id="cd-hours">00</strong><span>Hours</span></div>
+          <div class="countdown-item"><strong id="cd-mins">00</strong><span>Mins</span></div>
+          <div class="countdown-item"><strong id="cd-secs">00</strong><span>Secs</span></div>
+        </div>
+        <a href="#register" class="btn btn-primary btn-lg">Get a ticket</a>
+      </div>
     </section>
 
-    <section id="speakers">
-        <h2>Our Speakers</h2>
+    <section class="section" id="speakers">
+      <div class="container">
+        <p class="section-label">Speakers</p>
+        <h2 class="section-title">Who’s on stage</h2>
         <div class="speakers-grid">
-            <div class="speaker-card">
-                <img src="https://via.placeholder.com/200" alt="Speaker 1">
-                <div class="speaker-info">
-                    <h3>Jane Doe</h3>
-                    <p>CEO, TechCorp</p>
-                    <div class="speaker-bio">
-                        <p>Jane is a visionary leader in the tech industry, with over 20 years of experience.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <img src="https://via.placeholder.com/200" alt="Speaker 2">
-                <div class="speaker-info">
-                    <h3>John Smith</h3>
-                    <p>CTO, Innovate LLC</p>
-                    <div class="speaker-bio">
-                        <p>John is a leading expert in AI and machine learning, driving innovation at Innovate LLC.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <img src="https://via.placeholder.com/200" alt="Speaker 3">
-                <div class="speaker-info">
-                    <h3>Emily White</h3>
-                    <p>Lead Developer, WebSolutions</p>
-                    <div class="speaker-bio">
-                        <p>Emily is a passionate developer and open-source contributor.</p>
-                    </div>
-                </div>
-            </div>
+          <article class="speaker-card">
+            <h3>Mira Chen</h3>
+            <p class="speaker-role">Design Systems Lead, Linear</p>
+            <p>Talk: Maintaining a system under product velocity without losing coherence.</p>
+          </article>
+          <article class="speaker-card">
+            <h3>Jonas Berg</h3>
+            <p class="speaker-role">Staff Engineer, Vercel</p>
+            <p>Talk: Token architecture that scales past the first product team.</p>
+          </article>
+          <article class="speaker-card">
+            <h3>Aisha Okonkwo</h3>
+            <p class="speaker-role">Head of Product Design, Notion</p>
+            <p>Talk: Density, hierarchy, and when whitespace becomes noise.</p>
+          </article>
+          <article class="speaker-card">
+            <h3>Theo Martins</h3>
+            <p class="speaker-role">Accessibility Lead, GitHub</p>
+            <p>Workshop: Practical focus management and reduced-motion patterns.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section id="schedule">
-        <h2>Event Schedule</h2>
-        <div class="schedule-tabs">
-            <button class="tab-link active" onclick="openDay(event, 'Day1')">Day 1</button>
-            <button class="tab-link" onclick="openDay(event, 'Day2')">Day 2</button>
-            <button class="tab-link" onclick="openDay(event, 'Day3')">Day 3</button>
+    <section class="section" id="schedule">
+      <div class="container">
+        <p class="section-label">Schedule</p>
+        <h2 class="section-title">Two days, focused sessions</h2>
+        <div class="schedule-tabs" role="tablist">
+          <button type="button" class="tab-btn" data-tab="day1" aria-selected="true" role="tab">Day 1 · 15 Sep</button>
+          <button type="button" class="tab-btn" data-tab="day2" aria-selected="false" role="tab">Day 2 · 16 Sep</button>
         </div>
-
-        <div id="Day1" class="tab-content active">
-            <ul>
-                <li><strong>9:00 AM:</strong> Registration & Breakfast</li>
-                <li><strong>10:00 AM:</strong> Keynote by Jane Doe</li>
-                <li><strong>11:00 AM:</strong> The Future of AI</li>
-            </ul>
+        <div class="tab-panel is-active" data-panel="day1" role="tabpanel">
+          <ul class="schedule-list">
+            <li><time>09:00</time><div><strong>Doors & coffee</strong><span>Radialsystem foyer</span></div></li>
+            <li><time>10:00</time><div><strong>Opening keynote — Mira Chen</strong><span>Main hall</span></div></li>
+            <li><time>11:15</time><div><strong>Token architecture that scales — Jonas Berg</strong><span>Main hall</span></div></li>
+            <li><time>13:00</time><div><strong>Lunch</strong><span>Courtyard</span></div></li>
+            <li><time>14:30</time><div><strong>Density & hierarchy — Aisha Okonkwo</strong><span>Main hall</span></div></li>
+            <li><time>16:00</time><div><strong>Lightning talks</strong><span>Studio room</span></div></li>
+          </ul>
         </div>
-        <div id="Day2" class="tab-content">
-            <ul>
-                <li><strong>9:00 AM:</strong> Morning Coffee</li>
-                <li><strong>10:00 AM:</strong> Workshop: Building with React</li>
-                <li><strong>12:00 PM:</strong> Lunch Break</li>
-            </ul>
+        <div class="tab-panel" data-panel="day2" role="tabpanel">
+          <ul class="schedule-list">
+            <li><time>09:30</time><div><strong>Workshop: Focus & reduced motion — Theo Martins</strong><span>Studio room</span></div></li>
+            <li><time>11:30</time><div><strong>Panel: Systems teams in product orgs</strong><span>Main hall</span></div></li>
+            <li><time>13:00</time><div><strong>Lunch</strong><span>Courtyard</span></div></li>
+            <li><time>14:30</time><div><strong>Case studies & open floor</strong><span>Main hall</span></div></li>
+            <li><time>16:30</time><div><strong>Closing notes</strong><span>Main hall</span></div></li>
+          </ul>
         </div>
-        <div id="Day3" class="tab-content">
-            <ul>
-                <li><strong>10:00 AM:</strong> Panel: Women in Tech</li>
-                <li><strong>1:00 PM:</strong> Closing Ceremony</li>
-            </ul>
-        </div>
+      </div>
     </section>
 
-    <section id="register">
-        <h2>Register for TechCon 2024</h2>
-        <form class="registration-form">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit" class="cta-button">Secure Your Spot</button>
+    <section class="section" id="register">
+      <div class="container">
+        <p class="section-label">Tickets</p>
+        <h2 class="section-title">Register for Signal 2026</h2>
+        <p style="color:var(--ds-text-secondary);max-width:42ch;margin:0 0 24px;line-height:1.55">Early-bird seats are limited. You’ll receive a confirmation email with payment details.</p>
+        <form class="reg-form" data-reg-form action="#" method="post">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Request ticket</button>
         </form>
-    </section>
-
-    <section id="sponsors">
-        <h2>Our Sponsors</h2>
-        <div class="sponsors-carousel">
-            <img src="https://via.placeholder.com/150x60?text=Sponsor1" alt="Sponsor 1">
-            <img src="https://via.placeholder.com/150x60?text=Sponsor2" alt="Sponsor 2">
-            <img src="https://via.placeholder.com/150x60?text=Sponsor3" alt="Sponsor 3">
-            <img src="https://via.placeholder.com/150x60?text=Sponsor4" alt="Sponsor 4">
+        <div class="reg-success" data-reg-success role="status">
+          Thanks — check your inbox for next steps.
         </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 TechCon. All rights reserved.</p>
-    </footer>
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Sponsors</p>
+        <h2 class="section-title">Supported by</h2>
+        <div class="sponsors">
+          <span>Stratum</span>
+          <span>Field Notes</span>
+          <span>Orbit Labs</span>
+          <span>DevSnips</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Countdown Timer
-    function startCountdown() {
-        const countdownElement = document.getElementById('countdown-timer');
-        if (!countdownElement) return;
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Signal Conference</span>
+      <span>Berlin · Design systems · Product craft</span>
+    </div>
+  </footer>
 
-        // Set the date for the conference (e.g., 30 days from now)
-        const conferenceDate = new Date();
-        conferenceDate.setDate(conferenceDate.getDate() + 30);
-        conferenceDate.setHours(9, 0, 0, 0);
-
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-
-        function updateTimer() {
-            const now = new Date().getTime();
-            const distance = conferenceDate - now;
-
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                countdownElement.innerHTML = "<h2>The event has started!</h2>";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            daysEl.textContent = String(days).padStart(2, '0');
-            hoursEl.textContent = String(hours).padStart(2, '0');
-            minutesEl.textContent = String(minutes).padStart(2, '0');
-            secondsEl.textContent = String(seconds).padStart(2, '0');
-        }
-
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer(); // Initial call
-    }
-
-    startCountdown();
-
-    // Schedule Tabs
-    window.openDay = function(evt, dayName) {
-        const tabcontent = document.getElementsByClassName("tab-content");
-        for (let i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-
-        const tablinks = document.getElementsByClassName("tab-link");
-        for (let i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-
-        document.getElementById(dayName).style.display = "block";
-        document.getElementById(dayName).classList.add("active");
-        evt.currentTarget.classList.add("active");
-    }
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Speaker card hover effect for touch devices
-    document.querySelectorAll('.speaker-card').forEach(card => {
-        card.addEventListener('touchstart', function() {
-            // Allows hover effect to work on touch
-        });
-    });
-});
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
