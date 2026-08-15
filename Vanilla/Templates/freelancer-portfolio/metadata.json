@@ -1,36 +1,42 @@
 {
-  "id": "freelancer-portfolio-001",
-  "name": "Freelancer Portfolio",
-  "description": "Freelancer Portfolio.",
+  "id": "developer-portfolio-001",
+  "name": "Developer Portfolio",
+  "description": "Editorial, minimal developer portfolio with design-token system, dark mode, realistic content, and strong typography hierarchy.",
   "technology": "vanilla",
   "category": "templates",
-  "subcategory": "freelancer-portfolio",
+  "subcategory": "developer-portfolio",
   "tags": [
     "portfolio",
-    "animation",
-    "hover-effect",
-    "shadow",
+    "developer",
+    "editorial",
+    "minimal",
+    "design-tokens",
+    "dark-mode",
     "responsive",
-    "flexbox",
-    "grid",
-    "center"
+    "accessible"
   ],
-  "responsive": false,
+  "responsive": true,
   "browserSupport": [
     "chrome",
     "firefox",
     "safari",
     "edge"
   ],
-  "dependencies": [
-    "Helvetica Neue"
-  ],
+  "dependencies": [],
   "source": "DevSnips",
-  "darkMode": false,
+  "darkMode": true,
   "accessibility": [
-    "semantic HTML"
+    "semantic HTML",
+    "focus-visible",
+    "prefers-reduced-motion",
+    "ARIA labels"
   ],
   "features": [
-    "semantic HTML"
+    "design-tokens",
+    "dark mode toggle",
+    "realistic content",
+    "project list",
+    "skills grid",
+    "sticky header"
   ]
 }
