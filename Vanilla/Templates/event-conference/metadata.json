@@ -1,36 +1,16 @@
 {
   "id": "event-conference-001",
   "name": "Event Conference",
-  "description": "Event Conference.",
+  "description": "Editorial conference template with speakers, schedule tabs, countdown, and registration. Design-token system and dark mode.",
   "technology": "vanilla",
   "category": "templates",
   "subcategory": "event-conference",
-  "tags": [
-    "animation",
-    "hover-effect",
-    "gradient",
-    "shadow",
-    "typing-effect",
-    "flexbox",
-    "grid",
-    "center"
-  ],
-  "responsive": false,
-  "browserSupport": [
-    "chrome",
-    "firefox",
-    "safari",
-    "edge"
-  ],
-  "dependencies": [
-    "Montserrat"
-  ],
+  "tags": ["conference", "event", "speakers", "schedule", "countdown", "design-tokens", "dark-mode", "accessible"],
+  "responsive": true,
+  "browserSupport": ["chrome", "firefox", "safari", "edge"],
+  "dependencies": [],
   "source": "DevSnips",
-  "darkMode": false,
-  "accessibility": [
-    "semantic HTML"
-  ],
-  "features": [
-    "semantic HTML"
-  ]
+  "darkMode": true,
+  "accessibility": ["semantic HTML", "focus-visible", "prefers-reduced-motion", "ARIA tabs"],
+  "features": ["countdown", "schedule tabs", "speakers grid", "registration form", "theme toggle"]
 }
