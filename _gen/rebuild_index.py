@@ -70,10 +70,14 @@ def is_leaf(folder: Path, tech: str) -> bool:
 
 
 def list_leaves_under(folder: Path, tech: str):
-    """Yield (leaf_path_rel, metadata) for every leaf under `folder`."""
+    """Yield (leaf_path_rel, metadata) for every leaf under `folder`.
+
+    Sorted by path so the generated index is deterministic regardless of
+    filesystem iteration order (rglob/iterdir order is OS/inode-dependent).
+    """
     if not folder.exists():
         return
-    for p in folder.rglob("metadata.json"):
+    for p in sorted(folder.rglob("metadata.json")):
         leaf = p.parent
         if is_leaf(leaf, tech):
             yield leaf, _read_meta(p)
