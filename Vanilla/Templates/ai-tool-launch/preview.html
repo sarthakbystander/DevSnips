@@ -3,13 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Launch — Preview</title>
+  <title>Ledger — Clarity for product decisions</title>
+  <meta name="description" content="Ledger helps product teams turn scattered feedback into clear priorities. Join the waitlist.">
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
-    body > iframe { display: block; width: 100%; height: 100%; border: 0; }
+:root {
+  --ds-bg-canvas: #ffffff; --ds-bg-surface: #ffffff; --ds-bg-surface-subtle: #fafafa;
+  --ds-text-primary: #111111; --ds-text-secondary: #4b4b4b; --ds-text-muted: #707070;
+  --ds-border-default: #e5e5e5; --ds-border-focus: #111111;
+  --ds-action-primary: #111111; --ds-action-primary-hover: #222222;
+  --ds-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ds-text-sm: 13px; --ds-text-md: 14px; --ds-text-lg: 16px; --ds-text-xl: 18px; --ds-text-2xl: 22px; --ds-text-3xl: 28px;
+  --ds-weight-medium: 500; --ds-weight-semibold: 600;
+  --ds-leading-tight: 1.15; --ds-leading-snug: 1.3; --ds-leading-normal: 1.5;
+  --ds-space-2: 8px; --ds-space-3: 12px; --ds-space-4: 16px; --ds-space-6: 24px; --ds-space-8: 32px; --ds-space-10: 40px; --ds-space-16: 64px; --ds-space-20: 80px;
+  --ds-radius-sm: 4px; --ds-container: 1080px; --ds-content-reading: 640px; --ds-page-padding: 24px; --ds-nav-height: 56px;
+}
+[data-theme="dark"] {
+  --ds-bg-canvas: #0a0a0a; --ds-bg-surface: #111111; --ds-bg-surface-subtle: #171717;
+  --ds-text-primary: #f5f5f5; --ds-text-secondary: #c8c8c8; --ds-text-muted: #909090;
+  --ds-border-default: #272727; --ds-border-focus: #ffffff;
+  --ds-action-primary: #f5f5f5; --ds-action-primary-hover: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; font-family: var(--ds-font-sans); font-size: var(--ds-text-md); line-height: var(--ds-leading-normal); color: var(--ds-text-primary); background: var(--ds-bg-canvas); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--ds-border-focus); outline-offset: 2px; }
+.container { width: 100%; max-width: var(--ds-container); margin: 0 auto; padding-left: var(--ds-page-padding); padding-right: var(--ds-page-padding); }
+.narrow { max-width: var(--ds-content-reading); }
+.site-header { position: sticky; top: 0; z-index: 50; height: var(--ds-nav-height); background: color-mix(in srgb, var(--ds-bg-canvas) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--ds-border-default); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--ds-nav-height); }
+.logo { font-weight: var(--ds-weight-semibold); font-size: var(--ds-text-lg); letter-spacing: -0.02em; text-decoration: none; }
+.logo:hover { text-decoration: none; }
+.nav-links { display: flex; gap: var(--ds-space-6); list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-size: var(--ds-text-sm); color: var(--ds-text-secondary); text-decoration: none; }
+.nav-links a:hover { color: var(--ds-text-primary); text-decoration: none; }
+.nav-actions { display: flex; align-items: center; gap: var(--ds-space-3); }
+.theme-toggle, .menu-toggle { width: 32px; height: 32px; border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface); color: var(--ds-text-primary); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+.menu-toggle { display: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); border-radius: var(--ds-radius-sm); border: 1px solid transparent; cursor: pointer; text-decoration: none; font-family: inherit; }
+.btn-primary { background: var(--ds-action-primary); color: var(--ds-bg-canvas); }
+.btn-primary:hover { background: var(--ds-action-primary-hover); text-decoration: none; }
+.btn-secondary { background: var(--ds-bg-surface); color: var(--ds-text-primary); border-color: var(--ds-border-default); }
+.btn-secondary:hover { background: var(--ds-bg-surface-subtle); text-decoration: none; }
+.btn-lg { height: 44px; padding: 0 20px; font-size: var(--ds-text-md); }
+.hero { padding: var(--ds-space-20) 0 var(--ds-space-16); border-bottom: 1px solid var(--ds-border-default); }
+.hero-eyebrow { font-size: var(--ds-text-sm); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-4); }
+.hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: var(--ds-weight-semibold); line-height: var(--ds-leading-tight); letter-spacing: -0.03em; margin: 0 0 var(--ds-space-4); max-width: 16ch; }
+.hero-lead { font-size: var(--ds-text-xl); color: var(--ds-text-secondary); line-height: var(--ds-leading-snug); margin: 0 0 var(--ds-space-8); max-width: 42ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); margin-bottom: var(--ds-space-8); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: var(--ds-space-4) var(--ds-space-6); font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.section { padding: var(--ds-space-16) 0; border-bottom: 1px solid var(--ds-border-default); }
+.section-label { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-muted); margin: 0 0 var(--ds-space-3); }
+.section-title { font-size: var(--ds-text-2xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; margin: 0 0 var(--ds-space-4); }
+.section-lead { font-size: var(--ds-text-lg); color: var(--ds-text-secondary); line-height: 1.55; margin: 0 0 var(--ds-space-10); max-width: 48ch; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--ds-space-6); }
+.feature-card { border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); padding: var(--ds-space-6); background: var(--ds-bg-surface); }
+.feature-card h3 { font-size: var(--ds-text-lg); font-weight: var(--ds-weight-semibold); margin: 0 0 var(--ds-space-2); }
+.feature-card p { margin: 0; color: var(--ds-text-secondary); line-height: 1.55; }
+.waitlist-form { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); max-width: 440px; }
+.waitlist-form input[type="email"] { flex: 1 1 200px; height: 44px; padding: 0 14px; font-size: var(--ds-text-md); font-family: inherit; color: var(--ds-text-primary); background: var(--ds-bg-surface); border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); }
+.waitlist-form input[type="email"]:focus { outline: none; border-color: var(--ds-border-focus); }
+.waitlist-note { margin-top: var(--ds-space-3); font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.waitlist-success { display: none; padding: var(--ds-space-4); border: 1px solid var(--ds-border-default); border-radius: var(--ds-radius-sm); background: var(--ds-bg-surface-subtle); color: var(--ds-text-secondary); }
+.waitlist-success.is-visible { display: block; }
+.cta-band { padding: var(--ds-space-16) 0; border-bottom: 1px solid var(--ds-border-default); }
+.cta-band h2 { font-size: var(--ds-text-3xl); font-weight: var(--ds-weight-semibold); letter-spacing: -0.02em; margin: 0 0 var(--ds-space-4); }
+.cta-band p { font-size: var(--ds-text-lg); color: var(--ds-text-secondary); margin: 0 0 var(--ds-space-8); max-width: 42ch; }
+.site-footer { padding: var(--ds-space-10) 0 var(--ds-space-8); font-size: var(--ds-text-sm); color: var(--ds-text-muted); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--ds-space-8); margin-bottom: var(--ds-space-8); }
+.footer-brand { font-weight: var(--ds-weight-semibold); color: var(--ds-text-primary); margin-bottom: var(--ds-space-2); }
+.footer-brand + p { margin: 0; max-width: 28ch; line-height: 1.55; }
+.footer-col h4 { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-primary); margin: 0 0 var(--ds-space-3); }
+.footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.footer-col a { color: var(--ds-text-muted); text-decoration: none; }
+.footer-col a:hover { color: var(--ds-text-primary); }
+.footer-bottom { border-top: 1px solid var(--ds-border-default); padding-top: var(--ds-space-5); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--ds-space-3); }
+@media (max-width: 768px) {
+  :root { --ds-page-padding: 16px; }
+  .nav-links { display: none; position: absolute; top: var(--ds-nav-height); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ds-bg-canvas); border-bottom: 1px solid var(--ds-border-default); padding: var(--ds-space-3) var(--ds-page-padding); }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: var(--ds-space-3) 0; }
+  .menu-toggle { display: inline-flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .waitlist-form { flex-direction: column; }
+  .waitlist-form input, .waitlist-form .btn { width: 100%; }
+}
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <iframe src="pages/index.html" title="Product Launch — Ledger" loading="lazy"></iframe>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Ledger</a>
+      <ul class="nav-links" data-nav-links>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#waitlist">Waitlist</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">◐</button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+        <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Product decision platform</p>
+        <h1>Turn scattered feedback into clear priorities.</h1>
+        <p class="hero-lead">Ledger brings customer requests, support tickets, and roadmap signals into one calm surface so your team can decide what ships next.</p>
+        <div class="hero-actions">
+          <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist</a>
+          <a href="#features" class="btn btn-secondary btn-lg">See features</a>
+        </div>
+        <div class="hero-meta">
+          <span>Early access opens Q3 2026</span>
+          <span>Built for product & ops teams</span>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="container">
+        <p class="section-label">Why Ledger</p>
+        <h2 class="section-title">Designed for clarity under volume</h2>
+        <p class="section-lead">Most tools optimize for capture. Ledger optimizes for judgment — so priorities stay visible when the noise is high.</p>
+        <div class="feature-grid">
+          <article class="feature-card"><h3>Unified intake</h3><p>Connect support, sales notes, and in-app feedback. Everything lands in one structured queue.</p></article>
+          <article class="feature-card"><h3>Priority scoring</h3><p>Weight requests by impact, effort, and customer segment without building a spreadsheet.</p></article>
+          <article class="feature-card"><h3>Roadmap alignment</h3><p>Link decisions back to themes and releases so stakeholders see the same source of truth.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="waitlist">
+      <div class="container narrow">
+        <p class="section-label">Early access</p>
+        <h2 class="section-title">Join the waitlist</h2>
+        <p class="section-lead">We’re onboarding a limited set of product teams. Leave your work email and we’ll invite you when a seat opens.</p>
+        <form class="waitlist-form" data-waitlist-form action="#" method="post">
+          <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Work email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Request access</button>
+        </form>
+        <p class="waitlist-note">No spam. One email when your invite is ready.</p>
+        <div class="waitlist-success" data-waitlist-success>You’re on the list. We’ll be in touch when early access opens.</div>
+      </div>
+    </section>
+    <section class="cta-band" id="more">
+      <div class="container">
+        <h2>See how Ledger fits your process</h2>
+        <p>Full multi-page set includes Features, Pricing, and FAQ under <code>pages/</code>. This preview is the home experience, fully standalone.</p>
+        <div class="hero-actions">
+          <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand">Ledger</div><p>Clarity for product decisions. Built for teams who ship with intention.</p></div>
+        <div class="footer-col"><h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="#waitlist">Waitlist</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Ledger</span><span>Built with DevSnips design tokens</span></div>
+    </div>
+  </footer>
+  <script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var stored = localStorage.getItem('ds-theme');
+  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) root.setAttribute('data-theme', 'dark');
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('ds-theme', 'light'); }
+      else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('ds-theme', 'dark'); }
+    });
+  });
+  var menuToggle = document.querySelector('[data-menu-toggle]');
+  var navLinks = document.querySelector('[data-nav-links]');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('[data-waitlist-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      var success = form.parentElement.querySelector('[data-waitlist-success]');
+      if (success) success.classList.add('is-visible');
+    });
+  });
+})();
+  </script>
 </body>
 </html>
