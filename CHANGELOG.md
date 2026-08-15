@@ -2,34 +2,43 @@
 
 ## 2026-08-15
 
-### Fixed — Tailwind Sections critical + significant quality defects
-Targeted curation pass on `Tailwind/Sections/` (now **200 variants** across 16 families). All fixes preserve original design intent; no section was redesigned. The section-style generator sources (`_gen/builders_*.py`, `_gen/generate.py`) were fixed alongside the generated files so future regeneration stays correct.
+### Changed — Vanilla templates consolidation (quality over quantity)
+- **Purged 9 off-brand / low-value Vanilla template folders** that fought the design language defined in `design-tokens.md` (glassmorphism, neon, gradients, purple/violet accents, decorative blobs, gradient-saas, cyber aesthetics):
+  - `nft-web3-project` (Orbitron + glass + neon NFT aesthetic)
+  - `portfolio-site` (4 styles — glassmorphism, cyber-neon, gradient-blob, dark-purple)
+  - `startup-template` (3 styles — cyber-neon, soft-gradient)
+  - `product-launch` (3 styles — gradient-saas, cyber-neon, playful-pastel)
+  - `blog-landing-pages` (4 styles — cyber-neon, soft-pastel-blob, etc.)
+  - `micro-saas-product`, `template-element` (low value / vague)
+  - `Landing-Pages` (one-page-scrolling), `Standalone` (404 + coming-soon placeholders)
+- **Renamed two keepers** to reflect their rebuilt editorial purpose:
+  - `freelancer-portfolio` → `developer-portfolio`
+  - `ai-tool-launch` → `product-launch`
+- **Final Vanilla Templates lineup: 8 templates** (down from 20+): SaaS Dashboard, Documentation Site, Job Board, Agency, Developer Portfolio, Product Launch, Event Conference, HTML5 Boilerplate.
 
-#### Critical (broken / non-functional)
-- **Testimonials — `>heart<` literal in badge SVG** (all 15 styles, code.html + preview.html): the eyebrow-icon name was embedded as literal text instead of the icon path. Fixed `builders_testimonials.py` `head()` to use `ic()` (ICONS lookup) instead of the raw `icon()` wrapper; patched all 30 files with the canonical heart path.
-- **Testimonials — unfilled `%s` template placeholders** (bento-grid/ratings 4, dark-premium/split 8, vercel/carousel 2): Python `%`-formatting leaks in the static panel strings. Fixed the generator builders (ratings/split/carousel) to format the panel strings and patched the 6 files with the correct token-derived values (surface, star_row, avatar, quote, person).
-- **command-palette — double-encoded UTF-8 mojibake** (×3 styles, code.html + preview.html): `⌘`/`↑`/`↓`/`↵`/`…`/`—` were mis-encoded as `â`-prefixed byte sequences. Repaired the byte sequences to proper UTF-8 glyphs (verified at byte level).
-- **Stats/futuristic — counter snippet non-functional standalone**: `code.html` showed `0k/0%/0+/0M+` with `data-counter` hooks but no script (the count-up JS lived only in preview). Set the static final values (`128k/99%/42+/7M+`) as the initial text and added a scoped, reduced-motion-safe count-up `<script>` (IntersectionObserver) to both code.html and preview.html.
-- **Broken hex gradients missing `#`** (8 sections × code+preview = 16 files: Logos/neo-brutalism, Newsletter/futuristic, Newsletter/startup-landing, Contact/futuristic, Testimonials/editorial, Testimonials/elegant-luxury, 404/elegant-luxury, 404/cyber): gradient color stops like `FF4FA322` silently failed. Root cause was `.lstrip("#")` in the builders feeding templates that didn't re-add `#`. Fixed all generator gradient templates to use `#%s` and patched the 16 files.
-- **Index ↔ disk synchronization**: `snippets-index.json` had 4 duplicated variant paths (ai-product/agent-workflow/neo-brutalism, saas/feature-grid/neo-brutalism, saas/dashboard-hero/sharp-glassmorphism) and 4 on-disk leaves missing from the index (agent-workflow/vercel, pricing-table/sharp-glassmorphism, trial-cta/neo-brutalism). Ran `_gen/rebuild_index.py` — index now matches disk exactly.
+### Added — 3 rebuilt Vanilla templates (editorial minimal, `--ds-*` design system)
+All three are **modular** (`pages/code.html` + `pages/style.css` + `pages/script.js` + self-contained `preview.html` that inlines CSS+JS), **light-default** with calm opt-in dark mode (no-flash pre-paint + persisted toggle), hairline 1px borders, small controlled radii, restrained shadows, single controlled blue accent, Inter + JetBrains Mono, IntersectionObserver scroll-reveal (reduced-motion safe), skip link + semantic landmarks + single `h1` + ARIA + `:focus-visible` + native controls throughout.
+- **`Developer Portfolio`** (`developer-portfolio/`) — a personal, technical, editorial-minimal portfolio for a software / design engineer. Sections: header (brand mark, anchor nav, theme toggle, mobile drawer), intro (clamp() lead, status badge, metadata grid), selected work (project cards with index/role/year/stack tags), about (narrative + capabilities table + four-up stat row), notes (writing list), contact (channels list), footer. JS: theme toggle, mobile nav, scrollspy (`aria-current`), reveal. QA PASS: 0 overflow at 320–1920px, 0 console errors, interactions verified. ID `developer-portfolio-001`, related `[agency, documentation-site, product-launch]`.
+- **`Product Launch`** (`product-launch/`) — a clean, restrained product launch / waitlist landing page for a dev-focused product (fictional "Linear Field"). Sections: header, hero + working waitlist card (name + email inline validation, simulated submission, success state, beta-capacity progress bar), social-proof logo row, three-column feature grid, four-step how-it-works, two-plan pricing teaser, single-open FAQ accordion (CSS-grid 0fr→1fr, ARIA), final CTA, footer. JS: theme toggle, mobile nav, FAQ accordion, waitlist form validation, reveal. QA PASS: 0 overflow, 0 console errors, FAQ single-open + waitlist validation/success verified. ID `product-launch-001`, related `[developer-portfolio, documentation-site, event-conference]`.
+- **`Event Conference`** (`event-conference/`, rebuilt from the neon-gradient original) — a dense, structured single-track conference website (fictional "Field Notes Conf 2027"). Sections: header (brand + date, anchor nav), hero + live countdown card (days/hours/mins/secs, paused when tab hidden), about (highlights table + stat row), speakers grid (avatar initials), two-day schedule with ARIA tablist (roving tabindex, Arrow Left/Right/Home/End) + time-rail slot list, venue (details table), capped sponsor tiers, three-tier register panel, footer. JS: theme toggle, mobile nav, schedule tabs, countdown, reveal. QA PASS: 0 overflow, 0 console errors, tab switching + countdown + theme verified. ID `event-conference-001`, related `[product-launch, developer-portfolio, agency]`.
 
-#### Significant (a11y / semantics / self-containment)
-- **404 — missing `<h1>`** (8 styles: apple-inspired, bento-grid, edge-glassmorphism, editorial, elegant-luxury, gradient-mesh, vercel): the page title was a `<p>`/`<span>`. Converted the main title element to `<h1>` (preserving classes) in files + generator; all 15 styles now have exactly one `<h1>`.
-- **Metadata description mismatches**: 3 metadata.json files described their style as "Brutalist" when it wasn't (Stats/elegant-luxury, Team/edge-glassmorphism, 404/monochrome). Corrected to "Bold …" matching the `section` field.
-- **FAQ/soft-ui — broken in-page anchors**: `href="#q0"`…`#q5"` had no matching `id` targets. Added `id="qN"` to the 6 `<details>` elements (files + generator `qrow()` now accepts a `qid` param).
-- **Self-contained `code.html` CSS** (150 files): the copy-paste snippets referenced style-helper classes (`f-disp`, `f-mono`, `neu`, `eg-glass`, `ft-glow`, `vc-panel`, `nb-shadow`, `cy-clip`, …) defined only in preview.html. Injected a `<style>` block (marked `/* DevSnips style-helper classes (self-contained snippet) */`) into every 10-style code.html so each snippet renders correctly without preview. Generator `generate.py` `code_snippet()` now injects `head_css` too.
-- **Newsletter — missing form labels** (all 15 styles × code+preview = 30 files): email inputs had only `aria-label`. Added `<label for="nl-email" class="sr-only">Email address</label>` + `id` to each input (files + generator `form()` + 3 inline forms).
-- **kanban-board — mouse-only drag-and-drop** (×3 styles): cards had `tabindex="0"` but no keyboard move handler. Added a scoped `keydown` handler (ArrowUp/Down reorder within a column, ArrowLeft/Right move to adjacent column) reusing the existing `updateCounts()` logic.
-- **Invalid `ring-current/N` Tailwind classes** (10 files: Team/dark-premium, Team/elegant-luxury, Team/futuristic, Team/startup-landing, Testimonials/apple-inspired): the opacity modifier doesn't apply to `currentColor`. Replaced with `ring-white/N` (all affected elements have `text-white`) in files + generator.
+### Changed — HTML5 Boilerplate polished
+- **`html5-boilerplate/pages/index.html`** rewritten from a bare 15-line skeleton into a minimal clean starter aligned with the design system: core `--ds-*` token foundation (semantic + accent tokens, fonts, radii, spacing, motion), light-default + calm opt-in dark mode via `[data-theme="dark"]`, no-flash pre-paint theme script, system-font stack (Inter + JetBrains Mono with fallbacks), box-sizing reset, `:focus-visible` ring, `prefers-reduced-motion` guard. No external dependencies. Updated `metadata.json` + `README.md`.
 
-### Changed — Curation
-- **Removed `Tailwind/Sections/saas/three-tier-pricing/sharp-glassmorphism/`** — a near-duplicate of `saas/pricing-table/sharp-glassmorphism/` (same style, same monthly/annual billing toggle, same 3-tier card grid with check/dash lists, same `data-pricing="sg"` selector). `pricing-table/sg` is the richer version (212 vs 109 lines) and already provides the "popular tier" highlight. The single-style `three-tier-pricing` leaf added no structural variation. No coverage loss — `pricing-table` ships all 3 styles (nb/sg/vc). Index rebuilt.
+### Added — `agent_instruction.md` for AI adaptation
+- Added a concise `agent_instruction.md` to **7 templates** (SaaS Dashboard, Documentation Site, Job Board, Agency, Developer Portfolio, Product Launch, Event Conference): what the template is, the design-system rules to follow, the file layout, how to adapt it (rebrand / swap content / add pages), explicit "do not" guardrails, and the quality bar to re-check. Each points back to `design-tokens.md` as the source of truth.
+- Added **`Vanilla/Templates/_build_preview.py`** — a small reusable helper that inlines `pages/style.css` + `pages/script.js` into `pages/code.html` to regenerate a self-contained `preview.html` for any modular Vanilla template (referenced by the `agent_instruction.md` files).
+
+### Added — `scripts/_qa_template.py`
+- A Playwright QA harness for individual Vanilla templates: checks horizontal overflow at 320/375/768/1024/1280/1920px, console/page errors, and template-specific interactions (Developer Portfolio: theme toggle + reveal; Product Launch: FAQ single-open + waitlist validation/success; Event Conference: schedule tablist + countdown + theme). Used to verify the rebuilds.
 
 ### Verified
-- `scripts/validate.py` PASSED — architecture, metadata, and index all consistent (indexed content matches disk exactly).
-- All 14 fix categories verified programmatically (see post-fix audit); `node --check` on kanban JS passes; metadata.json all valid JSON; `<style>` tags balanced.
-- Browser visual checks: Testimonials/vercel (heart icon renders as path, no `%s`), command-palette (⌘K/↑↓/↵ glyphs render), Stats/futuristic (128k/99%/42+/7M+ display), 404/edge-glassmorphism (`404.sh` as h1).
-- Section count: **201 → 200** (one redundant merge). Generator + generated files kept in sync.
+- `scripts/validate.py` PASSED (architecture, metadata, index consistent); Vanilla quality-bar scan: 191 components, 0 required-check failures.
+- `node --check` on all new JS files passes; strict HTML5 validation (html5lib, 0 errors) on all rebuilt `code.html` + `preview.html`.
+- Per-template Playwright QA PASS for developer-portfolio, product-launch, event-conference, html5-boilerplate (0 overflow, 0 console errors, interactions verified).
+- Calm dark mode verified (computed styles): near-black `rgb(10,10,10)` bg, soft-white `rgb(245,245,245)` text, inverted primary button — no neon/purple, per `design-tokens.md` §42.
+- **Regenerated `snippets-index.json`** via `_gen/rebuild_index.py`: **78 families, 662 variants, 1486 styles** (Vanilla 40 families / 199 variants [297 Components + 8 Templates]). Index matches disk exactly.
+- **Updated `AGENTS.md`** Vanilla Templates section to the post-consolidation state.
 
 ## 2026-08-13
 

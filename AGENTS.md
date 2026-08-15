@@ -161,19 +161,30 @@ Full website templates (not single components). Two scopes exist:
 
 The Vanilla template collection follows the shared `Vanilla/Templates/design-tokens.md` spec (primitive → semantic → template → component `--ds-*` + `--template-*` token layers; neutral-first, one controlled accent, hairline borders, restrained shadows). Each template folder is a "leaf" in `validate.py` terms (has `metadata.json`, no child folder with `metadata.json`) and is indexed as a single-variant family.
 
-**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (+ optional `assets/` for shared resources); all code files live in a `pages/` sub-directory:
+**CURRENT STATE (2026-08-15 consolidation):** the collection was aggressively pruned to **8 high-quality templates** that match (or were rebuilt to match) the restrained, editorial, product-focused design language. 9 off-brand / low-value folders were deleted (glassmorphism, neon, gradients, purple/violet accents, decorative blobs, cyber aesthetics — all banned in `design-tokens.md` §6): `nft-web3-project`, `portfolio-site`, `startup-template`, `product-launch` (old multi-style), `blog-landing-pages`, `micro-saas-product`, `template-element`, `Landing-Pages`, `Standalone`. Two keepers were renamed and rebuilt: `freelancer-portfolio` → `developer-portfolio`, `ai-tool-launch` → `product-launch`.
+
+**Final lineup (8 templates):** SaaS Dashboard (multipage), Documentation Site (modular), Job Board (modular), Agency (modular, dark-first), Developer Portfolio (modular, rebuilt), Product Launch (modular, rebuilt), Event Conference (modular, rebuilt), HTML5 Boilerplate (single-page starter). Stats after: totalFamilies=78, totalVariants=662 (Vanilla 40 families / 199 variants [297 Components + 8 Templates]). Index matches disk exactly.
+
+**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (+ optional `agent_instruction.md` for AI adaptation, + optional `assets/`/`css/`/`js/` for shared resources); all code files live in a `pages/` sub-directory:
 ```
 <Template>/
 ├── pages/              ← all the code files
-│   └── index.html      (single-page templates) | code.html + style.css + script.js (modular) | *.html (multi-page)
-├── preview.html        ← thin iframe wrapper loading pages/index.html (opens directly); or the self-contained gallery shell (SaaS Dashboard)
+│   └── index.html      (single-page starters) | code.html + style.css + script.js (modular) | *.html (multi-page)
+├── preview.html        ← self-contained single-file preview (modular templates inline CSS+JS); or thin iframe wrapper (html5-boilerplate); or the gallery shell (SaaS Dashboard)
 ├── metadata.json
-└── README.md
+├── README.md
+└── agent_instruction.md  (present on 7 templates; absent on html5-boilerplate)
 ```
-- **Single-page leaves** (ai-tool-launch, event-conference, freelancer-portfolio, html5-boilerplate, micro-saas-product, nft-web3-project, template-element, + every multi-variant style folder under portfolio-site / product-launch / startup-template / blog-landing-pages / Landing-Pages / Standalone): the original self-contained `preview.html` was moved to `pages/index.html`; the root `preview.html` is now a full-viewport `<iframe src="pages/index.html">` wrapper so the preview still opens directly.
-- **Modular leaves** (Agency, Documentation Site, Job Board): `code.html` + `style.css` + `script.js` moved together into `pages/` (their relative `href="style.css"` / `src="script.js"` refs stay valid); `preview.html` is already self-contained (inlined) so it is unchanged. `assets/` (Documentation Site) stays at root; code.html's favicon ref was rewritten to `../assets/favicon.svg`.
-- **SaaS Dashboard**: the 30 page files already lived in `pages/`; only the self-contained `code.html` was moved there. `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
+- **Modular templates** (Agency, Documentation Site, Job Board, Developer Portfolio, Product Launch, Event Conference): `pages/code.html` (HTML structure, links `style.css` + `script.js`) + `pages/style.css` (the `--ds-*` design system) + `pages/script.js` (interactions); `preview.html` is self-contained (inlines CSS+JS via `Vanilla/Templates/_build_preview.py`). All rebuilt templates are light-default with calm opt-in dark mode (no-flash pre-paint + persisted toggle), hairline 1px borders, small controlled radii, single controlled blue accent, Inter + JetBrains Mono, IntersectionObserver scroll-reveal (reduced-motion safe), skip link + semantic landmarks + single `h1` + ARIA + `:focus-visible` + native controls throughout.
+- **Single-page starter** (html5-boilerplate): `pages/index.html` holds a minimal HTML5 skeleton with the core `--ds-*` token foundation, no-flash dark-mode script, and reduced-motion guard; root `preview.html` is a thin full-viewport `<iframe src="pages/index.html">` wrapper.
+- **SaaS Dashboard** (multipage): the 31 page files live in `pages/`; `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
 `snippets-index.json` variants list both root files (`README.md`, `metadata.json`, `preview.html`) and the one-level `pages/*` contents (via `_gen/rebuild_index.py` `make_variant`, which recurses into `pages/`).
+
+**`agent_instruction.md`** — present on 7 templates (all except html5-boilerplate). Concise AI-adaptation guide: what the template is, the design-system rules, the file layout, how to adapt (rebrand / swap content / add pages), explicit "do not" guardrails, and the quality bar to re-check. Points back to `design-tokens.md` as the source of truth.
+
+**`Vanilla/Templates/_build_preview.py`** — reusable helper that inlines `pages/style.css` + `pages/script.js` into `pages/code.html` to regenerate a self-contained `preview.html` for any modular Vanilla template. Run from inside the template folder: `python3 ../_build_preview.py .`.
+
+**`scripts/_qa_template.py`** — Playwright QA harness for individual Vanilla templates: checks horizontal overflow at 320/375/768/1024/1280/1920px, console/page errors, and template-specific interactions. Run: `python3 scripts/_qa_template.py Vanilla/Templates/<template>/preview.html`.
 
 ### `Documentation Site` — editorial developer documentation (modular files, Pico CSS, light-mode-first)
 - A premium, minimal, **light-mode-first** **developer documentation** template. **Split into modular files**: `code.html` (HTML structure, links `style.css` + `script.js`) + `style.css` (the design system) + `script.js` (router + content + interactions) + `preview.html` (self-contained single-file preview that inlines CSS+JS so it opens directly) + `metadata.json` + `README.md` + `assets/{logo,favicon}.svg`. Built on **Pico CSS** (CDN) + the shared `--ds-*` token system. **Blue-600 accent** (`#2563eb`) — never violet/neon per `design-tokens.md`. **Light is the default**; dark mode is opt-in (persisted, no-flash pre-paint script).

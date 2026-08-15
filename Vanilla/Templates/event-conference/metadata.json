@@ -1,36 +1,84 @@
 {
   "id": "event-conference-001",
   "name": "Event Conference",
-  "description": "Event Conference.",
+  "slug": "event-conference",
+  "component": "event-conference",
+  "family": "event-conference",
+  "variant": "default",
+  "description": "A dense, structured single-track conference website template built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, date, anchor nav, theme toggle, and responsive mobile drawer; an editorial hero with a clamp() headline, facts grid (dates / location / talks / capacity), and a live countdown card; an about section with highlights table and a four-up stat row; a speakers grid (avatar initials, name, role, talk); a two-day schedule with an ARIA tablist (arrow-key nav, Home/End) and a time-rail slot list; a venue section with details table; a capped sponsorship tier list; and a three-tier register panel (early-bird / standard / workshop) + footer. Split into modular files: code.html + style.css (the --ds-* design-token system from design-tokens.md, light-default + calm opt-in dark mode, reduced-motion guard) + script.js (theme toggle, mobile nav, schedule tabs, live countdown, reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
   "technology": "vanilla",
   "category": "templates",
   "subcategory": "event-conference",
   "tags": [
-    "animation",
-    "hover-effect",
-    "gradient",
-    "shadow",
-    "typing-effect",
-    "flexbox",
-    "grid",
-    "center"
-  ],
-  "responsive": false,
-  "browserSupport": [
-    "chrome",
-    "firefox",
-    "safari",
-    "edge"
-  ],
-  "dependencies": [
-    "Montserrat"
-  ],
-  "source": "DevSnips",
-  "darkMode": false,
-  "accessibility": [
-    "semantic HTML"
+    "event",
+    "conference",
+    "schedule",
+    "speakers",
+    "tickets",
+    "countdown",
+    "tabs",
+    "tablist",
+    "venue",
+    "sponsors",
+    "pricing",
+    "design-system",
+    "css-variables",
+    "responsive",
+    "dark-mode",
+    "accessibility",
+    "vanilla-js",
+    "editorial",
+    "minimal",
+    "light-default"
   ],
   "features": [
-    "semantic HTML"
+    "sticky header with brand mark, date, anchor nav, theme toggle, and responsive mobile drawer (aria-expanded)",
+    "editorial hero with clamp() headline and facts grid (dates / location / talks / capacity)",
+    "live countdown card counting down to event start (days/hours/mins/secs), paused when tab hidden",
+    "about section with highlights table and four-up stat row",
+    "speakers grid (avatar initials, name, role, talk title)",
+    "two-day schedule with ARIA tablist (arrow-key + Home/End navigation) and time-rail slot list",
+    "venue section with details table (venue / address / transit / doors / access)",
+    "capped sponsorship tier list (Partner / Supporter)",
+    "three-tier register panel (early-bird / standard / workshop) with feature lists",
+    "light-default theme with calm opt-in dark mode (no-flash pre-paint script + persisted toggle)",
+    "IntersectionObserver scroll-reveal (.reveal -> .is-visible, reduced-motion safe)",
+    "DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens on top",
+    "hairline 1px borders, small controlled radii, restrained shadows, single controlled accent",
+    "modular file split (code.html + style.css + script.js)"
+  ],
+  "responsive": true,
+  "darkMode": "opt-in (light default; no-flash system detection + persisted toggle)",
+  "browserSupport": "Chrome, Firefox, Safari, Edge (modern evergreen browsers)",
+  "dependencies": "Google Fonts (Inter + JetBrains Mono)",
+  "accessibility": [
+    "semantic HTML landmarks (header, nav, main, section, aside, footer)",
+    "skip link to main content",
+    "single h1; clear heading hierarchy",
+    "ARIA labels on theme toggle, nav toggle, and primary nav",
+    "aria-expanded + aria-controls on mobile nav toggle; Escape closes drawer",
+    "schedule ARIA tablist: role=tab/tabpanel, aria-selected, aria-controls, roving tabindex, Arrow Left/Right/Home/End keyboard nav",
+    "countdown exposed as role=timer with aria-atomic",
+    "visible focus states (focus-visible outline on all interactive elements)",
+    "keyboard-operable: all controls are native button / a / input",
+    "reduced-motion support (prefers-reduced-motion disables animations, smooth scroll, and reveal transforms)",
+    "sufficient color contrast in light and dark modes"
+  ],
+  "source": "DevSnips",
+  "related": [
+    "product-launch",
+    "developer-portfolio",
+    "agency"
+  ],
+  "type": "single-page",
+  "files": [
+    "code.html",
+    "style.css",
+    "script.js",
+    "preview.html",
+    "README.md",
+    "metadata.json"
   ]
 }
