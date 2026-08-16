@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Atlas Analytics — [A] mark">
+  <!-- Minimal [A] mark: hairline frame, geometric peak, single blue accent bar -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="3" fill="#ffffff" stroke="#111111" stroke-width="1"/>
+  <!-- the A peak -->
+  <path d="M16 7 L24 25" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="square"/>
+  <path d="M16 7 L8 25" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="square"/>
+  <!-- crossbar -->
+  <path d="M11.4 19 H20.6" stroke="#111111" stroke-width="2" stroke-linecap="square"/>
+  <!-- single blue accent dot at the apex -->
+  <circle cx="16" cy="7" r="1.6" fill="#2563eb"/>
+</svg>
