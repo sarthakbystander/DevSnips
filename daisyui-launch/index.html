@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Launch beautiful products faster with a daisyUI component system powered by DevSnips patterns." />
+  <title>LaunchKit — Ship the interface, not the boilerplate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <style>
+    :root { --ink: #111; --acid: #c7ff36; }
+    body { font-family: 'DM Sans', sans-serif; background: #f7f7f3; color: var(--ink); }
+    h1,h2,h3,.brand { font-family: 'Space Grotesk', sans-serif; }
+    .grid-bg { background-image: linear-gradient(#11111110 1px, transparent 1px), linear-gradient(90deg, #11111110 1px, transparent 1px); background-size: 32px 32px; }
+    .hard-shadow { box-shadow: 7px 7px 0 #111; }
+    .hard-shadow-sm { box-shadow: 4px 4px 0 #111; }
+    .lift { transition: transform .18s ease, box-shadow .18s ease; }
+    .lift:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 #111; }
+    .marquee { animation: scroll 18s linear infinite; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } .lift { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 border-b-2 border-black bg-[#f7f7f3]/95 backdrop-blur">
+    <div class="navbar mx-auto max-w-7xl px-5 md:px-8">
+      <div class="navbar-start">
+        <a class="brand text-xl font-bold tracking-tight" href="#">launch<span class="text-emerald-600">kit</span>.</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal gap-2 font-semibold">
+          <li><a href="#components">Components</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end gap-2">
+        <a class="btn btn-ghost hidden sm:inline-flex" href="https://github.com/sarthakbystander/DevSnips">GitHub</a>
+        <a class="btn bg-black text-white hover:bg-black/85 border-0 rounded-lg" href="#start">Start building <span>→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid-bg border-b-2 border-black overflow-hidden">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+        <div class="grid items-end gap-12 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
+            <div class="mb-7 inline-flex items-center gap-2 border-2 border-black bg-white px-3 py-2 text-sm font-bold hard-shadow-sm">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              Built with daisyUI + DevSnips
+            </div>
+            <h1 class="max-w-4xl text-5xl font-bold leading-[.96] tracking-[-.055em] sm:text-6xl md:text-8xl">Ship the interface.<br><span class="text-emerald-600">Not the boilerplate.</span></h1>
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-black/65 md:text-xl">A sharp, practical launch system for teams that would rather build the product than spend three days deciding how rounded a button should be.</p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a id="start" href="#components" class="btn btn-lg rounded-lg border-2 border-black bg-[var(--acid)] text-black hard-shadow hover:bg-[#b9ef28]">Explore components →</a>
+              <a href="https://github.com/sarthakbystander/DevSnips" class="btn btn-lg rounded-lg border-2 border-black bg-white text-black hard-shadow hover:bg-white">View DevSnips</a>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-6 text-sm font-semibold text-black/60">
+              <span>MIT licensed</span><span>•</span><span>Responsive by default</span><span>•</span><span>Copy & ship</span>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="hard-shadow border-2 border-black bg-white p-4 rotate-1">
+              <div class="flex items-center justify-between border-b-2 border-black pb-3">
+                <div class="flex gap-1.5"><i class="h-3 w-3 rounded-full border border-black"></i><i class="h-3 w-3 rounded-full border border-black"></i><i class="h-3 w-3 rounded-full border border-black"></i></div>
+                <span class="text-xs font-bold uppercase tracking-widest">preview / 001</span>
+              </div>
+              <div class="p-5">
+                <div class="badge badge-outline mb-4">New release</div>
+                <div class="skeleton mb-3 h-8 w-3/4"></div>
+                <div class="skeleton mb-2 h-3 w-full"></div>
+                <div class="skeleton mb-6 h-3 w-5/6"></div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="rounded-lg border-2 border-black bg-[#c7ff36] p-4"><div class="text-xs font-bold uppercase">Users</div><div class="mt-2 text-3xl font-bold">12.8k</div></div>
+                  <div class="rounded-lg border-2 border-black bg-[#e9e5ff] p-4"><div class="text-xs font-bold uppercase">Growth</div><div class="mt-2 text-3xl font-bold">+48%</div></div>
+                </div>
+                <button class="btn mt-4 w-full rounded-lg border-2 border-black bg-black text-white">Launch dashboard</button>
+              </div>
+            </div>
+            <div class="absolute -bottom-5 -left-5 border-2 border-black bg-[#ffcf4a] px-4 py-3 font-bold hard-shadow-sm">No Figma archaeology required.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b-2 border-black bg-black py-5 text-white overflow-hidden">
+      <div class="marquee flex w-max gap-10 text-sm font-bold uppercase tracking-[.18em]">
+        <span>Buttons</span><span>Cards</span><span>Navigation</span><span>Pricing</span><span>Dashboards</span><span>Modals</span><span>Forms</span><span>Tables</span><span>Buttons</span><span>Cards</span><span>Navigation</span><span>Pricing</span><span>Dashboards</span><span>Modals</span><span>Forms</span><span>Tables</span>
+      </div>
+    </section>
+
+    <section id="components" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div><p class="mb-3 text-sm font-bold uppercase tracking-[.18em] text-emerald-700">A working system</p><h2 class="text-4xl font-bold tracking-tight md:text-6xl">Everything your launch needs.</h2></div>
+        <p class="max-w-md text-black/60">Borrow the best parts of DevSnips, give them daisyUI semantics, and keep the visual language opinionated.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <article class="lift rounded-xl border-2 border-black bg-white p-6 hard-shadow"><div class="mb-10 flex justify-between"><span class="badge bg-black text-white">01</span><span>↗</span></div><h3 class="text-2xl font-bold">Launch heroes</h3><p class="mt-2 text-black/60">High-impact hero sections adapted from DevSnips' SaaS launch patterns.</p><div class="mt-7 rounded-lg border-2 border-black bg-[#f7f7f3] p-4"><div class="h-3 w-2/3 rounded bg-black"></div><div class="mt-2 h-2 w-full rounded bg-black/15"></div><div class="mt-2 h-2 w-4/5 rounded bg-black/15"></div><button class="btn btn-sm mt-4 rounded border-2 border-black bg-[var(--acid)] text-black">Get started</button></div></article>
+        <article class="lift rounded-xl border-2 border-black bg-[#e9e5ff] p-6 hard-shadow"><div class="mb-10 flex justify-between"><span class="badge border-2 border-black bg-white text-black">02</span><span>↗</span></div><h3 class="text-2xl font-bold">Product cards</h3><p class="mt-2 text-black/60">Composable cards for features, metrics, products, and boringly important things.</p><div class="mt-7 grid grid-cols-2 gap-2"><div class="rounded-lg border-2 border-black bg-white p-3"><div class="text-xs font-bold">Starter</div><div class="mt-2 text-xl font-bold">$19</div></div><div class="rounded-lg border-2 border-black bg-white p-3"><div class="text-xs font-bold">Pro</div><div class="mt-2 text-xl font-bold">$49</div></div></div></article>
+        <article class="lift rounded-xl border-2 border-black bg-[#ffcf4a] p-6 hard-shadow"><div class="mb-10 flex justify-between"><span class="badge border-2 border-black bg-white text-black">03</span><span>↗</span></div><h3 class="text-2xl font-bold">Conversion blocks</h3><p class="mt-2 text-black/60">CTAs, testimonials, logos, pricing and signup flows that know their job.</p><div class="mt-7 flex items-center gap-3 rounded-lg border-2 border-black bg-white p-3"><div class="avatar placeholder"><div class="w-9 rounded-full bg-black text-white"><span>JD</span></div></div><div><div class="text-sm font-bold">“Finally shipped.”</div><div class="text-xs opacity-60">— Jordan, founder</div></div></div></article>
+      </div>
+    </section>
+
+    <section id="workflow" class="border-y-2 border-black bg-[#111] text-white">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+        <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
+          <div><p class="mb-3 text-sm font-bold uppercase tracking-[.18em] text-[#c7ff36]">From snippet to site</p><h2 class="text-4xl font-bold tracking-tight md:text-6xl">Three steps.<br>Zero ceremony.</h2></div>
+          <div class="space-y-5">
+            <div class="grid gap-5 rounded-xl border-2 border-white/20 p-6 md:grid-cols-[80px_1fr]"><span class="text-5xl font-bold text-[#c7ff36]">01</span><div><h3 class="text-2xl font-bold">Pick a pattern</h3><p class="mt-2 text-white/55">Start with a DevSnips section, component, or template that already solves the layout problem.</p></div></div>
+            <div class="grid gap-5 rounded-xl border-2 border-white/20 p-6 md:grid-cols-[80px_1fr]"><span class="text-5xl font-bold text-[#c7ff36]">02</span><div><h3 class="text-2xl font-bold">Compose with daisyUI</h3><p class="mt-2 text-white/55">Use semantic component classes for menus, buttons, cards, alerts, modals and the rest of humanity's favorite rectangles.</p></div></div>
+            <div class="grid gap-5 rounded-xl border-2 border-white/20 p-6 md:grid-cols-[80px_1fr]"><span class="text-5xl font-bold text-[#c7ff36]">03</span><div><h3 class="text-2xl font-bold">Ship it</h3><p class="mt-2 text-white/55">Swap the copy, connect your backend, test mobile, and deploy. The ancient ritual of polishing a landing page for six weeks is optional.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="mx-auto max-w-2xl text-center"><p class="mb-3 text-sm font-bold uppercase tracking-[.18em] text-emerald-700">Simple pricing</p><h2 class="text-4xl font-bold tracking-tight md:text-6xl">Free to start. Built to scale.</h2><p class="mt-5 text-black/60">The launch layer stays open. Your product gets to keep the money.</p></div>
+      <div class="mx-auto mt-12 max-w-3xl rounded-2xl border-2 border-black bg-[var(--acid)] p-2 hard-shadow">
+        <div class="grid gap-0 overflow-hidden rounded-xl border-2 border-black bg-white md:grid-cols-2">
+          <div class="p-8 md:p-10"><div class="badge bg-black text-white">OPEN SOURCE</div><h3 class="mt-5 text-3xl font-bold">Starter</h3><div class="mt-4 text-6xl font-bold">$0</div><p class="mt-3 text-black/60">Forever. MIT licensed.</p><a href="https://github.com/sarthakbystander/DevSnips" class="btn mt-8 w-full rounded-lg border-2 border-black bg-black text-white">Browse DevSnips</a></div>
+          <div class="border-t-2 border-black bg-[#f7f7f3] p-8 md:border-l-2 md:border-t-0 md:p-10"><p class="font-bold">Included</p><ul class="mt-5 space-y-3 text-sm"><li>✓ DevSnips components</li><li>✓ daisyUI primitives</li><li>✓ Responsive layouts</li><li>✓ Copy-ready markup</li><li>✓ Commercial projects</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t-2 border-black bg-[#e9e5ff]">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
+        <div class="rounded-2xl border-2 border-black bg-white p-8 hard-shadow md:p-12">
+          <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-end"><div><p class="mb-3 text-sm font-bold uppercase tracking-[.18em]">Your next launch</p><h2 class="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">Make the first screen worth remembering.</h2></div><a href="https://github.com/sarthakbystander/DevSnips" class="btn btn-lg rounded-lg border-2 border-black bg-black text-white">Open DevSnips →</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t-2 border-black bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm font-semibold md:flex-row md:items-center md:justify-between md:px-8"><div class="brand">launch<span class="text-emerald-600">kit</span>.</div><p class="text-black/50">Built with daisyUI, Tailwind CSS & DevSnips.</p><a class="underline" href="https://github.com/sarthakbystander/DevSnips">Source on GitHub</a></div>
+  </footer>
+</body>
+</html>
