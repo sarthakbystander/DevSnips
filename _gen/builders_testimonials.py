@@ -170,7 +170,7 @@ def testimonials(style, i):
         for n in range(3):
             pr = P(n)
             tiles += '<article class="%s %s p-0 overflow-hidden"><div class="relative aspect-[4/3] flex items-center justify-center" style="background:linear-gradient(135deg,#%s22,#%s11)"><button type="button" class="flex h-16 w-16 items-center justify-center rounded-full %s" aria-label="Play %s testimonial">%s</button><span class="absolute bottom-3 left-3 %s">2:14</span></div><div class="p-5"><div class="flex items-center gap-3">%s<div><p class="text-sm font-semibold">%s</p><p class="text-xs %s">%s · %s</p></div></div></div></article>' % (
-                b["surface"], b["hover_card"], b["accent"].lstrip("#"), b["accent2"].lstrip("#") if b.get("accent2") else b["accent"].lstrip("#"), b["btn_primary"], pr[0], b["badge"], ic("play", "h-7 w-7"), avatar(pr[0], n), pr[0], b["text_muted"], pr[1], pr[2])
+                b["surface"], b["hover_card"], b["accent"].lstrip("#"), b["accent2"].lstrip("#") if b.get("accent2") else b["accent"].lstrip("#"), b["btn_primary"], pr[0], ic("play", "h-7 w-7"), b["badge"], avatar(pr[0], n), pr[0], b["text_muted"], pr[1], pr[2])
         body = '<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">%s</div>' % tiles
         feat = ["video placeholder tiles", "play button overlay", "duration badge", "gradient poster", "captioned profiles"]
 
