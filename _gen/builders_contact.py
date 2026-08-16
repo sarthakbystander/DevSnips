@@ -106,11 +106,11 @@ def contact(style, i):
         feat = ["office location cards", "regional badges", "local time display", "3 regions", "responsive grid"]
 
     elif key == "minimal-form":
-        form = ('<form class="mx-auto max-w-md space-y-4">%s%s<textarea rows="4" placeholder="How can we help?" class="%s" aria-label="Message"></textarea>'
+        form = ('<form class="mx-auto max-w-2xl space-y-4">%s%s<textarea rows="4" placeholder="How can we help?" class="%s" aria-label="Message"></textarea>'
                 '<button type="submit" class="%s w-full justify-center">Send %s</button></form>') % (
             field("Name", "name"), field("Email", "email", "email"), b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
         body = '<div class="text-center">%s</div>' % form
-        feat = ["minimal centered form", "narrow max width", "3 fields", "accessible", "single CTA"]
+        feat = ["minimal centered form", "aligned content width", "3 fields", "accessible", "single CTA"]
 
     elif key == "startup":
         form = ('<form class="space-y-4">%s<div class="grid grid-cols-2 gap-4">%s%s</div>%s<button type="submit" class="%s w-full justify-center">%s Start the conversation</button></form>') % (
