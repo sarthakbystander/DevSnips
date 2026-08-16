@@ -4,17 +4,19 @@ Description: Edge Glassmorphism newsletter layout: Inline strip.
 Author: DevSnips Contributors
 Usage Example: Drop this snippet into any Tailwind CSS page.
 -->
-
 <style>
   /* DevSnips style-helper classes (self-contained snippet) */
-  .f-sans{font-family:'Sora',sans-serif}.f-mono{font-family:'JetBrains Mono',monospace}.f-disp{font-family:'Sora',sans-serif}
+  
+      .f-sans{font-family:'Sora',sans-serif}.f-mono{font-family:'JetBrains Mono',monospace}.f-disp{font-family:'Sora',sans-serif}
       .eg-mesh{background:radial-gradient(at 18% 18%,rgba(236,72,153,.45) 0,transparent 50%),radial-gradient(at 82% 12%,rgba(99,102,241,.45) 0,transparent 50%),radial-gradient(at 75% 78%,rgba(34,211,238,.4) 0,transparent 50%),radial-gradient(at 22% 82%,rgba(168,85,247,.45) 0,transparent 50%),#0b0a1f;background-size:180% 180%;animation:eg-pan 18s ease-in-out infinite alternate}
       @keyframes eg-pan{0%{background-position:0 0}100%{background-position:100% 100%}}
       .eg-glass{background:rgba(255,255,255,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.16)}
       .eg-soft{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12)}
+
 </style>
+
 <section class="relative w-full py-20 sm:py-28 text-white" data-section="edge-glassmorphism">
 <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-<div class="mb-10 text-center mx-auto"><p class="mb-4"><span class="inline-flex items-center gap-1.5 eg-soft rounded-full px-3 py-1 f-mono text-[11px] font-medium uppercase tracking-wider text-white/80"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Newsletter</span></p><h2 class="f-disp text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto">Stay in the loop</h2><p class="mt-4 max-w-2xl text-center mx-auto text-base sm:text-lg leading-relaxed text-white/60">Monthly product updates and ideas. No spam, unsubscribe anytime.</p></div><div class="eg-soft rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4"><div><h3 class="font-semibold">Get the newsletter</h3><p class="text-sm text-white/60">Monthly. No spam.</p></div><form class="flex gap-2 w-full sm:w-auto"><label for="nl-email" class="sr-only">Email address</label><input type="email" id="nl-email" placeholder="you@email.com" class="w-full eg-soft rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 flex-1 sm:w-64" aria-label="Email"><button type="submit" class="bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-fuchsia-500/30">Subscribe</button></form></div>
+<div class="mb-10 text-center mx-auto"><p class="mb-4"><span class="inline-flex items-center gap-1.5 eg-soft rounded-full px-3 py-1 f-mono text-[11px] font-medium uppercase tracking-wider text-white/80"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Newsletter</span></p><h2 class="f-disp text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto">Stay in the loop</h2><p class="mt-4 max-w-2xl text-center mx-auto text-base sm:text-lg leading-relaxed text-white/60">Monthly product updates and ideas. No spam, unsubscribe anytime.</p></div><div class="eg-soft rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4"><div><h3 class="font-semibold">Get the newsletter</h3><p class="text-sm text-white/60">Monthly. No spam.</p></div><form class="flex gap-2 w-full sm:w-auto"><label for="nl-email" class="sr-only">Email address</label><input id="nl-email" type="email" placeholder="you@email.com" class="w-full eg-soft rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 flex-1 sm:w-64" aria-label="Email"><button type="submit" class="bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-fuchsia-500/30">Subscribe</button></form></div>
 </div>
 </section>

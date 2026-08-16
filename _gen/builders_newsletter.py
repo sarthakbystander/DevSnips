@@ -26,11 +26,11 @@ def newsletter(style, i):
 
     def form(inline=False):
         if inline:
-            return ('<form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto w-full">'
+            return ('<form class="flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto w-full">'
                     '<label for="nl-email" class="sr-only">Email address</label>'
                     '<input id="nl-email" type="email" placeholder="you@email.com" class="%s flex-1" aria-label="Email">'
                     '<button type="submit" class="%s justify-center">%s Subscribe</button></form>') % (b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
-        return ('<form class="flex flex-col gap-2 max-w-md mx-auto w-full">'
+        return ('<form class="flex flex-col gap-2 max-w-2xl mx-auto w-full">'
                 '<label for="nl-email" class="sr-only">Email address</label>'
                 '<input id="nl-email" type="email" placeholder="you@email.com" class="%s" aria-label="Email">'
                 '<button type="submit" class="%s justify-center">%s Subscribe to the newsletter</button></form>') % (b["input"], b["btn_primary"], ic("send", "h-4 w-4"))
@@ -40,7 +40,7 @@ def newsletter(style, i):
     if key == "centered":
         body = ('<div class="%s %s p-8 sm:p-12 text-center"><div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center %s">%s</div>'
                 '<h3 class="f-disp text-2xl sm:text-3xl font-bold">Join 24,000+ subscribers</h3>'
-                '<p class="mt-3 text-sm %s max-w-md mx-auto">Get one email a month with product updates, ideas, and no spam.</p>'
+                '<p class="mt-3 text-sm %s max-w-2xl mx-auto">Get one email a month with product updates, ideas, and no spam.</p>'
                 '<div class="mt-6">%s</div>'
                 '<p class="mt-3 text-xs %s">We respect your privacy. Unsubscribe in one click.</p></div>') % (
             b["surface"], b["hover_card"], b["surface_soft"], ic("mail", "h-7 w-7"), b["text_muted"], form(inline=True), b["text_muted"])
@@ -58,7 +58,7 @@ def newsletter(style, i):
         body = ('<div class="%s %s p-8 sm:p-12 text-center relative overflow-hidden">'
                 '<div class="absolute inset-0 opacity-30" style="background:radial-gradient(circle at 30%% 20%%,#%s,transparent 50%%)" aria-hidden="true"></div>'
                 '<div class="relative z-10"><h3 class="f-disp text-2xl sm:text-3xl font-bold">Never miss an update</h3>'
-                '<p class="mt-3 text-sm %s max-w-md mx-auto">The product letter for teams who ship.</p>'
+                '<p class="mt-3 text-sm %s max-w-2xl mx-auto">The product letter for teams who ship.</p>'
                 '<div class="mt-6">%s</div></div></div>') % (
             b["surface"], b["hover_card"], b["accent"].lstrip("#"), b["text_muted"], form(inline=True))
         feat = ["floating glass CTA", "radial glow", "centered headline", "inline form", "responsive"]
@@ -76,8 +76,8 @@ def newsletter(style, i):
         body = ('<div class="relative overflow-hidden rounded-3xl p-8 sm:p-12 text-center text-white" style="background:linear-gradient(120deg,%s,%s)">'
                 '<div class="absolute inset-0 opacity-20" style="background:radial-gradient(circle at 80%% 20%%, #fff, transparent 50%%)" aria-hidden="true"></div>'
                 '<div class="relative z-10"><h3 class="f-disp text-2xl sm:text-3xl font-bold">Join the inner circle</h3>'
-                '<p class="mt-3 text-sm text-white/80 max-w-md mx-auto">Monthly insights from the team. No fluff.</p>'
-                '<div class="mt-6"><form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto w-full">'
+                '<p class="mt-3 text-sm text-white/80 max-w-2xl mx-auto">Monthly insights from the team. No fluff.</p>'
+                '<div class="mt-6"><form class="flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto w-full">'
                 '<label for="nl-email" class="sr-only">Email address</label>'
                 '<input id="nl-email" type="email" placeholder="you@email.com" class="flex-1 rounded-full px-4 py-3 bg-white/20 border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50" aria-label="Email">'
                 '<button type="submit" class="rounded-full bg-white px-6 py-3 font-bold hover:bg-white/90">%s Subscribe</button></form></div></div></div>') % (
@@ -103,7 +103,7 @@ def newsletter(style, i):
         body = ('<div class="%s p-8 sm:p-12 text-center"><div class="mx-auto mb-5">%s</div>'
                 '<span class="%s mb-4 inline-flex">%s Members</span>'
                 '<h3 class="f-disp text-2xl sm:text-3xl font-bold">The premium briefing</h3>'
-                '<p class="mt-3 text-sm %s max-w-md mx-auto">A monthly deep dive for teams building at the edge.</p>'
+                '<p class="mt-3 text-sm %s max-w-2xl mx-auto">A monthly deep dive for teams building at the edge.</p>'
                 '<div class="mt-6">%s</div></div>') % (
             b["surface"], logo_svg("Flowbase"), b["badge"], ic("sparkle", "h-3.5 w-3.5"), b["text_muted"], form(inline=True))
         feat = ["premium newsletter CTA", "brand header", "members badge", "inline form", "centered"]
