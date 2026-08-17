@@ -1,0 +1,43 @@
+{
+  "id": "toggle-button-react-001",
+  "name": "Toggle Button",
+  "slug": "toggle-button",
+  "component": "button",
+  "family": "buttons",
+  "variant": "toggle-button",
+  "description": "Single on/off control exposing aria-pressed and a distinct selected surface.",
+  "framework": "React",
+  "language": "JSX",
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Selection",
+  "tags": [
+    "button",
+    "toggle",
+    "aria-pressed",
+    "selection",
+    "switch"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}
