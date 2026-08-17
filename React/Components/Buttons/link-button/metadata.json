@@ -5,15 +5,22 @@
   "component": "button",
   "family": "buttons",
   "variant": "link-button",
-  "description": "Button styled as an inline link for terse secondary actions inside forms and rows.",
+  "description": "A button rendered as an inline link for terse secondary actions inside forms and rows. Reads as a link but still triggers onClick; for true navigation, pass an href.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Secondary",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "link",
     "inline",
     "navigation",
@@ -39,5 +46,8 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "ghost-button",
+    "outline-button"
+  ]
 }

@@ -1,16 +1,37 @@
 # Toggle Button
 
-Single on/off control exposing aria-pressed and a distinct selected surface.
+A single binary switch. Controlled via `pressed`, or uncontrolled via `defaultPressed`. Exposes `aria-pressed` and swaps to `surface-active` when on so the state is conveyed by more than color alone.
+
+## Installation
+
+This component requires **React** and **Tailwind CSS**. Drop `code.tsx` (or `code.jsx` for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.
+
+The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example `bg-[var(--ds-color-primary)]`). Define the `--ds-*` tokens once in your theme — see [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the full token spec.
 
 ## Usage
 
-```jsx
-<ToggleButton label="Pin" iconOff="pin" pressed={pinned} onToggle={setPinned} />
+```tsx
+<ToggleButton pressed={on} onToggle={setOn}>Pinned</ToggleButton>
 ```
+
+## JavaScript
+
+A `code.jsx` build is provided for projects that ship plain JSX. It exposes the same API and behavior as `code.tsx` — only the TypeScript types are removed.
 
 ## Props
 
-`label` (visible text and, when icon-only, `aria-label`) · `pressed` (controlled) · `defaultPressed` · `onToggle(pressed)` · `iconOff` · `iconOn` · `showLabel` · `size` · `variant`
+| Prop | Type | Default |
+|---|---|---|
+| `pressed` | `boolean` | — (controlled; if omitted, uncontrolled) |
+| `defaultPressed` | `boolean` | `false` (uncontrolled initial) |
+| `onToggle` | `(pressed: boolean) => void` | — |
+| `label` | `string` | — (visible + accessible name when `showLabel`) |
+| `iconOff` / `iconOn` | `string` | — (icon name per state) |
+| `variant` | `ghost \| outline \| secondary` | `ghost` |
+| `size` | `ButtonSize` | `md` |
+| `showLabel` | `boolean` | `true` (icon-only when false; `label` becomes `aria-label`) |
+
+Plus all native `ButtonHTMLAttributes<HTMLButtonElement>`.
 
 ## Variants
 
@@ -18,24 +39,24 @@ ghost (default) · outline · secondary.
 
 ## Sizes
 
-sm · **md (default)**.
+xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px.
 
 ## States
 
-default · hover · **pressed** (`aria-pressed="true"` + surface-active + semibold) · focus-visible · disabled.
+default · hover · focus-visible · **pressed/on** (`aria-pressed="true"` + `surface-active` + font-weight) · disabled (reduced opacity).
 
 ## Accessibility
 
-Exposes `aria-pressed`. Pressed state shown by background + weight, not color alone. Icon-only mode uses `label` as the accessible name.
+Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance (reduced opacity, not hidden). Meets the 44px touch target at lg/xl. `aria-pressed` reflects the pressed state and the surface changes so on/off is conveyed by background + state, not color alone. Icon-only toggles use `label` as `aria-label`.
 
-## Behavior
+## Styling
 
-Single binary switch. Controlled (`pressed`) or uncontrolled (`defaultPressed`). `iconOn`/`iconOff` can reflect state in the icon.
+Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (`--ds-*`) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.
 
 ## Design Tokens
 
-Color (surface-active), Typography (weight), Iconography, Sizing, Motion.
+See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.
 
 ## Notes
 
-For multi-option or grouped toggles, use ToggleGroup. Avoid using toggle for navigation — use it for state.
+For a joined set of toggles (single- or multi-select), use ToggleGroup. A standalone ToggleButton is one binary switch.

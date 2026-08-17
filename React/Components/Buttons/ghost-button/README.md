@@ -1,41 +1,59 @@
 # Ghost Button
 
-Borderless, transparent low-emphasis button that reveals a surface only on hover.
+A borderless, transparent low-emphasis button that reveals a surface only on hover. Use for tertiary or incidental actions so the primary action keeps emphasis.
+
+## Installation
+
+This component requires **React** and **Tailwind CSS**. Drop `code.tsx` (or `code.jsx` for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.
+
+The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example `bg-[var(--ds-color-primary)]`). Define the `--ds-*` tokens once in your theme — see [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the full token spec.
 
 ## Usage
 
-```jsx
-<GhostButton size="sm" active={tab==="overview"}>Overview</GhostButton>
+```tsx
+<GhostButton onClick={openHelp}>Help</GhostButton>
 ```
+
+## JavaScript
+
+A `code.jsx` build is provided for projects that ship plain JSX. It exposes the same API and behavior as `code.tsx` — only the TypeScript types are removed.
 
 ## Props
 
-`children` · `size` · `iconLeft` · `iconRight` · `active` (sets `aria-pressed` + surface-active) · `disabled` · `onClick`
+| Prop | Type | Default |
+|---|---|---|
+| `children` | `ReactNode` | — |
+| `size` | `ButtonSize` | `md` |
+| `active` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+| `iconLeft` / `iconRight` | `ReactNode` | — |
+
+Plus all native `ButtonHTMLAttributes<HTMLButtonElement>`. `active` exposes `aria-pressed` and applies `surface-active`.
 
 ## Variants
 
-Single ghost variant — transparent, borderless; hover lifts to `color.surface-hover`.
+Single ghost variant: no border, transparent fill, hover lifts to `surface-hover`. `active` applies `surface-active` + `aria-pressed` for a pressed/selected state conveyed by more than color.
 
 ## Sizes
 
-sm · **md (default)** · lg.
+xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px.
 
 ## States
 
-default · hover · active (pressed) · focus-visible · disabled. `active` adds `aria-pressed` and `color.surface-active`.
+default · hover · active · focus-visible · selected (`active`) · disabled (reduced opacity).
 
 ## Accessibility
 
-Native `<button>`. `active` exposes `aria-pressed`. Focus ring required and present.
+Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance (reduced opacity, not hidden). Meets the 44px touch target at lg/xl. The `active` prop sets `aria-pressed` and a surface change so selection is conveyed by background + state, not color alone.
 
-## Behavior
+## Styling
 
-Lowest emphasis — tertiary or incidental actions so the primary action keeps emphasis. Common in tab bars and inline toolbars.
+Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (`--ds-*`) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.
 
 ## Design Tokens
 
-Color (`color.surface-hover`, `color.surface-active`, `color.foreground`), Radius, Sizing, Motion.
+See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.
 
 ## Notes
 
-Because ghost buttons have no resting chrome, give them context (a label or adjacent control) so they remain discoverable.
+Reserve ghost for incidental actions. A row of ghost buttons reads as quiet toolbar chrome; a single solid button in the same row keeps the primary action obvious.

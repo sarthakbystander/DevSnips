@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "button-with-icon",
-  "description": "Labeled button composition with a leading or trailing icon.",
+  "description": "A labeled button with a leading or trailing icon. Icons use the shared size token for the chosen button size, with the standard control gap keeping icon and label optically aligned.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "icon",
-    "composition",
-    "leading",
-    "trailing"
+    "action",
+    "composite",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "button-with-chevron",
+    "icon-button"
+  ]
 }

@@ -5,18 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "split-button",
-  "description": "Primary action paired with an attached, keyboard-navigable action menu.",
+  "description": "A primary action paired with an attached, keyboard-navigable menu of alternatives. The leading button fires the default action; the chevron opens a menu. A shared border and negative margin keep it one composite control.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "split",
     "menu",
     "composite",
+    "interactive",
     "action"
   ],
   "features": [
@@ -39,5 +47,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "button-with-chevron",
+    "more-actions-button",
+    "export-button"
+  ]
 }

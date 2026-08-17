@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "secondary-button",
-  "description": "Tonal secondary surface button for frequent, lower-stakes toolbar actions.",
+  "description": "A tonal secondary-surface button for frequent, lower-stakes actions \u2014 lower emphasis than solid, higher than outline or ghost. Good for repeated toolbar controls.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Secondary",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "secondary",
-    "action",
     "tonal",
-    "toolbar"
+    "toolbar",
+    "action"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "outline-button",
+    "ghost-button"
+  ]
 }

@@ -1,41 +1,54 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * SolidButton — filled primary action.
- *
- * Uses color.primary / color.primary-foreground. High-emphasis: one primary
- * action per surface. Supports leading/trailing icons, a loading state that
- * preserves layout, and the full size scale.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+function Spinner() {
+  return <svg className="h-[1em] w-[1em] shrink-0 animate-spin motion-reduce:animate-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" className="opacity-25" />
+      <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    </svg>;
+}
+const SIZES = {
+  xs: "h-7 gap-1 px-2 text-xs [&_svg]:size-[14px]",
+  sm: "h-8 gap-1.5 px-3 text-xs [&_svg]:size-[14px]",
+  md: "h-9 gap-2 px-3.5 text-[13px] [&_svg]:size-4",
+  lg: "h-10 gap-2 px-4 text-[13px] [&_svg]:size-[18px]",
+  xl: "h-11 gap-2 px-5 text-sm [&_svg]:size-5"
+};
 export function SolidButton({
   children,
   size = "md",
   block = false,
+  loading = false,
+  disabled,
   iconLeft,
   iconRight,
-  loading = false,
-  disabled = false,
+  className,
   type = "button",
-  onClick,
   ...rest
 }) {
   const isDisabled = disabled || loading;
-  return (
-    <button
-      type={type}
-      className={cls("ds-btn ds-btn--solid", `ds-btn--${size}`, block && "ds-btn--block")}
-      disabled={isDisabled}
-      aria-busy={loading || undefined}
-      onClick={onClick}
-      {...rest}
-    >
-      {loading ? <span className="ds-btn-spinner" aria-hidden="true" /> : iconLeft}
+  return <button
+    type={type}
+    className={cx(
+      "inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--ds-radius-sm)] border font-medium leading-none transition-colors duration-150 ease-out motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50",
+      "border-transparent bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)] hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] active:bg-[color-mix(in_srgb,var(--ds-color-primary)_80%,#000)]",
+      SIZES[size],
+      block && "w-full",
+      className
+    )}
+    disabled={isDisabled}
+    aria-busy={loading || undefined}
+    {...rest}
+  >
+      {loading ? <Spinner /> : iconLeft}
       <span>{children}</span>
       {!loading && iconRight}
-    </button>
-  );
+    </button>;
 }
 
 export default SolidButton;

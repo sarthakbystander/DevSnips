@@ -5,18 +5,25 @@
   "component": "button",
   "family": "buttons",
   "variant": "outline-button",
-  "description": "Bordered, transparent-fill medium-emphasis action that pairs with a primary button.",
+  "description": "A bordered, transparent-fill medium-emphasis action. Pairs with a SolidButton to establish primary/secondary hierarchy on a surface.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Secondary",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "secondary",
-    "action",
     "outline",
+    "action",
     "interactive"
   ],
   "features": [
@@ -39,5 +46,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "secondary-button",
+    "ghost-button"
+  ]
 }

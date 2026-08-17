@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "button-group",
-  "description": "Joined row of related buttons sharing a single border and rounded ends.",
+  "description": "A joined row of related buttons. Inner buttons share borders (side radius removed, borders overlapped by 1px) so the group reads as one control. Pass children for full control, or the `items` prop for a quick group.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "group",
-    "toolbar",
     "composite",
-    "joined"
+    "toolbar",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "segmented-button",
+    "toggle-group",
+    "outline-button"
+  ]
 }

@@ -1,48 +1,65 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * SortButton — sets sort field and direction.
- *
- * `field` is the active column, `direction` is "asc"|"desc"|null. Clicking
- * the button toggles direction (desc→asc→none→desc). When `fields` is
- * provided it renders as a menu trigger to pick the column. The active sort
- * is shown via the field label + a rotated chevron, not color alone.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+const SIZES = {
+  xs: "h-7 gap-1 px-2 text-xs [&_svg]:size-[14px]",
+  sm: "h-8 gap-1.5 px-3 text-xs [&_svg]:size-[14px]",
+  md: "h-9 gap-2 px-3.5 text-[13px] [&_svg]:size-4",
+  lg: "h-10 gap-2 px-4 text-[13px] [&_svg]:size-[18px]",
+  xl: "h-11 gap-2 px-5 text-sm [&_svg]:size-5"
+};
+const VARIANTS = {
+  outline: "border-[var(--ds-color-border-strong)] bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]",
+  secondary: "border-[var(--ds-color-border)] bg-[var(--ds-color-secondary)] text-[var(--ds-color-secondary-foreground)] hover:bg-[var(--ds-color-surface-active)] active:bg-[var(--ds-color-surface-active)]",
+  ghost: "border-transparent bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]"
+};
 export function SortButton({
   field = "Created",
   direction = "desc",
-  onToggle,
-  size = "sm",
   variant = "outline",
+  size = "sm",
+  onToggle,
+  className,
+  type = "button",
   ...rest
 }) {
-  const vc = { outline:"ds-btn--outline", secondary:"ds-btn--secondary", ghost:"ds-btn--ghost" }[variant] || "ds-btn--outline";
-  const active = !!direction;
+  const active = direction !== null;
   const dirLabel = direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "unsorted";
-  return (
-    <button
-      type="button"
-      className={cls("ds-btn", vc, `ds-btn--${size}`)}
-      aria-label={`Sort by ${field}, currently ${dirLabel}`}
-      onClick={onToggle}
-      style={{ background: active ? "var(--ds-color-surface-active)" : undefined, fontWeight: active ? 600 : 500 }}
-      {...rest}
-    >
-      <Icon name="sort" className="ds-btn-icon" />
+  return <button
+    type={type}
+    aria-label={`Sort by ${field}, currently ${dirLabel}`}
+    className={cx(
+      "inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--ds-radius-sm)] border font-medium leading-none transition-colors duration-150 ease-out motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50",
+      VARIANTS[variant],
+      active && "bg-[var(--ds-color-surface-active)] font-semibold",
+      SIZES[size],
+      className
+    )}
+    onClick={onToggle}
+    {...rest}
+  >
+      <svg className="h-[1em] w-[1em] shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M11 5h10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        <path d="M11 9h7" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        <path d="M11 13h4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        <path d="m3 17 3 3 3-3" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 18V4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      </svg>
       <span>{field}</span>
-      <Icon
-        name="chevron-down"
-        className="ds-btn-icon"
-        style={{
-          transform: direction === "asc" ? "rotate(180deg)" : "none",
-          opacity: active ? 1 : 0.5,
-          transition: "transform var(--ds-duration-default) var(--ds-ease)",
-        }}
-      />
-    </button>
-  );
+      <svg
+    className={cx("h-[1em] w-[1em] shrink-0 transition-transform duration-150 ease-out motion-reduce:transition-none", direction === "asc" ? "rotate-180" : "rotate-0", !active && "opacity-50")}
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+        <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>;
 }
 
 export default SortButton;

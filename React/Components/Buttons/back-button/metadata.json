@@ -5,19 +5,25 @@
   "component": "button",
   "family": "buttons",
   "variant": "back-button",
-  "description": "Navigation control that returns to the previous view with a leading arrow.",
+  "description": "Returns to the previous view. Leading arrow-left + label. Renders as a button (onClick, default) or a link (href). Icon-only mode needs a `label` prop for the accessible name.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "back",
     "navigation",
-    "arrow",
-    "previous"
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -36,8 +42,12 @@
     "semantic HTML",
     "reduced-motion"
   ],
-  "interactive": false,
+  "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "close-button",
+    "link-button",
+    "ghost-button"
+  ]
 }

@@ -7,145 +7,91 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ds-bg": "var(--ds-color-background)",
+          "ds-fg": "var(--ds-color-foreground)",
+          "ds-surface": "var(--ds-color-surface)",
+          "ds-subtle": "var(--ds-color-surface-subtle)",
+          "ds-hover": "var(--ds-color-surface-hover)",
+          "ds-active": "var(--ds-color-surface-active)",
+          "ds-muted": "var(--ds-color-muted-foreground)",
+          "ds-border": "var(--ds-color-border)",
+          "ds-border-strong": "var(--ds-color-border-strong)",
+          "ds-primary": "var(--ds-color-primary)",
+          "ds-primary-fg": "var(--ds-color-primary-foreground)",
+          "ds-accent": "var(--ds-color-accent)",
+          "ds-destructive": "var(--ds-color-destructive)",
+          "ds-success": "var(--ds-color-success)",
+          "ds-link": "var(--ds-color-link)",
+          "ds-focus": "var(--ds-color-focus-ring)",
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };
+  // Apply token CSS variables before paint to avoid a flash in dark mode.
+</script>
 <style>
-/* Shared stylesheet fragment for buttons. Kept in one place to keep all 30
-   button assets in sync with React/DESIGN_TOKENS.md. Embedded into every
-   preview.html via the generator. The class system (ds-btn + modifiers) is
-   the component-token layer consumed by every button code.jsx. */
-
-/* ---- Theme tokens (semantic) ---- */
-:root {
-  color-scheme: light;
-  /* neutrals */
-  --ds-color-background: #FAFAFA;
-  --ds-color-foreground: #171717;
-  --ds-color-surface: #FFFFFF;
-  --ds-color-surface-subtle: #F5F5F5;
-  --ds-color-surface-elevated: #FFFFFF;
-  --ds-color-surface-hover: #F5F5F5;
-  --ds-color-surface-active: #E5E5E5;
-  --ds-color-surface-selected: #F5F5F5;
-  --ds-color-muted: #F5F5F5;
-  --ds-color-muted-foreground: #737373;
-  --ds-color-border: #E5E5E5;
-  --ds-color-border-subtle: #EFEFEF;
-  --ds-color-border-strong: #D4D4D4;
-  --ds-color-input: #FFFFFF;
-  --ds-color-primary: #171717;
-  --ds-color-primary-foreground: #FFFFFF;
-  --ds-color-secondary: #F5F5F5;
-  --ds-color-secondary-foreground: #171717;
-  --ds-color-accent: #2563EB;
-  --ds-color-accent-foreground: #FFFFFF;
-  --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
-  --ds-color-destructive: #C2261B;
-  --ds-color-destructive-foreground: #FFFFFF;
-  --ds-color-destructive-soft: rgba(194, 38, 27, 0.10);
-  --ds-color-success: #15803D;
-  --ds-color-success-foreground: #FFFFFF;
-  --ds-color-success-soft: rgba(21, 128, 61, 0.12);
-  --ds-color-warning: #B45309;
-  --ds-color-warning-foreground: #FFFFFF;
-  --ds-color-info: #2563EB;
-  --ds-color-info-foreground: #FFFFFF;
-  --ds-color-link: #2563EB;
-  --ds-color-link-hover: #1D4ED8;
-  --ds-color-focus-ring: #2563EB;
-  --ds-color-overlay: rgba(10, 10, 10, 0.50);
-
-  /* spacing (4px base) */
-  --ds-spacing-0: 0;
-  --ds-spacing-1: 4px;
-  --ds-spacing-2: 8px;
-  --ds-spacing-3: 12px;
-  --ds-spacing-4: 16px;
-  --ds-spacing-5: 20px;
-  --ds-spacing-6: 24px;
-  --ds-spacing-8: 32px;
-  --ds-spacing-10: 40px;
-  --ds-spacing-12: 48px;
-  --ds-spacing-16: 64px;
-
-  /* radius */
-  --ds-radius-none: 0;
-  --ds-radius-xs: 3px;
-  --ds-radius-sm: 5px;
-  --ds-radius-md: 8px;
-  --ds-radius-lg: 12px;
-  --ds-radius-xl: 16px;
-  --ds-radius-full: 9999px;
-
-  /* shadows */
-  --ds-shadow-none: none;
-  --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
-  --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
-  --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
-  --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
-
-  /* typography */
-  --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  --ds-text-label-lg: 500 14px/1.4 var(--ds-font-sans);
-  --ds-text-label-md: 500 13px/1.4 var(--ds-font-sans);
-  --ds-text-label-sm: 500 12px/1.35 var(--ds-font-sans);
-  --ds-text-body-md: 400 14px/1.5 var(--ds-font-sans);
-  --ds-text-body-sm: 400 13px/1.45 var(--ds-font-sans);
-  --ds-text-caption: 400 12px/1.4 var(--ds-font-sans);
-  --ds-text-heading-md: 600 18px/1.35 var(--ds-font-sans);
-  --ds-text-heading-sm: 600 16px/1.4 var(--ds-font-sans);
-
-  /* motion */
-  --ds-duration-fast: 120ms;
-  --ds-duration-default: 160ms;
-  --ds-duration-slow: 260ms;
-  --ds-ease: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-  --ds-color-background: #0A0A0A;
-  --ds-color-foreground: #FAFAFA;
-  --ds-color-surface: #171717;
-  --ds-color-surface-subtle: #1F1F1F;
-  --ds-color-surface-elevated: #1F1F1F;
-  --ds-color-surface-hover: #1F1F1F;
-  --ds-color-surface-active: #2A2A2A;
-  --ds-color-surface-selected: #1F1F1F;
-  --ds-color-muted: #1F1F1F;
-  --ds-color-muted-foreground: #A3A3A3;
-  --ds-color-border: #2A2A2A;
-  --ds-color-border-subtle: #1F1F1F;
-  --ds-color-border-strong: #404040;
-  --ds-color-input: #171717;
-  --ds-color-primary: #FAFAFA;
-  --ds-color-primary-foreground: #0A0A0A;
-  --ds-color-secondary: #1F1F1F;
-  --ds-color-secondary-foreground: #FAFAFA;
-  --ds-color-accent: #3B82F6;
-  --ds-color-accent-foreground: #FFFFFF;
-  --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
-  --ds-color-destructive: #F1635A;
-  --ds-color-destructive-foreground: #0A0A0A;
-  --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
-  --ds-color-success: #4ADE80;
-  --ds-color-success-foreground: #052E16;
-  --ds-color-success-soft: rgba(74, 222, 128, 0.18);
-  --ds-color-warning: #FBBF24;
-  --ds-color-warning-foreground: #1A1206;
-  --ds-color-info: #3B82F6;
-  --ds-color-info-foreground: #FFFFFF;
-  --ds-color-link: #60A5FA;
-  --ds-color-link-hover: #93C5FD;
-  --ds-color-focus-ring: #3B82F6;
-  --ds-color-overlay: rgba(0, 0, 0, 0.65);
-  --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
-  --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
-  --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
-  --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root {
+    color-scheme: light;
+    --ds-color-background: #FAFAFA;
+    --ds-color-foreground: #171717;
+    --ds-color-surface: #FFFFFF;
+    --ds-color-surface-subtle: #F5F5F5;
+    --ds-color-surface-elevated: #FFFFFF;
+    --ds-color-surface-hover: #F5F5F5;
+    --ds-color-surface-active: #E5E5E5;
+    --ds-color-surface-selected: #F5F5F5;
+    --ds-color-muted: #F5F5F5;
+    --ds-color-muted-foreground: #737373;
+    --ds-color-border: #E5E5E5;
+    --ds-color-border-subtle: #EFEFEF;
+    --ds-color-border-strong: #D4D4D4;
+    --ds-color-input: #FFFFFF;
+    --ds-color-primary: #171717;
+    --ds-color-primary-foreground: #FFFFFF;
+    --ds-color-secondary: #F5F5F5;
+    --ds-color-secondary-foreground: #171717;
+    --ds-color-accent: #2563EB;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
+    --ds-color-destructive: #C2261B;
+    --ds-color-destructive-foreground: #FFFFFF;
+    --ds-color-destructive-soft: rgba(194, 38, 27, 0.10);
+    --ds-color-success: #15803D;
+    --ds-color-success-foreground: #FFFFFF;
+    --ds-color-success-soft: rgba(21, 128, 61, 0.12);
+    --ds-color-warning: #B45309;
+    --ds-color-warning-foreground: #FFFFFF;
+    --ds-color-info: #2563EB;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #2563EB;
+    --ds-color-link-hover: #1D4ED8;
+    --ds-color-focus-ring: #2563EB;
+    --ds-color-overlay: rgba(10, 10, 10, 0.50);
+    --ds-radius-none: 0;
+    --ds-radius-xs: 3px;
+    --ds-radius-sm: 5px;
+    --ds-radius-md: 8px;
+    --ds-radius-lg: 12px;
+    --ds-radius-xl: 16px;
+    --ds-radius-full: 9999px;
+    --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
+    --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
+    --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [data-theme="dark"] {
     color-scheme: dark;
     --ds-color-background: #0A0A0A;
     --ds-color-foreground: #FAFAFA;
@@ -187,222 +133,84 @@
     --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
     --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
   }
-}
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ds-color-background: #0A0A0A;
+      --ds-color-foreground: #FAFAFA;
+      --ds-color-surface: #171717;
+      --ds-color-surface-subtle: #1F1F1F;
+      --ds-color-surface-elevated: #1F1F1F;
+      --ds-color-surface-hover: #1F1F1F;
+      --ds-color-surface-active: #2A2A2A;
+      --ds-color-surface-selected: #1F1F1F;
+      --ds-color-muted: #1F1F1F;
+      --ds-color-muted-foreground: #A3A3A3;
+      --ds-color-border: #2A2A2A;
+      --ds-color-border-subtle: #1F1F1F;
+      --ds-color-border-strong: #404040;
+      --ds-color-input: #171717;
+      --ds-color-primary: #FAFAFA;
+      --ds-color-primary-foreground: #0A0A0A;
+      --ds-color-secondary: #1F1F1F;
+      --ds-color-secondary-foreground: #FAFAFA;
+      --ds-color-accent: #3B82F6;
+      --ds-color-accent-foreground: #FFFFFF;
+      --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+      --ds-color-destructive: #F1635A;
+      --ds-color-destructive-foreground: #0A0A0A;
+      --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+      --ds-color-success: #4ADE80;
+      --ds-color-success-foreground: #052E16;
+      --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+      --ds-color-warning: #FBBF24;
+      --ds-color-warning-foreground: #1A1206;
+      --ds-color-info: #3B82F6;
+      --ds-color-info-foreground: #FFFFFF;
+      --ds-color-link: #60A5FA;
+      --ds-color-link-hover: #93C5FD;
+      --ds-color-focus-ring: #3B82F6;
+      --ds-color-overlay: rgba(0, 0, 0, 0.65);
+      --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+      --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground);}
+  .ds-page{min-height:100vh;}
+  .ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border);}
+  .ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans);}
+  .ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans);}
+  .ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans);}
+  .ds-crumb b{color:var(--ds-color-foreground);font-weight:500;}
+  .ds-theme-toggle{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);cursor:pointer;}
+  .ds-theme-toggle:hover{background:var(--ds-color-surface-hover);}
+  .ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px;}
+  .ds-main{max-width:980px;margin:0 auto;padding:32px 24px 64px;}
+  .ds-eyebrow{font:600 11px/1.3 var(--ds-font-sans);letter-spacing:0.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground);margin:0 0 8px;}
+  .ds-title{font:600 18px/1.35 var(--ds-font-sans);letter-spacing:-0.01em;margin:0 0 8px;}
+  .ds-lede{color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans);margin:0 0 32px;max-width:60ch;}
+  .ds-section{margin-top:32px;}
+  .ds-section-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--ds-color-border-subtle);}
+  .ds-section-h h2{font:600 16px/1.4 var(--ds-font-sans);margin:0;letter-spacing:-0.01em;}
+  .ds-section-h .ds-note{font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;}
+  .ds-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+  .ds-label{font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-muted-foreground);margin:0 0 8px;text-transform:uppercase;letter-spacing:0.04em;}
+  .ds-card{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-canvas{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-pos-wrap{position:relative;}
+  .ds-footer{border-top:1px solid var(--ds-color-border);padding:24px;text-align:center;font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-footer code{font-family:var(--ds-font-mono);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
-/* ---- Reset for previews ---- */
-.ds-scope, .ds-scope *, .ds-scope *::before, .ds-scope *::after { box-sizing: border-box; }
-.ds-scope { font-family: var(--ds-font-sans); }
-
-/* ---- Button base (component-token layer) ---- */
-.ds-btn {
-  --ds-btn-bg: transparent;
-  --ds-btn-fg: var(--ds-color-foreground);
-  --ds-btn-bd: transparent;
-  --ds-btn-h-bg: var(--ds-btn-bg);
-  --ds-btn-h-bd: var(--ds-btn-bd);
-  --ds-btn-a-bg: var(--ds-btn-h-bg);
-  --ds-btn-height: 36px;
-  --ds-btn-px: 14px;
-  --ds-btn-font: var(--ds-text-label-md);
-  --ds-btn-icon: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--ds-spacing-2);
-  height: var(--ds-btn-height);
-  padding: 0 var(--ds-btn-px);
-  font: var(--ds-btn-font);
-  letter-spacing: 0;
-  white-space: nowrap;
-  user-select: none;
-  color: var(--ds-btn-fg);
-  background: var(--ds-btn-bg);
-  border: 1px solid var(--ds-btn-bd);
-  border-radius: var(--ds-radius-sm);
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color var(--ds-duration-default) var(--ds-ease),
-              border-color var(--ds-duration-default) var(--ds-ease),
-              color var(--ds-duration-default) var(--ds-ease),
-              box-shadow var(--ds-duration-default) var(--ds-ease),
-              opacity var(--ds-duration-default) var(--ds-ease);
-}
-.ds-btn:hover { background: var(--ds-btn-h-bg); border-color: var(--ds-btn-h-bd); }
-.ds-btn:active { background: var(--ds-btn-a-bg); }
-.ds-btn:disabled, .ds-btn[aria-disabled="true"] {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-.ds-btn:focus { outline: none; }
-.ds-btn:focus-visible {
-  outline: 2px solid var(--ds-color-focus-ring);
-  outline-offset: 2px;
-}
-.ds-btn .ds-btn-icon { width: var(--ds-btn-icon); height: var(--ds-btn-icon); flex: 0 0 auto; }
-.ds-btn .ds-btn-spinner {
-  width: var(--ds-btn-icon);
-  height: var(--ds-btn-icon);
-  flex: 0 0 auto;
-  border: 2px solid currentColor;
-  border-right-color: transparent;
-  border-radius: var(--ds-radius-full);
-  animation: ds-spin 0.6s linear infinite;
-}
-@keyframes ds-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) {
-  .ds-btn { transition-duration: 1ms; }
-  .ds-btn .ds-btn-spinner { animation-duration: 1.2s; }
-}
-
-/* sizes */
-.ds-btn--xs { --ds-btn-height: 28px; --ds-btn-px: 8px; --ds-btn-font: var(--ds-text-label-sm); --ds-btn-icon: 14px; }
-.ds-btn--sm { --ds-btn-height: 32px; --ds-btn-px: 12px; --ds-btn-font: var(--ds-text-label-sm); --ds-btn-icon: 14px; }
-.ds-btn--md { --ds-btn-height: 36px; --ds-btn-px: 14px; --ds-btn-font: var(--ds-text-label-md); --ds-btn-icon: 16px; }
-.ds-btn--lg { --ds-btn-height: 40px; --ds-btn-px: 18px; --ds-btn-font: var(--ds-text-label-md); --ds-btn-icon: 18px; }
-.ds-btn--xl { --ds-btn-height: 44px; --ds-btn-px: 20px; --ds-btn-font: var(--ds-text-label-lg); --ds-btn-icon: 20px; }
-
-/* icon-only sizing */
-.ds-btn--icon { padding: 0; aspect-ratio: 1; width: var(--ds-btn-height); }
-
-/* variants */
-.ds-btn--solid {
-  --ds-btn-bg: var(--ds-color-primary);
-  --ds-btn-fg: var(--ds-color-primary-foreground);
-  --ds-btn-h-bg: color-mix(in srgb, var(--ds-color-primary) 88%, var(--ds-color-foreground));
-  --ds-btn-a-bg: color-mix(in srgb, var(--ds-color-primary) 80%, var(--ds-color-foreground));
-}
-.ds-btn--outline {
-  --ds-btn-bg: transparent;
-  --ds-btn-fg: var(--ds-color-foreground);
-  --ds-btn-bd: var(--ds-color-border-strong);
-  --ds-btn-h-bg: var(--ds-color-surface-hover);
-  --ds-btn-h-bd: var(--ds-color-border-strong);
-}
-.ds-btn--secondary {
-  --ds-btn-bg: var(--ds-color-secondary);
-  --ds-btn-fg: var(--ds-color-secondary-foreground);
-  --ds-btn-bd: var(--ds-color-border);
-  --ds-btn-h-bg: var(--ds-color-surface-active);
-  --ds-btn-h-bd: var(--ds-color-border);
-}
-.ds-btn--ghost {
-  --ds-btn-bg: transparent;
-  --ds-btn-fg: var(--ds-color-foreground);
-  --ds-btn-h-bg: var(--ds-color-surface-hover);
-}
-.ds-btn--link {
-  --ds-btn-height: auto;
-  --ds-btn-px: 0;
-  --ds-btn-fg: var(--ds-color-link);
-  border-radius: 0;
-  text-underline-offset: 3px;
-}
-.ds-btn--link:hover { text-decoration: underline; color: var(--ds-color-link-hover); }
-.ds-btn--destructive {
-  --ds-btn-bg: var(--ds-color-destructive);
-  --ds-btn-fg: var(--ds-color-destructive-foreground);
-  --ds-btn-h-bg: color-mix(in srgb, var(--ds-color-destructive) 86%, #000);
-  --ds-btn-a-bg: color-mix(in srgb, var(--ds-color-destructive) 78%, #000);
-}
-.ds-btn--success {
-  --ds-btn-bg: var(--ds-color-success);
-  --ds-btn-fg: var(--ds-color-success-foreground);
-  --ds-btn-h-bg: color-mix(in srgb, var(--ds-color-success) 86%, #000);
-  --ds-btn-a-bg: color-mix(in srgb, var(--ds-color-success) 78%, #000);
-}
-.ds-btn--outline-destructive {
-  --ds-btn-bg: transparent;
-  --ds-btn-fg: var(--ds-color-destructive);
-  --ds-btn-bd: var(--ds-color-border-strong);
-  --ds-btn-h-bg: var(--ds-color-destructive-soft);
-}
-.ds-btn--block { display: flex; width: 100%; }
-
-/* ---- Shared bits used across components ---- */
-.ds-menu {
-  min-width: 180px;
-  background: var(--ds-color-surface-elevated);
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-md);
-  box-shadow: var(--ds-shadow-md);
-  padding: var(--ds-spacing-1);
-  z-index: 40;
-}
-.ds-menu-item {
-  display: flex;
-  align-items: center;
-  gap: var(--ds-spacing-2);
-  width: 100%;
-  padding: var(--ds-spacing-2) var(--ds-spacing-2);
-  font: var(--ds-text-body-sm);
-  color: var(--ds-color-foreground);
-  background: transparent;
-  border: 0;
-  border-radius: var(--ds-radius-sm);
-  cursor: pointer;
-  text-align: left;
-}
-.ds-menu-item:hover { background: var(--ds-color-surface-hover); }
-.ds-menu-item:focus-visible { outline: 2px solid var(--ds-color-focus-ring); outline-offset: -2px; }
-.ds-menu-item[data-variant="destructive"] { color: var(--ds-color-destructive); }
-
-.ds-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 18px;
-  min-width: 18px;
-  padding: 0 5px;
-  font: 600 11px/1 var(--ds-font-sans);
-  color: var(--ds-color-accent-foreground);
-  background: var(--ds-color-accent);
-  border-radius: var(--ds-radius-full);
-}
-
-/* ---- Showcase layout ---- */
-.ds-page { background: var(--ds-color-background); color: var(--ds-color-foreground); min-height: 100vh; }
-.ds-topbar {
-  position: sticky; top: 0; z-index: 30;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 52px; padding: 0 var(--ds-spacing-6);
-  background: color-mix(in srgb, var(--ds-color-surface) 85%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--ds-color-border);
-}
-.ds-topbar .ds-brand { display: flex; align-items: center; gap: var(--ds-spacing-2); font: var(--ds-text-label-md); }
-.ds-brand .ds-mark { width: 18px; height: 18px; border: 1.5px solid var(--ds-color-foreground); border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font: 700 11px/1 var(--ds-font-sans); }
-.ds-topbar .ds-crumb { color: var(--ds-color-muted-foreground); font: var(--ds-text-body-sm); }
-.ds-topbar .ds-crumb b { color: var(--ds-color-foreground); font-weight: 500; }
-.ds-theme-toggle { display: inline-flex; align-items: center; gap: var(--ds-spacing-2); height: 32px; padding: 0 var(--ds-spacing-3); font: var(--ds-text-label-sm); color: var(--ds-color-foreground); background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-sm); cursor: pointer; }
-.ds-theme-toggle:hover { background: var(--ds-color-surface-hover); }
-.ds-theme-toggle:focus-visible { outline: 2px solid var(--ds-color-focus-ring); outline-offset: 2px; }
-.ds-main { max-width: 980px; margin: 0 auto; padding: var(--ds-spacing-8) var(--ds-spacing-6) var(--ds-spacing-16); }
-.ds-eyebrow { font: 600 11px/1.3 var(--ds-font-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ds-color-muted-foreground); margin: 0 0 var(--ds-spacing-2); }
-.ds-title { font: var(--ds-text-heading-md); margin: 0 0 var(--ds-spacing-2); letter-spacing: -0.01em; }
-.ds-lede { color: var(--ds-color-muted-foreground); font: var(--ds-text-body-md); margin: 0 0 var(--ds-spacing-8); max-width: 60ch; }
-.ds-section { margin-top: var(--ds-spacing-8); }
-.ds-section-h { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 var(--ds-spacing-4); padding-bottom: var(--ds-spacing-2); border-bottom: 1px solid var(--ds-color-border-subtle); }
-.ds-section-h h2 { font: var(--ds-text-heading-sm); margin: 0; letter-spacing: -0.01em; }
-.ds-section-h .ds-note { font: var(--ds-text-caption); color: var(--ds-color-muted-foreground); }
-.ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-spacing-3); }
-.ds-stack { display: flex; flex-direction: column; gap: var(--ds-spacing-3); }
-.ds-grid { display: grid; gap: var(--ds-spacing-4); }
-.ds-label { font: var(--ds-text-label-sm); color: var(--ds-color-muted-foreground); margin: 0 0 var(--ds-spacing-2); text-transform: uppercase; letter-spacing: 0.04em; }
-.ds-card { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); padding: var(--ds-spacing-5); }
-.ds-card .ds-label { margin-top: var(--ds-spacing-3); }
-.ds-canvas { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); padding: var(--ds-spacing-5); }
-.ds-panel { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-spacing-4); }
-@media (max-width: 720px) { .ds-panel { grid-template-columns: 1fr; } }
-.ds-code { font: 400 12px/1.5 var(--ds-font-mono); color: var(--ds-color-muted-foreground); background: var(--ds-color-surface-subtle); border: 1px solid var(--ds-color-border-subtle); border-radius: var(--ds-radius-sm); padding: var(--ds-spacing-3); white-space: pre-wrap; }
-.ds-state-line { display: flex; align-items: center; gap: var(--ds-spacing-4); flex-wrap: wrap; }
-.ds-pos-wrap { position: relative; }
-.ds-footer { border-top: 1px solid var(--ds-color-border); padding: var(--ds-spacing-6); text-align: center; font: var(--ds-text-caption); color: var(--ds-color-muted-foreground); }
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 </style>
 </head>
 <body>
-<div class="ds-scope ds-page">
+<div class="ds-page">
   <header class="ds-topbar">
     <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Buttons / floating-action-button</span></div>
     <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false">
@@ -412,10 +220,10 @@
   <main class="ds-main">
     <p class="ds-eyebrow">React Component</p>
     <h1 class="ds-title">Floating Action Button</h1>
-    <p class="ds-lede">A primary, elevated circular control that hovers over content for the screen's most important compose action. Fixed to a corner with a soft shadow and clear focus ring.</p>
+    <p class="ds-lede">A primary compose action hovering over content. Circular, elevated (shadow-md), fixed to a corner. Icon + optional label (extended FAB). `aria-label` is required. Reserve one per screen for the primary creation action.</p>
     <div id="ds-root" class="ds-pos-wrap"></div>
   </main>
-  <footer class="ds-footer">DevSnips React · Buttons · <code style="font-family:var(--ds-font-mono)">floating-action-button</code></footer>
+  <footer class="ds-footer">DevSnips React · Buttons · <code>floating-action-button</code> · preview demonstration of code.tsx</footer>
 </div>
 <script>
 (function(){
@@ -424,35 +232,18 @@
   var saved = null; try{ saved = localStorage.getItem("ds-react-theme"); }catch(e){}
   if(!saved){ saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light"; }
   apply(saved);
-  document.getElementById("ds-theme-toggle").addEventListener("click", function(){
-    var cur = root.getAttribute("data-theme") === "dark" ? "light":"dark"; apply(cur);
-  });
+  document.getElementById("ds-theme-toggle").addEventListener("click", function(){ var cur = root.getAttribute("data-theme") === "dark" ? "light":"dark"; apply(cur); });
 })();
 </script>
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 <script type="text/babel" data-presets="react">
-// Shared stroke-based icon set for DevSnips React buttons.
-// 16x16 viewBox, 1.6 stroke, currentColor — consistent iconography per
-// DESIGN_TOKENS.md §18. Inline SVG is justified: the React components ship
-// with no external icon dependency, so a tiny consistent set is required.
-
-function Icon({ name, size, className, "aria-hidden": ariaHidden = true }) {
-  const s = size || "1em";
-  const common = {
-    width: s,
-    height: s,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.75,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    className: className,
-    "aria-hidden": ariaHidden ? "true" : undefined,
-    focusable: "false",
-  };
+// Preview demonstration environment. The component below is the actual
+// code.tsx implementation (JSX inlined for Babel). The shared Icon set +
+// hooks are inlined so the preview is fully standalone.
+function Icon({ name, className }) {
+  const common = { width:"1em", height:"1em", viewBox:"0 0 24 24", fill:"none", stroke:"currentColor", strokeWidth:1.75, strokeLinecap:"round", strokeLinejoin:"round", className, "aria-hidden":"true", focusable:"false" };
   switch (name) {
     case "chevron-down": return (<svg {...common}><path d="m6 9 6 6 6-6"/></svg>);
     case "chevron-right": return (<svg {...common}><path d="m9 6 6 6-6 6"/></svg>);
@@ -487,49 +278,27 @@ function Icon({ name, size, className, "aria-hidden": ariaHidden = true }) {
   }
 }
 
-// Shared hooks for DevSnips React buttons. Embedded into previews where needed.
-
-// Close a popover/menu on outside click + Escape. Returns a ref to attach
-// to the container element.
 function useClickOutside(onClose, active) {
   const ref = React.useRef(null);
   React.useEffect(() => {
     if (!active) return;
-    function onDown(e) {
-      if (ref.current && !ref.current.contains(e.target)) onClose();
-    }
+    function onDown(e) { if (ref.current && !ref.current.contains(e.target)) onClose(); }
     function onKey(e) { if (e.key === "Escape") onClose(); }
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDown);
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
   }, [active, onClose]);
   return ref;
 }
 
-// Copy text to clipboard with graceful fallback. Returns [copied, copy].
 function useCopy(resetMs) {
   const [copied, setCopied] = React.useState(false);
   const t = React.useRef(null);
   const copy = React.useCallback(async (text) => {
     try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-      } else {
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      }
-      setCopied(true);
-      clearTimeout(t.current);
-      t.current = setTimeout(() => setCopied(false), resetMs || 2000);
+      if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); }
+      else { const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); }
+      setCopied(true); clearTimeout(t.current); t.current = setTimeout(() => setCopied(false), resetMs || 2000);
     } catch (e) { /* clipboard unavailable */ }
   }, [resetMs]);
   React.useEffect(() => () => clearTimeout(t.current), []);
@@ -538,93 +307,90 @@ function useCopy(resetMs) {
 
 </script>
 <script type="text/babel" data-presets="react">
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * FloatingActionButton — primary compose action hovering over content.
- *
- * Circular, elevated (shadow-md), fixed to a corner. Icon + optional label
- * (extended FAB). aria-label required. Reserve one per screen for the
- * primary creation action. Respects reduced motion on hover lift.
- */
-function FloatingActionButton({
-  icon = "plus",
-  label,
-  position = "bottom-right",
-  extended = false,
-  disabled = false,
-  type = "button",
-  onClick,
-  ...rest
-}) {
-  const pos = {
-    "bottom-right": { bottom: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" },
-    "bottom-left": { bottom: "var(--ds-spacing-6)", left: "var(--ds-spacing-6)" },
-    "top-right": { top: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" },
-  }[position] || { bottom: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" };
-  return (
-    <button
+// The component below is the actual code.tsx implementation, transformed to
+// JSX (types removed) so Babel standalone can run it. It is identical in
+// behavior to code.tsx/code.jsx.
+(function() {
+  function cx(...parts) {
+    return parts.filter(Boolean).join(" ");
+  }
+  const POS = {
+    "bottom-right": "bottom-6 right-6",
+    "bottom-left": "bottom-6 left-6",
+    "top-right": "top-6 right-6"
+  };
+  function FloatingActionButton({
+    icon,
+    label,
+    position = "bottom-right",
+    extended = false,
+    disabled,
+    className,
+    type = "button",
+    ...rest
+  }) {
+    return <button
       type={type}
-      className={cls("ds-btn ds-btn--solid ds-fab", extended && "ds-fab--extended")}
-      style={{
-        position: "fixed",
-        ...pos,
-        zIndex: 35,
-        height: extended ? 48 : 56,
-        width: extended ? undefined : 56,
-        borderRadius: "var(--ds-radius-full)",
-        padding: extended ? "0 var(--ds-spacing-5)" : 0,
-        boxShadow: "var(--ds-shadow-md)",
-        gap: "var(--ds-spacing-2)",
-      }}
-      aria-label={label || icon}
+      aria-label={label}
+      className={cx(
+        "fixed z-40 inline-flex items-center justify-center gap-2 rounded-full",
+        "border border-transparent bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)]",
+        "shadow-[var(--ds-shadow-md)] transition-transform duration-150 ease-out motion-reduce:transition-none",
+        "hover:-translate-y-0.5 active:translate-y-0",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]",
+        "disabled:pointer-events-none disabled:opacity-50",
+        extended ? "h-12 px-5 text-sm [&_svg]:size-5" : "size-14 p-0 [&_svg]:size-5",
+        POS[position],
+        className
+      )}
       disabled={disabled}
-      onClick={onClick}
       {...rest}
     >
-      <Icon name={icon} className="ds-btn-icon" style={{width:20, height:20}} />
-      {extended && label && <span>{label}</span>}
-    </button>
-  );
+        {icon}
+        {extended && <span>{label}</span>}
+      </button>;
+  }
+  window.FloatingActionButton = FloatingActionButton;
+})();
+
+
+</script>
+<script type="text/babel" data-presets="react">
+function PlusIcon() {
+  return (<svg className="shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>);
 }
-const {useState,useRef,useEffect,useCallback} = React;
 function Showcase() {
   return (
     <div className="ds-stack">
       <section className="ds-section">
-        <div className="ds-section-h"><h2>List screen</h2><span className="ds-note">FAB fixed bottom-right — scroll to see it stay</span></div>
-        <div className="ds-card" style={{minHeight:240}}>
-          <p className="ds-label">Projects</p>
-          <div className="ds-stack" style={{marginTop:8}}>
-            {["Atlas Analytics","Meridian","Vesper","Stratum","DevSnips Store"].map(n=>(
-              <div key={n} className="ds-row" style={{padding:"8px 0", borderBottom:"1px solid var(--ds-color-border-subtle)"}}>
-                <span style={{font:"var(--ds-text-body-sm)"}}>{n}</span>
-              </div>
-            ))}
+        <div className="ds-section-h"><h2>Circular</h2><span className="ds-note">corners</span></div>
+        <div className="ds-row">
+          <div className="ds-canvas" style={{ position: "relative", height: 120, overflow: "hidden" }}>
+            <FloatingActionButton icon={<PlusIcon />} label="New invoice" onClick={() => {}} />
+          </div>
+          <div className="ds-canvas" style={{ position: "relative", height: 120, overflow: "hidden" }}>
+            <FloatingActionButton icon={<PlusIcon />} label="New" position="bottom-left" onClick={() => {}} />
           </div>
         </div>
       </section>
       <section className="ds-section">
-        <div className="ds-section-h"><h2>Configurations</h2></div>
+        <div className="ds-section-h"><h2>Extended</h2><span className="ds-note">icon + label pill</span></div>
         <div className="ds-row">
-          <span style={{font:"var(--ds-text-caption)", color:"var(--ds-color-muted-foreground)"}}>Standard (icon-only):</span>
+          <div className="ds-canvas" style={{ position: "relative", height: 120, overflow: "hidden" }}>
+            <FloatingActionButton extended icon={<PlusIcon />} label="New invoice" onClick={() => {}} />
+          </div>
         </div>
-        <div className="ds-card" style={{position:"relative", height:96, display:"flex", alignItems:"center", justifyContent:"center", background:"var(--ds-color-surface-subtle)"}}>
-          <span style={{font:"var(--ds-text-caption)", color:"var(--ds-color-muted-foreground)"}}>content underneath</span>
-          <FloatingActionButton icon="plus" label="New project" style={{position:"absolute"}} />
-        </div>
-        <div className="ds-row" style={{marginTop:12}}>
-          <span style={{font:"var(--ds-text-caption)", color:"var(--ds-color-muted-foreground)"}}>Extended (icon + label):</span>
-        </div>
-        <div className="ds-card" style={{position:"relative", height:96, display:"flex", alignItems:"center", justifyContent:"center", background:"var(--ds-color-surface-subtle)"}}>
-          <FloatingActionButton icon="edit" label="Compose" extended position="bottom-left" style={{position:"absolute"}} />
+      </section>
+      <section className="ds-section">
+        <div className="ds-section-h"><h2>Disabled</h2><span className="ds-note">reduced opacity</span></div>
+        <div className="ds-canvas" style={{ position: "relative", height: 120, overflow: "hidden" }}>
+          <FloatingActionButton icon={<PlusIcon />} label="New invoice, disabled" disabled />
         </div>
       </section>
     </div>
   );
 }
-const rootEl = document.getElementById('ds-root');
-ReactDOM.createRoot(rootEl).render(React.createElement(Showcase));
+ReactDOM.createRoot(document.getElementById("ds-root")).render(<Showcase />);
 </script>
 </body>
 </html>

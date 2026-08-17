@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "sticky-action-button",
-  "description": "Primary action pinned to the viewport base so it stays reachable while scrolling.",
+  "description": "A persistent primary CTA that sticks to the bottom of the viewport with a hairline top border and a translucent surface so content scrolls beneath. Use for the single primary action on long forms or review screens.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
-  "subcategory": "Primary",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "sticky",
     "cta",
-    "primary",
-    "persistent"
+    "persistent",
+    "composite",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -36,8 +44,12 @@
     "semantic HTML",
     "reduced-motion"
   ],
-  "interactive": false,
+  "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "floating-action-button",
+    "loading-button"
+  ]
 }

@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "download-button",
-  "description": "Direct download trigger with working and done states plus optional file metadata.",
+  "description": "A direct download with progress feedback. Fires `onDownload` (wire to a real fetch/blob), surfaces a working state with a spinner, then a brief done state. Supports a `meta` line (e.g. \"CSV \u00b7 2.4 MB\").",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
-  "subcategory": "Utility",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "download",
-    "file",
+    "progress",
     "feedback",
-    "async"
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "export-button",
+    "loading-button",
+    "refresh-button"
+  ]
 }

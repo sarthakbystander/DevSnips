@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "destructive-button",
-  "description": "Filled destructive action for irreversible operations, with an outline variant.",
+  "description": "A destructive action for irreversible operations. Filled by default; an outline variant is available for lower-emphasis destructive controls in dense rows.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Primary",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "destructive",
     "danger",
     "delete",
-    "action"
+    "action",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,8 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "outline-button"
+  ]
 }

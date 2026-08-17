@@ -1,16 +1,36 @@
 # Solid Button
 
-Filled primary action button — the canonical high-emphasis confirmation control.
+The primary, high-emphasis action. A filled neutral surface built on color.primary and color.primary-foreground — the canonical confirmation control in the DevSnips React system.
+
+## Installation
+
+This component requires **React** and **Tailwind CSS**. Drop `code.tsx` (or `code.jsx` for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.
+
+The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example `bg-[var(--ds-color-primary)]`). Define the `--ds-*` tokens once in your theme — see [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the full token spec.
 
 ## Usage
 
-```jsx
+```tsx
 <SolidButton size="md" onClick={save}>Save changes</SolidButton>
 ```
 
+## JavaScript
+
+A `code.jsx` build is provided for projects that ship plain JSX. It exposes the same API and behavior as `code.tsx` — only the TypeScript types are removed.
+
 ## Props
 
-`children` · `size` (xs|sm|md|lg|xl, default md) · `block` · `iconLeft` · `iconRight` · `loading` · `disabled` · `type` · `onClick` · native button props
+| Prop | Type | Default |
+|---|---|---|
+| `children` | `ReactNode` | — |
+| `size` | `xs \| sm \| md \| lg \| xl` | `md` |
+| `block` | `boolean` | `false` |
+| `loading` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+| `iconLeft` / `iconRight` | `ReactNode` | — |
+| `type` | `button \| submit \| reset` | `button` |
+
+Plus all native `ButtonHTMLAttributes<HTMLButtonElement>` (onClick, aria-*, etc.).
 
 ## Variants
 
@@ -18,7 +38,7 @@ Single filled variant built on `color.primary` / `color.primary-foreground`. See
 
 ## Sizes
 
-xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8→20px; icon 14→20px.
+xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px.
 
 ## States
 
@@ -26,15 +46,15 @@ default · hover · active · focus-visible · loading (spinner + `aria-busy`, l
 
 ## Accessibility
 
-Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance. Meets 44px touch target at lg/xl.
+Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance (reduced opacity, not hidden). Meets the 44px touch target at lg/xl.
 
-## Behavior
+## Styling
 
-One high-emphasis primary action per surface. Loading swaps the leading slot for a spinner and disables interaction; the label may change while loading.
+Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (`--ds-*`) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.
 
 ## Design Tokens
 
-Color (`color.primary`, `color.primary-foreground`), Sizing (control heights), Radius (`radius-sm`), Typography (`label-md`/`label-sm`), Motion (default duration), States (§15).
+See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.
 
 ## Notes
 

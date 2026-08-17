@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "copy-button",
-  "description": "Clipboard copy control with transient check and Copied feedback.",
+  "description": "Clipboard copy with transient feedback. Uses the async Clipboard API with an execCommand fallback. On success, swaps the icon to a check and the label to \"Copied\", then reverts. An `aria-live` region announces the copied state.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "copy",
     "clipboard",
     "feedback",
-    "utility"
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "refresh-button",
+    "download-button",
+    "outline-button"
+  ]
 }

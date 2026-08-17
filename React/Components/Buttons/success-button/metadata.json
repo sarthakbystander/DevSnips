@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "success-button",
-  "description": "Positive-emphasis action for confirm, publish, approve, and complete flows.",
+  "description": "A positive-emphasis action for confirm, publish, approve, and complete flows. Contextual only \u2014 not a replacement for the primary action.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "success",
     "confirm",
     "approve",
-    "publish"
+    "publish",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,8 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "loading-button"
+  ]
 }

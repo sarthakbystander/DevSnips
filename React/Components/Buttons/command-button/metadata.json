@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "command-button",
-  "description": "Keyboard-first trigger that opens a command palette and binds the Cmd/Ctrl-K shortcut.",
+  "description": "Opens a command palette. A wide trigger with a search icon, placeholder text, and a kbd hint showing the platform shortcut. Wire `onOpen` to mount the palette; when `bindShortcut` is true, listens for the global shortcut (Cmd/Ctrl+K).",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
-  "subcategory": "Navigation",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
-    "command",
-    "palette",
+    "react",
+    "tailwind",
+    "command-palette",
     "search",
-    "shortcut"
+    "shortcut",
+    "composite",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "more-actions-button",
+    "split-button",
+    "outline-button"
+  ]
 }

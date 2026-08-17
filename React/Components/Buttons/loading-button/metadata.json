@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "loading-button",
-  "description": "Action button with a first-class loading state that preserves layout.",
+  "description": "An action button with a first-class loading state. `loading` swaps the leading slot for a spinner, sets `aria-busy`, and disables the button so the action can't be double-fired.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "loading",
     "spinner",
     "async",
-    "feedback"
+    "feedback",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "refresh-button",
+    "download-button"
+  ]
 }

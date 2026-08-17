@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "add-button",
-  "description": "Creation affordance with a leading plus icon for adding items to a list.",
+  "description": "A creation affordance with a leading plus. `label` is both the visible text and (when icon-only) the accessible name. Defaults to solid since adding is often the primary creation action on a surface.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Utility",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "add",
     "create",
-    "plus",
-    "utility"
+    "utility",
+    "action",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "floating-action-button",
+    "icon-button"
+  ]
 }
