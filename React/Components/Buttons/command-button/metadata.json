@@ -1,0 +1,43 @@
+{
+  "id": "command-button-react-001",
+  "name": "Command Button",
+  "slug": "command-button",
+  "component": "button",
+  "family": "buttons",
+  "variant": "command-button",
+  "description": "Keyboard-first trigger that opens a command palette and binds the Cmd/Ctrl-K shortcut.",
+  "framework": "React",
+  "language": "JSX",
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Navigation",
+  "tags": [
+    "button",
+    "command",
+    "palette",
+    "search",
+    "shortcut"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}
