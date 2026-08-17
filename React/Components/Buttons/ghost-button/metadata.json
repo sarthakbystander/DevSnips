@@ -5,15 +5,22 @@
   "component": "button",
   "family": "buttons",
   "variant": "ghost-button",
-  "description": "Borderless, transparent low-emphasis button that reveals a surface only on hover.",
+  "description": "A borderless, transparent low-emphasis button that reveals a surface only on hover. Use for tertiary or incidental actions so the primary action keeps emphasis.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Secondary",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "ghost",
     "tertiary",
     "navigation",
@@ -39,5 +46,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "solid-button",
+    "outline-button",
+    "secondary-button"
+  ]
 }

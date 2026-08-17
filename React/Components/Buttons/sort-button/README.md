@@ -1,16 +1,34 @@
 # Sort Button
 
-Control that sets sort field and direction with a directional indicator.
+Sets the sort field and direction. Clicking toggles direction (desc → asc → none → desc). The active sort is shown via the field label + a rotated chevron, not color alone. `aria-label` conveys the current state.
+
+## Installation
+
+This component requires **React** and **Tailwind CSS**. Drop `code.tsx` (or `code.jsx` for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.
+
+The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example `bg-[var(--ds-color-primary)]`). Define the `--ds-*` tokens once in your theme — see [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the full token spec.
 
 ## Usage
 
-```jsx
+```tsx
 <SortButton field="Created" direction={dir} onToggle={cycle} />
 ```
 
+## JavaScript
+
+A `code.jsx` build is provided for projects that ship plain JSX. It exposes the same API and behavior as `code.tsx` — only the TypeScript types are removed.
+
 ## Props
 
-`field` (active column label) · `direction` (asc|desc|null) · `onToggle` · `size` · `variant`
+| Prop | Type | Default |
+|---|---|---|
+| `field` | `string` | `"Created"` |
+| `direction` | `asc \| desc \| null` | `desc` |
+| `variant` | `outline \| secondary \| ghost` | `outline` |
+| `size` | `ButtonSize` | `sm` |
+| `onToggle` | `() => void` | — (cycle direction on click) |
+
+Plus all native `ButtonHTMLAttributes<HTMLButtonElement>`.
 
 ## Variants
 
@@ -18,24 +36,24 @@ outline (default) · secondary · ghost.
 
 ## Sizes
 
-**sm (default)**.
+xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px. Default is `sm` for table toolbars.
 
 ## States
 
-default · hover · active-sorted (surface-active + semibold + filled chevron) · focus-visible.
+default · hover · focus-visible · active-sort (`surface-active`, chevron rotated by direction) · disabled (reduced opacity).
 
 ## Accessibility
 
-`aria-label` includes the field and current direction ('Sort by Created, currently descending'). Direction shown by rotated chevron + label, not color alone.
+Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance (reduced opacity, not hidden). Meets the 44px touch target at lg/xl. `aria-label` conveys the field and current direction ("Sort by Created, currently descending"). Direction is shown by chevron rotation + opacity, not color alone.
 
-## Behavior
+## Styling
 
-Sets sort field and direction. Clicking toggles direction (desc↔asc). Active sort shown by the field label + directional chevron.
+Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (`--ds-*`) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.
 
 ## Design Tokens
 
-Iconography (sort, chevron), Motion (chevron rotation), Color (surface-active), Sizing.
+See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.
 
 ## Notes
 
-For multiple sortable columns, render one SortButton per column header, or use a menu trigger to pick the column.
+Cycle on click: desc → asc → none → desc. When `direction` is null, show no chevron emphasis.

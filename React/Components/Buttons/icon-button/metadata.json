@@ -5,15 +5,22 @@
   "component": "button",
   "family": "buttons",
   "variant": "icon-button",
-  "description": "Square icon-only control requiring an accessible name; matches control height.",
+  "description": "A square icon-only control. No visible label, so an accessible name is required. Matches control height; the icon slot is square (width equals height).",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Utility",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "icon",
     "toolbar",
     "utility",
@@ -39,5 +46,9 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "ghost-button",
+    "close-button",
+    "more-actions-button"
+  ]
 }

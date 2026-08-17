@@ -1,43 +1,80 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * CopyButton — clipboard copy with feedback.
- *
- * Uses the async Clipboard API with an execCommand fallback. On success,
- * swaps the icon to a check and the label to `copiedLabel` for `resetMs`,
- * then reverts. aria-live announces the copied state.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+import { useCallback, useRef, useState } from "react";
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+const SIZES = {
+  xs: "h-7 gap-1 px-2 text-xs [&_svg]:size-[14px]",
+  sm: "h-8 gap-1.5 px-3 text-xs [&_svg]:size-[14px]",
+  md: "h-9 gap-2 px-3.5 text-[13px] [&_svg]:size-4",
+  lg: "h-10 gap-2 px-4 text-[13px] [&_svg]:size-[18px]",
+  xl: "h-11 gap-2 px-5 text-sm [&_svg]:size-5"
+};
+const VARIANTS = {
+  outline: "border-[var(--ds-color-border-strong)] bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]",
+  secondary: "border-[var(--ds-color-border)] bg-[var(--ds-color-secondary)] text-[var(--ds-color-secondary-foreground)] hover:bg-[var(--ds-color-surface-active)] active:bg-[var(--ds-color-surface-active)]",
+  ghost: "border-transparent bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]",
+  solid: "border-transparent bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)] hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] active:bg-[color-mix(in_srgb,var(--ds-color-primary)_80%,#000)]"
+};
+function useCopy(resetMs) {
+  const [copied, setCopied] = useState(false);
+  const t = useRef(null);
+  const copy = useCallback(async (text) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      setCopied(true);
+      if (t.current) clearTimeout(t.current);
+      t.current = setTimeout(() => setCopied(false), resetMs);
+    } catch {
+    }
+  }, [resetMs]);
+  return [copied, copy];
+}
 export function CopyButton({
   value,
   label = "Copy",
   copiedLabel = "Copied",
-  size = "sm",
-  variant = "outline",
-  resetMs = 2000,
+  resetMs = 2e3,
   onCopy,
+  variant = "outline",
+  size = "sm",
+  className,
+  type = "button",
   ...rest
 }) {
   const [copied, copy] = useCopy(resetMs);
   async function handle() {
     await copy(value);
-    onCopy && onCopy(value);
+    onCopy?.(value);
   }
-  const vc = { outline:"ds-btn--outline", secondary:"ds-btn--secondary", ghost:"ds-btn--ghost", solid:"ds-btn--solid" }[variant] || "ds-btn--outline";
-  return (
-    <button
-      type="button"
-      className={cls("ds-btn", vc, `ds-btn--${size}`)}
-      onClick={handle}
-      aria-label={`${copied ? copiedLabel : label}: ${value}`}
-      {...rest}
-    >
-      <Icon name={copied ? "check" : "copy"} className="ds-btn-icon" />
+  return <button
+    type={type}
+    className={cx("inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--ds-radius-sm)] border font-medium leading-none transition-colors duration-150 ease-out motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50", VARIANTS[variant], SIZES[size], className)}
+    onClick={handle}
+    aria-label={`${copied ? copiedLabel : label}: ${value}`}
+    {...rest}
+  >
+      <svg className="h-[1em] w-[1em] shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        {copied ? <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> : <><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></>}
+      </svg>
       <span>{copied ? copiedLabel : label}</span>
       <span className="sr-only" role="status" aria-live="polite">{copied ? copiedLabel : ""}</span>
-    </button>
-  );
+    </button>;
 }
 
 export default CopyButton;

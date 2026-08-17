@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "segmented-button",
-  "description": "Joined single-choice control — the compact alternative to radios or tabs.",
+  "description": "A joined single-choice control that behaves like a radiogroup: one selected option at a time. Use for 2\u20135 mutually exclusive options in compact toolbars.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Selection",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "segmented",
-    "selection",
     "radiogroup",
-    "toggle"
+    "selection",
+    "toggle",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,8 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "toggle-group",
+    "button-group"
+  ]
 }

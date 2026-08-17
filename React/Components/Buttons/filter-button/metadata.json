@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "filter-button",
-  "description": "Toolbar control that opens filters and signals an active-filtered state with a count badge.",
+  "description": "Opens filters and shows the active count. `activeCount` renders a count chip and switches the button to `surface-active` so the filtered state is obvious. `open` rotates the leading icon and exposes `aria-expanded`.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Utility",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "filter",
+    "count",
     "toolbar",
-    "badge",
-    "active-state"
+    "utility",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "sort-button",
+    "export-button",
+    "outline-button"
+  ]
 }

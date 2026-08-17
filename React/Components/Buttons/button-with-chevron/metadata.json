@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "button-with-chevron",
-  "description": "Button with a directional chevron that rotates to reflect open state.",
+  "description": "A labeled button with a trailing chevron. `direction` controls orientation (down for menus/disclosure, right for advancing), and `open` rotates a down chevron to signal an expanded state.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Composite",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "chevron",
-    "disclosure",
     "menu",
-    "navigation"
+    "disclosure",
+    "composite",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -36,8 +44,12 @@
     "semantic HTML",
     "reduced-motion"
   ],
-  "interactive": false,
+  "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "button-with-icon",
+    "split-button",
+    "more-actions-button"
+  ]
 }

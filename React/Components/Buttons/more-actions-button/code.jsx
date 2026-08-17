@@ -1,62 +1,136 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * MoreActionsButton — overflow menu trigger.
- *
- * `actions` is an array of {id,label,icon,destructive}. Opens a menu
- * (aria-haspopup="menu") positioned below-right by default. Keyboard:
- * Arrow keys move, Enter activates, Escape closes and returns focus.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+import { useEffect, useRef, useState } from "react";
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+const SIZES = {
+  xs: "h-7 gap-1 px-2 text-xs [&_svg]:size-[14px]",
+  sm: "h-8 gap-1.5 px-3 text-xs [&_svg]:size-[14px]",
+  md: "h-9 gap-2 px-3.5 text-[13px] [&_svg]:size-4",
+  lg: "h-10 gap-2 px-4 text-[13px] [&_svg]:size-[18px]",
+  xl: "h-11 gap-2 px-5 text-sm [&_svg]:size-5"
+};
+const VARIANTS = {
+  ghost: "border-transparent bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]",
+  outline: "border-[var(--ds-color-border-strong)] bg-transparent text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] active:bg-[var(--ds-color-surface-active)]",
+  secondary: "border-[var(--ds-color-border)] bg-[var(--ds-color-secondary)] text-[var(--ds-color-secondary-foreground)] hover:bg-[var(--ds-color-surface-active)] active:bg-[var(--ds-color-surface-active)]"
+};
+const ICON_ONLY = {
+  xs: "h-7 w-7 px-0 [&_svg]:size-[14px]",
+  sm: "h-8 w-8 px-0 [&_svg]:size-[14px]",
+  md: "h-9 w-9 px-0 [&_svg]:size-4",
+  lg: "h-10 w-10 px-0 [&_svg]:size-[18px]",
+  xl: "h-11 w-11 px-0 [&_svg]:size-5"
+};
+const MENU = "absolute top-[calc(100%+4px)] z-40 min-w-[180px] rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface-elevated)] p-1 shadow-[var(--ds-shadow-md)]";
+const ITEM = "flex w-full items-center gap-2 rounded-[var(--ds-radius-sm)] border-0 px-2 py-1.5 text-left font-normal text-[13px] leading-none text-[var(--ds-color-foreground)] bg-transparent transition-colors duration-150 ease-out motion-reduce:transition-none hover:bg-[var(--ds-color-surface-hover)] focus:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--ds-color-focus-ring)]";
+function Icon({ name, className }) {
+  if (!name) return null;
+  const common = { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.75, strokeLinecap: "round", strokeLinejoin: "round", className, "aria-hidden": "true", focusable: "false" };
+  const paths = {
+    "edit": <><path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" /></>,
+    "duplicate": <><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></>,
+    "share": <><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.6 13.5 6.8 4" /><path d="m15.4 6.5-6.8 4" /></>,
+    "archive": <><rect x="3" y="4" width="18" height="4" rx="1" /><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8" /><path d="M10 12h4" /></>,
+    "trash": <><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /></>,
+    "pin": <path d="M12 17v5" />,
+    "settings": <><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></>
+  };
+  return <svg {...common}>{paths[name]}</svg>;
+}
 export function MoreActionsButton({
   actions = [],
   onAction,
-  size = "sm",
-  variant = "ghost",
   label = "More actions",
   align = "right",
+  variant = "ghost",
+  size = "sm",
+  className,
+  type = "button",
   ...rest
 }) {
-  const [open, setOpen] = React.useState(false);
-  const containerRef = useClickOutside(() => setOpen(false), open);
-  const itemRefs = React.useRef([]);
-  const triggerRef = React.useRef(null);
-  function openMenu() { setOpen(true); setTimeout(()=>itemRefs.current[0]&&itemRefs.current[0].focus(),0); }
-  function onKey(e, i) {
-    if (e.key==="ArrowDown"){e.preventDefault();itemRefs.current[(i+1)%actions.length]&&itemRefs.current[(i+1)%actions.length].focus();}
-    else if (e.key==="ArrowUp"){e.preventDefault();itemRefs.current[(i-1+actions.length)%actions.length]&&itemRefs.current[(i-1+actions.length)%actions.length].focus();}
-    else if (e.key==="Escape"){setOpen(false);triggerRef.current&&triggerRef.current.focus();}
-    else if (e.key==="Enter"||e.key===" "){e.preventDefault();choose(i);}
+  const [open, setOpen] = useState(false);
+  const triggerRef = useRef(null);
+  const itemRefs = useRef([]);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    function onDown(e) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) setOpen(false);
+    }
+    function onKey2(e) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    }
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey2);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey2);
+    };
+  }, [open]);
+  function openMenu() {
+    setOpen(true);
+    setTimeout(() => itemRefs.current[0]?.focus(), 0);
   }
-  function choose(i){ setOpen(false); onAction&&onAction(actions[i].id, actions[i]); triggerRef.current&&triggerRef.current.focus(); }
-  const vc = { ghost:"ds-btn--ghost", outline:"ds-btn--outline", secondary:"ds-btn--secondary" }[variant] || "ds-btn--ghost";
-  return (
-    <div ref={containerRef} style={{position:"relative", display:"inline-flex"}}>
+  function choose(i) {
+    setOpen(false);
+    onAction?.(actions[i].id, actions[i]);
+    triggerRef.current?.focus();
+  }
+  function onKey(e, i) {
+    const n = actions.length;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      itemRefs.current[(i + 1) % n]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      itemRefs.current[(i - 1 + n) % n]?.focus();
+    } else if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      choose(i);
+    }
+  }
+  return <div ref={containerRef} className="relative inline-flex">
       <button
-        type="button"
-        ref={triggerRef}
-        className={cls("ds-btn", vc, `ds-btn--${size}`, "ds-btn--icon")}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        aria-label={label}
-        onClick={()=>open?setOpen(false):openMenu()}
-        {...rest}
-      >
-        <Icon name="more" className="ds-btn-icon" />
+    type={type}
+    ref={triggerRef}
+    aria-haspopup="menu"
+    aria-expanded={open}
+    aria-label={label}
+    className={cx("inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--ds-radius-sm)] border font-medium leading-none transition-colors duration-150 ease-out motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50", VARIANTS[variant], ICON_ONLY[size], className)}
+    onClick={() => open ? setOpen(false) : openMenu()}
+    {...rest}
+  >
+        <svg className="h-[1em] w-[1em] shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="5" r="1" fill="currentColor" />
+          <circle cx="12" cy="12" r="1" fill="currentColor" />
+          <circle cx="12" cy="19" r="1" fill="currentColor" />
+        </svg>
       </button>
-      {open && (
-        <div className="ds-menu" role="menu" style={{position:"absolute", top:"calc(100% + 4px)", [align]:"0"}}>
-          {actions.map((a,i)=>(
-            <button key={a.id} ref={el=>itemRefs.current[i]=el} role="menuitem" tabIndex={-1} className="ds-menu-item" data-variant={a.destructive?"destructive":undefined} onClick={()=>choose(i)} onKeyDown={(e)=>onKey(e,i)}>
-              {a.icon && <Icon name={a.icon} className="ds-btn-icon" />}
-              <span>{a.label}</span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+      {open && <div role="menu" className={cx(MENU, align === "left" ? "left-0" : "right-0")}>
+          {actions.map((a, i) => <button
+    key={a.id}
+    ref={(el) => {
+      itemRefs.current[i] = el;
+    }}
+    role="menuitem"
+    tabIndex={-1}
+    className={cx(ITEM, a.destructive && "text-[var(--ds-color-destructive)]")}
+    onClick={() => choose(i)}
+    onKeyDown={(e) => onKey(e, i)}
+  >
+              {a.icon ? <Icon name={a.icon} className="shrink-0" /> : <span className="w-[1em]" />}
+              <span className="flex-1">{a.label}</span>
+            </button>)}
+        </div>}
+    </div>;
 }
 
 export default MoreActionsButton;

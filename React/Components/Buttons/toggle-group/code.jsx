@@ -1,69 +1,83 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * ToggleGroup — joined toggles, single or multi select.
- *
- * `type="single"` behaves like a radiogroup (one on). `type="multiple"`
- * behaves like a group of checkboxes. Selected segments use
- * color.surface-active + aria-pressed="true". Keyboard arrows move focus.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+import { useRef, useState } from "react";
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+const SIZES = {
+  xs: "h-7 gap-1 px-2 text-xs [&_svg]:size-[14px]",
+  sm: "h-8 gap-1.5 px-3 text-xs [&_svg]:size-[14px]",
+  md: "h-9 gap-2 px-3.5 text-[13px] [&_svg]:size-4",
+  lg: "h-10 gap-2 px-4 text-[13px] [&_svg]:size-[18px]",
+  xl: "h-11 gap-2 px-5 text-sm [&_svg]:size-5"
+};
+const SEG_BASE = "inline-flex items-center justify-center gap-2 border-0 bg-transparent px-3 font-medium leading-none transition-colors duration-150 ease-out motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50";
 export function ToggleGroup({
   options,
+  type = "single",
   value,
   defaultValue,
   onValueChange,
-  type = "single",
   size = "sm",
   label,
+  className,
   ...rest
 }) {
-  const arr = Array.isArray(value) ? value : (value ? [value] : []);
-  const [internal, setInternal] = React.useState(defaultValue ? (Array.isArray(defaultValue)?defaultValue:[defaultValue]) : []);
+  const initialArr = defaultValue ? Array.isArray(defaultValue) ? defaultValue : [defaultValue] : [];
+  const [internal, setInternal] = useState(initialArr);
   const isControlled = value !== undefined;
-  const current = isControlled ? arr : internal;
-  const refs = React.useRef([]);
-  function isActive(v) { return current.indexOf(v) !== -1; }
+  const ctrlArr = Array.isArray(value) ? value : value ? [value] : [];
+  const current = isControlled ? ctrlArr : internal;
+  const refs = useRef([]);
+  function isActive(v) {
+    return current.indexOf(v) !== -1;
+  }
   function toggle(v) {
     let next;
     if (type === "single") next = isActive(v) ? [] : [v];
-    else next = isActive(v) ? current.filter(x=>x!==v) : [...current, v];
+    else next = isActive(v) ? current.filter((x) => x !== v) : [...current, v];
     if (!isControlled) setInternal(next);
-    onValueChange && onValueChange(type==="single" ? (next[0]||null) : next);
+    onValueChange?.(type === "single" ? next[0] ?? null : next);
   }
   function onKey(e, i) {
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); refs.current[(i+1)%options.length] && refs.current[(i+1)%options.length].focus(); }
-    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); refs.current[(i-1+options.length)%options.length] && refs.current[(i-1+options.length)%options.length].focus(); }
-    else if (e.key === " " || e.key === "Enter") { e.preventDefault(); toggle(options[i].value); }
+    const n = options.length;
+    let next = -1;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % n;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + n) % n;
+    if (next >= 0) {
+      e.preventDefault();
+      refs.current[next]?.focus();
+    }
   }
-  return (
-    <div className="ds-toggle-group" role="group" aria-label={label} style={{display:"inline-flex", border:"1px solid var(--ds-color-border)", borderRadius:"var(--ds-radius-sm)", overflow:"hidden"}}>
+  return <div role="group" aria-label={label} className={cx("inline-flex overflow-hidden rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border-strong)]", className)} {...rest}>
       {options.map((opt, i) => {
-        const on = isActive(opt.value);
-        return (
-          <button
-            key={opt.value}
-            ref={el => refs.current[i] = el}
-            type="button"
-            className={cls("ds-btn ds-btn--ghost", `ds-btn--${size}`)}
-            aria-pressed={on}
-            style={{
-              borderRadius:0, border:0, margin:0,
-              background: on ? "var(--ds-color-surface-active)" : "transparent",
-              fontWeight: on ? 600 : 500,
-              borderLeft: i>0 ? "1px solid var(--ds-color-border)" : 0,
-            }}
-            onClick={() => toggle(opt.value)}
-            onKeyDown={(e)=>onKey(e,i)}
-          >
-            {opt.icon && <Icon name={opt.icon} className="ds-btn-icon" />}
+    const on = isActive(opt.value);
+    return <button
+      key={opt.value}
+      ref={(el) => {
+        refs.current[i] = el;
+      }}
+      type="button"
+      aria-pressed={on}
+      disabled={opt.disabled}
+      onClick={() => toggle(opt.value)}
+      onKeyDown={(e) => onKey(e, i)}
+      className={cx(
+        SEG_BASE,
+        SIZES[size],
+        "rounded-none",
+        i > 0 && "-ml-px border-l border-[var(--ds-color-border)]",
+        on ? "bg-[var(--ds-color-surface-active)] font-semibold" : "hover:bg-[var(--ds-color-surface-hover)]"
+      )}
+    >
+            {opt.icon ? <Icon name={opt.icon} className="shrink-0" /> : null}
             <span>{opt.label}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
+          </button>;
+  })}
+    </div>;
 }
 
 export default ToggleGroup;

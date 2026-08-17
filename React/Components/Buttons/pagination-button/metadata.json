@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "pagination-button",
-  "description": "Page navigation with prev/next, windowed numbers, and clear active/disabled states.",
+  "description": "Page navigation for paginated lists and tables. Renders Prev, a windowed number set with ellipses, and Next. The active page uses `surface-active` + `aria-current=\"page\"`. Prev/Next disable at the bounds (kept perceivable, not removed).",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "pagination",
     "navigation",
     "table",
-    "pages"
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "back-button",
+    "sort-button",
+    "button-group"
+  ]
 }

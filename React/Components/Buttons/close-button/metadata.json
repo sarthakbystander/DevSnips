@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "close-button",
-  "description": "Icon-only dismiss control for dialogs, drawers, toasts, and banners.",
+  "description": "A dismiss control for overlays. Icon-only (X), requires an accessible name (defaults to \"Close\"). Use inside dialogs, drawers, toasts, and banners; pair with Escape handling on the owning surface.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Utility",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "close",
     "dismiss",
-    "dialog",
-    "utility"
+    "overlay",
+    "utility",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,8 @@
   "interactive": false,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "icon-button",
+    "back-button"
+  ]
 }

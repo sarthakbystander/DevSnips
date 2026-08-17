@@ -1,41 +1,60 @@
 # Button With Icon
 
-Labeled button composition with a leading or trailing icon.
+A labeled button with a leading or trailing icon. Icons use the shared size token for the chosen button size, with the standard control gap keeping icon and label optically aligned.
+
+## Installation
+
+This component requires **React** and **Tailwind CSS**. Drop `code.tsx` (or `code.jsx` for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.
+
+The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example `bg-[var(--ds-color-primary)]`). Define the `--ds-*` tokens once in your theme — see [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the full token spec.
 
 ## Usage
 
-```jsx
-<ButtonWithIcon icon="download" iconPosition="leading" variant="outline">Download CSV</ButtonWithIcon>
+```tsx
+<ButtonWithIcon icon="download" iconPosition="trailing">Export</ButtonWithIcon>
 ```
+
+## JavaScript
+
+A `code.jsx` build is provided for projects that ship plain JSX. It exposes the same API and behavior as `code.tsx` — only the TypeScript types are removed.
 
 ## Props
 
-`children` · `icon` (icon key) · `iconPosition` (leading|trailing, default leading) · `variant` · `size` · `disabled` · `onClick`
+| Prop | Type | Default |
+|---|---|---|
+| `children` | `ReactNode` | — |
+| `icon` | `string` (icon name) | — |
+| `iconPosition` | `leading \| trailing` | `leading` |
+| `variant` | `solid \| outline \| secondary \| ghost` | `solid` |
+| `size` | `ButtonSize` | `md` |
+| `disabled` | `boolean` | `false` |
+
+Plus all native `ButtonHTMLAttributes<HTMLButtonElement>`. Provide your own icon set; this component renders an `<Icon name>` helper slot — see Notes.
 
 ## Variants
 
-solid · outline · secondary · ghost via `variant`.
+solid (default) · outline · secondary · ghost.
 
 ## Sizes
 
-sm · **md (default)** · lg · xl.
+xs (28px) · sm (32px) · **md (36px, default)** · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px.
 
 ## States
 
-default · hover · active · focus-visible · disabled.
+default · hover · active · focus-visible · disabled (reduced opacity).
 
 ## Accessibility
 
-Icon is `aria-hidden`; the label provides the accessible name. Focus ring present.
+Renders a native `<button>`. Focus-visible ring uses `color.focus-ring`. Loading sets `aria-busy` and disables to prevent double-submit. Disabled never removes the affordance (reduced opacity, not hidden). Meets the 44px touch target at lg/xl. Decorative icons are marked `aria-hidden`; the label provides the accessible name.
 
-## Behavior
+## Styling
 
-Demonstrates the icon + label composition rules: 8px gap, icon sized to the button's size token, optical alignment via flex centering.
+Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (`--ds-*`) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.
 
 ## Design Tokens
 
-Iconography (size scales with button size), Spacing (`control-gap` 8px), Sizing, Color.
+See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.
 
 ## Notes
 
-Use leading icons for actions (New, Download) and trailing for direction/external (Continue, Open docs). Don't add decorative icons.
+The shipped `icon` prop accepts an icon name string rendered by a small inline `Icon` helper (drop in your own). To use a custom icon node, pass `iconLeft`/`iconRight` to SolidButton/OutlineButton/etc. instead.

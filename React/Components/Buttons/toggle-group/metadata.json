@@ -5,19 +5,26 @@
   "component": "button",
   "family": "buttons",
   "variant": "toggle-group",
-  "description": "Joined toggles supporting single- or multi-select with roving focus.",
+  "description": "A joined set of toggles. `type=\"single\"` behaves like a radiogroup (one on); `type=\"multiple\"` like a group of checkboxes. Selected segments use `surface-active` + `aria-pressed`, with arrow-key roving.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Selection",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
-    "toggle",
-    "group",
+    "react",
+    "tailwind",
+    "toggle-group",
     "selection",
-    "multi-select"
+    "multi-select",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +46,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "toggle-button",
+    "segmented-button",
+    "button-group"
+  ]
 }

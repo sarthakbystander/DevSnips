@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "floating-action-button",
-  "description": "Elevated circular control for the screen's primary compose action.",
+  "description": "A primary compose action hovering over content. Circular, elevated (shadow-md), fixed to a corner. Icon + optional label (extended FAB). `aria-label` is required. Reserve one per screen for the primary creation action.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
-  "subcategory": "Primary",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "fab",
     "floating",
     "compose",
-    "primary"
+    "navigation",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -36,8 +44,12 @@
     "semantic HTML",
     "reduced-motion"
   ],
-  "interactive": false,
+  "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "add-button",
+    "solid-button",
+    "sticky-action-button"
+  ]
 }

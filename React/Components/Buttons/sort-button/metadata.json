@@ -5,19 +5,27 @@
   "component": "button",
   "family": "buttons",
   "variant": "sort-button",
-  "description": "Control that sets sort field and direction with a directional indicator.",
+  "description": "Sets the sort field and direction. Clicking toggles direction (desc \u2192 asc \u2192 none \u2192 desc). The active sort is shown via the field label + a rotated chevron, not color alone. `aria-label` conveys the current state.",
   "framework": "React",
-  "language": "JSX",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
   "technology": "react",
   "type": "component",
   "category": "Buttons",
   "subcategory": "Utility",
+  "styling": "Tailwind CSS",
   "tags": [
     "button",
+    "react",
+    "tailwind",
     "sort",
+    "table",
     "toolbar",
-    "direction",
-    "table"
+    "utility",
+    "interactive"
   ],
   "features": [
     "responsive",
@@ -39,5 +47,9 @@
   "interactive": true,
   "dependencies": [],
   "source": "DevSnips",
-  "related": []
+  "related": [
+    "filter-button",
+    "pagination-button",
+    "outline-button"
+  ]
 }

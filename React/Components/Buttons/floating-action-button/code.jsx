@@ -1,53 +1,46 @@
-import React from "react";
-
-function cls(...p) { return p.filter(Boolean).join(" "); }
-
-/**
- * FloatingActionButton — primary compose action hovering over content.
- *
- * Circular, elevated (shadow-md), fixed to a corner. Icon + optional label
- * (extended FAB). aria-label required. Reserve one per screen for the
- * primary creation action. Respects reduced motion on hover lift.
+/* DevSnips React — JavaScript parity build.
+ * Same API, behavior, and classes as code.tsx; TypeScript types removed.
+ * Regenerated from code.tsx — edit code.tsx and re-run the generator.
  */
+
+function cx(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+const POS = {
+  "bottom-right": "bottom-6 right-6",
+  "bottom-left": "bottom-6 left-6",
+  "top-right": "top-6 right-6"
+};
 export function FloatingActionButton({
-  icon = "plus",
+  icon,
   label,
   position = "bottom-right",
   extended = false,
-  disabled = false,
+  disabled,
+  className,
   type = "button",
-  onClick,
   ...rest
 }) {
-  const pos = {
-    "bottom-right": { bottom: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" },
-    "bottom-left": { bottom: "var(--ds-spacing-6)", left: "var(--ds-spacing-6)" },
-    "top-right": { top: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" },
-  }[position] || { bottom: "var(--ds-spacing-6)", right: "var(--ds-spacing-6)" };
-  return (
-    <button
-      type={type}
-      className={cls("ds-btn ds-btn--solid ds-fab", extended && "ds-fab--extended")}
-      style={{
-        position: "fixed",
-        ...pos,
-        zIndex: 35,
-        height: extended ? 48 : 56,
-        width: extended ? undefined : 56,
-        borderRadius: "var(--ds-radius-full)",
-        padding: extended ? "0 var(--ds-spacing-5)" : 0,
-        boxShadow: "var(--ds-shadow-md)",
-        gap: "var(--ds-spacing-2)",
-      }}
-      aria-label={label || icon}
-      disabled={disabled}
-      onClick={onClick}
-      {...rest}
-    >
-      <Icon name={icon} className="ds-btn-icon" style={{width:20, height:20}} />
-      {extended && label && <span>{label}</span>}
-    </button>
-  );
+  return <button
+    type={type}
+    aria-label={label}
+    className={cx(
+      "fixed z-40 inline-flex items-center justify-center gap-2 rounded-full",
+      "border border-transparent bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)]",
+      "shadow-[var(--ds-shadow-md)] transition-transform duration-150 ease-out motion-reduce:transition-none",
+      "hover:-translate-y-0.5 active:translate-y-0",
+      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]",
+      "disabled:pointer-events-none disabled:opacity-50",
+      extended ? "h-12 px-5 text-sm [&_svg]:size-5" : "size-14 p-0 [&_svg]:size-5",
+      POS[position],
+      className
+    )}
+    disabled={disabled}
+    {...rest}
+  >
+      {icon}
+      {extended && <span>{label}</span>}
+    </button>;
 }
 
 export default FloatingActionButton;
