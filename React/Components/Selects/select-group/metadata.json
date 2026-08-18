@@ -1,0 +1,54 @@
+{
+  "id": "select-group-react-001",
+  "name": "Select Group",
+  "slug": "select-group",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-group",
+  "description": "Layout wrapper that groups multiple related selects with consistent spacing.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "group",
+    "layout",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-label",
+    "native-select"
+  ]
+}

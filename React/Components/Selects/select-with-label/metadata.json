@@ -1,0 +1,53 @@
+{
+  "id": "select-with-label-react-001",
+  "name": "Select With Label",
+  "slug": "select-with-label",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-label",
+  "description": "Custom select with an always-rendered associated label.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Label",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "form",
+    "label",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-helper",
+    "select-with-error"
+  ]
+}

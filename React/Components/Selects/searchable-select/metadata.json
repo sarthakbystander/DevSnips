@@ -1,0 +1,56 @@
+{
+  "id": "searchable-select-react-001",
+  "name": "Searchable Select",
+  "slug": "searchable-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "searchable-select",
+  "description": "Combobox select with a real search input that filters options.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Search",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "combobox",
+    "search",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "combobox",
+    "multi-select-with-search",
+    "command-select"
+  ]
+}
