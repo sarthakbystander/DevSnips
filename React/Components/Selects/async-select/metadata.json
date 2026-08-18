@@ -1,0 +1,54 @@
+{
+  "id": "async-select-react-001",
+  "name": "Async Select",
+  "slug": "async-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "async-select",
+  "description": "Custom select that loads options asynchronously via a loadOptions callback.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Async",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "async",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select-with-loading",
+    "creatable-select",
+    "searchable-select"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "multi-select-with-search-react-001",
+  "name": "Multi Select With Search",
+  "slug": "multi-select-with-search",
+  "component": "select",
+  "family": "selects",
+  "variant": "multi-select-with-search",
+  "description": "Multi-select combined with a search filter over the options.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Multi",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "multi-select",
+    "search",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "multi-select",
+    "searchable-select",
+    "command-select"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "select-with-actions-react-001",
+  "name": "Select With Actions",
+  "slug": "select-with-actions",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-actions",
+  "description": "Custom select whose dropdown panel has action rows (e.g. Add new, Manage).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "actions",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "creatable-select",
+    "select-with-clear"
+  ]
+}

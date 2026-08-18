@@ -1,0 +1,53 @@
+{
+  "id": "native-select-react-001",
+  "name": "Native Select",
+  "slug": "native-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "native-select",
+  "description": "Genuine native select element styled to match the DevSnips select language.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Native",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "form",
+    "native",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-label",
+    "select-with-helper"
+  ]
+}

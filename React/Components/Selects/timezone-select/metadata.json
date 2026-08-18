@@ -1,0 +1,53 @@
+{
+  "id": "timezone-select-react-001",
+  "name": "Timezone Select",
+  "slug": "timezone-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "timezone-select",
+  "description": "Single-select listbox for timezones with a mono offset display.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Data",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "timezone",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "country-select",
+    "language-select",
+    "select"
+  ]
+}

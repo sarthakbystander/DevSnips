@@ -1,0 +1,54 @@
+{
+  "id": "inline-edit-select-react-001",
+  "name": "Inline Edit Select",
+  "slug": "inline-edit-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "inline-edit-select",
+  "description": "A displayed value that switches into an editable select on demand.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Editing",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "inline-edit",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select-readonly",
+    "select",
+    "select-with-clear"
+  ]
+}
