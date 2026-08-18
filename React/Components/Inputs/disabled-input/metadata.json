@@ -1,0 +1,51 @@
+{
+  "id": "disabled-input-react-023",
+  "name": "Disabled Input",
+  "slug": "disabled-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "disabled-input",
+  "description": "Disabled input preset for unavailable form values.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "input",
+    "react",
+    "state",
+    "tailwind",
+    "text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}
