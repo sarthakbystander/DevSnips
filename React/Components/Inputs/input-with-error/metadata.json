@@ -1,0 +1,52 @@
+{
+  "id": "input-with-error-react-013",
+  "name": "Input With Error",
+  "slug": "input-with-error",
+  "component": "input",
+  "family": "inputs",
+  "variant": "input-with-error",
+  "description": "Input with associated error copy and aria-invalid state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "email",
+    "feedback",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}
