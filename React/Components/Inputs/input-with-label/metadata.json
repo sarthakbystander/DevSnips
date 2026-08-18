@@ -1,0 +1,52 @@
+{
+  "id": "input-with-label-react-011",
+  "name": "Input With Label",
+  "slug": "input-with-label",
+  "component": "input",
+  "family": "inputs",
+  "variant": "input-with-label",
+  "description": "Input pattern that requires a visible associated label.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Label",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "input",
+    "interactive",
+    "label",
+    "react",
+    "tailwind",
+    "text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

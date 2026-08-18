@@ -1,0 +1,52 @@
+{
+  "id": "command-input-react-029",
+  "name": "Command Input",
+  "slug": "command-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "command-input",
+  "description": "Command search input with keyboard navigation and Escape handling.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Command",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "command",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "search",
+    "tailwind"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}
