@@ -1,0 +1,57 @@
+{
+  "id": "checkbox-disabled-react-001",
+  "name": "Checkbox Disabled",
+  "slug": "checkbox-disabled",
+  "component": "checkbox",
+  "family": "checkboxes",
+  "variant": "checkbox-disabled",
+  "description": "Checkbox variant focused on the disabled non-interactive state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Checkboxes",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "checkbox",
+    "form",
+    "selection",
+    "disabled",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "checkbox",
+    "checkbox-readonly",
+    "checkbox-group"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "checkbox-card-group-react-001",
+  "name": "Checkbox Card Group",
+  "slug": "checkbox-card-group",
+  "component": "checkbox",
+  "family": "checkboxes",
+  "variant": "checkbox-card-group",
+  "description": "Group of selectable card checkboxes in a fieldset/legend with a shared value array.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Checkboxes",
+  "subcategory": "Group",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "checkbox",
+    "form",
+    "selection",
+    "card",
+    "group",
+    "fieldset",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "checkbox-card",
+    "checkbox-group",
+    "radio-card-group"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "radio-card-group-react-001",
+  "name": "Radio Card Group",
+  "slug": "radio-card-group",
+  "component": "radio",
+  "family": "radios",
+  "variant": "radio-card-group",
+  "description": "Group of selectable card radios in a fieldset/legend; only one may be selected.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Radios",
+  "subcategory": "Group",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "radio",
+    "form",
+    "selection",
+    "card",
+    "group",
+    "fieldset",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "radio-card",
+    "radio-group",
+    "checkbox-card-group"
+  ]
+}
