@@ -1,0 +1,62 @@
+{
+  "id": "textarea-with-error-react-001",
+  "name": "Textarea With Error",
+  "slug": "textarea-with-error",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-with-error",
+  "description": "Textarea with a destructive error state and an associated inline message (aria-invalid + role=alert).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "error",
+    "validation",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA",
+    "aria-invalid",
+    "role=alert"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea-with-label",
+    "textarea-with-helper",
+    "textarea-with-counter"
+  ]
+}
