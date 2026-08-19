@@ -1,0 +1,67 @@
+{
+  "id": "textarea-with-actions-react-001",
+  "name": "Textarea With Actions",
+  "slug": "textarea-with-actions",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-with-actions",
+  "description": "Textarea with a contextual action bar \u2014 live character count plus real Clear and Copy buttons.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "actions",
+    "clear",
+    "copy",
+    "character-count",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control",
+    "clear action",
+    "copy-to-clipboard",
+    "live character count"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA",
+    "aria-live feedback",
+    "labelled action buttons"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea-with-counter",
+    "textarea-auto-resize",
+    "textarea-readonly"
+  ]
+}

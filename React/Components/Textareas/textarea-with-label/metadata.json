@@ -1,0 +1,60 @@
+{
+  "id": "textarea-with-label-react-001",
+  "name": "Textarea With Label",
+  "slug": "textarea-with-label",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-with-label",
+  "description": "Textarea with a properly associated visible label \u2014 clicking the label focuses the field.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea",
+    "textarea-with-description",
+    "textarea-with-helper",
+    "textarea-with-error"
+  ]
+}

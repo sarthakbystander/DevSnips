@@ -1,0 +1,60 @@
+{
+  "id": "textarea-react-001",
+  "name": "Textarea",
+  "slug": "textarea",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea",
+  "description": "Native multi-line textarea styled to the DevSnips input visual language \u2014 the reference for the whole family.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "content",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea-with-label",
+    "textarea-with-helper",
+    "textarea-disabled",
+    "textarea-readonly"
+  ]
+}
