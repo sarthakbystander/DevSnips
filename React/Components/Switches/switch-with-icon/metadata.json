@@ -1,0 +1,59 @@
+{
+  "id": "switch-with-icon-react-001",
+  "name": "Switch With Icon",
+  "slug": "switch-with-icon",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-with-icon",
+  "description": "Switch with an optional icon that communicates the setting's meaning.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Icon",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "icon",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch-with-label",
+    "switch-with-status",
+    "switch-card"
+  ]
+}
