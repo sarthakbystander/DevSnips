@@ -1,0 +1,62 @@
+{
+  "id": "pagination-with-previous-next-react-001",
+  "name": "Pagination with Previous/Next",
+  "slug": "pagination-with-previous-next",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-with-previous-next",
+  "description": "Previous/next-only page navigation for readers, wizards, and detail views where numbered pages add no value, with a live Page X of Y status.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "previous",
+    "next",
+    "stepper"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "boundary-aware steppers",
+    "aria-live page status"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons",
+    "aria-live status text"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-with-numbers",
+    "pagination-disabled"
+  ]
+}
