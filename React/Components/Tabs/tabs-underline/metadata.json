@@ -1,0 +1,61 @@
+{
+  "id": "tabs-underline-react-001",
+  "name": "Tabs (Underline)",
+  "slug": "tabs-underline",
+  "component": "tabs",
+  "family": "tabs",
+  "variant": "tabs-underline",
+  "description": "Tabs with a restrained 2px underline active indicator over the shared border.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tabs",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tabs",
+    "navigation",
+    "tablist",
+    "tabpanel",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "keyboard",
+    "responsive",
+    "underline"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic tab roles",
+    "roving tabIndex",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tablist / tab / tabpanel roles",
+    "aria-selected",
+    "aria-controls",
+    "aria-labelledby",
+    "roving tabIndex",
+    "Home / End support",
+    "focus-visible"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tabs",
+    "tabs-contained",
+    "tabs-vertical"
+  ]
+}

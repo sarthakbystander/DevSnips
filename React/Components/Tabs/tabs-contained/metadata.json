@@ -1,0 +1,61 @@
+{
+  "id": "tabs-contained-react-001",
+  "name": "Tabs (Contained)",
+  "slug": "tabs-contained",
+  "component": "tabs",
+  "family": "tabs",
+  "variant": "tabs-contained",
+  "description": "Tabs whose tablist sits in a restrained bordered container; the selected tab lifts onto the surface token.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tabs",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tabs",
+    "navigation",
+    "tablist",
+    "tabpanel",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "keyboard",
+    "responsive",
+    "contained"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic tab roles",
+    "roving tabIndex",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tablist / tab / tabpanel roles",
+    "aria-selected",
+    "aria-controls",
+    "aria-labelledby",
+    "roving tabIndex",
+    "Home / End support",
+    "focus-visible"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tabs",
+    "tabs-underline",
+    "tabs-vertical"
+  ]
+}

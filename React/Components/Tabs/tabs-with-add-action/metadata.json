@@ -1,0 +1,63 @@
+{
+  "id": "tabs-with-add-action-react-001",
+  "name": "Tabs With Add Action",
+  "slug": "tabs-with-add-action",
+  "component": "tabs",
+  "family": "tabs",
+  "variant": "tabs-with-add-action",
+  "description": "Tabs plus a separate add action rendered outside the tablist with a required accessible label.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tabs",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tabs",
+    "navigation",
+    "tablist",
+    "tabpanel",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "keyboard",
+    "responsive",
+    "add",
+    "action"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic tab roles",
+    "roving tabIndex",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tablist / tab / tabpanel roles",
+    "aria-selected",
+    "aria-controls",
+    "aria-labelledby",
+    "roving tabIndex",
+    "Home / End support",
+    "focus-visible",
+    "separate action button"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tabs",
+    "tabs-with-panel",
+    "tabs-scrollable"
+  ]
+}
