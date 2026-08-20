@@ -1,0 +1,72 @@
+{
+  "id": "dropdown-menu-submenu-react-001",
+  "name": "Dropdown Menu Submenu",
+  "slug": "dropdown-menu-submenu",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-submenu",
+  "description": "One nested menu level with correct menu semantics: ArrowRight opens, ArrowLeft closes, Escape collapses only the submenu, and the panel flips sides at the viewport edge.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "submenu",
+    "nested",
+    "flyout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "nested submenu",
+    "ArrowRight/ArrowLeft level navigation",
+    "side flip at viewport edge",
+    "hover open without focus theft"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "nested role=menu panels",
+    "aria-haspopup sub trigger",
+    "level-scoped Escape",
+    "focus never stranded"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-with-sections",
+    "dropdown-menu-with-icons"
+  ]
+}

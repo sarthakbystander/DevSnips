@@ -1,0 +1,62 @@
+{
+  "id": "dropdown-menu-react-001",
+  "name": "Dropdown Menu",
+  "slug": "dropdown-menu",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu",
+  "description": "The canonical action menu: a real menu-button trigger, a role=menu panel of menuitem actions, roving keyboard focus, separators, disabled items, and viewport-aware placement.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu-with-icons",
+    "dropdown-menu-with-sections",
+    "dropdown-menu-destructive",
+    "dropdown-menu-submenu"
+  ]
+}
