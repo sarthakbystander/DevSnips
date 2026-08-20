@@ -1,0 +1,61 @@
+{
+  "id": "pagination-large-react-001",
+  "name": "Large Pagination",
+  "slug": "pagination-large",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-large",
+  "description": "Large pagination (44px controls, size=lg) for prominent content navigation such as featured articles and case studies \u2014 comfortable touch targets.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Density",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "large",
+    "touch"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "44px controls",
+    "size=lg"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons",
+    "44px touch targets"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-compact",
+    "pagination-with-previous-next"
+  ]
+}

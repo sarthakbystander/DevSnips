@@ -1,0 +1,62 @@
+{
+  "id": "pagination-with-ellipsis-react-001",
+  "name": "Pagination with Ellipsis",
+  "slug": "pagination-with-ellipsis",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-with-ellipsis",
+  "description": "Windowed page navigation for large datasets: first/last pages plus a sibling window around the current page, with hidden ranges collapsed to a non-interactive ellipsis.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "ellipsis",
+    "large-datasets",
+    "windowed"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "windowed page range",
+    "getPaginationRange helper"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons",
+    "aria-hidden ellipsis with sr-only text"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-with-numbers",
+    "pagination-with-page-size"
+  ]
+}

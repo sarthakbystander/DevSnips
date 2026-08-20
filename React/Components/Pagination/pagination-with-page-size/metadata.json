@@ -1,0 +1,63 @@
+{
+  "id": "pagination-with-page-size-react-001",
+  "name": "Pagination with Page Size",
+  "slug": "pagination-with-page-size",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-with-page-size",
+  "description": "Pagination combined with a Rows per page selector: a labeled native select beside the nav landmark that changes the page size and resets the current page.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "page-size",
+    "rows-per-page",
+    "select"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "page-size select",
+    "native select control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons",
+    "labeled native select",
+    "select outside nav landmark"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-with-ellipsis",
+    "pagination-compact"
+  ]
+}
