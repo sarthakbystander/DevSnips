@@ -1,0 +1,68 @@
+{
+  "id": "dialog-confirmation-react-001",
+  "name": "Confirmation Dialog",
+  "slug": "dialog-confirmation",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-confirmation",
+  "description": "The proceed-or-cancel pattern as `role=\"alertdialog\"`: a focused question, the safe action focused first, and the confirming action on the trailing edge.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Confirmation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "confirmation",
+    "alertdialog"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "role=alertdialog",
+    "safe action focused first"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "role=\"alertdialog\"",
+    "initial focus on the safe action"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-destructive",
+    "dialog-nested",
+    "dialog-controlled"
+  ]
+}

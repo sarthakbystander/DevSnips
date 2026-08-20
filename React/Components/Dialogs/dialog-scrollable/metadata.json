@@ -1,0 +1,69 @@
+{
+  "id": "dialog-scrollable-react-001",
+  "name": "Scrollable Dialog",
+  "slug": "dialog-scrollable",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-scrollable",
+  "description": "Long content in a pinned-header/pinned-footer layout: the body region scrolls internally while the panel stays capped inside the viewport.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "scrollable",
+    "long-content",
+    "layout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "internal body scrolling",
+    "pinned header + footer",
+    "viewport-capped panel"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "scrollable region reachable by keyboard"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-form",
+    "dialog-with-custom-footer",
+    "dialog-non-modal"
+  ]
+}
