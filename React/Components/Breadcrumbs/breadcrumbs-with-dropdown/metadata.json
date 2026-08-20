@@ -1,0 +1,69 @@
+{
+  "id": "breadcrumbs-with-dropdown-react-001",
+  "name": "Breadcrumbs With Dropdown",
+  "slug": "breadcrumbs-with-dropdown",
+  "component": "breadcrumbs",
+  "family": "breadcrumbs",
+  "variant": "breadcrumbs-with-dropdown",
+  "description": "Breadcrumb trail where one level opens a keyboard-accessible menu of related pages \u2014 a real menu button with aria-haspopup and aria-expanded, containing real anchor links.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Breadcrumbs",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "breadcrumbs",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "links",
+    "hierarchy",
+    "dropdown",
+    "menu",
+    "keyboard",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "ordered list",
+    "aria-current=\"page\"",
+    "level dropdown menu",
+    "Escape closes",
+    "outside-click closes",
+    "arrow-key menu navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "ordered list structure",
+    "real anchor links",
+    "aria-current=\"page\"",
+    "aria-hidden separators",
+    "focus-visible",
+    "aria-haspopup=menu",
+    "aria-expanded",
+    "menu / menuitem roles",
+    "Escape returns focus"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "breadcrumbs",
+    "breadcrumbs-collapsed",
+    "breadcrumbs-with-current"
+  ]
+}

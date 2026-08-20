@@ -1,0 +1,71 @@
+{
+  "id": "breadcrumbs-collapsed-react-001",
+  "name": "Breadcrumbs Collapsed",
+  "slug": "breadcrumbs-collapsed",
+  "component": "breadcrumbs",
+  "family": "breadcrumbs",
+  "variant": "breadcrumbs-collapsed",
+  "description": "Long breadcrumb paths with middle levels collapsed behind an accessible ellipsis disclosure \u2014 the hidden levels stay reachable as real links from a keyboard-operable menu.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Breadcrumbs",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "breadcrumbs",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "links",
+    "hierarchy",
+    "collapse",
+    "ellipsis",
+    "keyboard",
+    "interactive",
+    "long-paths"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "ordered list",
+    "aria-current=\"page\"",
+    "ellipsis disclosure",
+    "hidden levels stay accessible",
+    "Escape closes",
+    "outside-click closes"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "ordered list structure",
+    "real anchor links",
+    "aria-current=\"page\"",
+    "aria-hidden separators",
+    "focus-visible",
+    "aria-haspopup=menu",
+    "aria-expanded",
+    "menu / menuitem roles",
+    "Escape returns focus",
+    "disclosure has accessible name"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "breadcrumbs",
+    "breadcrumbs-max-width",
+    "breadcrumbs-with-dropdown"
+  ]
+}

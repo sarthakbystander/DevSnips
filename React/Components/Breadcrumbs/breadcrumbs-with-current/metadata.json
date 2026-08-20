@@ -1,0 +1,60 @@
+{
+  "id": "breadcrumbs-with-current-react-001",
+  "name": "Breadcrumbs With Current",
+  "slug": "breadcrumbs-with-current",
+  "component": "breadcrumbs",
+  "family": "breadcrumbs",
+  "variant": "breadcrumbs-with-current",
+  "description": "Breadcrumb trail that explicitly distinguishes the current location: aria-current page text that is never a navigable link, via BreadcrumbCurrent or the current prop for data-driven trails.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Breadcrumbs",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "breadcrumbs",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "links",
+    "hierarchy",
+    "current-page",
+    "aria-current"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "ordered list",
+    "aria-current=\"page\"",
+    "current prop for data-driven trails"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "ordered list structure",
+    "real anchor links",
+    "aria-current=\"page\"",
+    "aria-hidden separators",
+    "focus-visible"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "breadcrumbs",
+    "breadcrumbs-with-home",
+    "breadcrumbs-with-dropdown"
+  ]
+}
