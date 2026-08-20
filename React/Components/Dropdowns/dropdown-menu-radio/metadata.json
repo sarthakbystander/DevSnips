@@ -1,0 +1,72 @@
+{
+  "id": "dropdown-menu-radio-react-001",
+  "name": "Dropdown Menu Radio Group",
+  "slug": "dropdown-menu-radio",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-radio",
+  "description": "Mutually exclusive menu options (role=menuitemradio + aria-checked) for settings like theme or sort order \u2014 exactly one checked, controlled or uncontrolled.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "radio",
+    "selection",
+    "single-select",
+    "theme",
+    "sort"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "role=menuitemradio",
+    "aria-checked exclusivity",
+    "controlled + uncontrolled"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "role=menuitemradio in role=group",
+    "aria-checked announced",
+    "aria-hidden dot indicator"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-checkboxes",
+    "dropdown-menu-with-sections"
+  ]
+}
