@@ -1,0 +1,61 @@
+{
+  "id": "card-loading-react-001",
+  "name": "Loading Card",
+  "slug": "card-loading",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-loading",
+  "description": "`CardSkeleton` placeholders that match the real card's geometry so content swaps in without layout shift: an accessible busy surface (`aria-busy` + visually hidden label) with a restrained, reduced-motion-safe pulse.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "loading",
+    "skeleton",
+    "busy",
+    "aria-busy"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "geometry-matched placeholder",
+    "aria-busy surface",
+    "reduced-motion pulse off",
+    "media/lines/footer options"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-busy=true",
+    "visually hidden live label",
+    "placeholder blocks aria-hidden",
+    "reduced-motion: no pulse"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-list",
+    "card-with-image"
+  ]
+}

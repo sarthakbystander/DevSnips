@@ -1,0 +1,58 @@
+{
+  "id": "card-with-header-react-001",
+  "name": "Card with Header",
+  "slug": "card-with-header",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-with-header",
+  "description": "The header region in detail: a real `<h3>` title, a muted description, and the optional `CardAction` slot \u2014 laid out on a two-column grid so long titles wrap while the action stays pinned top-right.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "header",
+    "title",
+    "description"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "two-column header grid",
+    "long-title wrapping",
+    "optional action slot"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real <h3> card title",
+    "muted description paragraph",
+    "action slot separate from title text"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-with-actions",
+    "card-with-footer"
+  ]
+}

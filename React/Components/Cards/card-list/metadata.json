@@ -1,0 +1,60 @@
+{
+  "id": "card-list-react-001",
+  "name": "Card List",
+  "slug": "card-list",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-list",
+  "description": "Repeated cards in a semantic list: a `<ul>`/`<li>` grid with consistent spacing that collapses responsively, one composed `Card` per item \u2014 the reusable component does the work, no new grid framework.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "list",
+    "grid",
+    "collection",
+    "ul/li semantics"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "ul/li semantics",
+    "responsive columns",
+    "consistent gaps",
+    "per-item composed cards"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real list structure (ul/li)",
+    "per-item real buttons with unique names",
+    "section labelled by real h2"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-with-icon",
+    "card-selectable"
+  ]
+}
