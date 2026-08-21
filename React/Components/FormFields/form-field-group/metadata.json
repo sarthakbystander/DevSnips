@@ -1,0 +1,66 @@
+{
+  "id": "form-field-group-react-001",
+  "name": "Form Field Group",
+  "slug": "form-field-group",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-group",
+  "description": "Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group \u2014 plus a horizontal orientation for compact choice rows.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "fieldset",
+    "legend",
+    "group",
+    "checkbox",
+    "radio"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "fieldset + legend",
+    "group-level validation",
+    "wrapping row orientation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML",
+    "fieldset + legend group name",
+    "group-level aria-describedby"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-with-error",
+    "form-field-horizontal"
+  ]
+}

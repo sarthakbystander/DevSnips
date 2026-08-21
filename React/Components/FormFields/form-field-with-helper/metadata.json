@@ -1,0 +1,59 @@
+{
+  "id": "form-field-with-helper-react-001",
+  "name": "Form Field With Helper",
+  "slug": "form-field-with-helper",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-with-helper",
+  "description": "Persistent helper text below the control \u2014 format and constraint hints, linked to the control with aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "helper",
+    "hint",
+    "help-text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-with-description",
+    "form-field-with-error"
+  ]
+}

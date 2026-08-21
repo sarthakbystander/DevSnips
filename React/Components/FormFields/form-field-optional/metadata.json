@@ -1,0 +1,59 @@
+{
+  "id": "form-field-optional-react-001",
+  "name": "Form Field Optional",
+  "slug": "form-field-optional",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-optional",
+  "description": "Optional fields: a muted (optional) indicator on the label \u2014 the clear alternative to marking every required field when most of the form is required.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "optional",
+    "labeling"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "optional indicator"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML",
+    "text-based optional indicator (not color alone)"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-required"
+  ]
+}
