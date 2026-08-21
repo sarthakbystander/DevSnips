@@ -1,0 +1,66 @@
+{
+  "id": "tooltip-with-icon-react-001",
+  "name": "Tooltip with Icon Trigger",
+  "slug": "tooltip-with-icon",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-with-icon",
+  "description": "Icon-only toolbar buttons: every trigger carries a real aria-label (the accessible name), and the tooltip makes that name visible on hover or focus \u2014 the standard pattern for toolbars and action rows.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "icon",
+    "toolbar"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "icon-only triggers",
+    "aria-label naming",
+    "toolbar composition"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only",
+    "aria-label on every icon-only trigger"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip",
+    "tooltip-rich-content",
+    "tooltip-disabled-trigger"
+  ]
+}

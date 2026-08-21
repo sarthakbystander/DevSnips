@@ -1,0 +1,66 @@
+{
+  "id": "tooltip-disabled-trigger-react-001",
+  "name": "Tooltip on a Disabled Trigger",
+  "slug": "tooltip-disabled-trigger",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-disabled-trigger",
+  "description": "Two disabled patterns done correctly: explaining a natively disabled control via a focusable wrapper (hover AND keyboard reachable), and suppressing a tooltip entirely with the disabled prop.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "disabled",
+    "states"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "focusable wrapper pattern",
+    "disabled prop suppression",
+    "explanation on disabled control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only",
+    "disabled control explanation stays keyboard-reachable"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip",
+    "tooltip-with-icon",
+    "tooltip-controlled"
+  ]
+}
