@@ -1,0 +1,60 @@
+{
+  "id": "form-field-horizontal-react-001",
+  "name": "Form Field Horizontal",
+  "slug": "form-field-horizontal",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-horizontal",
+  "description": "Horizontal orientation: label in a fixed left column, control and supporting text on the right \u2014 a settings-page layout that collapses to the vertical stack below sm.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "horizontal",
+    "layout",
+    "settings"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "horizontal label column",
+    "collapses below sm"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-group"
+  ]
+}
