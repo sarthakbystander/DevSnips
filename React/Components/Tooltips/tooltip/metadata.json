@@ -1,0 +1,61 @@
+{
+  "id": "tooltip-react-001",
+  "name": "Tooltip",
+  "slug": "tooltip",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip",
+  "description": "The canonical compound tooltip: a real focusable trigger (aria-describedby), a role=tooltip bubble with a pointing arrow, hover-open after a short delay, immediate keyboard-focus open, and Escape/blur/pointer-leave dismissal.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip-placement",
+    "tooltip-with-icon",
+    "tooltip-controlled",
+    "tooltip-disabled-trigger"
+  ]
+}
