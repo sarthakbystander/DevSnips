@@ -1,0 +1,57 @@
+{
+  "id": "card-with-icon-react-001",
+  "name": "Card with Icon",
+  "slug": "card-with-icon",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-with-icon",
+  "description": "Icon-led content cards: a restrained icon chip establishes hierarchy without dominating the card. Icons are inline SVG, `aria-hidden`, and carry meaning \u2014 the title still does the talking.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "icon",
+    "hierarchy",
+    "content"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "icon chip",
+    "aria-hidden icons",
+    "three-up responsive grid"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "icons are aria-hidden decoration beside real headings",
+    "meaning carried by text, not color or icon alone"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-stat",
+    "card-list"
+  ]
+}
