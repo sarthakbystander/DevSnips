@@ -1,0 +1,60 @@
+{
+  "id": "table-status-react-001",
+  "name": "Status Table",
+  "slug": "table-status",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-status",
+  "description": "A table of realistic product data: semantic status badges (text + restrained token tints, never color alone), user cells with avatar initials, dates, right-aligned durations, rollout progress bars with real progressbar semantics, and row actions.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "status",
+    "badges",
+    "progress",
+    "users",
+    "mixed-content"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "semantic status badges",
+    "progressbar semantics",
+    "user cells",
+    "row actions"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "status as text + tint (not color alone)",
+    "role=progressbar with values",
+    "named icon-only actions"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-with-actions",
+    "table-compact"
+  ]
+}

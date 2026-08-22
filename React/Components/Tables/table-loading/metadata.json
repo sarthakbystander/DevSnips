@@ -1,0 +1,59 @@
+{
+  "id": "table-loading-react-001",
+  "name": "Loading Table",
+  "slug": "table-loading",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-loading",
+  "description": "A table with a real loading state: aria-busy on the table, geometry-preserving skeleton rows (aria-hidden bars + a visually hidden announcement), a reduced-motion-safe pulse, and a live transition from skeleton to data.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "loading",
+    "skeleton",
+    "aria-busy",
+    "reduced-motion"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "aria-busy",
+    "geometry-preserving skeleton",
+    "sr-only announcement",
+    "reload round-trip"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-busy during load",
+    "skeleton bars aria-hidden",
+    "visually hidden loading announcement"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-empty",
+    "table-with-pagination"
+  ]
+}

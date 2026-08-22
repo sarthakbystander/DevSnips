@@ -1,0 +1,60 @@
+{
+  "id": "table-compact-react-001",
+  "name": "Compact Table",
+  "slug": "table-compact",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-compact",
+  "description": "A dense table optimized for large datasets: compact density (reduced cell padding, 13px text), strong right-aligned tabular numerics, long values with predictable truncation, and full accessibility preserved.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Density",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "compact",
+    "density",
+    "numeric",
+    "truncation",
+    "data-dense"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "compact density",
+    "tabular numerics",
+    "predictable truncation",
+    "12-row dataset"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "density without accessibility loss",
+    "title preserves truncated values",
+    "th scope=col headers"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-sortable",
+    "table-status"
+  ]
+}
