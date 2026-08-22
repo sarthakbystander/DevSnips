@@ -1,0 +1,61 @@
+{
+  "id": "alert-live-react-001",
+  "name": "Live-Region Alert",
+  "slug": "alert-live",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-live",
+  "description": "Dynamic application feedback done right: alerts mounted on the event announce through their role \u2014 `role=\"status\"` politely for outcomes, `role=\"alert\"` assertively for failures \u2014 with one live region per message so nothing is announced twice.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Behavior",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "live region",
+    "aria-live",
+    "async",
+    "status",
+    "dynamic"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "mount-on-event announcements",
+    "polite vs assertive roles",
+    "no duplicate announcements"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role-driven live regions",
+    "single region per message",
+    "static contrast with role={null}"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-success",
+    "alert-destructive",
+    "alert-dismissible",
+    "alert"
+  ]
+}

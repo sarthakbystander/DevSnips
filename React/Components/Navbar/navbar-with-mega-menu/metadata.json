@@ -1,0 +1,69 @@
+{
+  "id": "navbar-with-mega-menu-react-001",
+  "name": "Navbar with Mega Menu",
+  "slug": "navbar-with-mega-menu",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-mega-menu",
+  "description": "A wider dropdown pattern containing grouped navigation links: labelled groups in a multi-column panel with the same keyboard model, Escape/outside-pointer close, and viewport-aware alignment as the simple dropdown.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "mega-menu",
+    "dropdown",
+    "grouped"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "grouped mega menu",
+    "group labels",
+    "multi-column panel",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "labelled groups",
+    "aria-haspopup='true' trigger"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar-with-dropdown",
+    "navbar"
+  ]
+}
