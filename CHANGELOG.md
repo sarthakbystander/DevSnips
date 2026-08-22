@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-22
+
+### Added — React DatePicker component family (10 variants)
+- Added `React/Components/DatePicker/` — a compound, TypeScript-first, Tailwind-first date picker family. All 10 variants ship the standard `{code.tsx, code.jsx, preview.html, metadata.json, README.md}` asset shape with a single shared core (`date-picker/code.tsx` is the authored reference; the other 9 are derived by `_gen_react_datepicker.py` from `_gen_react_datepicker_registry.py`, header-neutralized equality enforced).
+- Variants: `date-picker` (reference — controlled + uncontrolled), `date-picker-with-label` (root-rendered label/description/helper with real `htmlFor` + `aria-describedby`), `date-picker-range` (typed `DateRange`, hover preview, 2-month popover, incomplete state, clear), `date-picker-with-presets` (Today/Yesterday/Last 7/30 days/This month with `aria-current` tracking), `date-picker-with-disabled-dates` (weekend matcher + hold + min/max window), `date-picker-with-error` (real form validation: `role="alert"` + `aria-invalid` + describedby + hidden ISO input), `date-picker-month-year` (`defaultView="months"` + heading cycle + paged 12-year spans, no giant dropdown), `date-picker-with-footer` (`requireApply` staged draft + Today/Clear/Apply), `date-picker-date-time` (`withTime` hour/minute selects, ISO `yyyy-mm-ddThh:mm` form value), `date-picker-mobile` (CSS-only bottom sheet below `sm`, 44px cells, overlay dismissal).
+- Compound primitives: `DatePicker` (root provider — value/open/month/constraints/locale/format), `DatePickerInput`, `DatePickerTrigger`, `DatePickerContent` (non-modal `role="dialog"` popover with viewport flip + `mobileSheet`), `DatePickerHeader`, `DatePickerCalendar`, `DatePickerFooter`, `DatePickerPresets`, `DatePickerToday`, `DatePickerClear`, `DatePickerApply`, `DatePickerTime`, `useDatePicker` — plus the exported typed date utilities.
+- The calendar core is derived from the React Calendar family (local calendar dates, numeric day keys, constructor arithmetic, roving tabindex, `Intl` labels) — self-contained per the DevSnips snippet architecture; no date-library dependency.
+- QA: `scripts/_qa_react_datepicker.py` (static shape/metadata/export-parity/shared-core, Node date utilities across DST timezones, full Playwright behavior per variant, dark mode/focus/reduced-motion/zero-overflow @ 375/768/1280) — 1738 checks passed. Audit: `_audit_react_datepicker.py` (shared-core equality + semantics + anti-AI + parity) passes. TSX strict-checked with `tsc` (typescript in /tmp/dsbuild, build-time-only). `python3 _gen_react_datepicker.py --check` drift-free. React is still not a registered technology in `snippets-index.json` (follow-up; `scripts/validate.py` passes).
+
 ## 2026-08-15
 
 ### Changed — Vanilla templates consolidation (quality over quantity)

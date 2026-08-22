@@ -1,0 +1,73 @@
+{
+  "id": "date-picker-with-error-react-001",
+  "name": "Date Picker \u2014 with Error",
+  "slug": "date-picker-with-error",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-with-error",
+  "description": "Real form validation: a required date picker that surfaces an `aria-invalid` error with `role=\"alert\"` on submit, resolves it on selection, and is connected to the control through `aria-describedby` \u2014 demonstrated in a working form.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Validation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "error",
+    "validation",
+    "aria-invalid",
+    "form"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "error message wiring",
+    "aria-invalid tracking",
+    "real form demo",
+    "required"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "role=\"alert\" error message",
+    "aria-invalid on the input",
+    "error id in aria-describedby"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker-with-label",
+    "date-picker"
+  ]
+}
