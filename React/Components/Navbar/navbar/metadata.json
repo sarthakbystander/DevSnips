@@ -1,0 +1,62 @@
+{
+  "id": "navbar-react-001",
+  "name": "Navbar",
+  "slug": "navbar",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar",
+  "description": "The canonical site navbar: a semantic nav landmark with a brand, a primary navigation list (active, external, and disabled items), an action area, and a mobile disclosure \u2014 the reference implementation every other variant in the family composes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar-with-actions",
+    "navbar-with-dropdown",
+    "navbar-with-mobile-menu",
+    "navbar-sticky"
+  ]
+}

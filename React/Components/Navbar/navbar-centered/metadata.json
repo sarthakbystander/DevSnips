@@ -1,0 +1,65 @@
+{
+  "id": "navbar-centered-react-001",
+  "name": "Centered Navbar",
+  "slug": "navbar-centered",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-centered",
+  "description": "The brand sits at the horizontal center of the bar on desktop with navigation distributed around it \u2014 a link group on each side \u2014 while small screens fall back to the standard brand-left, toggle-right row.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "centered",
+    "layout",
+    "brand"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "centered brand",
+    "balanced side sections"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-with-actions"
+  ]
+}
