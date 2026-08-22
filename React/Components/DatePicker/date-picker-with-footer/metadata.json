@@ -1,0 +1,73 @@
+{
+  "id": "date-picker-with-footer-react-001",
+  "name": "Date Picker \u2014 with Footer (Apply Flow)",
+  "slug": "date-picker-with-footer",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-with-footer",
+  "description": "Staged selection with an explicit commit: the footer carries Today / Clear / Apply, the input keeps showing the committed value while the calendar stages a draft, and a live staged readout shows what Applying would set.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Behavior",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "footer",
+    "apply",
+    "today",
+    "staged-selection"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "staged draft",
+    "apply commit",
+    "today action",
+    "clear action",
+    "staged readout"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "staged value read via useDatePicker",
+    "discard on Escape / outside"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker",
+    "date-picker-with-presets"
+  ]
+}
