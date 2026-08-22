@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-month-year-react-001",
+  "name": "Date Picker \u2014 Month + Year Pickers",
+  "slug": "date-picker-month-year",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-month-year",
+  "description": "Efficient long-range selection: the popover opens directly in the month picker, the heading cycles days \u2192 months \u2192 years, and the year pager covers decades without an unusable dropdown \u2014 full keyboard support throughout.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "month-picker",
+    "year-picker",
+    "navigation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "month picker view",
+    "year picker view",
+    "view cycle",
+    "paged year spans"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "picker grid semantics",
+    "picker keyboard model"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker",
+    "date-picker-with-disabled-dates"
+  ]
+}
