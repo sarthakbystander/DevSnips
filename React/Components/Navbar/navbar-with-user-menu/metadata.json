@@ -1,0 +1,70 @@
+{
+  "id": "navbar-with-user-menu-react-001",
+  "name": "Navbar with User Menu",
+  "slug": "navbar-with-user-menu",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-user-menu",
+  "description": "A navbar containing a user/account menu built from the same dropdown architecture as every other variant: profile and settings links, a separator, a destructive-adjacent sign-out action, full keyboard support, Escape, outside-pointer close, and focus restoration.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "user",
+    "account",
+    "menu",
+    "avatar"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "account dropdown",
+    "avatar trigger",
+    "sign-out action",
+    "separator groups"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "accessible trigger name",
+    "focus restoration on close"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar-with-actions",
+    "navbar-with-dropdown"
+  ]
+}

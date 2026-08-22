@@ -1,0 +1,71 @@
+{
+  "id": "navbar-with-sidebar-mobile-react-001",
+  "name": "Navbar with Sidebar Mobile Panel",
+  "slug": "navbar-with-sidebar-mobile",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-sidebar-mobile",
+  "description": "The desktop navbar collapses into a compact side panel on small screens: overlay dismissal, body scroll lock with scrollbar compensation, Escape close, focus-on-open, and focus restoration \u2014 without ever trapping focus.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Mobile",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "mobile",
+    "sidebar",
+    "drawer",
+    "overlay"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "side panel placement",
+    "overlay close",
+    "body scroll lock",
+    "focus-on-open"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "overlay dismissal",
+    "scroll lock with compensation",
+    "no focus trap"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar-with-mobile-menu",
+    "navbar"
+  ]
+}
