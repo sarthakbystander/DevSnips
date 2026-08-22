@@ -1,0 +1,61 @@
+{
+  "id": "alert-rich-react-001",
+  "name": "Rich Alert",
+  "slug": "alert-rich",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-rich",
+  "description": "The full composition: semantic icon, title, description, action row, and a dismiss button working together \u2014 the shape for product updates and operational incidents that carry both context and next steps.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "rich",
+    "composite",
+    "actions",
+    "dismissible",
+    "full composition"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "icon + title + description + actions + close",
+    "mixed buttons and anchors",
+    "graceful mobile collapse"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "all primitives in one composition",
+    "registered labelledby/describedby",
+    "close + actions all real controls"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-with-action",
+    "alert-with-link",
+    "alert-dismissible",
+    "alert"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "alert-compact-react-001",
+  "name": "Compact Alert",
+  "slug": "alert-compact",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-compact",
+  "description": "The `size=\"sm\"` density: reduced padding and gaps for dense interfaces \u2014 settings panels, inspector sidebars, data-dense admin screens \u2014 while keeping the full compound API, roles, and wrapping behavior.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Density",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "compact",
+    "dense",
+    "size",
+    "density"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "size=sm density",
+    "same compound API",
+    "stacked dense layout"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "same live-region roles at both densities",
+    "28px close target in compact",
+    "text stays 14px (readable)"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert",
+    "alert-dismissible",
+    "alert-info"
+  ]
+}

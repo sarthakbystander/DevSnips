@@ -1,0 +1,60 @@
+{
+  "id": "alert-info-react-001",
+  "name": "Info Alert",
+  "slug": "alert-info",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-info",
+  "description": "Informational feedback: a neutral-blue tint derived from the `color.info` token, the info glyph, and a polite `role=\"status\"` \u2014 for neutral, non-urgent messages the user should know about but does not have to act on.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Severity",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "info",
+    "informational",
+    "status",
+    "polite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "info tint + glyph",
+    "polite role=status",
+    "long-content wrapping"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=status (polite, non-interrupting)",
+    "icon aria-hidden, meaning in text",
+    "not color alone: glyph + wording"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert",
+    "alert-success",
+    "alert-warning",
+    "alert-with-link"
+  ]
+}

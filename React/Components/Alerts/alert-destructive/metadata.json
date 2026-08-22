@@ -1,0 +1,61 @@
+{
+  "id": "alert-destructive-react-001",
+  "name": "Destructive Alert",
+  "slug": "alert-destructive",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-destructive",
+  "description": "Failures and blocking errors: a red tint derived from the `color.destructive` token, the error glyph, and an assertive `role=\"alert\"` \u2014 for failed operations and validation summaries the user must resolve.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Severity",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "destructive",
+    "error",
+    "alert-role",
+    "assertive",
+    "validation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "destructive tint + error glyph",
+    "assertive role=alert",
+    "error-summary pattern"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=alert (assertive)",
+    "icon aria-hidden, failure in text",
+    "not color alone: glyph + wording"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-warning",
+    "alert-with-action",
+    "alert-rich",
+    "alert-live"
+  ]
+}
