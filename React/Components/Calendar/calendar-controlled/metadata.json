@@ -1,0 +1,70 @@
+{
+  "id": "calendar-controlled-react-001",
+  "name": "Calendar \u2014 Controlled State",
+  "slug": "calendar-controlled",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-controlled",
+  "description": "A fully parent-controlled calendar: the visible month, the selected date, and even the locale live in parent state, with external month/year/locale selectors and an event log of every callback.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "controlled",
+    "month",
+    "locale",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "controlled month + selection",
+    "external month/year jump",
+    "locale switching",
+    "callback log"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "locale-aware labels switch live"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-single",
+    "calendar-month-picker",
+    "calendar-year-picker"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "calendar-year-picker-react-001",
+  "name": "Calendar \u2014 Year Picker",
+  "slug": "calendar-year-picker",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-year-picker",
+  "description": "The year-selection view: a 12-year page grid with decade paging and min/max-aware options \u2014 choosing a year continues to the month picker, then the day grid.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "year picker",
+    "navigation",
+    "view"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "years view",
+    "12-year pages",
+    "defaultView",
+    "constrained options"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "years view is a labelled role=\"grid\""
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-month-picker",
+    "calendar-controlled",
+    "calendar-min-max"
+  ]
+}
