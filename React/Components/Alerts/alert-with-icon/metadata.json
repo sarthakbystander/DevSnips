@@ -1,0 +1,60 @@
+{
+  "id": "alert-with-icon-react-001",
+  "name": "Alert with Icon",
+  "slug": "alert-with-icon",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-with-icon",
+  "description": "The leading icon slot in detail: semantic variants render their status glyph automatically, the `icon` prop replaces it with any `ReactNode`, and `icon={null}` suppresses it \u2014 the icon is always decorative to assistive technology.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "icon",
+    "glyph",
+    "semantic icon",
+    "composition"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "automatic variant glyphs",
+    "custom icon prop",
+    "icon suppression"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "icon slot always aria-hidden",
+    "meaning carried by role + text",
+    "custom icons stay decorative"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert",
+    "alert-info",
+    "alert-success",
+    "alert-rich"
+  ]
+}

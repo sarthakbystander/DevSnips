@@ -1,0 +1,59 @@
+{
+  "id": "alert-success-react-001",
+  "name": "Success Alert",
+  "slug": "alert-success",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-success",
+  "description": "Confirmation of a completed operation: a green tint derived from the `color.success` token, the check glyph, and a polite `role=\"status\"` \u2014 for \"it worked\" feedback after saves, payments, backups, and syncs.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Severity",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "success",
+    "confirmation",
+    "status",
+    "polite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "success tint + check glyph",
+    "polite role=status"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=status (polite)",
+    "icon aria-hidden, outcome in text",
+    "not color alone: glyph + wording"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-info",
+    "alert-destructive",
+    "alert-dismissible",
+    "alert-live"
+  ]
+}
