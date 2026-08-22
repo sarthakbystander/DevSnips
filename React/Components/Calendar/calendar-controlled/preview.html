@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Calendar — Controlled State — DevSnips React</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ds-bg": "var(--ds-color-background)",
+          "ds-fg": "var(--ds-color-foreground)",
+          "ds-surface": "var(--ds-color-surface)",
+          "ds-subtle": "var(--ds-color-surface-subtle)",
+          "ds-hover": "var(--ds-color-surface-hover)",
+          "ds-active": "var(--ds-color-surface-active)",
+          "ds-muted": "var(--ds-color-muted-foreground)",
+          "ds-border": "var(--ds-color-border)",
+          "ds-border-strong": "var(--ds-color-border-strong)",
+          "ds-primary": "var(--ds-color-primary)",
+          "ds-primary-fg": "var(--ds-color-primary-foreground)",
+          "ds-accent": "var(--ds-color-accent)",
+          "ds-destructive": "var(--ds-color-destructive)",
+          "ds-success": "var(--ds-color-success)",
+          "ds-link": "var(--ds-color-link)",
+          "ds-focus": "var(--ds-color-focus-ring)",
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };
+  // Apply token CSS variables before paint to avoid a flash in dark mode.
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --ds-color-background: #FAFAFA;
+    --ds-color-foreground: #171717;
+    --ds-color-surface: #FFFFFF;
+    --ds-color-surface-subtle: #F5F5F5;
+    --ds-color-surface-elevated: #FFFFFF;
+    --ds-color-surface-hover: #F5F5F5;
+    --ds-color-surface-active: #E5E5E5;
+    --ds-color-surface-selected: #F5F5F5;
+    --ds-color-muted: #F5F5F5;
+    --ds-color-muted-foreground: #737373;
+    --ds-color-border: #E5E5E5;
+    --ds-color-border-subtle: #EFEFEF;
+    --ds-color-border-strong: #D4D4D4;
+    --ds-color-input: #FFFFFF;
+    --ds-color-primary: #171717;
+    --ds-color-primary-foreground: #FFFFFF;
+    --ds-color-secondary: #F5F5F5;
+    --ds-color-secondary-foreground: #171717;
+    --ds-color-accent: #2563EB;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
+    --ds-color-destructive: #C2261B;
+    --ds-color-destructive-foreground: #FFFFFF;
+    --ds-color-destructive-soft: rgba(194, 38, 27, 0.10);
+    --ds-color-success: #15803D;
+    --ds-color-success-foreground: #FFFFFF;
+    --ds-color-success-soft: rgba(21, 128, 61, 0.12);
+    --ds-color-warning: #B45309;
+    --ds-color-warning-foreground: #FFFFFF;
+    --ds-color-info: #2563EB;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #2563EB;
+    --ds-color-link-hover: #1D4ED8;
+    --ds-color-focus-ring: #2563EB;
+    --ds-color-overlay: rgba(10, 10, 10, 0.50);
+    --ds-radius-none: 0;
+    --ds-radius-xs: 3px;
+    --ds-radius-sm: 5px;
+    --ds-radius-md: 8px;
+    --ds-radius-lg: 12px;
+    --ds-radius-xl: 16px;
+    --ds-radius-full: 9999px;
+    --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
+    --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
+    --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --ds-color-background: #0A0A0A;
+    --ds-color-foreground: #FAFAFA;
+    --ds-color-surface: #171717;
+    --ds-color-surface-subtle: #1F1F1F;
+    --ds-color-surface-elevated: #1F1F1F;
+    --ds-color-surface-hover: #1F1F1F;
+    --ds-color-surface-active: #2A2A2A;
+    --ds-color-surface-selected: #1F1F1F;
+    --ds-color-muted: #1F1F1F;
+    --ds-color-muted-foreground: #A3A3A3;
+    --ds-color-border: #2A2A2A;
+    --ds-color-border-subtle: #1F1F1F;
+    --ds-color-border-strong: #404040;
+    --ds-color-input: #171717;
+    --ds-color-primary: #FAFAFA;
+    --ds-color-primary-foreground: #0A0A0A;
+    --ds-color-secondary: #1F1F1F;
+    --ds-color-secondary-foreground: #FAFAFA;
+    --ds-color-accent: #3B82F6;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+    --ds-color-destructive: #F1635A;
+    --ds-color-destructive-foreground: #0A0A0A;
+    --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+    --ds-color-success: #4ADE80;
+    --ds-color-success-foreground: #052E16;
+    --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+    --ds-color-warning: #FBBF24;
+    --ds-color-warning-foreground: #1A1206;
+    --ds-color-info: #3B82F6;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #60A5FA;
+    --ds-color-link-hover: #93C5FD;
+    --ds-color-focus-ring: #3B82F6;
+    --ds-color-overlay: rgba(0, 0, 0, 0.65);
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+    --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ds-color-background: #0A0A0A;
+      --ds-color-foreground: #FAFAFA;
+      --ds-color-surface: #171717;
+      --ds-color-surface-subtle: #1F1F1F;
+      --ds-color-surface-elevated: #1F1F1F;
+      --ds-color-surface-hover: #1F1F1F;
+      --ds-color-surface-active: #2A2A2A;
+      --ds-color-surface-selected: #1F1F1F;
+      --ds-color-muted: #1F1F1F;
+      --ds-color-muted-foreground: #A3A3A3;
+      --ds-color-border: #2A2A2A;
+      --ds-color-border-subtle: #1F1F1F;
+      --ds-color-border-strong: #404040;
+      --ds-color-input: #171717;
+      --ds-color-primary: #FAFAFA;
+      --ds-color-primary-foreground: #0A0A0A;
+      --ds-color-secondary: #1F1F1F;
+      --ds-color-secondary-foreground: #FAFAFA;
+      --ds-color-accent: #3B82F6;
+      --ds-color-accent-foreground: #FFFFFF;
+      --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+      --ds-color-destructive: #F1635A;
+      --ds-color-destructive-foreground: #0A0A0A;
+      --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+      --ds-color-success: #4ADE80;
+      --ds-color-success-foreground: #052E16;
+      --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+      --ds-color-warning: #FBBF24;
+      --ds-color-warning-foreground: #1A1206;
+      --ds-color-info: #3B82F6;
+      --ds-color-info-foreground: #FFFFFF;
+      --ds-color-link: #60A5FA;
+      --ds-color-link-hover: #93C5FD;
+      --ds-color-focus-ring: #3B82F6;
+      --ds-color-overlay: rgba(0, 0, 0, 0.65);
+      --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+      --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground);}
+  .ds-page{min-height:100vh;}
+  .ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border);}
+  .ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans);}
+  .ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans);}
+  .ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans);}
+  .ds-crumb b{color:var(--ds-color-foreground);font-weight:500;}
+  .ds-theme-toggle{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);cursor:pointer;}
+  .ds-theme-toggle:hover{background:var(--ds-color-surface-hover);}
+  .ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px;}
+  .ds-main{max-width:980px;margin:0 auto;padding:32px 24px 64px;}
+  .ds-eyebrow{font:600 11px/1.3 var(--ds-font-sans);letter-spacing:0.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground);margin:0 0 8px;}
+  .ds-title{font:600 18px/1.35 var(--ds-font-sans);letter-spacing:-0.01em;margin:0 0 8px;}
+  .ds-lede{color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans);margin:0 0 32px;max-width:60ch;}
+  .ds-section{margin-top:32px;}
+  .ds-section-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--ds-color-border-subtle);}
+  .ds-section-h h2{font:600 16px/1.4 var(--ds-font-sans);margin:0;letter-spacing:-0.01em;}
+  .ds-section-h .ds-note{font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;}
+  .ds-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+  .ds-label{font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-muted-foreground);margin:0 0 8px;text-transform:uppercase;letter-spacing:0.04em;}
+  .ds-card{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-canvas{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-pos-wrap{position:relative;}
+  .ds-footer{border-top:1px solid var(--ds-color-border);padding:24px;text-align:center;font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-footer code{font-family:var(--ds-font-mono);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+</style>
+</head>
+<body>
+<div class="ds-page">
+  <header class="ds-topbar">
+    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Calendar / calendar-controlled</span></div>
+    <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false">
+      <span id="ds-theme-label">Dark</span>
+    </button>
+  </header>
+  <main class="ds-main">
+    <p class="ds-eyebrow">React Component · State</p>
+    <h1 class="ds-title">Calendar — Controlled State</h1>
+    <p class="ds-lede">A fully parent-controlled calendar: the visible month, the selected date, and even the locale live in parent state, with external month/year/locale selectors and an event log of every callback.</p>
+    <div id="ds-root" class="ds-pos-wrap"></div>
+  </main>
+  <footer class="ds-footer">DevSnips React · Calendar · <code>calendar-controlled</code> · preview demonstration of code.tsx</footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement;
+  function apply(t){ root.setAttribute("data-theme", t); try{ localStorage.setItem("ds-react-theme", t); }catch(e){} var b=document.getElementById("ds-theme-toggle"); var l=document.getElementById("ds-theme-label"); if(b){b.setAttribute("aria-pressed", t==="dark"?"true":"false");} if(l){l.textContent = t==="dark"?"Light":"Dark";} }
+  var saved = null; try{ saved = localStorage.getItem("ds-react-theme"); }catch(e){}
+  if(!saved){ saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light"; }
+  apply(saved);
+  document.getElementById("ds-theme-toggle").addEventListener("click", function(){ var cur = root.getAttribute("data-theme") === "dark" ? "light":"dark"; apply(cur); });
+})();
+</script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" data-presets="react">
+// Preview demonstration environment. The shared Icon set is inlined so the
+// preview is fully standalone.
+function Icon({ name, className }) {
+  const common = { width:"1em", height:"1em", viewBox:"0 0 24 24", fill:"none", stroke:"currentColor", strokeWidth:1.75, strokeLinecap:"round", strokeLinejoin:"round", className, "aria-hidden":"true", focusable:"false" };
+  switch (name) {
+    case "chevron-down": return (<svg {...common}><path d="m6 9 6 6 6-6"/></svg>);
+    case "chevron-right": return (<svg {...common}><path d="m9 6 6 6-6 6"/></svg>);
+    case "chevron-left": return (<svg {...common}><path d="m15 6-6 6 6 6"/></svg>);
+    case "arrow-right": return (<svg {...common}><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>);
+    case "arrow-left": return (<svg {...common}><path d="M19 12H5"/><path d="m11 19-7-7 7-7"/></svg>);
+    case "download": return (<svg {...common}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>);
+    case "upload": return (<svg {...common}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>);
+    case "copy": return (<svg {...common}><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>);
+    case "check": return (<svg {...common}><path d="M20 6 9 17l-5-5"/></svg>);
+    case "x": return (<svg {...common}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>);
+    case "plus": return (<svg {...common}><path d="M12 5v14"/><path d="M5 12h14"/></svg>);
+    case "refresh": return (<svg {...common}><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>);
+    case "filter": return (<svg {...common}><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>);
+    case "sort": return (<svg {...common}><path d="M11 5h10"/><path d="M11 9h7"/><path d="M11 13h4"/><path d="m3 17 3 3 3-3"/><path d="M6 18V4"/></svg>);
+    case "more": return (<svg {...common}><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>);
+    case "search": return (<svg {...common}><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>);
+    case "command": return (<svg {...common}><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>);
+    case "trash": return (<svg {...common}><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>);
+    case "edit": return (<svg {...common}><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>);
+    case "external": return (<svg {...common}><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>);
+    case "settings": return (<svg {...common}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>);
+    case "archive": return (<svg {...common}><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>);
+    case "share": return (<svg {...common}><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg>);
+    case "duplicate": return (<svg {...common}><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>);
+    case "pin": return (<svg {...common}><path d="M12 17v5"/><path d="M9 10.76V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5.76a2 2 0 0 0 .6 1.42l2.4 2.36a1 1 0 0 1-.7 1.7H6.7a1 1 0 0 1-.7-1.7l2.4-2.36a2 2 0 0 0 .6-1.42Z"/></svg>);
+    case "bell": return (<svg {...common}><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>);
+    case "save": return (<svg {...common}><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg>);
+    case "user": return (<svg {...common}><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>);
+    case "sparkles": return (<svg {...common}><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6.3 6.3 2.8 2.8"/><path d="m14.9 14.9 2.8 2.8"/><path d="m17.7 6.3-2.8 2.8"/><path d="m9.1 14.9-2.8 2.8"/></svg>);
+    case "home": return (<svg {...common}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>);
+    case "folder": return (<svg {...common}><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>);
+    case "book": return (<svg {...common}><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>);
+    case "grid": return (<svg {...common}><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>);
+    case "package": return (<svg {...common}><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>);
+    case "users": return (<svg {...common}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>);
+    case "mail": return (<svg {...common}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>);
+    case "link": return (<svg {...common}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>);
+    case "monitor": return (<svg {...common}><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>);
+    case "sun": return (<svg {...common}><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>);
+    case "moon": return (<svg {...common}><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>);
+    case "logout": return (<svg {...common}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>);
+    case "file": return (<svg {...common}><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>);
+    case "eye": return (<svg {...common}><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>);
+    case "alert-triangle": return (<svg {...common}><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>);
+    case "info": return (<svg {...common}><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>);
+    case "user-plus": return (<svg {...common}><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M19 16v6"/><path d="M22 19h-6"/></svg>);
+    case "clock": return (<svg {...common}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>);
+    case "keyboard": return (<svg {...common}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/><path d="M6 12h.01"/><path d="M10 12h.01"/><path d="M14 12h.01"/><path d="M18 12h.01"/><path d="M7 16h10"/></svg>);
+    case "calendar": return (<svg {...common}><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>);
+    default: return null;
+  }
+}
+
+function useClickOutside(onClose, active) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    if (!active) return;
+    function onDown(e) { if (ref.current && !ref.current.contains(e.target)) onClose(); }
+    function onKey(e) { if (e.key === "Escape") onClose(); }
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
+  }, [active, onClose]);
+  return ref;
+}
+
+function useCopy(resetMs) {
+  const [copied, setCopied] = React.useState(false);
+  const t = React.useRef(null);
+  const copy = React.useCallback(async (text) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); }
+      else { const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); }
+      setCopied(true); clearTimeout(t.current); t.current = setTimeout(() => setCopied(false), resetMs || 2000);
+    } catch (e) { /* clipboard unavailable */ }
+  }, [resetMs]);
+  React.useEffect(() => () => clearTimeout(t.current), []);
+  return [copied, copy];
+}
+
+</script>
+<script type="text/babel" data-presets="react">
+// The component below is the actual code.tsx implementation, transformed to
+// JSX (types removed) so Babel standalone can run it. It is identical in
+// behavior to code.tsx/code.jsx.
+(function() {
+  const { 
+    createContext,
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState
+   } = React;
+  function cx(...parts) {
+    return parts.filter(Boolean).join(" ");
+  }
+  const WEEK_MS = 6048e5;
+  function daysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+  function isLeapYear(year) {
+    return new Date(year, 1, 29).getMonth() === 1;
+  }
+  function dayKey(date) {
+    return date.getFullYear() * 1e4 + (date.getMonth() + 1) * 100 + date.getDate();
+  }
+  function dateFromKey(key) {
+    const year = Math.floor(key / 1e4);
+    const month = Math.floor(key % 1e4 / 100) - 1;
+    return new Date(year, month, key % 100);
+  }
+  function compareDays(a, b) {
+    const diff = dayKey(a) - dayKey(b);
+    return diff === 0 ? 0 : diff < 0 ? -1 : 1;
+  }
+  function isSameDay(a, b) {
+    return dayKey(a) === dayKey(b);
+  }
+  function addDays(date, amount) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + amount);
+  }
+  function addMonths(date, amount) {
+    const first = new Date(date.getFullYear(), date.getMonth() + amount, 1);
+    const day = Math.min(date.getDate(), daysInMonth(first.getFullYear(), first.getMonth()));
+    return new Date(first.getFullYear(), first.getMonth(), day);
+  }
+  function startOfMonth(date) {
+    return new Date(date.getFullYear(), date.getMonth(), 1);
+  }
+  function endOfMonth(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    return new Date(year, month, daysInMonth(year, month));
+  }
+  function isoWeekNumber(date) {
+    const noon = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12);
+    const thursday = addDays(noon, 3 - (noon.getDay() + 6) % 7);
+    const jan4 = new Date(thursday.getFullYear(), 0, 4, 12);
+    const weekOneThursday = addDays(jan4, 3 - (jan4.getDay() + 6) % 7);
+    return 1 + Math.round((thursday.getTime() - weekOneThursday.getTime()) / WEEK_MS);
+  }
+  function buildMonthWeeks(month, weekStartsOn) {
+    const first = startOfMonth(month);
+    const leading = (first.getDay() - weekStartsOn + 7) % 7;
+    const gridStart = addDays(first, -leading);
+    const weeks = [];
+    for (let w = 0; w < 6; w += 1) {
+      const row = [];
+      for (let d = 0; d < 7; d += 1) row.push(addDays(gridStart, w * 7 + d));
+      weeks.push(row);
+    }
+    return weeks;
+  }
+  function monthYearLabel(date, locale) {
+    return new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(date);
+  }
+  function monthName(date, locale) {
+    return new Intl.DateTimeFormat(locale, { month: "long" }).format(date);
+  }
+  function yearLabel(year, locale) {
+    return new Intl.DateTimeFormat(locale, { year: "numeric" }).format(new Date(year, 0, 1));
+  }
+  function fullDateLabel(date, locale) {
+    return new Intl.DateTimeFormat(locale, {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(date);
+  }
+  function monthNames(locale) {
+    const fmt = new Intl.DateTimeFormat(locale, { month: "long" });
+    return Array.from({ length: 12 }, (_, m) => fmt.format(new Date(2024, m, 1)));
+  }
+  function weekdayNames(locale, weekStartsOn) {
+    const base = new Date(2024, 0, 7);
+    const shortFmt = new Intl.DateTimeFormat(locale, { weekday: "short" });
+    const longFmt = new Intl.DateTimeFormat(locale, { weekday: "long" });
+    return Array.from({ length: 7 }, (_, i) => {
+      const day = addDays(base, (weekStartsOn + i) % 7);
+      return { short: shortFmt.format(day), long: longFmt.format(day) };
+    });
+  }
+  function useControllableState(controlled, defaultValue, onChange) {
+    const [internal, setInternal] = useState(defaultValue);
+    const isControlled = controlled !== void 0;
+    const value = isControlled ? controlled : internal;
+    const set = useCallback(
+      (next) => {
+        if (!isControlled) setInternal(next);
+        if (onChange) onChange(next);
+      },
+      [isControlled, onChange]
+    );
+    return [value, set];
+  }
+  const CalendarContext = createContext(null);
+  function useCalendar() {
+    const ctx = useContext(CalendarContext);
+    if (!ctx) throw new Error("Calendar components must be composed inside <Calendar>.");
+    return ctx;
+  }
+  const ROOT_CLASSES = "w-max max-w-full rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-3 shadow-[var(--ds-shadow-xs)]";
+  const HEADER_CLASSES = "mb-1 flex items-center justify-between gap-1";
+  const NAV_BUTTON_CLASSES = "inline-flex size-9 shrink-0 items-center justify-center rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] text-[var(--ds-color-muted-foreground)] shadow-[var(--ds-shadow-xs)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] hover:text-[var(--ds-color-foreground)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none";
+  const HEADING_CLASSES = "m-0 text-sm font-semibold leading-9 text-[var(--ds-color-foreground)]";
+  const HEADING_BUTTON_CLASSES = "-mx-1.5 rounded-[var(--ds-radius-sm)] px-1.5 transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none";
+  const WEEKDAY_CLASSES = "flex size-9 items-center justify-center text-[11px] font-medium uppercase tracking-[0.04em] text-[var(--ds-color-muted-foreground)]";
+  const WEEKNUM_CLASSES = "flex size-9 items-center justify-center font-mono text-[11px] tabular-nums text-[var(--ds-color-muted-foreground)]";
+  const DAY_CLASSES = "inline-flex size-9 items-center justify-center rounded-[var(--ds-radius-sm)] border border-transparent text-sm leading-5 tabular-nums transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:cursor-not-allowed motion-reduce:transition-none";
+  const PICKER_BUTTON_CLASSES = "flex h-9 flex-1 items-center justify-center rounded-[var(--ds-radius-sm)] border border-transparent px-2 text-sm leading-5 transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none";
+  const FOOTER_CLASSES = "mt-2 flex items-center justify-between gap-2 border-t border-[var(--ds-color-border-subtle)] pt-2 text-xs leading-4 text-[var(--ds-color-muted-foreground)]";
+  const SELECTED_DAY_CLASSES = "bg-[var(--ds-color-primary)] font-medium text-[var(--ds-color-primary-foreground)] hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)]";
+  const RANGE_MIDDLE_CLASSES = "rounded-none bg-[var(--ds-color-surface-active)] text-[var(--ds-color-foreground)]";
+  const PICKER_SELECTED_CLASSES = "bg-[var(--ds-color-primary)] font-medium text-[var(--ds-color-primary-foreground)]";
+  function ChevronLeftIcon() {
+    return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6" /></svg>;
+  }
+  function ChevronRightIcon() {
+    return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg>;
+  }
+  function Calendar(props) {
+    const {
+      month: controlledMonth,
+      defaultMonth,
+      onMonthChange,
+      defaultView = "days",
+      minDate,
+      maxDate,
+      disabled,
+      locale = "en-US",
+      weekStartsOn = 0,
+      showOutsideDays = false,
+      showWeekNumbers = false,
+      numberOfMonths = 1,
+      className,
+      children,
+      // Selection props are consumed through the typed slices below — they are
+      // destructured here so they never leak onto the DOM via `...rest`
+      // (`onSelect` also collides with the native React event handler).
+      mode: _mode,
+      selected: _selected,
+      defaultSelected: _defaultSelected,
+      onSelect: _onSelect,
+      ...rest
+    } = props;
+    const mode = _mode ?? "single";
+    const singleSlice = props;
+    const multipleSlice = props;
+    const rangeSlice = props;
+    const [singleSelection, setSingleSelection] = useControllableState(
+      mode === "single" ? singleSlice.selected : void 0,
+      (mode === "single" ? singleSlice.defaultSelected : null) ?? null,
+      mode === "single" ? singleSlice.onSelect : void 0
+    );
+    const [multipleSelection, setMultipleSelection] = useControllableState(
+      mode === "multiple" ? multipleSlice.selected : void 0,
+      (mode === "multiple" ? multipleSlice.defaultSelected : void 0) ?? [],
+      mode === "multiple" ? multipleSlice.onSelect : void 0
+    );
+    const [rangeSelection, setRangeSelection] = useControllableState(
+      mode === "range" ? rangeSlice.selected : void 0,
+      (mode === "range" ? rangeSlice.defaultSelected : void 0) ?? null,
+      mode === "range" ? rangeSlice.onSelect : void 0
+    );
+    const [today] = useState(() => /* @__PURE__ */ new Date());
+    const firstSelected = mode === "single" ? singleSelection : mode === "multiple" ? multipleSelection[0] ?? null : rangeSelection?.from ?? null;
+    const [monthState, setMonthState] = useControllableState(
+      controlledMonth !== void 0 ? startOfMonth(controlledMonth) : void 0,
+      startOfMonth(defaultMonth ?? firstSelected ?? today),
+      onMonthChange
+    );
+    const monthKey = monthState.getFullYear() * 12 + monthState.getMonth();
+    const month = useMemo(() => startOfMonth(monthState), [monthKey]);
+    const [view, setView] = useState(defaultView);
+    const [focusKey, setFocusKey] = useState(null);
+    const focusIntentRef = useRef(false);
+    const rootRef = useRef(null);
+    const isDisabled = useCallback(
+      (date) => {
+        if (minDate && compareDays(date, minDate) < 0) return true;
+        if (maxDate && compareDays(date, maxDate) > 0) return true;
+        return disabled ? disabled(date) : false;
+      },
+      [minDate, maxDate, disabled]
+    );
+    const monthEnabled = useCallback(
+      (year, monthIndex) => {
+        if (minDate && compareDays(endOfMonth(new Date(year, monthIndex, 1)), minDate) < 0) return false;
+        if (maxDate && compareDays(new Date(year, monthIndex, 1), maxDate) > 0) return false;
+        return true;
+      },
+      [minDate, maxDate]
+    );
+    const yearEnabled = useCallback(
+      (year) => {
+        if (minDate && compareDays(new Date(year, 11, 31), minDate) < 0) return false;
+        if (maxDate && compareDays(new Date(year, 0, 1), maxDate) > 0) return false;
+        return true;
+      },
+      [minDate, maxDate]
+    );
+    const lastVisibleMonth = useMemo(
+      () => startOfMonth(addMonths(month, numberOfMonths - 1)),
+      [month, numberOfMonths]
+    );
+    const [renderedStart, renderedEnd] = useMemo(() => {
+      if (!showOutsideDays) return [month, endOfMonth(lastVisibleMonth)];
+      const firstWeeks = buildMonthWeeks(month, weekStartsOn);
+      const lastWeeks = buildMonthWeeks(lastVisibleMonth, weekStartsOn);
+      const start = firstWeeks[0]?.[0] ?? month;
+      const end = lastWeeks[lastWeeks.length - 1]?.[6] ?? endOfMonth(lastVisibleMonth);
+      return [start, end];
+    }, [month, lastVisibleMonth, weekStartsOn, showOutsideDays]);
+    const isRenderedDate = useCallback(
+      (date) => compareDays(date, renderedStart) >= 0 && compareDays(date, renderedEnd) <= 0,
+      [renderedStart, renderedEnd]
+    );
+    const goToMonth = useCallback(
+      (target) => {
+        let t = startOfMonth(target);
+        if (maxDate) {
+          const latest = startOfMonth(addMonths(maxDate, -(numberOfMonths - 1)));
+          if (compareDays(t, latest) > 0) t = latest;
+        }
+        if (minDate && compareDays(t, startOfMonth(minDate)) < 0) t = startOfMonth(minDate);
+        setMonthState(t);
+      },
+      [minDate, maxDate, numberOfMonths, setMonthState]
+    );
+    const monthToReveal = useCallback(
+      (date) => {
+        if (compareDays(date, month) < 0) return startOfMonth(date);
+        if (compareDays(date, endOfMonth(lastVisibleMonth)) > 0) {
+          return startOfMonth(addMonths(date, -(numberOfMonths - 1)));
+        }
+        return month;
+      },
+      [month, lastVisibleMonth, numberOfMonths]
+    );
+    const navStep = view === "days" ? 1 : view === "months" ? 12 : 144;
+    let canGoPrevious = true;
+    let canGoNext = true;
+    if (view === "days") {
+      canGoPrevious = !minDate || compareDays(endOfMonth(addMonths(month, -1)), minDate) >= 0;
+      canGoNext = !maxDate || compareDays(startOfMonth(addMonths(month, numberOfMonths)), maxDate) <= 0;
+    } else if (view === "months") {
+      const y = month.getFullYear();
+      canGoPrevious = !minDate || compareDays(new Date(y - 1, 11, 31), minDate) >= 0;
+      canGoNext = !maxDate || compareDays(new Date(y + 1, 0, 1), maxDate) <= 0;
+    } else {
+      const pageStart = Math.floor(month.getFullYear() / 12) * 12;
+      canGoPrevious = !minDate || compareDays(new Date(pageStart - 1, 11, 31), minDate) >= 0;
+      canGoNext = !maxDate || compareDays(new Date(pageStart + 12, 0, 1), maxDate) <= 0;
+    }
+    const goToPrevious = useCallback(() => {
+      if (canGoPrevious) goToMonth(addMonths(month, -navStep));
+    }, [canGoPrevious, goToMonth, month, navStep]);
+    const goToNext = useCallback(() => {
+      if (canGoNext) goToMonth(addMonths(month, navStep));
+    }, [canGoNext, goToMonth, month, navStep]);
+    const previousLabel = view === "days" ? "Go to previous month" : view === "months" ? "Go to previous year" : "Go to previous 12 years";
+    const nextLabel = view === "days" ? "Go to next month" : view === "months" ? "Go to next year" : "Go to next 12 years";
+    const headingLabel = useMemo(() => {
+      if (view === "months") return yearLabel(month.getFullYear(), locale);
+      if (view === "years") {
+        const pageStart = Math.floor(month.getFullYear() / 12) * 12;
+        return `${yearLabel(pageStart, locale)} \u2013 ${yearLabel(pageStart + 11, locale)}`;
+      }
+      if (numberOfMonths === 1) return monthYearLabel(month, locale);
+      const last = addMonths(month, numberOfMonths - 1);
+      if (month.getFullYear() === last.getFullYear()) {
+        return `${monthName(month, locale)} \u2013 ${monthYearLabel(last, locale)}`;
+      }
+      return `${monthYearLabel(month, locale)} \u2013 ${monthYearLabel(last, locale)}`;
+    }, [view, month, numberOfMonths, locale]);
+    const yearPage = useMemo(() => {
+      const pageStart = Math.floor(month.getFullYear() / 12) * 12;
+      return Array.from({ length: 12 }, (_, i) => pageStart + i);
+    }, [month]);
+    const rangeCrossesDisabled = useCallback(
+      (from, to) => {
+        let cursor = addDays(from, 1);
+        for (let i = 0; i < 3700 && compareDays(cursor, to) < 0; i += 1) {
+          if (isDisabled(cursor)) return true;
+          cursor = addDays(cursor, 1);
+        }
+        return false;
+      },
+      [isDisabled]
+    );
+    const selectDate = useCallback(
+      (date) => {
+        if (isDisabled(date)) return;
+        if (mode === "single") {
+          if (singleSelection && isSameDay(singleSelection, date)) return;
+          setSingleSelection(date);
+          return;
+        }
+        if (mode === "multiple") {
+          const exists = multipleSelection.some((d) => isSameDay(d, date));
+          setMultipleSelection(
+            exists ? multipleSelection.filter((d) => !isSameDay(d, date)) : [...multipleSelection, date]
+          );
+          return;
+        }
+        if (!rangeSelection || rangeSelection.to) {
+          setRangeSelection({ from: date, to: null });
+          return;
+        }
+        const from = rangeSelection.from;
+        if (isSameDay(date, from)) {
+          setRangeSelection({ from, to: from });
+        } else if (compareDays(date, from) < 0 || rangeCrossesDisabled(from, date)) {
+          setRangeSelection({ from: date, to: null });
+        } else {
+          setRangeSelection({ from, to: date });
+        }
+      },
+      [
+        isDisabled,
+        mode,
+        singleSelection,
+        multipleSelection,
+        rangeSelection,
+        setSingleSelection,
+        setMultipleSelection,
+        setRangeSelection,
+        rangeCrossesDisabled
+      ]
+    );
+    const clearSelection = useCallback(() => {
+      if (mode === "single") setSingleSelection(null);
+      else if (mode === "multiple") setMultipleSelection([]);
+      else setRangeSelection(null);
+    }, [mode, setSingleSelection, setMultipleSelection, setRangeSelection]);
+    const isRangeStart = useCallback(
+      (date) => mode === "range" && rangeSelection !== null && rangeSelection.to !== null && !isSameDay(rangeSelection.from, rangeSelection.to) && isSameDay(rangeSelection.from, date),
+      [mode, rangeSelection]
+    );
+    const isRangeEnd = useCallback(
+      (date) => mode === "range" && rangeSelection !== null && rangeSelection.to !== null && !isSameDay(rangeSelection.from, rangeSelection.to) && isSameDay(rangeSelection.to, date),
+      [mode, rangeSelection]
+    );
+    const isRangeMiddle = useCallback(
+      (date) => mode === "range" && rangeSelection !== null && rangeSelection.to !== null && compareDays(date, rangeSelection.from) > 0 && compareDays(date, rangeSelection.to) < 0,
+      [mode, rangeSelection]
+    );
+    const isSelected = useCallback(
+      (date) => {
+        if (mode === "single") return singleSelection !== null && isSameDay(singleSelection, date);
+        if (mode === "multiple") return multipleSelection.some((d) => isSameDay(d, date));
+        return rangeSelection !== null && (isSameDay(rangeSelection.from, date) || rangeSelection.to !== null && compareDays(date, rangeSelection.from) > 0 && compareDays(date, rangeSelection.to) <= 0);
+      },
+      [mode, singleSelection, multipleSelection, rangeSelection]
+    );
+    const focusedDay = useMemo(() => {
+      if (focusKey && /^\d{8}$/.test(focusKey)) return dateFromKey(Number(focusKey));
+      return null;
+    }, [focusKey]);
+    const tabbableDayKey = useMemo(() => {
+      const candidates = [focusedDay, firstSelected, today];
+      for (const candidate of candidates) {
+        if (candidate && isRenderedDate(candidate) && !isDisabled(candidate)) return dayKey(candidate);
+      }
+      for (let i = 0; i < numberOfMonths; i += 1) {
+        const gridMonth = startOfMonth(addMonths(month, i));
+        const count = daysInMonth(gridMonth.getFullYear(), gridMonth.getMonth());
+        for (let d = 0; d < count; d += 1) {
+          const date = addDays(gridMonth, d);
+          if (!isDisabled(date)) return dayKey(date);
+        }
+      }
+      return null;
+    }, [focusedDay, firstSelected, today, isRenderedDate, isDisabled, numberOfMonths, month]);
+    const monthActiveKey = useMemo(() => {
+      const y = month.getFullYear();
+      const fromFocus = focusKey ? /^m(\d{1,2})$/.exec(focusKey) : null;
+      if (fromFocus) {
+        const m = Number(fromFocus[1]);
+        if (m < 12 && monthEnabled(y, m)) return `m${m}`;
+      }
+      if (monthEnabled(y, month.getMonth())) return `m${month.getMonth()}`;
+      for (let m = 0; m < 12; m += 1) if (monthEnabled(y, m)) return `m${m}`;
+      return null;
+    }, [focusKey, month, monthEnabled]);
+    const yearActiveKey = useMemo(() => {
+      const fromFocus = focusKey ? /^y(\d+)$/.exec(focusKey) : null;
+      if (fromFocus) {
+        const y = Number(fromFocus[1]);
+        if (yearPage.includes(y) && yearEnabled(y)) return `y${y}`;
+      }
+      const current = month.getFullYear();
+      if (yearPage.includes(current) && yearEnabled(current)) return `y${current}`;
+      for (const y of yearPage) if (yearEnabled(y)) return `y${y}`;
+      return null;
+    }, [focusKey, month, yearPage, yearEnabled]);
+    const requestFocus = useCallback((key) => {
+      focusIntentRef.current = true;
+      setFocusKey(key);
+    }, []);
+    useEffect(() => {
+      if (focusKey == null) return;
+      const root = rootRef.current;
+      if (!root) return;
+      const intentional = focusIntentRef.current;
+      focusIntentRef.current = false;
+      if (!intentional && !root.contains(document.activeElement)) return;
+      const el = root.querySelector(`[data-cal-focus="${focusKey}"]`);
+      if (el && el !== document.activeElement) el.focus();
+    }, [focusKey, monthKey, view]);
+    const stepToEnabled = useCallback(
+      (start, step) => {
+        let cursor = start;
+        for (let i = 0; i < 732; i += 1) {
+          if (!isDisabled(cursor)) return cursor;
+          cursor = step(cursor);
+        }
+        return null;
+      },
+      [isDisabled]
+    );
+    const handleDayKeyDown = useCallback(
+      (event, date) => {
+        let target;
+        let step;
+        switch (event.key) {
+          case "ArrowLeft":
+            target = addDays(date, -1);
+            step = (d) => addDays(d, -1);
+            break;
+          case "ArrowRight":
+            target = addDays(date, 1);
+            step = (d) => addDays(d, 1);
+            break;
+          case "ArrowUp":
+            target = addDays(date, -7);
+            step = (d) => addDays(d, -7);
+            break;
+          case "ArrowDown":
+            target = addDays(date, 7);
+            step = (d) => addDays(d, 7);
+            break;
+          case "Home":
+            target = addDays(date, -((date.getDay() - weekStartsOn + 7) % 7));
+            step = (d) => addDays(d, 1);
+            break;
+          case "End":
+            target = addDays(date, 6 - (date.getDay() - weekStartsOn + 7) % 7);
+            step = (d) => addDays(d, -1);
+            break;
+          case "PageUp": {
+            const amount = event.shiftKey ? -12 : -1;
+            target = addMonths(date, amount);
+            step = (d) => addMonths(d, amount);
+            break;
+          }
+          case "PageDown": {
+            const amount = event.shiftKey ? 12 : 1;
+            target = addMonths(date, amount);
+            step = (d) => addMonths(d, amount);
+            break;
+          }
+          default:
+            return;
+        }
+        event.preventDefault();
+        const next = stepToEnabled(target, step);
+        if (!next) return;
+        if (!isRenderedDate(next)) goToMonth(monthToReveal(next));
+        requestFocus(String(dayKey(next)));
+      },
+      [weekStartsOn, stepToEnabled, isRenderedDate, goToMonth, monthToReveal, requestFocus]
+    );
+    const handleDayClick = useCallback(
+      (date, outside) => {
+        if (outside) {
+          goToMonth(monthToReveal(date));
+          requestFocus(String(dayKey(date)));
+        }
+        selectDate(date);
+      },
+      [goToMonth, monthToReveal, requestFocus, selectDate]
+    );
+    const handleMonthKeyDown = useCallback(
+      (event, monthIndex) => {
+        const year = month.getFullYear();
+        const norm = (y, m) => ({
+          y: y + Math.floor(m / 12),
+          m: (m % 12 + 12) % 12
+        });
+        let target;
+        let step;
+        switch (event.key) {
+          case "ArrowLeft":
+            target = norm(year, monthIndex - 1);
+            step = (c) => norm(c.y, c.m - 1);
+            break;
+          case "ArrowRight":
+            target = norm(year, monthIndex + 1);
+            step = (c) => norm(c.y, c.m + 1);
+            break;
+          case "ArrowUp":
+            target = norm(year, monthIndex - 3);
+            step = (c) => norm(c.y, c.m - 3);
+            break;
+          case "ArrowDown":
+            target = norm(year, monthIndex + 3);
+            step = (c) => norm(c.y, c.m + 3);
+            break;
+          case "Home":
+            target = { y: year, m: 0 };
+            step = (c) => norm(c.y, c.m + 1);
+            break;
+          case "End":
+            target = { y: year, m: 11 };
+            step = (c) => norm(c.y, c.m - 1);
+            break;
+          case "PageUp":
+            target = { y: year - 1, m: monthIndex };
+            step = (c) => ({ y: c.y - 1, m: c.m });
+            break;
+          case "PageDown":
+            target = { y: year + 1, m: monthIndex };
+            step = (c) => ({ y: c.y + 1, m: c.m });
+            break;
+          default:
+            return;
+        }
+        event.preventDefault();
+        let cursor = target;
+        for (let i = 0; i < 240 && !monthEnabled(cursor.y, cursor.m); i += 1) cursor = step(cursor);
+        if (!monthEnabled(cursor.y, cursor.m)) return;
+        if (cursor.y !== year) goToMonth(new Date(cursor.y, month.getMonth(), 1));
+        requestFocus(`m${cursor.m}`);
+      },
+      [month, monthEnabled, goToMonth, requestFocus]
+    );
+    const handleYearKeyDown = useCallback(
+      (event, year) => {
+        let target;
+        let step;
+        switch (event.key) {
+          case "ArrowLeft":
+            target = year - 1;
+            step = (y) => y - 1;
+            break;
+          case "ArrowRight":
+            target = year + 1;
+            step = (y) => y + 1;
+            break;
+          case "ArrowUp":
+            target = year - 3;
+            step = (y) => y - 3;
+            break;
+          case "ArrowDown":
+            target = year + 3;
+            step = (y) => y + 3;
+            break;
+          case "Home":
+            target = yearPage[0] ?? year;
+            step = (y) => y + 1;
+            break;
+          case "End":
+            target = yearPage[yearPage.length - 1] ?? year;
+            step = (y) => y - 1;
+            break;
+          case "PageUp":
+            target = year - 12;
+            step = (y) => y - 12;
+            break;
+          case "PageDown":
+            target = year + 12;
+            step = (y) => y + 12;
+            break;
+          default:
+            return;
+        }
+        event.preventDefault();
+        let cursor = target;
+        for (let i = 0; i < 240 && !yearEnabled(cursor); i += 1) cursor = step(cursor);
+        if (!yearEnabled(cursor)) return;
+        if (!yearPage.includes(cursor)) goToMonth(new Date(cursor, month.getMonth(), 1));
+        requestFocus(`y${cursor}`);
+      },
+      [month, yearPage, yearEnabled, goToMonth, requestFocus]
+    );
+    const selectMonth = useCallback(
+      (monthIndex) => {
+        const year = month.getFullYear();
+        const anchor = focusedDay ?? firstSelected ?? today;
+        const day = Math.min(anchor.getDate(), daysInMonth(year, monthIndex));
+        let target = new Date(year, monthIndex, day);
+        if (isDisabled(target)) {
+          target = stepToEnabled(target, (d) => addDays(d, 1)) ?? stepToEnabled(target, (d) => addDays(d, -1)) ?? new Date(year, monthIndex, 1);
+        }
+        goToMonth(new Date(year, monthIndex, 1));
+        setView("days");
+        requestFocus(String(dayKey(target)));
+      },
+      [month, focusedDay, firstSelected, today, isDisabled, stepToEnabled, goToMonth, requestFocus]
+    );
+    const selectYear = useCallback(
+      (year) => {
+        goToMonth(new Date(year, month.getMonth(), 1));
+        setView("months");
+        requestFocus(`m${month.getMonth()}`);
+      },
+      [month, goToMonth, requestFocus]
+    );
+    const contextValue = {
+      mode,
+      locale,
+      weekStartsOn,
+      showOutsideDays,
+      showWeekNumbers,
+      numberOfMonths,
+      view,
+      setView,
+      month,
+      today,
+      headingLabel,
+      goToMonth,
+      goToPrevious,
+      goToNext,
+      canGoPrevious,
+      canGoNext,
+      previousLabel,
+      nextLabel,
+      isDisabled,
+      isSelected,
+      isRangeStart,
+      isRangeEnd,
+      isRangeMiddle,
+      selectDate,
+      clearSelection,
+      handleDayClick,
+      handleDayKeyDown,
+      tabbableDayKey,
+      monthEnabled,
+      yearEnabled,
+      monthActiveKey,
+      yearActiveKey,
+      yearPage,
+      selectMonth,
+      selectYear,
+      handleMonthKeyDown,
+      handleYearKeyDown,
+      focusKey,
+      setFocusKey
+    };
+    return <CalendarContext.Provider value={contextValue}><div ref={rootRef} className={cx(ROOT_CLASSES, className)} {...rest}>{children}</div></CalendarContext.Provider>;
+  }
+  function CalendarHeader({ className, children, ...rest }) {
+    return <div className={cx(HEADER_CLASSES, className)} {...rest}>{children}</div>;
+  }
+  function CalendarPrevious({ className, ...rest }) {
+    const ctx = useCalendar();
+    return <button
+      type="button"
+      aria-label={ctx.previousLabel}
+      disabled={!ctx.canGoPrevious}
+      onClick={ctx.goToPrevious}
+      className={cx(NAV_BUTTON_CLASSES, className)}
+      {...rest}
+    ><ChevronLeftIcon /></button>;
+  }
+  function CalendarNext({ className, ...rest }) {
+    const ctx = useCalendar();
+    return <button
+      type="button"
+      aria-label={ctx.nextLabel}
+      disabled={!ctx.canGoNext}
+      onClick={ctx.goToNext}
+      className={cx(NAV_BUTTON_CLASSES, className)}
+      {...rest}
+    ><ChevronRightIcon /></button>;
+  }
+  function CalendarHeading({ className, ...rest }) {
+    const ctx = useCalendar();
+    if (ctx.view === "years") {
+      return <h2 aria-live="polite" aria-atomic="true" className={cx(HEADING_CLASSES, className)} {...rest}>{ctx.headingLabel}</h2>;
+    }
+    return <h2 aria-live="polite" aria-atomic="true" className={cx(HEADING_CLASSES, className)} {...rest}><button
+      type="button"
+      onClick={() => ctx.setView(ctx.view === "days" ? "months" : "years")}
+      aria-label={ctx.view === "days" ? `${ctx.headingLabel} \u2014 activate to choose a month` : `${ctx.headingLabel} \u2014 activate to choose a year`}
+      className={HEADING_BUTTON_CLASSES}
+    >{ctx.headingLabel}</button></h2>;
+  }
+  function CalendarGrid({ monthOffset = 0, className, ...rest }) {
+    const ctx = useCalendar();
+    if (ctx.view === "months") return monthOffset === 0 ? <MonthsPanel className={className} /> : null;
+    if (ctx.view === "years") return monthOffset === 0 ? <YearsPanel className={className} /> : null;
+    const gridMonth = startOfMonth(addMonths(ctx.month, monthOffset));
+    const weeks = buildMonthWeeks(gridMonth, ctx.weekStartsOn);
+    const weekdays = weekdayNames(ctx.locale, ctx.weekStartsOn);
+    const weekNumberOf = (row) => isoWeekNumber(addDays(row[0] ?? gridMonth, (4 - ctx.weekStartsOn + 7) % 7));
+    return <div className={className} {...rest}><div role="grid" aria-label={monthYearLabel(gridMonth, ctx.locale)}><div role="row" className="flex">{ctx.showWeekNumbers && <div role="columnheader" aria-label="Week number" className={WEEKNUM_CLASSES}>
+                Wk
+              </div>}{weekdays.map((day, i) => <div role="columnheader" key={i} aria-label={day.long} className={WEEKDAY_CLASSES}>{day.short}</div>)}</div>{weeks.map((week, rowIndex) => <div role="row" className="flex" key={rowIndex}>{ctx.showWeekNumbers && <div role="rowheader" className={WEEKNUM_CLASSES}>{weekNumberOf(week)}</div>}{week.map((date) => <DayCell key={dayKey(date)} date={date} gridMonth={gridMonth} monthOffset={monthOffset} />)}</div>)}</div></div>;
+  }
+  function DayCell({
+    date,
+    gridMonth,
+    monthOffset
+  }) {
+    const ctx = useCalendar();
+    const outside = date.getMonth() !== gridMonth.getMonth();
+    if (outside) {
+      const isLeading = compareDays(date, gridMonth) < 0;
+      const renderOutside = ctx.showOutsideDays && (isLeading ? monthOffset === 0 : monthOffset === ctx.numberOfMonths - 1);
+      if (!renderOutside) return <div role="gridcell" className="size-9" />;
+    }
+    const key = String(dayKey(date));
+    const isDisabledDay = ctx.isDisabled(date);
+    const selected = ctx.isSelected(date);
+    const rangeStart = ctx.isRangeStart(date);
+    const rangeEnd = ctx.isRangeEnd(date);
+    const rangeMiddle = ctx.isRangeMiddle(date);
+    const filled = ctx.mode !== "range" && selected || rangeStart || rangeEnd || ctx.mode === "range" && selected && !rangeMiddle;
+    const isToday = isSameDay(date, ctx.today);
+    return <div role="gridcell" aria-selected={selected} className="size-9"><button
+      type="button"
+      disabled={isDisabledDay}
+      tabIndex={ctx.tabbableDayKey === dayKey(date) ? 0 : -1}
+      data-cal-focus={key}
+      data-outside={outside || void 0}
+      aria-label={fullDateLabel(date, ctx.locale)}
+      aria-current={isToday ? "date" : void 0}
+      onClick={() => ctx.handleDayClick(date, outside)}
+      onFocus={() => ctx.setFocusKey(key)}
+      onKeyDown={(event) => ctx.handleDayKeyDown(event, date)}
+      className={cx(
+        DAY_CLASSES,
+        rangeMiddle && RANGE_MIDDLE_CLASSES,
+        !rangeMiddle && filled && SELECTED_DAY_CLASSES,
+        !rangeMiddle && !filled && (outside ? "text-[var(--ds-color-muted-foreground)]" : "text-[var(--ds-color-foreground)]"),
+        !rangeMiddle && !filled && "hover:bg-[var(--ds-color-surface-hover)]",
+        rangeStart && "rounded-r-none",
+        rangeEnd && "rounded-l-none",
+        isToday && "border-[var(--ds-color-border-strong)] font-semibold",
+        isDisabledDay && "opacity-40"
+      )}
+    >{date.getDate()}</button></div>;
+  }
+  function MonthsPanel({ className }) {
+    const ctx = useCalendar();
+    const year = ctx.month.getFullYear();
+    const names = monthNames(ctx.locale);
+    const rows = [];
+    for (let r = 0; r < 4; r += 1) rows.push([r * 3, r * 3 + 1, r * 3 + 2]);
+    return <div className={className}><div role="grid" aria-label={`Choose a month in ${yearLabel(year, ctx.locale)}`}>{rows.map((row, r) => <div role="row" className="flex gap-1" key={r}>{row.map((m) => {
+      const key = `m${m}`;
+      const enabled = ctx.monthEnabled(year, m);
+      const isCurrent = m === ctx.month.getMonth();
+      return <div role="gridcell" aria-selected={isCurrent} className="flex-1" key={m}><button
+        type="button"
+        disabled={!enabled}
+        tabIndex={ctx.monthActiveKey === key ? 0 : -1}
+        data-cal-focus={key}
+        aria-label={`${names[m]} ${yearLabel(year, ctx.locale)}`}
+        onClick={() => ctx.selectMonth(m)}
+        onFocus={() => ctx.setFocusKey(key)}
+        onKeyDown={(event) => ctx.handleMonthKeyDown(event, m)}
+        className={cx(
+          PICKER_BUTTON_CLASSES,
+          "w-full",
+          isCurrent ? PICKER_SELECTED_CLASSES : "text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)]"
+        )}
+      >{names[m]}</button></div>;
+    })}</div>)}</div></div>;
+  }
+  function YearsPanel({ className }) {
+    const ctx = useCalendar();
+    const rows = [];
+    for (let r = 0; r < 4; r += 1) rows.push(ctx.yearPage.slice(r * 3, r * 3 + 3));
+    return <div className={className}><div role="grid" aria-label="Choose a year">{rows.map((row, r) => <div role="row" className="flex gap-1" key={r}>{row.map((year) => {
+      const key = `y${year}`;
+      const enabled = ctx.yearEnabled(year);
+      const isCurrent = year === ctx.month.getFullYear();
+      return <div role="gridcell" aria-selected={isCurrent} className="flex-1" key={year}><button
+        type="button"
+        disabled={!enabled}
+        tabIndex={ctx.yearActiveKey === key ? 0 : -1}
+        data-cal-focus={key}
+        onClick={() => ctx.selectYear(year)}
+        onFocus={() => ctx.setFocusKey(key)}
+        onKeyDown={(event) => ctx.handleYearKeyDown(event, year)}
+        className={cx(
+          PICKER_BUTTON_CLASSES,
+          "w-full tabular-nums",
+          isCurrent ? PICKER_SELECTED_CLASSES : "text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)]"
+        )}
+      >{yearLabel(year, ctx.locale)}</button></div>;
+    })}</div>)}</div></div>;
+  }
+  function CalendarFooter({ className, children, ...rest }) {
+    return <div className={cx(FOOTER_CLASSES, className)} {...rest}>{children}</div>;
+  }
+  window.daysInMonth = daysInMonth;
+  window.isLeapYear = isLeapYear;
+  window.compareDays = compareDays;
+  window.isSameDay = isSameDay;
+  window.addDays = addDays;
+  window.addMonths = addMonths;
+  window.startOfMonth = startOfMonth;
+  window.endOfMonth = endOfMonth;
+  window.isoWeekNumber = isoWeekNumber;
+  window.buildMonthWeeks = buildMonthWeeks;
+  window.useCalendar = useCalendar;
+  window.Calendar = Calendar;
+  window.CalendarHeader = CalendarHeader;
+  window.CalendarPrevious = CalendarPrevious;
+  window.CalendarNext = CalendarNext;
+  window.CalendarHeading = CalendarHeading;
+  window.CalendarGrid = CalendarGrid;
+  window.CalendarFooter = CalendarFooter;
+})();
+
+</script>
+<script type="text/babel" data-presets="react">
+const CARD = "rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-4";
+const LABEL = "m-0 text-[11px] font-medium uppercase tracking-[0.04em] text-[var(--ds-color-muted-foreground)]";
+const NOTE = "m-0 text-xs leading-4 text-[var(--ds-color-muted-foreground)]";
+const ROW_NAME = "m-0 text-sm font-medium text-[var(--ds-color-foreground)]";
+const BTN_PRIMARY = "inline-flex h-9 items-center justify-center gap-2 rounded-[var(--ds-radius-sm)] border border-transparent bg-[var(--ds-color-primary)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none";
+const BTN_OUTLINE = "inline-flex h-9 items-center justify-center gap-2 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-foreground)] shadow-[var(--ds-shadow-xs)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none";
+const BTN_SMALL = "inline-flex h-7 items-center justify-center gap-1.5 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] px-2 text-xs font-medium leading-4 text-[var(--ds-color-foreground)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none";
+const SELECT = "h-9 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-2 text-sm leading-5 text-[var(--ds-color-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-border-strong)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none";
+const AUG_2026 = new Date(2026, 7, 1);
+const fmtDay = (d) => (d ? new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(d) : "");
+const fmtMonth = (d) => (d ? new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(d) : "");
+// The calendar composition every showcase reuses.
+const CalendarChrome = ({ children }) => (
+  <>
+    <CalendarHeader>
+      <CalendarPrevious />
+      <CalendarHeading className="flex-1 text-center" />
+      <CalendarNext />
+    </CalendarHeader>
+    {children}
+  </>
+);
+
+function ControlledDemo() {
+  const [month, setMonth] = React.useState(new Date(2026, 7, 1));
+  const [selected, setSelected] = React.useState(new Date(2026, 7, 14));
+  const [locale, setLocale] = React.useState("en-US");
+  const [log, setLog] = React.useState([]);
+  const addLog = (entry) => setLog((prev) => [entry, ...prev].slice(0, 4));
+  const years = [2024, 2025, 2026, 2027, 2028];
+  const monthOptions = Array.from({ length: 12 }, (_, i) =>
+    new Intl.DateTimeFormat(locale, { month: "long" }).format(new Date(2024, i, 1))
+  );
+  return (
+    <div className={CARD + " w-full max-w-md space-y-4"}>
+      <div className="space-y-1">
+        <p className={LABEL}>Scheduling console</p>
+        <p className={ROW_NAME}>Fully controlled calendar</p>
+        <p className={NOTE}>Month, selection, and locale are owned by the parent.</p>
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <label className="sr-only" htmlFor="ctl-month">Month</label>
+        <select
+          id="ctl-month"
+          className={SELECT}
+          value={month.getMonth()}
+          onChange={(e) => setMonth(new Date(month.getFullYear(), Number(e.target.value), 1))}
+        >
+          {monthOptions.map((name, i) => (
+            <option key={i} value={i}>{name}</option>
+          ))}
+        </select>
+        <label className="sr-only" htmlFor="ctl-year">Year</label>
+        <select
+          id="ctl-year"
+          className={SELECT}
+          value={month.getFullYear()}
+          onChange={(e) => setMonth(new Date(Number(e.target.value), month.getMonth(), 1))}
+        >
+          {years.map((y) => (
+            <option key={y} value={y}>{y}</option>
+          ))}
+        </select>
+        <label className="sr-only" htmlFor="ctl-locale">Locale</label>
+        <select id="ctl-locale" className={SELECT} value={locale} onChange={(e) => setLocale(e.target.value)}>
+          <option value="en-US">en-US</option>
+          <option value="fr-FR">fr-FR</option>
+          <option value="de-DE">de-DE</option>
+          <option value="ja-JP">ja-JP</option>
+        </select>
+      </div>
+      <Calendar
+        month={month}
+        onMonthChange={(m) => { setMonth(m); addLog("month → " + fmtMonth(m)); }}
+        selected={selected}
+        onSelect={(d) => { setSelected(d); addLog("select → " + (d ? fmtDay(d) : "cleared")); }}
+        locale={locale}
+      >
+        <CalendarChrome>
+          <CalendarGrid />
+        </CalendarChrome>
+      </Calendar>
+      <div className="flex items-center justify-between gap-2 border-t border-[var(--ds-color-border-subtle)] pt-3">
+        <p className={NOTE} id="controlled-readout" role="status">
+          {selected ? "Selected: " + fmtDay(selected) : "Nothing selected."}
+        </p>
+        <button type="button" className={BTN_SMALL} onClick={() => setMonth(new Date(2024, 1, 1))}>
+          Jump to Feb 2024
+        </button>
+      </div>
+      <ul className="m-0 list-none space-y-1 p-0 font-mono text-[11px] leading-4 text-[var(--ds-color-muted-foreground)]" id="controlled-log">
+        {log.length === 0 ? <li>No events yet.</li> : log.map((entry, i) => <li key={i}>{entry}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function Showcase() {
+  return (
+    <div className="w-full space-y-6">
+      <ControlledDemo />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("ds-root")).render(<Showcase />);
+</script>
+</body>
+</html>

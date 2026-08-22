@@ -1,0 +1,69 @@
+{
+  "id": "calendar-month-picker-react-001",
+  "name": "Calendar \u2014 Month Picker",
+  "slug": "calendar-month-picker",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-month-picker",
+  "description": "The month-selection view: a 12-month grid opened from the heading (or seeded with defaultView), with year paging, min/max-aware options, and full keyboard navigation \u2014 choosing a month lands in its day grid.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "month picker",
+    "navigation",
+    "view"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "months view",
+    "defaultView",
+    "year paging",
+    "constrained options"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "months view is a labelled role=\"grid\""
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-year-picker",
+    "calendar-controlled",
+    "calendar-min-max"
+  ]
+}
