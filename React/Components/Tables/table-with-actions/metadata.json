@@ -1,0 +1,61 @@
+{
+  "id": "table-with-actions-react-001",
+  "name": "Table with Actions",
+  "slug": "table-with-actions",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-actions",
+  "description": "A table with a trailing Actions column: a real View link, an icon-only Edit button, and a keyboard-navigable More-actions menu per row \u2014 composed from real controls, never nested or fake.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Actions",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "actions",
+    "dropdown",
+    "menu",
+    "links",
+    "buttons"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "row action cluster",
+    "keyboard-navigable menu",
+    "destructive action",
+    "action log"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real buttons and links",
+    "aria-haspopup=menu + aria-expanded",
+    "Escape closes and refocuses the trigger",
+    "no nested interactive elements"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-status",
+    "table-expandable"
+  ]
+}

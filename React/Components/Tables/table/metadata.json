@@ -1,0 +1,60 @@
+{
+  "id": "table-react-001",
+  "name": "Table",
+  "slug": "table",
+  "component": "table",
+  "family": "tables",
+  "variant": "table",
+  "description": "The reference table: a clean semantic data table (real <table>, <caption>, <thead>, <tbody>, <tfoot>, <th>, <td>) with aligned text and numeric columns, a totals footer, and the full compound region set every other variant in the family is built from.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "reference",
+    "compound",
+    "caption",
+    "footer",
+    "numeric"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "compound regions",
+    "caption + totals footer",
+    "right-aligned tabular numerics"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "native table semantics",
+    "caption names the dataset",
+    "th scope=col headers"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table-sortable",
+    "table-selectable",
+    "table-with-pagination",
+    "table-status"
+  ]
+}

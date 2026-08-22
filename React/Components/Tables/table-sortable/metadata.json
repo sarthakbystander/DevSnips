@@ -1,0 +1,59 @@
+{
+  "id": "table-sortable-react-001",
+  "name": "Sortable Table",
+  "slug": "table-sortable",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-sortable",
+  "description": "A table with real sortable columns: visible sort buttons inside the <th> elements, honest aria-sort values, a three-state cycle (ascending \u2192 descending \u2192 unsorted), and ordering that actually changes the data.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Sorting",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "sorting",
+    "aria-sort",
+    "column-definitions",
+    "keyboard"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "tri-state sort cycle",
+    "aria-sort",
+    "typed column definitions",
+    "keyboard sort controls"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-sort ascending/descending/none",
+    "visible sort buttons (not clickable th)",
+    "keyboard-operable sorting"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-with-pagination",
+    "table-compact"
+  ]
+}
