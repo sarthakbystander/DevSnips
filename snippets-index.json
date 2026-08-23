@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 663,
+    "totalVariants": 664,
     "totalSubVariants": 0,
-    "totalStyles": 1490,
+    "totalStyles": 1494,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 254,
+      "component": 255,
       "section": 200,
       "template": 10
     },
@@ -7830,7 +7830,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete toast notification family with 6 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
-      "variantsCount": 5,
+      "variantsCount": 6,
       "variants": [
         {
           "name": "Action Toast",
@@ -8009,12 +8009,47 @@
             "metadata.json",
             "preview.html"
           ]
+        },
+        {
+          "name": "Promise Toast",
+          "path": "Tailwind/Components/Toasts/promise-toast/",
+          "type": "component",
+          "description": "Async-operation toast that opens in a loading state and transitions in place to success or error when a promise settles. Pass any promise to showPromiseToast() with loading/success/error copy; once settled it auto-dismisses behind a pause-on-hover countdown bar.",
+          "tags": [
+            "toast",
+            "notification",
+            "promise",
+            "async",
+            "loading",
+            "neo-brutal"
+          ],
+          "features": [
+            "promise-driven loading → success / error transition",
+            "showPromiseToast() API",
+            "pause-on-hover countdown bar",
+            "role=status / role=alert by state",
+            "Escape key + focus-aware dismissal",
+            "reduced-motion safe",
+            "neo-brutal design language"
+          ],
+          "styles": [
+            "Promise states",
+            "Countdown bar",
+            "Neo Brutal",
+            "Hard shadow"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
         }
       ],
       "tags": [
         "action",
         "activity",
         "alert",
+        "async",
         "auto-dismiss",
         "basic",
         "compact",
@@ -8026,12 +8061,15 @@
         "feedback",
         "info",
         "inline",
+        "loading",
         "minimal",
         "multiple",
+        "neo-brutal",
         "notification",
         "persistent",
         "pill",
         "progress",
+        "promise",
         "queue",
         "reversible",
         "stack",
