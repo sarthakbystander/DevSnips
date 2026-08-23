@@ -1,0 +1,71 @@
+{
+  "id": "sidebar-with-user-react-001",
+  "name": "Sidebar with User Area",
+  "slug": "sidebar-with-user",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-with-user",
+  "description": "A user/profile area pinned to the sidebar footer: identity block (avatar, name, email) that adapts to the collapsed rail, account actions as real rows, and a clear border separation between navigation and account space.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "user",
+    "profile",
+    "account",
+    "footer"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "user identity block",
+    "account actions",
+    "rail-adaptive footer"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "decorative avatar",
+    "real account links/actions"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-with-footer-actions",
+    "sidebar-dashboard"
+  ]
+}

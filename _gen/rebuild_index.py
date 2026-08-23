@@ -1,14 +1,14 @@
 """Rebuild snippets-index.json to match the migrated filesystem.
 
 Architecture after migration:
-    Vanilla/  -> Components/ + Templates/
+    Vanilla/  -> Components/ + Sections/ + Templates/
     Tailwind/ -> Components/ + Sections/ + Templates/
     React/    -> Components/ + Templates/  (currently empty)
 
-Tailwind has three first-class content types (Components / Sections /
-Templates); Vanilla and React keep the two-type layout. Every Tailwind entry
-carries a lowercase `type` field (component / section / template) for search
-and filtering, and a Capitalized `category` bucket.
+Tailwind and Vanilla have three first-class content types (Components /
+Sections / Templates); React keeps the two-type layout. Every Tailwind/Vanilla
+entry carries a lowercase `type` field (component / section / template) for
+search and filtering, and a Capitalized `category` bucket.
 
 This script:
   1. Loads the existing index to preserve hand-curated family-level
@@ -110,7 +110,7 @@ def _template_leaves(family_dir: Path, tech: str):
 # Content-type trees per technology
 # ---------------------------------------------------------------------------
 # (Capitalized bucket, lowercase type, is_template) for each content tree.
-# Tailwind has three first-class types; Vanilla/React have two.
+# Tailwind and Vanilla have three first-class types; React has two.
 TAILWIND_TREES = [
     ("Components", "component", False),
     ("Sections", "section", False),
@@ -118,6 +118,7 @@ TAILWIND_TREES = [
 ]
 VANILLA_TREES = [
     ("Components", "component", False),
+    ("Sections", "section", False),
     ("Templates", "template", True),
 ]
 
@@ -148,6 +149,14 @@ SECTION_FAMILY_NAMES = {
     "marketing": "Marketing (Tailwind)",
     "premium-visual": "Premium Visual (Tailwind)",
     "saas": "SaaS (Tailwind)",
+}
+
+# Curated display names for Vanilla section families that need them (the
+# 15 fully-moved families keep their previous curated names via path fallback;
+# only Navigation needs disambiguation because Vanilla/Components/Navigation/
+# still exists with the legacy navigation components).
+VANILLA_SECTION_FAMILY_NAMES = {
+    "Navigation": "Navigation (Sections)",
 }
 
 SECTION_FAMILY_DESCRIPTIONS = {
@@ -193,21 +202,28 @@ def build_index():
 
     def lookup_old_fam(fam_path):
         """Match curated family data by path, including the pre-move
-        Components/ location for section families that were moved to Sections/."""
+        Components/ location for section families that were moved to Sections/
+        (applies to both the Tailwind and the Vanilla section migrations)."""
         if norm(fam_path) in old_fam_by_path:
             return old_fam_by_path[norm(fam_path)]
-        if fam_path.startswith("Tailwind/Sections/"):
-            pre = fam_path.replace("Tailwind/Sections/", "Tailwind/Components/", 1)
-            return old_fam_by_path.get(norm(pre), {})
+        for tech_dir in ("Tailwind", "Vanilla"):
+            if fam_path.startswith(tech_dir + "/Sections/"):
+                pre = fam_path.replace(tech_dir + "/Sections/",
+                                       tech_dir + "/Components/", 1)
+                return old_fam_by_path.get(norm(pre), {})
         return {}
 
     new_families = []
 
     def make_variant(leaf, meta, type_val, leaf_rel):
         ov_fam, ov = old_var_by_path.get(norm(leaf_rel), (None, {}))
-        if not ov and leaf_rel.startswith("Tailwind/Sections/"):
-            pre = leaf_rel.replace("Tailwind/Sections/", "Tailwind/Components/", 1)
-            ov_fam, ov = old_var_by_path.get(norm(pre), (None, {}))
+        if not ov:
+            for tech_dir in ("Tailwind", "Vanilla"):
+                if leaf_rel.startswith(tech_dir + "/Sections/"):
+                    pre = leaf_rel.replace(tech_dir + "/Sections/",
+                                           tech_dir + "/Components/", 1)
+                    ov_fam, ov = old_var_by_path.get(norm(pre), (None, {}))
+                    break
         v = {
             "name": meta.get("name") or ov.get("name") or leaf.name,
             "path": leaf_rel,
@@ -265,7 +281,11 @@ def build_index():
         #   3. the first variant's metadata "section" concept (stable across styles)
         #   4. the first variant's metadata name
         #   5. the folder name (title-cased)
-        name = SECTION_FAMILY_NAMES.get(family_dir.name) if category == "Sections" else None
+        name = None
+        if category == "Sections":
+            names_map = SECTION_FAMILY_NAMES if tech == TAILWIND \
+                else VANILLA_SECTION_FAMILY_NAMES
+            name = names_map.get(family_dir.name)
         if not name:
             name = old_fam.get("name")
         if not name:
@@ -280,7 +300,7 @@ def build_index():
             if not name:
                 name = family_dir.name.replace("-", " ").replace("_", " ").title()
         description = old_fam.get("description", "")
-        if not description and category == "Sections":
+        if not description and category == "Sections" and tech == TAILWIND:
             description = SECTION_FAMILY_DESCRIPTIONS.get(family_dir.name, "")
 
         family = {
@@ -347,11 +367,14 @@ def build_index():
     total_styles = sum(len(v.get("styles", [])) or 1
                        for f in new_families for v in f["variants"])
 
-    # Per-type counts for the Tailwind landing/navigation UI.
+    # Per-type counts for the Tailwind/Vanilla landing and navigation UIs.
     tw_by_type = {"component": 0, "section": 0, "template": 0}
+    vn_by_type = {"component": 0, "section": 0, "template": 0}
     for f in new_families:
         if f["tech"] == TAILWIND:
             tw_by_type[f["type"]] = tw_by_type.get(f["type"], 0) + f["variantsCount"]
+        elif f["tech"] == VANILLA:
+            vn_by_type[f["type"]] = vn_by_type.get(f["type"], 0) + f["variantsCount"]
 
     data = {
         "version": old.get("version", "2.0"),
@@ -365,6 +388,7 @@ def build_index():
             "totalStyles": total_styles,
             "technologies": [t["name"] for t in techs],
             "tailwindByType": tw_by_type,
+            "vanillaByType": vn_by_type,
         },
         "families": new_families,
         "technologies": techs,
@@ -415,30 +439,31 @@ def validate(data, families):
     for d in dup:
         problems.append(f"Duplicate family path: {d}")
 
-    # 4. No stale Utilities/Resources references; /Sections/ is only valid under
-    #    Tailwind/Sections/.
+    # 4. No stale Utilities/Resources references; /Sections/ is only valid
+    #    under Tailwind/Sections/ or Vanilla/Sections/.
+    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/")
     for f in families:
         for token in ("/Utilities/", "/Resources/"):
             if token in f["path"]:
                 problems.append(f"Stale path in family: {f['path']}")
-        if "/Sections/" in f["path"] and not f["path"].startswith("Tailwind/Sections/"):
+        if "/Sections/" in f["path"] and not f["path"].startswith(valid_sections):
             problems.append(f"Stale path in family: {f['path']}")
         for v in f["variants"]:
             for token in ("/Utilities/", "/Resources/"):
                 if token in v["path"]:
                     problems.append(f"Stale path in variant: {v['path']}")
-            if "/Sections/" in v["path"] and not v["path"].startswith("Tailwind/Sections/"):
+            if "/Sections/" in v["path"] and not v["path"].startswith(valid_sections):
                 problems.append(f"Stale path in variant: {v['path']}")
 
-    # 5. Every Tailwind entry must carry a valid type.
+    # 5. Every Tailwind/Vanilla entry must carry a valid type.
     for f in families:
-        if f["tech"] != TAILWIND:
+        if f["tech"] not in (TAILWIND, VANILLA):
             continue
         if f.get("type") not in ("component", "section", "template"):
-            problems.append(f"Tailwind family missing/invalid type: {f['path']}")
+            problems.append(f"{f['tech']} family missing/invalid type: {f['path']}")
         for v in f["variants"]:
             if v.get("type") not in ("component", "section", "template"):
-                problems.append(f"Tailwind variant missing/invalid type: {v['path']}")
+                problems.append(f"{f['tech']} variant missing/invalid type: {v['path']}")
 
     return problems
 

@@ -34,7 +34,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Vanilla has three content types (Components / Sections / Templates); the
+# quality bar covers the two leaf-bearing trees (Components + Sections).
 COMP = ROOT / "Vanilla" / "Components"
+SECTIONS = ROOT / "Vanilla" / "Sections"
+SCAN_ROOTS = [COMP, SECTIONS]
 
 # Families where keyboard/ARIA/reduced-motion are required (interactive).
 INTERACTIVE = {
@@ -236,16 +240,17 @@ def token_conformance():
     counted separately.
     """
     rows = []
-    for mf in sorted(COMP.rglob("metadata.json")):
-        leaf = mf.parent
-        html = next((f.read_text(encoding="utf-8", errors="ignore")
-                     for f in leaf.iterdir() if f.suffix == ".html"), "")
-        if not html:
-            continue
-        is_section = all(m in html for m in SECTION_MARKERS)
-        ds_uses = len(DS_VAR.findall(html))
-        raw_hex = _raw_hex_count(html)
-        rows.append((leaf, is_section, ds_uses, raw_hex))
+    for scan_root in SCAN_ROOTS:
+        for mf in sorted(scan_root.rglob("metadata.json")):
+            leaf = mf.parent
+            html = next((f.read_text(encoding="utf-8", errors="ignore")
+                         for f in leaf.iterdir() if f.suffix == ".html"), "")
+            if not html:
+                continue
+            is_section = all(m in html for m in SECTION_MARKERS)
+            ds_uses = len(DS_VAR.findall(html))
+            raw_hex = _raw_hex_count(html)
+            rows.append((leaf, is_section, ds_uses, raw_hex))
 
     sections = [r for r in rows if r[1]]
     legacy = [r for r in rows if not r[1]]
@@ -287,15 +292,12 @@ def main():
         return
 
     results = []
-    for mf in sorted(COMP.rglob("metadata.json")):
-        leaf = mf.parent
-        # only component leaves (skip sections-showcase etc.)
-        if leaf.parent.parent.name == "Components" or leaf.parent == COMP \
-                or leaf.parent.name in {"Other"}:
-            pass
-        c = scan_component(leaf)
-        if c:
-            results.append(c)
+    for scan_root in SCAN_ROOTS:
+        for mf in sorted(scan_root.rglob("metadata.json")):
+            leaf = mf.parent
+            c = scan_component(leaf)
+            if c:
+                results.append(c)
 
     # build report
     report = []

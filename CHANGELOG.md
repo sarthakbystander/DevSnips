@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-23
+
+### Changed — Vanilla architecture: three first-class content types (Components + Sections + Templates)
+- **Split `Vanilla/Components/` into `Vanilla/Components/` + `Vanilla/Sections/`**, mirroring the Tailwind three-type architecture. The 65 neo-brutalist website sections moved to `Vanilla/Sections/`: 15 families moved wholesale (Hero 10, Features 5, Logos 3, Statistics 3, Products 6, Pricing 4, Testimonials 4, Team 3, Process 4, Content 4, Gallery 3, FAQ 2, CTA 4, Contact 3, Footer 3) plus Navigation's 4 section variants (`navbar-simple`, `navbar-sticky`, `navbar-mega-menu`, `sidebar-navigation`). `Vanilla/Components/Navigation/` keeps the legacy navigation sub-families (Breadcrumb/Menu/Navbar/Other/Pagination/Sidebar + `scroll-to-top`).
+- **Galleries moved** to `Vanilla/Sections/`: `sections-index.html`, `sections-showcase.html`, `sections-gallery.README.md`. Fixed pre-existing broken cross-links (`showcase.html` → `sections-showcase.html`, `index.html` → `sections-index.html`); relative section links work unchanged at the new location.
+- **`type` field added to every Vanilla `metadata.json`** (parity with Tailwind): `type:"component"` (126), `type:"section"` (65, with `category:"components"` → `"sections"`), `type:"template"` (8 — the old page-structure values `single-page`/`multipage` were normalized to `template` per the Tailwind precedent; page counts remain in `pages`).
+- **Tooling updated**: `scripts/validate.py` (Vanilla/Sections allowed + scanned, React/Sections still forbidden, `type` enforced + bucket-checked for Vanilla metadata too), `_gen/rebuild_index.py` (`VANILLA_TREES` gains `("Sections", "section", False)`, Vanilla/Sections→Components path fallback preserves curated family data, tech-aware section-family naming so Vanilla section families are never mislabeled "(Tailwind)", `stats.vanillaByType` added, stale-path + type validation extended to Vanilla), `scripts/qa_vanilla.py` (quality bar now scans both Vanilla trees).
+- **Index regenerated** (`python3 -m _gen.rebuild_index`): 80 families / 663 variants / 1490 styles — Tailwind unchanged (39 families, 464 variants, identical path sets), Vanilla 41 families / 199 variants (`vanillaByType={component:126, section:65, template:8}`). Vanilla section families keep their curated names; the sections-side Navigation family is named **"Navigation (Sections)"** to disambiguate from the legacy `Vanilla/Components/Navigation/` family.
+- Root `index.html` Vanilla card now links to `Vanilla/Sections/sections-index.html` and lists all three content-type chips (Components / Sections / Templates). `COMPONENT_STRUCTURE.md` updated to the three-type Vanilla layout. `scripts/validate.py` passes (0 problems; QA bar: 191 components scanned, 0 required failures).
+
 ## 2026-08-22
 
 ### Added — React DatePicker component family (10 variants)

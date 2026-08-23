@@ -24,15 +24,16 @@ DevSnips/
 │   └── Templates/
 ├── Vanilla/
 │   ├── Components/
+│   ├── Sections/
 │   └── Templates/
 └── React/
     ├── Components/
     └── Templates/
 ```
 
-### Tailwind
+### Tailwind and Vanilla
 
-Tailwind has three first-class content types:
+Tailwind and Vanilla have three first-class content types:
 
 | Directory | `type` | Purpose |
 |---|---|---|
@@ -40,11 +41,18 @@ Tailwind has three first-class content types:
 | `Sections/` | `section` | A larger page-section composition. |
 | `Templates/` | `template` | A complete page or substantial page experience. |
 
-### Vanilla and React
+Vanilla `Sections/` holds the 65 neo-brutalist page sections across 16
+families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing,
+Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer);
+`Vanilla/Sections/sections-index.html` and `sections-showcase.html` are the
+browsing galleries. Vanilla `Components/` keeps the legacy component
+collection (including the legacy navigation sub-families).
 
-Vanilla and React use `Components/` and `Templates/`. Vanilla's former standalone section collection has been merged into `Components/`.
+### React
 
-React is currently reserved for future content. Its structure should follow this specification when React content is introduced.
+React uses `Components/` and `Templates/`. React is currently reserved for
+future content. Its structure should follow this specification when React
+content is introduced.
 
 ### Forbidden content collections
 

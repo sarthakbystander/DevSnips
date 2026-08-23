@@ -1,0 +1,70 @@
+{
+  "id": "sidebar-with-footer-actions-react-001",
+  "name": "Sidebar with Footer Actions",
+  "slug": "sidebar-with-footer-actions",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-with-footer-actions",
+  "description": "Settings, help, and sign-out-style actions in the footer: real links and real buttons with the family's full interaction states, separated from navigation by the footer border, and fully keyboard accessible in both surfaces.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "footer",
+    "actions",
+    "settings",
+    "logout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "footer action rows",
+    "real buttons and links",
+    "working action feedback"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "actions announced as links/buttons"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-with-user",
+    "sidebar-dashboard"
+  ]
+}
