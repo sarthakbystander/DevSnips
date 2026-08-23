@@ -1924,3 +1924,768 @@ function Showcase() {
 }
 ''',
 )
+
+
+# ===========================================================================
+# 13. table-with-header
+# ===========================================================================
+register(
+    "table-with-header",
+    title="Table with Header",
+    subcategory="Content",
+    description="A table built around a deliberate column-header row: every header is a real <th scope=\"col\"> whose alignment matches its column, and on long datasets the header row stays pinned (sticky) while the body scrolls inside the bordered container.",
+    tags=TAGS_BASE + ["header", "scope-col", "sticky-header", "scroll-region", "long-datasets"],
+    features=FEAT_BASE + ["th scope=col on every column", "sticky header on vertical scroll", "header alignment matches cells"],
+    accessibility=["th scope=col headers", "header alignment matches column cells", "sticky header keeps column labels in view"],
+    interactive=False,
+    related=["table", "table-with-footer", "table-compact"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableRow, TableHead, TableCell,
+} from "./table";
+
+const STICKY_HEAD =
+  "sticky top-0 z-[1] bg-[var(--ds-color-surface-subtle)] " +
+  "shadow-[inset_0_-1px_0_0_var(--ds-color-border)]";
+
+<Table containerClassName="max-h-72 overflow-y-auto">
+  <TableCaption>Release history — 16 most recent versions.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead className={STICKY_HEAD}>Version</TableHead>
+      <TableHead className={STICKY_HEAD}>Channel</TableHead>
+      <TableHead className={STICKY_HEAD}>Released</TableHead>
+      <TableHead className={STICKY_HEAD} align="right">Changes</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {releases.map((r) => (
+      <TableRow key={r.version}>
+        <TableCell className="font-medium">{r.version}</TableCell>
+        <TableCell>{r.channel}</TableCell>
+        <TableCell>{r.released}</TableCell>
+        <TableCell align="right" numeric>{r.changes}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>''',
+    props_doc="\n\n".join([TABLE_PROPS, SECTION_PROPS, HEAD_PROPS, CELL_PROPS]),
+    composition_note="The header row is a plain `<TableHeader>` + `<TableRow>` + `<TableHead>` composition — the same primitives as the reference. Two header-only decisions carry the variant: every `<TableHead>` keeps `scope=\"col\"` (the default) and mirrors its column's alignment, and the sticky treatment is a per-`<TableHead>` `className` paired with a height-capped `containerClassName` on `<Table>`.",
+    logic_doc="""For short tables the header is just the first row. For long datasets this variant pins it: `<Table containerClassName="max-h-72 overflow-y-auto">` turns the bordered container into a vertical scroll region (it already scrolls horizontally), and each `<TableHead>` gets `sticky top-0` plus the header surface and an inset bottom rule, so the column labels stay visible and readable while the body scrolls beneath them.
+
+The sticky styling lives on the `<th>` elements, not the `<thead>` — sticky positioning is reliable on header cells across browsers, and each cell carries the opaque `surface-subtle` background so scrolling rows never show through. The inset shadow replaces the header's bottom border, which would otherwise scroll away with the row box.
+
+Nothing here is JavaScript: sticky headers are pure CSS. Alignment still matters — a right-aligned numeric column gets a right-aligned header so the label sits over its values.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+This variant renders no interactive controls; the scroll region itself is keyboard-scrollable (the container is focusable by virtue of being scrollable in every major browser, and arrow keys scroll it once focus is inside).""",
+    behavior_doc=STATES_BASE + """
+
+- **Pinned header** — while the body scrolls, the header cells keep their `surface-subtle` background and gain a 1px inset bottom rule, so the separation between pinned labels and moving rows is always legible.""",
+    a11y_doc=A11Y_BASE + """
+- Every column header is `<th scope="col">`, so screen readers announce the column label for each cell — this is the single most valuable table accessibility feature, and it is the default, not an option.
+- The sticky header is a visual convenience only; it changes no semantics and adds no ARIA.""",
+    responsive_doc=RESPONSIVE_BASE + " The sticky header works identically at every width — at 375px the table scrolls horizontally inside the container and the pinned header keeps the column labels in view vertically.",
+    notes_doc="Cap the container height with `containerClassName` (for example `max-h-72 overflow-y-auto`) — the sticky header needs a scrolling ancestor to pin against. Do not set the height on the `<table>` itself.",
+    tsx_header='''/**
+ * DevSnips React Table — table-with-header.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on the column-header row: every header is a real
+ * `<th scope="col">` whose alignment matches its column, and on long
+ * datasets the header stays pinned — `sticky top-0` header cells plus a
+ * height-capped scroll container — while the body scrolls beneath it.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const STICKY_HEAD = "sticky top-0 z-[1] bg-[var(--ds-color-surface-subtle)] shadow-[inset_0_-1px_0_0_var(--ds-color-border)]";
+
+const RELEASES = [
+  { version: "v2.9.0", channel: "Stable", released: "2026-08-18", changes: 14 },
+  { version: "v2.9.0-rc.2", channel: "Beta", released: "2026-08-11", changes: 9 },
+  { version: "v2.9.0-rc.1", channel: "Beta", released: "2026-08-04", changes: 11 },
+  { version: "v2.8.3", channel: "Stable", released: "2026-07-28", changes: 3 },
+  { version: "v2.8.2", channel: "Stable", released: "2026-07-14", changes: 5 },
+  { version: "v2.8.1", channel: "Stable", released: "2026-06-30", changes: 2 },
+  { version: "v2.8.0", channel: "Stable", released: "2026-06-16", changes: 18 },
+  { version: "v2.8.0-rc.1", channel: "Beta", released: "2026-06-09", changes: 7 },
+  { version: "v2.7.4", channel: "Stable", released: "2026-05-26", changes: 4 },
+  { version: "v2.7.3", channel: "Stable", released: "2026-05-05", changes: 6 },
+  { version: "v2.7.2", channel: "Stable", released: "2026-04-21", changes: 3 },
+  { version: "v2.7.1", channel: "Stable", released: "2026-04-07", changes: 2 },
+  { version: "v2.7.0", channel: "Stable", released: "2026-03-24", changes: 21 },
+  { version: "v2.6.2", channel: "Stable", released: "2026-03-03", changes: 5 },
+  { version: "v2.6.1", channel: "Stable", released: "2026-02-17", changes: 4 },
+  { version: "v2.6.0", channel: "Stable", released: "2026-02-03", changes: 16 },
+];
+
+function Showcase() {
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Sticky column headers</p>
+        <Table containerClassName="max-h-72 overflow-y-auto">
+          <TableCaption>Release history — the 16 most recent versions, newest first.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className={STICKY_HEAD}>Version</TableHead>
+              <TableHead className={STICKY_HEAD}>Channel</TableHead>
+              <TableHead className={STICKY_HEAD}>Released</TableHead>
+              <TableHead className={STICKY_HEAD} align="right">Changes</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {RELEASES.map((release) => (
+              <TableRow key={release.version}>
+                <TableCell className="font-medium"><span className={MONO}>{release.version}</span></TableCell>
+                <TableCell>{release.channel}</TableCell>
+                <TableCell><span className={MONO}>{release.released}</span></TableCell>
+                <TableCell align="right" numeric>{release.changes}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <p className={NOTE}>Scroll inside the table: the header row stays pinned while the 16 releases move beneath it. Every header is a real th with scope=&quot;col&quot;, and the numeric column&rsquo;s header is right-aligned with its values.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+
+
+# ===========================================================================
+# 14. table-with-footer
+# ===========================================================================
+register(
+    "table-with-footer",
+    title="Table with Footer",
+    subcategory="Content",
+    description="A table with a genuinely useful <tfoot>: the summary row is computed from the visible rows, so when a toolbar filter narrows the dataset the footer totals update with it — the summary can never disagree with the data above it.",
+    tags=TAGS_BASE + ["footer", "tfoot", "totals", "summary", "derived-data"],
+    features=FEAT_BASE + ["semantic tfoot summary", "totals computed from visible rows", "live recompute on filter"],
+    accessibility=["tfoot summary announced with the table", "totals derive from row data", "aria-live result status"],
+    interactive=True,
+    related=["table", "table-with-header", "table-with-filters"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableFooter,
+  TableRow, TableHead, TableCell, TableToolbar,
+} from "./table";
+
+const visible = invoices.filter((inv) => filter === "all" || inv.status === filter);
+const total = visible.reduce((sum, inv) => sum + inv.amount, 0);
+
+<TableToolbar>
+  <label>
+    Show
+    <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+      <option value="all">All invoices</option>
+      <option value="open">Open only</option>
+      <option value="paid">Paid only</option>
+    </select>
+  </label>
+</TableToolbar>
+<Table>
+  <TableHeader>…</TableHeader>
+  <TableBody>{visible.map((inv) => <TableRow key={inv.id}>…</TableRow>)}</TableBody>
+  <TableFooter>
+    <TableRow>
+      <TableCell colSpan={3}>Total — {visible.length} invoices</TableCell>
+      <TableCell align="right" numeric>{money(total)}</TableCell>
+    </TableRow>
+  </TableFooter>
+</Table>''',
+    props_doc="\n\n".join([TABLE_PROPS, SECTION_PROPS, ROW_PROPS, CELL_PROPS, TOOLBAR_PROPS]),
+    composition_note="The footer is the reference pattern pushed one step further: instead of totaling a static array, the `<TableFooter>` cells derive from the *visible* rows (the array after the toolbar filter runs). The `<tfoot>` stays semantic — it is announced as part of the table and renders after the body regardless of row count.",
+    logic_doc="""The rule this variant demonstrates: **a summary footer must be computed, never written by hand.** The visible invoice list is the single source of truth — the toolbar's status filter narrows it, the body renders it, and the footer reduces over the exact same array, so the total always matches what is on screen.
+
+The filter is a labelled native `<select>` in a `<TableToolbar>` above the table (the toolbar is a layout-only region; the table semantics are untouched). Changing it re-runs the derivation and the `<tfoot>` updates immediately, with a polite `aria-live` note reporting how many invoices are shown.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+The only control is the native `<select>`: Tab reaches it, arrow keys move between options, and the footer recomputes on change. The footer itself is read-only summary content — it adds no tab stops.""",
+    behavior_doc=STATES_BASE + """
+
+- **Filtered summary** — with a filter active, the footer reads “Total — N invoices” for the visible subset and the amount follows; clearing the filter restores the full totals.""",
+    a11y_doc=A11Y_BASE + """
+- The `<tfoot>` is a real table section, so assistive technology announces the totals as part of the table — an off-table "Total" panel would detach the summary from its data.
+- The "Showing N of M invoices" status is a polite live region, so filter changes are announced without moving focus.""",
+    responsive_doc=RESPONSIVE_BASE + " The toolbar's label + select wrap cleanly at 375px and the four-column invoice layout fits without scrolling.",
+    notes_doc="Format money in exactly one place (the `money` helper) so the footer and the cells can never drift apart in formatting either. If rows can be empty, keep the footer meaningful — “Total — 0 invoices / $0.00” is honest; a missing footer is not.",
+    tsx_header='''/**
+ * DevSnips React Table — table-with-footer.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on a genuinely useful `<tfoot>`: the summary row is
+ * computed from the VISIBLE rows, so when the toolbar filter narrows the
+ * dataset the totals update with it — the footer can never disagree with
+ * the data above it.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const SELECT_CLASS = "h-8 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-2 text-[13px] leading-4 text-[var(--ds-color-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none";
+
+const INVOICES = [
+  { id: "INV-2041", client: "Acme Co", status: "paid", amount: 1240.00 },
+  { id: "INV-2042", client: "Northwind", status: "open", amount: 980.00 },
+  { id: "INV-2043", client: "Globex", status: "paid", amount: 5210.00 },
+  { id: "INV-2044", client: "Initech", status: "open", amount: 940.00 },
+  { id: "INV-2045", client: "Umbrella", status: "paid", amount: 2760.00 },
+  { id: "INV-2046", client: "Hooli", status: "open", amount: 1130.00 },
+];
+
+function Showcase() {
+  const [filter, setFilter] = React.useState("all");
+  const visible = INVOICES.filter((inv) => filter === "all" || inv.status === filter);
+  const total = visible.reduce((sum, inv) => sum + inv.amount, 0);
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Footer computed from the visible rows</p>
+        <TableToolbar>
+          <label className="flex items-center gap-2 text-[13px] leading-4 text-[var(--ds-color-muted-foreground)]">
+            Show
+            <select aria-label="Filter invoices by status" value={filter} onChange={(event) => setFilter(event.target.value)} className={SELECT_CLASS}>
+              <option value="all">All invoices</option>
+              <option value="open">Open only</option>
+              <option value="paid">Paid only</option>
+            </select>
+          </label>
+          <p className={NOTE + " m-0"} aria-live="polite">Showing {visible.length} of {INVOICES.length} invoices</p>
+        </TableToolbar>
+        <Table>
+          <TableCaption>Client invoices for Q3 2026 — amounts in USD.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Invoice</TableHead>
+              <TableHead>Client</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead align="right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {visible.map((inv) => (
+              <TableRow key={inv.id}>
+                <TableCell className="font-medium"><span className={MONO}>{inv.id}</span></TableCell>
+                <TableCell>{inv.client}</TableCell>
+                <TableCell className="capitalize">{inv.status}</TableCell>
+                <TableCell align="right" numeric>{money(inv.amount)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={3}>Total — {visible.length} {visible.length === 1 ? "invoice" : "invoices"}</TableCell>
+              <TableCell align="right" numeric>{money(total)}</TableCell>
+            </TableRow>
+          </TableFooter>
+        </Table>
+        <p className={NOTE}>The tfoot reduces over the exact array the body renders. Pick “Open only” and the total drops to the open invoices — the summary is derived, never hardcoded.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+
+
+# ===========================================================================
+# 15. table-striped
+# ===========================================================================
+register(
+    "table-striped",
+    title="Striped Table",
+    subcategory="Content",
+    description="A table with alternating row backgrounds (zebra striping) applied as a token-based utility on the body — even rows pick up the subtle surface so long datasets are easier to track across wide columns, with no JavaScript and no per-row markup.",
+    tags=TAGS_BASE + ["striped", "zebra", "alternating-rows", "readability"],
+    features=FEAT_BASE + ["alternating row surfaces", "token-based striping", "hover still distinct"],
+    accessibility=["striping supplements — never replaces — cell content", "contrast-safe subtle surface", "no color-only meaning"],
+    interactive=False,
+    related=["table", "table-hover", "table-compact"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableRow, TableHead, TableCell,
+} from "./table";
+
+<Table>
+  <TableCaption>Product catalog — 8 items, current stock.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Product</TableHead>
+      <TableHead>SKU</TableHead>
+      <TableHead>Category</TableHead>
+      <TableHead align="right">Price</TableHead>
+      <TableHead align="right">In stock</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody className="[&>tr:nth-child(even)]:bg-[var(--ds-color-surface-subtle)]">
+    {products.map((p) => (
+      <TableRow key={p.sku}>…</TableRow>
+    ))}
+  </TableBody>
+</Table>''',
+    props_doc="\n\n".join([TABLE_PROPS, SECTION_PROPS, ROW_PROPS, CELL_PROPS]),
+    composition_note="Striping is ONE class on `<TableBody>` — `[&>tr:nth-child(even)]:bg-[var(--ds-color-surface-subtle)]` — not a prop and not per-row markup. The body owns the pattern, so adding or removing rows (or sorting) can never break the alternation: the browser recomputes parity from the DOM.",
+    logic_doc="""Zebra striping is a readability aid for wide, dense tables: the alternating surface gives the eye a track to follow across columns. It is purely visual and deliberately subtle — the even rows use the same `surface-subtle` token as the header/footer, so the table reads as one quiet system rather than two shouting bands.
+
+Because the stripe comes from `nth-child(even)` in CSS, there is nothing to keep in sync: row order, filtering, and insertion are irrelevant to correctness. The row hover affordance still applies on top of the stripe, and a selected row's accent tint overrides it — striping never fights state.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+The striped table renders no interactive controls, so there is nothing extra to tab through.""",
+    behavior_doc=STATES_BASE + """
+
+- **Even rows** — `surface-subtle` background, applied by parity in CSS.
+- **Hover** — the standard `surface-hover` shift still reads clearly over both plain and striped rows.
+- **Selected** — the accent-tinted selected surface overrides the stripe, so state always wins over decoration.""",
+    a11y_doc=A11Y_BASE + """
+- Striping conveys no meaning on its own: parity is a visual aid, and every fact in the table remains available in the cell text and headers. The `surface-subtle` token keeps body-text contrast well above WCAG AA in both themes.""",
+    responsive_doc=RESPONSIVE_BASE + " Striping costs nothing at narrow widths — the same `nth-child` rule applies inside the horizontal scroll region at 375px.",
+    notes_doc="Resist adding a `striped` prop: one utility class on `<TableBody>` is the whole feature, and keeping it in class-space means consumers can switch parity (`odd`), scope it, or drop it without an API change.",
+    tsx_header='''/**
+ * DevSnips React Table — table-striped.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on alternating row backgrounds: one token-based
+ * utility on `<TableBody>` (`nth-child(even)` + the subtle surface token)
+ * gives long datasets a readable rhythm — no JavaScript, no per-row markup,
+ * and sorting or filtering can never break the parity.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const PRODUCTS = [
+  { name: "Field Notebook", sku: "NB-110", category: "Stationery", price: 18.00, stock: 240 },
+  { name: "Desk Lamp", sku: "LT-204", category: "Lighting", price: 86.00, stock: 58 },
+  { name: "Ceramic Vessel", sku: "VS-330", category: "Objects", price: 64.00, stock: 73 },
+  { name: "Wool Throw", sku: "TX-118", category: "Textiles", price: 120.00, stock: 41 },
+  { name: "Oak Side Table", sku: "FR-520", category: "Furniture", price: 340.00, stock: 12 },
+  { name: "Brass Pen", sku: "ST-221", category: "Stationery", price: 42.00, stock: 190 },
+  { name: "Wall Sconce", sku: "LT-317", category: "Lighting", price: 148.00, stock: 26 },
+  { name: "Linen Cushion", sku: "TX-142", category: "Textiles", price: 54.00, stock: 88 },
+];
+
+function Showcase() {
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Alternating row surfaces</p>
+        <Table>
+          <TableCaption>Product catalog — 8 items with current stock levels.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Product</TableHead>
+              <TableHead>SKU</TableHead>
+              <TableHead>Category</TableHead>
+              <TableHead align="right">Price</TableHead>
+              <TableHead align="right">In stock</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="[&>tr:nth-child(even)]:bg-[var(--ds-color-surface-subtle)]">
+            {PRODUCTS.map((product) => (
+              <TableRow key={product.sku}>
+                <TableCell className="font-medium">{product.name}</TableCell>
+                <TableCell><span className={MONO}>{product.sku}</span></TableCell>
+                <TableCell>{product.category}</TableCell>
+                <TableCell align="right" numeric>{money(product.price)}</TableCell>
+                <TableCell align="right" numeric>{product.stock}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <p className={NOTE}>Even rows pick up the subtle surface token via a single CSS parity rule on the body — hover and selection still read clearly on top, and the alternation survives any reordering for free.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+
+
+# ===========================================================================
+# 16. table-hover
+# ===========================================================================
+register(
+    "table-hover",
+    title="Hoverable Table",
+    subcategory="States",
+    description="A table whose row hover treatment is a deliberate affordance: a restrained surface shift that tracks the pointer across the full row, never hides or reveals content, and degrades to nothing on touch — every fact and control stays visible and operable without it.",
+    tags=TAGS_BASE + ["hover", "row-hover", "affordance", "touch-safe"],
+    features=FEAT_BASE + ["full-row hover surface", "touch-safe (no hover-only content)", "state tint wins over hover"],
+    accessibility=["hover is decorative affordance only", "no hover-revealed controls", "motion-reduce disables the transition"],
+    interactive=False,
+    related=["table", "table-striped", "table-with-actions"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableRow, TableHead, TableCell,
+} from "./table";
+
+// The hover affordance is built into <TableRow> — there is nothing to wire.
+<Table>
+  <TableCaption>Active projects — 8 across the workspace.</TableCaption>
+  <TableBody>
+    {projects.map((p) => (
+      <TableRow key={p.id}>…</TableRow>  // hover:bg surface shift included
+    ))}
+  </TableBody>
+</Table>''',
+    props_doc="\n\n".join([TABLE_PROPS, SECTION_PROPS, ROW_PROPS, CELL_PROPS]),
+    composition_note="The hover treatment is not a plugin: it is baked into `<TableRow>` (`hover:bg-[var(--ds-color-surface-hover)]` with a 150ms color transition, disabled under reduced motion). This variant exists to pin down the rules around it — hover is an *affordance*, never a mechanism.",
+    logic_doc="""A good row hover does exactly one thing: it confirms which row the pointer is on, across the full width of the table. The shift is deliberately small — the `surface-hover` token, a few points off the base surface — because the row's content is what matters.
+
+Two rules keep it honest. First, **hover never gates content**: no action buttons that only appear on hover, no information that requires a mouse. Keyboard and touch users must get the same complete table, so controls live in the cells permanently. Second, **state beats hover**: a selected row keeps its accent tint (its hover deepens the tint instead), and a disabled row gets no hover shift at all — the affordance would promise an interaction the row does not offer.
+
+On touch devices the hover style simply never applies; nothing is lost, because nothing depended on it.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+Keyboard users do not get a hover state — they get something better: `focus-visible` rings on the real controls inside the cells. Because no content is hover-gated, the keyboard experience is complete without any pointer.""",
+    behavior_doc=STATES_BASE + """
+
+- **Hover** — `surface-hover` background across the full row, 150ms color transition, removed under `prefers-reduced-motion`.
+- **Hover on a selected row** — the accent tint deepens from 8% to 12% instead of switching to the neutral hover surface.
+- **Hover on a disabled row** — suppressed entirely (`aria-disabled` rows get no affordance).""",
+    a11y_doc=A11Y_BASE + """
+- Hover is never the sole carrier of meaning (WCAG 1.4.1): the hovered row's content is identical to its resting content, and any state a row can be in is exposed through `aria-selected` / `aria-disabled` plus a persistent visual treatment.""",
+    responsive_doc=RESPONSIVE_BASE + " At 375px the affordance is simply inert — touch users get the complete table with permanently visible content and controls.",
+    notes_doc="If a design asks for hover-revealed row actions, push back or provide a permanently visible equivalent (an overflow menu button, as in `table-with-actions`). Hover-only controls are an accessibility defect, not a flourish.",
+    tsx_header='''/**
+ * DevSnips React Table — table-hover.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on the row hover affordance: a restrained full-row
+ * surface shift that tracks the pointer, never hides or reveals content,
+ * yields to selected/disabled state, and degrades to nothing on touch.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const PROJECTS = [
+  { id: "p1", name: "Atlas Analytics", owner: "Priya Nair", status: "Active", updated: "2026-08-20" },
+  { id: "p2", name: "Meridian Command", owner: "Tom Okafor", status: "Active", updated: "2026-08-18" },
+  { id: "p3", name: "Vesper Scanner", owner: "Lena Fischer", status: "Paused", updated: "2026-07-30" },
+  { id: "p4", name: "Stratum Billing", owner: "Marco Ruiz", status: "Active", updated: "2026-08-21" },
+  { id: "p5", name: "Northline Store", owner: "Ana Duarte", status: "Archived", updated: "2026-05-12" },
+  { id: "p6", name: "Baseline Conf", owner: "James Park", status: "Active", updated: "2026-08-11" },
+  { id: "p7", name: "Quiet Place CMS", owner: "Sara Lindqvist", status: "Paused", updated: "2026-06-25" },
+  { id: "p8", name: "Krat Adventures", owner: "David Kim", status: "Active", updated: "2026-08-19" },
+];
+
+function Showcase() {
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Full-row hover affordance</p>
+        <Table>
+          <TableCaption>Workspace projects — 8 projects with status and last update.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Project</TableHead>
+              <TableHead>Owner</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Last updated</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {PROJECTS.map((project) => (
+              <TableRow key={project.id}>
+                <TableCell className="font-medium">{project.name}</TableCell>
+                <TableCell>{project.owner}</TableCell>
+                <TableCell>{project.status}</TableCell>
+                <TableCell><span className={MONO}>{project.updated}</span></TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <p className={NOTE}>Move the pointer across the rows: the surface shift confirms the row under the cursor and nothing else changes. Every fact and control is permanently visible, so touch and keyboard users lose nothing.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+
+
+# ===========================================================================
+# 17. table-with-search
+# ===========================================================================
+register(
+    "table-with-search",
+    title="Table with Search",
+    subcategory="Filtering",
+    description="A table with a labelled search field that filters the dataset live as you type: matching rows render, a polite status announces the result count, and an honest empty state with a working Clear action appears when nothing matches.",
+    tags=TAGS_BASE + ["search", "filter", "live-filtering", "empty-state", "aria-live"],
+    features=FEAT_BASE + ["live search filtering", "announced result count", "empty state with clear action"],
+    accessibility=["labelled search input", "role=status result count", "empty state is one real row"],
+    interactive=True,
+    related=["table-with-filters", "table-empty", "table-with-pagination"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableRow, TableHead,
+  TableCell, TableToolbar, TableEmpty,
+} from "./table";
+
+const [query, setQuery] = useState("");
+const q = query.trim().toLowerCase();
+const matches = users.filter((u) =>
+  !q || [u.name, u.email, u.role].some((v) => v.toLowerCase().includes(q))
+);
+
+<TableToolbar>
+  <label htmlFor="user-search">Search users</label>
+  <input id="user-search" type="search" value={query}
+         onChange={(e) => setQuery(e.target.value)} />
+</TableToolbar>
+<Table>
+  <TableBody>
+    {matches.length === 0
+      ? <TableEmpty colSpan={4} title="No users match"
+                    action={<button onClick={() => setQuery("")}>Clear search</button>} />
+      : matches.map((u) => <TableRow key={u.id}>…</TableRow>)}
+  </TableBody>
+</Table>''',
+    props_doc="\n\n".join([TABLE_PROPS, TOOLBAR_PROPS, HEAD_PROPS, CELL_PROPS, EMPTY_PROPS]),
+    composition_note="The search field lives in a `<TableToolbar>` above the table — filtering is a table-level operation, not a column, so it does not belong inside the `<table>` markup. The empty state is the family's `<TableEmpty>`: one real spanning row, with a Clear action that actually resets the query.",
+    logic_doc="""Search is real: every keystroke recomputes the visible rows from the dataset (case-insensitive substring across name, email, and role), and the table renders exactly the matches. There is no debounce theater — for a client-side dataset this size, filtering on every change is correct and instant.
+
+Two states get first-class treatment. The result count (“N of 8 users”) lives in a `role="status"` region so screen-reader users hear the outcome of each keystroke without focus moving. And the zero-match state is honest: `<TableEmpty>` renders one real row with a Clear search action that empties the field and restores the full dataset — no fake placeholder rows, no dead end.
+
+The input is a native `<input type=\"search\">` with a visible `<label htmlFor>`; browsers bring the clear-button affordance and the correct semantics for free.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+Tab reaches the search field first (it precedes the table), typing filters immediately, and Esc-then-Tab or a direct Tab moves into the table's content. In the empty state, the Clear search button is a real `<button>` reachable by Tab and activated with Enter/Space — focus is never stranded because the field that produced the empty state stays put.""",
+    behavior_doc=STATES_BASE + """
+
+- **Filtering** — rows reduce to matches as you type; the status line reports “N of 8 users”.
+- **No matches** — the body swaps to a single spanning `<TableEmpty>` row with an explanation and a working Clear action.
+- **Cleared** — restoring the empty query restores the full dataset and the “8 of 8 users” status.""",
+    a11y_doc=A11Y_BASE + """
+- The search input has a persistent visible label (not placeholder-only) wired with `htmlFor`/`id`.
+- The result count is a `role="status"` live region, so filtering outcomes are announced politely.
+- The empty state is plain text in the table flow with a real action — it is perceivable by everyone, not just sighted users.""",
+    responsive_doc=RESPONSIVE_BASE + " The toolbar wraps at 375px: the search field takes the full row and the status line drops beneath it. The four-column user table scrolls inside its container if needed.",
+    notes_doc="Filter on the trimmed, lowercased query and keep the matching logic next to the data. If the dataset moves server-side later, keep the same UI contract — labelled input, announced count, honest empty state — and swap only the data source.",
+    tsx_header='''/**
+ * DevSnips React Table — table-with-search.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on live search: a labelled native search field in
+ * the toolbar filters the dataset on every keystroke, a `role="status"`
+ * region announces the result count, and `<TableEmpty>` gives the
+ * zero-match state an honest message and a working Clear action.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const SEARCH_INPUT = "h-9 w-full sm:w-72 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-3 text-sm leading-5 text-[var(--ds-color-foreground)] placeholder:text-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none";
+
+const USERS = [
+  { id: "u1", name: "Katherine Johnson", email: "katherine@orbitlab.io", role: "Engineer", joined: "2025-11-03" },
+  { id: "u2", name: "Alan Turing", email: "alan@orbitlab.io", role: "Admin", joined: "2024-06-18" },
+  { id: "u3", name: "Margaret Hamilton", email: "margaret@orbitlab.io", role: "Engineer", joined: "2025-02-27" },
+  { id: "u4", name: "Dennis Ritchie", email: "dennis@orbitlab.io", role: "Engineer", joined: "2026-01-09" },
+  { id: "u5", name: "Radia Perlman", email: "radia@orbitlab.io", role: "Architect", joined: "2024-09-30" },
+  { id: "u6", name: "Barbara Liskov", email: "barbara@orbitlab.io", role: "Architect", joined: "2025-07-14" },
+  { id: "u7", name: "Linus Torvalds", email: "linus@orbitlab.io", role: "Maintainer", joined: "2023-12-01" },
+  { id: "u8", name: "Edith Clarke", email: "edith@orbitlab.io", role: "Engineer", joined: "2026-04-22" },
+];
+
+function Showcase() {
+  const [query, setQuery] = React.useState("");
+  const q = query.trim().toLowerCase();
+  const matches = USERS.filter((user) =>
+    !q || [user.name, user.email, user.role].some((value) => value.toLowerCase().includes(q))
+  );
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Live search</p>
+        <TableToolbar>
+          <label htmlFor="user-search" className="flex w-full flex-col gap-1.5 text-[13px] font-medium leading-4 text-[var(--ds-color-foreground)] sm:w-auto">
+            Search users
+            <input id="user-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Name, email, or role" className={SEARCH_INPUT} />
+          </label>
+          <p className={NOTE + " m-0"} role="status">{matches.length} of {USERS.length} users</p>
+        </TableToolbar>
+        <Table>
+          <TableCaption>Workspace members — filter by name, email, or role.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Role</TableHead>
+              <TableHead>Joined</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {matches.length === 0 ? (
+              <TableEmpty
+                colSpan={4}
+                icon={<Icon name="inbox" />}
+                title={"No users match “" + query.trim() + "”"}
+                description="Try a different name, email, or role — or clear the search to see everyone."
+                action={<button type="button" className={BTN_OUTLINE_SM} onClick={() => setQuery("")}>Clear search</button>}
+              />
+            ) : (
+              matches.map((user) => (
+                <TableRow key={user.id}>
+                  <TableCell className="font-medium">{user.name}</TableCell>
+                  <TableCell>{user.email}</TableCell>
+                  <TableCell>{user.role}</TableCell>
+                  <TableCell><span className={MONO}>{user.joined}</span></TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </Table>
+        <p className={NOTE}>Type “engineer” to narrow to four rows, or a nonsense string to see the empty state. The count is announced in a polite live region, and Clear search genuinely restores the full list.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+
+
+# ===========================================================================
+# 18. table-with-filters
+# ===========================================================================
+register(
+    "table-with-filters",
+    title="Table with Filters",
+    subcategory="Filtering",
+    description="A table with multiple structured filter controls (native selects), a Clear filters action that restores the full dataset, an announced filtered-result count, and an honest empty state when a combination matches nothing.",
+    tags=TAGS_BASE + ["filters", "multi-filter", "reset", "empty-state", "aria-live"],
+    features=FEAT_BASE + ["multiple filter controls", "clear/reset filters", "announced result count"],
+    accessibility=["labelled native selects", "aria-live result count", "empty state with reset action"],
+    interactive=True,
+    related=["table-with-search", "table-with-pagination", "table-empty"],
+    usage='''import Table, {
+  TableCaption, TableHeader, TableBody, TableRow, TableHead,
+  TableCell, TableToolbar, TableEmpty,
+} from "./table";
+
+const [status, setStatus] = useState("all");
+const [channel, setChannel] = useState("all");
+const filtered = orders.filter(
+  (o) => (status === "all" || o.status === status)
+      && (channel === "all" || o.channel === channel)
+);
+const filtersActive = status !== "all" || channel !== "all";
+
+<TableToolbar>
+  <label>Status <select value={status} …>…</select></label>
+  <label>Channel <select value={channel} …>…</select></label>
+  <button disabled={!filtersActive}
+          onClick={() => { setStatus("all"); setChannel("all"); }}>
+    Clear filters
+  </button>
+</TableToolbar>''',
+    props_doc="\n\n".join([TABLE_PROPS, TOOLBAR_PROPS, HEAD_PROPS, CELL_PROPS, EMPTY_PROPS]),
+    composition_note="Each filter is a labelled native `<select>` in the `<TableToolbar>` — structured filters (a known value set) use selects, free-text narrowing uses search (see `table-with-search`). The Clear filters button is disabled while no filter is active, so it never pretends to do work it is not doing.",
+    logic_doc="""Filtering is real and composable: the visible rows are the dataset reduced by every active filter (status AND channel), recomputed on each change. The empty-filter state is the identity — “all” values pass every row.
+
+The result count (“N of 10 orders”) sits in an `aria-live` region so each change is announced, and Clear filters resets every control to “all” in one action — the full dataset returns and the button disables itself because there is nothing left to clear. When a combination matches nothing (Delivered × Retail in the demo), the body swaps to `<TableEmpty>` with a reset action instead of rendering a header over nothing.""",
+    keyboard_doc=KEYBOARD_BASE + """
+
+Tab moves through the two selects and the Clear filters button in order. Each select opens natively (arrow keys, Enter); Clear filters is a real button activated with Enter/Space, and it leaves the tab order when disabled so keyboard users never land on an inert control.""",
+    behavior_doc=STATES_BASE + """
+
+- **Filtered** — rows reduce to the matching subset; the count reports “N of 10 orders”.
+- **Empty combination** — a single spanning `<TableEmpty>` row explains the state and offers Clear filters.
+- **Reset** — one click returns both selects to “All”, restores all 10 rows, and disables the button.""",
+    a11y_doc=A11Y_BASE + """
+- Both selects have persistent visible labels; the active filter values are also readable in the controls themselves (state is not color- or icon-only).
+- The result count is announced via `aria-live="polite"`; the empty state is text in the table flow with a real reset control.""",
+    responsive_doc=RESPONSIVE_BASE + " The toolbar is `flex-wrap`: at 375px the labelled selects and the Clear button stack onto their own rows without squeezing, and the five-column order table scrolls inside its container if needed.",
+    notes_doc="Keep the empty combination reachable in your own testing — the demo dataset deliberately contains no Delivered × Retail orders so the empty state is exercisable. Filters compose with AND; if you ever need OR semantics, say so in the UI rather than surprising the user.",
+    tsx_header='''/**
+ * DevSnips React Table — table-with-filters.
+ *
+ * The shared compound core (identical to the reference `table` variant) with
+ * the showcase focused on structured filtering: multiple labelled native
+ * selects compose (AND) over the dataset, an `aria-live` count announces
+ * the filtered result, Clear filters restores everything, and
+ * `<TableEmpty>` covers combinations that match nothing.
+ */''',
+    showcase=DEMO_HELPERS + '''
+const SELECT_CLASS = "h-8 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-2 text-[13px] leading-4 text-[var(--ds-color-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none";
+
+const ORDERS = [
+  { id: "ORD-1001", customer: "Acme Co", status: "shipped", channel: "online", total: 1840.00 },
+  { id: "ORD-1002", customer: "Northwind", status: "processing", channel: "retail", total: 320.00 },
+  { id: "ORD-1003", customer: "Globex", status: "delivered", channel: "online", total: 5210.00 },
+  { id: "ORD-1004", customer: "Initech", status: "processing", channel: "online", total: 940.00 },
+  { id: "ORD-1005", customer: "Umbrella", status: "shipped", channel: "partner", total: 2760.00 },
+  { id: "ORD-1006", customer: "Hooli", status: "delivered", channel: "partner", total: 1130.00 },
+  { id: "ORD-1007", customer: "Stark Industries", status: "processing", channel: "retail", total: 685.00 },
+  { id: "ORD-1008", customer: "Wayne Enterprises", status: "shipped", channel: "online", total: 3490.00 },
+  { id: "ORD-1009", customer: "Acme Co", status: "delivered", channel: "online", total: 2120.00 },
+  { id: "ORD-1010", customer: "Globex", status: "processing", channel: "partner", total: 415.00 },
+];
+
+function Showcase() {
+  const [status, setStatus] = React.useState("all");
+  const [channel, setChannel] = React.useState("all");
+  const filtered = ORDERS.filter(
+    (order) => (status === "all" || order.status === status) && (channel === "all" || order.channel === channel)
+  );
+  const filtersActive = status !== "all" || channel !== "all";
+  function clearFilters() {
+    setStatus("all");
+    setChannel("all");
+  }
+  return (
+    <div className="w-full space-y-8">
+      <div className="space-y-2">
+        <p className={LABEL}>Structured filters</p>
+        <TableToolbar>
+          <div className="flex flex-wrap items-center gap-3">
+            <label className="flex items-center gap-2 text-[13px] leading-4 text-[var(--ds-color-muted-foreground)]">
+              Status
+              <select aria-label="Filter by status" value={status} onChange={(event) => setStatus(event.target.value)} className={SELECT_CLASS}>
+                <option value="all">All</option>
+                <option value="processing">Processing</option>
+                <option value="shipped">Shipped</option>
+                <option value="delivered">Delivered</option>
+              </select>
+            </label>
+            <label className="flex items-center gap-2 text-[13px] leading-4 text-[var(--ds-color-muted-foreground)]">
+              Channel
+              <select aria-label="Filter by channel" value={channel} onChange={(event) => setChannel(event.target.value)} className={SELECT_CLASS}>
+                <option value="all">All</option>
+                <option value="online">Online</option>
+                <option value="retail">Retail</option>
+                <option value="partner">Partner</option>
+              </select>
+            </label>
+            <button type="button" className={BTN_OUTLINE_SM} disabled={!filtersActive} onClick={clearFilters}>Clear filters</button>
+          </div>
+          <p className={NOTE + " m-0"} aria-live="polite">{filtered.length} of {ORDERS.length} orders</p>
+        </TableToolbar>
+        <Table>
+          <TableCaption>Recent orders — filter by fulfillment status and sales channel.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Order</TableHead>
+              <TableHead>Customer</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Channel</TableHead>
+              <TableHead align="right">Total</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filtered.length === 0 ? (
+              <TableEmpty
+                colSpan={5}
+                icon={<Icon name="inbox" />}
+                title="No orders match these filters"
+                description="This dataset has no delivered retail orders. Loosen a filter or reset both."
+                action={<button type="button" className={BTN_OUTLINE_SM} onClick={clearFilters}>Clear filters</button>}
+              />
+            ) : (
+              filtered.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-medium"><span className={MONO}>{order.id}</span></TableCell>
+                  <TableCell>{order.customer}</TableCell>
+                  <TableCell className="capitalize">{order.status}</TableCell>
+                  <TableCell className="capitalize">{order.channel}</TableCell>
+                  <TableCell align="right" numeric>{money(order.total)}</TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </Table>
+        <p className={NOTE}>Filters compose with AND. Try Delivered × Retail for the empty state, then Clear filters to restore all ten orders — the button disables itself when nothing is filtered.</p>
+      </div>
+    </div>
+  );
+}
+''',
+)
+

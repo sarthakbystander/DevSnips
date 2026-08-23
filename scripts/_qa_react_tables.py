@@ -41,6 +41,18 @@ Verifies behavior-critical guarantees (not cosmetics):
     returns to empty
   - table-status: text+tint badges, real progressbar semantics, avatar
     aria-hidden, retry action works
+  - table-with-header: sticky top-0 header cells, scope=col, capped vertical
+    scroll region, header stays pinned while the body scrolls
+  - table-with-footer: tfoot totals derive from the visible rows and
+    recompute when the toolbar filter narrows the dataset, polite status
+  - table-striped: token-based nth-child(even) striping, consistent across
+    rows, reuses the header's subtle surface, hover still reads on top
+  - table-hover: full-row hover surface shift, restores on pointer move,
+    color-only transition
+  - table-with-search: labelled type=search, live filtering, role=status
+    count, honest empty state, Clear search restores the dataset
+  - table-with-filters: two labelled selects compose (AND), Clear filters
+    resets + self-disables, empty combination renders one real row
   - focus-visible 2px outline on controls
   - dark mode flips computed table surface + text colors
   - reduced motion kills transitions
@@ -64,7 +76,8 @@ VARIANTS = [
     "table", "table-with-actions", "table-sortable", "table-selectable",
     "table-with-pagination", "table-expandable", "table-grouped",
     "table-compact", "table-responsive", "table-loading", "table-empty",
-    "table-status",
+    "table-status", "table-with-header", "table-with-footer",
+    "table-striped", "table-hover", "table-with-search", "table-with-filters",
 ]
 
 COMPONENT_EXPORTS = [
@@ -769,6 +782,270 @@ def status_checks(page):
     check(dot == text, "table-status: badge dot + text share the semantic token color")
 
 
+def header_checks(page):
+    print("== table-with-header ==")
+    open_preview(page, "table-with-header")
+    info = page.evaluate(
+        """(() => {
+          const th = document.querySelector('#ds-root thead th');
+          const cs = getComputedStyle(th);
+          const container = document.querySelector('#ds-root table').parentElement;
+          return {
+            position: cs.position, top: cs.top,
+            scope: th.getAttribute('scope'),
+            scopedCount: document.querySelectorAll('#ds-root thead th[scope="col"]').length,
+            containerMaxH: getComputedStyle(container).maxHeight,
+            containerOverflowY: getComputedStyle(container).overflowY,
+            thBg: cs.backgroundColor,
+            rows: document.querySelectorAll('#ds-root tbody tr').length,
+          };
+        })()"""
+    )
+    check(info["position"] == "sticky" and info["top"] == "0px",
+          f"table-with-header: header cells are sticky top-0 (got {info['position']} {info['top']})")
+    check(info["scope"] == "col" and info["scopedCount"] == 4,
+          f"table-with-header: every header is th scope=col (got {info['scopedCount']})")
+    check(info["containerMaxH"] == "288px" and info["containerOverflowY"] == "auto",
+          f"table-with-header: container is a capped vertical scroll region (got {info['containerMaxH']} / {info['containerOverflowY']})")
+    check(info["thBg"] != "rgba(0, 0, 0, 0)" and info["thBg"] != "transparent",
+          "table-with-header: pinned header keeps an opaque surface")
+    check(info["rows"] == 16, f"table-with-header: 16 release rows render (got {info['rows']})")
+    pin = page.evaluate(
+        """(() => {
+          const container = document.querySelector('#ds-root table').parentElement;
+          container.scrollTop = 400;
+          const th = document.querySelector('#ds-root thead th');
+          const cr = container.getBoundingClientRect();
+          const hr = th.getBoundingClientRect();
+          return { delta: Math.abs(hr.top - cr.top), visible: hr.bottom > cr.top };
+        })()"""
+    )
+    check(pin["delta"] <= 2 and pin["visible"],
+          f"table-with-header: header stays pinned at the container top while scrolled (delta {pin['delta']}px)")
+
+
+def footer_checks(page):
+    print("== table-with-footer ==")
+    open_preview(page, "table-with-footer")
+    totals = page.evaluate(
+        "Array.from(document.querySelectorAll('#ds-root tfoot td')).map(td => td.textContent.trim())"
+    )
+    check(totals == ["Total — 6 invoices", "$12,260.00"],
+          f"table-with-footer: initial footer totals derive from all rows (got {totals})")
+    status = page.evaluate(
+        """(() => {
+          const el = document.querySelector('#ds-root [aria-live]');
+          return { text: el.textContent, live: el.getAttribute('aria-live') };
+        })()"""
+    )
+    check(status["text"] == "Showing 6 of 6 invoices" and status["live"] == "polite",
+          f"table-with-footer: polite result status (got '{status['text']}')")
+    page.select_option("#ds-root select[aria-label='Filter invoices by status']", "open")
+    page.wait_for_timeout(150)
+    open_state = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          totals: Array.from(document.querySelectorAll('#ds-root tfoot td')).map(td => td.textContent.trim()),
+          status: document.querySelector('#ds-root [aria-live]').textContent,
+        }))()"""
+    )
+    check(open_state["rows"] == 3, f"table-with-footer: Open only narrows to 3 rows (got {open_state['rows']})")
+    check(open_state["totals"] == ["Total — 3 invoices", "$3,050.00"],
+          f"table-with-footer: footer recomputes from the visible rows (got {open_state['totals']})")
+    check(open_state["status"] == "Showing 3 of 6 invoices",
+          f"table-with-footer: status announces the filtered count (got '{open_state['status']}')")
+    page.select_option("#ds-root select[aria-label='Filter invoices by status']", "paid")
+    page.wait_for_timeout(150)
+    paid_total = page.evaluate(
+        "document.querySelector('#ds-root tfoot td:last-child').textContent.trim()"
+    )
+    check(paid_total == "$9,210.00", f"table-with-footer: Paid only recomputes to $9,210.00 (got {paid_total})")
+    page.select_option("#ds-root select[aria-label='Filter invoices by status']", "all")
+    page.wait_for_timeout(150)
+    check(page.evaluate("document.querySelectorAll('#ds-root tbody tr').length") == 6,
+          "table-with-footer: clearing the filter restores all 6 rows")
+
+
+def striped_checks(page):
+    print("== table-striped ==")
+    open_preview(page, "table-striped")
+    bg = page.evaluate(
+        """(() => {
+          const rows = document.querySelectorAll('#ds-root tbody tr');
+          return {
+            odd: getComputedStyle(rows[0]).backgroundColor,
+            even: getComputedStyle(rows[1]).backgroundColor,
+            even2: getComputedStyle(rows[3]).backgroundColor,
+            headBg: getComputedStyle(document.querySelector('#ds-root thead')).backgroundColor,
+            rows: rows.length,
+          };
+        })()"""
+    )
+    check(bg["rows"] == 8, f"table-striped: 8 product rows render (got {bg['rows']})")
+    check(bg["odd"] != bg["even"], "table-striped: even rows differ from odd rows")
+    check(bg["even"] == bg["even2"], "table-striped: striping is consistent across even rows")
+    check(bg["even"] == bg["headBg"], "table-striped: stripe reuses the header's subtle surface token")
+    before = page.evaluate("getComputedStyle(document.querySelectorAll('#ds-root tbody tr')[2]).backgroundColor")
+    page.hover("#ds-root tbody tr:nth-child(3)")
+    page.wait_for_timeout(250)
+    after = page.evaluate("getComputedStyle(document.querySelectorAll('#ds-root tbody tr')[2]).backgroundColor")
+    check(before != after, "table-striped: hover affordance still reads over the stripe")
+
+
+def hover_checks(page):
+    print("== table-hover ==")
+    open_preview(page, "table-hover")
+    base = page.evaluate(
+        """(() => {
+          const rows = document.querySelectorAll('#ds-root tbody tr');
+          return { r1: getComputedStyle(rows[0]).backgroundColor, r2: getComputedStyle(rows[1]).backgroundColor };
+        })()"""
+    )
+    check(base["r1"] == base["r2"], "table-hover: resting rows share the base surface (no striping)")
+    page.hover("#ds-root tbody tr:nth-child(2)")
+    page.wait_for_timeout(250)
+    hovered = page.evaluate("getComputedStyle(document.querySelectorAll('#ds-root tbody tr')[1]).backgroundColor")
+    check(hovered != base["r2"], "table-hover: hovered row shifts to the hover surface")
+    page.hover("#ds-root tbody tr:nth-child(3)")
+    page.wait_for_timeout(250)
+    moved = page.evaluate(
+        """(() => {
+          const rows = document.querySelectorAll('#ds-root tbody tr');
+          return { prev: getComputedStyle(rows[1]).backgroundColor, now: getComputedStyle(rows[2]).backgroundColor };
+        })()"""
+    )
+    check(moved["prev"] == base["r2"] and moved["now"] != base["r2"],
+          "table-hover: hover tracks the pointer and restores the previous row")
+    transition = page.evaluate("getComputedStyle(document.querySelector('#ds-root tbody tr')).transitionProperty")
+    check("background-color" in transition, f"table-hover: hover shift is a color transition (got {transition})")
+
+
+def search_checks(page):
+    print("== table-with-search ==")
+    open_preview(page, "table-with-search")
+    label = page.evaluate(
+        """(() => {
+          const input = document.getElementById('user-search');
+          const label = document.querySelector('label[for="user-search"]');
+          const status = document.querySelector('#ds-root [role="status"]');
+          return {
+            labelled: label !== null && label.contains(input),
+            type: input.getAttribute('type'),
+            statusText: status.textContent,
+          };
+        })()"""
+    )
+    check(label["labelled"] and label["type"] == "search",
+          "table-with-search: search input is a labelled native type=search")
+    check(label["statusText"] == "8 of 8 users",
+          f"table-with-search: role=status announces the full count (got '{label['statusText']}')")
+    check(page.evaluate("document.querySelectorAll('#ds-root tbody tr').length") == 8,
+          "table-with-search: 8 user rows render initially")
+    page.fill("#user-search", "engineer")
+    page.wait_for_timeout(200)
+    filtered = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          status: document.querySelector('#ds-root [role="status"]').textContent,
+          text: document.querySelector('#ds-root tbody').textContent,
+        }))()"""
+    )
+    check(filtered["rows"] == 4 and filtered["status"] == "4 of 8 users",
+          f"table-with-search: 'engineer' filters to 4 rows with announced count (got {filtered['rows']} / '{filtered['status']}')")
+    check("Katherine Johnson" in filtered["text"] and "Alan Turing" not in filtered["text"],
+          "table-with-search: filtering matches the role field, not every row")
+    page.fill("#user-search", "zzzz")
+    page.wait_for_timeout(200)
+    empty = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          text: document.querySelector('#ds-root tbody').textContent,
+          status: document.querySelector('#ds-root [role="status"]').textContent,
+        }))()"""
+    )
+    check(empty["rows"] == 1 and "No users match" in empty["text"],
+          "table-with-search: zero matches render one honest empty row")
+    check(empty["status"] == "0 of 8 users",
+          f"table-with-search: status announces zero results (got '{empty['status']}')")
+    page.click("#ds-root tbody button:has-text('Clear search')")
+    page.wait_for_timeout(200)
+    restored = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          value: document.getElementById('user-search').value,
+          status: document.querySelector('#ds-root [role="status"]').textContent,
+        }))()"""
+    )
+    check(restored["rows"] == 8 and restored["value"] == "" and restored["status"] == "8 of 8 users",
+          "table-with-search: Clear search empties the field and restores all 8 rows")
+
+
+def filters_checks(page):
+    print("== table-with-filters ==")
+    open_preview(page, "table-with-filters")
+    initial = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          count: document.querySelector('#ds-root [aria-live]').textContent,
+          clearDisabled: Array.from(document.querySelectorAll('#ds-root button')).find(b => b.textContent === 'Clear filters').disabled,
+          selects: document.querySelectorAll('#ds-root select[aria-label]').length,
+        }))()"""
+    )
+    check(initial["selects"] == 2, "table-with-filters: two labelled filter selects render")
+    check(initial["rows"] == 10 and initial["count"] == "10 of 10 orders",
+          f"table-with-filters: all 10 orders render initially (got {initial['rows']} / '{initial['count']}')")
+    check(initial["clearDisabled"] is True, "table-with-filters: Clear filters starts disabled (nothing to clear)")
+    page.select_option("#ds-root select[aria-label='Filter by status']", "delivered")
+    page.wait_for_timeout(150)
+    one = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          count: document.querySelector('#ds-root [aria-live]').textContent,
+          clearDisabled: Array.from(document.querySelectorAll('#ds-root button')).find(b => b.textContent === 'Clear filters').disabled,
+        }))()"""
+    )
+    check(one["rows"] == 3 and one["count"] == "3 of 10 orders",
+          f"table-with-filters: Delivered narrows to 3 orders with announced count (got {one['rows']})")
+    check(one["clearDisabled"] is False, "table-with-filters: Clear filters enables once a filter is active")
+    page.select_option("#ds-root select[aria-label='Filter by channel']", "retail")
+    page.wait_for_timeout(150)
+    empty = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          text: document.querySelector('#ds-root tbody').textContent,
+          count: document.querySelector('#ds-root [aria-live]').textContent,
+        }))()"""
+    )
+    check(empty["rows"] == 1 and "No orders match these filters" in empty["text"],
+          "table-with-filters: Delivered × Retail renders the empty state (one real row)")
+    check(empty["count"] == "0 of 10 orders", f"table-with-filters: count announces zero (got '{empty['count']}')")
+    page.click("#ds-root tbody button:has-text('Clear filters')")
+    page.wait_for_timeout(150)
+    restored = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          status: document.querySelector('#ds-root select[aria-label="Filter by status"]').value,
+          channel: document.querySelector('#ds-root select[aria-label="Filter by channel"]').value,
+          clearDisabled: Array.from(document.querySelectorAll('#ds-root button')).find(b => b.textContent === 'Clear filters').disabled,
+        }))()"""
+    )
+    check(restored["rows"] == 10 and restored["status"] == "all" and restored["channel"] == "all",
+          "table-with-filters: Clear filters resets both selects and restores all 10 orders")
+    check(restored["clearDisabled"] is True, "table-with-filters: Clear filters disables itself after reset")
+    page.select_option("#ds-root select[aria-label='Filter by status']", "processing")
+    page.wait_for_timeout(150)
+    page.select_option("#ds-root select[aria-label='Filter by channel']", "partner")
+    page.wait_for_timeout(150)
+    combo = page.evaluate(
+        """(() => ({
+          rows: document.querySelectorAll('#ds-root tbody tr').length,
+          text: document.querySelector('#ds-root tbody').textContent,
+        }))()"""
+    )
+    check(combo["rows"] == 1 and "ORD-1010" in combo["text"],
+          f"table-with-filters: filters compose with AND (Processing × Partner = ORD-1010 only, got {combo['rows']})")
+
+
 def focus_ring_check(page, slug, selector):
     open_preview(page, slug)
     page.locator(selector).first.focus()
@@ -789,7 +1066,7 @@ def focus_ring_check(page, slug, selector):
 
 def dark_mode_check(page):
     print("== dark mode ==")
-    for slug in ("table", "table-sortable", "table-selectable", "table-status"):
+    for slug in ("table", "table-sortable", "table-selectable", "table-status", "table-striped"):
         open_preview(page, slug)
         # the surface lives on the bordered container; the <table> itself is transparent
         light_bg = page.evaluate(
@@ -850,12 +1127,21 @@ def main():
         loading_checks(page, browser)
         empty_checks(page)
         status_checks(page)
+        header_checks(page)
+        footer_checks(page)
+        striped_checks(page)
+        hover_checks(page)
+        search_checks(page)
+        filters_checks(page)
 
         print("== focus / theme / motion ==")
         focus_ring_check(page, "table-sortable", "#ds-root th button:has-text('Service')")
         focus_ring_check(page, "table-selectable", "#ds-root input[aria-label='Select Ada Lovelace']")
         focus_ring_check(page, "table-expandable", "#ds-root button[aria-controls='order-ORD-5201-details']")
         focus_ring_check(page, "table-with-pagination", "#ds-root button[aria-label='Go to next page']")
+        focus_ring_check(page, "table-with-search", "#ds-root #user-search")
+        focus_ring_check(page, "table-with-filters", "#ds-root select[aria-label='Filter by status']")
+        focus_ring_check(page, "table-with-footer", "#ds-root select[aria-label='Filter invoices by status']")
         dark_mode_check(page)
         reduced_motion_check(browser)
 

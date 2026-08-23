@@ -1,0 +1,58 @@
+{
+  "id": "table-hover-react-001",
+  "name": "Hoverable Table",
+  "slug": "table-hover",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-hover",
+  "description": "A table whose row hover treatment is a deliberate affordance: a restrained surface shift that tracks the pointer across the full row, never hides or reveals content, and degrades to nothing on touch \u2014 every fact and control stays visible and operable without it.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "hover",
+    "row-hover",
+    "affordance",
+    "touch-safe"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "full-row hover surface",
+    "touch-safe (no hover-only content)",
+    "state tint wins over hover"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "hover is decorative affordance only",
+    "no hover-revealed controls",
+    "motion-reduce disables the transition"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-striped",
+    "table-with-actions"
+  ]
+}
