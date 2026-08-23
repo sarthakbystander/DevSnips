@@ -66,7 +66,7 @@ def is_leaf(folder, tech):
 ALLOWED_DIRS = {
     "Tailwind": {"Components", "Sections", "Templates"},
     "Vanilla": {"Components", "Sections", "Templates"},
-    "React": {"Components", "Templates"},
+    "React": {"Components", "Sections", "Templates"},
 }
 
 
@@ -81,18 +81,14 @@ def check_architecture():
                 problems.append(
                     "Architecture: unexpected dir %s/%s/ (allowed: %s)"
                     % (tech_dir, child.name, ", ".join(sorted(allowed))))
-    # Standalone Sections/ is a first-class Tailwind AND Vanilla content type,
-    # so it is no longer forbidden there. It remains forbidden for React (which
-    # uses the two-type Components/ + Templates/ layout).
+    # React/Sections/ is a first-class content type (governed by
+    # React/Sections/DESIGN_TOKENS.md); the dirs below remain forbidden in
+    # every technology.
     for forbidden in ("Utilities", "Resources", "Snippets", "Pages", "Tools"):
         for tech_dir in ("Vanilla", "Tailwind", "React"):
             p = ROOT / tech_dir / forbidden
             if p.exists():
                 problems.append("Architecture: forbidden standalone dir %s" % p)
-    p = ROOT / "React" / "Sections"
-    if p.exists():
-        problems.append(
-            "Architecture: Sections/ is not a React content type (React/Sections/)")
 
 
 def check_metadata_validity():
