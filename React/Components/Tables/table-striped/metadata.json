@@ -1,0 +1,58 @@
+{
+  "id": "table-striped-react-001",
+  "name": "Striped Table",
+  "slug": "table-striped",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-striped",
+  "description": "A table with alternating row backgrounds (zebra striping) applied as a token-based utility on the body \u2014 even rows pick up the subtle surface so long datasets are easier to track across wide columns, with no JavaScript and no per-row markup.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "striped",
+    "zebra",
+    "alternating-rows",
+    "readability"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "alternating row surfaces",
+    "token-based striping",
+    "hover still distinct"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "striping supplements \u2014 never replaces \u2014 cell content",
+    "contrast-safe subtle surface",
+    "no color-only meaning"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-hover",
+    "table-compact"
+  ]
+}

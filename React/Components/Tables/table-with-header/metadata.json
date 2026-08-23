@@ -1,0 +1,59 @@
+{
+  "id": "table-with-header-react-001",
+  "name": "Table with Header",
+  "slug": "table-with-header",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-header",
+  "description": "A table built around a deliberate column-header row: every header is a real <th scope=\"col\"> whose alignment matches its column, and on long datasets the header row stays pinned (sticky) while the body scrolls inside the bordered container.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "header",
+    "scope-col",
+    "sticky-header",
+    "scroll-region",
+    "long-datasets"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "th scope=col on every column",
+    "sticky header on vertical scroll",
+    "header alignment matches cells"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "th scope=col headers",
+    "header alignment matches column cells",
+    "sticky header keeps column labels in view"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-with-footer",
+    "table-compact"
+  ]
+}

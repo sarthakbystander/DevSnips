@@ -1,0 +1,59 @@
+{
+  "id": "table-with-search-react-001",
+  "name": "Table with Search",
+  "slug": "table-with-search",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-search",
+  "description": "A table with a labelled search field that filters the dataset live as you type: matching rows render, a polite status announces the result count, and an honest empty state with a working Clear action appears when nothing matches.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Filtering",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "search",
+    "filter",
+    "live-filtering",
+    "empty-state",
+    "aria-live"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "live search filtering",
+    "announced result count",
+    "empty state with clear action"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "labelled search input",
+    "role=status result count",
+    "empty state is one real row"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table-with-filters",
+    "table-empty",
+    "table-with-pagination"
+  ]
+}
