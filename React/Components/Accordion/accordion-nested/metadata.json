@@ -1,0 +1,60 @@
+{
+  "id": "accordion-nested-react-001",
+  "name": "Nested Accordion",
+  "slug": "accordion-nested",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-nested",
+  "description": "An accordion inside an accordion's region: each `<Accordion>` instance owns an independent state and id base (via `useId`), so nested items toggle without touching the parent, ids never collide, and keyboard behavior stays the predictable native-button model at every depth.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "nested",
+    "independent state",
+    "hierarchy",
+    "composite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "independent nested state",
+    "no id collisions",
+    "parent stays open",
+    "predictable tab order"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "per-instance id base (no collisions)",
+    "parent/child states fully independent",
+    "role=region at every level"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion-multiple",
+    "accordion",
+    "accordion-with-description"
+  ]
+}

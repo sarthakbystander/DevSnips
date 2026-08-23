@@ -1,0 +1,59 @@
+{
+  "id": "accordion-with-description-react-001",
+  "name": "Accordion with Description",
+  "slug": "accordion-with-description",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-with-description",
+  "description": "Triggers with a title plus a short supporting line via the `description` prop \u2014 a muted 13px second row under the title that keeps a clean two-level hierarchy. Useful for documentation and settings sections where the title alone is ambiguous.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "description",
+    "two-line trigger",
+    "docs",
+    "hierarchy"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "title + description trigger",
+    "muted supporting line",
+    "wrapping two-line layout"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "description joins the accessible name",
+    "button triggers with aria-expanded/aria-controls",
+    "role=region labelled by trigger"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion-with-icons",
+    "accordion-faq",
+    "accordion"
+  ]
+}

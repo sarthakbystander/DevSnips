@@ -1,0 +1,60 @@
+{
+  "id": "accordion-bordered-react-001",
+  "name": "Bordered Accordion",
+  "slug": "accordion-bordered",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-bordered",
+  "description": "The contained treatment: the same accordion framed in a `radius-md` bordered surface \u2014 an alternate structure for settings panels and cards, driven entirely by the root's `className`. The trigger's inset focus ring is what makes this work: it is never clipped by the container's `overflow-hidden`.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "bordered",
+    "contained",
+    "layout",
+    "surface"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "contained bordered treatment",
+    "radius-md surface",
+    "inset focus ring",
+    "className-driven"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "inset focus ring never clipped",
+    "button triggers with aria-expanded/aria-controls",
+    "role=region labelled by trigger"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion",
+    "accordion-faq",
+    "accordion-with-description"
+  ]
+}
