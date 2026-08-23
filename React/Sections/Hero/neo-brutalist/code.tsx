@@ -20,7 +20,7 @@ export interface HeroAction {
 export interface HeroStat {
   value: string;
   label: string;
-  tone?: "accent" | "info" | "success";
+  tone?: "accent" | "warning" | "success";
 }
 
 export interface HeroSectionProps {
@@ -50,14 +50,15 @@ const SECONDARY_ACTION_CLASSES =
 const TONE_CLASSES: Record<NonNullable<HeroStat["tone"]>, string> = {
   accent:
     "bg-[var(--ds-color-accent)] text-[var(--ds-color-accent-foreground)]",
-  info: "bg-[var(--ds-color-info)] text-[var(--ds-color-info-foreground)]",
+  warning:
+    "bg-[var(--ds-color-warning)] text-[var(--ds-color-warning-foreground)]",
   success:
     "bg-[var(--ds-color-success)] text-[var(--ds-color-success-foreground)]",
 };
 
 const DEFAULT_STATS: HeroStat[] = [
   { value: "663", label: "Ship-ready snippets", tone: "accent" },
-  { value: "12ms", label: "Interaction feedback", tone: "info" },
+  { value: "12ms", label: "Interaction feedback", tone: "warning" },
   { value: "AA", label: "Contrast, every theme", tone: "success" },
 ];
 
