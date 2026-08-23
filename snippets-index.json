@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 663,
+    "totalVariants": 664,
     "totalSubVariants": 0,
-    "totalStyles": 1490,
+    "totalStyles": 1494,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 254,
+      "component": 255,
       "section": 200,
       "template": 10
     },
@@ -7830,7 +7830,7 @@
       "type": "component",
       "category": "Components",
       "description": "Complete toast notification family with 6 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
-      "variantsCount": 5,
+      "variantsCount": 6,
       "variants": [
         {
           "name": "Action Toast",
@@ -8009,21 +8009,66 @@
             "metadata.json",
             "preview.html"
           ]
+        },
+        {
+          "name": "Glass Toast",
+          "path": "Tailwind/Components/Toasts/glass-toast/",
+          "type": "component",
+          "description": "Frosted-glass notification toasts in the glassmorphism design language — translucent backdrop-blur panels with semantic glowing accents, a live countdown progress bar, and pause-on-hover, presented over an animated aurora mesh backdrop.",
+          "tags": [
+            "toast",
+            "notification",
+            "glassmorphism",
+            "glass",
+            "aurora",
+            "dark",
+            "countdown",
+            "feedback"
+          ],
+          "features": [
+            "glassmorphism design language",
+            "frosted backdrop-blur surfaces",
+            "animated aurora mesh backdrop",
+            "4 semantic types with glowing accents",
+            "countdown progress bar",
+            "pause on hover",
+            "role=alert for errors/warnings",
+            "role=status for success/info",
+            "aria-live polite region",
+            "prefers-reduced-motion safe",
+            "focus-visible ring",
+            "responsive"
+          ],
+          "styles": [
+            "Glassmorphism",
+            "Frosted glass",
+            "Aurora mesh",
+            "Dark glowing"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
         }
       ],
       "tags": [
         "action",
         "activity",
         "alert",
+        "aurora",
         "auto-dismiss",
         "basic",
         "compact",
         "copied",
         "countdown",
+        "dark",
         "destructive",
         "error",
         "feed",
         "feedback",
+        "glass",
+        "glassmorphism",
         "info",
         "inline",
         "minimal",
