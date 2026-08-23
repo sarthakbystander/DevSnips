@@ -1,0 +1,70 @@
+{
+  "id": "sidebar-with-groups-react-001",
+  "name": "Sidebar with Groups",
+  "slug": "sidebar-with-groups",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-with-groups",
+  "description": "Sectioned navigation: multiple labeled groups (Platform, Workspace, Admin) with a clear hierarchy, an unlabeled primary group, and group labels that stay in the accessibility tree when the rail is collapsed.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Structure",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "groups",
+    "sections",
+    "labels"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "labeled navigation groups",
+    "section hierarchy",
+    "sr-only group labels in the rail"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "section structure announced via group labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar",
+    "sidebar-collapsible-groups",
+    "sidebar-dashboard"
+  ]
+}
