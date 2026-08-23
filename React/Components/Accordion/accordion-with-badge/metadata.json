@@ -1,0 +1,60 @@
+{
+  "id": "accordion-with-badge-react-001",
+  "name": "Accordion with Badge",
+  "slug": "accordion-with-badge",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-with-badge",
+  "description": "Triggers with a status or count badge via the `badge` prop \u2014 a neutral token-styled pill pinned before the chevron. The badge is plain, non-interactive text inside the button: it never intercepts clicks and never creates a confusing accessible name.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "badge",
+    "status",
+    "count",
+    "pill"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "trailing badge pill",
+    "non-interactive badge",
+    "accessible-name safe",
+    "token-styled pill"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "badge text joins the trigger name",
+    "non-interactive pill (no nested controls)",
+    "button triggers with aria-expanded/aria-controls"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion-with-icons",
+    "accordion-disabled",
+    "accordion-faq"
+  ]
+}
