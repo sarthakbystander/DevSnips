@@ -1,9 +1,9 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-19",
+  "lastUpdated": "2026-08-23",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 79,
+    "totalFamilies": 80,
     "totalVariants": 663,
     "totalSubVariants": 0,
     "totalStyles": 1490,
@@ -15,6 +15,11 @@
       "component": 254,
       "section": 200,
       "template": 10
+    },
+    "vanillaByType": {
+      "component": 126,
+      "section": 65,
+      "template": 8
     }
   },
   "families": [
@@ -1009,27 +1014,6 @@
           ]
         },
         {
-          "name": "Outline Primary Button",
-          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
-          "type": "component",
-          "description": "Blue bordered buttons with transparent background and hover fill",
-          "tags": [
-            "button",
-            "outline",
-            "bordered",
-            "blue"
-          ],
-          "styles": [
-            "Default",
-            "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Primary Button",
           "path": "Tailwind/Components/Buttons/Basic Button/primary/",
           "type": "component",
@@ -1066,6 +1050,27 @@
             "Default",
             "Disabled",
             "Solid (comparison)"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Outline Primary Button",
+          "path": "Tailwind/Components/Buttons/Outline Button/primary/",
+          "type": "component",
+          "description": "Blue bordered buttons with transparent background and hover fill",
+          "tags": [
+            "button",
+            "outline",
+            "bordered",
+            "blue"
+          ],
+          "styles": [
+            "Default",
+            "Disabled"
           ],
           "files": [
             "code.html",
@@ -12919,41 +12924,6 @@
       "variantsCount": 12,
       "variants": [
         {
-          "name": "Agent Workflow — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "neo-brutalism",
-            "brutalist",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "execution"
-          ],
-          "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "step status colors (pending/running/done)",
-            "filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Prompt Library — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
           "type": "section",
@@ -12978,6 +12948,41 @@
             "copy-to-clipboard with Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Agent Workflow — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "neo-brutalism",
+            "brutalist",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "execution"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "step status colors (pending/running/done)",
+            "filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
           ],
           "styles": [
             "neo-brutalism"
@@ -13058,42 +13063,6 @@
           ]
         },
         {
-          "name": "Agent Workflow — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "glassmorphism",
-            "glass",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "gradient"
-          ],
-          "features": [
-            "backdrop-blur glass panel",
-            "animated gradient mesh backdrop",
-            "luminous edge highlight",
-            "cyan done + fuchsia running node glow",
-            "gradient filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Prompt Library — Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
           "type": "section",
@@ -13119,6 +13088,42 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Agent Workflow — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
+          "tags": [
+            "agent-workflow",
+            "stepper",
+            "glassmorphism",
+            "glass",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "gradient"
+          ],
+          "features": [
+            "backdrop-blur glass panel",
+            "animated gradient mesh backdrop",
+            "luminous edge highlight",
+            "cyan done + fuchsia running node glow",
+            "gradient filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -13199,6 +13204,41 @@
           ]
         },
         {
+          "name": "Prompt Library — Vercel",
+          "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
+          "tags": [
+            "prompt-library",
+            "prompts",
+            "templates",
+            "vercel",
+            "dark",
+            "copy-clipboard",
+            "filter",
+            "gallery",
+            "ai-product"
+          ],
+          "features": [
+            "dark monochrome surfaces",
+            "hairline borders and subtle hover",
+            "single teal accent dot",
+            "category filter chips (Writing/Code/Analysis/Image)",
+            "live search across cards",
+            "copy-to-clipboard with checkmark Copied! state",
+            "empty state for no matches",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Agent Workflow — Vercel",
           "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
           "type": "section",
@@ -13224,41 +13264,6 @@
             "pulsing active-step node",
             "prefers-reduced-motion aware",
             "keyboard accessible buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Prompt Library — Vercel",
-          "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
-          "tags": [
-            "prompt-library",
-            "prompts",
-            "templates",
-            "vercel",
-            "dark",
-            "copy-clipboard",
-            "filter",
-            "gallery",
-            "ai-product"
-          ],
-          "features": [
-            "dark monochrome surfaces",
-            "hairline borders and subtle hover",
-            "single teal accent dot",
-            "category filter chips (Writing/Code/Analysis/Image)",
-            "live search across cards",
-            "copy-to-clipboard with checkmark Copied! state",
-            "empty state for no matches",
-            "keyboard accessible controls"
           ],
           "styles": [
             "vercel"
@@ -13391,6 +13396,40 @@
       "variantsCount": 6,
       "variants": [
         {
+          "name": "Kanban Board — Neo-Brutalism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
+          "tags": [
+            "kanban",
+            "board",
+            "neo-brutalism",
+            "brutalist",
+            "drag-and-drop",
+            "task-board",
+            "app-ui",
+            "project-management"
+          ],
+          "features": [
+            "hard offset shadows on cards and panel",
+            "flat bright accent column headers",
+            "press-down hover states",
+            "HTML5 drag-and-drop between columns",
+            "live-updating count badges",
+            "add-card affordance per column",
+            "placeholder drop indicator",
+            "keyboard-focusable draggable cards"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Dashboard Overview — Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
@@ -13427,32 +13466,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Neo-Brutalism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
+          "name": "Kanban Board — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
+          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
           "tags": [
             "kanban",
             "board",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "glass",
             "drag-and-drop",
             "task-board",
             "app-ui",
-            "project-management"
+            "project-management",
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "hard offset shadows on cards and panel",
-            "flat bright accent column headers",
-            "press-down hover states",
+            "backdrop-blur glass columns",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlights",
+            "glowing cyan status dots",
+            "gradient priority chips",
             "HTML5 drag-and-drop between columns",
-            "live-updating count badges",
-            "add-card affordance per column",
-            "placeholder drop indicator",
+            "live-updating count chips",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -13501,34 +13542,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
+          "name": "Kanban Board — Vercel",
+          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
           "type": "section",
-          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
           "tags": [
             "kanban",
             "board",
-            "glassmorphism",
-            "glass",
+            "vercel",
+            "dark-mode",
             "drag-and-drop",
             "task-board",
             "app-ui",
             "project-management",
-            "gradient",
-            "vibrant"
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "backdrop-blur glass columns",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlights",
-            "glowing cyan status dots",
-            "gradient priority chips",
+            "dark monochrome palette",
+            "hairline borders + radial glow",
+            "glowing teal status dots",
+            "pill count badges",
             "HTML5 drag-and-drop between columns",
-            "live-updating count chips",
+            "live-updating counts",
+            "dashed add-card affordance",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -13565,42 +13606,6 @@
             "hairline borders + subtle glow",
             "recent activity feed",
             "keyboard accessible range buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Kanban Board — Vercel",
-          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
-          "tags": [
-            "kanban",
-            "board",
-            "vercel",
-            "dark-mode",
-            "drag-and-drop",
-            "task-board",
-            "app-ui",
-            "project-management",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + radial glow",
-            "glowing teal status dots",
-            "pill count badges",
-            "HTML5 drag-and-drop between columns",
-            "live-updating counts",
-            "dashed add-card affordance",
-            "keyboard-focusable draggable cards"
           ],
           "styles": [
             "vercel"
@@ -14288,29 +14293,62 @@
       "variantsCount": 17,
       "variants": [
         {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
+          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
+          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
           "tags": [
-            "pricing",
-            "usage-based",
+            "features",
+            "feature-grid",
             "neo-brutalism",
             "brutalist",
-            "slider",
-            "metered",
             "saas",
+            "bento",
             "offset-shadows"
           ],
           "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
+            "6-up feature grid",
+            "rotating bright accent panels",
+            "numbered monospace tags",
+            "zig-zag offset layout",
+            "thick icon tiles",
+            "offset shadows",
+            "press-down hover states"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Pricing Table — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "neo-brutalism",
+            "brutalist",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "cta",
+            "monochrome-accents"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with badge",
+            "check/dash feature lists",
+            "hard offset shadows",
+            "flat bright accent palette",
             "press-down hover states",
-            "keyboard accessible slider"
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "neo-brutalism"
@@ -14356,72 +14394,6 @@
           ]
         },
         {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
-          "tags": [
-            "metrics",
-            "stats",
-            "numbers",
-            "neo-brutalism",
-            "brutalist",
-            "count-up",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant featured stat block",
-            "offset grid of stat cards",
-            "rotating bright accent panels",
-            "live count-up ticker on mount",
-            "diagonal grid background",
-            "bold section divider",
-            "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
-          "tags": [
-            "features",
-            "feature-grid",
-            "neo-brutalism",
-            "brutalist",
-            "saas",
-            "bento",
-            "offset-shadows"
-          ],
-          "features": [
-            "6-up feature grid",
-            "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Free Trial CTA — Neo-Brutalism",
           "path": "Tailwind/Sections/saas/trial-cta/neo-brutalism/",
           "type": "section",
@@ -14455,30 +14427,63 @@
           ]
         },
         {
-          "name": "Pricing Table — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
           "tags": [
             "pricing",
-            "pricing-table",
+            "usage-based",
             "neo-brutalism",
             "brutalist",
-            "billing-toggle",
+            "slider",
+            "metered",
             "saas",
-            "plans",
-            "cta",
-            "monochrome-accents"
+            "offset-shadows"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with badge",
-            "check/dash feature lists",
-            "hard offset shadows",
-            "flat bright accent palette",
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
             "press-down hover states",
-            "keyboard accessible toggle buttons"
+            "keyboard accessible slider"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
+          "tags": [
+            "metrics",
+            "stats",
+            "numbers",
+            "neo-brutalism",
+            "brutalist",
+            "count-up",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant featured stat block",
+            "offset grid of stat cards",
+            "rotating bright accent panels",
+            "live count-up ticker on mount",
+            "diagonal grid background",
+            "bold section divider",
+            "press-down hover states",
+            "monospace labels"
           ],
           "styles": [
             "neo-brutalism"
@@ -14556,27 +14561,31 @@
           ]
         },
         {
-          "name": "Testimonial Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
+          "name": "Pricing Table — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
           "tags": [
-            "testimonials",
-            "social-proof",
+            "pricing",
+            "pricing-table",
             "sharp-glassmorphism",
             "glassmorphism",
+            "frosted-glass",
+            "gradient-mesh",
+            "billing-toggle",
             "saas",
-            "quotes",
-            "gradient-mesh"
+            "plans"
           ],
           "features": [
-            "asymmetric testimonial layout",
-            "large featured quote tile with gradient quote mark",
-            "medium and compact quote tiles",
-            "avatar initials chips",
-            "role and company labels",
-            "luminous top edges",
-            "hover lift states"
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with gradient CTA and cyan glow badge",
+            "check/dash feature lists",
+            "frosted-glass panels with backdrop blur",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlight lines",
+            "hover lift states",
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -14622,68 +14631,30 @@
           ]
         },
         {
-          "name": "Pricing Table — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
+          "name": "Testimonial Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
+          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
           "tags": [
-            "pricing",
-            "pricing-table",
+            "testimonials",
+            "social-proof",
             "sharp-glassmorphism",
             "glassmorphism",
-            "frosted-glass",
-            "gradient-mesh",
-            "billing-toggle",
             "saas",
-            "plans"
+            "quotes",
+            "gradient-mesh"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with gradient CTA and cyan glow badge",
-            "check/dash feature lists",
-            "frosted-glass panels with backdrop blur",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlight lines",
-            "hover lift states",
-            "keyboard accessible toggle buttons"
+            "asymmetric testimonial layout",
+            "large featured quote tile with gradient quote mark",
+            "medium and compact quote tiles",
+            "avatar initials chips",
+            "role and company labels",
+            "luminous top edges",
+            "hover lift states"
           ],
           "styles": [
             "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Comparison Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
-          "type": "section",
-          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
-          "tags": [
-            "pricing",
-            "comparison",
-            "matrix",
-            "vercel",
-            "dark",
-            "saas",
-            "plans",
-            "teal-accent"
-          ],
-          "features": [
-            "sticky plan header row",
-            "grouped feature sections",
-            "check/dash/slash glyphs",
-            "sticky first column on desktop",
-            "hairline grid borders",
-            "teal accent on popular column",
-            "per-column white CTAs",
-            "monochrome hierarchy"
-          ],
-          "styles": [
-            "vercel"
           ],
           "files": [
             "code.html",
@@ -14715,6 +14686,107 @@
             "bottom legal bar with locale",
             "hairline borders",
             "white/white-50/white-35 hierarchy"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Pricing Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
+          "type": "section",
+          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
+          "tags": [
+            "pricing",
+            "pricing-table",
+            "vercel",
+            "dark",
+            "monochrome",
+            "billing-toggle",
+            "saas",
+            "plans",
+            "teal-accent"
+          ],
+          "features": [
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with teal dot badge",
+            "check/dash feature lists",
+            "hairline borders and dark panels",
+            "white primary CTA",
+            "subtle hover fills",
+            "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Customer Logo Cloud — Vercel",
+          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
+          "type": "section",
+          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
+          "tags": [
+            "logos",
+            "logo-cloud",
+            "customers",
+            "vercel",
+            "dark",
+            "saas",
+            "wordmarks",
+            "teal-accent"
+          ],
+          "features": [
+            "centered headline with count chip",
+            "responsive wordmark-style SVG logo grid",
+            "white/white-40 logo hierarchy",
+            "hairline panel borders",
+            "pull-quote with avatar",
+            "teal accent on count chip",
+            "single teal dot"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Product Workflow Section — Vercel",
+          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "type": "section",
+          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "tags": [
+            "workflow",
+            "how-it-works",
+            "vercel",
+            "dark",
+            "saas",
+            "steps",
+            "code-preview",
+            "teal-accent"
+          ],
+          "features": [
+            "numbered three-step workflow",
+            "left step rail with teal connectors",
+            "right sticky code/command preview",
+            "working step switcher that swaps preview live",
+            "teal accent on active step",
+            "dark panels and hairline borders",
+            "scoped keyboard-accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -14761,96 +14833,29 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
-          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "name": "Pricing Comparison Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
           "type": "section",
-          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
-          "tags": [
-            "workflow",
-            "how-it-works",
-            "vercel",
-            "dark",
-            "saas",
-            "steps",
-            "code-preview",
-            "teal-accent"
-          ],
-          "features": [
-            "numbered three-step workflow",
-            "left step rail with teal connectors",
-            "right sticky code/command preview",
-            "working step switcher that swaps preview live",
-            "teal accent on active step",
-            "dark panels and hairline borders",
-            "scoped keyboard-accessible buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Customer Logo Cloud — Vercel",
-          "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
-          "type": "section",
-          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
-          "tags": [
-            "logos",
-            "logo-cloud",
-            "customers",
-            "vercel",
-            "dark",
-            "saas",
-            "wordmarks",
-            "teal-accent"
-          ],
-          "features": [
-            "centered headline with count chip",
-            "responsive wordmark-style SVG logo grid",
-            "white/white-40 logo hierarchy",
-            "hairline panel borders",
-            "pull-quote with avatar",
-            "teal accent on count chip",
-            "single teal dot"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Pricing Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-table/vercel/",
-          "type": "section",
-          "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
+          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
           "tags": [
             "pricing",
-            "pricing-table",
+            "comparison",
+            "matrix",
             "vercel",
             "dark",
-            "monochrome",
-            "billing-toggle",
             "saas",
             "plans",
             "teal-accent"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with teal dot badge",
-            "check/dash feature lists",
-            "hairline borders and dark panels",
-            "white primary CTA",
-            "subtle hover fills",
-            "keyboard accessible toggle buttons"
+            "sticky plan header row",
+            "grouped feature sections",
+            "check/dash/slash glyphs",
+            "sticky first column on desktop",
+            "hairline grid borders",
+            "teal accent on popular column",
+            "per-column white CTAs",
+            "monochrome hierarchy"
           ],
           "styles": [
             "vercel"
@@ -16234,124 +16239,6 @@
       ]
     },
     {
-      "name": "CTA",
-      "path": "Vanilla/Components/CTA/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Banner CTA",
-          "path": "Vanilla/Components/CTA/cta-banner/",
-          "type": "component",
-          "description": "Bold banner CTA on a colored panel with blobs.",
-          "tags": [
-            "cta",
-            "banner",
-            "gradient"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "cta-banner.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Download CTA",
-          "path": "Vanilla/Components/CTA/cta-download/",
-          "type": "component",
-          "description": "Download CTA with store buttons and a QR mock.",
-          "tags": [
-            "cta",
-            "download",
-            "qr"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "cta-download.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Newsletter CTA",
-          "path": "Vanilla/Components/CTA/cta-newsletter/",
-          "type": "component",
-          "description": "Newsletter signup CTA with consent checkbox.",
-          "tags": [
-            "cta",
-            "newsletter",
-            "form"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "cta-newsletter.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Split CTA",
-          "path": "Vanilla/Components/CTA/cta-split/",
-          "type": "component",
-          "description": "Two-pane split CTA (offer + actions).",
-          "tags": [
-            "cta",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "cta-split.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "cta",
-      "tags": [
-        "cta",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "cta",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Cards",
       "path": "Vanilla/Components/Cards/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -16592,223 +16479,6 @@
       ]
     },
     {
-      "name": "Contact",
-      "path": "Vanilla/Components/Contact/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Contact sections: split form, routing cards, and office locations with time zones.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Contact Cards",
-          "path": "Vanilla/Components/Contact/contact-cards/",
-          "type": "component",
-          "description": "Contact routing cards (sales/security/careers).",
-          "tags": [
-            "contact",
-            "cards"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "contact-cards.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Contact Form",
-          "path": "Vanilla/Components/Contact/contact-form/",
-          "type": "component",
-          "description": "Split contact section with info + accessible form.",
-          "tags": [
-            "contact",
-            "form",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "contact-form.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Office Locations",
-          "path": "Vanilla/Components/Contact/contact-office-locations/",
-          "type": "component",
-          "description": "Office location cards with time zones.",
-          "tags": [
-            "contact",
-            "offices",
-            "locations"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "contact-office-locations.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "contact",
-      "tags": [
-        "contact",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "contact",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Content",
-      "path": "Vanilla/Components/Content/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Content sections: blog grid, featured articles, documentation preview, and resources.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Blog Grid",
-          "path": "Vanilla/Components/Content/content-blog-grid/",
-          "type": "component",
-          "description": "3-up blog post cards with category badges.",
-          "tags": [
-            "blog",
-            "grid",
-            "cards"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "content-blog-grid.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Documentation Preview",
-          "path": "Vanilla/Components/Content/content-documentation-preview/",
-          "type": "component",
-          "description": "Docs layout with sidebar nav and a code block.",
-          "tags": [
-            "docs",
-            "documentation",
-            "sidebar"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "content-documentation-preview.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Featured Articles",
-          "path": "Vanilla/Components/Content/content-featured-articles/",
-          "type": "component",
-          "description": "Featured article + side list of recent posts.",
-          "tags": [
-            "blog",
-            "featured",
-            "editorial"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "content-featured-articles.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Resources",
-          "path": "Vanilla/Components/Content/content-resources/",
-          "type": "component",
-          "description": "Filterable resources grid with type tags.",
-          "tags": [
-            "resources",
-            "grid",
-            "filters"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "content-resources.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "content",
-      "tags": [
-        "content",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "content",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Display",
       "path": "Vanilla/Components/Display/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -16898,315 +16568,6 @@
       ],
       "searchTerms": [
         "display"
-      ]
-    },
-    {
-      "name": "FAQ",
-      "path": "Vanilla/Components/FAQ/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "FAQ sections: accessible single-open accordion and searchable + filterable FAQ.",
-      "variantsCount": 2,
-      "variants": [
-        {
-          "name": "Accordion FAQ",
-          "path": "Vanilla/Components/FAQ/faq-accordion/",
-          "type": "component",
-          "description": "Accessible single-open accordion FAQ.",
-          "tags": [
-            "faq",
-            "accordion"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "faq-accordion.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Searchable FAQ",
-          "path": "Vanilla/Components/FAQ/faq-searchable/",
-          "type": "component",
-          "description": "Searchable + category-filterable FAQ.",
-          "tags": [
-            "faq",
-            "search",
-            "filter"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "faq-searchable.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "faq",
-      "tags": [
-        "faq",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "faq",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Features",
-      "path": "Vanilla/Components/Features/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Feature presentation sections: grid, icons, bento, timeline, and comparison table.",
-      "variantsCount": 5,
-      "variants": [
-        {
-          "name": "Bento Features",
-          "path": "Vanilla/Components/Features/feature-bento/",
-          "type": "component",
-          "description": "Bento feature grid mixing tile sizes and colors.",
-          "tags": [
-            "features",
-            "bento",
-            "grid"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "feature-bento.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Comparison Features",
-          "path": "Vanilla/Components/Features/feature-comparison/",
-          "type": "component",
-          "description": "Feature comparison table vs. competitors.",
-          "tags": [
-            "features",
-            "comparison"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "feature-comparison.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Feature Grid",
-          "path": "Vanilla/Components/Features/feature-grid/",
-          "type": "component",
-          "description": "3-column feature grid with colored icon tiles.",
-          "tags": [
-            "features",
-            "grid",
-            "icons"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "feature-grid.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Icon Features",
-          "path": "Vanilla/Components/Features/feature-icons/",
-          "type": "component",
-          "description": "Compact icon + text feature list in a 4-col grid.",
-          "tags": [
-            "features",
-            "icons",
-            "compact"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "feature-icons.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Feature Timeline",
-          "path": "Vanilla/Components/Features/feature-timeline/",
-          "type": "component",
-          "description": "Vertical/zig-zag timeline doubling as a feature walk.",
-          "tags": [
-            "features",
-            "timeline",
-            "steps"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "feature-timeline.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "features",
-      "tags": [
-        "features",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "features",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Footer",
-      "path": "Vanilla/Components/Footer/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Footer sections: minimal, multi-column, and large newsletter footer.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Large Footer",
-          "path": "Vanilla/Components/Footer/footer-large/",
-          "type": "component",
-          "description": "Large colored footer with newsletter + link groups.",
-          "tags": [
-            "footer",
-            "large",
-            "newsletter"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "footer-large.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Minimal Footer",
-          "path": "Vanilla/Components/Footer/footer-minimal/",
-          "type": "component",
-          "description": "Minimal footer with brand, links and socials.",
-          "tags": [
-            "footer",
-            "minimal"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "footer-minimal.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Multi-column Footer",
-          "path": "Vanilla/Components/Footer/footer-multi-column/",
-          "type": "component",
-          "description": "Multi-column footer with brand + 4 link groups.",
-          "tags": [
-            "footer",
-            "multi-column",
-            "links"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "footer-multi-column.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "footer",
-      "tags": [
-        "footer",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "footer",
-        "neo brutalist",
-        "section",
-        "vanilla"
       ]
     },
     {
@@ -17749,368 +17110,6 @@
       ]
     },
     {
-      "name": "Gallery",
-      "path": "Vanilla/Components/Gallery/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Gallery sections: masonry, portfolio with filters, and project case-study cards.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Masonry Gallery",
-          "path": "Vanilla/Components/Gallery/gallery-masonry/",
-          "type": "component",
-          "description": "CSS masonry gallery with varied aspect ratios.",
-          "tags": [
-            "gallery",
-            "masonry",
-            "images"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "gallery-masonry.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Portfolio",
-          "path": "Vanilla/Components/Gallery/gallery-portfolio/",
-          "type": "component",
-          "description": "Portfolio grid with category filters.",
-          "tags": [
-            "portfolio",
-            "gallery",
-            "filters"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "gallery-portfolio.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Projects",
-          "path": "Vanilla/Components/Gallery/gallery-projects/",
-          "type": "component",
-          "description": "Project case-study cards with tags.",
-          "tags": [
-            "projects",
-            "gallery",
-            "cards"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "gallery-projects.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "gallery",
-      "tags": [
-        "gallery",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "gallery",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Hero",
-      "path": "Vanilla/Components/Hero/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "10 production-ready hero sections (minimal, startup, SaaS, product, gradient, image, split, bento, center, animated).",
-      "variantsCount": 10,
-      "variants": [
-        {
-          "name": "Animated Hero",
-          "path": "Vanilla/Components/Hero/hero-animated/",
-          "type": "component",
-          "description": "Animated rotating-word hero with floating blobs.",
-          "tags": [
-            "hero",
-            "animated",
-            "text-cycle"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-animated.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Bento Hero",
-          "path": "Vanilla/Components/Hero/hero-bento/",
-          "type": "component",
-          "description": "Bento-grid hero summarizing multiple value props at once.",
-          "tags": [
-            "hero",
-            "bento",
-            "grid"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-bento.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Center Hero",
-          "path": "Vanilla/Components/Hero/hero-center/",
-          "type": "component",
-          "description": "Center-stage hero with social proof avatars.",
-          "tags": [
-            "hero",
-            "center",
-            "social-proof"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-center.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Gradient Hero",
-          "path": "Vanilla/Components/Hero/hero-gradient/",
-          "type": "component",
-          "description": "Bold gradient-text hero on a spinning conic backdrop.",
-          "tags": [
-            "hero",
-            "gradient",
-            "colorful",
-            "animated"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-gradient.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Image Hero",
-          "path": "Vanilla/Components/Hero/hero-image/",
-          "type": "component",
-          "description": "Image-led hero with a floating product tag.",
-          "tags": [
-            "hero",
-            "image",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-image.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Minimal Hero",
-          "path": "Vanilla/Components/Hero/hero-minimal/",
-          "type": "component",
-          "description": "A minimal, centered hero with eyebrow, headline, lead and dual CTA.",
-          "tags": [
-            "hero",
-            "minimal",
-            "centered",
-            "cta"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-minimal.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Product Hero",
-          "path": "Vanilla/Components/Hero/hero-product/",
-          "type": "component",
-          "description": "Product hero showcasing three feature shots in a grid.",
-          "tags": [
-            "hero",
-            "product",
-            "showcase"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-product.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "SaaS Hero",
-          "path": "Vanilla/Components/Hero/hero-saas/",
-          "type": "component",
-          "description": "SaaS hero with a floating metric mock and reassurance line.",
-          "tags": [
-            "hero",
-            "saas",
-            "dashboard",
-            "mrr"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-saas.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Split Hero",
-          "path": "Vanilla/Components/Hero/hero-split/",
-          "type": "component",
-          "description": "Two-pane split hero comparing value vs. included features.",
-          "tags": [
-            "hero",
-            "split",
-            "comparison"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-split.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Startup Hero",
-          "path": "Vanilla/Components/Hero/hero-startup/",
-          "type": "component",
-          "description": "Split startup hero with inline stats and a product preview pane.",
-          "tags": [
-            "hero",
-            "startup",
-            "split",
-            "stats"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "hero-startup.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "hero",
-      "tags": [
-        "hero",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "hero",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Loaders",
       "path": "Vanilla/Components/Loaders/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -18324,101 +17323,6 @@
       ],
       "searchTerms": [
         "loaders"
-      ]
-    },
-    {
-      "name": "Logos",
-      "path": "Vanilla/Components/Logos/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Social-proof logo sections: static cloud, infinite marquee, and client cards.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Client Logos",
-          "path": "Vanilla/Components/Logos/logo-clients/",
-          "type": "component",
-          "description": "Client cards with a short quote each.",
-          "tags": [
-            "logos",
-            "clients",
-            "cards"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "logo-clients.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Logo Cloud",
-          "path": "Vanilla/Components/Logos/logo-cloud/",
-          "type": "component",
-          "description": "Static logo cloud grid with hover lift.",
-          "tags": [
-            "logos",
-            "cloud",
-            "social-proof"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "logo-cloud.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Trusted By",
-          "path": "Vanilla/Components/Logos/logo-trusted-by/",
-          "type": "component",
-          "description": "Infinite marquee of client names with edge fades.",
-          "tags": [
-            "logos",
-            "marquee",
-            "animated"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "logo-trusted-by.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "logos",
-      "tags": [
-        "logos",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "logos",
-        "neo brutalist",
-        "section",
-        "vanilla"
       ]
     },
     {
@@ -18876,7 +17780,7 @@
       "type": "component",
       "category": "Components",
       "description": "Vanilla navigation components - breadcrumbs, menus, navbars, pagination, sidebars, scroll-to-top, and sticky headers.",
-      "variantsCount": 17,
+      "variantsCount": 13,
       "variants": [
         {
           "name": "Bottom Navigation",
@@ -19023,80 +17927,6 @@
           ]
         },
         {
-          "name": "Mega Menu",
-          "path": "Vanilla/Components/Navigation/navbar-mega-menu/",
-          "type": "component",
-          "description": "Navbar with a click-to-open mega menu panel.",
-          "tags": [
-            "nav",
-            "navbar",
-            "mega-menu"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "navbar-mega-menu.html"
-          ]
-        },
-        {
-          "name": "Simple Navbar",
-          "path": "Vanilla/Components/Navigation/navbar-simple/",
-          "type": "component",
-          "description": "Simple sticky navbar with a mobile drawer.",
-          "tags": [
-            "nav",
-            "navbar",
-            "responsive",
-            "drawer"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "navbar-simple.html"
-          ]
-        },
-        {
-          "name": "Sticky Navbar",
-          "path": "Vanilla/Components/Navigation/navbar-sticky/",
-          "type": "component",
-          "description": "Sticky navbar with scroll shadow and a slide-in mobile sheet.",
-          "tags": [
-            "nav",
-            "navbar",
-            "sticky",
-            "sheet"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "navbar-sticky.html"
-          ]
-        },
-        {
           "name": "Pagination Component",
           "path": "Vanilla/Components/Navigation/Pagination/pagination-component/",
           "type": "component",
@@ -19201,30 +18031,6 @@
             "README.md",
             "metadata.json",
             "side-navigation.html"
-          ]
-        },
-        {
-          "name": "Sidebar Navigation",
-          "path": "Vanilla/Components/Navigation/sidebar-navigation/",
-          "type": "component",
-          "description": "App sidebar + content area, collapsible on mobile.",
-          "tags": [
-            "nav",
-            "sidebar",
-            "dashboard"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "sidebar-navigation.html"
           ]
         },
         {
@@ -20416,415 +19222,6 @@
       ]
     },
     {
-      "name": "Pricing",
-      "path": "Vanilla/Components/Pricing/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Pricing sections: simple, SaaS with toggle, comparison matrix, and enterprise CTA.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Comparison Pricing",
-          "path": "Vanilla/Components/Pricing/pricing-comparison/",
-          "type": "component",
-          "description": "Full pricing comparison matrix table.",
-          "tags": [
-            "pricing",
-            "comparison"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "pricing-comparison.html"
-          ]
-        },
-        {
-          "name": "Enterprise Pricing",
-          "path": "Vanilla/Components/Pricing/pricing-enterprise/",
-          "type": "component",
-          "description": "Enterprise CTA panel with feature checklist.",
-          "tags": [
-            "pricing",
-            "enterprise",
-            "cta"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "pricing-enterprise.html"
-          ]
-        },
-        {
-          "name": "SaaS Pricing",
-          "path": "Vanilla/Components/Pricing/pricing-saas/",
-          "type": "component",
-          "description": "3-tier SaaS pricing with monthly/yearly toggle.",
-          "tags": [
-            "pricing",
-            "saas",
-            "toggle"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "pricing-saas.html"
-          ]
-        },
-        {
-          "name": "Simple Pricing",
-          "path": "Vanilla/Components/Pricing/pricing-simple/",
-          "type": "component",
-          "description": "Two-plan simple pricing with feature lists.",
-          "tags": [
-            "pricing",
-            "simple",
-            "plans"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "pricing-simple.html"
-          ]
-        }
-      ],
-      "subcategory": "pricing",
-      "tags": [
-        "pricing",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "pricing",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Process",
-      "path": "Vanilla/Components/Process/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Process sections: alternating timeline, horizontal workflow, numbered steps, and how-it-works.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "How It Works",
-          "path": "Vanilla/Components/Process/process-how-it-works/",
-          "type": "component",
-          "description": "Split how-it-works with numbered steps and a preview.",
-          "tags": [
-            "process",
-            "how-it-works",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "process-how-it-works.html"
-          ]
-        },
-        {
-          "name": "Process Steps",
-          "path": "Vanilla/Components/Process/process-steps/",
-          "type": "component",
-          "description": "Numbered step cards in a 4-col grid.",
-          "tags": [
-            "process",
-            "steps",
-            "numbered"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "process-steps.html"
-          ]
-        },
-        {
-          "name": "Process Timeline",
-          "path": "Vanilla/Components/Process/process-timeline/",
-          "type": "component",
-          "description": "Alternating vertical timeline of process steps.",
-          "tags": [
-            "process",
-            "timeline",
-            "steps"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "process-timeline.html"
-          ]
-        },
-        {
-          "name": "Process Workflow",
-          "path": "Vanilla/Components/Process/process-workflow/",
-          "type": "component",
-          "description": "Horizontal (stacked on mobile) workflow with arrows.",
-          "tags": [
-            "process",
-            "workflow",
-            "flow"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "process-workflow.html"
-          ]
-        }
-      ],
-      "subcategory": "process",
-      "tags": [
-        "process",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "process",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Products",
-      "path": "Vanilla/Components/Products/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Product sections: showcase, dashboard preview, mobile app, integrations, roadmap, and changelog.",
-      "variantsCount": 6,
-      "variants": [
-        {
-          "name": "Changelog",
-          "path": "Vanilla/Components/Products/product-changelog/",
-          "type": "component",
-          "description": "Vertical changelog with version tags and timeline.",
-          "tags": [
-            "product",
-            "changelog",
-            "timeline"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-changelog.html"
-          ]
-        },
-        {
-          "name": "Dashboard Preview",
-          "path": "Vanilla/Components/Products/product-dashboard-preview/",
-          "type": "component",
-          "description": "Mock dashboard preview with sidebar, KPIs and a bar chart.",
-          "tags": [
-            "product",
-            "dashboard",
-            "preview"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-dashboard-preview.html"
-          ]
-        },
-        {
-          "name": "Integrations",
-          "path": "Vanilla/Components/Products/product-integrations/",
-          "type": "component",
-          "description": "Grid of integration cards with 'new' tags.",
-          "tags": [
-            "product",
-            "integrations",
-            "grid"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-integrations.html"
-          ]
-        },
-        {
-          "name": "Mobile App Showcase",
-          "path": "Vanilla/Components/Products/product-mobile-app/",
-          "type": "component",
-          "description": "Mobile app showcase with two phone mockups and store buttons.",
-          "tags": [
-            "product",
-            "mobile",
-            "phones"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-mobile-app.html"
-          ]
-        },
-        {
-          "name": "Roadmap",
-          "path": "Vanilla/Components/Products/product-roadmap/",
-          "type": "component",
-          "description": "Three-column roadmap: shipped / in progress / next.",
-          "tags": [
-            "product",
-            "roadmap",
-            "columns"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-roadmap.html"
-          ]
-        },
-        {
-          "name": "Product Showcase",
-          "path": "Vanilla/Components/Products/product-showcase/",
-          "type": "component",
-          "description": "Split product showcase with checklist and device frame.",
-          "tags": [
-            "product",
-            "showcase",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "product-showcase.html"
-          ]
-        }
-      ],
-      "subcategory": "products",
-      "tags": [
-        "products",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "products",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Ratings",
       "path": "Vanilla/Components/Ratings/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -20910,103 +19307,6 @@
       ],
       "searchTerms": [
         "ratings"
-      ]
-    },
-    {
-      "name": "Statistics",
-      "path": "Vanilla/Components/Statistics/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Statistics sections: animated counters, achievement band, and KPI cards with progress bars.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Achievement Numbers",
-          "path": "Vanilla/Components/Statistics/stats-achievement-numbers/",
-          "type": "component",
-          "description": "Bold achievement stats on a colored band.",
-          "tags": [
-            "stats",
-            "achievements",
-            "band"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "stats-achievement-numbers.html"
-          ]
-        },
-        {
-          "name": "Stats Grid",
-          "path": "Vanilla/Components/Statistics/stats-grid/",
-          "type": "component",
-          "description": "4 colored stat tiles with animated counters.",
-          "tags": [
-            "stats",
-            "counters",
-            "animated"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "stats-grid.html"
-          ]
-        },
-        {
-          "name": "KPI Cards",
-          "path": "Vanilla/Components/Statistics/stats-kpi-cards/",
-          "type": "component",
-          "description": "KPI cards with trend chips and progress bars.",
-          "tags": [
-            "stats",
-            "kpi",
-            "cards"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "stats-kpi-cards.html"
-          ]
-        }
-      ],
-      "subcategory": "statistics",
-      "tags": [
-        "statistics",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "statistics",
-        "neo brutalist",
-        "section",
-        "vanilla"
       ]
     },
     {
@@ -21239,223 +19539,6 @@
       ]
     },
     {
-      "name": "Team",
-      "path": "Vanilla/Components/Team/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Team sections: member grid, leadership cards, and advisor strip.",
-      "variantsCount": 3,
-      "variants": [
-        {
-          "name": "Advisors",
-          "path": "Vanilla/Components/Team/team-advisors/",
-          "type": "component",
-          "description": "Compact advisor strip with initials and prior roles.",
-          "tags": [
-            "team",
-            "advisors",
-            "strip"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "team-advisors.html"
-          ]
-        },
-        {
-          "name": "Team Grid",
-          "path": "Vanilla/Components/Team/team-grid/",
-          "type": "component",
-          "description": "Team member grid with avatar placeholders and social links.",
-          "tags": [
-            "team",
-            "grid",
-            "members"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "team-grid.html"
-          ]
-        },
-        {
-          "name": "Leadership",
-          "path": "Vanilla/Components/Team/team-leadership/",
-          "type": "component",
-          "description": "Leadership cards with initials, role and tenure.",
-          "tags": [
-            "team",
-            "leadership",
-            "exec"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "team-leadership.html"
-          ]
-        }
-      ],
-      "subcategory": "team",
-      "tags": [
-        "team",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "team",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
-      "name": "Testimonials",
-      "path": "Vanilla/Components/Testimonials/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "component",
-      "category": "Components",
-      "description": "Testimonial sections: cards, auto-rotating carousel, masonry wall, and video layout.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Testimonial Cards",
-          "path": "Vanilla/Components/Testimonials/testimonials-cards/",
-          "type": "component",
-          "description": "3-column testimonial cards with star ratings.",
-          "tags": [
-            "testimonials",
-            "cards",
-            "ratings"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "testimonials-cards.html"
-          ]
-        },
-        {
-          "name": "Testimonial Carousel",
-          "path": "Vanilla/Components/Testimonials/testimonials-carousel/",
-          "type": "component",
-          "description": "Auto-rotating carousel with dots and arrows.",
-          "tags": [
-            "testimonials",
-            "carousel",
-            "slider"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "testimonials-carousel.html"
-          ]
-        },
-        {
-          "name": "Testimonial Masonry",
-          "path": "Vanilla/Components/Testimonials/testimonials-masonry/",
-          "type": "component",
-          "description": "Masonry wall of testimonials of varying heights.",
-          "tags": [
-            "testimonials",
-            "masonry",
-            "wall"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "testimonials-masonry.html"
-          ]
-        },
-        {
-          "name": "Video Testimonial",
-          "path": "Vanilla/Components/Testimonials/testimonials-video/",
-          "type": "component",
-          "description": "Video testimonial layout with play button and stats.",
-          "tags": [
-            "testimonials",
-            "video",
-            "feature"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "metadata.json",
-            "testimonials-video.html"
-          ]
-        }
-      ],
-      "subcategory": "testimonials",
-      "tags": [
-        "testimonials",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "testimonials",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Tooltips",
       "path": "Vanilla/Components/Tooltips/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -21514,6 +19597,1960 @@
       ],
       "searchTerms": [
         "tooltips"
+      ]
+    },
+    {
+      "name": "CTA",
+      "path": "Vanilla/Sections/CTA/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Banner CTA",
+          "path": "Vanilla/Sections/CTA/cta-banner/",
+          "type": "section",
+          "description": "Bold banner CTA on a colored panel with blobs.",
+          "tags": [
+            "cta",
+            "banner",
+            "gradient"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "cta-banner.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Download CTA",
+          "path": "Vanilla/Sections/CTA/cta-download/",
+          "type": "section",
+          "description": "Download CTA with store buttons and a QR mock.",
+          "tags": [
+            "cta",
+            "download",
+            "qr"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "cta-download.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Newsletter CTA",
+          "path": "Vanilla/Sections/CTA/cta-newsletter/",
+          "type": "section",
+          "description": "Newsletter signup CTA with consent checkbox.",
+          "tags": [
+            "cta",
+            "newsletter",
+            "form"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "cta-newsletter.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Split CTA",
+          "path": "Vanilla/Sections/CTA/cta-split/",
+          "type": "section",
+          "description": "Two-pane split CTA (offer + actions).",
+          "tags": [
+            "cta",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "cta-split.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "cta",
+      "tags": [
+        "cta",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "cta",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Contact",
+      "path": "Vanilla/Sections/Contact/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Contact sections: split form, routing cards, and office locations with time zones.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Contact Cards",
+          "path": "Vanilla/Sections/Contact/contact-cards/",
+          "type": "section",
+          "description": "Contact routing cards (sales/security/careers).",
+          "tags": [
+            "contact",
+            "cards"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "contact-cards.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Contact Form",
+          "path": "Vanilla/Sections/Contact/contact-form/",
+          "type": "section",
+          "description": "Split contact section with info + accessible form.",
+          "tags": [
+            "contact",
+            "form",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "contact-form.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Office Locations",
+          "path": "Vanilla/Sections/Contact/contact-office-locations/",
+          "type": "section",
+          "description": "Office location cards with time zones.",
+          "tags": [
+            "contact",
+            "offices",
+            "locations"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "contact-office-locations.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "contact",
+      "tags": [
+        "contact",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "contact",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Content",
+      "path": "Vanilla/Sections/Content/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Content sections: blog grid, featured articles, documentation preview, and resources.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Blog Grid",
+          "path": "Vanilla/Sections/Content/content-blog-grid/",
+          "type": "section",
+          "description": "3-up blog post cards with category badges.",
+          "tags": [
+            "blog",
+            "grid",
+            "cards"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "content-blog-grid.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Documentation Preview",
+          "path": "Vanilla/Sections/Content/content-documentation-preview/",
+          "type": "section",
+          "description": "Docs layout with sidebar nav and a code block.",
+          "tags": [
+            "docs",
+            "documentation",
+            "sidebar"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "content-documentation-preview.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Featured Articles",
+          "path": "Vanilla/Sections/Content/content-featured-articles/",
+          "type": "section",
+          "description": "Featured article + side list of recent posts.",
+          "tags": [
+            "blog",
+            "featured",
+            "editorial"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "content-featured-articles.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Resources",
+          "path": "Vanilla/Sections/Content/content-resources/",
+          "type": "section",
+          "description": "Filterable resources grid with type tags.",
+          "tags": [
+            "resources",
+            "grid",
+            "filters"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "content-resources.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "content",
+      "tags": [
+        "content",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "content",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "FAQ",
+      "path": "Vanilla/Sections/FAQ/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "FAQ sections: accessible single-open accordion and searchable + filterable FAQ.",
+      "variantsCount": 2,
+      "variants": [
+        {
+          "name": "Accordion FAQ",
+          "path": "Vanilla/Sections/FAQ/faq-accordion/",
+          "type": "section",
+          "description": "Accessible single-open accordion FAQ.",
+          "tags": [
+            "faq",
+            "accordion"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "faq-accordion.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Searchable FAQ",
+          "path": "Vanilla/Sections/FAQ/faq-searchable/",
+          "type": "section",
+          "description": "Searchable + category-filterable FAQ.",
+          "tags": [
+            "faq",
+            "search",
+            "filter"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "faq-searchable.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "faq",
+      "tags": [
+        "faq",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "faq",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Features",
+      "path": "Vanilla/Sections/Features/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Feature presentation sections: grid, icons, bento, timeline, and comparison table.",
+      "variantsCount": 5,
+      "variants": [
+        {
+          "name": "Bento Features",
+          "path": "Vanilla/Sections/Features/feature-bento/",
+          "type": "section",
+          "description": "Bento feature grid mixing tile sizes and colors.",
+          "tags": [
+            "features",
+            "bento",
+            "grid"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "feature-bento.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Comparison Features",
+          "path": "Vanilla/Sections/Features/feature-comparison/",
+          "type": "section",
+          "description": "Feature comparison table vs. competitors.",
+          "tags": [
+            "features",
+            "comparison"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "feature-comparison.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Feature Grid",
+          "path": "Vanilla/Sections/Features/feature-grid/",
+          "type": "section",
+          "description": "3-column feature grid with colored icon tiles.",
+          "tags": [
+            "features",
+            "grid",
+            "icons"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "feature-grid.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Icon Features",
+          "path": "Vanilla/Sections/Features/feature-icons/",
+          "type": "section",
+          "description": "Compact icon + text feature list in a 4-col grid.",
+          "tags": [
+            "features",
+            "icons",
+            "compact"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "feature-icons.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Feature Timeline",
+          "path": "Vanilla/Sections/Features/feature-timeline/",
+          "type": "section",
+          "description": "Vertical/zig-zag timeline doubling as a feature walk.",
+          "tags": [
+            "features",
+            "timeline",
+            "steps"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "feature-timeline.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "features",
+      "tags": [
+        "features",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "features",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Footer",
+      "path": "Vanilla/Sections/Footer/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Footer sections: minimal, multi-column, and large newsletter footer.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Large Footer",
+          "path": "Vanilla/Sections/Footer/footer-large/",
+          "type": "section",
+          "description": "Large colored footer with newsletter + link groups.",
+          "tags": [
+            "footer",
+            "large",
+            "newsletter"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "footer-large.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Minimal Footer",
+          "path": "Vanilla/Sections/Footer/footer-minimal/",
+          "type": "section",
+          "description": "Minimal footer with brand, links and socials.",
+          "tags": [
+            "footer",
+            "minimal"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "footer-minimal.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Multi-column Footer",
+          "path": "Vanilla/Sections/Footer/footer-multi-column/",
+          "type": "section",
+          "description": "Multi-column footer with brand + 4 link groups.",
+          "tags": [
+            "footer",
+            "multi-column",
+            "links"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "footer-multi-column.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "footer",
+      "tags": [
+        "footer",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "footer",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Gallery",
+      "path": "Vanilla/Sections/Gallery/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Gallery sections: masonry, portfolio with filters, and project case-study cards.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Masonry Gallery",
+          "path": "Vanilla/Sections/Gallery/gallery-masonry/",
+          "type": "section",
+          "description": "CSS masonry gallery with varied aspect ratios.",
+          "tags": [
+            "gallery",
+            "masonry",
+            "images"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "gallery-masonry.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Portfolio",
+          "path": "Vanilla/Sections/Gallery/gallery-portfolio/",
+          "type": "section",
+          "description": "Portfolio grid with category filters.",
+          "tags": [
+            "portfolio",
+            "gallery",
+            "filters"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "gallery-portfolio.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Projects",
+          "path": "Vanilla/Sections/Gallery/gallery-projects/",
+          "type": "section",
+          "description": "Project case-study cards with tags.",
+          "tags": [
+            "projects",
+            "gallery",
+            "cards"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "gallery-projects.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "gallery",
+      "tags": [
+        "gallery",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "gallery",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Hero",
+      "path": "Vanilla/Sections/Hero/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "10 production-ready hero sections (minimal, startup, SaaS, product, gradient, image, split, bento, center, animated).",
+      "variantsCount": 10,
+      "variants": [
+        {
+          "name": "Animated Hero",
+          "path": "Vanilla/Sections/Hero/hero-animated/",
+          "type": "section",
+          "description": "Animated rotating-word hero with floating blobs.",
+          "tags": [
+            "hero",
+            "animated",
+            "text-cycle"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-animated.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Bento Hero",
+          "path": "Vanilla/Sections/Hero/hero-bento/",
+          "type": "section",
+          "description": "Bento-grid hero summarizing multiple value props at once.",
+          "tags": [
+            "hero",
+            "bento",
+            "grid"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-bento.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Center Hero",
+          "path": "Vanilla/Sections/Hero/hero-center/",
+          "type": "section",
+          "description": "Center-stage hero with social proof avatars.",
+          "tags": [
+            "hero",
+            "center",
+            "social-proof"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-center.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Gradient Hero",
+          "path": "Vanilla/Sections/Hero/hero-gradient/",
+          "type": "section",
+          "description": "Bold gradient-text hero on a spinning conic backdrop.",
+          "tags": [
+            "hero",
+            "gradient",
+            "colorful",
+            "animated"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-gradient.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Image Hero",
+          "path": "Vanilla/Sections/Hero/hero-image/",
+          "type": "section",
+          "description": "Image-led hero with a floating product tag.",
+          "tags": [
+            "hero",
+            "image",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-image.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Minimal Hero",
+          "path": "Vanilla/Sections/Hero/hero-minimal/",
+          "type": "section",
+          "description": "A minimal, centered hero with eyebrow, headline, lead and dual CTA.",
+          "tags": [
+            "hero",
+            "minimal",
+            "centered",
+            "cta"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-minimal.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Product Hero",
+          "path": "Vanilla/Sections/Hero/hero-product/",
+          "type": "section",
+          "description": "Product hero showcasing three feature shots in a grid.",
+          "tags": [
+            "hero",
+            "product",
+            "showcase"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-product.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "SaaS Hero",
+          "path": "Vanilla/Sections/Hero/hero-saas/",
+          "type": "section",
+          "description": "SaaS hero with a floating metric mock and reassurance line.",
+          "tags": [
+            "hero",
+            "saas",
+            "dashboard",
+            "mrr"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-saas.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Split Hero",
+          "path": "Vanilla/Sections/Hero/hero-split/",
+          "type": "section",
+          "description": "Two-pane split hero comparing value vs. included features.",
+          "tags": [
+            "hero",
+            "split",
+            "comparison"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-split.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Startup Hero",
+          "path": "Vanilla/Sections/Hero/hero-startup/",
+          "type": "section",
+          "description": "Split startup hero with inline stats and a product preview pane.",
+          "tags": [
+            "hero",
+            "startup",
+            "split",
+            "stats"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "hero-startup.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "hero",
+      "tags": [
+        "hero",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "hero",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Logos",
+      "path": "Vanilla/Sections/Logos/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Social-proof logo sections: static cloud, infinite marquee, and client cards.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Client Logos",
+          "path": "Vanilla/Sections/Logos/logo-clients/",
+          "type": "section",
+          "description": "Client cards with a short quote each.",
+          "tags": [
+            "logos",
+            "clients",
+            "cards"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "logo-clients.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Logo Cloud",
+          "path": "Vanilla/Sections/Logos/logo-cloud/",
+          "type": "section",
+          "description": "Static logo cloud grid with hover lift.",
+          "tags": [
+            "logos",
+            "cloud",
+            "social-proof"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "logo-cloud.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Trusted By",
+          "path": "Vanilla/Sections/Logos/logo-trusted-by/",
+          "type": "section",
+          "description": "Infinite marquee of client names with edge fades.",
+          "tags": [
+            "logos",
+            "marquee",
+            "animated"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "logo-trusted-by.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "logos",
+      "tags": [
+        "logos",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "logos",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Navigation (Sections)",
+      "path": "Vanilla/Sections/Navigation/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Neo-brutalist navigation page sections — simple, sticky, and mega-menu navbars plus a sidebar layout.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Mega Menu",
+          "path": "Vanilla/Sections/Navigation/navbar-mega-menu/",
+          "type": "section",
+          "description": "Navbar with a click-to-open mega menu panel.",
+          "tags": [
+            "nav",
+            "navbar",
+            "mega-menu"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "navbar-mega-menu.html"
+          ]
+        },
+        {
+          "name": "Simple Navbar",
+          "path": "Vanilla/Sections/Navigation/navbar-simple/",
+          "type": "section",
+          "description": "Simple sticky navbar with a mobile drawer.",
+          "tags": [
+            "nav",
+            "navbar",
+            "responsive",
+            "drawer"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "navbar-simple.html"
+          ]
+        },
+        {
+          "name": "Sticky Navbar",
+          "path": "Vanilla/Sections/Navigation/navbar-sticky/",
+          "type": "section",
+          "description": "Sticky navbar with scroll shadow and a slide-in mobile sheet.",
+          "tags": [
+            "nav",
+            "navbar",
+            "sticky",
+            "sheet"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "navbar-sticky.html"
+          ]
+        },
+        {
+          "name": "Sidebar Navigation",
+          "path": "Vanilla/Sections/Navigation/sidebar-navigation/",
+          "type": "section",
+          "description": "App sidebar + content area, collapsible on mobile.",
+          "tags": [
+            "nav",
+            "sidebar",
+            "dashboard"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "sidebar-navigation.html"
+          ]
+        }
+      ],
+      "subcategory": "navigation",
+      "tags": [
+        "animation",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "loader",
+        "menu",
+        "navbar",
+        "navigation",
+        "other",
+        "pagination",
+        "parallax",
+        "responsive",
+        "scroll",
+        "semantic"
+      ],
+      "searchTerms": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "Pricing",
+      "path": "Vanilla/Sections/Pricing/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Pricing sections: simple, SaaS with toggle, comparison matrix, and enterprise CTA.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Comparison Pricing",
+          "path": "Vanilla/Sections/Pricing/pricing-comparison/",
+          "type": "section",
+          "description": "Full pricing comparison matrix table.",
+          "tags": [
+            "pricing",
+            "comparison"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "pricing-comparison.html"
+          ]
+        },
+        {
+          "name": "Enterprise Pricing",
+          "path": "Vanilla/Sections/Pricing/pricing-enterprise/",
+          "type": "section",
+          "description": "Enterprise CTA panel with feature checklist.",
+          "tags": [
+            "pricing",
+            "enterprise",
+            "cta"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "pricing-enterprise.html"
+          ]
+        },
+        {
+          "name": "SaaS Pricing",
+          "path": "Vanilla/Sections/Pricing/pricing-saas/",
+          "type": "section",
+          "description": "3-tier SaaS pricing with monthly/yearly toggle.",
+          "tags": [
+            "pricing",
+            "saas",
+            "toggle"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "pricing-saas.html"
+          ]
+        },
+        {
+          "name": "Simple Pricing",
+          "path": "Vanilla/Sections/Pricing/pricing-simple/",
+          "type": "section",
+          "description": "Two-plan simple pricing with feature lists.",
+          "tags": [
+            "pricing",
+            "simple",
+            "plans"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "pricing-simple.html"
+          ]
+        }
+      ],
+      "subcategory": "pricing",
+      "tags": [
+        "pricing",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "pricing",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Process",
+      "path": "Vanilla/Sections/Process/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Process sections: alternating timeline, horizontal workflow, numbered steps, and how-it-works.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "How It Works",
+          "path": "Vanilla/Sections/Process/process-how-it-works/",
+          "type": "section",
+          "description": "Split how-it-works with numbered steps and a preview.",
+          "tags": [
+            "process",
+            "how-it-works",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "process-how-it-works.html"
+          ]
+        },
+        {
+          "name": "Process Steps",
+          "path": "Vanilla/Sections/Process/process-steps/",
+          "type": "section",
+          "description": "Numbered step cards in a 4-col grid.",
+          "tags": [
+            "process",
+            "steps",
+            "numbered"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "process-steps.html"
+          ]
+        },
+        {
+          "name": "Process Timeline",
+          "path": "Vanilla/Sections/Process/process-timeline/",
+          "type": "section",
+          "description": "Alternating vertical timeline of process steps.",
+          "tags": [
+            "process",
+            "timeline",
+            "steps"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "process-timeline.html"
+          ]
+        },
+        {
+          "name": "Process Workflow",
+          "path": "Vanilla/Sections/Process/process-workflow/",
+          "type": "section",
+          "description": "Horizontal (stacked on mobile) workflow with arrows.",
+          "tags": [
+            "process",
+            "workflow",
+            "flow"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "process-workflow.html"
+          ]
+        }
+      ],
+      "subcategory": "process",
+      "tags": [
+        "process",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "process",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Products",
+      "path": "Vanilla/Sections/Products/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Product sections: showcase, dashboard preview, mobile app, integrations, roadmap, and changelog.",
+      "variantsCount": 6,
+      "variants": [
+        {
+          "name": "Changelog",
+          "path": "Vanilla/Sections/Products/product-changelog/",
+          "type": "section",
+          "description": "Vertical changelog with version tags and timeline.",
+          "tags": [
+            "product",
+            "changelog",
+            "timeline"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-changelog.html"
+          ]
+        },
+        {
+          "name": "Dashboard Preview",
+          "path": "Vanilla/Sections/Products/product-dashboard-preview/",
+          "type": "section",
+          "description": "Mock dashboard preview with sidebar, KPIs and a bar chart.",
+          "tags": [
+            "product",
+            "dashboard",
+            "preview"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-dashboard-preview.html"
+          ]
+        },
+        {
+          "name": "Integrations",
+          "path": "Vanilla/Sections/Products/product-integrations/",
+          "type": "section",
+          "description": "Grid of integration cards with 'new' tags.",
+          "tags": [
+            "product",
+            "integrations",
+            "grid"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-integrations.html"
+          ]
+        },
+        {
+          "name": "Mobile App Showcase",
+          "path": "Vanilla/Sections/Products/product-mobile-app/",
+          "type": "section",
+          "description": "Mobile app showcase with two phone mockups and store buttons.",
+          "tags": [
+            "product",
+            "mobile",
+            "phones"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-mobile-app.html"
+          ]
+        },
+        {
+          "name": "Roadmap",
+          "path": "Vanilla/Sections/Products/product-roadmap/",
+          "type": "section",
+          "description": "Three-column roadmap: shipped / in progress / next.",
+          "tags": [
+            "product",
+            "roadmap",
+            "columns"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-roadmap.html"
+          ]
+        },
+        {
+          "name": "Product Showcase",
+          "path": "Vanilla/Sections/Products/product-showcase/",
+          "type": "section",
+          "description": "Split product showcase with checklist and device frame.",
+          "tags": [
+            "product",
+            "showcase",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "product-showcase.html"
+          ]
+        }
+      ],
+      "subcategory": "products",
+      "tags": [
+        "products",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "products",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Statistics",
+      "path": "Vanilla/Sections/Statistics/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Statistics sections: animated counters, achievement band, and KPI cards with progress bars.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Achievement Numbers",
+          "path": "Vanilla/Sections/Statistics/stats-achievement-numbers/",
+          "type": "section",
+          "description": "Bold achievement stats on a colored band.",
+          "tags": [
+            "stats",
+            "achievements",
+            "band"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "stats-achievement-numbers.html"
+          ]
+        },
+        {
+          "name": "Stats Grid",
+          "path": "Vanilla/Sections/Statistics/stats-grid/",
+          "type": "section",
+          "description": "4 colored stat tiles with animated counters.",
+          "tags": [
+            "stats",
+            "counters",
+            "animated"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "stats-grid.html"
+          ]
+        },
+        {
+          "name": "KPI Cards",
+          "path": "Vanilla/Sections/Statistics/stats-kpi-cards/",
+          "type": "section",
+          "description": "KPI cards with trend chips and progress bars.",
+          "tags": [
+            "stats",
+            "kpi",
+            "cards"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "stats-kpi-cards.html"
+          ]
+        }
+      ],
+      "subcategory": "statistics",
+      "tags": [
+        "statistics",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "statistics",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Team",
+      "path": "Vanilla/Sections/Team/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Team sections: member grid, leadership cards, and advisor strip.",
+      "variantsCount": 3,
+      "variants": [
+        {
+          "name": "Advisors",
+          "path": "Vanilla/Sections/Team/team-advisors/",
+          "type": "section",
+          "description": "Compact advisor strip with initials and prior roles.",
+          "tags": [
+            "team",
+            "advisors",
+            "strip"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "team-advisors.html"
+          ]
+        },
+        {
+          "name": "Team Grid",
+          "path": "Vanilla/Sections/Team/team-grid/",
+          "type": "section",
+          "description": "Team member grid with avatar placeholders and social links.",
+          "tags": [
+            "team",
+            "grid",
+            "members"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "team-grid.html"
+          ]
+        },
+        {
+          "name": "Leadership",
+          "path": "Vanilla/Sections/Team/team-leadership/",
+          "type": "section",
+          "description": "Leadership cards with initials, role and tenure.",
+          "tags": [
+            "team",
+            "leadership",
+            "exec"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "team-leadership.html"
+          ]
+        }
+      ],
+      "subcategory": "team",
+      "tags": [
+        "team",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "team",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "Testimonials",
+      "path": "Vanilla/Sections/Testimonials/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Testimonial sections: cards, auto-rotating carousel, masonry wall, and video layout.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Testimonial Cards",
+          "path": "Vanilla/Sections/Testimonials/testimonials-cards/",
+          "type": "section",
+          "description": "3-column testimonial cards with star ratings.",
+          "tags": [
+            "testimonials",
+            "cards",
+            "ratings"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "testimonials-cards.html"
+          ]
+        },
+        {
+          "name": "Testimonial Carousel",
+          "path": "Vanilla/Sections/Testimonials/testimonials-carousel/",
+          "type": "section",
+          "description": "Auto-rotating carousel with dots and arrows.",
+          "tags": [
+            "testimonials",
+            "carousel",
+            "slider"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "testimonials-carousel.html"
+          ]
+        },
+        {
+          "name": "Testimonial Masonry",
+          "path": "Vanilla/Sections/Testimonials/testimonials-masonry/",
+          "type": "section",
+          "description": "Masonry wall of testimonials of varying heights.",
+          "tags": [
+            "testimonials",
+            "masonry",
+            "wall"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "testimonials-masonry.html"
+          ]
+        },
+        {
+          "name": "Video Testimonial",
+          "path": "Vanilla/Sections/Testimonials/testimonials-video/",
+          "type": "section",
+          "description": "Video testimonial layout with play button and stats.",
+          "tags": [
+            "testimonials",
+            "video",
+            "feature"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "metadata.json",
+            "testimonials-video.html"
+          ]
+        }
+      ],
+      "subcategory": "testimonials",
+      "tags": [
+        "testimonials",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "testimonials",
+        "neo brutalist",
+        "section",
+        "vanilla"
       ]
     },
     {
@@ -22258,33 +22295,34 @@
         "Avatars",
         "Badges",
         "Buttons",
-        "CTA",
         "Cards",
-        "Contact",
-        "Content",
         "Display",
-        "FAQ",
-        "Features",
-        "Footer",
         "Forms",
-        "Gallery",
-        "Hero",
         "Loaders",
-        "Logos",
         "Media",
         "Modals",
         "Navigation",
         "Other",
+        "Ratings",
+        "Tables",
+        "Tabs",
+        "Tooltips",
+        "CTA",
+        "Contact",
+        "Content",
+        "FAQ",
+        "Features",
+        "Footer",
+        "Gallery",
+        "Hero",
+        "Logos",
+        "Navigation (Sections)",
         "Pricing",
         "Process",
         "Products",
-        "Ratings",
         "Statistics",
-        "Tables",
-        "Tabs",
         "Team",
         "Testimonials",
-        "Tooltips",
         "Agency",
         "Documentation Site",
         "Job Board",
