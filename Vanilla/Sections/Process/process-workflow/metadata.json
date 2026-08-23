@@ -1,0 +1,45 @@
+{
+  "id": "process-workflow-001",
+  "name": "Process Workflow",
+  "slug": "process-workflow",
+  "component": "proces",
+  "family": "process",
+  "variant": "process-workflow",
+  "description": "Horizontal (stacked on mobile) workflow with arrows.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "technology": "vanilla",
+  "category": "sections",
+  "type": "section",
+  "subcategory": "process",
+  "tags": [
+    "process",
+    "workflow",
+    "flow"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "browserSupport": [
+    "chrome",
+    "firefox",
+    "safari",
+    "edge"
+  ],
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}

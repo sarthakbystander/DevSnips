@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo-Brutalist Sections | DevSnips</title>
+<meta name="description" content="65 production-ready Neo-Brutalist vanilla HTML/CSS/JS website sections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>  :root{
+    --bg:#fbfbf9;--surface:#fff;--fg:#0a0a0a;--muted:#525252;--border:#0a0a0a;
+    --primary:#4f46e5;--accent:#facc15;--pink:#ec4899;--lime:#a3e635;--cyan:#22d3ee;
+    --shadow:4px 4px 0 var(--border);--shadow-lg:8px 8px 0 var(--border);
+  }
+  @media(prefers-color-scheme:dark){
+    :root{--bg:#0a0a0a;--surface:#151515;--fg:#fafafa;--muted:#a3a3a3;--border:#fafafa}
+  }
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);margin:0;line-height:1.6}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+  header{border-bottom:3px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+  header .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.15rem;text-decoration:none;color:inherit}
+  .brand .mark{width:30px;height:30px;background:var(--primary);border:3px solid var(--border);border-radius:8px;box-shadow:var(--shadow)}
+  .hero{padding:70px 0 40px;text-align:center}
+  .hero h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:900;letter-spacing:-.02em;margin:14px 0}
+  .hero p{color:var(--muted);max-width:60ch;margin:0 auto 24px}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;border:2px solid var(--border);background:var(--surface);padding:6px 12px;border-radius:999px;box-shadow:var(--shadow)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;border:3px solid var(--border);border-radius:6px;padding:12px 20px;background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+  .btn.outline{background:var(--surface);color:inherit}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:30px 0}
+  .filters button{font:inherit;font-weight:700;border:3px solid var(--border);background:var(--surface);padding:7px 14px;border-radius:999px;cursor:pointer;box-shadow:var(--shadow)}
+  .filters button[aria-pressed=true]{background:var(--primary);color:#fff}
+  .grid{display:grid;gap:16px;grid-template-columns:1fr;padding-bottom:80px}
+  @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+  .card{display:block;border:3px solid var(--border);border-radius:10px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;text-decoration:none;color:inherit;transition:transform .14s,box-shadow .14s}
+  .card:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-lg)}
+  .card .ph{aspect-ratio:16/9;display:grid;place-items:center;font-weight:800;border-bottom:3px solid var(--border)}
+  .card .body{padding:16px}
+  .card .tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .card h3{font-size:1.05rem;margin:4px 0}
+  .card p{font-size:.85rem;color:var(--muted);margin:0}
+  .count{font-size:.8rem;color:var(--muted)}
+  footer{border-top:3px solid var(--border);text-align:center;padding:30px;color:var(--muted);font-size:.85rem}
+
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="row">
+<a class="brand" href="#"><span class="mark"></span> DevSnips · Sections</a>
+<a class="btn outline" href="sections-showcase.html">View live showcase →</a>
+</div></div></header>
+<section class="hero"><div class="wrap">
+<span class="eyebrow">65 sections · 16 families</span>
+<h1>Neo-Brutalist UI sections.</h1>
+<p>A premium, framework-free library of copy-paste website sections. Bold borders, hard shadows, flat colors. Light & dark. Mobile-first.</p>
+<a class="btn" href="sections-showcase.html">Open live showcase</a>
+</div></section>
+<div class="wrap">
+<div class="filters" role="group" aria-label="Filter by family"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false" data-f="Hero">Hero</button><button type="button" aria-pressed="false" data-f="Navigation">Navigation</button><button type="button" aria-pressed="false" data-f="Features">Features</button><button type="button" aria-pressed="false" data-f="Logos">Logos</button><button type="button" aria-pressed="false" data-f="Statistics">Statistics</button><button type="button" aria-pressed="false" data-f="Products">Products</button><button type="button" aria-pressed="false" data-f="Pricing">Pricing</button><button type="button" aria-pressed="false" data-f="Testimonials">Testimonials</button><button type="button" aria-pressed="false" data-f="Team">Team</button><button type="button" aria-pressed="false" data-f="Process">Process</button><button type="button" aria-pressed="false" data-f="Content">Content</button><button type="button" aria-pressed="false" data-f="Gallery">Gallery</button><button type="button" aria-pressed="false" data-f="FAQ">FAQ</button><button type="button" aria-pressed="false" data-f="CTA">CTA</button><button type="button" aria-pressed="false" data-f="Contact">Contact</button><button type="button" aria-pressed="false" data-f="Footer">Footer</button></div>
+<p class="count" id="count">65 sections</p>
+<div class="grid" id="grid">
+<a class="card" href="Hero/hero-minimal/hero-minimal.html" data-fam="Hero"><div class="ph" style="background:var(--primary);color:#fff">H</div><div class="body"><span class="tag">Hero</span><h3>Minimal Hero</h3><p>hero-minimal</p></div></a>
+<a class="card" href="Hero/hero-startup/hero-startup.html" data-fam="Hero"><div class="ph" style="background:var(--accent);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Startup Hero</h3><p>hero-startup</p></div></a>
+<a class="card" href="Hero/hero-saas/hero-saas.html" data-fam="Hero"><div class="ph" style="background:var(--pink);color:#fff">H</div><div class="body"><span class="tag">Hero</span><h3>SaaS Hero</h3><p>hero-saas</p></div></a>
+<a class="card" href="Hero/hero-product/hero-product.html" data-fam="Hero"><div class="ph" style="background:var(--lime);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Product Hero</h3><p>hero-product</p></div></a>
+<a class="card" href="Hero/hero-gradient/hero-gradient.html" data-fam="Hero"><div class="ph" style="background:var(--cyan);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Gradient Hero</h3><p>hero-gradient</p></div></a>
+<a class="card" href="Hero/hero-image/hero-image.html" data-fam="Hero"><div class="ph" style="background:var(--primary);color:#fff">H</div><div class="body"><span class="tag">Hero</span><h3>Image Hero</h3><p>hero-image</p></div></a>
+<a class="card" href="Hero/hero-split/hero-split.html" data-fam="Hero"><div class="ph" style="background:var(--accent);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Split Hero</h3><p>hero-split</p></div></a>
+<a class="card" href="Hero/hero-bento/hero-bento.html" data-fam="Hero"><div class="ph" style="background:var(--pink);color:#fff">H</div><div class="body"><span class="tag">Hero</span><h3>Bento Hero</h3><p>hero-bento</p></div></a>
+<a class="card" href="Hero/hero-center/hero-center.html" data-fam="Hero"><div class="ph" style="background:var(--lime);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Center Hero</h3><p>hero-center</p></div></a>
+<a class="card" href="Hero/hero-animated/hero-animated.html" data-fam="Hero"><div class="ph" style="background:var(--cyan);color:#0a0a0a">H</div><div class="body"><span class="tag">Hero</span><h3>Animated Hero</h3><p>hero-animated</p></div></a>
+<a class="card" href="Navigation/navbar-simple/navbar-simple.html" data-fam="Navigation"><div class="ph" style="background:var(--primary);color:#fff">N</div><div class="body"><span class="tag">Navigation</span><h3>Simple Navbar</h3><p>navbar-simple</p></div></a>
+<a class="card" href="Navigation/navbar-sticky/navbar-sticky.html" data-fam="Navigation"><div class="ph" style="background:var(--accent);color:#0a0a0a">N</div><div class="body"><span class="tag">Navigation</span><h3>Sticky Navbar</h3><p>navbar-sticky</p></div></a>
+<a class="card" href="Navigation/navbar-mega-menu/navbar-mega-menu.html" data-fam="Navigation"><div class="ph" style="background:var(--pink);color:#fff">N</div><div class="body"><span class="tag">Navigation</span><h3>Mega Menu</h3><p>navbar-mega-menu</p></div></a>
+<a class="card" href="Navigation/sidebar-navigation/sidebar-navigation.html" data-fam="Navigation"><div class="ph" style="background:var(--lime);color:#0a0a0a">N</div><div class="body"><span class="tag">Navigation</span><h3>Sidebar Navigation</h3><p>sidebar-navigation</p></div></a>
+<a class="card" href="Features/feature-grid/feature-grid.html" data-fam="Features"><div class="ph" style="background:var(--cyan);color:#0a0a0a">F</div><div class="body"><span class="tag">Features</span><h3>Feature Grid</h3><p>feature-grid</p></div></a>
+<a class="card" href="Features/feature-icons/feature-icons.html" data-fam="Features"><div class="ph" style="background:var(--primary);color:#fff">F</div><div class="body"><span class="tag">Features</span><h3>Icon Features</h3><p>feature-icons</p></div></a>
+<a class="card" href="Features/feature-bento/feature-bento.html" data-fam="Features"><div class="ph" style="background:var(--accent);color:#0a0a0a">F</div><div class="body"><span class="tag">Features</span><h3>Bento Features</h3><p>feature-bento</p></div></a>
+<a class="card" href="Features/feature-timeline/feature-timeline.html" data-fam="Features"><div class="ph" style="background:var(--pink);color:#fff">F</div><div class="body"><span class="tag">Features</span><h3>Feature Timeline</h3><p>feature-timeline</p></div></a>
+<a class="card" href="Features/feature-comparison/feature-comparison.html" data-fam="Features"><div class="ph" style="background:var(--lime);color:#0a0a0a">F</div><div class="body"><span class="tag">Features</span><h3>Comparison Features</h3><p>feature-comparison</p></div></a>
+<a class="card" href="Logos/logo-cloud/logo-cloud.html" data-fam="Logos"><div class="ph" style="background:var(--cyan);color:#0a0a0a">L</div><div class="body"><span class="tag">Logos</span><h3>Logo Cloud</h3><p>logo-cloud</p></div></a>
+<a class="card" href="Logos/logo-trusted-by/logo-trusted-by.html" data-fam="Logos"><div class="ph" style="background:var(--primary);color:#fff">L</div><div class="body"><span class="tag">Logos</span><h3>Trusted By</h3><p>logo-trusted-by</p></div></a>
+<a class="card" href="Logos/logo-clients/logo-clients.html" data-fam="Logos"><div class="ph" style="background:var(--accent);color:#0a0a0a">L</div><div class="body"><span class="tag">Logos</span><h3>Client Logos</h3><p>logo-clients</p></div></a>
+<a class="card" href="Statistics/stats-grid/stats-grid.html" data-fam="Statistics"><div class="ph" style="background:var(--pink);color:#fff">S</div><div class="body"><span class="tag">Statistics</span><h3>Stats Grid</h3><p>stats-grid</p></div></a>
+<a class="card" href="Statistics/stats-achievement-numbers/stats-achievement-numbers.html" data-fam="Statistics"><div class="ph" style="background:var(--lime);color:#0a0a0a">S</div><div class="body"><span class="tag">Statistics</span><h3>Achievement Numbers</h3><p>stats-achievement-numbers</p></div></a>
+<a class="card" href="Statistics/stats-kpi-cards/stats-kpi-cards.html" data-fam="Statistics"><div class="ph" style="background:var(--cyan);color:#0a0a0a">S</div><div class="body"><span class="tag">Statistics</span><h3>KPI Cards</h3><p>stats-kpi-cards</p></div></a>
+<a class="card" href="Products/product-showcase/product-showcase.html" data-fam="Products"><div class="ph" style="background:var(--primary);color:#fff">P</div><div class="body"><span class="tag">Products</span><h3>Product Showcase</h3><p>product-showcase</p></div></a>
+<a class="card" href="Products/product-dashboard-preview/product-dashboard-preview.html" data-fam="Products"><div class="ph" style="background:var(--accent);color:#0a0a0a">P</div><div class="body"><span class="tag">Products</span><h3>Dashboard Preview</h3><p>product-dashboard-preview</p></div></a>
+<a class="card" href="Products/product-mobile-app/product-mobile-app.html" data-fam="Products"><div class="ph" style="background:var(--pink);color:#fff">P</div><div class="body"><span class="tag">Products</span><h3>Mobile App Showcase</h3><p>product-mobile-app</p></div></a>
+<a class="card" href="Products/product-integrations/product-integrations.html" data-fam="Products"><div class="ph" style="background:var(--lime);color:#0a0a0a">P</div><div class="body"><span class="tag">Products</span><h3>Integrations</h3><p>product-integrations</p></div></a>
+<a class="card" href="Products/product-roadmap/product-roadmap.html" data-fam="Products"><div class="ph" style="background:var(--cyan);color:#0a0a0a">P</div><div class="body"><span class="tag">Products</span><h3>Roadmap</h3><p>product-roadmap</p></div></a>
+<a class="card" href="Products/product-changelog/product-changelog.html" data-fam="Products"><div class="ph" style="background:var(--primary);color:#fff">P</div><div class="body"><span class="tag">Products</span><h3>Changelog</h3><p>product-changelog</p></div></a>
+<a class="card" href="Pricing/pricing-simple/pricing-simple.html" data-fam="Pricing"><div class="ph" style="background:var(--accent);color:#0a0a0a">P</div><div class="body"><span class="tag">Pricing</span><h3>Simple Pricing</h3><p>pricing-simple</p></div></a>
+<a class="card" href="Pricing/pricing-saas/pricing-saas.html" data-fam="Pricing"><div class="ph" style="background:var(--pink);color:#fff">P</div><div class="body"><span class="tag">Pricing</span><h3>SaaS Pricing</h3><p>pricing-saas</p></div></a>
+<a class="card" href="Pricing/pricing-comparison/pricing-comparison.html" data-fam="Pricing"><div class="ph" style="background:var(--lime);color:#0a0a0a">P</div><div class="body"><span class="tag">Pricing</span><h3>Comparison Pricing</h3><p>pricing-comparison</p></div></a>
+<a class="card" href="Pricing/pricing-enterprise/pricing-enterprise.html" data-fam="Pricing"><div class="ph" style="background:var(--cyan);color:#0a0a0a">P</div><div class="body"><span class="tag">Pricing</span><h3>Enterprise Pricing</h3><p>pricing-enterprise</p></div></a>
+<a class="card" href="Testimonials/testimonials-cards/testimonials-cards.html" data-fam="Testimonials"><div class="ph" style="background:var(--primary);color:#fff">T</div><div class="body"><span class="tag">Testimonials</span><h3>Testimonial Cards</h3><p>testimonials-cards</p></div></a>
+<a class="card" href="Testimonials/testimonials-carousel/testimonials-carousel.html" data-fam="Testimonials"><div class="ph" style="background:var(--accent);color:#0a0a0a">T</div><div class="body"><span class="tag">Testimonials</span><h3>Testimonial Carousel</h3><p>testimonials-carousel</p></div></a>
+<a class="card" href="Testimonials/testimonials-masonry/testimonials-masonry.html" data-fam="Testimonials"><div class="ph" style="background:var(--pink);color:#fff">T</div><div class="body"><span class="tag">Testimonials</span><h3>Testimonial Masonry</h3><p>testimonials-masonry</p></div></a>
+<a class="card" href="Testimonials/testimonials-video/testimonials-video.html" data-fam="Testimonials"><div class="ph" style="background:var(--lime);color:#0a0a0a">T</div><div class="body"><span class="tag">Testimonials</span><h3>Video Testimonial</h3><p>testimonials-video</p></div></a>
+<a class="card" href="Team/team-grid/team-grid.html" data-fam="Team"><div class="ph" style="background:var(--cyan);color:#0a0a0a">T</div><div class="body"><span class="tag">Team</span><h3>Team Grid</h3><p>team-grid</p></div></a>
+<a class="card" href="Team/team-leadership/team-leadership.html" data-fam="Team"><div class="ph" style="background:var(--primary);color:#fff">T</div><div class="body"><span class="tag">Team</span><h3>Leadership</h3><p>team-leadership</p></div></a>
+<a class="card" href="Team/team-advisors/team-advisors.html" data-fam="Team"><div class="ph" style="background:var(--accent);color:#0a0a0a">T</div><div class="body"><span class="tag">Team</span><h3>Advisors</h3><p>team-advisors</p></div></a>
+<a class="card" href="Process/process-timeline/process-timeline.html" data-fam="Process"><div class="ph" style="background:var(--pink);color:#fff">P</div><div class="body"><span class="tag">Process</span><h3>Process Timeline</h3><p>process-timeline</p></div></a>
+<a class="card" href="Process/process-workflow/process-workflow.html" data-fam="Process"><div class="ph" style="background:var(--lime);color:#0a0a0a">P</div><div class="body"><span class="tag">Process</span><h3>Process Workflow</h3><p>process-workflow</p></div></a>
+<a class="card" href="Process/process-steps/process-steps.html" data-fam="Process"><div class="ph" style="background:var(--cyan);color:#0a0a0a">P</div><div class="body"><span class="tag">Process</span><h3>Process Steps</h3><p>process-steps</p></div></a>
+<a class="card" href="Process/process-how-it-works/process-how-it-works.html" data-fam="Process"><div class="ph" style="background:var(--primary);color:#fff">P</div><div class="body"><span class="tag">Process</span><h3>How It Works</h3><p>process-how-it-works</p></div></a>
+<a class="card" href="Content/content-blog-grid/content-blog-grid.html" data-fam="Content"><div class="ph" style="background:var(--accent);color:#0a0a0a">C</div><div class="body"><span class="tag">Content</span><h3>Blog Grid</h3><p>content-blog-grid</p></div></a>
+<a class="card" href="Content/content-featured-articles/content-featured-articles.html" data-fam="Content"><div class="ph" style="background:var(--pink);color:#fff">C</div><div class="body"><span class="tag">Content</span><h3>Featured Articles</h3><p>content-featured-articles</p></div></a>
+<a class="card" href="Content/content-documentation-preview/content-documentation-preview.html" data-fam="Content"><div class="ph" style="background:var(--lime);color:#0a0a0a">C</div><div class="body"><span class="tag">Content</span><h3>Documentation Preview</h3><p>content-documentation-preview</p></div></a>
+<a class="card" href="Content/content-resources/content-resources.html" data-fam="Content"><div class="ph" style="background:var(--cyan);color:#0a0a0a">C</div><div class="body"><span class="tag">Content</span><h3>Resources</h3><p>content-resources</p></div></a>
+<a class="card" href="Gallery/gallery-masonry/gallery-masonry.html" data-fam="Gallery"><div class="ph" style="background:var(--primary);color:#fff">G</div><div class="body"><span class="tag">Gallery</span><h3>Masonry Gallery</h3><p>gallery-masonry</p></div></a>
+<a class="card" href="Gallery/gallery-portfolio/gallery-portfolio.html" data-fam="Gallery"><div class="ph" style="background:var(--accent);color:#0a0a0a">G</div><div class="body"><span class="tag">Gallery</span><h3>Portfolio</h3><p>gallery-portfolio</p></div></a>
+<a class="card" href="Gallery/gallery-projects/gallery-projects.html" data-fam="Gallery"><div class="ph" style="background:var(--pink);color:#fff">G</div><div class="body"><span class="tag">Gallery</span><h3>Projects</h3><p>gallery-projects</p></div></a>
+<a class="card" href="FAQ/faq-accordion/faq-accordion.html" data-fam="FAQ"><div class="ph" style="background:var(--lime);color:#0a0a0a">F</div><div class="body"><span class="tag">FAQ</span><h3>Accordion FAQ</h3><p>faq-accordion</p></div></a>
+<a class="card" href="FAQ/faq-searchable/faq-searchable.html" data-fam="FAQ"><div class="ph" style="background:var(--cyan);color:#0a0a0a">F</div><div class="body"><span class="tag">FAQ</span><h3>Searchable FAQ</h3><p>faq-searchable</p></div></a>
+<a class="card" href="CTA/cta-banner/cta-banner.html" data-fam="CTA"><div class="ph" style="background:var(--primary);color:#fff">C</div><div class="body"><span class="tag">CTA</span><h3>Banner CTA</h3><p>cta-banner</p></div></a>
+<a class="card" href="CTA/cta-split/cta-split.html" data-fam="CTA"><div class="ph" style="background:var(--accent);color:#0a0a0a">C</div><div class="body"><span class="tag">CTA</span><h3>Split CTA</h3><p>cta-split</p></div></a>
+<a class="card" href="CTA/cta-download/cta-download.html" data-fam="CTA"><div class="ph" style="background:var(--pink);color:#fff">C</div><div class="body"><span class="tag">CTA</span><h3>Download CTA</h3><p>cta-download</p></div></a>
+<a class="card" href="CTA/cta-newsletter/cta-newsletter.html" data-fam="CTA"><div class="ph" style="background:var(--lime);color:#0a0a0a">C</div><div class="body"><span class="tag">CTA</span><h3>Newsletter CTA</h3><p>cta-newsletter</p></div></a>
+<a class="card" href="Contact/contact-form/contact-form.html" data-fam="Contact"><div class="ph" style="background:var(--cyan);color:#0a0a0a">C</div><div class="body"><span class="tag">Contact</span><h3>Contact Form</h3><p>contact-form</p></div></a>
+<a class="card" href="Contact/contact-cards/contact-cards.html" data-fam="Contact"><div class="ph" style="background:var(--primary);color:#fff">C</div><div class="body"><span class="tag">Contact</span><h3>Contact Cards</h3><p>contact-cards</p></div></a>
+<a class="card" href="Contact/contact-office-locations/contact-office-locations.html" data-fam="Contact"><div class="ph" style="background:var(--accent);color:#0a0a0a">C</div><div class="body"><span class="tag">Contact</span><h3>Office Locations</h3><p>contact-office-locations</p></div></a>
+<a class="card" href="Footer/footer-minimal/footer-minimal.html" data-fam="Footer"><div class="ph" style="background:var(--pink);color:#fff">F</div><div class="body"><span class="tag">Footer</span><h3>Minimal Footer</h3><p>footer-minimal</p></div></a>
+<a class="card" href="Footer/footer-multi-column/footer-multi-column.html" data-fam="Footer"><div class="ph" style="background:var(--lime);color:#0a0a0a">F</div><div class="body"><span class="tag">Footer</span><h3>Multi-column Footer</h3><p>footer-multi-column</p></div></a>
+<a class="card" href="Footer/footer-large/footer-large.html" data-fam="Footer"><div class="ph" style="background:var(--cyan);color:#0a0a0a">F</div><div class="body"><span class="tag">Footer</span><h3>Large Footer</h3><p>footer-large</p></div></a>
+</div>
+</div>
+<footer><div class="wrap">© 2026 DevSnips · Built with vanilla HTML, CSS & JS · No frameworks</div></footer>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.filters button'));
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var count=document.getElementById('count');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.dataset.f||'All';
+      btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===b))});
+      var shown=0;
+      cards.forEach(function(c){
+        var show=f==='All'||c.dataset.fam===f;
+        c.style.display=show?'':'none';if(show)shown++;
+      });
+      count.textContent=shown+' section'+(shown===1?'':'s');
+    });
+  });
+})();
+</script>
+</body>
+</html>
