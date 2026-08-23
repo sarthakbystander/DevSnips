@@ -632,6 +632,30 @@ Sections follow the React Components stack exactly:
 - **No layout shift**: media reserves `aspect-ratio`; fonts are system-stack by default so there is no FOUT-driven reflow.
 - **No runtime layout measurement** for static layouts; measure-in-effect patterns only where interaction genuinely requires them.
 
+### 16.1 Required files per variant (L1/L2)
+
+Every section variant folder ships exactly:
+
+```
+React/Sections/<Family>/<variant-slug>/
+├── code.tsx          ← authored, single source of truth
+├── metadata.json     ← declares family, direction, token compliance (§17.13)
+└── preview.html      ← generated, self-contained runnable demo
+```
+
+`code.tsx` is the only authored file; `preview.html` is **generated from it** — never hand-edited.
+
+### 16.2 preview.html standard (L1)
+
+Each `preview.html` is a self-contained, double-click-runnable demo that renders the **actual** `code.tsx` (not a copy, not a mock), following the React Components preview architecture:
+
+- **Stack**: Tailwind CDN + React 18 UMD + Babel standalone — the same runtime the React Components previews use. No build step, no bundler, no network API calls.
+- **Tokens**: the canonical `--ds-*` token block (light + dark `[data-theme="dark"]`) is inlined before paint, identical to the React Components previews, so the section renders exactly as it would inside a consuming app.
+- **Fidelity**: `code.tsx` is inlined after a deterministic transform (types stripped, imports/exports removed) so the preview is byte-identical in behavior and classes to the shipped source.
+- **Mount**: sections render **full-bleed** (a section is a full-width page region — it MUST NOT be squeezed into a constrained component-showcase column).
+- **Theme toggle**: a persisted, no-flash light/dark page toggle is required, so both themes are demonstrable. Directions that pin a theme mapping (§4.3 Dark Premium) keep their pin on the section root and are shown holding it across page-theme toggles.
+- **Generation**: previews are produced by the family's `_gen_react_sections_*` generator (modeled on `_gen_react_buttons.py`); `--check` mode flags drift and fails CI. Build-time tools (esbuild) stay outside the repo.
+
 ---
 
 ## 17. CONSISTENCY INVARIANTS (machine-checkable)
@@ -700,6 +724,7 @@ A section is shippable only when **every** gate passes:
 | 10 | Content | §15 realism review passes; §18 checklist is empty |
 | 11 | Console | Zero console errors/warnings at all QA widths |
 | 12 | Metadata | `metadata.json` complete and valid |
+| 13 | Preview | `preview.html` exists, renders the actual `code.tsx` full-bleed, matches the generator output (`--check` clean), and passes §12 responsive + both-theme rendering in the preview shell |
 
 ---
 
@@ -711,7 +736,7 @@ Before creating any React Section:
 2. Choose the direction (Minimal / Dark Premium / Bento / Neo-Brutalist) and apply its §4 override set — nothing outside it.
 3. Compose from existing React Components and semantic tokens.
 4. Do not invent visual values; if truly unavoidable, document the exception in the section's README (a SHOULD-level deviation requires this).
-5. Verify against §19 gates 1–12 before submitting.
+5. Verify against §19 gates 1–13 before submitting (including generating `preview.html` per §16.1–§16.2).
 6. After implementation, re-read §17 and §18 and check the result line by line.
 
 ---
