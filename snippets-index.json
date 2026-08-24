@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 666,
+    "totalVariants": 667,
     "totalSubVariants": 0,
-    "totalStyles": 1499,
+    "totalStyles": 1500,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 257,
+      "component": 258,
       "section": 200,
       "template": 10
     },
@@ -7894,8 +7894,8 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Complete toast notification family with 6 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
-      "variantsCount": 6,
+      "description": "Complete toast notification family with 7 production-ready variants covering every feedback use case from basic auto-dismiss to persistent progress and stacked queues",
+      "variantsCount": 7,
       "variants": [
         {
           "name": "Action Toast",
@@ -7925,6 +7925,41 @@
             "Undo action",
             "Destructive feedback",
             "Reversible"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Glass Toast",
+          "path": "Tailwind/Components/Toasts/glass-toast/",
+          "type": "component",
+          "description": "Frosted-glass notification toasts in the glassmorphism design language — translucent backdrop-blur panels with semantic glowing accents, a live countdown progress bar, and pause-on-hover, presented over an animated aurora mesh backdrop.",
+          "tags": [
+            "toast",
+            "notification",
+            "glassmorphism",
+            "glass",
+            "aurora",
+            "dark",
+            "countdown",
+            "feedback"
+          ],
+          "features": [
+            "glassmorphism design language",
+            "frosted backdrop-blur surfaces",
+            "animated aurora mesh backdrop",
+            "4 semantic types with glowing accents",
+            "countdown progress bar",
+            "pause on hover",
+            "role=alert for errors/warnings",
+            "role=status for success/info",
+            "aria-live polite region",
+            "prefers-reduced-motion safe",
+            "focus-visible ring",
+            "responsive"
           ],
           "files": [
             "code.html",
