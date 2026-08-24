@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * DevSnips React Testimonials — Story composition (Dark Premium direction).
+ * DevSnips React Testimonials — Dark Premium direction (customer-story composition).
  *
  * The case-study composition: an asymmetric 4/8 split of 12 (§10.2) with a
  * customer evidence card on the left (wordmark, company facts as a real

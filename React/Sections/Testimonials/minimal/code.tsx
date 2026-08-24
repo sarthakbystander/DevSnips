@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * DevSnips React Testimonials — Grid composition (Minimal direction).
+ * DevSnips React Testimonials — Minimal direction (even-grid composition).
  *
  * The reference composition for the Testimonials family: a left-aligned
  * header block above an even grid of six peer testimonials (3 columns at

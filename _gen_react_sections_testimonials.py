@@ -17,14 +17,17 @@ Hero/Features sections generators (`_gen_react_sections_hero.py`,
 
 Sections render full-bleed between the topbar and footer (a section is a
 full-width page region, not a showcase column). The Dark Premium variant
-(`story`) pins `data-theme="dark"` on its own root, so the page toggle
-demonstrates it holding its theme mapping in both page themes.
+(`dark-premium`) pins `data-theme="dark"` on its own root, so the page
+toggle demonstrates it holding its theme mapping in both page themes.
+
+The family ships exactly the four DevSnips visual directions:
+`minimal`, `dark-premium`, `bento`, `neo-brutalist`.
 
 esbuild (build-time-only tool, NOT committed) must be installed at
 /tmp/dsbuild — same requirement as the other `_gen_react_*` generators.
 
 Usage:
-    python3 _gen_react_sections_testimonials.py          # write all 8 previews
+    python3 _gen_react_sections_testimonials.py          # write all 4 previews
     python3 _gen_react_sections_testimonials.py --check  # detect drift, exit 1
 """
 
@@ -46,50 +49,26 @@ TESTIMONIALS_DIR = ROOT / "React" / "Sections" / "Testimonials"
 # slug -> (display title, preview lede). Keyed by folder name so the
 # generator refuses to proceed if a folder disappears.
 VARIANTS = {
-    "grid": (
-        "Testimonials — Grid",
-        "The reference composition (Minimal): a left-aligned header block "
-        "above an even grid of six peer testimonials — quote, initials "
-        "avatar, name, role, company — separated by whitespace alone.",
+    "minimal": (
+        "Testimonials — Minimal",
+        "The reference direction: a left-aligned header block above an "
+        "even grid of six peer testimonials — quote, initials avatar, "
+        "name, role, company — separated by whitespace alone, never "
+        "cards. Clean, editorial, typography-driven.",
     ),
-    "featured": (
-        "Testimonials — Featured",
-        "One voice, amplified: a 7/5 split pairing the featured quote with "
-        "a bordered evidence panel — three outcome metrics, company "
-        "context, and the story link.",
-    ),
-    "quote": (
-        "Testimonials — Quote",
-        "The maximum-restraint composition: one oversized editorial quote "
-        "in a narrow container, centered, with typography doing all of "
-        "the work — no cards, no borders, no artifacts.",
-    ),
-    "rows": (
-        "Testimonials — Rows",
-        "The high-density composition: six short testimonials as "
-        "hairline-divided rows — company wordmark, one-sentence quote, "
-        "attribution — built for scanning many voices quickly.",
+    "dark-premium": (
+        "Testimonials — Dark Premium",
+        "A customer-story composition on a pinned dark canvas: an "
+        "asymmetric 4/8 split with a customer evidence card (facts, "
+        "outcome metrics) beside a first-person narrative and a ruled "
+        "pull-quote. The section pins the dark theme mapping on its own "
+        "root — toggle the page theme to see it hold.",
     ),
     "bento": (
         "Testimonials — Bento",
         "Mixed-weight social proof in a 12-column cell grid: one hero "
         "quote cell, one outcome-stat cell, three supporting quotes. "
         "Uniform gap, one radius, border-only hover lift.",
-    ),
-    "carousel": (
-        "Testimonials — Carousel",
-        "One testimonial at a time behind real carousel semantics: "
-        "prev/next buttons, a slide-picker with aria-current, "
-        "Arrow/Home/End keyboard support, and an aria-live announcement — "
-        "never auto-rotating.",
-    ),
-    "story": (
-        "Testimonials — Story",
-        "The case-study composition (Dark Premium): an asymmetric 4/8 "
-        "split with a customer evidence card beside a first-person "
-        "narrative and a ruled pull-quote. The section pins the dark "
-        "theme mapping on its own root — toggle the page theme to see "
-        "it hold.",
     ),
     "neo-brutalist": (
         "Testimonials — Neo-Brutalist",

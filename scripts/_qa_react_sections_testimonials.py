@@ -11,17 +11,16 @@ Verifies behavior-critical guarantees (not cosmetics):
   - structure: exactly one h2 per section, section aria-labelledby points at
     it, every testimonial is a real blockquote, avatars are aria-hidden
   - themes: light/dark page toggle flips computed section surface + text
-    colors; the Dark Premium `story` variant keeps its pinned dark mapping
+    colors; the `dark-premium` variant keeps its pinned dark mapping
     in both page themes
   - focus: keyboard focus shows a 2px focus-visible outline on interactive
     elements (bento is intentionally action-free and asserts none)
   - motion: prefers-reduced-motion kills transitions
-  - carousel variant: carousel/slide roles, positional labels, prev/next +
-    dot clicks, ArrowLeft/ArrowRight/Home/End keyboard navigation with
-    wrap-around, aria-current on the active dot, aria-live announcement,
-    inactive slides hidden
   - generator: `_gen_react_sections_testimonials.py --check` reports no
     drift; `scripts/validate.py` passes
+
+The family ships exactly the four DevSnips visual directions; this script
+also asserts no other variant directories exist.
 
 Run from the repo root with a static server on :8765:
 
@@ -39,13 +38,9 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "http://localhost:8765/React/Sections/Testimonials/"
 SLUGS = [
-    "grid",
-    "featured",
-    "quote",
-    "rows",
+    "minimal",
+    "dark-premium",
     "bento",
-    "carousel",
-    "story",
     "neo-brutalist",
 ]
 WIDTHS = [320, 375, 768, 1024, 1280, 1440]
@@ -71,6 +66,12 @@ def static_checks() -> None:
     hex_lit = re.compile(r"#[0-9a-fA-F]{3,8}\b")
     emoji = re.compile(
         "[\U0001F000-\U0001FAFF☀-➿\U00020000-\U0002FFFF]", re.UNICODE
+    )
+    family_dir = ROOT / "React" / "Sections" / "Testimonials"
+    dirs = sorted(p.name for p in family_dir.iterdir() if p.is_dir())
+    check(
+        dirs == sorted(SLUGS),
+        f"family contains exactly the four direction variants, got {dirs}",
     )
     for slug in SLUGS:
         folder = ROOT / "React" / "Sections" / "Testimonials" / slug
@@ -188,14 +189,14 @@ def browser_checks() -> None:
 
             light_bg, light_fg = section_colors("light")
             dark_bg, dark_fg = section_colors("dark")
-            if slug == "story":
+            if slug == "dark-premium":
                 check(
                     light_bg == dark_bg and light_fg == dark_fg,
-                    "story: pinned dark mapping holds across page themes",
+                    "dark-premium: pinned dark mapping holds across page themes",
                 )
                 check(
                     light_bg != "rgb(250, 250, 250)",
-                    "story: section is actually dark in a light page theme",
+                    "dark-premium: section is actually dark in a light page theme",
                 )
             else:
                 check(
@@ -240,114 +241,6 @@ def browser_checks() -> None:
             check(errors == [], f"{slug}: zero console errors, got {errors[:3]}")
             page.close()
 
-        # Carousel interaction model.
-        page = browser.new_page()
-        errors = []
-        page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
-        page.on("pageerror", lambda e: errors.append(str(e)))
-        page.goto(BASE + "carousel/preview.html", wait_until="networkidle")
-        page.wait_for_selector("section [aria-roledescription='carousel']", timeout=15000)
-
-        slides = page.query_selector_all("#ds-root section [aria-roledescription='slide']")
-        check(len(slides) == 4, f"carousel: 4 slides (got {len(slides)})")
-        labels = [s.get_attribute("aria-label") for s in slides]
-        check(
-            labels == ["1 of 4", "2 of 4", "3 of 4", "4 of 4"],
-            f"carousel: positional slide labels (got {labels})",
-        )
-        hidden_states = [s.get_attribute("hidden") is not None for s in slides]
-        check(
-            hidden_states == [False, True, True, True],
-            f"carousel: only first slide visible initially (got {hidden_states})",
-        )
-
-        live = page.evaluate(
-            "document.querySelector('#ds-root section [aria-live=\"polite\"]').textContent"
-        )
-        check(
-            "Testimonial 1 of 4" in live and "Yuki Tanaka" in live,
-            f"carousel: aria-live announces first slide (got {live!r})",
-        )
-
-        dots = page.query_selector_all("#ds-root section [aria-label^='Go to testimonial']")
-        check(len(dots) == 4, f"carousel: 4 picker dots (got {len(dots)})")
-        currents = [d.get_attribute("aria-current") for d in dots]
-        check(
-            currents == ["true", None, None, None],
-            f"carousel: aria-current on first dot (got {currents})",
-        )
-
-        next_btn = page.query_selector("#ds-root section [aria-label='Next testimonial']")
-        prev_btn = page.query_selector("#ds-root section [aria-label='Previous testimonial']")
-        check(next_btn is not None and prev_btn is not None, "carousel: prev/next buttons present")
-
-        next_btn.click()
-        visible_after_next = page.evaluate(
-            """[...document.querySelectorAll("#ds-root section [aria-roledescription='slide']")]
-               .map(s => !s.hasAttribute('hidden'))"""
-        )
-        check(
-            visible_after_next == [False, True, False, False],
-            f"carousel: Next shows slide 2 (got {visible_after_next})",
-        )
-        currents = [d.get_attribute("aria-current") for d in page.query_selector_all("#ds-root section [aria-label^='Go to testimonial']")]
-        check(
-            currents == [None, "true", None, None],
-            f"carousel: aria-current follows Next (got {currents})",
-        )
-
-        prev_btn.click()
-        visible_after_prev = page.evaluate(
-            """[...document.querySelectorAll("#ds-root section [aria-roledescription='slide']")]
-               .map(s => !s.hasAttribute('hidden'))"""
-        )
-        check(
-            visible_after_prev == [True, False, False, False],
-            "carousel: Previous returns to slide 1",
-        )
-
-        # Keyboard: ArrowRight from last wraps to first; Home/End jump.
-        dots[3].click()
-        check(
-            page.query_selector_all("#ds-root section [aria-roledescription='slide']")[3].get_attribute("hidden") is None,
-            "carousel: dot click shows slide 4",
-        )
-        page.keyboard.press("ArrowRight")
-        check(
-            page.query_selector_all("#ds-root section [aria-roledescription='slide']")[0].get_attribute("hidden") is None,
-            "carousel: ArrowRight wraps last -> first",
-        )
-        page.keyboard.press("ArrowLeft")
-        check(
-            page.query_selector_all("#ds-root section [aria-roledescription='slide']")[3].get_attribute("hidden") is None,
-            "carousel: ArrowLeft wraps first -> last",
-        )
-        page.keyboard.press("Home")
-        check(
-            page.query_selector_all("#ds-root section [aria-roledescription='slide']")[0].get_attribute("hidden") is None,
-            "carousel: Home jumps to first",
-        )
-        page.keyboard.press("End")
-        check(
-            page.query_selector_all("#ds-root section [aria-roledescription='slide']")[3].get_attribute("hidden") is None,
-            "carousel: End jumps to last",
-        )
-        live = page.evaluate(
-            "document.querySelector('#ds-root section [aria-live=\"polite\"]').textContent"
-        )
-        check(
-            "Testimonial 4 of 4" in live and "Sam Whitfield" in live,
-            f"carousel: aria-live follows keyboard navigation (got {live!r})",
-        )
-
-        # Focus ring on a carousel control.
-        next_btn.focus()
-        outline = next_btn.evaluate("el => getComputedStyle(el).outlineWidth")
-        check(outline == "2px", f"carousel: focus-visible 2px outline on controls (got {outline})")
-
-        check(errors == [], f"carousel: zero console errors, got {errors[:3]}")
-        page.close()
-        browser.close()
 
 
 def generator_checks() -> None:

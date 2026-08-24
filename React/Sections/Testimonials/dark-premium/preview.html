@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Testimonials — Rows — DevSnips React Sections</title>
+<title>Testimonials — Dark Premium — DevSnips React Sections</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -215,20 +215,20 @@
 <body>
 <div class="ds-page">
   <header class="ds-topbar">
-    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Testimonials / rows</span></div>
+    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Testimonials / dark-premium</span></div>
     <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false">
       <span id="ds-theme-label">Dark</span>
     </button>
   </header>
   <div class="ds-intro">
     <p class="ds-eyebrow">React Sections · Testimonials</p>
-    <h1 class="ds-title">Testimonials — Rows</h1>
-    <p class="ds-lede">The high-density composition: six short testimonials as hairline-divided rows — company wordmark, one-sentence quote, attribution — built for scanning many voices quickly.</p>
+    <h1 class="ds-title">Testimonials — Dark Premium</h1>
+    <p class="ds-lede">A customer-story composition on a pinned dark canvas: an asymmetric 4/8 split with a customer evidence card (facts, outcome metrics) beside a first-person narrative and a ruled pull-quote. The section pins the dark theme mapping on its own root — toggle the page theme to see it hold.</p>
   </div>
   <main class="ds-stage">
     <div id="ds-root"></div>
   </main>
-  <footer class="ds-footer">DevSnips React · Sections · Testimonials · <code>rows</code> · live render of code.tsx</footer>
+  <footer class="ds-footer">DevSnips React · Sections · Testimonials · <code>dark-premium</code> · live render of code.tsx</footer>
 </div>
 <script>
 (function(){
@@ -251,53 +251,38 @@
   const {  useId  } = React;
   const FOCUS_RING = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]";
   const LINK_CLASSES = "text-sm font-semibold leading-5 text-[var(--ds-color-link)] underline underline-offset-4 transition-colors duration-150 ease-out hover:text-[var(--ds-color-link-hover)] motion-reduce:transition-none " + FOCUS_RING;
-  const DEFAULT_TESTIMONIALS = [
-    {
-      company: "Stonecutter",
-      quote: "Rollbacks went from a runbook page to a button. Our on-call stress dropped measurably.",
-      name: "Rachel Kim",
-      role: "SRE Lead"
-    },
-    {
-      company: "Willowmark",
-      quote: "The deploy graph is the first thing I open every morning.",
-      name: "Devang Patel",
-      role: "Platform Engineer"
-    },
-    {
-      company: "Redfern",
-      quote: "We audit who deployed what in seconds. Compliance reviews used to take a week.",
-      name: "Omar Farouk",
-      role: "Security Engineer"
-    },
-    {
-      company: "Ashdown",
-      quote: "Preview environments for every pull request ended our staging-server queue entirely.",
-      name: "Hanna Lindqvist",
-      role: "Engineering Manager"
-    },
-    {
-      company: "Copperwood",
-      quote: "Migrated sixty services in a month. The importer read our old pipeline YAML without complaint.",
-      name: "Chris Doan",
-      role: "Staff Engineer"
-    },
-    {
-      company: "Vessel",
-      quote: "Deploy infrastructure that respects your existing tooling instead of replacing it.",
-      name: "Grace Njoroge",
-      role: "CTO"
-    }
+  const DEFAULT_FACTS = [
+    { label: "Industry", value: "Freight logistics" },
+    { label: "Engineers", value: "210" },
+    { label: "Infrastructure", value: "Multi-region AWS" },
+    { label: "Customer since", value: "2023" }
+  ];
+  const DEFAULT_METRICS = [
+    { value: "31%", label: "Idle cloud spend eliminated in one quarter" },
+    { value: "$214k", label: "Annualized savings at current usage" },
+    { value: "2 wks", label: "From connect to first accepted recommendation" }
+  ];
+  const DEFAULT_PARAGRAPHS = [
+    "Our bill had grown with the business for three years, and every review ended the same way: a spreadsheet, a shrug, and a promise to look again next quarter. Ballast was the first tool that didn't just show us the waste \u2014 it showed us which team owned it and what changing it would break.",
+    "The difference is that recommendations arrive as pull requests. An engineer reviews the diff, sees the blast radius, and merges. Finance gets the savings report without a meeting, and we got a quarter of our infrastructure budget back without a single late night."
   ];
   function TestimonialsSection({
-    eyebrow = "What teams say",
-    heading = "Six teams, one deploy platform.",
-    lede = "Patchbay orchestrates deploys for teams that would rather ship than babysit pipelines.",
-    testimonials = DEFAULT_TESTIMONIALS,
-    link = { label: "Read all customer stories", href: "#customers" }
+    eyebrow = "Customer story",
+    heading = "How Vessel cut idle cloud spend by 31% in one quarter.",
+    company = "Vessel",
+    companyDescription = "Freight logistics platform moving 1.2M shipments a month",
+    facts = DEFAULT_FACTS,
+    metrics = DEFAULT_METRICS,
+    paragraphs = DEFAULT_PARAGRAPHS,
+    pullQuote = "Recommendations arrive as pull requests. An engineer reviews the diff and merges \u2014 nobody schedules a cost review meeting anymore.",
+    name = "Laura Chen",
+    initials = "LC",
+    role = "VP of Platform Engineering",
+    link = { label: "Read the full case study", href: "#customers/vessel" }
   }) {
     const headingId = useId();
     return <section
+      data-theme="dark"
       aria-labelledby={headingId}
       className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]"
     >
@@ -312,34 +297,82 @@
     >
               {heading}
             </h2>
-            <p className="mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]">
-              {lede}
-            </p>
           </div>
 
-          <ul className="mt-12 divide-y divide-[var(--ds-color-border)] border-y border-[var(--ds-color-border)] lg:mt-16">
-            {testimonials.map((testimonial) => <li
-      key={testimonial.company}
-      className="grid grid-cols-1 gap-2 py-6 sm:grid-cols-12 sm:items-baseline sm:gap-8"
+          <div className="mt-12 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-8 lg:order-2">
+              <figure>
+                <blockquote className="space-y-6">
+                  {paragraphs.map((paragraph) => <p
+      key={paragraph.slice(0, 32)}
+      className="text-base leading-7 text-[var(--ds-color-muted-foreground)]"
     >
-                <p className="text-sm font-semibold leading-5 sm:col-span-3">
-                  {testimonial.company}
-                </p>
-                <blockquote className="sm:col-span-6">
-                  <p className="text-sm leading-5 text-[var(--ds-color-foreground)]">
-                    {testimonial.quote}
+                      {paragraph}
+                    </p>)}
+                  <p className="border-l-2 border-[var(--ds-color-border-strong)] pl-6 text-xl font-semibold leading-[1.4] tracking-[-0.01em] text-[var(--ds-color-foreground)]">
+                    {pullQuote}
                   </p>
                 </blockquote>
-                <p className="text-sm leading-5 text-[var(--ds-color-muted-foreground)] sm:col-span-3 sm:text-right">
-                  {testimonial.name}, {testimonial.role}
-                </p>
-              </li>)}
-          </ul>
+                <figcaption className="mt-8 flex items-center gap-4">
+                  <span
+      aria-hidden="true"
+      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] text-sm font-semibold leading-none text-[var(--ds-color-muted-foreground)]"
+    >
+                    {initials}
+                  </span>
+                  <div>
+                    <p className="text-base font-semibold leading-6">{name}</p>
+                    <p className="text-sm leading-5 text-[var(--ds-color-muted-foreground)]">
+                      {role}, {company}
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+              <p className="mt-8">
+                <a href={link.href} className={LINK_CLASSES}>
+                  {link.label}
+                </a>
+              </p>
+            </div>
 
-          <div className="mt-12">
-            <a href={link.href} className={LINK_CLASSES}>
-              {link.label}
-            </a>
+            <div className="lg:col-span-4 lg:order-1">
+              <div className="rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-6 lg:p-8">
+                <p className="text-xl font-semibold leading-7 tracking-[-0.01em]">
+                  {company}
+                </p>
+                <p className="mt-1 text-sm leading-5 text-[var(--ds-color-muted-foreground)]">
+                  {companyDescription}
+                </p>
+
+                <dl className="mt-6 divide-y divide-[var(--ds-color-border-subtle)] border-y border-[var(--ds-color-border-subtle)]">
+                  {facts.map((fact) => <div
+      key={fact.label}
+      className="flex items-baseline justify-between gap-4 py-3"
+    >
+                      <dt className="text-sm leading-5 text-[var(--ds-color-muted-foreground)]">
+                        {fact.label}
+                      </dt>
+                      <dd className="text-right text-sm font-medium leading-5">
+                        {fact.value}
+                      </dd>
+                    </div>)}
+                </dl>
+
+                <p className="mt-6 font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                  Outcomes
+                </p>
+                <ul className="mt-4 space-y-5">
+                  {metrics.map((metric) => <li key={metric.label}>
+                      <p className="text-2xl font-semibold leading-[1.2] tracking-[-0.02em] tabular-nums">
+                        {metric.value}
+                      </p>
+                      <p className="mt-1 text-sm leading-5 text-[var(--ds-color-muted-foreground)]">
+                        {metric.label}
+                      </p>
+                    </li>)}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>;
