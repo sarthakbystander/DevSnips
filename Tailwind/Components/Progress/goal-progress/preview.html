@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal Progress Tracker | DevSnips</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    ::selection { background: rgba(79, 70, 229, 0.15); }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+
+  <header class="sticky top-0 z-20 border-b border-slate-200/60 bg-white/80 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+      <div class="flex items-center gap-2.5">
+        <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+        </div>
+        <span class="text-[15px] font-semibold tracking-tight">DevSnips</span>
+        <span class="ml-2 rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">Open Source</span>
+      </div>
+      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 sm:flex" aria-label="Primary">
+        <a href="#" class="transition-colors duration-200 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 rounded">Components</a>
+        <a href="#" class="transition-colors duration-200 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 rounded">Templates</a>
+        <a href="#" class="text-slate-900 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 rounded" aria-current="page">Sponsor</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-6 py-12">
+    <nav class="mb-3 flex items-center gap-1.5 text-sm text-slate-400" aria-label="Breadcrumb">
+      <a href="#" class="transition-colors duration-200 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 rounded">DevSnips</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-slate-600">Sponsorship</span>
+    </nav>
+
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Sponsor DevSnips</h1>
+    <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
+      DevSnips is free and open source. Community sponsorship keeps releases on a steady cadence —
+      pick an amount and watch the goal move in real time.
+    </p>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
+
+      <!-- Component: Goal Progress Tracker -->
+      <div class="w-full max-w-2xl" data-goal-progress="goal-progress">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200/60 sm:p-8">
+
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <p class="text-xs font-semibold uppercase tracking-widest text-indigo-600">Community goal</p>
+              <h3 class="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Fund the next DevSnips release</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">Every pledge goes straight into maintainer time for v2.0 — new React families, a public Figma kit, and full RTL coverage.</p>
+            </div>
+            <span class="gp-pill inline-flex shrink-0 items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold tabular-nums text-indigo-700">74%</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span class="gp-raised text-3xl font-bold tracking-tight tabular-nums text-slate-900">$18,450</span>
+            <span class="text-sm text-slate-500">raised of <span class="font-semibold text-slate-700 tabular-nums">$25,000</span> goal</span>
+          </div>
+
+          <div class="relative mt-5">
+            <div
+              class="h-2.5 w-full overflow-hidden rounded-full bg-slate-100"
+              role="progressbar"
+              aria-label="Sponsorship goal progress"
+              aria-valuemin="0"
+              aria-valuemax="25000"
+              aria-valuenow="18450"
+              aria-valuetext="$18,450 of $25,000 raised (74%)"
+            >
+              <div class="gp-fill h-full w-0 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 motion-safe:transition-[width] motion-safe:duration-500 motion-safe:ease-out" style="width: 74%"></div>
+            </div>
+            <span class="gp-dot absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 ring-2 ring-white" style="left: 25%" data-threshold="25" aria-hidden="true"></span>
+            <span class="gp-dot absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 ring-2 ring-white" style="left: 50%" data-threshold="50" aria-hidden="true"></span>
+            <span class="gp-dot absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-300 ring-2 ring-white" style="left: 75%" data-threshold="75" aria-hidden="true"></span>
+            <span class="gp-dot absolute top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-300 ring-2 ring-white" style="left: 100%" data-threshold="100" aria-hidden="true"></span>
+          </div>
+
+          <div class="relative mt-3 h-4 text-[11px] font-medium tabular-nums">
+            <span class="gp-dot-label absolute top-0 -translate-x-1/2 text-indigo-600" style="left: 25%" data-threshold="25">$6.25k</span>
+            <span class="gp-dot-label absolute top-0 -translate-x-1/2 text-indigo-600" style="left: 50%" data-threshold="50">$12.5k</span>
+            <span class="gp-dot-label absolute top-0 -translate-x-1/2 text-slate-500" style="left: 75%" data-threshold="75">$18.75k</span>
+            <span class="gp-dot-label absolute right-0 top-0 text-slate-500" data-threshold="100">$25k</span>
+          </div>
+
+          <dl class="mt-6 grid grid-cols-3 divide-x divide-slate-100 rounded-2xl bg-slate-50 py-4 text-center ring-1 ring-slate-200/60">
+            <div class="px-2">
+              <dt class="text-xs font-medium uppercase tracking-wider text-slate-500">Backers</dt>
+              <dd class="gp-backers mt-1 text-lg font-bold tabular-nums text-slate-900">214</dd>
+            </div>
+            <div class="px-2">
+              <dt class="text-xs font-medium uppercase tracking-wider text-slate-500">Days left</dt>
+              <dd class="mt-1 text-lg font-bold tabular-nums text-slate-900">12</dd>
+            </div>
+            <div class="px-2">
+              <dt class="text-xs font-medium uppercase tracking-wider text-slate-500">Avg. pledge</dt>
+              <dd class="gp-avg mt-1 text-lg font-bold tabular-nums text-slate-900">$86</dd>
+            </div>
+          </dl>
+
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-2" role="group" aria-label="Choose a pledge amount">
+              <button type="button" class="gp-chip inline-flex h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition-colors duration-200 hover:text-indigo-700 hover:ring-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" data-amount="10" aria-pressed="false">$10</button>
+              <button type="button" class="gp-chip inline-flex h-11 items-center justify-center rounded-full bg-indigo-600 px-5 text-sm font-semibold text-white ring-1 ring-indigo-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" data-amount="25" aria-pressed="true">$25</button>
+              <button type="button" class="gp-chip inline-flex h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition-colors duration-200 hover:text-indigo-700 hover:ring-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" data-amount="50" aria-pressed="false">$50</button>
+            </div>
+            <button type="button" class="gp-sponsor inline-flex h-11 items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 text-sm font-semibold text-white shadow-sm transition-all duration-200 ease-out hover:bg-indigo-700 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 motion-safe:active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+              <span class="gp-sponsor-label">Sponsor $25</span>
+            </button>
+          </div>
+
+          <p class="gp-status mt-4 flex items-center gap-2 text-sm text-slate-600" aria-live="polite">
+            <svg class="h-4 w-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            <span class="gp-status-text">$6,550 to go · 12 days left.</span>
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Supporting context -->
+      <aside class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200/60 sm:p-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Why sponsor</p>
+        <ul class="mt-4 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <p class="text-sm leading-relaxed text-slate-600"><span class="font-semibold text-slate-900">Predictable releases.</span> A funded roadmap means monthly family drops instead of weekend-only progress.</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <p class="text-sm leading-relaxed text-slate-600"><span class="font-semibold text-slate-900">Accessibility audits.</span> Every family is re-verified against WCAG AA before it ships.</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <p class="text-sm leading-relaxed text-slate-600"><span class="font-semibold text-slate-900">Backer credits.</span> Sponsors are listed in the release notes and the repo README.</p>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200/60 bg-white">
+    <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-slate-500 sm:flex-row">
+      <p>DevSnips — copy-paste UI for the web.</p>
+      <p class="text-xs text-slate-400">Progress / Goal Progress Tracker · Calm Vibrant</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.querySelector('[data-goal-progress="goal-progress"]');
+      if (!root) return;
+
+      const GOAL = 25000;
+      let raised = 18450;
+      let backers = 214;
+      let selected = 25;
+
+      const fill = root.querySelector('.gp-fill');
+      const bar = root.querySelector('[role="progressbar"]');
+      const pill = root.querySelector('.gp-pill');
+      const raisedEl = root.querySelector('.gp-raised');
+      const backersEl = root.querySelector('.gp-backers');
+      const avgEl = root.querySelector('.gp-avg');
+      const statusText = root.querySelector('.gp-status-text');
+      const sponsor = root.querySelector('.gp-sponsor');
+      const sponsorLabel = root.querySelector('.gp-sponsor-label');
+      const chips = Array.from(root.querySelectorAll('.gp-chip'));
+      const dots = Array.from(root.querySelectorAll('.gp-dot'));
+      const dotLabels = Array.from(root.querySelectorAll('.gp-dot-label'));
+
+      const CHIP_ON = ['bg-indigo-600', 'text-white', 'ring-indigo-600'];
+      const CHIP_OFF = ['bg-white', 'text-slate-700', 'ring-slate-200', 'hover:text-indigo-700', 'hover:ring-indigo-300'];
+
+      function money(n) { return '$' + n.toLocaleString('en-US'); }
+
+      function render() {
+        const pct = Math.min(100, Math.round((raised / GOAL) * 100));
+        const funded = raised >= GOAL;
+
+        fill.style.width = pct + '%';
+        fill.classList.toggle('from-indigo-500', !funded);
+        fill.classList.toggle('to-violet-500', !funded);
+        fill.classList.toggle('from-emerald-500', funded);
+        fill.classList.toggle('to-teal-400', funded);
+        bar.setAttribute('aria-valuenow', String(raised));
+        bar.setAttribute('aria-valuetext', money(raised) + ' of ' + money(GOAL) + ' raised (' + pct + '%)');
+
+        if (funded) {
+          pill.className = 'gp-pill inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-700';
+          pill.innerHTML = '<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Funded';
+          sponsor.disabled = true;
+          chips.forEach(function (c) { c.disabled = true; });
+          sponsorLabel.textContent = 'Goal reached';
+          statusText.textContent = 'Goal reached — thank you to all ' + backers + ' backers!';
+        } else {
+          pill.textContent = pct + '%';
+          sponsorLabel.textContent = 'Sponsor ' + money(selected);
+          statusText.textContent = money(GOAL - raised) + ' to go · 12 days left.';
+        }
+
+        raisedEl.textContent = money(raised);
+        backersEl.textContent = backers.toLocaleString('en-US');
+        avgEl.textContent = money(Math.round(raised / backers));
+
+        dots.forEach(function (dot) {
+          const hit = pct >= Number(dot.dataset.threshold);
+          dot.classList.toggle('bg-indigo-500', hit && !funded);
+          dot.classList.toggle('bg-emerald-500', hit && funded);
+          dot.classList.toggle('bg-slate-300', !hit);
+        });
+        dotLabels.forEach(function (label) {
+          const hit = pct >= Number(label.dataset.threshold);
+          label.classList.toggle('text-indigo-600', hit && !funded);
+          label.classList.toggle('text-emerald-600', hit && funded);
+          label.classList.toggle('text-slate-500', !hit);
+        });
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          selected = Number(chip.dataset.amount);
+          chips.forEach(function (c) {
+            const on = c === chip;
+            c.setAttribute('aria-pressed', String(on));
+            CHIP_ON.forEach(function (cls) { c.classList.toggle(cls, on); });
+            CHIP_OFF.forEach(function (cls) { c.classList.toggle(cls, !on); });
+          });
+          sponsorLabel.textContent = 'Sponsor ' + money(selected);
+        });
+      });
+
+      sponsor.addEventListener('click', function () {
+        if (raised >= GOAL) return;
+        raised = Math.min(GOAL, raised + selected);
+        backers += 1;
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
+</body>
+</html>
