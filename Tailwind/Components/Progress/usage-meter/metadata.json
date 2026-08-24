@@ -1,0 +1,37 @@
+{
+  "name": "Usage Meter",
+  "slug": "usage-meter",
+  "component": "progress",
+  "family": "progress",
+  "variant": "usage",
+  "description": "Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text — ideal for billing and account settings pages.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "progress",
+    "usage",
+    "meter",
+    "quota",
+    "billing",
+    "dashboard",
+    "minimal-vercel",
+    "dark"
+  ],
+  "related": [
+    "linear-bar",
+    "step-progress",
+    "upload-progress"
+  ],
+  "features": [
+    "Minimal Vercel design language",
+    "data-attribute hydration (data-used / data-limit / data-unit)",
+    "role=progressbar with aria-valuenow / aria-valuemax / aria-valuetext",
+    "near-limit state communicated in text, not color alone",
+    "animated fills with prefers-reduced-motion guard",
+    "refresh action with aria-busy and spin feedback",
+    "single teal accent on near-black with hairline borders",
+    "tabular-nums values formatted with Intl.NumberFormat"
+  ],
+  "type": "component",
+  "category": "Components"
+}
