@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 664,
+    "totalVariants": 665,
     "totalSubVariants": 0,
-    "totalStyles": 1494,
+    "totalStyles": 1498,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 255,
+      "component": 256,
       "section": 200,
       "template": 10
     },
@@ -6481,8 +6481,8 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Complete progress component family with 6 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
-      "variantsCount": 6,
+      "description": "Complete progress component family with 7 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
+      "variantsCount": 7,
       "variants": [
         {
           "name": "Circular Spinner",
@@ -6694,6 +6694,41 @@
             "Uploading",
             "Completed",
             "Removable"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Usage Meter",
+          "path": "Tailwind/Components/Progress/usage-meter/",
+          "type": "component",
+          "description": "Dark, minimal plan-usage panel with four accessible quota meters that hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text. Ideal for billing and account settings pages.",
+          "tags": [
+            "progress",
+            "usage",
+            "meter",
+            "quota",
+            "billing",
+            "dashboard",
+            "minimal-vercel",
+            "dark"
+          ],
+          "features": [
+            "Minimal Vercel design language",
+            "data-attribute hydration (data-used / data-limit / data-unit)",
+            "role=progressbar with aria-valuenow / aria-valuemax / aria-valuetext",
+            "near-limit state communicated in text, not color alone",
+            "animated fills with prefers-reduced-motion guard",
+            "refresh action with aria-busy and spin feedback"
+          ],
+          "styles": [
+            "dark",
+            "multi-meter",
+            "animated",
+            "near-limit"
           ],
           "files": [
             "code.html",
