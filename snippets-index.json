@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 664,
+    "totalVariants": 665,
     "totalSubVariants": 0,
-    "totalStyles": 1494,
+    "totalStyles": 1498,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 255,
+      "component": 256,
       "section": 200,
       "template": 10
     },
@@ -6481,8 +6481,8 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Complete progress component family with 6 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
-      "variantsCount": 6,
+      "description": "Complete progress component family with 7 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
+      "variantsCount": 7,
       "variants": [
         {
           "name": "Circular Spinner",
@@ -6699,6 +6699,40 @@
             "code.html",
             "metadata.json",
             "preview.html"
+          ]
+        },
+        {
+          "name": "Goal Progress Tracker",
+          "path": "Tailwind/Components/Progress/goal-progress/",
+          "type": "component",
+          "description": "Fundraising goal tracker card with an animated gradient progress bar, milestone markers, live stats, and quick-amount sponsor actions. Reaching the goal flips the card into a funded success state.",
+          "tags": [
+            "progress",
+            "goal",
+            "tracker",
+            "fundraising",
+            "milestones",
+            "calm-vibrant"
+          ],
+          "features": [
+            "calm-vibrant design language",
+            "animated gradient progress bar with milestone dots",
+            "role=progressbar with aria-valuenow and aria-valuetext",
+            "quick-amount chips with aria-pressed",
+            "funded success state at 100%",
+            "aria-live polite status announcements",
+            "reduced-motion safe transitions"
+          ],
+          "styles": [
+            "calm-vibrant",
+            "animated gradient",
+            "milestone markers",
+            "funded success state"
+          ],
+          "files": [
+            "code.html",
+            "preview.html",
+            "metadata.json"
           ]
         }
       ],
