@@ -1,18 +1,18 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-08-23",
+  "lastUpdated": "2026-08-24",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 665,
+    "totalVariants": 666,
     "totalSubVariants": 0,
-    "totalStyles": 1498,
+    "totalStyles": 1499,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 256,
+      "component": 257,
       "section": 200,
       "template": 10
     },
@@ -883,20 +883,21 @@
           ]
         },
         {
-          "name": "Animated Icon Button",
-          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
+          "name": "Glass Icon Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
           "type": "component",
-          "description": "Icon animations on hover for interactive effects",
+          "description": "Glass morphism icon buttons for toolbars and actions",
           "tags": [
             "button",
-            "animated",
-            "icon",
-            "hover"
+            "glass",
+            "glassmorphism",
+            "icon"
           ],
           "styles": [
-            "Scale",
-            "Rotate",
-            "Flip"
+            "Heart",
+            "Bookmark",
+            "Share",
+            "Add (Pill)"
           ],
           "files": [
             "code.html",
@@ -926,21 +927,20 @@
           ]
         },
         {
-          "name": "Glass Icon Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/icon/",
+          "name": "Animated Icon Button",
+          "path": "Tailwind/Components/Buttons/Animated Button/icon/",
           "type": "component",
-          "description": "Glass morphism icon buttons for toolbars and actions",
+          "description": "Icon animations on hover for interactive effects",
           "tags": [
             "button",
-            "glass",
-            "glassmorphism",
-            "icon"
+            "animated",
+            "icon",
+            "hover"
           ],
           "styles": [
-            "Heart",
-            "Bookmark",
-            "Share",
-            "Add (Pill)"
+            "Scale",
+            "Rotate",
+            "Flip"
           ],
           "files": [
             "code.html",
@@ -1014,28 +1014,6 @@
           ]
         },
         {
-          "name": "Primary Button",
-          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
-          "type": "component",
-          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
-          "tags": [
-            "button",
-            "primary",
-            "basic",
-            "solid"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Link"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Ghost Primary Button",
           "path": "Tailwind/Components/Buttons/Ghost Button/primary/",
           "type": "component",
@@ -1071,6 +1049,28 @@
           "styles": [
             "Default",
             "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Primary Button",
+          "path": "Tailwind/Components/Buttons/Basic Button/primary/",
+          "type": "component",
+          "description": "Primary action buttons with semantic blue color and default, disabled, and link states",
+          "tags": [
+            "button",
+            "primary",
+            "basic",
+            "solid"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Link"
           ],
           "files": [
             "code.html",
@@ -1235,6 +1235,29 @@
           ]
         },
         {
+          "name": "Glass Soft Button",
+          "path": "Tailwind/Components/Buttons/Glass Button/soft/",
+          "type": "component",
+          "description": "Soft glass morphism buttons with blur effect",
+          "tags": [
+            "button",
+            "glass",
+            "glassmorphism",
+            "blur",
+            "frosted"
+          ],
+          "styles": [
+            "Default",
+            "Disabled",
+            "Pill"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Soft Background Button",
           "path": "Tailwind/Components/Buttons/Filled Button/soft/",
           "type": "component",
@@ -1275,29 +1298,6 @@
             "Default",
             "Pill",
             "Disabled"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Glass Soft Button",
-          "path": "Tailwind/Components/Buttons/Glass Button/soft/",
-          "type": "component",
-          "description": "Soft glass morphism buttons with blur effect",
-          "tags": [
-            "button",
-            "glass",
-            "glassmorphism",
-            "blur",
-            "frosted"
-          ],
-          "styles": [
-            "Default",
-            "Disabled",
-            "Pill"
           ],
           "files": [
             "code.html",
@@ -6481,8 +6481,8 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Complete progress component family with 7 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
-      "variantsCount": 7,
+      "description": "Complete progress component family with 8 production-ready variants covering loading and completion states from linear bars and spinners to skeletons, steppers, timelines, and multi-file uploads",
+      "variantsCount": 8,
       "variants": [
         {
           "name": "Circular Spinner",
@@ -6514,6 +6514,34 @@
             "lg",
             "Colored",
             "With label"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Goal Progress Tracker",
+          "path": "Tailwind/Components/Progress/goal-progress/",
+          "type": "component",
+          "description": "Fundraising goal tracker card with an animated gradient progress bar, milestone markers, live stats, and quick-amount sponsor actions. Reaching the goal flips the card into a funded success state.",
+          "tags": [
+            "progress",
+            "goal",
+            "tracker",
+            "fundraising",
+            "milestones",
+            "calm-vibrant"
+          ],
+          "features": [
+            "calm-vibrant design language",
+            "animated gradient progress bar with milestone dots",
+            "role=progressbar with aria-valuenow and aria-valuetext",
+            "quick-amount chips with aria-pressed",
+            "funded success state at 100%",
+            "aria-live polite status announcements",
+            "reduced-motion safe transitions"
           ],
           "files": [
             "code.html",
@@ -6702,37 +6730,40 @@
           ]
         },
         {
-          "name": "Goal Progress Tracker",
-          "path": "Tailwind/Components/Progress/goal-progress/",
+          "name": "Usage Meter",
+          "path": "Tailwind/Components/Progress/usage-meter/",
           "type": "component",
-          "description": "Fundraising goal tracker card with an animated gradient progress bar, milestone markers, live stats, and quick-amount sponsor actions. Reaching the goal flips the card into a funded success state.",
+          "description": "Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text — ideal for billing and account settings pages.",
           "tags": [
             "progress",
-            "goal",
-            "tracker",
-            "fundraising",
-            "milestones",
-            "calm-vibrant"
+            "usage",
+            "meter",
+            "quota",
+            "billing",
+            "dashboard",
+            "minimal-vercel",
+            "dark"
           ],
           "features": [
-            "calm-vibrant design language",
-            "animated gradient progress bar with milestone dots",
-            "role=progressbar with aria-valuenow and aria-valuetext",
-            "quick-amount chips with aria-pressed",
-            "funded success state at 100%",
-            "aria-live polite status announcements",
-            "reduced-motion safe transitions"
+            "Minimal Vercel design language",
+            "data-attribute hydration (data-used / data-limit / data-unit)",
+            "role=progressbar with aria-valuenow / aria-valuemax / aria-valuetext",
+            "near-limit state communicated in text, not color alone",
+            "animated fills with prefers-reduced-motion guard",
+            "refresh action with aria-busy and spin feedback",
+            "single teal accent on near-black with hairline borders",
+            "tabular-nums values formatted with Intl.NumberFormat"
           ],
           "styles": [
-            "calm-vibrant",
-            "animated gradient",
-            "milestone markers",
-            "funded success state"
+            "dark",
+            "multi-meter",
+            "animated",
+            "near-limit"
           ],
           "files": [
             "code.html",
-            "preview.html",
-            "metadata.json"
+            "metadata.json",
+            "preview.html"
           ]
         }
       ],
@@ -7973,6 +8004,40 @@
           ]
         },
         {
+          "name": "Promise Toast",
+          "path": "Tailwind/Components/Toasts/promise-toast/",
+          "type": "component",
+          "description": "Async-operation toast that opens in a loading state and transitions in place to success or error when a promise settles. Pass any promise to showPromiseToast() with loading/success/error copy; once settled it auto-dismisses behind a pause-on-hover countdown bar.",
+          "tags": [
+            "toast",
+            "notification",
+            "promise",
+            "async",
+            "loading",
+            "neo-brutal"
+          ],
+          "features": [
+            "promise-driven loading → success / error transition",
+            "showPromiseToast() API",
+            "pause-on-hover countdown bar",
+            "role=status / role=alert by state",
+            "Escape key + focus-aware dismissal",
+            "reduced-motion safe",
+            "neo-brutal design language"
+          ],
+          "styles": [
+            "Promise states",
+            "Countdown bar",
+            "Neo Brutal",
+            "Hard shadow"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Stacked Toasts",
           "path": "Tailwind/Components/Toasts/stacked-toasts/",
           "type": "component",
@@ -8037,40 +8102,6 @@
             "Error",
             "Warning",
             "Info"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Promise Toast",
-          "path": "Tailwind/Components/Toasts/promise-toast/",
-          "type": "component",
-          "description": "Async-operation toast that opens in a loading state and transitions in place to success or error when a promise settles. Pass any promise to showPromiseToast() with loading/success/error copy; once settled it auto-dismisses behind a pause-on-hover countdown bar.",
-          "tags": [
-            "toast",
-            "notification",
-            "promise",
-            "async",
-            "loading",
-            "neo-brutal"
-          ],
-          "features": [
-            "promise-driven loading → success / error transition",
-            "showPromiseToast() API",
-            "pause-on-hover countdown bar",
-            "role=status / role=alert by state",
-            "Escape key + focus-aware dismissal",
-            "reduced-motion safe",
-            "neo-brutal design language"
-          ],
-          "styles": [
-            "Promise states",
-            "Countdown bar",
-            "Neo Brutal",
-            "Hard shadow"
           ],
           "files": [
             "code.html",
@@ -12996,6 +13027,41 @@
       "variantsCount": 12,
       "variants": [
         {
+          "name": "Model Comparison — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "neo-brutalism",
+            "brutalist",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side model cards",
+            "animated metric bars (context, speed, cost, quality)",
+            "Best-for metric selector with winner highlight",
+            "live recommendation footer",
+            "hard offset shadows and flat accent palette",
+            "press-down hover states",
+            "radiogroup semantics with aria-checked",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Prompt Library — Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
           "type": "section",
@@ -13020,6 +13086,40 @@
             "copy-to-clipboard with Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "AI Chat Interface — Neo-Brutalism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "tags": [
+            "ai-chat",
+            "chatbot",
+            "neo-brutalism",
+            "brutalist",
+            "chat-interface",
+            "assistant",
+            "prompt",
+            "dark-accents"
+          ],
+          "features": [
+            "hard offset shadows",
+            "flat bright accent palette",
+            "press-down hover states",
+            "animated typing indicator",
+            "clickable prompt chips",
+            "wired send + auto-reply",
+            "custom scrollbar styling",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "neo-brutalism"
@@ -13066,67 +13166,33 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
+          "name": "Model Comparison — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/model-comparison/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "neo-brutalism",
-            "brutalist",
-            "chat-interface",
-            "assistant",
-            "prompt",
-            "dark-accents"
-          ],
-          "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "animated typing indicator",
-            "clickable prompt chips",
-            "wired send + auto-reply",
-            "custom scrollbar styling",
-            "keyboard accessible inputs"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Model Comparison — Neo-Brutalism",
-          "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
           "tags": [
             "model-comparison",
             "llm",
             "benchmark",
-            "neo-brutalism",
-            "brutalist",
+            "glassmorphism",
+            "frosted-glass",
             "comparison-table",
             "winner",
             "metrics",
             "ai-product"
           ],
           "features": [
-            "side-by-side model cards",
-            "animated metric bars (context, speed, cost, quality)",
-            "Best-for metric selector with winner highlight",
+            "side-by-side frosted-glass model cards",
+            "animated gradient metric bars",
+            "Best-for metric selector with glowing winner highlight",
+            "gradient mesh backdrop with cyan glow accents",
             "live recommendation footer",
-            "hard offset shadows and flat accent palette",
-            "press-down hover states",
+            "backdrop blur and luminous edges",
             "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -13160,6 +13226,40 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "tags": [
+            "ai-chat",
+            "chatbot",
+            "glassmorphism",
+            "glass",
+            "chat-interface",
+            "assistant",
+            "gradient",
+            "vibrant"
+          ],
+          "features": [
+            "backdrop-blur glass panels",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "gradient send button",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -13207,67 +13307,33 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
+          "name": "Model Comparison — Vercel",
+          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
           "type": "section",
-          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "glassmorphism",
-            "glass",
-            "chat-interface",
-            "assistant",
-            "gradient",
-            "vibrant"
-          ],
-          "features": [
-            "backdrop-blur glass panels",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "gradient send button",
-            "keyboard accessible inputs"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Model Comparison — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/ai-product/model-comparison/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
+          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
           "tags": [
             "model-comparison",
             "llm",
             "benchmark",
-            "glassmorphism",
-            "frosted-glass",
+            "vercel",
             "comparison-table",
             "winner",
             "metrics",
+            "dark",
             "ai-product"
           ],
           "features": [
-            "side-by-side frosted-glass model cards",
-            "animated gradient metric bars",
-            "Best-for metric selector with glowing winner highlight",
-            "gradient mesh backdrop with cyan glow accents",
+            "side-by-side model cards",
+            "animated hairline metric bars",
+            "Best-for metric selector with moving winner marker",
+            "teal accent glow on the winning card",
             "live recommendation footer",
-            "backdrop blur and luminous edges",
+            "dark monochrome surfaces with hairline borders",
             "radiogroup semantics with aria-checked",
             "keyboard accessible controls"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -13300,42 +13366,6 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Agent Workflow — Vercel",
-          "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
-          "tags": [
-            "agent-workflow",
-            "stepper",
-            "vercel",
-            "dark-mode",
-            "workflow",
-            "ai-agent",
-            "progress",
-            "minimal"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "single teal accent",
-            "step status colors (pending/running/done)",
-            "glowing filling progress bar",
-            "Run button with timer-driven progression",
-            "live run log line",
-            "pulsing active-step node",
-            "prefers-reduced-motion aware",
-            "keyboard accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -13381,30 +13411,31 @@
           ]
         },
         {
-          "name": "Model Comparison — Vercel",
-          "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
+          "name": "Agent Workflow — Vercel",
+          "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
           "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
+            "agent-workflow",
+            "stepper",
             "vercel",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "dark",
-            "ai-product"
+            "dark-mode",
+            "workflow",
+            "ai-agent",
+            "progress",
+            "minimal"
           ],
           "features": [
-            "side-by-side model cards",
-            "animated hairline metric bars",
-            "Best-for metric selector with moving winner marker",
-            "teal accent glow on the winning card",
-            "live recommendation footer",
-            "dark monochrome surfaces with hairline borders",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "single teal accent",
+            "step status colors (pending/running/done)",
+            "glowing filling progress bar",
+            "Run button with timer-driven progression",
+            "live run log line",
+            "pulsing active-step node",
+            "prefers-reduced-motion aware",
+            "keyboard accessible buttons"
           ],
           "styles": [
             "vercel"
@@ -13468,40 +13499,6 @@
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Kanban Board — Neo-Brutalism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
-          "tags": [
-            "kanban",
-            "board",
-            "neo-brutalism",
-            "brutalist",
-            "drag-and-drop",
-            "task-board",
-            "app-ui",
-            "project-management"
-          ],
-          "features": [
-            "hard offset shadows on cards and panel",
-            "flat bright accent column headers",
-            "press-down hover states",
-            "HTML5 drag-and-drop between columns",
-            "live-updating count badges",
-            "add-card affordance per column",
-            "placeholder drop indicator",
-            "keyboard-focusable draggable cards"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Dashboard Overview — Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
@@ -13538,34 +13535,32 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
+          "name": "Kanban Board — Neo-Brutalism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
           "type": "section",
-          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
+          "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
           "tags": [
             "kanban",
             "board",
-            "glassmorphism",
-            "glass",
+            "neo-brutalism",
+            "brutalist",
             "drag-and-drop",
             "task-board",
             "app-ui",
-            "project-management",
-            "gradient",
-            "vibrant"
+            "project-management"
           ],
           "features": [
-            "backdrop-blur glass columns",
-            "animated gradient mesh backdrop",
-            "luminous top-edge highlights",
-            "glowing cyan status dots",
-            "gradient priority chips",
+            "hard offset shadows on cards and panel",
+            "flat bright accent column headers",
+            "press-down hover states",
             "HTML5 drag-and-drop between columns",
-            "live-updating count chips",
+            "live-updating count badges",
+            "add-card affordance per column",
+            "placeholder drop indicator",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "neo-brutalism"
           ],
           "files": [
             "code.html",
@@ -13614,34 +13609,34 @@
           ]
         },
         {
-          "name": "Kanban Board — Vercel",
-          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "name": "Kanban Board — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
-          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
           "tags": [
             "kanban",
             "board",
-            "vercel",
-            "dark-mode",
+            "glassmorphism",
+            "glass",
             "drag-and-drop",
             "task-board",
             "app-ui",
             "project-management",
-            "minimal",
-            "monochrome"
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "dark monochrome palette",
-            "hairline borders + radial glow",
-            "glowing teal status dots",
-            "pill count badges",
+            "backdrop-blur glass columns",
+            "animated gradient mesh backdrop",
+            "luminous top-edge highlights",
+            "glowing cyan status dots",
+            "gradient priority chips",
             "HTML5 drag-and-drop between columns",
-            "live-updating counts",
-            "dashed add-card affordance",
+            "live-updating count chips",
             "keyboard-focusable draggable cards"
           ],
           "styles": [
-            "vercel"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -13678,6 +13673,42 @@
             "hairline borders + subtle glow",
             "recent activity feed",
             "keyboard accessible range buttons"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Kanban Board — Vercel",
+          "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
+          "type": "section",
+          "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
+          "tags": [
+            "kanban",
+            "board",
+            "vercel",
+            "dark-mode",
+            "drag-and-drop",
+            "task-board",
+            "app-ui",
+            "project-management",
+            "minimal",
+            "monochrome"
+          ],
+          "features": [
+            "dark monochrome palette",
+            "hairline borders + radial glow",
+            "glowing teal status dots",
+            "pill count badges",
+            "HTML5 drag-and-drop between columns",
+            "live-updating counts",
+            "dashed add-card affordance",
+            "keyboard-focusable draggable cards"
           ],
           "styles": [
             "vercel"
@@ -14365,27 +14396,29 @@
       "variantsCount": 17,
       "variants": [
         {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
+          "name": "Usage Based Pricing — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
+          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
           "tags": [
-            "features",
-            "feature-grid",
+            "pricing",
+            "usage-based",
             "neo-brutalism",
             "brutalist",
+            "slider",
+            "metered",
             "saas",
-            "bento",
             "offset-shadows"
           ],
           "features": [
-            "6-up feature grid",
-            "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
+            "draggable usage slider that recomputes live estimate",
+            "stacked tier-rate table",
+            "volume savings bar",
+            "offset-shadow CTAs",
+            "monospace labels",
+            "bright accent panels",
+            "press-down hover states",
+            "keyboard accessible slider"
           ],
           "styles": [
             "neo-brutalism"
@@ -14421,6 +14454,72 @@
             "flat bright accent palette",
             "press-down hover states",
             "keyboard accessible toggle buttons"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
+          "tags": [
+            "metrics",
+            "stats",
+            "numbers",
+            "neo-brutalism",
+            "brutalist",
+            "count-up",
+            "saas",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant featured stat block",
+            "offset grid of stat cards",
+            "rotating bright accent panels",
+            "live count-up ticker on mount",
+            "diagonal grid background",
+            "bold section divider",
+            "press-down hover states",
+            "monospace labels"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
+          "tags": [
+            "features",
+            "feature-grid",
+            "neo-brutalism",
+            "brutalist",
+            "saas",
+            "bento",
+            "offset-shadows"
+          ],
+          "features": [
+            "6-up feature grid",
+            "rotating bright accent panels",
+            "numbered monospace tags",
+            "zig-zag offset layout",
+            "thick icon tiles",
+            "offset shadows",
+            "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
@@ -14499,74 +14598,6 @@
           ]
         },
         {
-          "name": "Usage Based Pricing — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
-          "tags": [
-            "pricing",
-            "usage-based",
-            "neo-brutalism",
-            "brutalist",
-            "slider",
-            "metered",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "draggable usage slider that recomputes live estimate",
-            "stacked tier-rate table",
-            "volume savings bar",
-            "offset-shadow CTAs",
-            "monospace labels",
-            "bright accent panels",
-            "press-down hover states",
-            "keyboard accessible slider"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
-          "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
-          "tags": [
-            "metrics",
-            "stats",
-            "numbers",
-            "neo-brutalism",
-            "brutalist",
-            "count-up",
-            "saas",
-            "offset-shadows"
-          ],
-          "features": [
-            "giant featured stat block",
-            "offset grid of stat cards",
-            "rotating bright accent panels",
-            "live count-up ticker on mount",
-            "diagonal grid background",
-            "bold section divider",
-            "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
           "name": "Bento Feature Showcase — Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/bento-showcase/sharp-glassmorphism/",
           "type": "section",
@@ -14589,39 +14620,6 @@
             "gradient icon chips",
             "luminous top edges",
             "hover lift states"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
-          "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
-          "tags": [
-            "screenshots",
-            "gallery",
-            "showcase",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "tabs",
-            "product-preview"
-          ],
-          "features": [
-            "tabbed screenshot gallery",
-            "large framed preview",
-            "thumbnail tabs that swap preview live",
-            "caption metadata rail",
-            "cyan glow accents",
-            "luminous top edges",
-            "scoped keyboard-accessible tabs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -14703,6 +14701,39 @@
           ]
         },
         {
+          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "tags": [
+            "screenshots",
+            "gallery",
+            "showcase",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "tabs",
+            "product-preview"
+          ],
+          "features": [
+            "tabbed screenshot gallery",
+            "large framed preview",
+            "thumbnail tabs that swap preview live",
+            "caption metadata rail",
+            "cyan glow accents",
+            "luminous top edges",
+            "scoped keyboard-accessible tabs"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Testimonial Grid — Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
           "type": "section",
@@ -14735,29 +14766,29 @@
           ]
         },
         {
-          "name": "Enterprise SaaS Footer — Vercel",
-          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
+          "name": "Pricing Comparison Table — Vercel",
+          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
           "type": "section",
-          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
+          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
           "tags": [
-            "footer",
-            "enterprise",
+            "pricing",
+            "comparison",
+            "matrix",
             "vercel",
             "dark",
             "saas",
-            "newsletter",
-            "compliance",
+            "plans",
             "teal-accent"
           ],
           "features": [
-            "newsletter signup with email form",
-            "5-column link grid",
-            "status pill with teal dot",
-            "social icons",
-            "compliance badges row",
-            "bottom legal bar with locale",
-            "hairline borders",
-            "white/white-50/white-35 hierarchy"
+            "sticky plan header row",
+            "grouped feature sections",
+            "check/dash/slash glyphs",
+            "sticky first column on desktop",
+            "hairline grid borders",
+            "teal accent on popular column",
+            "per-column white CTAs",
+            "monochrome hierarchy"
           ],
           "styles": [
             "vercel"
@@ -14837,28 +14868,29 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
-          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
+          "name": "Enterprise SaaS Footer — Vercel",
+          "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
           "type": "section",
-          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
+          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
           "tags": [
-            "workflow",
-            "how-it-works",
+            "footer",
+            "enterprise",
             "vercel",
             "dark",
             "saas",
-            "steps",
-            "code-preview",
+            "newsletter",
+            "compliance",
             "teal-accent"
           ],
           "features": [
-            "numbered three-step workflow",
-            "left step rail with teal connectors",
-            "right sticky code/command preview",
-            "working step switcher that swaps preview live",
-            "teal accent on active step",
-            "dark panels and hairline borders",
-            "scoped keyboard-accessible buttons"
+            "newsletter signup with email form",
+            "5-column link grid",
+            "status pill with teal dot",
+            "social icons",
+            "compliance badges row",
+            "bottom legal bar with locale",
+            "hairline borders",
+            "white/white-50/white-35 hierarchy"
           ],
           "styles": [
             "vercel"
@@ -14905,29 +14937,28 @@
           ]
         },
         {
-          "name": "Pricing Comparison Table — Vercel",
-          "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
+          "name": "Product Workflow Section — Vercel",
+          "path": "Tailwind/Sections/saas/product-workflow/vercel/",
           "type": "section",
-          "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
+          "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
           "tags": [
-            "pricing",
-            "comparison",
-            "matrix",
+            "workflow",
+            "how-it-works",
             "vercel",
             "dark",
             "saas",
-            "plans",
+            "steps",
+            "code-preview",
             "teal-accent"
           ],
           "features": [
-            "sticky plan header row",
-            "grouped feature sections",
-            "check/dash/slash glyphs",
-            "sticky first column on desktop",
-            "hairline grid borders",
-            "teal accent on popular column",
-            "per-column white CTAs",
-            "monochrome hierarchy"
+            "numbered three-step workflow",
+            "left step rail with teal connectors",
+            "right sticky code/command preview",
+            "working step switcher that swaps preview live",
+            "teal accent on active step",
+            "dark panels and hairline borders",
+            "scoped keyboard-accessible buttons"
           ],
           "styles": [
             "vercel"
