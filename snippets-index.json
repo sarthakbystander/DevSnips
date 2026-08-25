@@ -4,15 +4,15 @@
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 80,
-    "totalVariants": 667,
+    "totalVariants": 668,
     "totalSubVariants": 0,
-    "totalStyles": 1500,
+    "totalStyles": 1504,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS"
     ],
     "tailwindByType": {
-      "component": 258,
+      "component": 259,
       "section": 200,
       "template": 10
     },
@@ -5149,11 +5149,11 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Navigation bars — transparent, sticky, mega menu, dashboard, glass, and floating styles.",
+      "description": "Navigation bars \u2014 transparent, sticky, mega menu, dashboard, glass, and floating styles.",
       "variantsCount": 11,
       "variants": [
         {
-          "name": "Documentation Navbar — Apple Inspired",
+          "name": "Documentation Navbar \u2014 Apple Inspired",
           "path": "Tailwind/Components/Navbar/apple-inspired/",
           "type": "component",
           "description": "Apple Inspired navbar: Docs navbar.",
@@ -5181,7 +5181,7 @@
           ]
         },
         {
-          "name": "Dashboard Navbar — Bento Grid",
+          "name": "Dashboard Navbar \u2014 Bento Grid",
           "path": "Tailwind/Components/Navbar/bento-grid/",
           "type": "component",
           "description": "Bento Grid navbar: Dashboard navbar.",
@@ -5209,7 +5209,7 @@
           ]
         },
         {
-          "name": "Pill Navbar — Cyber",
+          "name": "Pill Navbar \u2014 Cyber",
           "path": "Tailwind/Components/Navbar/cyber/",
           "type": "component",
           "description": "Cyber navbar: Pill navbar.",
@@ -5237,7 +5237,7 @@
           ]
         },
         {
-          "name": "Spotlight Navbar — Editorial",
+          "name": "Spotlight Navbar \u2014 Editorial",
           "path": "Tailwind/Components/Navbar/editorial/",
           "type": "component",
           "description": "Editorial navbar: Floating glass nav.",
@@ -5265,7 +5265,7 @@
           ]
         },
         {
-          "name": "App Bar Navbar — Elegant Luxury",
+          "name": "App Bar Navbar \u2014 Elegant Luxury",
           "path": "Tailwind/Components/Navbar/elegant-luxury/",
           "type": "component",
           "description": "Elegant Luxury navbar: App bar navbar.",
@@ -5293,7 +5293,7 @@
           ]
         },
         {
-          "name": "Centered Navbar — Futuristic",
+          "name": "Centered Navbar \u2014 Futuristic",
           "path": "Tailwind/Components/Navbar/futuristic/",
           "type": "component",
           "description": "Futuristic navbar: Centered stacked nav.",
@@ -5321,7 +5321,7 @@
           ]
         },
         {
-          "name": "Mega Menu Navbar — Minimal",
+          "name": "Mega Menu Navbar \u2014 Minimal",
           "path": "Tailwind/Components/Navbar/minimal/",
           "type": "component",
           "description": "Minimal navbar: Hover mega menu.",
@@ -5349,7 +5349,7 @@
           ]
         },
         {
-          "name": "Navbar with Announcement — Neo Brutalism",
+          "name": "Navbar with Announcement \u2014 Neo Brutalism",
           "path": "Tailwind/Components/Navbar/neo-brutalism/",
           "type": "component",
           "description": "Neo Brutalism navbar: Announcement + navbar.",
@@ -5377,7 +5377,7 @@
           ]
         },
         {
-          "name": "Split Navbar — Soft UI (Neumorphism)",
+          "name": "Split Navbar \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Components/Navbar/soft-ui/",
           "type": "component",
           "description": "Soft UI navbar: Split navbar.",
@@ -5405,7 +5405,7 @@
           ]
         },
         {
-          "name": "Floating Navbar — Startup Landing",
+          "name": "Floating Navbar \u2014 Startup Landing",
           "path": "Tailwind/Components/Navbar/startup-landing/",
           "type": "component",
           "description": "Startup Landing navbar: Floating capsule nav.",
@@ -5433,7 +5433,7 @@
           ]
         },
         {
-          "name": "Sticky Navbar — Vercel / Linear",
+          "name": "Sticky Navbar \u2014 Vercel / Linear",
           "path": "Tailwind/Components/Navbar/vercel/",
           "type": "component",
           "description": "Vercel / Linear navbar: Sticky positioning.",
@@ -6488,7 +6488,7 @@
           "name": "Circular Spinner",
           "path": "Tailwind/Components/Progress/circular-spinner/",
           "type": "component",
-          "description": "Spinning ring loading indicator in four sizes (xs, sm, md, lg) and multiple colors, with an optional text label. Pure CSS animation via Tailwind's animate-spin — no JavaScript required.",
+          "description": "Spinning ring loading indicator in four sizes (xs, sm, md, lg) and multiple colors, with an optional text label. Pure CSS animation via Tailwind's animate-spin \u2014 no JavaScript required.",
           "tags": [
             "progress",
             "spinner",
@@ -6733,7 +6733,7 @@
           "name": "Usage Meter",
           "path": "Tailwind/Components/Progress/usage-meter/",
           "type": "component",
-          "description": "Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text — ideal for billing and account settings pages.",
+          "description": "Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text \u2014 ideal for billing and account settings pages.",
           "tags": [
             "progress",
             "usage",
@@ -7936,7 +7936,7 @@
           "name": "Glass Toast",
           "path": "Tailwind/Components/Toasts/glass-toast/",
           "type": "component",
-          "description": "Frosted-glass notification toasts in the glassmorphism design language — translucent backdrop-blur panels with semantic glowing accents, a live countdown progress bar, and pause-on-hover, presented over an animated aurora mesh backdrop.",
+          "description": "Frosted-glass notification toasts in the glassmorphism design language \u2014 translucent backdrop-blur panels with semantic glowing accents, a live countdown progress bar, and pause-on-hover, presented over an animated aurora mesh backdrop.",
           "tags": [
             "toast",
             "notification",
@@ -7971,7 +7971,7 @@
           "name": "Minimal Toast",
           "path": "Tailwind/Components/Toasts/minimal-toast/",
           "type": "component",
-          "description": "Compact pill-shaped toast for terse, icon-led feedback like \"Copied!\" or \"Saved\". No body text — just an icon and a label. Appears centered at the bottom and fades after 2 seconds.",
+          "description": "Compact pill-shaped toast for terse, icon-led feedback like \"Copied!\" or \"Saved\". No body text \u2014 just an icon and a label. Appears centered at the bottom and fades after 2 seconds.",
           "tags": [
             "toast",
             "notification",
@@ -8052,7 +8052,7 @@
             "neo-brutal"
           ],
           "features": [
-            "promise-driven loading → success / error transition",
+            "promise-driven loading \u2192 success / error transition",
             "showPromiseToast() API",
             "pause-on-hover countdown bar",
             "role=status / role=alert by state",
@@ -8111,7 +8111,7 @@
           "name": "Status Toasts",
           "path": "Tailwind/Components/Toasts/status-toasts/",
           "type": "component",
-          "description": "Four semantic toast variants — success, error, warning, info — each with a matching icon, accent color, and ARIA role. Errors and warnings use role=alert; success and info use role=status.",
+          "description": "Four semantic toast variants \u2014 success, error, warning, info \u2014 each with a matching icon, accent color, and ARIA role. Errors and warnings use role=alert; success and info use role=status.",
           "tags": [
             "toast",
             "notification",
@@ -8186,8 +8186,8 @@
       "tech": "Tailwind CSS",
       "type": "component",
       "category": "Components",
-      "description": "Complete tooltip component family with 6 production-ready variants covering every use case from basic hover hints to directional positioning, rich help content, delayed reveal, icon-button labeling, and status indicators. Pure CSS - no JavaScript.",
-      "variantsCount": 6,
+      "description": "Complete tooltip component family with 7 production-ready variants covering every use case from basic hover hints to directional positioning, selection-triggered toolbars, rich help content, delayed reveal, icon-button labeling, and status indicators.",
+      "variantsCount": 7,
       "variants": [
         {
           "name": "Delayed Tooltip",
@@ -8401,6 +8401,39 @@
             "metadata.json",
             "preview.html"
           ]
+        },
+        {
+          "name": "Selection Toolbar",
+          "path": "Tailwind/Components/Tooltips/selection-toolbar/",
+          "type": "component",
+          "description": "A floating toolbar that appears above any selected text inside its article scope, offering Highlight (real <mark> wrap), Copy, and Share actions. Positions itself over the selection with viewport clamping and re-tracks on scroll and resize.",
+          "tags": [
+            "tooltip",
+            "selection",
+            "toolbar",
+            "neo-brutal",
+            "highlight",
+            "annotation"
+          ],
+          "features": [
+            "Floating toolbar above selected text",
+            "Highlight wraps the range in a real <mark>",
+            "Copy and Share with clipboard fallback",
+            "Screen-reader status via aria-live region",
+            "Viewport clamping with scroll/resize re-positioning",
+            "Neo-brutal design language with flat ink surfaces"
+          ],
+          "styles": [
+            "Selection trigger",
+            "Highlight",
+            "Copy",
+            "Share"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
         }
       ],
       "tags": [
@@ -8442,11 +8475,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "404 error pages — minimal, funny, terminal, space, retro, and gradient themes.",
+      "description": "404 error pages \u2014 minimal, funny, terminal, space, retro, and gradient themes.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Premium SaaS 404 — Apple Inspired",
+          "name": "Premium SaaS 404 \u2014 Apple Inspired",
           "path": "Tailwind/Sections/404/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired 404 page: Premium saas 404.",
@@ -8475,7 +8508,7 @@
           ]
         },
         {
-          "name": "Dashboard 404 — Bento Grid",
+          "name": "Dashboard 404 \u2014 Bento Grid",
           "path": "Tailwind/Sections/404/bento-grid/",
           "type": "section",
           "description": "Bento Grid 404 page: Dashboard 404.",
@@ -8504,7 +8537,7 @@
           ]
         },
         {
-          "name": "Moody 404 — Cyber",
+          "name": "Moody 404 \u2014 Cyber",
           "path": "Tailwind/Sections/404/cyber/",
           "type": "section",
           "description": "Cyber 404 page: Moody 404.",
@@ -8533,7 +8566,7 @@
           ]
         },
         {
-          "name": "Gradient 404 — Dark Premium",
+          "name": "Gradient 404 \u2014 Dark Premium",
           "path": "Tailwind/Sections/404/dark-premium/",
           "type": "section",
           "description": "Dark Premium 404 page: Gradient 404.",
@@ -8562,7 +8595,7 @@
           ]
         },
         {
-          "name": "Developer Theme 404 — Edge Glassmorphism",
+          "name": "Developer Theme 404 \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/404/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism 404 page: Developer 404.",
@@ -8591,7 +8624,7 @@
           ]
         },
         {
-          "name": "Retro 404 — Editorial",
+          "name": "Retro 404 \u2014 Editorial",
           "path": "Tailwind/Sections/404/editorial/",
           "type": "section",
           "description": "Editorial 404 page: Retro 404.",
@@ -8620,7 +8653,7 @@
           ]
         },
         {
-          "name": "Spotlight 404 — Elegant Luxury",
+          "name": "Spotlight 404 \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/404/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury 404 page: Spotlight 404.",
@@ -8649,7 +8682,7 @@
           ]
         },
         {
-          "name": "Vercel-Inspired 404 — Futuristic",
+          "name": "Vercel-Inspired 404 \u2014 Futuristic",
           "path": "Tailwind/Sections/404/futuristic/",
           "type": "section",
           "description": "Futuristic 404 page: Vercel-inspired 404.",
@@ -8678,7 +8711,7 @@
           ]
         },
         {
-          "name": "Minimal 404 — Gradient Mesh",
+          "name": "Minimal 404 \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/404/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh 404 page: Minimal 404.",
@@ -8707,7 +8740,7 @@
           ]
         },
         {
-          "name": "Illustration 404 — Minimal",
+          "name": "Illustration 404 \u2014 Minimal",
           "path": "Tailwind/Sections/404/minimal/",
           "type": "section",
           "description": "Minimal 404 page: Illustration 404.",
@@ -8736,7 +8769,7 @@
           ]
         },
         {
-          "name": "Bold 404 — Monochrome",
+          "name": "Bold 404 \u2014 Monochrome",
           "path": "Tailwind/Sections/404/monochrome/",
           "type": "section",
           "description": "Monochrome 404 page: Bold 404.",
@@ -8765,7 +8798,7 @@
           ]
         },
         {
-          "name": "Space Theme 404 — Neo Brutalism",
+          "name": "Space Theme 404 \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/404/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism 404 page: Space theme 404.",
@@ -8794,7 +8827,7 @@
           ]
         },
         {
-          "name": "Funny 404 — Soft UI (Neumorphism)",
+          "name": "Funny 404 \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/404/soft-ui/",
           "type": "section",
           "description": "Soft UI 404 page: Funny 404.",
@@ -8823,7 +8856,7 @@
           ]
         },
         {
-          "name": "Abstract 404 — Startup Landing",
+          "name": "Abstract 404 \u2014 Startup Landing",
           "path": "Tailwind/Sections/404/startup-landing/",
           "type": "section",
           "description": "Startup Landing 404 page: Abstract 404.",
@@ -8852,7 +8885,7 @@
           ]
         },
         {
-          "name": "Terminal 404 — Vercel / Linear",
+          "name": "Terminal 404 \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/404/vercel/",
           "type": "section",
           "description": "Vercel / Linear 404 page: Terminal 404.",
@@ -8910,11 +8943,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Blog sections — featured articles, magazine, bento, editorial, and news layouts.",
+      "description": "Blog sections \u2014 featured articles, magazine, bento, editorial, and news layouts.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Card Layout — Apple Inspired",
+          "name": "Card Layout \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Blog/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired blog layout: Card layout.",
@@ -8943,7 +8976,7 @@
           ]
         },
         {
-          "name": "Sidebar Blog — Bento Grid",
+          "name": "Sidebar Blog \u2014 Bento Grid",
           "path": "Tailwind/Sections/Blog/bento-grid/",
           "type": "section",
           "description": "Bento Grid blog layout: Sidebar blog layout.",
@@ -8972,7 +9005,7 @@
           ]
         },
         {
-          "name": "Recent Posts — Cyber",
+          "name": "Recent Posts \u2014 Cyber",
           "path": "Tailwind/Sections/Blog/cyber/",
           "type": "section",
           "description": "Cyber blog layout: Recent posts.",
@@ -9001,7 +9034,7 @@
           ]
         },
         {
-          "name": "Minimal Articles — Dark Premium",
+          "name": "Minimal Articles \u2014 Dark Premium",
           "path": "Tailwind/Sections/Blog/dark-premium/",
           "type": "section",
           "description": "Dark Premium blog layout: Minimal article list.",
@@ -9030,7 +9063,7 @@
           ]
         },
         {
-          "name": "Editorial Grid — Edge Glassmorphism",
+          "name": "Editorial Grid \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Blog/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism blog layout: Editorial grid.",
@@ -9059,7 +9092,7 @@
           ]
         },
         {
-          "name": "News Layout — Editorial",
+          "name": "News Layout \u2014 Editorial",
           "path": "Tailwind/Sections/Blog/editorial/",
           "type": "section",
           "description": "Editorial blog layout: News layout.",
@@ -9088,7 +9121,7 @@
           ]
         },
         {
-          "name": "Magazine Layout — Elegant Luxury",
+          "name": "Magazine Layout \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Blog/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury blog layout: Magazine layout.",
@@ -9117,7 +9150,7 @@
           ]
         },
         {
-          "name": "Three-Column Grid — Futuristic",
+          "name": "Three-Column Grid \u2014 Futuristic",
           "path": "Tailwind/Sections/Blog/futuristic/",
           "type": "section",
           "description": "Futuristic blog layout: Three-column grid.",
@@ -9146,7 +9179,7 @@
           ]
         },
         {
-          "name": "Split Featured Blog — Gradient Mesh",
+          "name": "Split Featured Blog \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Blog/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh blog layout: Split featured blog.",
@@ -9175,7 +9208,7 @@
           ]
         },
         {
-          "name": "Modern Blog — Minimal",
+          "name": "Modern Blog \u2014 Minimal",
           "path": "Tailwind/Sections/Blog/minimal/",
           "type": "section",
           "description": "Minimal blog layout: Modern blog layout.",
@@ -9204,7 +9237,7 @@
           ]
         },
         {
-          "name": "Featured Article — Monochrome",
+          "name": "Featured Article \u2014 Monochrome",
           "path": "Tailwind/Sections/Blog/monochrome/",
           "type": "section",
           "description": "Monochrome blog layout: Featured article hero.",
@@ -9233,7 +9266,7 @@
           ]
         },
         {
-          "name": "Bento Articles — Neo Brutalism",
+          "name": "Bento Articles \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Blog/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism blog layout: Bento articles.",
@@ -9262,7 +9295,7 @@
           ]
         },
         {
-          "name": "Category Blog — Soft UI (Neumorphism)",
+          "name": "Category Blog \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Blog/soft-ui/",
           "type": "section",
           "description": "Soft UI blog layout: Category blog.",
@@ -9291,7 +9324,7 @@
           ]
         },
         {
-          "name": "Article List — Startup Landing",
+          "name": "Article List \u2014 Startup Landing",
           "path": "Tailwind/Sections/Blog/startup-landing/",
           "type": "section",
           "description": "Startup Landing blog layout: Article list.",
@@ -9320,7 +9353,7 @@
           ]
         },
         {
-          "name": "Startup Blog — Vercel / Linear",
+          "name": "Startup Blog \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Blog/vercel/",
           "type": "section",
           "description": "Vercel / Linear blog layout: Startup blog grid.",
@@ -9382,7 +9415,7 @@
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Contact + Sidebar Info — Apple Inspired",
+          "name": "Contact + Sidebar Info \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Contact/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired contact layout: Form + sidebar info.",
@@ -9410,7 +9443,7 @@
           ]
         },
         {
-          "name": "Inline Contact Cards — Bento Grid",
+          "name": "Inline Contact Cards \u2014 Bento Grid",
           "path": "Tailwind/Sections/Contact/bento-grid/",
           "type": "section",
           "description": "Bento Grid contact layout: Inline contact rows.",
@@ -9438,7 +9471,7 @@
           ]
         },
         {
-          "name": "Support Center — Cyber",
+          "name": "Support Center \u2014 Cyber",
           "path": "Tailwind/Sections/Contact/cyber/",
           "type": "section",
           "description": "Cyber contact layout: Support center grid.",
@@ -9466,7 +9499,7 @@
           ]
         },
         {
-          "name": "Contact + Subscribe — Dark Premium",
+          "name": "Contact + Subscribe \u2014 Dark Premium",
           "path": "Tailwind/Sections/Contact/dark-premium/",
           "type": "section",
           "description": "Dark Premium contact layout: Contact + newsletter combo.",
@@ -9494,7 +9527,7 @@
           ]
         },
         {
-          "name": "Centered Contact — Edge Glassmorphism",
+          "name": "Centered Contact \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Contact/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism contact layout: Centered hero form.",
@@ -9522,7 +9555,7 @@
           ]
         },
         {
-          "name": "Onboarding Contact — Editorial",
+          "name": "Onboarding Contact \u2014 Editorial",
           "path": "Tailwind/Sections/Contact/editorial/",
           "type": "section",
           "description": "Editorial contact layout: Onboarding steps.",
@@ -9550,7 +9583,7 @@
           ]
         },
         {
-          "name": "Minimal Contact Form — Elegant Luxury",
+          "name": "Minimal Contact Form \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Contact/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury contact layout: Minimal centered form.",
@@ -9578,7 +9611,7 @@
           ]
         },
         {
-          "name": "Contact with Map — Futuristic",
+          "name": "Contact with Map \u2014 Futuristic",
           "path": "Tailwind/Sections/Contact/futuristic/",
           "type": "section",
           "description": "Futuristic contact layout: Map placeholder panel.",
@@ -9606,7 +9639,7 @@
           ]
         },
         {
-          "name": "Contact Method Cards — Gradient Mesh",
+          "name": "Contact Method Cards \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Contact/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh contact layout: Contact method cards.",
@@ -9634,7 +9667,7 @@
           ]
         },
         {
-          "name": "Mega Contact Grid — Minimal",
+          "name": "Mega Contact Grid \u2014 Minimal",
           "path": "Tailwind/Sections/Contact/minimal/",
           "type": "section",
           "description": "Minimal contact layout: Mega contact grid.",
@@ -9662,7 +9695,7 @@
           ]
         },
         {
-          "name": "Office Locations — Monochrome",
+          "name": "Office Locations \u2014 Monochrome",
           "path": "Tailwind/Sections/Contact/monochrome/",
           "type": "section",
           "description": "Monochrome contact layout: Office location cards.",
@@ -9690,7 +9723,7 @@
           ]
         },
         {
-          "name": "Startup Contact — Neo Brutalism",
+          "name": "Startup Contact \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Contact/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism contact layout: Startup contact form.",
@@ -9718,7 +9751,7 @@
           ]
         },
         {
-          "name": "Team Contact Directory — Soft UI (Neumorphism)",
+          "name": "Team Contact Directory \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Contact/soft-ui/",
           "type": "section",
           "description": "Soft UI contact layout: Team contact directory.",
@@ -9746,7 +9779,7 @@
           ]
         },
         {
-          "name": "Split Contact Layout — Startup Landing",
+          "name": "Split Contact Layout \u2014 Startup Landing",
           "path": "Tailwind/Sections/Contact/startup-landing/",
           "type": "section",
           "description": "Startup Landing contact layout: Split form + info.",
@@ -9774,7 +9807,7 @@
           ]
         },
         {
-          "name": "Floating Contact — Vercel / Linear",
+          "name": "Floating Contact \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Contact/vercel/",
           "type": "section",
           "description": "Vercel / Linear contact layout: Floating contact panel.",
@@ -9834,7 +9867,7 @@
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Accordion FAQ — Apple Inspired",
+          "name": "Accordion FAQ \u2014 Apple Inspired",
           "path": "Tailwind/Sections/FAQ/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired FAQ layout: Native <details> accordion.",
@@ -9862,7 +9895,7 @@
           ]
         },
         {
-          "name": "Two-Column FAQ — Bento Grid",
+          "name": "Two-Column FAQ \u2014 Bento Grid",
           "path": "Tailwind/Sections/FAQ/bento-grid/",
           "type": "section",
           "description": "Bento Grid FAQ layout: Two-column layout.",
@@ -9890,7 +9923,7 @@
           ]
         },
         {
-          "name": "Spotlight FAQ — Cyber",
+          "name": "Spotlight FAQ \u2014 Cyber",
           "path": "Tailwind/Sections/FAQ/cyber/",
           "type": "section",
           "description": "Cyber FAQ layout: Spotlight accordion.",
@@ -9918,7 +9951,7 @@
           ]
         },
         {
-          "name": "Sidebar Categories FAQ — Dark Premium",
+          "name": "Sidebar Categories FAQ \u2014 Dark Premium",
           "path": "Tailwind/Sections/FAQ/dark-premium/",
           "type": "section",
           "description": "Dark Premium FAQ layout: Sidebar categories nav.",
@@ -9946,7 +9979,7 @@
           ]
         },
         {
-          "name": "Tabbed FAQ UI — Edge Glassmorphism",
+          "name": "Tabbed FAQ UI \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/FAQ/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism FAQ layout: Tabbed categories (ui).",
@@ -9974,7 +10007,7 @@
           ]
         },
         {
-          "name": "Searchable FAQ UI — Editorial",
+          "name": "Searchable FAQ UI \u2014 Editorial",
           "path": "Tailwind/Sections/FAQ/editorial/",
           "type": "section",
           "description": "Editorial FAQ layout: Search bar (ui only).",
@@ -10002,7 +10035,7 @@
           ]
         },
         {
-          "name": "Minimal FAQ — Elegant Luxury",
+          "name": "Minimal FAQ \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/FAQ/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury FAQ layout: Static definition list.",
@@ -10030,7 +10063,7 @@
           ]
         },
         {
-          "name": "Pricing FAQ — Futuristic",
+          "name": "Pricing FAQ \u2014 Futuristic",
           "path": "Tailwind/Sections/FAQ/futuristic/",
           "type": "section",
           "description": "Futuristic FAQ layout: Pricing-specific faq.",
@@ -10058,7 +10091,7 @@
           ]
         },
         {
-          "name": "SaaS FAQ — Gradient Mesh",
+          "name": "SaaS FAQ \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/FAQ/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh FAQ layout: Saas feature faq grid.",
@@ -10086,7 +10119,7 @@
           ]
         },
         {
-          "name": "FAQ with Contact CTA — Minimal",
+          "name": "FAQ with Contact CTA \u2014 Minimal",
           "path": "Tailwind/Sections/FAQ/minimal/",
           "type": "section",
           "description": "Minimal FAQ layout: Faq + contact cta.",
@@ -10114,7 +10147,7 @@
           ]
         },
         {
-          "name": "Compact FAQ — Monochrome",
+          "name": "Compact FAQ \u2014 Monochrome",
           "path": "Tailwind/Sections/FAQ/monochrome/",
           "type": "section",
           "description": "Monochrome FAQ layout: Single-panel list.",
@@ -10142,7 +10175,7 @@
           ]
         },
         {
-          "name": "Categorized FAQ — Neo Brutalism",
+          "name": "Categorized FAQ \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/FAQ/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism FAQ layout: Grouped by category.",
@@ -10170,7 +10203,7 @@
           ]
         },
         {
-          "name": "Documentation FAQ — Soft UI (Neumorphism)",
+          "name": "Documentation FAQ \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/FAQ/soft-ui/",
           "type": "section",
           "description": "Soft UI FAQ layout: Docs-style anchor nav.",
@@ -10198,7 +10231,7 @@
           ]
         },
         {
-          "name": "Modern FAQ Cards — Startup Landing",
+          "name": "Modern FAQ Cards \u2014 Startup Landing",
           "path": "Tailwind/Sections/FAQ/startup-landing/",
           "type": "section",
           "description": "Startup Landing FAQ layout: Card-style accordions.",
@@ -10226,7 +10259,7 @@
           ]
         },
         {
-          "name": "Rich Content FAQ — Vercel / Linear",
+          "name": "Rich Content FAQ \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/FAQ/vercel/",
           "type": "section",
           "description": "Vercel / Linear FAQ layout: Rich answer rows.",
@@ -10286,7 +10319,7 @@
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Minimal Footer — Apple Inspired",
+          "name": "Minimal Footer \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Footer/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired footer: Minimal footer.",
@@ -10314,7 +10347,7 @@
           ]
         },
         {
-          "name": "Multi-Column Footer — Bento Grid",
+          "name": "Multi-Column Footer \u2014 Bento Grid",
           "path": "Tailwind/Sections/Footer/bento-grid/",
           "type": "section",
           "description": "Bento Grid footer: 5-column footer.",
@@ -10342,7 +10375,7 @@
           ]
         },
         {
-          "name": "Mega Footer — Cyber",
+          "name": "Mega Footer \u2014 Cyber",
           "path": "Tailwind/Sections/Footer/cyber/",
           "type": "section",
           "description": "Cyber footer: Mega multi-column.",
@@ -10370,7 +10403,7 @@
           ]
         },
         {
-          "name": "Compact Footer — Dark Premium",
+          "name": "Compact Footer \u2014 Dark Premium",
           "path": "Tailwind/Sections/Footer/dark-premium/",
           "type": "section",
           "description": "Dark Premium footer: Compact footer.",
@@ -10398,7 +10431,7 @@
           ]
         },
         {
-          "name": "Startup Footer — Edge Glassmorphism",
+          "name": "Startup Footer \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Footer/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism footer: Startup footer.",
@@ -10426,7 +10459,7 @@
           ]
         },
         {
-          "name": "Social-First Footer — Editorial",
+          "name": "Social-First Footer \u2014 Editorial",
           "path": "Tailwind/Sections/Footer/editorial/",
           "type": "section",
           "description": "Editorial footer: Social-first footer.",
@@ -10454,7 +10487,7 @@
           ]
         },
         {
-          "name": "SaaS Footer — Elegant Luxury",
+          "name": "SaaS Footer \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Footer/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury footer: Saas footer.",
@@ -10482,7 +10515,7 @@
           ]
         },
         {
-          "name": "Centered Footer — Futuristic",
+          "name": "Centered Footer \u2014 Futuristic",
           "path": "Tailwind/Sections/Footer/futuristic/",
           "type": "section",
           "description": "Futuristic footer: Centered footer.",
@@ -10510,7 +10543,7 @@
           ]
         },
         {
-          "name": "Grid Footer — Gradient Mesh",
+          "name": "Grid Footer \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Footer/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh footer: Grid footer.",
@@ -10538,7 +10571,7 @@
           ]
         },
         {
-          "name": "Branded Footer — Minimal",
+          "name": "Branded Footer \u2014 Minimal",
           "path": "Tailwind/Sections/Footer/minimal/",
           "type": "section",
           "description": "Minimal footer: Premium centered footer.",
@@ -10566,7 +10599,7 @@
           ]
         },
         {
-          "name": "Newsletter Footer — Monochrome",
+          "name": "Newsletter Footer \u2014 Monochrome",
           "path": "Tailwind/Sections/Footer/monochrome/",
           "type": "section",
           "description": "Monochrome footer: Newsletter banner.",
@@ -10594,7 +10627,7 @@
           ]
         },
         {
-          "name": "Documentation Footer — Neo Brutalism",
+          "name": "Documentation Footer \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Footer/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism footer: Documentation footer.",
@@ -10622,7 +10655,7 @@
           ]
         },
         {
-          "name": "Four-Column Footer — Soft UI (Neumorphism)",
+          "name": "Four-Column Footer \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Footer/soft-ui/",
           "type": "section",
           "description": "Soft UI footer: 4-column footer.",
@@ -10650,7 +10683,7 @@
           ]
         },
         {
-          "name": "CTA Footer — Startup Landing",
+          "name": "CTA Footer \u2014 Startup Landing",
           "path": "Tailwind/Sections/Footer/startup-landing/",
           "type": "section",
           "description": "Startup Landing footer: Cta banner footer.",
@@ -10678,7 +10711,7 @@
           ]
         },
         {
-          "name": "Editorial Footer — Vercel / Linear",
+          "name": "Editorial Footer \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Footer/vercel/",
           "type": "section",
           "description": "Vercel / Linear footer: Editorial footer.",
@@ -10734,11 +10767,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Logo clouds and brand walls — infinite scroll, grids, partners, and trusted-by rows.",
+      "description": "Logo clouds and brand walls \u2014 infinite scroll, grids, partners, and trusted-by rows.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Grid Logos — Apple Inspired",
+          "name": "Grid Logos \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Logos/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired logos layout: Logo grid.",
@@ -10767,7 +10800,7 @@
           ]
         },
         {
-          "name": "Partner Showcase — Bento Grid",
+          "name": "Partner Showcase \u2014 Bento Grid",
           "path": "Tailwind/Sections/Logos/bento-grid/",
           "type": "section",
           "description": "Bento Grid logos layout: Partner showcase.",
@@ -10796,7 +10829,7 @@
           ]
         },
         {
-          "name": "Logo Strip — Cyber",
+          "name": "Logo Strip \u2014 Cyber",
           "path": "Tailwind/Sections/Logos/cyber/",
           "type": "section",
           "description": "Cyber logos layout: Logo strip.",
@@ -10825,7 +10858,7 @@
           ]
         },
         {
-          "name": "Trusted By — Dark Premium",
+          "name": "Trusted By \u2014 Dark Premium",
           "path": "Tailwind/Sections/Logos/dark-premium/",
           "type": "section",
           "description": "Dark Premium logos layout: Trusted-by row.",
@@ -10854,7 +10887,7 @@
           ]
         },
         {
-          "name": "Marquee Logos — Edge Glassmorphism",
+          "name": "Marquee Logos \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Logos/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism logos layout: Marquee logos.",
@@ -10883,7 +10916,7 @@
           ]
         },
         {
-          "name": "Investors — Editorial",
+          "name": "Investors \u2014 Editorial",
           "path": "Tailwind/Sections/Logos/editorial/",
           "type": "section",
           "description": "Editorial logos layout: Investors grid.",
@@ -10912,7 +10945,7 @@
           ]
         },
         {
-          "name": "Stat + Logos — Elegant Luxury",
+          "name": "Stat + Logos \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Logos/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury logos layout: Stat + logos.",
@@ -10941,7 +10974,7 @@
           ]
         },
         {
-          "name": "Minimal Monochrome Logos — Futuristic",
+          "name": "Minimal Monochrome Logos \u2014 Futuristic",
           "path": "Tailwind/Sections/Logos/futuristic/",
           "type": "section",
           "description": "Futuristic logos layout: Minimal monochrome logos.",
@@ -10970,7 +11003,7 @@
           ]
         },
         {
-          "name": "Premium Logos — Gradient Mesh",
+          "name": "Premium Logos \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Logos/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh logos layout: Premium logo panel.",
@@ -10999,7 +11032,7 @@
           ]
         },
         {
-          "name": "Brand Wall — Minimal",
+          "name": "Brand Wall \u2014 Minimal",
           "path": "Tailwind/Sections/Logos/minimal/",
           "type": "section",
           "description": "Minimal logos layout: Brand wall.",
@@ -11028,7 +11061,7 @@
           ]
         },
         {
-          "name": "Categorized Logos — Monochrome",
+          "name": "Categorized Logos \u2014 Monochrome",
           "path": "Tailwind/Sections/Logos/monochrome/",
           "type": "section",
           "description": "Monochrome logos layout: Categorized logos.",
@@ -11057,7 +11090,7 @@
           ]
         },
         {
-          "name": "Gradient Logo Cloud — Neo Brutalism",
+          "name": "Gradient Logo Cloud \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Logos/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism logos layout: Gradient logo cloud.",
@@ -11086,7 +11119,7 @@
           ]
         },
         {
-          "name": "Startup Logos — Soft UI (Neumorphism)",
+          "name": "Startup Logos \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Logos/soft-ui/",
           "type": "section",
           "description": "Soft UI logos layout: Startup logos.",
@@ -11115,7 +11148,7 @@
           ]
         },
         {
-          "name": "Bento Logos — Startup Landing",
+          "name": "Bento Logos \u2014 Startup Landing",
           "path": "Tailwind/Sections/Logos/startup-landing/",
           "type": "section",
           "description": "Startup Landing logos layout: Bento logo cloud.",
@@ -11144,7 +11177,7 @@
           ]
         },
         {
-          "name": "Infinite-Scroll Logos — Vercel / Linear",
+          "name": "Infinite-Scroll Logos \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Logos/vercel/",
           "type": "section",
           "description": "Vercel / Linear logos layout: Infinite-scroll marquee.",
@@ -11202,11 +11235,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Newsletter subscribe CTAs — centered, split, glass, gradient, and bento styles.",
+      "description": "Newsletter subscribe CTAs \u2014 centered, split, glass, gradient, and bento styles.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Benefits Newsletter CTA — Apple Inspired",
+          "name": "Benefits Newsletter CTA \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Newsletter/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired newsletter layout: Benefits newsletter.",
@@ -11235,7 +11268,7 @@
           ]
         },
         {
-          "name": "Compact Newsletter CTA — Bento Grid",
+          "name": "Compact Newsletter CTA \u2014 Bento Grid",
           "path": "Tailwind/Sections/Newsletter/bento-grid/",
           "type": "section",
           "description": "Bento Grid newsletter layout: Compact newsletter cta.",
@@ -11264,7 +11297,7 @@
           ]
         },
         {
-          "name": "Minimal Subscribe — Cyber",
+          "name": "Minimal Subscribe \u2014 Cyber",
           "path": "Tailwind/Sections/Newsletter/cyber/",
           "type": "section",
           "description": "Cyber newsletter layout: Minimal subscribe.",
@@ -11293,7 +11326,7 @@
           ]
         },
         {
-          "name": "Split Newsletter — Dark Premium",
+          "name": "Split Newsletter \u2014 Dark Premium",
           "path": "Tailwind/Sections/Newsletter/dark-premium/",
           "type": "section",
           "description": "Dark Premium newsletter layout: Split newsletter.",
@@ -11322,7 +11355,7 @@
           ]
         },
         {
-          "name": "Inline Newsletter Strip — Edge Glassmorphism",
+          "name": "Inline Newsletter Strip \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Newsletter/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism newsletter layout: Inline strip.",
@@ -11351,7 +11384,7 @@
           ]
         },
         {
-          "name": "Centered Newsletter CTA — Editorial",
+          "name": "Centered Newsletter CTA \u2014 Editorial",
           "path": "Tailwind/Sections/Newsletter/editorial/",
           "type": "section",
           "description": "Editorial newsletter layout: Centered cta.",
@@ -11380,7 +11413,7 @@
           ]
         },
         {
-          "name": "Startup Newsletter CTA — Elegant Luxury",
+          "name": "Startup Newsletter CTA \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Newsletter/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury newsletter layout: Startup newsletter cta.",
@@ -11409,7 +11442,7 @@
           ]
         },
         {
-          "name": "Bold Newsletter CTA — Futuristic",
+          "name": "Bold Newsletter CTA \u2014 Futuristic",
           "path": "Tailwind/Sections/Newsletter/futuristic/",
           "type": "section",
           "description": "Futuristic newsletter layout: Bold newsletter cta.",
@@ -11438,7 +11471,7 @@
           ]
         },
         {
-          "name": "Gradient Newsletter CTA — Gradient Mesh",
+          "name": "Gradient Newsletter CTA \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Newsletter/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh newsletter layout: Gradient cta.",
@@ -11467,7 +11500,7 @@
           ]
         },
         {
-          "name": "Stat + Newsletter CTA — Minimal",
+          "name": "Stat + Newsletter CTA \u2014 Minimal",
           "path": "Tailwind/Sections/Newsletter/minimal/",
           "type": "section",
           "description": "Minimal newsletter layout: Stat + newsletter.",
@@ -11496,7 +11529,7 @@
           ]
         },
         {
-          "name": "Premium Newsletter CTA — Monochrome",
+          "name": "Premium Newsletter CTA \u2014 Monochrome",
           "path": "Tailwind/Sections/Newsletter/monochrome/",
           "type": "section",
           "description": "Monochrome newsletter layout: Premium newsletter cta.",
@@ -11525,7 +11558,7 @@
           ]
         },
         {
-          "name": "Footer Newsletter — Neo Brutalism",
+          "name": "Footer Newsletter \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Newsletter/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism newsletter layout: Footer newsletter.",
@@ -11554,7 +11587,7 @@
           ]
         },
         {
-          "name": "Bento Newsletter CTA — Soft UI (Neumorphism)",
+          "name": "Bento Newsletter CTA \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Newsletter/soft-ui/",
           "type": "section",
           "description": "Soft UI newsletter layout: Bento newsletter.",
@@ -11583,7 +11616,7 @@
           ]
         },
         {
-          "name": "Floating Newsletter CTA — Startup Landing",
+          "name": "Floating Newsletter CTA \u2014 Startup Landing",
           "path": "Tailwind/Sections/Newsletter/startup-landing/",
           "type": "section",
           "description": "Startup Landing newsletter layout: Floating glass cta.",
@@ -11612,7 +11645,7 @@
           ]
         },
         {
-          "name": "Card Newsletter CTA — Vercel / Linear",
+          "name": "Card Newsletter CTA \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Newsletter/vercel/",
           "type": "section",
           "description": "Vercel / Linear newsletter layout: Card newsletter cta.",
@@ -11670,11 +11703,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Stats and metrics sections — KPI cards, dashboards, counters, and progress bars.",
+      "description": "Stats and metrics sections \u2014 KPI cards, dashboards, counters, and progress bars.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Circular Stats — Apple Inspired",
+          "name": "Circular Stats \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Stats/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired stats layout: Circular progress stats.",
@@ -11703,7 +11736,7 @@
           ]
         },
         {
-          "name": "KPI Cards — Bento Grid",
+          "name": "KPI Cards \u2014 Bento Grid",
           "path": "Tailwind/Sections/Stats/bento-grid/",
           "type": "section",
           "description": "Bento Grid stats layout: 4 kpi cards.",
@@ -11732,7 +11765,7 @@
           ]
         },
         {
-          "name": "Premium Stats — Cyber",
+          "name": "Premium Stats \u2014 Cyber",
           "path": "Tailwind/Sections/Stats/cyber/",
           "type": "section",
           "description": "Cyber stats layout: Premium stat panel.",
@@ -11761,7 +11794,7 @@
           ]
         },
         {
-          "name": "Company Metrics — Dark Premium",
+          "name": "Company Metrics \u2014 Dark Premium",
           "path": "Tailwind/Sections/Stats/dark-premium/",
           "type": "section",
           "description": "Dark Premium stats layout: Company metrics grid.",
@@ -11790,7 +11823,7 @@
           ]
         },
         {
-          "name": "Progress Bar Stats — Edge Glassmorphism",
+          "name": "Progress Bar Stats \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Stats/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism stats layout: Progress bar stats.",
@@ -11819,7 +11852,7 @@
           ]
         },
         {
-          "name": "Dashboard Stats — Editorial",
+          "name": "Dashboard Stats \u2014 Editorial",
           "path": "Tailwind/Sections/Stats/editorial/",
           "type": "section",
           "description": "Editorial stats layout: Dashboard stat panel.",
@@ -11848,7 +11881,7 @@
           ]
         },
         {
-          "name": "Bold Stats — Elegant Luxury",
+          "name": "Bold Stats \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Stats/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury stats layout: Bold stat grid.",
@@ -11877,7 +11910,7 @@
           ]
         },
         {
-          "name": "Animated Counter Stats — Futuristic",
+          "name": "Animated Counter Stats \u2014 Futuristic",
           "path": "Tailwind/Sections/Stats/futuristic/",
           "type": "section",
           "description": "Futuristic stats layout: Animated counter ui.",
@@ -11906,7 +11939,7 @@
           ]
         },
         {
-          "name": "Bento Stats — Gradient Mesh",
+          "name": "Bento Stats \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Stats/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh stats layout: Bento stats grid.",
@@ -11935,7 +11968,7 @@
           ]
         },
         {
-          "name": "Inline Stat Strip — Minimal",
+          "name": "Inline Stat Strip \u2014 Minimal",
           "path": "Tailwind/Sections/Stats/minimal/",
           "type": "section",
           "description": "Minimal stats layout: Inline stat strip.",
@@ -11964,7 +11997,7 @@
           ]
         },
         {
-          "name": "Spotlight Stats — Monochrome",
+          "name": "Spotlight Stats \u2014 Monochrome",
           "path": "Tailwind/Sections/Stats/monochrome/",
           "type": "section",
           "description": "Monochrome stats layout: Spotlight stat cards.",
@@ -11993,7 +12026,7 @@
           ]
         },
         {
-          "name": "Split Stats — Neo Brutalism",
+          "name": "Split Stats \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Stats/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism stats layout: Split stat layout.",
@@ -12022,7 +12055,7 @@
           ]
         },
         {
-          "name": "Minimal Stats — Soft UI (Neumorphism)",
+          "name": "Minimal Stats \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Stats/soft-ui/",
           "type": "section",
           "description": "Soft UI stats layout: Minimal text stats.",
@@ -12051,7 +12084,7 @@
           ]
         },
         {
-          "name": "Startup Growth Stats — Startup Landing",
+          "name": "Startup Growth Stats \u2014 Startup Landing",
           "path": "Tailwind/Sections/Stats/startup-landing/",
           "type": "section",
           "description": "Startup Landing stats layout: Startup growth panel.",
@@ -12080,7 +12113,7 @@
           ]
         },
         {
-          "name": "Comparison Stats — Vercel / Linear",
+          "name": "Comparison Stats \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Stats/vercel/",
           "type": "section",
           "description": "Vercel / Linear stats layout: Year-over-year comparison.",
@@ -12138,11 +12171,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Team sections — grids, founders, hierarchy, circular, and detailed profile cards.",
+      "description": "Team sections \u2014 grids, founders, hierarchy, circular, and detailed profile cards.",
       "variantsCount": 15,
       "variants": [
         {
-          "name": "Featured Team — Apple Inspired",
+          "name": "Featured Team \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Team/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired team layout: Featured + grid team.",
@@ -12171,7 +12204,7 @@
           ]
         },
         {
-          "name": "Compact Team Grid — Bento Grid",
+          "name": "Compact Team Grid \u2014 Bento Grid",
           "path": "Tailwind/Sections/Team/bento-grid/",
           "type": "section",
           "description": "Bento Grid team layout: Compact team grid.",
@@ -12200,7 +12233,7 @@
           ]
         },
         {
-          "name": "Bento Team — Cyber",
+          "name": "Bento Team \u2014 Cyber",
           "path": "Tailwind/Sections/Team/cyber/",
           "type": "section",
           "description": "Cyber team layout: Bento team grid.",
@@ -12229,7 +12262,7 @@
           ]
         },
         {
-          "name": "Avatar Wall Team — Dark Premium",
+          "name": "Avatar Wall Team \u2014 Dark Premium",
           "path": "Tailwind/Sections/Team/dark-premium/",
           "type": "section",
           "description": "Dark Premium team layout: Avatar wall.",
@@ -12258,7 +12291,7 @@
           ]
         },
         {
-          "name": "Bold Team Cards — Edge Glassmorphism",
+          "name": "Bold Team Cards \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Team/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism team layout: Bold team cards.",
@@ -12287,7 +12320,7 @@
           ]
         },
         {
-          "name": "Detailed Profile Cards — Editorial",
+          "name": "Detailed Profile Cards \u2014 Editorial",
           "path": "Tailwind/Sections/Team/editorial/",
           "type": "section",
           "description": "Editorial team layout: Detailed profile cards.",
@@ -12316,7 +12349,7 @@
           ]
         },
         {
-          "name": "Circular Profiles — Elegant Luxury",
+          "name": "Circular Profiles \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Team/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury team layout: Circular profiles.",
@@ -12345,7 +12378,7 @@
           ]
         },
         {
-          "name": "Team Grid — Futuristic",
+          "name": "Team Grid \u2014 Futuristic",
           "path": "Tailwind/Sections/Team/futuristic/",
           "type": "section",
           "description": "Futuristic team layout: Team grid.",
@@ -12374,7 +12407,7 @@
           ]
         },
         {
-          "name": "Executive Cards — Gradient Mesh",
+          "name": "Executive Cards \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Team/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh team layout: Executive cards.",
@@ -12403,7 +12436,7 @@
           ]
         },
         {
-          "name": "Minimal Profiles — Minimal",
+          "name": "Minimal Profiles \u2014 Minimal",
           "path": "Tailwind/Sections/Team/minimal/",
           "type": "section",
           "description": "Minimal team layout: Minimal profiles.",
@@ -12432,7 +12465,7 @@
           ]
         },
         {
-          "name": "Editorial Team — Monochrome",
+          "name": "Editorial Team \u2014 Monochrome",
           "path": "Tailwind/Sections/Team/monochrome/",
           "type": "section",
           "description": "Monochrome team layout: Editorial team layout.",
@@ -12461,7 +12494,7 @@
           ]
         },
         {
-          "name": "Spotlight Team — Neo Brutalism",
+          "name": "Spotlight Team \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Team/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism team layout: Spotlight team cards.",
@@ -12490,7 +12523,7 @@
           ]
         },
         {
-          "name": "Startup Founders — Soft UI (Neumorphism)",
+          "name": "Startup Founders \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Team/soft-ui/",
           "type": "section",
           "description": "Soft UI team layout: Founders spotlight.",
@@ -12519,7 +12552,7 @@
           ]
         },
         {
-          "name": "Leadership Row — Startup Landing",
+          "name": "Leadership Row \u2014 Startup Landing",
           "path": "Tailwind/Sections/Team/startup-landing/",
           "type": "section",
           "description": "Startup Landing team layout: Leadership row.",
@@ -12548,7 +12581,7 @@
           ]
         },
         {
-          "name": "Company Hierarchy — Vercel / Linear",
+          "name": "Company Hierarchy \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Team/vercel/",
           "type": "section",
           "description": "Vercel / Linear team layout: Org hierarchy.",
@@ -12610,7 +12643,7 @@
       "variantsCount": 15,
       "variants": [
         {
-          "name": "User Avatar Wall — Apple Inspired",
+          "name": "User Avatar Wall \u2014 Apple Inspired",
           "path": "Tailwind/Sections/Testimonials/apple-inspired/",
           "type": "section",
           "description": "Apple Inspired testimonials layout: Avatar wall.",
@@ -12638,7 +12671,7 @@
           ]
         },
         {
-          "name": "Rating Summary Testimonials — Bento Grid",
+          "name": "Rating Summary Testimonials \u2014 Bento Grid",
           "path": "Tailwind/Sections/Testimonials/bento-grid/",
           "type": "section",
           "description": "Bento Grid testimonials layout: Aggregate rating summary.",
@@ -12666,7 +12699,7 @@
           ]
         },
         {
-          "name": "Metrics + Testimonials — Cyber",
+          "name": "Metrics + Testimonials \u2014 Cyber",
           "path": "Tailwind/Sections/Testimonials/cyber/",
           "type": "section",
           "description": "Cyber testimonials layout: Quote + metric tiles.",
@@ -12694,7 +12727,7 @@
           ]
         },
         {
-          "name": "Split Testimonial Spotlight — Dark Premium",
+          "name": "Split Testimonial Spotlight \u2014 Dark Premium",
           "path": "Tailwind/Sections/Testimonials/dark-premium/",
           "type": "section",
           "description": "Dark Premium testimonials layout: Split spotlight layout.",
@@ -12722,7 +12755,7 @@
           ]
         },
         {
-          "name": "Masonry Testimonial Wall — Edge Glassmorphism",
+          "name": "Masonry Testimonial Wall \u2014 Edge Glassmorphism",
           "path": "Tailwind/Sections/Testimonials/edge-glassmorphism/",
           "type": "section",
           "description": "Edge Glassmorphism testimonials layout: Css masonry via columns.",
@@ -12750,7 +12783,7 @@
           ]
         },
         {
-          "name": "Video Testimonial Placeholders — Editorial",
+          "name": "Video Testimonial Placeholders \u2014 Editorial",
           "path": "Tailwind/Sections/Testimonials/editorial/",
           "type": "section",
           "description": "Editorial testimonials layout: Video placeholder tiles.",
@@ -12778,7 +12811,7 @@
           ]
         },
         {
-          "name": "Before/After Testimonials — Elegant Luxury",
+          "name": "Before/After Testimonials \u2014 Elegant Luxury",
           "path": "Tailwind/Sections/Testimonials/elegant-luxury/",
           "type": "section",
           "description": "Elegant Luxury testimonials layout: Before/after comparison.",
@@ -12806,7 +12839,7 @@
           ]
         },
         {
-          "name": "Minimal Testimonial Wall — Futuristic",
+          "name": "Minimal Testimonial Wall \u2014 Futuristic",
           "path": "Tailwind/Sections/Testimonials/futuristic/",
           "type": "section",
           "description": "Futuristic testimonials layout: Dense minimal wall.",
@@ -12834,7 +12867,7 @@
           ]
         },
         {
-          "name": "Featured + Grid Testimonials — Gradient Mesh",
+          "name": "Featured + Grid Testimonials \u2014 Gradient Mesh",
           "path": "Tailwind/Sections/Testimonials/gradient-mesh/",
           "type": "section",
           "description": "Gradient Mesh testimonials layout: Featured wide card.",
@@ -12862,7 +12895,7 @@
           ]
         },
         {
-          "name": "Company Reviews — Minimal",
+          "name": "Company Reviews \u2014 Minimal",
           "path": "Tailwind/Sections/Testimonials/minimal/",
           "type": "section",
           "description": "Minimal testimonials layout: Company-branded cards.",
@@ -12890,7 +12923,7 @@
           ]
         },
         {
-          "name": "Stacked Quote Testimonials — Monochrome",
+          "name": "Stacked Quote Testimonials \u2014 Monochrome",
           "path": "Tailwind/Sections/Testimonials/monochrome/",
           "type": "section",
           "description": "Monochrome testimonials layout: Stacked single-column.",
@@ -12918,7 +12951,7 @@
           ]
         },
         {
-          "name": "Card Grid Testimonials — Neo Brutalism",
+          "name": "Card Grid Testimonials \u2014 Neo Brutalism",
           "path": "Tailwind/Sections/Testimonials/neo-brutalism/",
           "type": "section",
           "description": "Neo Brutalism testimonials layout: 3-column responsive grid.",
@@ -12946,7 +12979,7 @@
           ]
         },
         {
-          "name": "Logo + Quote Testimonials — Soft UI (Neumorphism)",
+          "name": "Logo + Quote Testimonials \u2014 Soft UI (Neumorphism)",
           "path": "Tailwind/Sections/Testimonials/soft-ui/",
           "type": "section",
           "description": "Soft UI testimonials layout: Logo-tagged quotes.",
@@ -12974,7 +13007,7 @@
           ]
         },
         {
-          "name": "Large Quote Feature — Startup Landing",
+          "name": "Large Quote Feature \u2014 Startup Landing",
           "path": "Tailwind/Sections/Testimonials/startup-landing/",
           "type": "section",
           "description": "Startup Landing testimonials layout: Oversized pull quote.",
@@ -13002,7 +13035,7 @@
           ]
         },
         {
-          "name": "Carousel-Style Testimonials — Vercel / Linear",
+          "name": "Carousel-Style Testimonials \u2014 Vercel / Linear",
           "path": "Tailwind/Sections/Testimonials/vercel/",
           "type": "section",
           "description": "Vercel / Linear testimonials layout: Horizontal snap carousel (no js).",
@@ -13058,14 +13091,14 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "AI product sections — chat interfaces, model comparison, prompt libraries, and agent workflows.",
+      "description": "AI product sections \u2014 chat interfaces, model comparison, prompt libraries, and agent workflows.",
       "variantsCount": 12,
       "variants": [
         {
-          "name": "Model Comparison — Neo-Brutalism",
+          "name": "Model Comparison \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/model-comparison/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "description": "Brutalist LLM comparison arena \u2014 three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
           "tags": [
             "model-comparison",
             "llm",
@@ -13097,10 +13130,10 @@
           ]
         },
         {
-          "name": "Prompt Library — Neo-Brutalism",
+          "name": "Prompt Library \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/prompt-library/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist gallery of reusable prompt templates — hard black borders, offset drop shadows, and flat bright accents per category. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a brief 'Copied!' state.",
+          "description": "Brutalist gallery of reusable prompt templates \u2014 hard black borders, offset drop shadows, and flat bright accents per category. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a brief 'Copied!' state.",
           "tags": [
             "prompt-library",
             "prompts",
@@ -13132,7 +13165,7 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
+          "name": "AI Chat Interface \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/ai-chat-interface/neo-brutalism/",
           "type": "section",
           "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
@@ -13166,10 +13199,10 @@
           ]
         },
         {
-          "name": "Agent Workflow — Neo-Brutalism",
+          "name": "Agent Workflow \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/ai-product/agent-workflow/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending → running → done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "description": "Brutalist agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond as a connected sequence. Hard black borders, offset shadows, and flat bright accents color each step by status. A Run button drives steps through pending \u2192 running \u2192 done on a timer with a filling progress bar and a live log line. Respects prefers-reduced-motion.",
           "tags": [
             "agent-workflow",
             "stepper",
@@ -13201,10 +13234,10 @@
           ]
         },
         {
-          "name": "Model Comparison — Sharp Glassmorphism",
+          "name": "Model Comparison \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/model-comparison/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
+          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh \u2014 three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
           "tags": [
             "model-comparison",
             "llm",
@@ -13236,10 +13269,10 @@
           ]
         },
         {
-          "name": "Prompt Library — Sharp Glassmorphism",
+          "name": "Prompt Library \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/prompt-library/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh — translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
+          "description": "Frosted-glass prompt gallery floating over a vivid animated gradient mesh \u2014 translucent panels, backdrop blur, and luminous gradient accents. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card with a checkmark 'Copied!' state. Requires a colored backdrop behind the panel for the glass to read.",
           "tags": [
             "prompt-library",
             "prompts",
@@ -13272,7 +13305,7 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "name": "AI Chat Interface \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/ai-chat-interface/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
@@ -13306,10 +13339,10 @@
           ]
         },
         {
-          "name": "Agent Workflow — Sharp Glassmorphism",
+          "name": "Agent Workflow \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/ai-product/agent-workflow/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
+          "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending \u2192 running \u2192 done on a timer with a live log line. Respects prefers-reduced-motion.",
           "tags": [
             "agent-workflow",
             "stepper",
@@ -13342,10 +13375,10 @@
           ]
         },
         {
-          "name": "Model Comparison — Vercel",
+          "name": "Model Comparison \u2014 Vercel",
           "path": "Tailwind/Sections/ai-product/model-comparison/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "description": "Refined dark monochrome LLM comparison panel \u2014 three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
           "tags": [
             "model-comparison",
             "llm",
@@ -13377,7 +13410,7 @@
           ]
         },
         {
-          "name": "Prompt Library — Vercel",
+          "name": "Prompt Library \u2014 Vercel",
           "path": "Tailwind/Sections/ai-product/prompt-library/vercel/",
           "type": "section",
           "description": "Refined dark monochrome prompt gallery with hairline borders, generous spacing, and a single teal accent. Includes category filter chips (Writing, Code, Analysis, Image), live search, and a working copy-to-clipboard button on every card that flips to a checkmark 'Copied!' state.",
@@ -13412,7 +13445,7 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Vercel",
+          "name": "AI Chat Interface \u2014 Vercel",
           "path": "Tailwind/Sections/ai-product/ai-chat-interface/vercel/",
           "type": "section",
           "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
@@ -13446,10 +13479,10 @@
           ]
         },
         {
-          "name": "Agent Workflow — Vercel",
+          "name": "Agent Workflow \u2014 Vercel",
           "path": "Tailwind/Sections/ai-product/agent-workflow/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending → running → done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
+          "description": "Refined dark monochrome agent execution stepper visualizing Plan, Search, Reason, Act, Reflect, Respond. Hairline borders, generous spacing, and a single teal accent color each step by status. A Run button drives steps through pending \u2192 running \u2192 done on a timer with a glowing filling progress bar and a live log line. Respects prefers-reduced-motion.",
           "tags": [
             "agent-workflow",
             "stepper",
@@ -13530,11 +13563,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "App UI sections — dashboard overviews and kanban boards for in-product surfaces.",
+      "description": "App UI sections \u2014 dashboard overviews and kanban boards for in-product surfaces.",
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Dashboard Overview — Neo-Brutalism",
+          "name": "Dashboard Overview \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/neo-brutalism/",
           "type": "section",
           "description": "Brutalist analytics dashboard overview with KPI stat cards and trend deltas, a pure-SVG dual bar chart, a recent-activity feed, and a wired 7d/30d/90d range selector that swaps hardcoded datasets live. Hard black borders, offset drop shadows, and flat bright accents.",
@@ -13570,7 +13603,7 @@
           ]
         },
         {
-          "name": "Kanban Board — Neo-Brutalism",
+          "name": "Kanban Board \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/app-ui/kanban-board/neo-brutalism/",
           "type": "section",
           "description": "Brutalist project kanban board with hard black borders, offset drop shadows, and flat bright column headers. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Press-down hover states and monospace labels keep the raw, editorial feel.",
@@ -13604,7 +13637,7 @@
           ]
         },
         {
-          "name": "Dashboard Overview — Sharp Glassmorphism",
+          "name": "Dashboard Overview \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass analytics dashboard overview floating over a living animated gradient mesh. Translucent KPI stat cards with trend deltas, a pure-SVG area + line chart, a recent-activity feed, and a wired 7d/30d/90d range selector that swaps hardcoded datasets live. Luminous edges and a gradient primary accent.",
@@ -13644,7 +13677,7 @@
           ]
         },
         {
-          "name": "Kanban Board — Sharp Glassmorphism",
+          "name": "Kanban Board \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/app-ui/kanban-board/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass project kanban board floating over a living gradient mesh. Translucent columns, luminous top-edge highlights, a cyan glow status dot, gradient priority chips, and count chips. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Requires a colored backdrop for the glass to read.",
@@ -13680,7 +13713,7 @@
           ]
         },
         {
-          "name": "Dashboard Overview — Vercel",
+          "name": "Dashboard Overview \u2014 Vercel",
           "path": "Tailwind/Sections/app-ui/dashboard-overview/vercel/",
           "type": "section",
           "description": "Refined dark monochrome analytics dashboard overview with KPI stat cards and trend deltas, a pure-SVG area + line chart, a recent-activity feed, and a wired 7d/30d/90d range selector that swaps hardcoded datasets live. Hairline borders, generous spacing, and a single teal accent.",
@@ -13719,7 +13752,7 @@
           ]
         },
         {
-          "name": "Kanban Board — Vercel",
+          "name": "Kanban Board \u2014 Vercel",
           "path": "Tailwind/Sections/app-ui/kanban-board/vercel/",
           "type": "section",
           "description": "Refined dark monochrome project kanban board with hairline borders, a subtle radial glow, a single teal status accent, and count pills. Draggable task cards move between Backlog, In Progress, Review, and Done via the HTML5 Drag and Drop API, count badges update live, and an add-card affordance creates new tasks per column. Generous spacing and a premium dev-tool aesthetic.",
@@ -13789,11 +13822,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Developer sections — code playgrounds and command palettes for dev-tool surfaces.",
+      "description": "Developer sections \u2014 code playgrounds and command palettes for dev-tool surfaces.",
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Code Playground — Neo-Brutalism",
+          "name": "Code Playground \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/developer/code-playground/neo-brutalism/",
           "type": "section",
           "description": "Brutalist code playground with hard black borders, offset drop shadows, and flat bright accents. A tabbed editor pane (HTML/JS/CSS) with line numbers sits beside a live sandboxed iframe output, plus a wired Run button and reset control.",
@@ -13830,7 +13863,7 @@
           ]
         },
         {
-          "name": "Command Palette — Neo-Brutalism",
+          "name": "Command Palette \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/developer/command-palette/neo-brutalism/",
           "type": "section",
           "description": "Brutalist Cmd+K command palette overlay with hard black borders, offset drop shadows, and flat bright accents. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
@@ -13865,7 +13898,7 @@
           ]
         },
         {
-          "name": "Code Playground — Sharp Glassmorphism",
+          "name": "Code Playground \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/developer/code-playground/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass code playground floating over a vibrant animated gradient mesh. A tabbed editor pane (HTML/JS/CSS) with line numbers sits beside a live sandboxed iframe output, with a cyan glow status dot and a gradient wired Run button. Requires a colored backdrop behind the panel for the glass to read.",
@@ -13903,7 +13936,7 @@
           ]
         },
         {
-          "name": "Command Palette — Sharp Glassmorphism",
+          "name": "Command Palette \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/developer/command-palette/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass Cmd+K command palette floating over an animated gradient mesh, with luminous edges, blurred surfaces, and a fuchsia-to-indigo active highlight. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close. The glass needs a colored backdrop behind the panel to read.",
@@ -13940,7 +13973,7 @@
           ]
         },
         {
-          "name": "Code Playground — Vercel",
+          "name": "Code Playground \u2014 Vercel",
           "path": "Tailwind/Sections/developer/code-playground/vercel/",
           "type": "section",
           "description": "Refined dark monochrome code playground with hairline borders, a subtle radial glow, and a teal status dot. A tabbed editor pane (HTML/JS/CSS) with line numbers sits beside a live sandboxed iframe output, plus a single white wired Run button and reset control.",
@@ -13977,7 +14010,7 @@
           ]
         },
         {
-          "name": "Command Palette — Vercel",
+          "name": "Command Palette \u2014 Vercel",
           "path": "Tailwind/Sections/developer/command-palette/vercel/",
           "type": "section",
           "description": "Refined dark monochrome Cmd+K command palette with hairline borders, a subtle radial glow, and a single teal accent. Live search filters grouped commands, arrow keys move the highlight, Enter runs the selected command with a confirmation toast, Escape closes, and Cmd/Ctrl+K toggles open. Focus is trapped inside the palette and restored to the trigger on close.",
@@ -14044,11 +14077,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Marketing sections — feature grids and hero landings for top-of-funnel pages.",
+      "description": "Marketing sections \u2014 feature grids and hero landings for top-of-funnel pages.",
       "variantsCount": 6,
       "variants": [
         {
-          "name": "Feature Grid — Neo-Brutalism",
+          "name": "Feature Grid \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/marketing/feature-grid/neo-brutalism/",
           "type": "section",
           "description": "Brutalist marketing feature grid with a bold uppercase section heading, six hard-bordered feature cards with offset drop shadows, rotating flat accent icon tiles, a highlighted featured card with a New badge, press-down hover states, and a staggered entrance animation that respects prefers-reduced-motion.",
@@ -14083,7 +14116,7 @@
           ]
         },
         {
-          "name": "Hero Landing — Neo-Brutalism",
+          "name": "Hero Landing \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/marketing/hero-landing/neo-brutalism/",
           "type": "section",
           "description": "Brutalist marketing hero with a bold uppercase headline, dual press-down CTAs, a wordmark trust row, and a mock product screenshot card built from hard borders, offset shadows, and flat bright accents. A staggered entrance animation respects prefers-reduced-motion.",
@@ -14118,7 +14151,7 @@
           ]
         },
         {
-          "name": "Feature Grid — Sharp Glassmorphism",
+          "name": "Feature Grid \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/marketing/feature-grid/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass marketing feature grid floating over a vibrant animated gradient mesh. Translucent layered cards with luminous edge highlights, glowing gradient icon chips, a highlighted featured card with a gradient tint and cyan glow badge, lift-on-hover interaction, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
@@ -14153,7 +14186,7 @@
           ]
         },
         {
-          "name": "Hero Landing — Sharp Glassmorphism",
+          "name": "Hero Landing \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/marketing/hero-landing/sharp-glassmorphism/",
           "type": "section",
           "description": "Frosted-glass marketing hero floating over an animated gradient mesh. Translucent layered panels, a gradient primary CTA, luminous top edges, a cyan glow status dot, a star rating trust row, and a floating glass preview card create depth and atmosphere. Staggered entrance animation respects prefers-reduced-motion.",
@@ -14190,7 +14223,7 @@
           ]
         },
         {
-          "name": "Feature Grid — Vercel",
+          "name": "Feature Grid \u2014 Vercel",
           "path": "Tailwind/Sections/marketing/feature-grid/vercel/",
           "type": "section",
           "description": "Refined dark monochrome marketing feature grid with hairline borders, a subtle masked grid backdrop, a single teal accent, a glowing icon tile on the featured card, soft hover reveals, and a staggered IntersectionObserver entrance that respects prefers-reduced-motion.",
@@ -14225,7 +14258,7 @@
           ]
         },
         {
-          "name": "Hero Landing — Vercel",
+          "name": "Hero Landing \u2014 Vercel",
           "path": "Tailwind/Sections/marketing/hero-landing/vercel/",
           "type": "section",
           "description": "Refined dark monochrome marketing hero with hairline borders, a masked grid backdrop, a single teal glowing accent, dual CTAs, a star-rating trust row, and a floating glass-dark product preview card with a luminous top edge. Staggered fade-up entrance respects prefers-reduced-motion.",
@@ -14291,11 +14324,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "Premium visual sections — aurora hero and other high-impact, animation-forward headers.",
+      "description": "Premium visual sections \u2014 aurora hero and other high-impact, animation-forward headers.",
       "variantsCount": 3,
       "variants": [
         {
-          "name": "Aurora Hero — Neo-Brutalism",
+          "name": "Aurora Hero \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/premium-visual/aurora-hero/neo-brutalism/",
           "type": "section",
           "description": "Brutalist premium hero that reimagines the aurora as sharp-edged flat-color blocks (pink, yellow, cyan, green) drifting on a slow marquee behind a hard-bordered headline and dual CTAs. Offset shadows, a grid backdrop, and zero rounded corners keep the editorial identity while color blocks carry the glow. Pure CSS, reduced-motion safe.",
@@ -14329,10 +14362,10 @@
           ]
         },
         {
-          "name": "Aurora Hero — Sharp Glassmorphism",
+          "name": "Aurora Hero \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/premium-visual/aurora-hero/sharp-glassmorphism/",
           "type": "section",
-          "description": "Vibrant premium hero where the aurora takes center stage — multiple large blurred gradient blobs (fuchsia, indigo, cyan, purple) drift and blend with screen mix-mode over an animated dark mesh, with a frosted-glass headline panel floating on top. Luminous edge highlights, a cyan glow dot, and a gradient CTA. The full, luminous glassmorphism take on aurora. Pure CSS, reduced-motion safe.",
+          "description": "Vibrant premium hero where the aurora takes center stage \u2014 multiple large blurred gradient blobs (fuchsia, indigo, cyan, purple) drift and blend with screen mix-mode over an animated dark mesh, with a frosted-glass headline panel floating on top. Luminous edge highlights, a cyan glow dot, and a gradient CTA. The full, luminous glassmorphism take on aurora. Pure CSS, reduced-motion safe.",
           "tags": [
             "hero",
             "aurora",
@@ -14364,7 +14397,7 @@
           ]
         },
         {
-          "name": "Aurora Hero — Vercel",
+          "name": "Aurora Hero \u2014 Vercel",
           "path": "Tailwind/Sections/premium-visual/aurora-hero/vercel/",
           "type": "section",
           "description": "Refined, restrained premium dark hero. A single soft conic/radial aurora glow slowly drifts behind a monochrome headline and minimal CTA on a near-black canvas, with hairline borders, a masked grid backdrop, and one teal status accent. The premium, minimal take on aurora. Pure CSS, reduced-motion safe.",
@@ -14427,11 +14460,11 @@
       "tech": "Tailwind CSS",
       "type": "section",
       "category": "Sections",
-      "description": "SaaS sections — heroes, pricing, testimonials, metrics, CTAs, and footers for SaaS sites.",
+      "description": "SaaS sections \u2014 heroes, pricing, testimonials, metrics, CTAs, and footers for SaaS sites.",
       "variantsCount": 17,
       "variants": [
         {
-          "name": "Usage Based Pricing — Neo-Brutalism",
+          "name": "Usage Based Pricing \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/usage-pricing/neo-brutalism/",
           "type": "section",
           "description": "Brutalist usage-based pricing section with a draggable usage slider that recomputes the live estimate, a stacked tier-rate table with hard borders, a volume savings bar, and offset-shadow CTAs. Monospace labels and bright accent panels give it a raw, transparent pricing feel.",
@@ -14465,7 +14498,7 @@
           ]
         },
         {
-          "name": "Pricing Table — Neo-Brutalism",
+          "name": "Pricing Table \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/pricing-table/neo-brutalism/",
           "type": "section",
           "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
@@ -14500,7 +14533,7 @@
           ]
         },
         {
-          "name": "SaaS Metrics / Stats — Neo-Brutalism",
+          "name": "SaaS Metrics / Stats \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/metrics/neo-brutalism/",
           "type": "section",
           "description": "Brutalist metrics section with a giant stat block, an offset grid of stat cards with rotating accent panels, a live count-up ticker on mount, a diagonal grid background, and a bold section divider. Press-down hover and monospace labels give it a raw, editorial dashboard feel.",
@@ -14534,7 +14567,7 @@
           ]
         },
         {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "name": "SaaS Feature Grid \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/feature-grid/neo-brutalism/",
           "type": "section",
           "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
@@ -14566,7 +14599,7 @@
           ]
         },
         {
-          "name": "Startup Launch Hero — Neo-Brutalism",
+          "name": "Startup Launch Hero \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/launch-hero/neo-brutalism/",
           "type": "section",
           "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
@@ -14600,7 +14633,7 @@
           ]
         },
         {
-          "name": "Free Trial CTA — Neo-Brutalism",
+          "name": "Free Trial CTA \u2014 Neo-Brutalism",
           "path": "Tailwind/Sections/saas/trial-cta/neo-brutalism/",
           "type": "section",
           "description": "Brutalist full-bleed free trial CTA banner with a giant headline, a no-credit-card checklist strip, dual offset-shadow CTAs, a diagonal grid background, and a rotated guarantee sticker. Press-down hover states and bright accent blocks give it a loud, confident close.",
@@ -14633,10 +14666,10 @@
           ]
         },
         {
-          "name": "Bento Feature Showcase — Sharp Glassmorphism",
+          "name": "Bento Feature Showcase \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/bento-showcase/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
+          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh \u2014 a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
           "tags": [
             "bento",
             "bento-grid",
@@ -14666,10 +14699,10 @@
           ]
         },
         {
-          "name": "Pricing Table — Sharp Glassmorphism",
+          "name": "Pricing Table \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/pricing-table/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh — translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
+          "description": "Frosted-glass three-tier SaaS pricing table floating over an animated gradient mesh \u2014 translucent panels with backdrop blur, luminous top edge highlights, a gradient CTA on the popular tier with a cyan glow badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. Hover lift states add depth to the glass cards.",
           "tags": [
             "pricing",
             "pricing-table",
@@ -14702,10 +14735,10 @@
           ]
         },
         {
-          "name": "Dashboard Preview Hero — Sharp Glassmorphism",
+          "name": "Dashboard Preview Hero \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/dashboard-hero/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh — centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
+          "description": "Frosted-glass dashboard preview hero over an animated gradient mesh \u2014 centered headline with luminous top-edge highlight, gradient primary CTA, and a translucent analytics dashboard mock with KPI cards, a sparkline chart, an activity feed, and floating glass stat bubbles. Cyan glow accents and hover lift states add depth.",
           "tags": [
             "hero",
             "dashboard",
@@ -14736,10 +14769,10 @@
           ]
         },
         {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "name": "Product Screenshot Showcase \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/screenshot-showcase/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh \u2014 a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
           "tags": [
             "screenshots",
             "gallery",
@@ -14769,10 +14802,10 @@
           ]
         },
         {
-          "name": "Testimonial Grid — Sharp Glassmorphism",
+          "name": "Testimonial Grid \u2014 Sharp Glassmorphism",
           "path": "Tailwind/Sections/saas/testimonials/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh \u2014 one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
           "tags": [
             "testimonials",
             "social-proof",
@@ -14801,7 +14834,7 @@
           ]
         },
         {
-          "name": "Pricing Comparison Table — Vercel",
+          "name": "Pricing Comparison Table \u2014 Vercel",
           "path": "Tailwind/Sections/saas/pricing-comparison/vercel/",
           "type": "section",
           "description": "Dark monochrome comparison matrix with a sticky plan header row (Starter / Scale / Enterprise), grouped feature sections, and check/dash/slash glyphs. Hairline grid borders, a single teal accent on the popular column, sticky first column on desktop, and white CTAs per column.",
@@ -14835,7 +14868,7 @@
           ]
         },
         {
-          "name": "Pricing Table — Vercel",
+          "name": "Pricing Table \u2014 Vercel",
           "path": "Tailwind/Sections/saas/pricing-table/vercel/",
           "type": "section",
           "description": "Dark monochrome three-tier SaaS pricing table with hairline borders, generous spacing, white/white-50/white-35 text hierarchy, a single teal accent on the popular badge, check/dash feature lists, and a working monthly/annual billing toggle that swaps the displayed prices live. White primary CTA and subtle hover fills give it a refined, product-grade feel.",
@@ -14870,7 +14903,7 @@
           ]
         },
         {
-          "name": "Customer Logo Cloud — Vercel",
+          "name": "Customer Logo Cloud \u2014 Vercel",
           "path": "Tailwind/Sections/saas/logo-cloud/vercel/",
           "type": "section",
           "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
@@ -14903,7 +14936,7 @@
           ]
         },
         {
-          "name": "Enterprise SaaS Footer — Vercel",
+          "name": "Enterprise SaaS Footer \u2014 Vercel",
           "path": "Tailwind/Sections/saas/enterprise-footer/vercel/",
           "type": "section",
           "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
@@ -14937,7 +14970,7 @@
           ]
         },
         {
-          "name": "SaaS Product Hero — Vercel",
+          "name": "SaaS Product Hero \u2014 Vercel",
           "path": "Tailwind/Sections/saas/product-hero/vercel/",
           "type": "section",
           "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
@@ -14972,7 +15005,7 @@
           ]
         },
         {
-          "name": "Product Workflow Section — Vercel",
+          "name": "Product Workflow Section \u2014 Vercel",
           "path": "Tailwind/Sections/saas/product-workflow/vercel/",
           "type": "section",
           "description": "Dark monochrome numbered workflow section with a left step rail and a right sticky code/command preview that swaps per step. Three steps (ingest, route, resolve) with teal accent connectors, and a working step switcher that updates the preview panel live via a scoped script.",
@@ -15078,7 +15111,7 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "Premium multi-page AI SaaS startup website template — 11 connected pages (marketing site, docs, auth, and a matching application dashboard) sharing one dark, glass-and-gradient design system. Tailwind CDN + vanilla JS, fully responsive.",
+      "description": "Premium multi-page AI SaaS startup website template \u2014 11 connected pages (marketing site, docs, auth, and a matching application dashboard) sharing one dark, glass-and-gradient design system. Tailwind CDN + vanilla JS, fully responsive.",
       "variantsCount": 1,
       "variants": [
         {
@@ -15143,14 +15176,14 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "A flagship 11-page Tailwind CSS product-analytics application template for Atlas Analytics, a fictional enterprise analytics platform. A minimal, light, editorial, data-dense design language — white canvas, near-black text, 1px hairline borders, small radii, restrained shadows and a single controlled blue accent. Eleven independently-usable pages (overview, analytics explorer, funnels, cohorts, retention, revenue, reports, dashboards, segments, events, settings) share one Atlas shell (sticky topbar + fixed sidebar + calm dark-mode toggle). All charts are hand-built inline SVG; Tailwind CDN + scoped vanilla JS, fully responsive from 320px up, no build step.",
+      "description": "A flagship 11-page Tailwind CSS product-analytics application template for Atlas Analytics, a fictional enterprise analytics platform. A minimal, light, editorial, data-dense design language \u2014 white canvas, near-black text, 1px hairline borders, small radii, restrained shadows and a single controlled blue accent. Eleven independently-usable pages (overview, analytics explorer, funnels, cohorts, retention, revenue, reports, dashboards, segments, events, settings) share one Atlas shell (sticky topbar + fixed sidebar + calm dark-mode toggle). All charts are hand-built inline SVG; Tailwind CDN + scoped vanilla JS, fully responsive from 320px up, no build step.",
       "variantsCount": 1,
       "variants": [
         {
           "name": "Atlas Analytics Platform",
           "path": "Tailwind/Templates/atlas-analytics/",
           "type": "template",
-          "description": "A flagship 11-page Tailwind CSS product-analytics application template for Atlas Analytics, a fictional enterprise analytics platform. A minimal, light, editorial, data-dense design language — white canvas, near-black text, 1px hairline borders, small radii, restrained shadows and a single controlled blue accent. Eleven independently-usable pages (overview, analytics explorer, funnels, cohorts, retention, revenue, reports, dashboards, segments, events, settings) share one Atlas shell (sticky topbar + fixed sidebar + calm dark-mode toggle). All charts are hand-built inline SVG; Tailwind CDN + scoped vanilla JS, fully responsive from 320px up, no build step.",
+          "description": "A flagship 11-page Tailwind CSS product-analytics application template for Atlas Analytics, a fictional enterprise analytics platform. A minimal, light, editorial, data-dense design language \u2014 white canvas, near-black text, 1px hairline borders, small radii, restrained shadows and a single controlled blue accent. Eleven independently-usable pages (overview, analytics explorer, funnels, cohorts, retention, revenue, reports, dashboards, segments, events, settings) share one Atlas shell (sticky topbar + fixed sidebar + calm dark-mode toggle). All charts are hand-built inline SVG; Tailwind CDN + scoped vanilla JS, fully responsive from 320px up, no build step.",
           "tags": [
             "analytics",
             "product-analytics",
@@ -15185,7 +15218,7 @@
             "Settings: tabbed workspace/general/billing tabs with form controls, toggles and a danger zone",
             "hand-built inline SVG charts (sparklines, area, bar, funnel, heatmap, curves) in a restrained neutral palette",
             "semantic HTML, skip link, single h1 per page, ARIA on tabs/drawer/toggle, visible focus rings and prefers-reduced-motion support",
-            "calm dark mode (inverted same system — never neon purple or glassmorphism) via CSS custom properties",
+            "calm dark mode (inverted same system \u2014 never neon purple or glassmorphism) via CSS custom properties",
             "Tailwind CSS via CDN with a small inline theme extension and no build step"
           ],
           "styles": [
@@ -15245,7 +15278,7 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "Multi-page design & engineering conference website template in a bold Neo-Brutalist design system — six connected pages (home, speakers, schedule, venue, register, code of conduct) sharing one cream + black + bright-accent language with hard borders and offset shadows. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "description": "Multi-page design & engineering conference website template in a bold Neo-Brutalist design system \u2014 six connected pages (home, speakers, schedule, venue, register, code of conduct) sharing one cream + black + bright-accent language with hard borders and offset shadows. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
       "variantsCount": 1,
       "variants": [
         {
@@ -15321,14 +15354,14 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury — a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.",
+      "description": "A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury \u2014 a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.",
       "variantsCount": 1,
       "variants": [
         {
           "name": "DevSnips Curated Design Store",
           "path": "Tailwind/Templates/devsnips-store/",
           "type": "template",
-          "description": "A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury — a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.",
+          "description": "A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury \u2014 a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.",
           "tags": [
             "ecommerce",
             "shopping",
@@ -15451,14 +15484,14 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "Premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams — Neo-Industrial utility language fused with Swiss Minimal discipline (1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display + JetBrains Mono metadata). Hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "description": "Premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams \u2014 Neo-Industrial utility language fused with Swiss Minimal discipline (1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display + JetBrains Mono metadata). Hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
       "variantsCount": 1,
       "variants": [
         {
           "name": "Meridian Incident Command Platform",
           "path": "Tailwind/Templates/meridian/",
           "type": "template",
-          "description": "A premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams. Neo-Industrial utility language meets Swiss Minimal discipline — 1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display type, JetBrains Mono metadata, a hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA.",
+          "description": "A premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams. Neo-Industrial utility language meets Swiss Minimal discipline \u2014 1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display type, JetBrains Mono metadata, a hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA.",
           "tags": [
             "incident-management",
             "on-call",
@@ -15475,11 +15508,11 @@
             "template"
           ],
           "features": [
-            "single-page responsive landing page (320px → 1920px+)",
+            "single-page responsive landing page (320px \u2192 1920px+)",
             "editorial-technical split hero with incident command-surface product visualization (live status, latency sparkline, responders, timeline, runbook footer)",
             "floating signal-correlation + stepped-escalation mini-cards layered around the hero panel",
             "hairline-divided three-pillar panels (Route / Respond / Learn)",
-            "signature directed alert-routing graph (signal → correlate → rule → page) with animated edges and an ack-fallback branch",
+            "signature directed alert-routing graph (signal \u2192 correlate \u2192 rule \u2192 page) with animated edges and an ack-fallback branch",
             "five-step incident lifecycle workflow with per-step timings and a signed-state rail",
             "dark customer-outcome metrics band (MTTA / MTTR / noise / burnout) on a divided grid",
             "featured pull-quote testimonial + secondary engineer testimonial cards",
@@ -15655,14 +15688,14 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "Premium single-page Tailwind CSS template for a vertical fintech operations platform — Neo-Brutalist geometry fused with editorial typography (thick 2px borders, offset hard shadows, Archivo display + JetBrains Mono metadata). Hand-built treasury command-surface hero with live sparkline, approval-routing graph, staggered pillar cards, bento capabilities, five-step workflow, metrics, testimonials, cash-managed pricing, scoped FAQ accordion, and dark conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "description": "Premium single-page Tailwind CSS template for a vertical fintech operations platform \u2014 Neo-Brutalist geometry fused with editorial typography (thick 2px borders, offset hard shadows, Archivo display + JetBrains Mono metadata). Hand-built treasury command-surface hero with live sparkline, approval-routing graph, staggered pillar cards, bento capabilities, five-step workflow, metrics, testimonials, cash-managed pricing, scoped FAQ accordion, and dark conversion CTA. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
       "variantsCount": 1,
       "variants": [
         {
           "name": "Stratum Fintech Ops Platform",
           "path": "Tailwind/Templates/stratum/",
           "type": "template",
-          "description": "A premium single-page Tailwind CSS template for a vertical fintech operations platform. Neo-Brutalist geometry meets editorial typography — thick 2px borders, offset hard shadows, Archivo display type, JetBrains Mono metadata, a hand-built treasury command-surface hero with live sparkline, an approval-routing graph visualization, staggered pillar cards, a bento capabilities grid, a five-step workflow, customer-outcome metrics, testimonial proof, cash-managed pricing, a scoped single-open FAQ accordion, and a dark conversion CTA.",
+          "description": "A premium single-page Tailwind CSS template for a vertical fintech operations platform. Neo-Brutalist geometry meets editorial typography \u2014 thick 2px borders, offset hard shadows, Archivo display type, JetBrains Mono metadata, a hand-built treasury command-surface hero with live sparkline, an approval-routing graph visualization, staggered pillar cards, a bento capabilities grid, a five-step workflow, customer-outcome metrics, testimonial proof, cash-managed pricing, a scoped single-open FAQ accordion, and a dark conversion CTA.",
           "tags": [
             "fintech",
             "finance-ops",
@@ -15678,7 +15711,7 @@
             "template"
           ],
           "features": [
-            "single-page responsive landing page (320px → 1920px+)",
+            "single-page responsive landing page (320px \u2192 1920px+)",
             "editorial split hero with treasury command-surface product visualization (live status, sparkline, account ledger)",
             "floating approval + FX mini-cards layered around the hero panel",
             "staggered three-pillar offset cards (Treasury / Bill pay / Spend control)",
@@ -15739,14 +15772,14 @@
       "tech": "Tailwind CSS",
       "type": "template",
       "category": "Templates",
-      "description": "Premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams — Glassmorphism surfaces fused with Cyber Minimal discipline (translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display + JetBrains Mono metadata). Hand-built attack-surface command-console hero with a live surface radar, sparkline, and floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with the exposed path animated in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
+      "description": "Premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams \u2014 Glassmorphism surfaces fused with Cyber Minimal discipline (translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display + JetBrains Mono metadata). Hand-built attack-surface command-console hero with a live surface radar, sparkline, and floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with the exposed path animated in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel. Tailwind CDN + vanilla JS, fully responsive from 320px up.",
       "variantsCount": 1,
       "variants": [
         {
           "name": "Vesper Attack-Surface Management Platform",
           "path": "Tailwind/Templates/vesper/",
           "type": "template",
-          "description": "A premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams. Glassmorphism surfaces meet Cyber Minimal discipline — translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display type, JetBrains Mono metadata, a hand-built attack-surface command-console hero with a live surface radar and sparkline plus floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with an exposed path highlighted in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel.",
+          "description": "A premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams. Glassmorphism surfaces meet Cyber Minimal discipline \u2014 translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display type, JetBrains Mono metadata, a hand-built attack-surface command-console hero with a live surface radar and sparkline plus floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with an exposed path highlighted in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel.",
           "tags": [
             "cybersecurity",
             "attack-surface-management",
@@ -15763,12 +15796,12 @@
             "template"
           ],
           "features": [
-            "single-page responsive landing page (320px → 1920px+)",
+            "single-page responsive landing page (320px \u2192 1920px+)",
             "editorial-cyber split hero with attack-surface command-console visualization (live scanning status, severity bar, exposure rows, surface radar, exposures-per-day sparkline, floating critical-exposure + new-asset mini-cards)",
-            "atmospheric glassmorphism backdrop — translucent frosted panels over a low-opacity fuchsia/indigo/cyan mesh with slow drift + fine cyber-grid + vignette",
+            "atmospheric glassmorphism backdrop \u2014 translucent frosted panels over a low-opacity fuchsia/indigo/cyan mesh with slow drift + fine cyber-grid + vignette",
             "three frosted-glass pillar panels (Discover / Prioritize / Remediate) with severity-colored icon chips",
-            "signature asset-topology reachability graph (internet → load balancer → API gateway → K8s API / Postgres / S3) with the exposed path animated in cyan and a critical-asset node in red",
-            "five-step EASM lifecycle workflow (Discover → Classify → Prioritize → Remediate → Verify) with per-step timings and a signed-state rail",
+            "signature asset-topology reachability graph (internet \u2192 load balancer \u2192 API gateway \u2192 K8s API / Postgres / S3) with the exposed path animated in cyan and a critical-asset node in red",
+            "five-step EASM lifecycle workflow (Discover \u2192 Classify \u2192 Prioritize \u2192 Remediate \u2192 Verify) with per-step timings and a signed-state rail",
             "dark customer-outcome metrics grid (MTTR, critical exposures, shadow assets, alert noise)",
             "featured pull-quote testimonial + secondary security-leader testimonial cards",
             "three-tier per-asset pricing with featured Team plan and Most-popular tag",
@@ -20844,7 +20877,7 @@
       "tech": "Vanilla HTML/CSS/JS",
       "type": "section",
       "category": "Sections",
-      "description": "Neo-brutalist navigation page sections — simple, sticky, and mega-menu navbars plus a sidebar layout.",
+      "description": "Neo-brutalist navigation page sections \u2014 simple, sticky, and mega-menu navbars plus a sidebar layout.",
       "variantsCount": 4,
       "variants": [
         {
@@ -21783,7 +21816,7 @@
           "name": "Documentation Site",
           "path": "Vanilla/Templates/Documentation Site/",
           "type": "template",
-          "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview of the UI. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing) via hash routing. Includes nested sidebar navigation with active page state, breadcrumbs, sticky scrollspy table of contents, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight syntax highlighter, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent (never violet/neon), hairline borders, restrained shadows, light code blocks, and editorial typography — following the shared design-tokens.md specification. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes a collapsible panel, code blocks remain usable, tables adapt without page overflow, from 320px to 1920px. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or CMS.",
+          "description": "A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview of the UI. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing) via hash routing. Includes nested sidebar navigation with active page state, breadcrumbs, sticky scrollspy table of contents, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight syntax highlighter, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent (never violet/neon), hairline borders, restrained shadows, light code blocks, and editorial typography \u2014 following the shared design-tokens.md specification. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes a collapsible panel, code blocks remain usable, tables adapt without page overflow, from 320px to 1920px. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or CMS.",
           "tags": [
             "documentation",
             "docs",
@@ -22037,23 +22070,23 @@
           ],
           "features": [
             "30 interconnected pages across 8 sections, all reachable from a single JS-injected sidebar (no dead links)",
-            "Coherent mock SaaS dataset (DB) shared across every page — customers, team, invoices, transactions, activity, conversations, notifications reference the same entities",
-            "Shared Northstar design system (css/app.css + js/app.js): cool-stone neutrals, one indigo accent, hairline borders, semantic status colors, light/dark tokens — identical on every page",
+            "Coherent mock SaaS dataset (DB) shared across every page \u2014 customers, team, invoices, transactions, activity, conversations, notifications reference the same entities",
+            "Shared Northstar design system (css/app.css + js/app.js): cool-stone neutrals, one indigo accent, hairline borders, semantic status colors, light/dark tokens \u2014 identical on every page",
             "Overview: dashboard (KPIs + revenue chart + plan breakdown + activity + transactions + customers table), deep analytics (MRR/ARR/retention/churn/conversion/traffic/engagement/sessions), reports (list + preview + builder + CSV/PDF/Excel), full activity audit feed with filters",
             "Customer management: sortable/filterable/paginated table with bulk selection + bulk actions, customer details with 6 tabs (overview/activity/invoices/transactions/notes/metadata), per-customer activity timeline, dynamic segments with creation UI, invitations with resend/revoke",
             "Revenue: billing overview (plan/usage/payment method/upcoming charges), plan comparison + feature matrix + upgrade/downgrade flows, payment methods (cards + billing address), invoices with modal invoice viewer, transactions with detail drawer + retry",
-            "3-panel support inbox: conversation list + thread + customer sidebar, search, filters, priority/tags, reply (Cmd+Enter), resolve — collapses to stacked panels on mobile",
+            "3-panel support inbox: conversation list + thread + customer sidebar, search, filters, priority/tags, reply (Cmd+Enter), resolve \u2014 collapses to stacked panels on mobile",
             "Notification center (unread/read tabs, mark-as-read) + polished notification dropdown in the global header + notification preferences with per-category channels",
-            "Workspace: team members with roles/2FA/status, clean permissions matrix (Owner/Admin/Manager/Member/Viewer × 14 capabilities), integrations marketplace with connect/configure/disconnect flows, workspace settings with branding + danger zone",
+            "Workspace: team members with roles/2FA/status, clean permissions matrix (Owner/Admin/Manager/Member/Viewer \u00d7 14 capabilities), integrations marketplace with connect/configure/disconnect flows, workspace settings with branding + danger zone",
             "Settings: general + appearance, profile, security (password/2FA/sessions/login history/alerts), sessions with trusted devices, API keys with create-key modal + quickstart, webhooks with endpoints/events/delivery status/retries",
             "Support: help center (search/categories/FAQ), support ticket form + history, system status (overall status/component uptime bars/incident history)",
-            "Interactive SVG charts: line charts with comparison + hover/touch tooltip, bar charts, donut, sparklines — all with mock data and redraw on theme/resize",
-            "Application states: loading skeletons, meaningful empty states, error states with retry — plus disabled/selected/active/inactive/pending/failed/success throughout",
-            "Reusable components: modal, drawer, confirmation dialog, toast, tabs, breadcrumbs, switches, pagination, pills, avatars — all programmatic via window.NS",
+            "Interactive SVG charts: line charts with comparison + hover/touch tooltip, bar charts, donut, sparklines \u2014 all with mock data and redraw on theme/resize",
+            "Application states: loading skeletons, meaningful empty states, error states with retry \u2014 plus disabled/selected/active/inactive/pending/failed/success throughout",
+            "Reusable components: modal, drawer, confirmation dialog, toast, tabs, breadcrumbs, switches, pagination, pills, avatars \u2014 all programmatic via window.NS",
             "Light/dark mode: no-flash system preference detection + persisted header toggle, charts redraw on theme change",
-            "Responsive: sidebar → off-canvas drawer (Esc/backdrop), tables → stacked cards, multi-panel inbox → stacked, settings nav → horizontal scroll, forms → single column — no horizontal overflow at any width from 320px to 1920px",
+            "Responsive: sidebar \u2192 off-canvas drawer (Esc/backdrop), tables \u2192 stacked cards, multi-panel inbox \u2192 stacked, settings nav \u2192 horizontal scroll, forms \u2192 single column \u2014 no horizontal overflow at any width from 320px to 1920px",
             "Accessible: skip link, semantic landmarks, ARIA on interactive controls, focus-visible rings, keyboard-operable (Escape closes overlays, Enter activates conversation items), reduced-motion safe",
-            "Zero dependencies — only external request is Google Fonts. Open preview.html (the template gallery) or any page in pages/ directly in a browser"
+            "Zero dependencies \u2014 only external request is Google Fonts. Open preview.html (the template gallery) or any page in pages/ directly in a browser"
           ],
           "files": [
             "README.md",
