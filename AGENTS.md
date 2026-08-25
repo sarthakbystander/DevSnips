@@ -48,7 +48,7 @@ Every Tailwind variant folder (kebab-case) must contain exactly three files:
 - `preview.html` ‚Äî full `<!DOCTYPE html>` page with Tailwind CDN (`https://cdn.tailwindcss.com`), Inter font, responsive layout, and realistic application context around the component.
 - `metadata.json` ‚Äî see schema below.
 
-Vanilla variant folders contain a self-contained `component.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper). The directory name remains the canonical component id/slug; the single primary component source file is always named `component.html`.
+Vanilla variant folders contain a self-contained `code.html` (inline `<style>`+`<script>`), `metadata.json`, and `README.md`. The migrated Neo-Brutalist sections ship as full `<!DOCTYPE html>` pages; the original legacy components ship as copy-paste-ready snippet fragments (no `<!DOCTYPE>` wrapper). The directory name remains the canonical component id/slug; the single primary component source file is always named `code.html`.
 
 The `code.html` snippet comment header is optional but follows CONTRIBUTING.md:
 `<!-- Snippet Name / Description / Author: DevSnips Contributors / Usage Example -->`
@@ -121,7 +121,7 @@ JS scoped via `document.currentScript.closest('[data-<thing>="<style>"]')` so sn
 
 ## Vanilla Sections (Neo-Brutalist) ‚Äî `Vanilla/Sections/` (re-separated 2026-08-23; see the CURRENT AUTHORITATIVE STATE block)
 - 65 self-contained website sections across 16 families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing, Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer). Navigation contributes only its 4 section variants (`navbar-simple`/`navbar-sticky`/`navbar-mega-menu`/`sidebar-navigation`); the legacy navigation sub-families stay in `Vanilla/Components/Navigation/`.
-- Folder = `Vanilla/Sections/<Family>/<kebab-slug>/` containing exactly: `<kebab-slug>.html` (self-contained: inline `<style>` + `<script>`, full `<!DOCTYPE html>`, body class `nb`), `metadata.json`, `README.md`. This matches the existing Vanilla component convention (one html per variant), NOT the Tailwind code.html/preview.html split.
+- Folder = `Vanilla/Sections/<Family>/<kebab-slug>/` containing exactly: `code.html` (self-contained: inline `<style>` + `<script>`, full `<!DOCTYPE html>`, body class `nb`), `metadata.json`, `README.md`. This matches the existing Vanilla component convention (one html per variant).
 - Shared design tokens embedded in each section's `<style>` `:root`: `--bg --surface --foreground --muted --border --primary --accent --pink --lime --cyan --radius --shadow --shadow-lg --ring --container --gutter`. Light + dark via `prefers-color-scheme`. Reduced-motion safe.
 - `metadata.json` keys: id, name, slug, component, family, variant, description, framework, language, technology, category (`"sections"`), type (`"section"`), subcategory, tags, features, responsive, darkMode, accessibility, browserSupport, dependencies, source, related.
 - Browse via `Vanilla/Sections/sections-index.html` (filterable gallery) and `Vanilla/Sections/sections-showcase.html` (all sections live, each in an isolated srcdoc iframe).

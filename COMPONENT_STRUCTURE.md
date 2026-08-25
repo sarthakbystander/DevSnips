@@ -83,12 +83,12 @@ Vanilla components use a single self-contained source file:
 
 ```text
 Vanilla/Components/Buttons/3d-button-effect/
-├── component.html
+├── code.html
 ├── README.md
 └── metadata.json
 ```
 
-The directory name is the canonical component id/slug. The single primary component source file is always named `component.html` (inline `<style>` + `<script>`, copy-paste self-contained).
+The directory name is the canonical component id/slug. The single primary component source file is always named `code.html` (inline `<style>` + `<script>`, copy-paste self-contained).
 
 Templates are different because they may contain multiple pages and supporting files:
 
@@ -110,7 +110,7 @@ The exact internal template structure may vary when the template requires it. Do
 |---|---|---|
 | `code.html` | Tailwind components/sections | Clean copy-paste implementation. |
 | `preview.html` | Tailwind components/sections | Standalone visual preview and demonstration. |
-| `component.html` | Vanilla components | Self-contained single primary component source file (inline CSS + JS). |
+| `code.html` | Vanilla components | Self-contained single primary component source file (inline CSS + JS). |
 | `metadata.json` | Indexed variants | Structured identity, classification, search, and feature data. |
 | `README.md` | When useful / template-specific | Human-readable usage or implementation notes. |
 

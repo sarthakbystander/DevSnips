@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-25
+
+### Changed — Vanilla naming convention: `<slug>.html` → `code.html`
+- **Renamed every primary HTML source file** in Vanilla Components (126) and Vanilla Sections (65) from `<folder-slug>.html` to `code.html`, aligning Vanilla variant folders with the Tailwind `code.html` convention. Each Vanilla variant folder now contains exactly `code.html` + `metadata.json` + `README.md`.
+- **References updated**: Section README usage lines (`Copy the contents of ...`), `Vanilla/Sections/sections-index.html` gallery links (the `sections-showcase.html` srcdoc iframes inline their content and needed no change), `CONTRIBUTING.md`, `COMPONENT_STRUCTURE.md`, `AGENTS.md`, and the `_gen/migrate_vanilla.py` migration helper (rename destination).
+- **Index regenerated** (`python3 -m _gen.rebuild_index`); `scripts/validate.py` passes (0 problems; Vanilla quality bar: 191 components scanned, 0 required failures).
+
+
+
 ## 2026-08-23
 
 ### Changed — Vanilla architecture: three first-class content types (Components + Sections + Templates)

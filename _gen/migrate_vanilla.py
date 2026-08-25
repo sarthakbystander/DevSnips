@@ -75,7 +75,7 @@ def html_file_in(folder: Path):
 
 def rename_variant_folder(src: Path, dest_name: str, dry: bool):
     """Rename a variant folder + its inner <old>.html to the canonical
-    `component.html` and rewrite metadata id/slug/name accordingly."""
+    `code.html` and rewrite metadata id/slug/name accordingly."""
     dest = src.parent / dest_name
     # In a "replace" collision the sibling stub is deleted first (only logged
     # during a dry run, so it still physically exists) — allow the rename to
@@ -88,8 +88,8 @@ def rename_variant_folder(src: Path, dest_name: str, dry: bool):
     shutil.move(str(src), str(dest))
     # rename inner html to the canonical component source filename
     old_html = html_file_in(dest)
-    if old_html and old_html.name != "component.html":
-        new_html = dest / "component.html"
+    if old_html and old_html.name != "code.html":
+        new_html = dest / "code.html"
         old_html.rename(new_html)
         log(f"          {old_html.name} -> {new_html.name}")
     # rewrite metadata id/slug/name to drop snippet-NN prefix
