@@ -13,6 +13,6 @@ Bento-grid hero summarizing multiple value props at once.
 
 ## Usage
 
-1. Copy the contents of `hero-bento.html` into your page.
+1. Copy the contents of `code.html` into your page.
 2. The section is self-contained (inline CSS + JS). No build step.
 3. Tweak the CSS variables in `:root` to rebrand.

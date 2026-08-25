@@ -13,6 +13,6 @@ Client cards with a short quote each.
 
 ## Usage
 
-1. Copy the contents of `logo-clients.html` into your page.
+1. Copy the contents of `code.html` into your page.
 2. The section is self-contained (inline CSS + JS). No build step.
 3. Tweak the CSS variables in `:root` to rebrand.
