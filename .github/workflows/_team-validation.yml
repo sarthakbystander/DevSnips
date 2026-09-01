@@ -9,7 +9,7 @@ on:
       - feat/react-sections-team
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -44,7 +44,28 @@ jobs:
           npm init -y
           npm install --no-save typescript@latest esbuild@latest react@18 react-dom@18 @types/react@18 @types/react-dom@18
 
-      - name: Typecheck Team sources
+      - name: Regenerate Team previews
+        run: python3 _gen_react_sections_team.py
+
+      - name: Commit generated previews when changed
+        run: |
+          if git diff --quiet -- React/Sections/Team/*/preview.html; then
+            echo "Generated previews already current."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add React/Sections/Team/*/preview.html
+            git commit -m "chore(team): regenerate generated previews"
+            git push origin feat/react-sections-team
+          fi
+
+      - name: Generator drift check
+        run: python3 _gen_react_sections_team.py --check
+
+      - name: Dedicated Team Playwright QA
+        run: python3 scripts/_qa_react_sections_team.py
+
+      - name: Strict Team TypeScript check
         run: |
           /tmp/dsbuild/node_modules/.bin/tsc \
             --strict \
@@ -56,12 +77,6 @@ jobs:
             React/Sections/Team/dark-premium/code.tsx \
             React/Sections/Team/bento/code.tsx \
             React/Sections/Team/neo-brutalist/code.tsx
-
-      - name: Generator drift check
-        run: python3 _gen_react_sections_team.py --check
-
-      - name: Dedicated Team Playwright QA
-        run: python3 scripts/_qa_react_sections_team.py
 
       - name: Repository validator
         run: python3 scripts/validate.py
