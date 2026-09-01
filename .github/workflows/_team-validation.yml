@@ -1,0 +1,67 @@
+name: Team section validation
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - feat/react-sections-team
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: feat/react-sections-team
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Install React TS/esbuild toolchain
+        run: |
+          mkdir -p /tmp/dsbuild
+          cd /tmp/dsbuild
+          npm init -y
+          npm install --no-save typescript@latest esbuild@latest react@18 react-dom@18 @types/react@18 @types/react-dom@18
+
+      - name: Typecheck Team sources
+        run: |
+          /tmp/dsbuild/node_modules/.bin/tsc \
+            --strict \
+            --noUncheckedIndexedAccess \
+            --noEmit \
+            --jsx react-jsx \
+            --skipLibCheck \
+            React/Sections/Team/minimal/code.tsx \
+            React/Sections/Team/dark-premium/code.tsx \
+            React/Sections/Team/bento/code.tsx \
+            React/Sections/Team/neo-brutalist/code.tsx
+
+      - name: Generator drift check
+        run: python3 _gen_react_sections_team.py --check
+
+      - name: Dedicated Team Playwright QA
+        run: python3 scripts/_qa_react_sections_team.py
+
+      - name: Repository validator
+        run: python3 scripts/validate.py
