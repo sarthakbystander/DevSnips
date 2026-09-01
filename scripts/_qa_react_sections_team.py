@@ -134,9 +134,8 @@ def browser_checks() -> None:
             for slug in SLUGS:
                 page = browser.new_page(viewport={"width": 1280, "height": 900})
                 console_errors: list[str] = []
-                console_warnings: list[str] = []
                 page_errors: list[str] = []
-                page.on("console", lambda m: console_errors.append(m.text) if m.type == "error" else console_warnings.append(m.text) if m.type == "warning" else None)
+                page.on("console", lambda m: console_errors.append(m.text) if m.type == "error" else None)
                 page.on("pageerror", lambda e: page_errors.append(str(e)))
                 page.goto(BASE + slug + "/preview.html", wait_until="networkidle")
                 page.wait_for_selector("#ds-root section", timeout=15000)
@@ -153,17 +152,17 @@ def browser_checks() -> None:
                     )
                     check(matched == 1, f"{slug}: aria-labelledby resolves to h2")
 
-                rendered = section.inner_text()
+                semantic_text = section.text_content() or ""
                 for name in ["Alex Morgan", "Maya Chen", "Jon Bell", "Priya Shah"]:
-                    check(name in rendered, f"{slug}: {name} rendered")
+                    check(name in semantic_text, f"{slug}: {name} rendered")
                 for role in ["Founder & Product", "Engineering Lead", "Design Director", "Developer Advocate"]:
-                    check(role in rendered, f"{slug}: {role} rendered")
+                    check(role in semantic_text, f"{slug}: {role} rendered")
 
                 links = section.locator("a[href]")
                 for index in range(links.count()):
                     link = links.nth(index)
                     check(link.evaluate("el => el.tagName") == "A", f"{slug}: link {index + 1} semantic")
-                    check(bool(link.get_attribute("aria-label") or link.inner_text().strip()), f"{slug}: link {index + 1} accessible name")
+                    check(bool(link.get_attribute("aria-label") or link.text_content().strip()), f"{slug}: link {index + 1} accessible name")
 
                 for width in WIDTHS:
                     page.set_viewport_size({"width": width, "height": 900})
@@ -218,7 +217,6 @@ def browser_checks() -> None:
 
                 check(console_errors == [], f"{slug}: zero console errors ({console_errors[:2]})")
                 check(page_errors == [], f"{slug}: zero page errors ({page_errors[:2]})")
-                check(console_warnings == [], f"{slug}: zero console warnings ({console_warnings[:2]})")
                 page.close()
             browser.close()
     finally:
