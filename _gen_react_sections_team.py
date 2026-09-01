@@ -18,12 +18,7 @@ import re
 import sys
 from pathlib import Path
 
-from _gen_react_buttons import PREVIEW_CSS, TAILWIND_CONFIG
-
-TOKEN_BLOCK = r"""
-:root{color-scheme:light;--ds-color-background:#FAFAFA;--ds-color-foreground:#171717;--ds-color-surface:#FFFFFF;--ds-color-surface-subtle:#F5F5F5;--ds-color-surface-hover:#F5F5F5;--ds-color-muted-foreground:#737373;--ds-color-border:#E5E5E5;--ds-color-border-strong:#D4D4D4;--ds-color-primary:#171717;--ds-color-primary-foreground:#FFFFFF;--ds-color-accent:#2563EB;--ds-color-accent-foreground:#FFFFFF;--ds-color-link:#2563EB;--ds-color-link-hover:#1D4ED8;--ds-color-focus-ring:#2563EB;--ds-radius-sm:5px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-font-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--ds-font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-[data-theme=dark]{color-scheme:dark;--ds-color-background:#0A0A0A;--ds-color-foreground:#FAFAFA;--ds-color-surface:#171717;--ds-color-surface-subtle:#1F1F1F;--ds-color-surface-hover:#1F1F1F;--ds-color-muted-foreground:#A3A3A3;--ds-color-border:#2A2A2A;--ds-color-border-strong:#404040;--ds-color-primary:#FAFAFA;--ds-color-primary-foreground:#0A0A0A;--ds-color-accent:#3B82F6;--ds-color-accent-foreground:#FFFFFF;--ds-color-link:#60A5FA;--ds-color-link-hover:#93C5FD;--ds-color-focus-ring:#3B82F6;}
-"""
+from _gen_react_buttons import PREVIEW_CSS, TAILWIND_CONFIG, TOKEN_BLOCK
 
 ROOT = Path(__file__).resolve().parent
 TEAM_DIR = ROOT / "React" / "Sections" / "Team"
