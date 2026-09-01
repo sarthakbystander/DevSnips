@@ -44,6 +44,13 @@ jobs:
           npm init -y
           npm install --no-save typescript@latest esbuild@latest react@18 react-dom@18 @types/react@18 @types/react-dom@18
 
+      - name: Link temporary React packages for repo-root module resolution
+        run: |
+          mkdir -p node_modules
+          ln -s /tmp/dsbuild/node_modules/react node_modules/react
+          ln -s /tmp/dsbuild/node_modules/react-dom node_modules/react-dom
+          ln -s /tmp/dsbuild/node_modules/@types node_modules/@types
+
       - name: Regenerate Team previews
         run: python3 _gen_react_sections_team.py
 
