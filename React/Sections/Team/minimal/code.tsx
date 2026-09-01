@@ -63,23 +63,23 @@ export function TeamSection({
       aria-labelledby={headingId}
       className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]"
     >
-      <div className="mx-auto max-w-[1200px] px-4 py-[clamp(4.5rem,3rem+5vw,7rem)] sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8">
         <header className="max-w-2xl">
-          <p className="text-[11px] font-semibold uppercase leading-[1.3] tracking-[0.06em] text-[var(--ds-color-muted-foreground)]">
+          <p className="text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
             {eyebrow}
           </p>
           <h2
             id={headingId}
-            className="mt-3 text-[clamp(2rem,1.45rem+2.2vw,3rem)] font-semibold leading-[1.12] tracking-[-0.02em]"
+            className="mt-3 text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]"
           >
             {title}
           </h2>
-          <p className="mt-4 max-w-[62ch] text-[clamp(1rem,0.96rem+0.2vw,1.125rem)] leading-[1.55] text-[var(--ds-color-muted-foreground)]">
+          <p className="mt-4 max-w-xl text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]">
             {description}
           </p>
         </header>
 
-        <ul className="mt-14 grid grid-cols-1 border-t border-[var(--ds-color-border)] sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid grid-cols-1 border-t border-[var(--ds-color-border)] lg:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {members.map((member) => (
             <li
               key={member.name}
@@ -113,7 +113,7 @@ export function TeamSection({
                   {member.role}
                 </p>
                 {member.location ? (
-                  <p className="mt-3 font-[var(--ds-font-mono)] text-[11px] uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                  <p className="mt-3 font-[var(--ds-font-mono)] text-xs uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
                     {member.location}
                   </p>
                 ) : null}
