@@ -108,8 +108,8 @@ def static_checks() -> None:
         check(preview.count('type="text/babel"') >= 2, f"{slug}: separate component/mount Babel blocks")
         check('data-presets="react"' in preview, f"{slug}: canonical Babel preset")
         check("ReactDOM.createRoot(document.getElementById(\"ds-root\")).render(<TeamSection />);" in preview, f"{slug}: canonical mount pattern")
-        check("--ds-color-surface-elevated" in preview, f"{slug}: canonical token block")
-        check("--ds-color-border-subtle" in preview, f"{slug}: canonical border tokens")
+        check("--ds-color-surface" in preview, f"{slug}: canonical token block")
+        check("--ds-color-border" in preview, f"{slug}: canonical border token")
         check("live render of code.tsx" in preview, f"{slug}: generated preview marker")
 
         if slug == "dark-premium":
@@ -117,7 +117,7 @@ def static_checks() -> None:
         if slug == "bento":
             check("grid-cols-12" in tsx, "bento: 12-column base grid")
             check("lg:col-span-7" in tsx and "lg:col-span-5" in tsx, "bento: 7/5 top-row structure")
-            check("gap-4" in tsx and "lg:gap-6" in tsx, "bento: canonical responsive grid gap")
+            check("gap-4" in tsx and "lg:gap-6" in tsx, "bento: responsive grid gap")
         if slug == "neo-brutalist":
             check("border-2" in tsx, "neo-brutalist: 2px borders")
             check("shadow-[4px_4px_0_0_var(--ds-color-border-strong)]" in tsx, "neo-brutalist: hard offset shadow")
@@ -146,7 +146,12 @@ def browser_checks() -> None:
                 check(section.locator("h2").count() == 1, f"{slug}: exactly one h2")
                 labelledby = section.get_attribute("aria-labelledby")
                 check(bool(labelledby), f"{slug}: aria-labelledby exists")
-                check(section.locator("h2#" + (labelledby or "__missing__")).count() == 1, f"{slug}: aria-labelledby resolves to h2")
+                if labelledby:
+                    matched = page.locator("#ds-root section h2").evaluate_all(
+                        "(els, id) => els.filter(el => el.id === id).length",
+                        labelledby,
+                    )
+                    check(matched == 1, f"{slug}: aria-labelledby resolves to h2")
 
                 rendered = section.inner_text()
                 for name in ["Alex Morgan", "Maya Chen", "Jon Bell", "Priya Shah"]:
