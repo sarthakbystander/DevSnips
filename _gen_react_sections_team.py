@@ -31,7 +31,7 @@ VARIANTS = {
 
 
 def transform_tsx(tsx: str) -> str:
-    """Strip only module/type syntax; Babel Standalone handles TSX at preview runtime."""
+    """Strip module syntax; Babel Standalone handles the remaining TSX in-browser."""
     source = re.sub(r'^\s*import\s+\*\s+as\s+React\s+from\s+["\']react["\'];\s*$', "", tsx, flags=re.M)
     source = re.sub(r'\bexport\s+type\s+TeamMember\s*=.*?;\n\n', "", source, flags=re.S)
     source = re.sub(r'\bexport\s+interface\s+TeamSectionProps\s*\{.*?\}\n\n', "", source, flags=re.S)
@@ -108,8 +108,6 @@ def render_preview(slug: str, tsx: str) -> str:
 <script type="text/babel" data-presets="typescript,react">
 {js}
 window.TeamSection = TeamSection;
-</script>
-<script type="text/javascript">
 ReactDOM.createRoot(document.getElementById("ds-root")).render(React.createElement(window.TeamSection));
 </script>
 </body>
