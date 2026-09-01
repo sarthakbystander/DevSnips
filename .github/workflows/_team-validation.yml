@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - feat/react-sections-team
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
