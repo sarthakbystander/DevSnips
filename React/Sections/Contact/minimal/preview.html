@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Minimal — DevSnips React Sections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ds-bg": "var(--ds-color-background)",
+          "ds-fg": "var(--ds-color-foreground)",
+          "ds-surface": "var(--ds-color-surface)",
+          "ds-subtle": "var(--ds-color-surface-subtle)",
+          "ds-hover": "var(--ds-color-surface-hover)",
+          "ds-active": "var(--ds-color-surface-active)",
+          "ds-muted": "var(--ds-color-muted-foreground)",
+          "ds-border": "var(--ds-color-border)",
+          "ds-border-strong": "var(--ds-color-border-strong)",
+          "ds-primary": "var(--ds-color-primary)",
+          "ds-primary-fg": "var(--ds-color-primary-foreground)",
+          "ds-accent": "var(--ds-color-accent)",
+          "ds-destructive": "var(--ds-color-destructive)",
+          "ds-success": "var(--ds-color-success)",
+          "ds-link": "var(--ds-color-link)",
+          "ds-focus": "var(--ds-color-focus-ring)",
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --ds-color-background: #FAFAFA;
+    --ds-color-foreground: #171717;
+    --ds-color-surface: #FFFFFF;
+    --ds-color-surface-subtle: #F5F5F5;
+    --ds-color-surface-elevated: #FFFFFF;
+    --ds-color-surface-hover: #F5F5F5;
+    --ds-color-surface-active: #E5E5E5;
+    --ds-color-surface-selected: #F5F5F5;
+    --ds-color-muted: #F5F5F5;
+    --ds-color-muted-foreground: #737373;
+    --ds-color-border: #E5E5E5;
+    --ds-color-border-subtle: #EFEFEF;
+    --ds-color-border-strong: #D4D4D4;
+    --ds-color-input: #FFFFFF;
+    --ds-color-primary: #171717;
+    --ds-color-primary-foreground: #FFFFFF;
+    --ds-color-secondary: #F5F5F5;
+    --ds-color-secondary-foreground: #171717;
+    --ds-color-accent: #2563EB;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
+    --ds-color-destructive: #C2261B;
+    --ds-color-destructive-foreground: #FFFFFF;
+    --ds-color-destructive-soft: rgba(194, 38, 27, 0.10);
+    --ds-color-success: #15803D;
+    --ds-color-success-foreground: #FFFFFF;
+    --ds-color-success-soft: rgba(21, 128, 61, 0.12);
+    --ds-color-warning: #B45309;
+    --ds-color-warning-foreground: #FFFFFF;
+    --ds-color-info: #2563EB;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #2563EB;
+    --ds-color-link-hover: #1D4ED8;
+    --ds-color-focus-ring: #2563EB;
+    --ds-color-overlay: rgba(10, 10, 10, 0.50);
+    --ds-radius-none: 0;
+    --ds-radius-xs: 3px;
+    --ds-radius-sm: 5px;
+    --ds-radius-md: 8px;
+    --ds-radius-lg: 12px;
+    --ds-radius-xl: 16px;
+    --ds-radius-full: 9999px;
+    --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
+    --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
+    --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --ds-color-background: #0A0A0A;
+    --ds-color-foreground: #FAFAFA;
+    --ds-color-surface: #171717;
+    --ds-color-surface-subtle: #1F1F1F;
+    --ds-color-surface-elevated: #1F1F1F;
+    --ds-color-surface-hover: #1F1F1F;
+    --ds-color-surface-active: #2A2A2A;
+    --ds-color-surface-selected: #1F1F1F;
+    --ds-color-muted: #1F1F1F;
+    --ds-color-muted-foreground: #A3A3A3;
+    --ds-color-border: #2A2A2A;
+    --ds-color-border-subtle: #1F1F1F;
+    --ds-color-border-strong: #404040;
+    --ds-color-input: #171717;
+    --ds-color-primary: #FAFAFA;
+    --ds-color-primary-foreground: #0A0A0A;
+    --ds-color-secondary: #1F1F1F;
+    --ds-color-secondary-foreground: #FAFAFA;
+    --ds-color-accent: #3B82F6;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+    --ds-color-destructive: #F1635A;
+    --ds-color-destructive-foreground: #0A0A0A;
+    --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+    --ds-color-success: #4ADE80;
+    --ds-color-success-foreground: #052E16;
+    --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+    --ds-color-warning: #FBBF24;
+    --ds-color-warning-foreground: #1A1206;
+    --ds-color-info: #3B82F6;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #60A5FA;
+    --ds-color-link-hover: #93C5FD;
+    --ds-color-focus-ring: #3B82F6;
+    --ds-color-overlay: rgba(0, 0, 0, 0.65);
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+    --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ds-color-background: #0A0A0A;
+      --ds-color-foreground: #FAFAFA;
+      --ds-color-surface: #171717;
+      --ds-color-surface-subtle: #1F1F1F;
+      --ds-color-surface-elevated: #1F1F1F;
+      --ds-color-surface-hover: #1F1F1F;
+      --ds-color-surface-active: #2A2A2A;
+      --ds-color-surface-selected: #1F1F1F;
+      --ds-color-muted: #1F1F1F;
+      --ds-color-muted-foreground: #A3A3A3;
+      --ds-color-border: #2A2A2A;
+      --ds-color-border-subtle: #1F1F1F;
+      --ds-color-border-strong: #404040;
+      --ds-color-input: #171717;
+      --ds-color-primary: #FAFAFA;
+      --ds-color-primary-foreground: #0A0A0A;
+      --ds-color-secondary: #1F1F1F;
+      --ds-color-secondary-foreground: #FAFAFA;
+      --ds-color-accent: #3B82F6;
+      --ds-color-accent-foreground: #FFFFFF;
+      --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+      --ds-color-destructive: #F1635A;
+      --ds-color-destructive-foreground: #0A0A0A;
+      --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+      --ds-color-success: #4ADE80;
+      --ds-color-success-foreground: #052E16;
+      --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+      --ds-color-warning: #FBBF24;
+      --ds-color-warning-foreground: #1A1206;
+      --ds-color-info: #3B82F6;
+      --ds-color-info-foreground: #FFFFFF;
+      --ds-color-link: #60A5FA;
+      --ds-color-link-hover: #93C5FD;
+      --ds-color-focus-ring: #3B82F6;
+      --ds-color-overlay: rgba(0, 0, 0, 0.65);
+      --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+      --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground);}
+  .ds-page{min-height:100vh;}
+  .ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border);}
+  .ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans);}
+  .ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans);}
+  .ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans);}
+  .ds-crumb b{color:var(--ds-color-foreground);font-weight:500;}
+  .ds-theme-toggle{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);cursor:pointer;}
+  .ds-theme-toggle:hover{background:var(--ds-color-surface-hover);}
+  .ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px;}
+  .ds-main{max-width:980px;margin:0 auto;padding:32px 24px 64px;}
+  .ds-eyebrow{font:600 11px/1.3 var(--ds-font-sans);letter-spacing:0.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground);margin:0 0 8px;}
+  .ds-title{font:600 18px/1.35 var(--ds-font-sans);letter-spacing:-0.01em;margin:0 0 8px;}
+  .ds-lede{color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans);margin:0 0 32px;max-width:60ch;}
+  .ds-section{margin-top:32px;}
+  .ds-section-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--ds-color-border-subtle);}
+  .ds-section-h h2{font:600 16px/1.4 var(--ds-font-sans);margin:0;letter-spacing:-0.01em;}
+  .ds-section-h .ds-note{font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;}
+  .ds-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+  .ds-label{font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-muted-foreground);margin:0 0 8px;text-transform:uppercase;letter-spacing:0.04em;}
+  .ds-card{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-canvas{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-pos-wrap{position:relative;}
+  .ds-footer{border-top:1px solid var(--ds-color-border);padding:24px;text-align:center;font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-footer code{font-family:var(--ds-font-mono);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+
+  .ds-intro{max-width:980px;margin:0 auto;padding:32px 24px 40px;}
+  .ds-stage{width:100%;}
+
+</style>
+</head>
+<body>
+<div class="ds-page">
+  <header class="ds-topbar">
+    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Contact / minimal</span></div>
+    <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false">
+      <span id="ds-theme-label">Dark</span>
+    </button>
+  </header>
+  <div class="ds-intro">
+    <p class="ds-eyebrow">React Sections · Contact</p>
+    <h1 class="ds-title">Contact — Minimal</h1>
+    <p class="ds-lede">The reference composition:a restrained editorial split — a clear 6/6 grid with the eyebrow, heading, lede,and contact particulars (email, location, response time) as a ruled definition list on the left,and a single raised form surface on the right. Typography, spacing,and hairlines carry the hierarchy — no shadows, no cards beyond the one form panel.The demo form validates empty/required fields and malformed email,and resolves an announced success state — try submitting an empty form first.</p>
+  </div>
+  <main class="ds-stage">
+    <div id="ds-root"></div>
+  </main>
+  <footer class="ds-footer">DevSnips React · Sections · Contact · <code>minimal</code> · live render of code.tsx</footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement;
+  function apply(t){ root.setAttribute("data-theme", t); try{ localStorage.setItem("ds-react-theme", t); }catch(e){} var b=document.getElementById("ds-theme-toggle"); var l=document.getElementById("ds-theme-label"); if(b){b.setAttribute("aria-pressed", t==="dark"?"true":"false");} if(l){l.textContent = t==="dark"?"Light":"Dark";} }
+  var saved = null; try{ saved = localStorage.getItem("ds-react-theme"); }catch(e){}
+  if(!saved){ saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light"; }
+  apply(saved);
+  document.getElementById("ds-theme-toggle").addEventListener("click", function(){ var cur = root.getAttribute("data-theme") === "dark" ? "light":"dark"; apply(cur); });
+})();
+</script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" data-presets="react">
+// The section below is the actual code.tsx implementation, transformed to
+// JSX (types removed, exports stripped) so Babel standalone can run it. It
+// is identical in behavior and classes to code.tsx.
+(function() {
+  const {  useId, useState  } = React;
+  const FOCUS_RING = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]";
+  const INPUT_CLASSES = "h-11 w-full min-w-0 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-4 text-sm leading-5 text-[var(--ds-color-foreground)] placeholder-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-focus-ring)] motion-reduce:transition-none " + FOCUS_RING;
+  const TEXTAREA_CLASSES = "min-h-[120px] w-full resize-y rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-4 py-3 text-sm leading-6 text-[var(--ds-color-foreground)] placeholder-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-focus-ring)] motion-reduce:transition-none " + FOCUS_RING;
+  const ERROR_INPUT_CLASSES = "border-[var(--ds-color-destructive)] focus:border-[var(--ds-color-destructive)]";
+  const SUBMIT_CLASSES = "inline-flex h-11 w-full items-center justify-center rounded-[var(--ds-radius-sm)] bg-[var(--ds-color-primary)] px-5 text-sm font-semibold leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] motion-reduce:transition-none " + FOCUS_RING;
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const AUTOCOMPLETE = {
+    name: "name",
+    email: "email",
+    company: "organization"
+  };
+  const DEFAULT_FIELDS = [
+    { name: "name", label: "Name", type: "text", placeholder: "Ada Lovelace", required: true },
+    { name: "email", label: "Email", type: "email", placeholder: "you@example.dev", required: true },
+    { name: "company", label: "Company", type: "text", placeholder: "Acme Inc. \u2014 optional", required: false },
+    { name: "message", label: "Message", type: "textarea", placeholder: "Tell us what you are working on and what you need help with.", required: true }
+  ];
+  const ERROR_MESSAGES = {
+    name: "Enter your name.",
+    email: "Enter your email address.",
+    company: "",
+    message: "Enter your message."
+  };
+  function ContactSection({
+    eyebrow = "Get in touch",
+    title = "Let's build something useful.",
+    description = "Tell us what you're working on and what you need help with.",
+    email = "hello@example.dev",
+    location = "Portland, OR \u2014 remote worldwide",
+    responseTime = "Within two business days",
+    note = "Sales, support,and partnerships all route to the same inbox. We read every message.",
+    fields = DEFAULT_FIELDS,
+    submitLabel = "Send inquiry",
+    onSubmit
+  }) {
+    const headingId = useId();
+    const inputIds = fields.map((field) => ({ name: field.name, id: `${headingId}-${field.name}` }));
+    const idFor = (name) => `${headingId}-${name}`;
+    const [values, setValues] = useState({});
+    const [errors, setErrors] = useState({});
+    const [submitted, setSubmitted] = useState(false);
+    function handleChange(field, value) {
+      setValues((prev) => ({ ...prev, [field.name]: value }));
+      setSubmitted(false);
+      setErrors((prev) => {
+        if (!prev[field.name]) return prev;
+        const next = { ...prev };
+        delete next[field.name];
+        return next;
+      });
+    }
+    function handleSubmit(event) {
+      event.preventDefault();
+      const nextErrors = {};
+      for (const field of fields) {
+        const raw = (values[field.name] ?? "").trim();
+        if (field.required && !raw) {
+          nextErrors[field.name] = ERROR_MESSAGES[field.name] ?? `Enter your ${field.type === "email" ? "email address" : field.label.toLowerCase()}.`;
+        } else if (field.type === "email" && raw && !EMAIL_PATTERN.test(raw)) {
+          nextErrors[field.name] = "Enter a valid email address \u2014 e.g. you@example.com.";
+        }
+      }
+      setErrors(nextErrors);
+      if (Object.keys(nextErrors).length > 0) {
+        setSubmitted(false);
+        return;
+      }
+      setSubmitted(true);
+      if (onSubmit) {
+        void onSubmit(values);
+      }
+    }
+    return <section
+      aria-labelledby={headingId}
+      className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]"
+    >
+        <div className="mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-6">
+              <p className="text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                {eyebrow}
+              </p>
+              <h2
+      id={headingId}
+      className="mt-3 text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]"
+    >
+                {title}
+              </h2>
+              <p className="mt-4 max-w-xl text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]">
+                {description}
+              </p>
+
+              <dl className="mt-10 border-t border-[var(--ds-color-border-subtle)] pt-6 lg:mt-12">
+                <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                  <dt className="font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                    Email
+                  </dt>
+                  <dd className="break-words text-sm leading-5">
+                    <a
+      href={`mailto:${email}`}
+      className={"text-[var(--ds-color-link)] underline underline-offset-4 transition-colors duration-150 ease-out hover:text-[var(--ds-color-link-hover)] motion-reduce:transition-none " + FOCUS_RING}
+    >
+                      {email}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex flex-col gap-1 border-t border-[var(--ds-color-border-subtle)] py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                  <dt className="font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                    Location
+                  </dt>
+                  <dd className="break-words text-sm leading-5">{location}</dd>
+                </div>
+                <div className="flex flex-col gap-1 border-t border-[var(--ds-color-border-subtle)] py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                  <dt className="font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">
+                    Response time
+                  </dt>
+                  <dd className="break-words text-sm leading-5">{responseTime}</dd>
+                </div>
+              </dl>
+
+              <p className="mt-8 text-xs leading-[1.4] text-[var(--ds-color-muted-foreground)]">
+                {note}
+              </p>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-6 lg:p-8">
+                <form onSubmit={handleSubmit} noValidate>
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    {fields.map((field) => <div
+      key={field.name}
+      className={field.name === "company" || field.type === "textarea" ? "sm:col-span-2" : ""}
+    >
+                        <label
+      htmlFor={idFor(field.name)}
+      className="block text-sm font-medium leading-5"
+    >
+                          {field.label}
+                          {field.required ? <>
+                              <span aria-hidden="true" className="text-[var(--ds-color-muted-foreground)]"> *</span>
+                              <span className="sr-only"> (required)</span>
+                            </> : null}
+                        </label>
+                        {field.type === "textarea" ? <textarea
+      id={idFor(field.name)}
+      name={field.name}
+      placeholder={field.placeholder}
+      required={field.required}
+      value={values[field.name] ?? ""}
+      onChange={(event) => handleChange(field, event.target.value)}
+      aria-invalid={errors[field.name] ? true : undefined}
+      aria-describedby={errors[field.name] ? `${idFor(field.name)}-error` : undefined}
+      className={TEXTAREA_CLASSES + (errors[field.name] ? " " + ERROR_INPUT_CLASSES : "")}
+    /> : <input
+      id={idFor(field.name)}
+      type={field.type}
+      name={field.name}
+      autoComplete={AUTOCOMPLETE[field.name]}
+      placeholder={field.placeholder}
+      required={field.required}
+      value={values[field.name] ?? ""}
+      onChange={(event) => handleChange(field, event.target.value)}
+      aria-invalid={errors[field.name] ? true : undefined}
+      aria-describedby={errors[field.name] ? `${idFor(field.name)}-error` : undefined}
+      className={INPUT_CLASSES + (errors[field.name] ? " " + ERROR_INPUT_CLASSES : "")}
+    />}
+                        {errors[field.name] ? <p
+      id={`${idFor(field.name)}-error`}
+      role="alert"
+      className="mt-1.5 text-sm font-medium leading-5 text-[var(--ds-color-destructive)]"
+    >
+                            {errors[field.name]}
+                          </p> : null}
+                      </div>)}
+                  </div>
+
+                  <div className="mt-6">
+                    <button type="submit" className={SUBMIT_CLASSES}>
+                      {submitLabel}
+                    </button>
+                  </div>
+
+                  <p
+      id={`${headingId}-status`}
+      role="status"
+      aria-live="polite"
+      className={"mt-4 text-sm font-medium leading-5 " + (submitted ? "text-[var(--ds-color-foreground)]" : "sr-only")}
+    >
+                    {submitted ? "Thanks. Your message has been received." : ""}
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>;
+  }
+  window.ContactSection = ContactSection;
+})();
+
+</script>
+<script type="text/babel" data-presets="react">
+// Mount the section full-bleed, as it would sit on a real page. The preview
+// demonstrates the real form interaction: empty required fields and malformed
+// email show per-field accessible errors, a valid submit resolves an
+// announced success state,and the page never reloads or sends data anywhere.
+
+ReactDOM.createRoot(document.getElementById("ds-root")).render(<ContactSection />);
+</script>
+</body>
+</html>
