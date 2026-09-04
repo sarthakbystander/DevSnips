@@ -1,28 +1,302 @@
 #!/usr/bin/env python3
-"""Generate self-contained DevSnips Comparison section previews from code.tsx."""
-from __future__ import annotations
-import argparse, html, sys
-from pathlib import Path
-ROOT=Path(__file__).resolve().parent
-BASE=ROOT/"React/Sections/Comparison"
-VARIANTS={"minimal":("Comparison — Minimal","Editorial matrix with a recommended option."),"dark-premium":("Comparison — Dark Premium","Stacked product-decision panels on a permanently dark surface."),"bento":("Comparison — Bento","A 12-column decision map built from varied comparison cells."),"neo-brutalist":("Comparison — Neo-Brutalist","Rigid comparison matrix with hard borders and offset elevation.")}
-TAILWIND_CONFIG='''tailwind.config={theme:{extend:{colors:{"ds-bg":"var(--ds-color-background)","ds-fg":"var(--ds-color-foreground)","ds-surface":"var(--ds-color-surface)","ds-subtle":"var(--ds-color-surface-subtle)","ds-hover":"var(--ds-color-surface-hover)","ds-muted":"var(--ds-color-muted-foreground)","ds-border":"var(--ds-color-border)","ds-border-strong":"var(--ds-color-border-strong)","ds-primary":"var(--ds-color-primary)","ds-primary-fg":"var(--ds-color-primary-foreground)","ds-accent":"var(--ds-color-accent)","ds-focus":"var(--ds-color-focus-ring)"},fontFamily:{sans:['Inter','system-ui','sans-serif'],mono:['ui-monospace','SF Mono','Menlo','Consolas','monospace']}}}};'''
-TOKEN_BLOCK=''' :root{color-scheme:light;--ds-color-background:#FAFAFA;--ds-color-foreground:#171717;--ds-color-surface:#FFFFFF;--ds-color-surface-subtle:#F5F5F5;--ds-color-surface-hover:#F5F5F5;--ds-color-muted-foreground:#737373;--ds-color-border:#E5E5E5;--ds-color-border-subtle:#EFEFEF;--ds-color-border-strong:#D4D4D4;--ds-color-primary:#171717;--ds-color-primary-foreground:#FFFFFF;--ds-color-accent:#2563EB;--ds-color-accent-soft:rgba(37,99,235,.10);--ds-color-focus-ring:#2563EB;--ds-radius-none:0;--ds-radius-sm:5px;--ds-radius-md:8px;--ds-radius-lg:12px;--ds-radius-full:9999px;--ds-font-sans:"Inter",system-ui,sans-serif;--ds-font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}[data-theme="dark"]{color-scheme:dark;--ds-color-background:#0A0A0A;--ds-color-foreground:#FAFAFA;--ds-color-surface:#171717;--ds-color-surface-subtle:#1F1F1F;--ds-color-surface-hover:#1F1F1F;--ds-color-muted-foreground:#A3A3A3;--ds-color-border:#2A2A2A;--ds-color-border-subtle:#1F1F1F;--ds-color-border-strong:#404040;--ds-color-primary:#FAFAFA;--ds-color-primary-foreground:#0A0A0A;--ds-color-accent:#3B82F6;--ds-color-accent-soft:rgba(59,130,246,.16);--ds-color-focus-ring:#3B82F6}'''
-SHELL_CSS='''*{box-sizing:border-box}html,body{margin:0}body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground)}.ds-page{min-height:100vh}.ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border)}.ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans)}.ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans)}.ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans)}.ds-theme-toggle{height:32px;padding:0 12px;color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);font:500 12px/1.35 var(--ds-font-sans);cursor:pointer}.ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px}.ds-intro{max-width:980px;margin:0 auto;padding:32px 24px 40px}.ds-eyebrow{margin:0 0 8px;font:600 11px/1.3 var(--ds-font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground)}.ds-title{margin:0 0 8px;font:600 18px/1.35 var(--ds-font-sans)}.ds-lede{max-width:60ch;margin:0;color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans)}.ds-stage{width:100%}.ds-footer{padding:24px;color:var(--ds-color-muted-foreground);border-top:1px solid var(--ds-color-border);font-size:12px;text-align:center}@media(max-width:600px){.ds-topbar{padding:0 16px}.ds-crumb{display:none}.ds-intro{padding:24px 16px 32px}}'''
+"""Generate self-contained DevSnips Comparison section previews from code.tsx.
 
-def render_preview(slug:str)->str:
- title,lede=VARIANTS[slug]; pin='' if slug!='dark-premium' else '.ds-dark-premium{color-scheme:dark;--ds-color-background:#0A0A0A;--ds-color-foreground:#FAFAFA;--ds-color-surface:#171717;--ds-color-surface-subtle:#1F1F1F;--ds-color-surface-hover:#1F1F1F;--ds-color-muted-foreground:#A3A3A3;--ds-color-border:#2A2A2A;--ds-color-border-subtle:#1F1F1F;--ds-color-border-strong:#404040;--ds-color-primary:#FAFAFA;--ds-color-primary-foreground:#0A0A0A;--ds-color-accent:#3B82F6;--ds-color-accent-soft:rgba(59,130,246,.16);--ds-color-focus-ring:#3B82F6}'
- return f'''<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{html.escape(title)} — DevSnips React Sections</title><script src="https://cdn.tailwindcss.com"></script><script>{TAILWIND_CONFIG}</script><style>{TOKEN_BLOCK}{SHELL_CSS}{pin}</style></head><body><div class="ds-page"><header class="ds-topbar"><div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Comparison / {slug}</span></div><button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false"><span id="ds-theme-label">Dark</span></button></header><div class="ds-intro"><p class="ds-eyebrow">React Sections · Comparison</p><h1 class="ds-title">{html.escape(title)}</h1><p class="ds-lede">{html.escape(lede)}</p></div><main class="ds-stage"><div id="ds-root"></div></main><footer class="ds-footer">DevSnips React · Sections · Comparison · <code>{slug}</code> · live render of code.tsx</footer></div><script>(function(){{var r=document.documentElement;function a(t){{r.setAttribute("data-theme",t);try{{localStorage.setItem("ds-react-theme",t)}}catch(e){{}}var b=document.getElementById("ds-theme-toggle"),l=document.getElementById("ds-theme-label");if(b)b.setAttribute("aria-pressed",t==="dark"?"true":"false");if(l)l.textContent=t==="dark"?"Light":"Dark"}}var s=null;try{{s=localStorage.getItem("ds-react-theme")}}catch(e){{}}if(!s)s=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";a(s);document.getElementById("ds-theme-toggle").addEventListener("click",function(){{a(r.getAttribute("data-theme")==="dark"?"light":"dark")}})}})();</script><script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script><script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script><script>(async function(){{try{{var source=await fetch("./code.tsx").then(function(r){{if(!r.ok)throw new Error("Unable to load code.tsx");return r.text()}});source=source.replace(/^\\s*import\\s+\\{{\\s*useId\\s*\\}}\\s+from\\s+["']react["'];?\\s*$/m,"const {{ useId }} = React;").replace(/\\bexport\\s+(?=(?:interface|type|function|const|let|var)\\b)/g,"");var out=Babel.transform(source,{{presets:["react"],plugins:["transform-typescript"]}}).code+"\\nwindow.ComparisonSection=ComparisonSection;";new Function("React","window",out)(React,window);ReactDOM.createRoot(document.getElementById("ds-root")).render(React.createElement(window.ComparisonSection));}}catch(error){{console.error(error)}}}})();</script></body></html>'''
-def main()->int:
- p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');a=p.parse_args();drift=[]
- for slug in VARIANTS:
-  f=BASE/slug;src=f/'code.tsx';out=f/'preview.html'
-  if not src.exists(): print(f'ERROR: missing {src}',file=sys.stderr);return 1
-  expected=render_preview(slug)
-  if a.check:
-   if not out.exists() or out.read_text()!=expected: drift.append(slug)
-  else: out.write_text(expected);print(f'wrote {out.relative_to(ROOT)}')
- if drift: print('Drift detected in: '+', '.join(drift));print('Run: python _gen_react_sections_comparison.py');return 1
- if a.check: print('All Comparison previews are up to date.')
- return 0
-if __name__=='__main__':sys.exit(main())
+The preview is intentionally standalone: it embeds the authored TSX source and
+lets Babel standalone compile it in-browser. It never fetches a sibling
+code.tsx, because preview.html must work when opened/copied as a standalone
+HTML document.
+"""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT / "React" / "Sections" / "Comparison"
+VARIANTS = {
+    "minimal": ("Comparison — Minimal", "Editorial matrix with a recommended option."),
+    "dark-premium": ("Comparison — Dark Premium", "Stacked product-decision panels on a permanently dark surface."),
+    "bento": ("Comparison — Bento", "A 12-column decision map built from varied comparison cells."),
+    "neo-brutalist": ("Comparison — Neo-Brutalist", "Rigid comparison matrix with hard borders and offset elevation."),
+}
+
+# Keep the preview shell aligned with the established React Sections preview
+# contract: Tailwind CDN, React 18 UMD, Babel standalone, semantic --ds-*
+# tokens, persisted theme toggle, full-bleed section mount.
+TAILWIND_CONFIG = """  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ds-bg": "var(--ds-color-background)",
+          "ds-fg": "var(--ds-color-foreground)",
+          "ds-surface": "var(--ds-color-surface)",
+          "ds-subtle": "var(--ds-color-surface-subtle)",
+          "ds-hover": "var(--ds-color-surface-hover)",
+          "ds-active": "var(--ds-color-surface-active)",
+          "ds-muted": "var(--ds-color-muted-foreground)",
+          "ds-border": "var(--ds-color-border)",
+          "ds-border-strong": "var(--ds-color-border-strong)",
+          "ds-primary": "var(--ds-color-primary)",
+          "ds-primary-fg": "var(--ds-color-primary-foreground)",
+          "ds-accent": "var(--ds-color-accent)",
+          "ds-destructive": "var(--ds-color-destructive)",
+          "ds-success": "var(--ds-color-success)",
+          "ds-link": "var(--ds-color-link)",
+          "ds-focus": "var(--ds-color-focus-ring)",
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };"""
+
+TOKEN_BLOCK = r"""  :root {
+    color-scheme: light;
+    --ds-color-background: #FAFAFA;
+    --ds-color-foreground: #171717;
+    --ds-color-surface: #FFFFFF;
+    --ds-color-surface-subtle: #F5F5F5;
+    --ds-color-surface-elevated: #FFFFFF;
+    --ds-color-surface-hover: #F5F5F5;
+    --ds-color-surface-active: #E5E5E5;
+    --ds-color-surface-selected: #F5F5F5;
+    --ds-color-muted: #F5F5F5;
+    --ds-color-muted-foreground: #737373;
+    --ds-color-border: #E5E5E5;
+    --ds-color-border-subtle: #EFEFEF;
+    --ds-color-border-strong: #D4D4D4;
+    --ds-color-input: #FFFFFF;
+    --ds-color-primary: #171717;
+    --ds-color-primary-foreground: #FFFFFF;
+    --ds-color-secondary: #F5F5F5;
+    --ds-color-secondary-foreground: #171717;
+    --ds-color-accent: #2563EB;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
+    --ds-color-destructive: #C2261B;
+    --ds-color-destructive-foreground: #FFFFFF;
+    --ds-color-success: #15803D;
+    --ds-color-success-foreground: #FFFFFF;
+    --ds-color-warning: #B45309;
+    --ds-color-warning-foreground: #FFFFFF;
+    --ds-color-info: #2563EB;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #2563EB;
+    --ds-color-link-hover: #1D4ED8;
+    --ds-color-focus-ring: #2563EB;
+    --ds-color-overlay: rgba(10, 10, 10, 0.50);
+    --ds-radius-none: 0;
+    --ds-radius-xs: 3px;
+    --ds-radius-sm: 5px;
+    --ds-radius-md: 8px;
+    --ds-radius-lg: 12px;
+    --ds-radius-xl: 16px;
+    --ds-radius-full: 9999px;
+    --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
+    --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
+    --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --ds-color-background: #0A0A0A;
+    --ds-color-foreground: #FAFAFA;
+    --ds-color-surface: #171717;
+    --ds-color-surface-subtle: #1F1F1F;
+    --ds-color-surface-elevated: #1F1F1F;
+    --ds-color-surface-hover: #1F1F1F;
+    --ds-color-surface-active: #2A2A2A;
+    --ds-color-surface-selected: #1F1F1F;
+    --ds-color-muted: #1F1F1F;
+    --ds-color-muted-foreground: #A3A3A3;
+    --ds-color-border: #2A2A2A;
+    --ds-color-border-subtle: #1F1F1F;
+    --ds-color-border-strong: #404040;
+    --ds-color-input: #171717;
+    --ds-color-primary: #FAFAFA;
+    --ds-color-primary-foreground: #0A0A0A;
+    --ds-color-secondary: #1F1F1F;
+    --ds-color-secondary-foreground: #FAFAFA;
+    --ds-color-accent: #3B82F6;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+    --ds-color-destructive: #F1635A;
+    --ds-color-destructive-foreground: #0A0A0A;
+    --ds-color-success: #4ADE80;
+    --ds-color-success-foreground: #052E16;
+    --ds-color-warning: #FBBF24;
+    --ds-color-warning-foreground: #1A1206;
+    --ds-color-info: #3B82F6;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #60A5FA;
+    --ds-color-link-hover: #93C5FD;
+    --ds-color-focus-ring: #3B82F6;
+    --ds-color-overlay: rgba(0, 0, 0, 0.65);
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+    --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ds-color-background: #0A0A0A;
+      --ds-color-foreground: #FAFAFA;
+      --ds-color-surface: #171717;
+      --ds-color-surface-subtle: #1F1F1F;
+      --ds-color-surface-hover: #1F1F1F;
+      --ds-color-surface-active: #2A2A2A;
+      --ds-color-muted-foreground: #A3A3A3;
+      --ds-color-border: #2A2A2A;
+      --ds-color-border-subtle: #1F1F1F;
+      --ds-color-border-strong: #404040;
+      --ds-color-primary: #FAFAFA;
+      --ds-color-primary-foreground: #0A0A0A;
+      --ds-color-accent: #3B82F6;
+      --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+      --ds-color-focus-ring: #3B82F6;
+    }
+  }"""
+
+PREVIEW_CSS = r"""  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground);}
+  .ds-page{min-height:100vh;}
+  .ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border);}
+  .ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans);}
+  .ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans);}
+  .ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans);}
+  .ds-crumb b{color:var(--ds-color-foreground);font-weight:500;}
+  .ds-theme-toggle{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);cursor:pointer;}
+  .ds-theme-toggle:hover{background:var(--ds-color-surface-hover);}
+  .ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px;}
+  .ds-intro{max-width:980px;margin:0 auto;padding:32px 24px 40px;}
+  .ds-eyebrow{font:600 11px/1.3 var(--ds-font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground);margin:0 0 8px;}
+  .ds-title{font:600 18px/1.35 var(--ds-font-sans);letter-spacing:-.01em;margin:0 0 8px;}
+  .ds-lede{color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans);margin:0;max-width:60ch;}
+  .ds-stage{width:100%;}
+  .ds-footer{border-top:1px solid var(--ds-color-border);padding:24px;text-align:center;font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-footer code{font-family:var(--ds-font-mono);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+"""
+
+
+def render_preview(slug: str, tsx: str) -> str:
+    title, lede = VARIANTS[slug]
+    # JSON encoding makes the source a literal JavaScript string. Nothing is
+    # fetched from disk at runtime, so the HTML remains standalone.
+    source_literal = json.dumps(tsx, ensure_ascii=False).replace("</", "<\\/")
+    pin = "" if slug != "dark-premium" else """
+  .ds-dark-preview{color-scheme:dark;}
+"""
+    return f'''<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{html.escape(title)} — DevSnips React Sections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+{TAILWIND_CONFIG}
+</script>
+<style>
+{TOKEN_BLOCK}
+{PREVIEW_CSS}
+{pin}
+</style>
+</head>
+<body>
+<div class="ds-page">
+  <header class="ds-topbar">
+    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Comparison / {slug}</span></div>
+    <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false"><span id="ds-theme-label">Dark</span></button>
+  </header>
+  <div class="ds-intro">
+    <p class="ds-eyebrow">React Sections · Comparison</p>
+    <h1 class="ds-title">{html.escape(title)}</h1>
+    <p class="ds-lede">{html.escape(lede)}</p>
+  </div>
+  <main class="ds-stage"><div id="ds-root"></div></main>
+  <footer class="ds-footer">DevSnips React · Sections · Comparison · <code>{slug}</code> · standalone preview of code.tsx</footer>
+</div>
+<script>
+(function(){{
+  var root=document.documentElement;
+  function apply(t){{
+    root.setAttribute("data-theme",t);
+    try{{localStorage.setItem("ds-react-theme",t)}}catch(e){{}}
+    var b=document.getElementById("ds-theme-toggle"),l=document.getElementById("ds-theme-label");
+    if(b)b.setAttribute("aria-pressed",t==="dark"?"true":"false");
+    if(l)l.textContent=t==="dark"?"Light":"Dark";
+  }}
+  var saved=null;try{{saved=localStorage.getItem("ds-react-theme")}}catch(e){{}}
+  if(!saved)saved=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+  apply(saved);
+  document.getElementById("ds-theme-toggle").addEventListener("click",function(){{apply(root.getAttribute("data-theme")==="dark"?"light":"dark")}});
+}})();
+</script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script>
+(function(){{
+  var source={source_literal};
+  try{{
+    source=source.replace(/^\\s*import\\s+\\{{\\s*useId\\s*\\}}\\s+from\\s+["']react["'];?\\s*$/m,"const {{ useId }} = React;");
+    source=source.replace(/\\bexport\\s+(?=(?:interface|type|function|const|let|var|class)\\b)/g,"");
+    source=source.replace(/\\bexport\\s+default\\s+/g,"");
+    var transformed=Babel.transform(source,{{presets:["react"],plugins:["transform-typescript"]}}).code;
+    new Function("React","window",transformed+"\\nwindow.ComparisonSection=ComparisonSection;")(React,window);
+    ReactDOM.createRoot(document.getElementById("ds-root")).render(React.createElement(window.ComparisonSection));
+  }}catch(error){{
+    console.error(error);
+    var root=document.getElementById("ds-root");
+    root.innerHTML='<div style="padding:24px;font-family:monospace">Preview failed to compile code.tsx.</div>';
+  }}
+}})();
+</script>
+</body>
+</html>
+'''
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="do not write; exit 1 if previews drift")
+    args = parser.parse_args()
+    drift: list[str] = []
+    for slug in VARIANTS:
+        folder = BASE / slug
+        src = folder / "code.tsx"
+        out = folder / "preview.html"
+        if not src.exists():
+            print(f"ERROR: missing {src}", file=sys.stderr)
+            return 1
+        expected = render_preview(slug, src.read_text())
+        if args.check:
+            if not out.exists() or out.read_text() != expected:
+                drift.append(slug)
+        else:
+            out.write_text(expected)
+            print(f"wrote {out.relative_to(ROOT)}")
+    if drift:
+        print("Drift detected in: " + ", ".join(drift))
+        print("Run: python _gen_react_sections_comparison.py")
+        return 1
+    if args.check:
+        print("All Comparison previews are up to date.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
