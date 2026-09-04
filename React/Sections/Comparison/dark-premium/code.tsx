@@ -34,7 +34,7 @@ export function ComparisonSection({
 }: ComparisonSectionProps) {
   const headingId = useId();
   return (
-    <section aria-labelledby={headingId} className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]">
+    <section data-theme="dark" aria-labelledby={headingId} className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]">
       <div className="mx-auto grid max-w-[1280px] gap-12 px-4 py-[clamp(4rem,3rem+4vw,6rem)] lg:grid-cols-[minmax(280px,0.75fr)_minmax(0,1.6fr)] lg:items-start lg:gap-20 sm:px-6 lg:px-8">
         <div className="lg:sticky lg:top-20">
           <p className="font-[var(--ds-font-mono)] text-xs font-medium uppercase tracking-[0.05em] text-[var(--ds-color-muted-foreground)]">{eyebrow}</p>
@@ -42,25 +42,12 @@ export function ComparisonSection({
           <p className="mt-5 max-w-md text-base leading-7 text-[var(--ds-color-muted-foreground)]">{description}</p>
           <div className="mt-8 border-l border-[var(--ds-color-border-strong)] pl-4 text-sm leading-6 text-[var(--ds-color-muted-foreground)]">Recommended options balance ready-made capability with exportable ownership. No lock-in is implied by this sample.</div>
         </div>
-
         <div className="space-y-8">
           {options.map((option) => (
             <article key={option.id} className={"rounded-[var(--ds-radius-md)] border bg-[var(--ds-color-surface)] p-6 sm:p-7 " + (option.featured ? "border-[var(--ds-color-primary)]" : "border-[var(--ds-color-border)]")}>
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p className="font-[var(--ds-font-mono)] text-[10px] uppercase tracking-[0.06em] text-[var(--ds-color-muted-foreground)]">Option</p>
-                  <h3 className="mt-2 text-lg font-semibold">{option.name}</h3>
-                  {option.description ? <p className="mt-1 text-sm leading-5 text-[var(--ds-color-muted-foreground)]">{option.description}</p> : null}
-                </div>
-                {option.featured ? <span className="rounded-[var(--ds-radius-full)] bg-[var(--ds-color-primary)] px-3 py-1 text-xs font-semibold text-[var(--ds-color-primary-foreground)]">Recommended</span> : null}
-              </div>
+              <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-[var(--ds-font-mono)] text-[10px] uppercase tracking-[0.06em] text-[var(--ds-color-muted-foreground)]">Option</p><h3 className="mt-2 text-lg font-semibold">{option.name}</h3>{option.description ? <p className="mt-1 text-sm leading-5 text-[var(--ds-color-muted-foreground)]">{option.description}</p> : null}</div>{option.featured ? <span className="rounded-[var(--ds-radius-full)] bg-[var(--ds-color-primary)] px-3 py-1 text-xs font-semibold text-[var(--ds-color-primary-foreground)]">Recommended</span> : null}</div>
               <dl className="mt-6 divide-y divide-[var(--ds-color-border-subtle)] border-y border-[var(--ds-color-border-subtle)]">
-                {features.map((feature) => (
-                  <div key={feature.label} className="grid grid-cols-[minmax(0,1fr)_minmax(130px,0.7fr)] gap-5 py-4">
-                    <dt className="text-sm font-medium">{feature.label}{feature.description ? <span className="mt-1 block text-xs font-normal leading-5 text-[var(--ds-color-muted-foreground)]">{feature.description}</span> : null}</dt>
-                    <dd className="text-right text-sm leading-5"><Value value={feature.values[option.id] ?? "Not specified"} /></dd>
-                  </div>
-                ))}
+                {features.map((feature) => <div key={feature.label} className="grid grid-cols-[minmax(0,1fr)_minmax(130px,0.7fr)] gap-5 py-4"><dt className="text-sm font-medium">{feature.label}{feature.description ? <span className="mt-1 block text-xs font-normal leading-5 text-[var(--ds-color-muted-foreground)]">{feature.description}</span> : null}</dt><dd className="text-right text-sm leading-5"><Value value={feature.values[option.id] ?? "Not specified"} /></dd></div>)}
               </dl>
             </article>
           ))}
