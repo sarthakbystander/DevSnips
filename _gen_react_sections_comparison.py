@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+"""Generate Comparison section previews from the authored TSX sources.
+
+`code.tsx` is the only authored implementation. Every preview is generated
+from it and the shared DevSnips preview/token infrastructure. `--check`
+exits non-zero when any generated preview has drifted.
+"""
+from __future__ import annotations
+
+import argparse
+import html
+import re
+import sys
+from pathlib import Path
+
+from _gen_react_buttons import TAILWIND_CONFIG, TOKEN_BLOCK
+
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT / "React" / "Sections" / "Comparison"
+VARIANTS = {
+    "minimal": ("Comparison — Minimal", "Editorial matrix with a recommended option."),
+    "dark-premium": ("Comparison — Dark Premium", "Stacked product-decision panels on a permanently dark surface."),
+    "bento": ("Comparison — Bento", "A 12-column decision map built from varied comparison cells."),
+    "neo-brutalist": ("Comparison — Neo-Brutalist", "Rigid comparison matrix with hard borders and offset elevation."),
+}
+
+PREVIEW_CSS = r"""
+*{box-sizing:border-box}html,body{margin:0}body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground)}
+.ds-page{min-height:100vh}.ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border)}
+.ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans)}.ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans)}.ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans)}
+.ds-theme-toggle{height:32px;padding:0 12px;color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);font:500 12px/1.35 var(--ds-font-sans);cursor:pointer}.ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px}.ds-intro{max-width:980px;margin:0 auto;padding:32px 24px 40px}.ds-eyebrow{margin:0 0 8px;font:600 11px/1.3 var(--ds-font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground)}.ds-title{margin:0 0 8px;font:600 18px/1.35 var(--ds-font-sans)}.ds-lede{max-width:60ch;margin:0;color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans)}.ds-stage{width:100%}.ds-footer{padding:24px;color:var(--ds-color-muted-foreground);border-top:1px solid var(--ds-color-border);font-size:12px;text-align:center}
+@media(max-width:600px){.ds-topbar{padding:0 16px}.ds-crumb{display:none}.ds-intro{padding:24px 16px 32px}}
+"""
+
+# Small shell token block is the same semantic vocabulary as the canonical
+# block. Values are copied from the shared preview generator at generation time.
+
+def transform_source(source: str) -> str:
+    source = re.sub(r'^\s*import\s+\{\s*useId\s*\}\s+from\s+["\']react["\'];?\s*$', 'const { useId } = React;', source, flags=re.MULTILINE)
+    source = re.sub(r'\bexport\s+(?=(?:interface|type|function|const|let|var)\b)', '', source)
+    return source
+
+
+def render_preview(slug: str, source: str) -> str:
+    title, lede = VARIANTS[slug]
+    component = transform_source(source)
+    # Dark Premium gets a local theme scope. The preview shell also preserves
+    # the root page theme for its own chrome; the section owns its dark mapping.
+    pin = "" if slug != "dark-premium" else """
+  .ds-dark-premium{color-scheme:dark;--ds-color-background:#0A0A0A;--ds-color-foreground:#FAFAFA;--ds-color-surface:#171717;--ds-color-surface-subtle:#1F1F1F;--ds-color-surface-hover:#1F1F1F;--ds-color-border:#2A2A2A;--ds-color-border-subtle:#1F1F1F;--ds-color-border-strong:#404040;--ds-color-muted-foreground:#A3A3A3;--ds-color-primary:#FAFAFA;--ds-color-primary-foreground:#0A0A0A;--ds-color-accent:#3B82F6;--ds-color-accent-soft:rgba(59,130,246,.16);--ds-color-focus-ring:#3B82F6}
+"""
+    component = component.replace('<section aria-labelledby={headingId}', '<section data-theme="dark" aria-labelledby={headingId}', 1) if slug == "dark-premium" else component
+    component = component.replace('className="bg-[var(--ds-color-background)]', 'className="ds-dark-premium bg-[var(--ds-color-background)]', 1) if slug == "dark-premium" else component
+    return f'''<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>{html.escape(title)} — DevSnips React Sections</title>
+<script src="https://cdn.tailwindcss.com"></script><script>{TAILWIND_CONFIG}</script><style>{TOKEN_BLOCK}{PREVIEW_CSS}{pin}</style></head>
+<body><div class="ds-page"><header class="ds-topbar"><div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Comparison / {slug}</span></div><button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false"><span id="ds-theme-label">Dark</span></button></header>
+<div class="ds-intro"><p class="ds-eyebrow">React Sections · Comparison</p><h1 class="ds-title">{html.escape(title)}</h1><p class="ds-lede">{html.escape(lede)}</p></div><main class="ds-stage"><div id="ds-root"></div></main><footer class="ds-footer">DevSnips React · Sections · Comparison · <code>{slug}</code> · live render of code.tsx</footer></div>
+<script>(function(){{var r=document.documentElement;function a(t){{r.setAttribute("data-theme",t);try{{localStorage.setItem("ds-react-theme",t)}}catch(e){{}}var b=document.getElementById("ds-theme-toggle"),l=document.getElementById("ds-theme-label");if(b)b.setAttribute("aria-pressed",t==="dark"?"true":"false");if(l)l.textContent=t==="dark"?"Light":"Dark"}}var s=null;try{{s=localStorage.getItem("ds-react-theme")}}catch(e){{}}if(!s)s=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";a(s);document.getElementById("ds-theme-toggle").addEventListener("click",function(){{a(r.getAttribute("data-theme")==="dark"?"light":"dark")}})}})();</script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script><script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" data-presets="react" data-plugins="transform-typescript">{component}</script><script type="text/babel" data-presets="react">ReactDOM.createRoot(document.getElementById("ds-root")).render(<ComparisonSection/>);</script>
+</body></html>'''
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    drift: list[str] = []
+    for slug in VARIANTS:
+        folder = BASE / slug
+        source_path = folder / "code.tsx"
+        preview_path = folder / "preview.html"
+        if not source_path.exists():
+            print(f"ERROR: missing {source_path}", file=sys.stderr)
+            return 1
+        expected = render_preview(slug, source_path.read_text())
+        if args.check:
+            if not preview_path.exists() or preview_path.read_text() != expected:
+                drift.append(slug)
+        else:
+            preview_path.write_text(expected)
+            print(f"wrote {preview_path.relative_to(ROOT)}")
+    if drift:
+        print("Drift detected in: " + ", ".join(drift))
+        print("Run: python _gen_react_sections_comparison.py")
+        return 1
+    if args.check:
+        print("All Comparison previews are up to date.")
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
