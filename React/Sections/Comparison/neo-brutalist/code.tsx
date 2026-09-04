@@ -33,7 +33,7 @@ export function ComparisonSection({
 }: ComparisonSectionProps) {
   const headingId = useId();
   return (
-    <section aria-labelledby={headingId} className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]">
+    <section aria-labelledby={headingId} className="overflow-x-clip bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]">
       <div className="mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8">
         <div className="grid gap-8 border-b-2 border-[var(--ds-color-border-strong)] pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
@@ -43,9 +43,8 @@ export function ComparisonSection({
           <p className="max-w-md text-sm leading-6">{description}</p>
         </div>
 
-        <div className="mt-8 overflow-x-auto">
+        <div className="mt-8 max-w-full overflow-x-auto" role="region" aria-label="Comparison matrix">
           <table className="w-full min-w-[760px] border-collapse border-2 border-[var(--ds-color-border-strong)] bg-[var(--ds-color-surface)] text-left">
-            <caption className="sr-only">Comparison matrix of implementation approaches</caption>
             <thead>
               <tr className="border-b-2 border-[var(--ds-color-border-strong)] bg-[var(--ds-color-surface-subtle)]">
                 <th scope="col" className="w-[30%] border-r-2 border-[var(--ds-color-border-strong)] px-4 py-4 font-[var(--ds-font-mono)] text-xs uppercase">Feature</th>
