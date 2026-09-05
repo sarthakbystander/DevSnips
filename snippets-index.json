@@ -3,13 +3,14 @@
   "lastUpdated": "2026-08-25",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 80,
-    "totalVariants": 668,
+    "totalFamilies": 81,
+    "totalVariants": 669,
     "totalSubVariants": 0,
-    "totalStyles": 1504,
+    "totalStyles": 1505,
     "technologies": [
       "Tailwind CSS",
-      "Vanilla HTML/CSS/JS"
+      "Vanilla HTML/CSS/JS",
+      "React"
     ],
     "tailwindByType": {
       "component": 259,
@@ -20,6 +21,11 @@
       "component": 126,
       "section": 65,
       "template": 8
+    },
+    "reactByType": {
+      "component": 0,
+      "section": 0,
+      "template": 1
     }
   },
   "families": [
@@ -22407,8 +22413,114 @@
         "parallax",
         "pulse"
       ]
+    },
+    {
+      "name": "SPRAY - Art School",
+      "path": "React/Templates/Agency/spray-art-school/",
+      "tech": "React",
+      "type": "template",
+      "category": "Templates",
+      "description": "A premium four-page React + TypeScript template for SPRAY, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. A raw DIY-zine visual language - Anton + Space Grotesk type, ink-black surfaces with neon-green and hot-pink accents, torn-paper dividers, spray-splatter decorations, a film-grain noise overlay, and Framer Motion reveal animations. Four route pages (home, work, about, contact) compose reusable typed sections and data (hero, selected work, courses, about, process roadmap, testimonials, CTA, footer) over react-router, Vite build, no external image assets.",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "SPRAY - Art School",
+          "path": "React/Templates/Agency/spray-art-school/",
+          "type": "template",
+          "description": "A premium four-page React + TypeScript template for SPRAY, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. A raw DIY-zine visual language - Anton + Space Grotesk type, ink-black surfaces with neon-green and hot-pink accents, torn-paper dividers, spray-splatter decorations, a film-grain noise overlay,and Framer Motion reveal animations. Four route pages(home, work, about, contact) compose reusable typed sections and data(hero, selected work, courses, about, process roadmap, testimonials, CTA, footer) over react-router, Vite build, no external image assets.",
+          "tags": [
+            "art-school",
+            "graffiti",
+            "street-art",
+            "agency",
+            "creative",
+            "portfolio",
+            "multipage",
+            "react",
+            "typescript",
+            "vite",
+            "framer-motion",
+            "tailwind",
+            "template"
+          ],
+          "features": [
+            "four-page responsive React app (home, work, about, contact) over react-router-dom",
+            "do-it-yourself zine visual system: Anton display + Space Grotesk body, ink-black/navy + bone surfaces, single neon-green accent + hot-pink secondary",
+            "ragged torn-paper dividers and clip-path spray-button silhouettes, hanging splatter SVG decorations, subtle film-grain noise overlay",
+            "Framer Motion scroll reveals on headlines, cards,and roadmap steps",
+            "typed data-driven content arrays (projects, services, testimonials) - no hardcoded copy in the cards",
+            "sticky navbar with blur-on-scroll, mobile menu (aria-expanded), and a Sign-up CTA",
+            "hero with oversized clamp()-scaled display headline + spray CTA",
+            "selected-work gallery of student pieces with rotated cards and category badges (gradient placeholders - zero image assets)",
+            "five named courses with schedule metadata (basics, sketching, muralism, stencils, freedom)",
+            "five-step numbered roadmap (enroll - sketch - wall time - critique - show)",
+            "student testimonials grid with rotated quote cards",
+            "contact page with labelled form,intrinsic validation,and success state (role=status)",
+            "single h1 per page, semantic landmarks, heading hierarchy, visible focus-visible outline",
+            "React + TypeScript + Tailwind CSS via Vite with zero runtime dependencies beyond React, React Router,and Framer Motion"
+          ],
+          "styles": [
+            "diy-zine-street-art"
+          ],
+          "files": [
+            ".gitignore",
+            "README.md",
+            "index.html",
+            "metadata.json",
+            "preview.html",
+            "package-lock.json",
+            "package.json",
+            "postcss.config.js",
+            "tailwind.config.ts",
+            "tsconfig.json",
+            "src/App.tsx",
+            "components/Badge.tsx",
+            "components/Button.tsx",
+            "components/Logo.tsx",
+            "components/Navbar.tsx",
+            "components/ProjectCard.tsx",
+            "components/SectionHeading.tsx",
+            "components/ServiceCard.tsx",
+            "components/SplatterDecoration.tsx",
+            "components/TornDivider.tsx",
+            "data/projects.ts",
+            "data/services.ts",
+            "data/testimonials.ts",
+            "main.tsx",
+            "pages/About.tsx",
+            "pages/Contact.tsx",
+            "pages/Home.tsx",
+            "pages/Work.tsx",
+            "sections/About.tsx",
+            "sections/CTA.tsx",
+            "sections/Footer.tsx",
+            "sections/Hero.tsx",
+            "sections/Process.tsx",
+            "sections/SelectedWork.tsx",
+            "sections/Services.tsx",
+            "sections/Testimonials.tsx",
+            "styles/globals.css"
+          ]
+        }
+      ],
+      "subcategory": "Agency",
+      "tags": [
+        "art-school",
+        "graffiti",
+        "street-art",
+        "agency",
+        "creative",
+        "portfolio",
+        "multipage",
+        "react",
+        "typescript",
+        "vite",
+        "framer-motion",
+        "tailwind",
+        "template"
+      ]
     }
-  ],
+],
   "technologies": [
     {
       "name": "Tailwind CSS",
@@ -22503,9 +22615,17 @@
         "Html5 Boilerplate",
         "Product Launch"
       ]
+    },
+    {
+      "name": "React",
+      "path": "React/",
+      "status": "active",
+      "families": [
+        "SPRAY Art School"
+      ]
     }
   ],
-  "contributionGuidelines": {
+"contributionGuidelines": {
     "structure": "Component families with variant sub-folders containing individual component pages",
     "requiredFiles": [
       "index.json",
