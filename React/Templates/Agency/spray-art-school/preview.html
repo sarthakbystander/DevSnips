@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230a0a0f%27/%3E%3Ccircle cx=%2716%27 cy=%2715%27 r=%277%27 fill=%27%2339FF14%27/%3E%3Crect x=%2710%27 y=%2722%27 width=%2712%27 height=%274%27 fill=%27%23ff2ec4%27/%3E%3C/svg%3E" />
+<title>SPRAY — Art School — Template Preview | DevSnips</title>
+<meta name="description" content="A four-page React + TypeScript template for SPRAY, a fictional street-art school. Raw DIY-zine street-art design system — Anton + Space Grotesk, ink-black surfaces, neon-green + hot-pink accents, torn-paper dividers, spray splatters, Framer Motion scroll reveals. Live static prototype of the full site." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ink-black": "#0a0a0f",
+          "ink-navy": "#0f1220",
+          "neon-green": "#39FF14",
+          "hot-pink": "#ff2ec4",
+          "bone": "#f2f0e6",
+        },
+        fontFamily: {
+          display: ["'Anton'", "sans-serif"],
+          body: ["'Space Grotesk'", "sans-serif"],
+        },
+        keyframes: {
+          splatFloat: {
+            "0%, 100%": { transform: "translateY(0) rotate(var(--rot, 0deg))" },
+            "50%": { transform: "translateY(-14px) rotate(calc(var(--rot, 0deg) + 4deg))" },
+          },
+        },
+        animation: {
+          "splat-float": "splatFloat 6s ease-in-out infinite",
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: dark; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0a0f;
+    color: #f2f0e6;
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: radial-gradient(circle at 20% 10%, rgba(57, 255, 20, 0.04), transparent 40%), radial-gradient(circle at   80%   60%, rgba(255, 46, 196, 0.05), transparent 45%);
+  }
+  h1,h2,h3 { font-family: 'Anton', sans-serif; letter-spacing:   0.04em; }
+  a { color: inherit; }
+  :selection { background: #39ff14; color: #0a0a0f; }
+  :focus-visible { outline:   2px dashed #39ff14; outline-offset:   3px; }
+
+  .ds-preview-bar { position: sty; top:   0; z-index:   60; background: rgba(10,10,15,0.86); backdrop-filter: blur(8px); border-bottom:   1px solid rgba(242,240,230,0.16); }
+  .ds-preview-inner { max-width:   1280px; margin:   0 auto; display: flex; align-items: center; justify-content: space-between; padding:   10px 20px; }
+  .ds-brand { display: flex; align-items: center; gap:   10px; font-family: 'Space Grotesk', sans-serif; font-size:   13px; color: rgba(242,240,230,0.75); }
+  .ds-brand-mark { display: grid; place-items: center; width:   22px; height:   22px; border-radius:   4px; background: #39ff14; color: #0a0a0f; font-family: 'Anton', sans-serif; font-size:   12px; }
+  .ds-open-app { display: inline-flex; align-items: center; gap:   8px; background: #39ff14; color: #0a0a0f; font-family: 'Space Grotesk', sans-serif; font-size:   12px; font-weight:   600; padding:   7px 14px; border-radius:   999px; text-decoration: none; transition: background .15s ease; }
+  .ds-open-app:hover { background: #2fd410; }
+  .ds-open-app svg { width:   14px; height:   14px; }
+  .noise-overlay { pointer-events: none; position:   fixed; inset:   0; z-index:   50; opacity:   0.05; mix-blend-mode: overlay; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.is-inview { opacity:   1; transform: none; }
+  .ph { display: grid; place-items: center; height:   13rem; background: linear-gradient(135deg, rgba(255,46,196,0.30), #0f1220 55%, rgba(57,255,20,0.20)); color: rgba(242,240,230,0.65); font-family: 'Anton', sans-serif; letter-spacing:   0.18em; font-size:   13px; }
+  .clip-torn {
+    clip-path: polygon(
+      0 4%, 4% 0, 12% 3%, 20% 0, 30% 4%, 40% 1%, 50% 5%, 60% 0, 70% 3%, 80% 0, 90% 4%, 100% 0,
+      100% 96%, 92% 100%, 82% 97%, 72% 100%, 62% 96%, 50% 100%, 40% 97%, 30% 100%, 18% 96%, 8% 100%, 0 97%
+    );
+  }
+  .clip-spray-btn {
+    clip-path: polygon(
+      3% 12%, 14% 0, 30% 6%, 48% 1%, 65% 7%, 82% 0, 97% 10%, 100% 30%, 95% 50%, 100% 72%,
+      90% 92%, 72% 100%, 55% 94%, 38% 100%, 18% 96%, 4% 100%, 0 78%, 5% 55%, 0 32%
+    );
+  }
+  .animate-splat-float { animation: splatFloat 6s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:   1 !important; transform: none !important; }
+    .animate-splat-float { animation: none !important; }
+  }
+</style>
+
+
+
+</head>
+<body class="min-h-screen bg-ink-black text-bone antialiased">
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- DevSnips preview topbar -->
+  <header class="ds-preview-bar">
+    <div class="ds-preview-inner">
+      <div class="ds-brand"><span class="ds-brand-mark" aria-hidden="true">D</span><span>DevSnips / React / Templates / <b style="color:#39ff14">Agency · SPRAY</b></span></div>
+      <a class="ds-open-app" href="#app" data-route="/">
+        Open app
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ APP ============ -->
+  <div id="app" class="relative min-h-screen">
+
+    <!-- Navbar -->
+    <header id="site-nav" class="sty top-[36px] z-40 border-b-2 transition-colors border-transparent bg-transparent">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Primary">
+        <a href="#/" data-route="/" class="font-display text-xl tracking-[0.15em] text-bone" aria-label="SPRAY, home">SPRAY</a>
+        <ul class="hidden items-center gap-8 font-body text-sm md:flex">
+          <li><a href="#/" data-route="/work" class="transition-colors hover:text-neon-green">Work</a></li>
+          <li><a href="#/" data-route="/about" class="transition-colors hover:text-neon-green">About</a></li>
+          <li><a href="#/" data-route="/contact" class="transition-colors hover:text-neon-green">Contact</a></li>
+        </ul>
+        <div class="hidden md:block">
+          <button type="button" class="rounded-full border-2 border-bone px-6 py-2.5 font-body text-sm font-medium transition-colors hover:border-neon-green hover:text-neon-green">Sign up</button>
+        </div>
+        <button type="button" class="text-2xl md:hidden" id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </nav>
+      <ul id="mobile-menu" class="hidden flex-col gap-4 border-t-2 border-bone/20 bg-ink-black px-6 py-6 font-body text-sm md:hidden"></ul>
+    </header>
+
+    <main id="site-main">
+      <!-- Home -->
+      <section data-page="/" data-route-page>
+        <section class="relative overflow-hidden px-6 pb-20 pt-16 sm:pt-24" aria-label="Introduction">
+          <svg aria-hidden="true" class="absolute -left-6 top-10 hidden sm:block animate-splat-float opacity-70" width="140" height="140" viewBox="0 0 200 200" style="--rot:-8deg">
+            <path d="M45 20c10-14 32-18 44-8 8 6 10 18 20 20 16 4 34-2 46 8 14 12 16 34 6 48-6 8-16 12-18 22-2 12 8 22 2 34-8 16-30 20-46 14-10-4-16-14-28-16-14-2-28 6-40-2-14-10-16-30-8-44 4-8 12-12 12-22 0-12-10-20-8-32 2-12 10-16 18-22z" fill="#39FF14"/>
+          </svg>
+          <svg aria-hidden="true" class="absolute -right-4 top-40 hidden md:block animate-splat-float opacity-70" width="100" height="100" viewBox="0 0 200 200" style="--rot:5deg">
+            <path d="M45 20c10-14 32-18 44-8 8 6 10 18 20 20 16 4 34-2 46 8 14 12 16 34 6 48-6 8-16 12-18 22-2 12 8 22 2 34-8 16-30 20-46 14-10-4-16-14-28-16-14-2-28 6-40-2-14-10-16-30-8-44 4-8 12-12 12-22 0-12-10-20-8-32 2-12 10-16 18-22z" fill="#ff2ec4"/>
+          </svg>
+          <div class="relative mx-auto max-w-5xl text-center">
+            <h1 class="font-display text-[clamp(3.5rem,12vw,8.5rem)] leading-[0.92] text-bone">
+              ART<br /><span class="text-neon-green">SCHOOL</span>
+            </h1>
+            <div class="relative my-8"><div class="clip-torn h-16 w-full bg-neon-green"></div></div>
+            <p class="mx-auto max-w-xl font-body text-base text-bone/70 sm:text-lg">
+              Real walls, real critique, no clean corners. Learn graffiti, stencils, and muralism from artists who still work the street.
+
+            </p>
+            <div class="mt-8 flex justify-center">
+              <button type="button" class="clip-spray-btn inline-flex items-center gap-2 bg-neon-green px-8 py-3 font-display text-sm tracking-wide text-ink-black transition-transform hover:-translate-y-0.5 hover:rotate-1">Start a course</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-6xl px-6 py-20" aria-label="Selected student work">
+          <div class="reveal">
+            <p class="mb-2 font-body text-sm text-hot-pink">Gallery of works</p>
+            <h2 class="font-display text-4xl leading-[1.05] text-bone sm:text-5xl md:text-6xl">Work our students actually put on walls.</h2>
+          </div>
+          <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(-3deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Concrete Bloom">MURAL / WALL 04</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Concrete Bloom</h3><p class="mt-1 font-body text-sm text-bone/60">Nadia R. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-neon-green px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(3deg)">Mural</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(2deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Static Dogs">STENCIL SET</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Static Dogs</h3><p class="mt-1 font-body text-sm text-bone/60">Theo K. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-hot-pink px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(-2deg)">Stencil series</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(-2deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Loudmouth">CHARACTER STUDY</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Loudmouth</h3><p class="mt-1 font-body text-sm text-bone/60">Priya D. · 2023</p></div><span class="inline-block border-2 border-ink-black bg-neon-green px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(2deg)">Character piece</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- Work -->
+      <section data-page="/work" data-route-page hidden>
+        <div class="mx-auto max-w-6xl px-6 pb-4 pt-16 reveal">
+          <p class="mb-2 font-body text-sm text-hot-pink">Full archive</p>
+          <h1 class="font-display text-4xl leading-[1.05] text-bone sm:text-5xl md:text-6xl">Every piece our students have shipped.</h1>
+        </div>
+        <section class="mx-auto max-w-6xl px-6 py-20" aria-label="Selected student work">
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(-3deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Concrete Bloom">MURAL / WALL 04</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Concrete Bloom</h3><p class="mt-1 font-body text-sm text-bone/60">Nadia R. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-neon-green px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(3deg)">Mural</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(2deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Static Dogs">STENCIL SET</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Static Dogs</h3><p class="mt-1 font-body text-sm text-bone/60">Theo K. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-hot-pink px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(-2deg)">Stencil series</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(-2deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Loudmouth">CHARACTER STUDY</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Loudmouth</h3><p class="mt-1 font-body text-sm text-bone/60">Priya D. · 2023</p></div><span class="inline-block border-2 border-ink-black bg-neon-green px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(2deg)">Character piece</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(3deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Rust Belt Letters">LETTERFORM PIECE</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Rust Belt Letters</h3><p class="mt-1 font-body text-sm text-bone/60">Marcus V. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-neon-green px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(-3deg)">Typography</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(-1deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Night Shift">FREEHAND CAN WORK</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Night Shift</h3><p class="mt-1 font-body text-sm text-bone/60">Lena B. · 2023</p></div><span class="inline-block border-2 border-ink-black bg-hot-pink px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(1deg)">Freehand</span></div>
+            </article>
+            <article class="group relative border-4 border-bone bg-ink-navy p-4 transition-transform duration-300 hover:-translate-y-1" style="transform:rotate(2deg)">
+              <div class="ph mb-4" role="img" aria-label="Placeholder artwork for Paper Riot">ZINE COVER ART</div>
+              <div class="flex items-start justify-between gap-2"><div><h3 class="font-display text-xl text-bone">Paper Riot</h3><p class="mt-1 font-body text-sm text-bone/60">Sam O. · 2024</p></div><span class="inline-block border-2 border-ink-black bg-hot-pink px-3 py-1 font-display text-xs tracking-wide text-ink-black" style="transform:rotate(-2deg)">Zine cover</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- About -->
+      <section data-page="/about" data-route-page hidden>
+        <section class="relative overflow-hidden px-6 py-20" aria-label="About the school">
+          <div class="clip-torn mb-16 bg-hot-pink"></div>
+          <div class="relative mx-auto max-w-3xl">
+            <h1 class="reveal font-display text-3xl leading-snug text-bone sm:text-4xl">
+              Discover the school where true <span class="text-neon-green">street art</span> is born,and every student becomes a <span class="text-hot-pink">creator</span> who changes how the city looks.
+
+            </h1>
+            <p class="mt-6 max-w-xl font-body text-base text-bone/70">
+              SPRAY was founded by working artists, not administrators. We don't just teach technique — we help you find a visual voice that holds up outside the classroom, on a real wall, in public.
+
+            </p>
+          </div>
+        </section>
+        <section class="mx-auto max-w-5xl px-6 py-20" aria-label="How the program works">
+          <div class="reveal">
+            <p class="mb-2 font-body text-sm text-hot-pink">Roadmap</p>
+            <h2 class="font-display text-4xl leading-[1.05] text-bone sm:text-5xl md:text-6xl">How it actually runs, start to finish.</h2>
+          </div>
+          <ol class="relative mt-14 flex flex-col gap-10 border-l-2 border-neon-green/40 pl-8 sm:flex-row sm:gap-6 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-10">
+            <li class="relative flex-1"><span aria-hidden="true" class="absolute -left-[38px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neon-green font-display text-xs text-ink-black sm:-top-[46px] sm:left-1/2 sm:-translate-x-1/2">1</span><h3 class="font-display text-lg text-bone">Enroll</h3><p class="mt-2 font-body text-sm text-bone/70">P a course, meet your teacher, get your materials list.</p></li>
+            <li class="relative flex-1"><span aria-hidden="true" class="absolute -left-[38px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neon-green font-display text-xs text-ink-black sm:-top-[46px] sm:left-1/2 sm:-translate-x-1/2">2</span><h3 class="font-display text-lg text-bone">Sketch</h3><p class="mt-2 font-body text-sm text-bone/70">Every piece starts on paper. We won't let you skip this.</p></li>
+            <li class="relative flex-1"><span aria-hidden="true" class="absolute -left-[38px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neon-green font-display text-xs text-ink-black sm:-top-[46px] sm:left-1/2 sm:-translate-x-1/2">3</span><h3 class="font-display text-lg text-bone">Wall time</h3><p class="mt-2 font-body text-sm text-bone/70">Practice walls first, then supervised legal spots.</p></li>
+            <li class="relative flex-1"><span aria-hidden="true" class="absolute -left-[38px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neon-green font-display text-xs text-ink-black sm:-top-[46px] sm:left-1/2 sm:-translate-x-1/2">4</span><h3 class="font-display text-lg text-bone">Critique</h3><p class="mt-2 font-body text-sm text-bone/70">Weekly group review — direct, specific, no ego.</p></li>
+            <li class="relative flex-1"><span aria-hidden="true" class="absolute -left-[38px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neon-green font-display text-xs text-ink-black sm:-top-[46px] sm:left-1/2 sm:-translate-x-1/2">5</span><h3 class="font-display text-lg text-bone">Show</h3><p class="mt-2 font-body text-sm text-bone/70">End-of-term group show, open to the public.</p></li>
+          </ol>
+        </section>
+      </section>
+
+      <!-- Contact -->
+      <section data-page="/contact" data-route-page hidden>
+        <section class="mx-auto max-w-2xl px-6 py-20" aria-label="Contact form">
+          <p class="mb-2 font-body text-sm text-hot-pink">Get in touch</p>
+          <h1 class="font-display text-4xl leading-[1.05] text-bone sm:text-5xl md:text-6xl">Tell us what you want to learn.</h1>
+          <div class="clip-torn my-10 bg-hot-pink"></div>
+          <form id="contact-form" class="flex flex-col gap-5">
+            <div class="flex flex-col gap-1.5">
+              <label for="name" class="font-body text-sm text-bone/80">Name</label>
+              <input id="name" name="name" type="text" required class="border-2 border-bone/30 bg-ink-navy px-4 py-2.5 font-body text-bone focus-visible:border-neon-green">
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="email" class="font-body text-sm text-bone/80">Email</label>
+              <input id="email" name="email" type="email" required class="border-2 border-bone/30 bg-ink-navy px-4 py-2.5 font-body text-bone focus-visible:border-neon-green">
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="message" class="font-body text-sm text-bone/80">Message</label>
+              <textarea id="message" name="message" rows="4" required class="border-2 border-bone/30 bg-ink-navy px-4 py-2.5 font-body text-bone focus-visible:border-neon-green"></textarea>
+            </div>
+            <button type="submit" class="clip-spray-btn inline-flex items-center gap-2 bg-neon-green px-8 py-3 font-display text-sm tracking-wide text-ink-black transition-transform hover:-translate-y-0.5 hover:rotate-1 self-start">Send message</button>
+          </form>
+          <p id="form-success" class="hidden font-body text-lg text-neon-green" role="status">Sent. We'll get back to you within a couple of days.</p>
+        </section>
+      </section>
+
+      <!-- CTA + Footer (shared) -->
+      <section class="relative overflow-hidden px-6 py-24 text-center" aria-label="Enroll call to action">
+        <div class="clip-torn mb-16 bg-bone"></div>
+        <svg aria-hidden="true" class="absolute left-6 bottom-6 hidden sm:block animate-splat-float opacity-70" width="110" height="110" viewBox="0 0 200 200" style="--rot:6deg">
+          <path d="M45 20c10-14 32-18 44-8 8 6 10 18 20 20 16 4 34-2 46 8 14 12 16 34 6 48-6 8-16 12-18 22-2 12 8 22 2 34-8 16-30 20-46 14-10-4-16-14-28-16-14-2-28 6-40-2-14-10-16-30-8-44 4-8 12-12 12-22 0-12-10-20-8-32 2-12 10-16 18-22z" fill="#39FF14"/>
+        </svg>
+        <h2 class="reveal font-display text-4xl leading-tight text-bone sm:text-5xl">
+          Let's go draw<br /><span class="text-hot-pink">something interesting.</span>
+        </h2>
+        <div class="mt-8 flex justify-center">
+          <button type="button" class="clip-spray-btn inline-flex items-center gap-2 bg-neon-green px-8 py-3 font-display text-sm tracking-wide text-ink-black transition-transform hover:-translate-y-0.5 hover:rotate-1">Sign up for a course</button>
+        </div>
+      </section>
+
+      <footer class="border-t-2 border-bone/20 px-6 py-10" aria-label="Footer">
+        <div class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <a href="#/" data-route="/" class="font-display text-xl tracking-[0.15em] text-bone" aria-label="SPRAY, home">SPRAY</a>
+          <ul class="flex flex-wrap gap-6 font-body text-sm text-bone/70">
+            <li><a href="#" class="hover:text-neon-green">Discord</a></li>
+            <li><a href="#" class="hover:text-neon-green">Twitter</a></li>
+            <li><a href="#" class="hover:text-neon-green">Instagram</a></li>
+          </ul>
+          <p class="font-body text-xs text-bone/40">© <span id="year"></span> SPRAY Art School</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+
+
+
+<script>
+(function () {
+  "use strict";
+  var pages = Array.prototype.slice.call(document.querySelectorAll("[data-route-page]"));
+  var nav = document.querySelector("#site-nav");
+  var menuToggle = document.querySelector("#menu-toggle");
+  var mobileMenu = document.querySelector("#mobile-menu");
+  var form = document.querySelector("#contact-form");
+  var success = document.querySelector("#form-success");
+  var NAV_LINKS = [
+    { label: "Work", to: "/work" },
+    { label: "About", to: "/about" },
+    { label: "Contact", to: "/contact" },
+  ];
+
+  function onScroll() {
+    if (window.scrollY > 12) {
+      nav.className = "sty top-[36px] z-40 border-b-2 transition-colors border-bone/20 bg-ink-black/90 backdrop-blur";
+    } else {
+      nav.className = "sty top-[36px] z-40 border-b-2 transition-colors border-transparent bg-transparent";
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  function renderMobileMenu() {
+    mobileMenu.innerHTML = "";
+    NAV_LINKS.forEach(function (link) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#/" + link.to;
+      a.setAttribute("data-route", link.to);
+      a.textContent = link.label;
+      a.addEventListener("click", function () { setMenuOpen(false); });
+      li.appendChild(a);
+      mobileMenu.appendChild(li);
+    });
+    var li2 = document.createElement("li");
+    li2.innerHTML = '<button type="button" class="w-full rounded-full border-2 border-bone px-6 py-2.5 font-body text-sm font-medium transition-colors hover:border-neon-green hover:text-neon-green">Sign up</button>';
+    mobileMenu.appendChild(li2);
+  }
+
+  function setMenuOpen(open) {
+    if (open) {
+      mobileMenu.className = "flex flex-col gap-4 border-t-2 border-bone/20 bg-ink-black px-6 py-6 font-body text-sm md:hidden";
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close menu");
+      menuToggle.textContent = "✕";
+    } else {
+      mobileMenu.className = "hidden flex-col gap-4 border-t-2 border-bone/20 bg-ink-black px-6 py-6 font-body text-sm md:hidden";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open menu");
+      menuToggle.textContent = "☰";
+    }
+  }
+  if (menuToggle) {
+    menuToggle.addEventListener("click", function () {
+      setMenuOpen(menuToggle.getAttribute("aria-expanded") === "false");
+    });
+  }
+
+  function currentRoute() {
+    var h = window.location.hash.replace(/^#/, "");
+    if (h === "" || h === "/" || h === "/work" || h === "/about" || h === "/contact") {
+      return h === "" ? "/" : h;
+    }
+    return "/";
+  }
+  function navigate() {
+    var route = currentRoute();
+    pages.forEach(function (page) {
+      if (page.getAttribute("data-page") === route) {
+        page.removeAttribute("hidden");
+      } else {
+        page.setAttribute("hidden", "");
+      }
+    });
+    if (route === "/") {
+      window.scrollTo(0, 0);
+    }
+    document.title = "SPRAY - Art School" + (route === "/" ? "" : " - " + route.slice(1).replace(/-/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }));
+    reveal();
+  }
+  window.addEventListener("hashchange", navigate);
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-route]");
+    if (a) {
+      e.preventDefault();
+      window.location.hash = "#" + a.getAttribute("data-route");
+    }
+  });
+
+  function reveal() {
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    var io = "IntersectionObserver" in window ?
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 }) : null;
+    items.forEach(function (el) {
+      if (io) { io.observe(el); } else { el.classList.add("is-inview"); }
+    });
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.classList.add("hidden");
+      success.classList.remove("hidden");
+    });
+  }
+
+  var y = document.getElementById("year");
+  if (y) { y.textContent = String(new Date().getFullYear()); }
+  renderMobileMenu();
+  navigate();
+})();
+</script>
+
+
+
+</body>
+</html>

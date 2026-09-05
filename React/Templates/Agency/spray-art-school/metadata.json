@@ -1,0 +1,67 @@
+{
+  "name": "SPRAY — Art School",
+  "slug": "spray-art-school",
+  "technology": "react",
+  "category": "Templates",
+  "subcategory": "Agency",
+  "type": "template",
+  "pages": 4,
+  "style": "diy-zine-street-art",
+  "responsive": true,
+  "darkMode": true,
+  "lightMode": false,
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "TSX"
+  ],
+  "styling": "Tailwind CSS",
+  "tags": [
+    "art-school",
+    "graffiti",
+    "street-art",
+    "agency",
+    "creative",
+    "portfolio",
+    "multipage",
+    "react",
+    "typescript",
+    "vite",
+    "framer-motion",
+    "tailwind",
+    "template"
+  ],
+  "description": "A premium four-page React + TypeScript template for SPRAY, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. A raw DIY-zine visual language — Anton + Space Grotesk type, ink-black surfaces with neon-green and hot-pink accents, torn-paper dividers, spray-splatter decorations, a film-grain noise overlay, and Framer Motion reveal animations. Four route pages (home, work, about, contact) compose reusable typed sections and data (hero, selected work, courses, about, process roadmap, testimonials, CTA, footer) over react-router, Vite build, no external image assets.",
+  "features": [
+    "four-page responsive React app (home, work, about, contact) over react-router-dom",
+    "do-it-yourself zine visual system: Anton display + Space Grotesk body, ink-black/navy + bone surfaces, single neon-green accent + hot-pink secondary",
+    "ragged torn-paper divider and clip-path spray-button silhouette, hang splatter SVG decorations, subtle film-grain noise overlay",
+    "Framer Motion scroll reveals on headlines, cards, and roadmap steps (reduced-motion friendly via transition definitions)",
+    "typed data-driven content arrays (projects, services, testimonials) — no hardcoded copy in the cards",
+    "sticky navbar with blur-on-scroll, mobile menu (aria-expanded), and a Sign-up CTA",
+    "hero with oversized clamp()-scaled display headline + spray CTA",
+    "selected-work gallery of student pieces with rotated cards and category badges (gradient placeholders — zero image assets)",
+    "five named courses with schedule metadata (basics, sketching, muralism, stencils, freedom)",
+    "five-step numbered roadmap (enroll → sketch → wall time → critique → show)",
+    "student testimonials grid with rotated quote cards",
+    "contact page with labelled form,intrinsic validation,anded success state (role=status)",
+    "theme-color metadata, semantic landmarks, heading hierarchy, visible focus-visible outline",
+    "React + TypeScript + Tailwind CSS via Vite with zero runtime dependencies beyond React, React Router, and Framer Motion"
+  ],
+  "related": [
+    "devsnips-store",
+    "baseline-conference"
+  ],
+  "searchTerms": [
+    "art school website template",
+    "graffiti art school template",
+    "street art portfolio template",
+    "creative school template",
+    "react art school template",
+    "zine aesthetic website",
+    "multipage react template",
+    "react router template",
+    "framermotion template",
+    "creative agency react template"
+  ]
+}
