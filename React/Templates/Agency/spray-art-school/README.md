@@ -32,6 +32,7 @@ The visual system lives entirely in `tailwind.config.ts` (colors, fonts, keyfram
 ```text
 spray-art-school/
 ├── index.html                 # Vite entry (theme-color, root mount)
+├── preview.html               # self-contained static preview of the whole site (open directly)
 ├── package.json               # React 18, React Router 6, Framer Motion 11, Vite 5
 ├── tailwind.config.ts         # colors, fonts, animation keyframes
 ├── postcss.config.js
@@ -64,6 +65,13 @@ Production build + local preview:
 npm run build      # tsc type-check + Vite production build → dist/
 npm run preview     # serve the built app
 ```
+
+**Static preview:** `preview.html` at the template root is a fully self-contained
+static prototype of the whole site (Tailwind CDN + hash-routed home/work/about/
+contact, working mobile menu and contact form, scroll reveals). Open it directly
+in a browser or serve the folder — no build step needed. It mirrors the real
+app's markup and design system so you can preview the template without
+installing dependencies.
 
 ## Sections & components
 
