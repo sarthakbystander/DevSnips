@@ -2,16 +2,16 @@
 
 **The largest free & open-source UI library for web developers**
 
-Reusable [Tailwind CSS](Tailwind/index.html) + [Vanilla HTML/CSS/JS](Vanilla/Sections/sections-index.html) components, sections,and full multi-page templates — including production-ready AI SaaS platforms.
+Reusable [Tailwind CSS](Tailwind/index.html) + [Vanilla HTML/CSS/JS](Vanilla/Sections/sections-index.html) + [React](React/index.html) components, sections, and full multi-page templates — including production-ready AI SaaS platforms.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/sarthakbystander/DevSnips?style=social)](https://github.com/sarthakbystander/DevSnips/stargazers)
-[![Variants](https://img.shields.io/badge/variants-850%2B-brightgreen)](https://github.com/sarthakbystander/DevSnips)
-[![Templates](https://img.shields.io/badge/templates-18-orange)](https://github.com/sarthakbystander/DevSnips)
+[![Variants](https://img.shields.io/badge/variants-1000%2B-brightgreen)](https://github.com/sarthakbystander/DevSnips)
+[![Templates](https://img.shields.io/badge/templates-19-orange)](https://github.com/sarthakbystander/DevSnips)
 
 ## Why DevSnips?
 
-Stop paying $299 for polished UI kits. Get 850+ production-ready variants, design tokens across 15+ visual styles,and complete multi-page templates — from AI SaaS platforms to conference sites — completely free under the [MIT license](LICENSE).
+Stop paying $299 for polished UI kits. Get 1000+ production-ready variants, design tokens across 15+ visual styles, and complete multi-page templates — from AI SaaS platforms to conference sites — completely free under the [MIT license](LICENSE).
 
 ## Featured templates
 
@@ -21,7 +21,7 @@ Stop paying $299 for polished UI kits. Get 850+ production-ready variants, desig
 - [Northline Atelier](Tailwind/Templates/northline-atelier/preview.html) — an architecture studio website
 - [Baseline Conference](Tailwind/Templates/baseline-conference/pages/index.html) — a conference website with dozens of composed sections.
 
-Browse everything from the [Tailwind hub](Tailwind/index.html) and the [Vanilla gallery](Vanilla/Sections/sections-index.html).
+Browse everything from the [Tailwind hub](Tailwind/index.html), the [Vanilla gallery](Vanilla/Sections/sections-index.html), and the [React hub](React/index.html).
 
 ## Quick Start (30 seconds)
 

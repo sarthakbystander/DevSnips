@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React | DevSnips</title>
+<meta name="description" content="Browse DevSnips React content by type: Components (reusable UI building blocks), Sections (ready-to-use page sections), and Templates (complete React projects).">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { darkMode: 'class' };
+  // No-flash theme: respect saved preference or system before paint.
+  (function () {
+    var saved = localStorage.getItem('devsnips-theme');
+    var dark = saved ? saved === 'dark'
+      : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  /* Respect reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+
+<!-- Header -->
+<header class="sticky top-0 z-20 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-sky-600 text-sm font-black text-white dark:border-white dark:bg-sky-500">D</span>
+      <span>DevSnips</span>
+      <span class="text-neutral-400">/</span>
+      <span class="text-neutral-500 dark:text-neutral-400">React</span>
+    </a>
+    <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+      class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-neutral-700 dark:hover:bg-neutral-900">
+      <span class="dark:hidden">☾ Dark</span><span class="hidden dark:inline">☀ Light</span>
+    </button>
+  </div>
+  <!-- Primary React navigation -->
+  <nav aria-label="React content types" class="border-t border-neutral-200/80 dark:border-neutral-800">
+    <div class="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 sm:px-6">
+      <a href="index.html" aria-current="page" class="whitespace-nowrap border-b-2 border-sky-600 px-3 py-2.5 text-sm font-semibold text-sky-600 dark:text-sky-400">Overview</a>
+      <a href="components/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Components</a>
+      <a href="sections/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Sections</a>
+      <a href="templates/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Templates</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- Breadcrumbs -->
+  <div class="mx-auto max-w-6xl px-4 pt-5 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono text-xs text-neutral-500 dark:text-neutral-400">
+      <ol class="flex items-center gap-1.5">
+        <li><a href="../index.html" class="hover:text-neutral-900 dark:hover:text-white">DevSnips</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-neutral-900 dark:text-white">React</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+    <p class="mono mb-3 text-xs font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">React</p>
+    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">A React library, organized by intent.</h1>
+    <p class="mt-4 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 sm:text-lg">
+      TypeScript-first, Tailwind-first components, composed page sections, and complete React projects — each item ships as <code class="mono rounded bg-neutral-100 px-1.5 py-0.5 text-xs dark:bg-neutral-800">code.tsx</code> plus a runnable <code class="mono rounded bg-neutral-100 px-1.5 py-0.5 text-xs dark:bg-neutral-800">preview.html</code>.
+    </p>
+  </section>
+
+  <!-- Discovery cards -->
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6" aria-label="React content types">
+    <div class="grid gap-5 md:grid-cols-3">
+      <!-- Components -->
+      <a href="components/index.html"
+        class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-1 hover:border-sky-400 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+        <span class="mono text-xs font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Components</span>
+        <span class="mt-4 text-4xl">🧩</span>
+        <h2 class="mt-4 text-lg font-bold">Reusable UI building blocks</h2>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Buttons, inputs, selects, checkboxes, radios, switches, textareas, tabs, tables, accordions, dialogs, dropdowns, tooltips, calendars and more — accessible, keyboard-operable, controlled + uncontrolled.</p>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 dark:text-sky-400">Browse components
+          <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span></span>
+      </a>
+
+      <!-- Sections -->
+      <a href="sections/index.html"
+        class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-1 hover:border-sky-400 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+        <span class="mono text-xs font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Sections</span>
+        <span class="mt-4 text-4xl">📐</span>
+        <h2 class="mt-4 text-lg font-bold">Ready-to-use page sections</h2>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Hero, features, testimonials, pricing, FAQ, logos, stats, team, contact, CTA — full-width page regions in four design directions: Minimal, Dark Premium, Bento, Neo-Brutalist.</p>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 dark:text-sky-400">Browse sections
+          <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span></span>
+      </a>
+
+      <!-- Templates -->
+      <a href="templates/index.html"
+        class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-1 hover:border-sky-400 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+        <span class="mono text-xs font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Templates</span>
+        <span class="mt-4 text-4xl">📄</span>
+        <h2 class="mt-4 text-lg font-bold">Complete React projects</h2>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Full multi-page React + TypeScript experiences — Vite-based, Tailwind-styled, with a runnable preview. Substantial, complete-page projects you can ship.</p>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 dark:text-sky-400">Browse templates
+          <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-8 text-center text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    DevSnips · React content library · Components / Sections / Templates
+  </div>
+</footer>
+
+<script>
+  var btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', function () {
+    var root = document.documentElement;
+    var dark = root.classList.toggle('dark');
+    localStorage.setItem('devsnips-theme', dark ? 'dark' : 'light');
+  });
+</script>
+</body>
+</html>

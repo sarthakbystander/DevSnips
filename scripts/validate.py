@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Validate the DevSnips repository after the three-type content migration.
 
-Tailwind AND Vanilla content are organized into three first-class content types:
+All content is organized into three first-class content types:
   Components/  (reusable UI building blocks)
   Sections/    (larger reusable page sections)
   Templates/   (complete page-level designs)
-React keeps the two-type Components/ + Templates/ layout.
 
 Checks:
   1. Architecture: each tech only contains allowed content-type dirs
-     (Tailwind/Vanilla: Components/Sections/Templates; React: Components/Templates).
+     (Tailwind/Vanilla/React: Components/Sections/Templates).
   2. No standalone Utilities/Resources/Snippets content dirs.
   3. Every component/section/template folder has a valid metadata.json.
   4. No orphaned metadata.json (metadata without its expected sibling files).
@@ -18,8 +17,8 @@ Checks:
   7. Every index variant path exists on disk and has metadata.json.
   8. Every on-disk leaf is present in the index.
   9. No stale Sections/Utilities/Resources path references in the index.
- 10. Every Tailwind/Vanilla metadata.json carries a `type`
-     (component/section/template) matching its content-type bucket.
+ 10. Every metadata.json carries a `type` (component/section/template)
+     matching its content-type bucket.
 """
 import json
 import sys
@@ -27,8 +26,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "snippets-index.json"
+REACT = "React"
 TAILWIND = "Tailwind CSS"
 VANILLA = "Vanilla HTML/CSS/JS"
+
+# Technology name -> content-tree directory name.
+TECH_DIRS = ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"), (REACT, "React"))
 
 problems = []
 
@@ -59,6 +62,12 @@ def is_leaf(folder, tech):
         # families. The Buttons 3-level grouping folders have metadata.json but
         # no code.html/preview.html, so they are correctly excluded as non-leaves.
         return (folder / "code.html").exists() and (folder / "preview.html").exists()
+    if tech == REACT:
+        # React components and sections ship code.tsx (+ code.jsx parity file
+        # for components); React templates ship preview.html (full Vite/Next
+        # projects). Any metadata.json-bearing folder without a child metadata
+        # folder is a leaf.
+        return (folder / "code.tsx").exists() or (folder / "preview.html").exists()
     return True
 
 
@@ -93,8 +102,8 @@ def check_architecture():
 
 def check_metadata_validity():
     all_ids = {}
-    for tech, td in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        # Tailwind and Vanilla both have three content-type buckets.
+    for tech, td in TECH_DIRS:
+        # Every technology has three content-type buckets.
         buckets = ["Components", "Sections", "Templates"]
         for bucket in buckets:
             base = ROOT / td / bucket
@@ -114,8 +123,16 @@ def check_metadata_validity():
                         if not (leaf / need).exists():
                             problems.append(
                                 "Tailwind %s missing %s: %s" % (bucket.lower(), need, leaf))
-                # Tailwind AND Vanilla items must declare a content `type`
-                # matching the bucket the file lives under.
+                # React leaves (components + sections) require code.tsx +
+                # preview.html. React templates ship preview.html only.
+                if tech == REACT and bucket in ("Components", "Sections") \
+                        and is_leaf(leaf, tech):
+                    for need in ("code.tsx", "preview.html"):
+                        if not (leaf / need).exists():
+                            problems.append(
+                                "React %s missing %s: %s" % (bucket.lower(), need, leaf))
+                # Every item must declare a content `type` matching the bucket
+                # the file lives under.
                 mtype = meta.get("type")
                 if mtype not in ("component", "section", "template"):
                     problems.append(
@@ -158,11 +175,11 @@ def check_index_vs_disk():
     dup = {p for p in variant_paths if variant_paths.count(p) > 1}
     for d in dup:
         problems.append("Duplicate index variant path: %s" % d)
-    # Stale path check. `Tailwind/Sections/` and `Vanilla/Sections/` are
-    # first-class content types, so a /Sections/ segment is valid there. It is
-    # only stale anywhere else (e.g. under the removed Utilities/ and
-    # Resources/ collections).
-    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/")
+    # Stale path check. `Tailwind/Sections/`, `Vanilla/Sections/` and
+    # `React/Sections/` are first-class content types, so a /Sections/ segment
+    # is valid there. It is only stale anywhere else (e.g. under the removed
+    # Utilities/ and Resources/ collections).
+    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/", "React/Sections/")
     for fam in idx["families"]:
         for token in ("/Utilities/", "/Resources/"):
             if token in fam["path"]:
@@ -178,9 +195,8 @@ def check_index_vs_disk():
     indexed = {v["path"].rstrip("/") for fam in idx["families"]
                for v in fam.get("variants", [])}
     indexed_families = {fam["path"].rstrip("/") for fam in idx["families"]}
-    for tech, td in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
-        # Tailwind and Vanilla components AND sections are both leaf-bearing
-        # content trees.
+    for tech, td in TECH_DIRS:
+        # Components AND sections are both leaf-bearing content trees.
         content_trees = [ROOT / td / "Components", ROOT / td / "Sections"]
         for comp in content_trees:
             if not comp.exists():

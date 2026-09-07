@@ -1,14 +1,14 @@
 """Rebuild snippets-index.json to match the migrated filesystem.
 
-Architecture after migration:
+Architecture:
     Vanilla/  -> Components/ + Sections/ + Templates/
     Tailwind/ -> Components/ + Sections/ + Templates/
-    React/    -> Components/ + Templates/  (currently empty)
+    React/    -> Components/ + Sections/ + Templates/
 
-Tailwind and Vanilla have three first-class content types (Components /
-Sections / Templates); React keeps the two-type layout. Every Tailwind/Vanilla
-entry carries a lowercase `type` field (component / section / template) for
-search and filtering, and a Capitalized `category` bucket.
+All three technologies have three first-class content types (Components /
+Sections / Templates). Every entry carries a lowercase `type` field
+(component / section / template) for search and filtering, and a Capitalized
+`category` bucket.
 
 This script:
   1. Loads the existing index to preserve hand-curated family-level
@@ -22,11 +22,13 @@ This script:
 Run:  python3 -m _gen.rebuild_index
 """
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "snippets-index.json"
 
+REACT = "React"
 VANILLA = "Vanilla HTML/CSS/JS"
 TAILWIND = "Tailwind CSS"
 
@@ -56,6 +58,9 @@ def is_leaf(folder: Path, tech: str) -> bool:
     whose direct children do NOT include another metadata.json-bearing folder.
     Vanilla leaf: a folder containing metadata.json whose direct children do
     NOT include another metadata.json-bearing folder.
+    React leaf: a variant folder containing metadata.json whose direct children
+    do NOT include another metadata.json-bearing folder (components and
+    sections ship code.tsx; templates ship preview.html).
     """
     if not (folder / "metadata.json").exists():
         return False
@@ -66,6 +71,12 @@ def is_leaf(folder: Path, tech: str) -> bool:
         # The Buttons 3-level grouping folders have metadata.json but no
         # code.html/preview.html, so they are correctly excluded as non-leaves.
         return (folder / "code.html").exists() and (folder / "preview.html").exists()
+    if tech == REACT:
+        # React components and sections ship a code.tsx primary source; React
+        # templates ship preview.html (full Vite/Next projects may not have a
+        # single code.tsx at the template root). Any metadata.json-bearing
+        # folder without a child metadata folder is a leaf.
+        return (folder / "code.tsx").exists() or (folder / "preview.html").exists()
     return True
 
 
@@ -110,7 +121,7 @@ def _template_leaves(family_dir: Path, tech: str):
 # Content-type trees per technology
 # ---------------------------------------------------------------------------
 # (Capitalized bucket, lowercase type, is_template) for each content tree.
-# Tailwind and Vanilla have three first-class types; React has two.
+# Every technology has three first-class types.
 TAILWIND_TREES = [
     ("Components", "component", False),
     ("Sections", "section", False),
@@ -121,10 +132,19 @@ VANILLA_TREES = [
     ("Sections", "section", False),
     ("Templates", "template", True),
 ]
+REACT_TREES = [
+    ("Components", "component", False),
+    ("Sections", "section", False),
+    ("Templates", "template", True),
+]
 
 
 def _trees_for(tech):
-    return TAILWIND_TREES if tech == TAILWIND else VANILLA_TREES
+    if tech == TAILWIND:
+        return TAILWIND_TREES
+    if tech == VANILLA:
+        return VANILLA_TREES
+    return REACT_TREES
 
 
 # Curated family-level display names + descriptions for generated Tailwind
@@ -143,12 +163,12 @@ SECTION_FAMILY_NAMES = {
     "Stats": "Stats (Tailwind)",
     "Team": "Team (Tailwind)",
     "Testimonials": "Testimonials (Tailwind)",
-    "ai-product": "AI Product (Tailwind)",
-    "app-ui": "App UI (Tailwind)",
-    "developer": "Developer (Tailwind)",
-    "marketing": "Marketing (Tailwind)",
-    "premium-visual": "Premium Visual (Tailwind)",
-    "saas": "SaaS (Tailwind)",
+    "AI-Product": "AI Product (Tailwind)",
+    "App-UI": "App UI (Tailwind)",
+    "Developer": "Developer (Tailwind)",
+    "Marketing": "Marketing (Tailwind)",
+    "Premium-Visual": "Premium Visual (Tailwind)",
+    "SaaS": "SaaS (Tailwind)",
 }
 
 # Curated display names for Vanilla section families that need them (the
@@ -171,12 +191,12 @@ SECTION_FAMILY_DESCRIPTIONS = {
     "Logos": "Logo clouds and brand walls — infinite scroll, grids, partners, and trusted-by rows.",
     "Newsletter": "Newsletter subscribe CTAs — centered, split, glass, gradient, and bento styles.",
     "404": "404 error pages — minimal, funny, terminal, space, retro, and gradient themes.",
-    "ai-product": "AI product sections — chat interfaces, model comparison, prompt libraries, and agent workflows.",
-    "app-ui": "App UI sections — dashboard overviews and kanban boards for in-product surfaces.",
-    "developer": "Developer sections — code playgrounds and command palettes for dev-tool surfaces.",
-    "marketing": "Marketing sections — feature grids and hero landings for top-of-funnel pages.",
-    "premium-visual": "Premium visual sections — aurora hero and other high-impact, animation-forward headers.",
-    "saas": "SaaS sections — heroes, pricing, testimonials, metrics, CTAs, and footers for SaaS sites.",
+    "AI-Product": "AI product sections — chat interfaces, model comparison, prompt libraries, and agent workflows.",
+    "App-UI": "App UI sections — dashboard overviews and kanban boards for in-product surfaces.",
+    "Developer": "Developer sections — code playgrounds and command palettes for dev-tool surfaces.",
+    "Marketing": "Marketing sections — feature grids and hero landings for top-of-funnel pages.",
+    "Premium-Visual": "Premium visual sections — aurora hero and other high-impact, animation-forward headers.",
+    "SaaS": "SaaS sections — heroes, pricing, testimonials, metrics, CTAs, and footers for SaaS sites.",
 }
 
 
@@ -238,7 +258,7 @@ def build_index():
             v["features"] = meta["features"]
         elif ov.get("features"):
             v["features"] = ov["features"]
-        style = meta.get("style")
+        style = meta.get("style") or meta.get("styles")
         if style:
             v["styles"] = style if isinstance(style, list) else [style]
         elif ov.get("styles"):
@@ -252,6 +272,13 @@ def build_index():
         if pages_dir.is_dir():
             files += sorted("pages/" + p.name
                             for p in pages_dir.iterdir() if p.is_file())
+        # React templates keep their project in src/ (and optionally
+        # components/, data/, sections/, styles/ parallel trees); include those
+        # one level deep, prefixed `src/` etc., mirroring the `pages/` manifest.
+        for sub in ("src", "components", "data", "sections", "styles"):
+            sub_dir = leaf / sub
+            if sub_dir.is_dir():
+                files += sorted(sub + "/" + p.name for p in sub_dir.iterdir() if p.is_file())
         v["files"] = files
         return v
 
@@ -299,6 +326,25 @@ def build_index():
                 name = raw
             if not name:
                 name = family_dir.name.replace("-", " ").replace("_", " ").title()
+        # React templates are authored experiences: their metadata `name` is the
+        # canonical display name (e.g. "SPRAY — Art School"), not the folder
+        # slug. (Tailwind/Vanilla template family names are curated in the index
+        # as e.g. "AI SaaS Platform (Template)" — leave those to old_fam.)
+        if tech == REACT and is_template and leaves and leaves[0][1]:
+            name = leaves[0][1].get("name") or name
+        # React component/section families are not hand-curated: the on-disk
+        # family folder name is the canonical display name (Buttons, Accordions,
+        # Hero, Logo-Cloud…). Prefer it over any name preserved from a previous
+        # (auto-generated) index entry, which may have been derived from a
+        # variant name. Templates keep their authored metadata name (e.g. the
+        # SPRAY template's "SPRAY — Art School").
+        if tech == REACT and not is_template:
+            folder_name = family_dir.name.replace("_", " ")
+            if "-" in folder_name:
+                folder_name = " ".join(
+                    p.capitalize() for p in folder_name.split("-"))
+            if re.fullmatch(r"[A-Za-z][A-Za-z0-9 ]*", folder_name or " "):
+                name = folder_name
         description = old_fam.get("description", "")
         if not description and category == "Sections" and tech == TAILWIND:
             description = SECTION_FAMILY_DESCRIPTIONS.get(family_dir.name, "")
@@ -329,7 +375,8 @@ def build_index():
         new_families.append(family)
 
     # Scan every technology's content-type trees.
-    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
+    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
+                           (REACT, "React")):
         for category, type_val, is_template in _trees_for(tech):
             tree = ROOT / root_dir / category
             if not tree.exists():
@@ -357,7 +404,8 @@ def build_index():
 
     # Technologies list.
     techs = []
-    for name, path in ((TAILWIND, "Tailwind/"), (VANILLA, "Vanilla/")):
+    for name, path in ((TAILWIND, "Tailwind/"), (VANILLA, "Vanilla/"),
+                       (REACT, "React/")):
         fam_names = [f["name"] for f in new_families if f["tech"] == name]
         techs.append({"name": name, "path": path, "status": "active",
                       "families": fam_names})
@@ -367,14 +415,17 @@ def build_index():
     total_styles = sum(len(v.get("styles", [])) or 1
                        for f in new_families for v in f["variants"])
 
-    # Per-type counts for the Tailwind/Vanilla landing and navigation UIs.
+    # Per-type counts for the landing and navigation UIs.
     tw_by_type = {"component": 0, "section": 0, "template": 0}
     vn_by_type = {"component": 0, "section": 0, "template": 0}
+    rx_by_type = {"component": 0, "section": 0, "template": 0}
     for f in new_families:
         if f["tech"] == TAILWIND:
             tw_by_type[f["type"]] = tw_by_type.get(f["type"], 0) + f["variantsCount"]
         elif f["tech"] == VANILLA:
             vn_by_type[f["type"]] = vn_by_type.get(f["type"], 0) + f["variantsCount"]
+        elif f["tech"] == REACT:
+            rx_by_type[f["type"]] = rx_by_type.get(f["type"], 0) + f["variantsCount"]
 
     data = {
         "version": old.get("version", "2.0"),
@@ -389,6 +440,7 @@ def build_index():
             "technologies": [t["name"] for t in techs],
             "tailwindByType": tw_by_type,
             "vanillaByType": vn_by_type,
+            "reactByType": rx_by_type,
         },
         "families": new_families,
         "technologies": techs,
@@ -420,10 +472,21 @@ def validate(data, families):
                 if not (vpath / "preview.html").exists():
                     problems.append(
                         f"Tailwind {bucket} missing preview.html: {v['path']}")
+            # React components and sections ship code.tsx (sections: no code.jsx
+            # parity file); React templates ship preview.html only.
+            if tech == REACT and f["category"] in ("Components", "Sections"):
+                bucket = f["category"].lower()
+                if not (vpath / "code.tsx").exists():
+                    problems.append(
+                        f"React {bucket} missing code.tsx: {v['path']}")
+                if not (vpath / "preview.html").exists():
+                    problems.append(
+                        f"React {bucket} missing preview.html: {v['path']}")
 
     # 2. Every disk leaf under each content tree must be indexed.
     indexed = {norm(v["path"]) for f in families for v in f["variants"]}
-    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla")):
+    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
+                           (REACT, "React")):
         for category, _type, _is_template in _trees_for(tech):
             tree = ROOT / root_dir / category
             if not tree.exists():
@@ -441,7 +504,7 @@ def validate(data, families):
 
     # 4. No stale Utilities/Resources references; /Sections/ is only valid
     #    under Tailwind/Sections/ or Vanilla/Sections/.
-    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/")
+    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/", "React/Sections/")
     for f in families:
         for token in ("/Utilities/", "/Resources/"):
             if token in f["path"]:
@@ -455,10 +518,8 @@ def validate(data, families):
             if "/Sections/" in v["path"] and not v["path"].startswith(valid_sections):
                 problems.append(f"Stale path in variant: {v['path']}")
 
-    # 5. Every Tailwind/Vanilla entry must carry a valid type.
+    # 5. Every entry must carry a valid type matching its category bucket.
     for f in families:
-        if f["tech"] not in (TAILWIND, VANILLA):
-            continue
         if f.get("type") not in ("component", "section", "template"):
             problems.append(f"{f['tech']} family missing/invalid type: {f['path']}")
         for v in f["variants"]:
@@ -482,7 +543,7 @@ if __name__ == "__main__":
         data["stats"]["totalVariants"],
         data["stats"]["totalStyles"]))
     # Per-tech breakdown
-    for tech in (TAILWIND, VANILLA):
+    for tech in (TAILWIND, VANILLA, REACT):
         tfams = [f for f in families if f["tech"] == tech]
         tv = sum(f["variantsCount"] for f in tfams)
         print(f"  {tech}: {len(tfams)} families, {tv} variants")
