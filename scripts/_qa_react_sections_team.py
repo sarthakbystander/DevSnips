@@ -225,7 +225,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_team.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_team.py"), "--check"],
         capture_output=True,
         text=True,
     )

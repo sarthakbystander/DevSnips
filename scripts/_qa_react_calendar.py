@@ -931,7 +931,7 @@ def browser_checks():
 def process_checks():
     print("process checks")
     gen = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_calendar.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_calendar.py"), "--check"],
         capture_output=True, text=True, cwd=str(ROOT),
     )
     check(gen.returncode == 0, f"generator --check drift-free ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")

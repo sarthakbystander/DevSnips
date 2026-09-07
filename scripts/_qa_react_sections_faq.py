@@ -23,7 +23,7 @@ Verifies behavior-critical guarantees (not cosmetics):
     colors;the `dark-premium` variant keeps its pinned dark mapping
     in both page themes
   - motion: prefers-reduced-motion kills transitions
-  - generator: `_gen_react_sections_faq.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_sections_faq.py --check` reports no drift;
     `scripts/validate.py` passes
 
 The accordion interaction tests actually open and close FAQ items — they
@@ -364,7 +364,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_faq.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_faq.py"), "--check"],
         capture_output=True,
         text=True,
     )

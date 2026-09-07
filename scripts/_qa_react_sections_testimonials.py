@@ -16,7 +16,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - focus: keyboard focus shows a 2px focus-visible outline on interactive
     elements (bento is intentionally action-free and asserts none)
   - motion: prefers-reduced-motion kills transitions
-  - generator: `_gen_react_sections_testimonials.py --check` reports no
+  - generator: `_gen/generators/_gen_react_sections_testimonials.py --check` reports no
     drift; `scripts/validate.py` passes
 
 The family ships exactly the four DevSnips visual directions; this script
@@ -245,7 +245,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_testimonials.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_testimonials.py"), "--check"],
         capture_output=True,
         text=True,
     )

@@ -10,7 +10,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - shared core: every derived code.tsx is identical to the reference except
     its header doc comment; TSX/JSX export sets + per-component prop
     signatures match
-  - generator: `_gen_react_accordion.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_accordion.py --check` reports no drift;
     `scripts/validate.py` passes
   - semantics: real button triggers in h3 headings, aria-expanded +
     aria-controls wired to unique stable ids, role=region labelled back,
@@ -201,7 +201,7 @@ def export_parity_checks():
 def generator_checks():
     print("== generator + repo validation ==")
     r = subprocess.run(
-        [sys.executable, "_gen_react_accordion.py", "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_accordion.py"), "--check"],
         cwd=ROOT, capture_output=True, text=True,
     )
     check(r.returncode == 0 and "up to date" in r.stdout,

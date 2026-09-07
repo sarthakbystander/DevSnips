@@ -24,7 +24,7 @@ Verifies behavior-critical guarantees (not cosmetics):
     valid -> success);:focus-visible shows a 2px outline;;reduced
     motion kills transitions;;themes flip with the page toggle except the pinned
     dark-premium variant, which holds its dark mapping in both page themes
-  - generator: `_gen_react_sections_contact.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_sections_contact.py --check` reports no drift;
     `scripts/validate.py` passes
 
 The family ships exactly the four DevSnips visual directions; this script
@@ -504,7 +504,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_contact.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_contact.py"), "--check"],
         capture_output=True,
         text=True,
     )

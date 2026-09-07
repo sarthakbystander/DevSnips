@@ -246,7 +246,7 @@ def static_checks():
 
     # Generator drift gate.
     gen = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sidebar.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sidebar.py"), "--check"],
         capture_output=True, text=True, cwd=ROOT,
     )
     check(gen.returncode == 0, f"generator --check clean ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")

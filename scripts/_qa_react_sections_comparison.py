@@ -15,7 +15,7 @@ Verifies behavior-critical guarantees (not cosmetics):
     page themes
   - focus: when interactive controls exist, keyboard focus can land on them
   - motion: prefers-reduced-motion disables transitions when interactive
-  - generator: `_gen_react_sections_comparison.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_sections_comparison.py --check` reports no drift;
     `scripts/validate.py` passes
 
 Run from the repo root with a static server on :8765:
@@ -247,7 +247,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     r = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_comparison.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_comparison.py"), "--check"],
         capture_output=True,
         text=True,
     )

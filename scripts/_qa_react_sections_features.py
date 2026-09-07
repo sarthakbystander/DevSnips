@@ -19,7 +19,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - tabs variant: tablist/tab/tabpanel roles, aria-selected / aria-controls
     wiring, roving tabindex, click + ArrowRight/ArrowLeft/Home/End keyboard
     navigation with automatic activation
-  - generator: `_gen_react_sections_features.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_sections_features.py --check` reports no drift;
     `scripts/validate.py` passes
 
 Run from the repo root with a static server on :8765:
@@ -322,7 +322,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_features.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_features.py"), "--check"],
         capture_output=True,
         text=True,
     )

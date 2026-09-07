@@ -654,7 +654,7 @@ Each `preview.html` is a self-contained, double-click-runnable demo that renders
 - **Fidelity**: `code.tsx` is inlined after a deterministic transform (types stripped, imports/exports removed) so the preview is byte-identical in behavior and classes to the shipped source.
 - **Mount**: sections render **full-bleed** (a section is a full-width page region — it MUST NOT be squeezed into a constrained component-showcase column).
 - **Theme toggle**: a persisted, no-flash light/dark page toggle is required, so both themes are demonstrable. Directions that pin a theme mapping (§4.3 Dark Premium) keep their pin on the section root and are shown holding it across page-theme toggles.
-- **Generation**: previews are produced by the family's `_gen_react_sections_*` generator (modeled on `_gen_react_buttons.py`); `--check` mode flags drift and fails CI. Build-time tools (esbuild) stay outside the repo.
+- **Generation**: previews are produced by the family's `_gen/generators/_gen_react_sections_*` generator (modeled on `_gen/generators/_gen_react_buttons.py`); `--check` mode flags drift and fails CI. Build-time tools (esbuild) stay outside the repo.
 
 ---
 

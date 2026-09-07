@@ -9,7 +9,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - shared core: every derived code.tsx is identical to the reference except
     its header doc comment; TSX/JSX export sets + per-component prop
     signatures match
-  - generator: `_gen_react_alerts.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_alerts.py --check` reports no drift;
     `scripts/validate.py` passes
   - roles: default/info/success → role=status, warning/destructive →
     role=alert, role={null} renders no role attribute
@@ -194,7 +194,7 @@ def export_parity_checks():
 def generator_checks():
     print("== generator + repo validation ==")
     r = subprocess.run(
-        [sys.executable, "_gen_react_alerts.py", "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_alerts.py"), "--check"],
         cwd=ROOT, capture_output=True, text=True,
     )
     check(r.returncode == 0 and "up to date" in r.stdout,

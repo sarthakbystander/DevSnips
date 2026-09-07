@@ -10,7 +10,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - shared core: every derived code.tsx is identical to the reference except
     its header doc comment; TSX/JSX export sets + per-component prop
     signatures match
-  - generator: `_gen_react_tables.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_tables.py --check` reports no drift;
     `scripts/validate.py` passes
   - semantics: real table elements everywhere (table/caption/thead/tbody/
     tfoot/tr/th[scope=col]/td), no role=grid re-declaration, no div-based
@@ -229,7 +229,7 @@ def export_parity_checks():
 def generator_checks():
     print("== generator + repo validation ==")
     r = subprocess.run(
-        [sys.executable, "_gen_react_tables.py", "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_tables.py"), "--check"],
         cwd=ROOT, capture_output=True, text=True,
     )
     check(r.returncode == 0 and "up to date" in r.stdout,

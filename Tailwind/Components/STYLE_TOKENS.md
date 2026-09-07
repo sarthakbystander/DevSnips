@@ -5,7 +5,7 @@ This file is the canonical design-token reference for every `Tailwind/Components
 ## Shared conventions (ALL styles)
 
 - **3 files per variant folder**: `code.html` (snippet only — no `<!DOCTYPE>`, no `<html>`/`<head>`/`<body>`, no Tailwind CDN), `preview.html` (full `<!DOCTYPE html>` page + Tailwind CDN `https://cdn.tailwindcss.com` + app-context shell), `metadata.json`.
-- `code.html` header comment (optional, per CONTRIBUTING.md):
+- `code.html` header comment (optional, per docs/CONTRIBUTING.md):
   ```html
   <!--
   Snippet Name: <Name> — <Style>

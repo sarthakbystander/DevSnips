@@ -26,7 +26,7 @@ Verifies behavior-critical guarantees (not cosmetics):
     resizing, and focusing elements makes zero additional network requests
     (the section itself never fetches anything).
   - types: every code.tsx strict-passes tsc with --noUncheckedIndexedAccess
-  - generator: `_gen_react_sections_integrations.py --check` reports no
+  - generator: `_gen/generators/_gen_react_sections_integrations.py --check` reports no
     drift; `scripts/validate.py` passes
 
 The family ships exactly the four DevSnips visual directions;this script
@@ -448,7 +448,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_integrations.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_integrations.py"), "--check"],
         capture_output=True,
         text=True,
     )

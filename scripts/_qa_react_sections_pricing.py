@@ -16,7 +16,7 @@ Verifies behavior-critical guarantees (not cosmetics):
   - focus: keyboard focus shows a 2px focus-visible outline on interactive
     elements
   - motion: prefers-reduced-motion kills transitions
-  - generator: `_gen_react_sections_pricing.py --check` reports no drift;
+  - generator: `_gen/generators/_gen_react_sections_pricing.py --check` reports no drift;
     `scripts/validate.py` passes
 
 Run from the repo root with a static server on :8765:
@@ -224,7 +224,7 @@ def browser_checks() -> None:
 
 def generator_checks() -> None:
     drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_pricing.py"), "--check"],
+        [sys.executable, str(ROOT / "_gen/generators/_gen_react_sections_pricing.py"), "--check"],
         capture_output=True,
         text=True,
     )
