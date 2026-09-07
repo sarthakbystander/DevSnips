@@ -28,10 +28,9 @@ Vanilla/
 
 React/
 ├── Components/<family>/<variant>/
+├── Sections/<family>/<variant>/
 └── Templates/<template>/
 ```
-
-React is reserved for future content and should not be populated casually with a different structure.
 
 Do not create standalone `Utilities/`, `Resources/`, `Snippets/`, `Pages/`, or `Tools/` collections.
 

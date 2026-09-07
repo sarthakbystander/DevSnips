@@ -1,5 +1,58 @@
 # Changelog
 
+## 2026-09-06
+
+### Changed — Repo-wide naming, file, and folder consistency pass
+- **Folder naming normalized to the documented conventions** (kebab-case variant/dir slugs; PascalCase family dirs where words appear) across all three tech trees:
+  - Tailwind `Components/Cards/`: stripped `NN-` numeric prefixes from all 33 variant folders (`01-profile-card` → `profile-card`, etc.), matching their metadata slugs.
+
+  - Tailwind `Components/Buttons/`: kebab-cased the 15 Title-Case-with-space style-group folders (`Basic Button` → `basic-button`, `3D Button` → `3d-button`, `Floating Action Button` → `floating-action-button`, etc.)
+ 
+  - Vanilla `Components/Navigation/`: flattened the legacy PascalCase sub-family buckets (`Breadcrumb/Menu/Navbar/Other/Pagination/Sidebar`) into 13 flat kebab variant folders, mirroring the Tailwind Navigation layout; normalized each leaf's `component`/`family` metadata to `navigation`.
+  - Vanilla `Templates/`: kebab-cased the 4 Title-Case-with-space template folders (`Agency` → `agency`, `Documentation Site` → `documentation-site`, `Job Board` → `job-board`, `SaaS Dashboard` → `saas-dashboard`); folders now match their metadata slugs.
+  - React `Templates/`: removed the redundant `Agency/` wrapper — `spray-art-school` now sits flat under `React/Templates/`, matching the Tailwind/Vanilla template trees.
+
+  - Tailwind `Sections/`: Pascal-cased the 6 multi-concept section family dirs (`ai-product` → `AI-Product`, `app-ui` → `App-UI`, `developer` → `Developer`, `marketing` → `Marketing`, `premium-visual` → `Premium-Visual`, `saas` → `SaaS`); `_gen/rebuild_index.py` maps updated to match.
+- **Stray family-root files removed**: `Tailwind/Components/Buttons/index.json` + `Tailwind/Components/Navigation/index.json` (stale hand-written manifests, unused by tooling), family-root `README.md` files (Buttons/Input/Navigation), and 4 `.gitkeep` markers in non-empty dirs.
+- **Gallery doc renamed**: `Vanilla/Sections/sections-gallery.README.md` → `sections-gallery.md`.
+- **Curated styles data preserved**: added `styles` arrays to 33 Cards metadata (from the old index), and `rebuild_index.py` now reads a metadata `style` **or** `styles` field so regenerating no longer drops curated styles on Input/Buttons/Cards.
+- **Vanilla Navigation quality-bar gap closed**: flattening surfaced 2 pre-existing demos (`circular-menu`, `hamburger-menu`) that were previously classified as non-interactive family (`Menu`); converted both to native `<button role>`/aria controls (`circular-menu` items → real `<button type="button" aria-label>`; `hamburger-menu` → real toggle `<button aria-expanded aria-label>` with button resets). `scripts/validate.py` passes (0 problems; Vanilla quality bar: 191 components, 0 required failures).
+- **Index paths rewritten in place** (preserving every curated family/variant field); README `cd` lines and AGENTS.md template path references updated. `scripts/validate.py` passes.
+
+### Changed — React content indexed and validated like Tailwind/Vanilla
+- **`_gen/rebuild_index.py` now scans the React trees**: `React/Components/`,
+  `React/Sections/`, and `React/Templates/` are first-class content trees with
+  the same three-type `component`/`section`/`template` model. React component
+  and section families keep their on-disk folder display names; the React
+  template keeps its authored metadata name. A `reactByType` stat is emitted
+  (`{component: 293, section: 56, template: 1}`) and React template file
+  manifests include the `src/` (+ `components/`, `data/`, `sections/`,
+  `styles/`) one-level-deep project trees, mirroring the `pages/` manifest.
+- **`scripts/validate.py` now validates React identically to Tailwind/Vanilla**:
+  metadata JSON validity, `type`-vs-bucket conformance, leaf file requirements
+  (`code.tsx` + `preview.html` for React components/sections), index-vs-disk
+  coverage for all three trees, and duplicate-ID reporting across all three
+  technologies. `snippets-index.json` registered all React content: 36 React
+  families / 350 variants across the three types.
+- **React navigation pages added** (mirroring the Tailwind hub):
+  `React/index.html` landing with Components / Sections / Templates discovery
+  cards, `React/Components/index.html`, `React/Sections/index.html`, and
+  `React/Templates/index.html` — each fetches `snippets-index.json`, filters by
+  `tech: "React"`, renders family cards linking to the first variant's
+  `preview.html`, and carries the shared no-flash dark mode, skip link,
+  `:focus-visible` rings, `prefers-reduced-motion` guard, and responsive grid.
+  Root `index.html` React card updated from "reserved / coming soon" to a live
+  card linking to the React hub.
+- **New `scripts/test_react_nav.py`**: Playwright overflow + console-error +
+  card-render validation at 375/768/1280 px across the four React nav pages
+  (all pass; all card links resolve to existing previews).
+- Docs updated: `README.md` (React hub + 1000+ variant / 19 template badges),
+  `COMPONENT_STRUCTURE.md` and `CONTRIBUTING.md` (React is no longer
+  "reserved"), `AGENTS.md` ("React not registered" notes replaced with
+  registered-state phrasing).
+
+
+
 ## 2026-08-25
 
 ### Changed — Vanilla naming convention: `<slug>.html` → `code.html`

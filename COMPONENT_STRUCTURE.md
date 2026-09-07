@@ -28,6 +28,7 @@ DevSnips/
 │   └── Templates/
 └── React/
     ├── Components/
+    ├── Sections/
     └── Templates/
 ```
 
@@ -50,9 +51,12 @@ collection (including the legacy navigation sub-families).
 
 ### React
 
-React uses `Components/` and `Templates/`. React is currently reserved for
-future content. Its structure should follow this specification when React
-content is introduced.
+React uses three content types: `Components/`, `Sections/`, and `Templates/`.
+React component variants ship a TypeScript-first `code.tsx` + runnable
+`preview.html` (+ `code.jsx` parity build, `README.md`); React section variants
+ship `code.tsx` + `preview.html`; React templates are full Vite/TypeScript
+projects with `preview.html`. React content follows the same family/variant
+model, index registration, and validation as the other technologies.
 
 ### Forbidden content collections
 
