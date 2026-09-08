@@ -105,12 +105,9 @@ async function runAddCommand(inputPath) {
     try {
       const content = await downloadFile(repoFilePath);
 
-      // Validate content is not empty or HTML error
+      // Validate content is not empty
       if (!content || content.trim().length === 0) {
         throw new Error('Empty file');
-      }
-      if (content.trim().startsWith('<!DOCTYPE html>') || content.trim().startsWith('<html')) {
-        throw new Error('Unexpected HTML content');
       }
 
       downloadedFiles.set(file, content);

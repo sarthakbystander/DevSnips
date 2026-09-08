@@ -24,7 +24,7 @@ Paths match the repository layout under `Tailwind/`, `React/`, or `Vanilla/`.
 
 ### Destination layout
 
-Components are installed under:
+Components, sections, and templates are installed under:
 
 ```
 ./devsnips/<tech>/<category>/<family>/<variant>/
@@ -40,15 +40,17 @@ Example:
 
 The leading technology segment is stripped and normalized so it appears only once; remaining segments are lowercased for a consistent on-disk layout.
 
-### Help
+### Help and version
 
 ```bash
 npx devsnips --help
+npx devsnips --version
 ```
 
 ## Notes
 
-- Only source files (`code.html`, `code.jsx`, `code.tsx`, etc.) are installed. `metadata.json`, `preview.html`, and `README.md` are skipped.
+- Any registry entry can be installed: components, sections, or templates
+- Only source files (`code.html`, `code.jsx`, `code.tsx`, `pages/*.html`, etc.) are installed. `metadata.json`, `preview.html`, and `README.md` are skipped.
 - Existing files are not overwritten (remove them first if you need to reinstall).
 - All writes are confined to the `./devsnips` directory under the current working directory.
 

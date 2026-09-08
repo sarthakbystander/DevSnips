@@ -2,6 +2,8 @@
  * DevSnips CLI - Error handling and help utilities
  */
 
+const PACKAGE_VERSION = require('../../package.json').version;
+
 function showHelp() {
   console.log(`
 DevSnips CLI - Install UI components from the DevSnips library
@@ -41,6 +43,7 @@ Destination:
 
 Options:
   --help, -h    Show this help message
+  --version, -v  Show the installed version
 
 For more information, visit: https://github.com/sarthakbystander/DevSnips
 `);
@@ -84,9 +87,14 @@ function exitWithFilesystemError(message, filePath = null) {
   process.exit(1);
 }
 
+function printVersion() {
+  console.log(PACKAGE_VERSION);
+}
+
 module.exports = {
   showHelp,
   exitWithError,
   exitWithNetworkError,
-  exitWithFilesystemError
+  exitWithFilesystemError,
+  printVersion
 };

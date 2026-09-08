@@ -9,7 +9,7 @@
  */
 
 const { runAddCommand } = require('./commands/add.js');
-const { showHelp } = require('./utils/errors.js');
+const { showHelp, printVersion } = require('./utils/errors.js');
 
 const args = process.argv.slice(2);
 
@@ -22,6 +22,12 @@ if (args.length === 0) {
 // Handle help flag
 if (args.includes('--help') || args.includes('-h')) {
   showHelp();
+  process.exit(0);
+}
+
+// Handle version flag
+if (args.includes('--version') || args.includes('-v')) {
+  printVersion();
   process.exit(0);
 }
 
