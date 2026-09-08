@@ -2,14 +2,12 @@
 
 /**
  * DevSnips CLI - Main entry point
- * 
+ *
  * Usage:
  *   npx devsnips add <path>
  *   npx devsnips --help
  */
 
-const { parseArgs } = require('node:util');
-const path = require('node:path');
 const { runAddCommand } = require('./commands/add.js');
 const { showHelp } = require('./utils/errors.js');
 
@@ -31,7 +29,7 @@ if (args.includes('--help') || args.includes('-h')) {
 const command = args[0];
 
 switch (command) {
-  case 'add':
+  case 'add': {
     const componentPath = args[1];
     if (!componentPath) {
       console.error('Error: Missing component path');
@@ -43,9 +41,18 @@ switch (command) {
       console.error('  npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel');
       process.exit(1);
     }
-    runAddCommand(componentPath);
+    // Properly handle the async command so rejections surface cleanly
+    runAddCommand(componentPath).catch((err) => {
+      console.error('');
+      console.error('✗ Unexpected error');
+      console.error('');
+      console.error('  ' + (err && err.message ? err.message : String(err)));
+      console.error('');
+      process.exit(1);
+    });
     break;
-    
+  }
+
   default:
     console.error(`Unknown command: ${command}`);
     console.error('');

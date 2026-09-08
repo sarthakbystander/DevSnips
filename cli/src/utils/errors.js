@@ -1,10 +1,6 @@
-#!/usr/bin/env node
-
 /**
  * DevSnips CLI - Error handling and help utilities
  */
-
-const path = require('node:path');
 
 function showHelp() {
   console.log(`
@@ -32,7 +28,16 @@ Path format:
     Vanilla/Components/Buttons/split-button
 
 Destination:
-  Components are installed to: ./devsnips/<technology>/<family>/<variant>/
+  Components are installed under:
+    ./devsnips/<tech>/<category>/<family>/<variant>/
+
+  where <tech> is one of: tailwind, react, vanilla
+  (the leading technology segment is stripped and normalized so it
+  appears only once; remaining path segments are lowercased).
+
+  Example:
+    Input:  Tailwind/Sections/AI-Product/agent-workflow/vercel
+    Output: ./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/
 
 Options:
   --help, -h    Show this help message
