@@ -56,10 +56,11 @@ function downloadFile(repoPath) {
  *
  * Based on DevSnips conventions:
  * - code.html, code.jsx, code.tsx are source files
- * - metadata.json is registry data (NOT installed)
- * - preview.html is for demonstration (NOT installed)
- * - README.md is documentation (optional, NOT installed by default)
  * - .css files may be source files for some components
+ * - README.md is documentation (installed when present)
+ * - AGENTS.md is project context (installed when present)
+ * - metadata.json is registry data (NOT installed)
+ * - preview.html is for demonstration(NOT installed)
  *
  * @param {string[]} availableFiles - List of files in the component directory
  * @param {string} technology - Technology type
@@ -72,7 +73,9 @@ function getSourceFiles(availableFiles, technology) {
     // Never install metadata or preview files
     if (file === 'metadata.json') return false;
     if (file === 'preview.html') return false;
-    if (file === 'README.md') return false;
+
+    // Install documentation when present in the registry file list
+    if (file === 'README.md' || file === 'AGENTS.md') return true;
 
     // Install source code files
     const ext = file.substring(file.lastIndexOf('.'));

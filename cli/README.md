@@ -50,7 +50,10 @@ npx devsnips --version
 ## Notes
 
 - Any registry entry can be installed: components, sections, or templates
-- Only source files (`code.html`, `code.jsx`, `code.tsx`, `pages/*.html`, etc.) are installed. `metadata.json`, `preview.html`, and `README.md` are skipped.
+- Source files (`code.html`, `code.jsx`, `code.tsx`, `pages/*.html`, etc.) are installed.
+- `README.md` is installed when present.
+- `AGENTS.md` is installed when present.
+- `metadata.json` and `preview.html` are skipped.
 - Existing files are not overwritten (remove them first if you need to reinstall).
 - All writes are confined to the `./devsnips` directory under the current working directory.
 
