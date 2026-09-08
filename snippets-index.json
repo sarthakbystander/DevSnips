@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-07",
+  "lastUpdated": "2026-09-08",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 116,
@@ -889,6 +889,27 @@
           ]
         },
         {
+          "name": "Split Button Icon",
+          "path": "Tailwind/Components/Buttons/split-button/icon/",
+          "type": "component",
+          "description": "Split buttons with icon and dropdown",
+          "tags": [
+            "button",
+            "split",
+            "dropdown",
+            "icon"
+          ],
+          "styles": [
+            "Primary",
+            "Outline"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Animated Icon Button",
           "path": "Tailwind/Components/Buttons/animated-button/icon/",
           "type": "component",
@@ -926,27 +947,6 @@
             "Bookmark",
             "Share",
             "Add (Pill)"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Split Button Icon",
-          "path": "Tailwind/Components/Buttons/split-button/icon/",
-          "type": "component",
-          "description": "Split buttons with icon and dropdown",
-          "tags": [
-            "button",
-            "split",
-            "dropdown",
-            "icon"
-          ],
-          "styles": [
-            "Primary",
-            "Outline"
           ],
           "files": [
             "code.html",
@@ -1241,6 +1241,28 @@
           ]
         },
         {
+          "name": "Neumorphism Soft Button",
+          "path": "Tailwind/Components/Buttons/neumorphism-button/soft/",
+          "type": "component",
+          "description": "Soft UI neumorphism buttons with subtle shadows",
+          "tags": [
+            "button",
+            "neumorphism",
+            "soft ui",
+            "shadow"
+          ],
+          "styles": [
+            "Default",
+            "Pill",
+            "Disabled"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Soft Background Button",
           "path": "Tailwind/Components/Buttons/filled-button/soft/",
           "type": "component",
@@ -1282,28 +1304,6 @@
             "Default",
             "Disabled",
             "Pill"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Neumorphism Soft Button",
-          "path": "Tailwind/Components/Buttons/neumorphism-button/soft/",
-          "type": "component",
-          "description": "Soft UI neumorphism buttons with subtle shadows",
-          "tags": [
-            "button",
-            "neumorphism",
-            "soft ui",
-            "shadow"
-          ],
-          "styles": [
-            "Default",
-            "Pill",
-            "Disabled"
           ],
           "files": [
             "code.html",
@@ -8953,6 +8953,41 @@
       "variantsCount": 12,
       "variants": [
         {
+          "name": "Model Comparison — Neo-Brutalism",
+          "path": "Tailwind/Sections/AI-Product/model-comparison/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "tags": [
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "neo-brutalism",
+            "brutalist",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "ai-product"
+          ],
+          "features": [
+            "side-by-side model cards",
+            "animated metric bars (context, speed, cost, quality)",
+            "Best-for metric selector with winner highlight",
+            "live recommendation footer",
+            "hard offset shadows and flat accent palette",
+            "press-down hover states",
+            "radiogroup semantics with aria-checked",
+            "keyboard accessible controls"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
           "name": "Agent Workflow — Neo-Brutalism",
           "path": "Tailwind/Sections/AI-Product/agent-workflow/neo-brutalism/",
           "type": "section",
@@ -8988,30 +9023,29 @@
           ]
         },
         {
-          "name": "Model Comparison — Neo-Brutalism",
-          "path": "Tailwind/Sections/AI-Product/model-comparison/neo-brutalism/",
+          "name": "AI Chat Interface — Neo-Brutalism",
+          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
           "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
+            "ai-chat",
+            "chatbot",
             "neo-brutalism",
             "brutalist",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "ai-product"
+            "chat-interface",
+            "assistant",
+            "prompt",
+            "dark-accents"
           ],
           "features": [
-            "side-by-side model cards",
-            "animated metric bars (context, speed, cost, quality)",
-            "Best-for metric selector with winner highlight",
-            "live recommendation footer",
-            "hard offset shadows and flat accent palette",
+            "hard offset shadows",
+            "flat bright accent palette",
             "press-down hover states",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
+            "animated typing indicator",
+            "clickable prompt chips",
+            "wired send + auto-reply",
+            "custom scrollbar styling",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "neo-brutalism"
@@ -9058,32 +9092,33 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Neo-Brutalism",
-          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/neo-brutalism/",
+          "name": "Model Comparison — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/AI-Product/model-comparison/sharp-glassmorphism/",
           "type": "section",
-          "description": "Brutalist AI chat surface with hard black borders, offset drop shadows, flat bright accents, a typing indicator, prompt suggestion chips, and a wired input bar. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
           "tags": [
-            "ai-chat",
-            "chatbot",
-            "neo-brutalism",
-            "brutalist",
-            "chat-interface",
-            "assistant",
-            "prompt",
-            "dark-accents"
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "glassmorphism",
+            "frosted-glass",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "ai-product"
           ],
           "features": [
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "animated typing indicator",
-            "clickable prompt chips",
-            "wired send + auto-reply",
-            "custom scrollbar styling",
-            "keyboard accessible inputs"
+            "side-by-side frosted-glass model cards",
+            "animated gradient metric bars",
+            "Best-for metric selector with glowing winner highlight",
+            "gradient mesh backdrop with cyan glow accents",
+            "live recommendation footer",
+            "backdrop blur and luminous edges",
+            "radiogroup semantics with aria-checked",
+            "keyboard accessible controls"
           ],
           "styles": [
-            "neo-brutalism"
+            "sharp-glassmorphism"
           ],
           "files": [
             "code.html",
@@ -9128,30 +9163,29 @@
           ]
         },
         {
-          "name": "Model Comparison — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/AI-Product/model-comparison/sharp-glassmorphism/",
+          "name": "AI Chat Interface — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
+          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
           "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
+            "ai-chat",
+            "chatbot",
             "glassmorphism",
-            "frosted-glass",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "ai-product"
+            "glass",
+            "chat-interface",
+            "assistant",
+            "gradient",
+            "vibrant"
           ],
           "features": [
-            "side-by-side frosted-glass model cards",
-            "animated gradient metric bars",
-            "Best-for metric selector with glowing winner highlight",
-            "gradient mesh backdrop with cyan glow accents",
-            "live recommendation footer",
-            "backdrop blur and luminous edges",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
+            "backdrop-blur glass panels",
+            "animated gradient mesh backdrop",
+            "luminous edge highlights",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "gradient send button",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "sharp-glassmorphism"
@@ -9199,32 +9233,33 @@
           ]
         },
         {
-          "name": "AI Chat Interface — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/sharp-glassmorphism/",
+          "name": "Model Comparison — Vercel",
+          "path": "Tailwind/Sections/AI-Product/model-comparison/vercel/",
           "type": "section",
-          "description": "Frosted-glass AI chat surface floating over a living gradient mesh. Translucent layered panels, luminous edges, a cyan glow status dot, a bouncing typing indicator, prompt chips, and a gradient send button create depth and atmosphere.",
+          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
           "tags": [
-            "ai-chat",
-            "chatbot",
-            "glassmorphism",
-            "glass",
-            "chat-interface",
-            "assistant",
-            "gradient",
-            "vibrant"
+            "model-comparison",
+            "llm",
+            "benchmark",
+            "vercel",
+            "comparison-table",
+            "winner",
+            "metrics",
+            "dark",
+            "ai-product"
           ],
           "features": [
-            "backdrop-blur glass panels",
-            "animated gradient mesh backdrop",
-            "luminous edge highlights",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "gradient send button",
-            "keyboard accessible inputs"
+            "side-by-side model cards",
+            "animated hairline metric bars",
+            "Best-for metric selector with moving winner marker",
+            "teal accent glow on the winning card",
+            "live recommendation footer",
+            "dark monochrome surfaces with hairline borders",
+            "radiogroup semantics with aria-checked",
+            "keyboard accessible controls"
           ],
           "styles": [
-            "sharp-glassmorphism"
+            "vercel"
           ],
           "files": [
             "code.html",
@@ -9269,30 +9304,29 @@
           ]
         },
         {
-          "name": "Model Comparison — Vercel",
-          "path": "Tailwind/Sections/AI-Product/model-comparison/vercel/",
+          "name": "AI Chat Interface — Vercel",
+          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/vercel/",
           "type": "section",
-          "description": "Refined dark monochrome LLM comparison panel — three models compared side by side with hairline borders, generous spacing, and a single teal accent. A 'Best for' metric selector moves the glowing winner marker, animates the metric bars, and updates the recommendation footer.",
+          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
           "tags": [
-            "model-comparison",
-            "llm",
-            "benchmark",
+            "ai-chat",
+            "chatbot",
             "vercel",
-            "comparison-table",
-            "winner",
-            "metrics",
-            "dark",
-            "ai-product"
+            "dark-mode",
+            "chat-interface",
+            "assistant",
+            "minimal",
+            "monochrome"
           ],
           "features": [
-            "side-by-side model cards",
-            "animated hairline metric bars",
-            "Best-for metric selector with moving winner marker",
-            "teal accent glow on the winning card",
-            "live recommendation footer",
-            "dark monochrome surfaces with hairline borders",
-            "radiogroup semantics with aria-checked",
-            "keyboard accessible controls"
+            "dark monochrome palette",
+            "hairline borders + glow",
+            "glowing status dot",
+            "bouncing typing indicator",
+            "pill prompt chips",
+            "wired send + auto-reply",
+            "thin custom scrollbar",
+            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -9328,40 +9362,6 @@
             "copy-to-clipboard with checkmark Copied! state",
             "empty state for no matches",
             "keyboard accessible controls"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "AI Chat Interface — Vercel",
-          "path": "Tailwind/Sections/AI-Product/ai-chat-interface/vercel/",
-          "type": "section",
-          "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
-          "tags": [
-            "ai-chat",
-            "chatbot",
-            "vercel",
-            "dark-mode",
-            "chat-interface",
-            "assistant",
-            "minimal",
-            "monochrome"
-          ],
-          "features": [
-            "dark monochrome palette",
-            "hairline borders + glow",
-            "glowing status dot",
-            "bouncing typing indicator",
-            "pill prompt chips",
-            "wired send + auto-reply",
-            "thin custom scrollbar",
-            "keyboard accessible inputs"
           ],
           "styles": [
             "vercel"
@@ -13082,61 +13082,30 @@
       "variantsCount": 17,
       "variants": [
         {
-          "name": "Startup Launch Hero — Neo-Brutalism",
-          "path": "Tailwind/Sections/SaaS/launch-hero/neo-brutalism/",
+          "name": "Pricing Table — Neo-Brutalism",
+          "path": "Tailwind/Sections/SaaS/pricing-table/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
+          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
           "tags": [
-            "hero",
-            "launch",
+            "pricing",
+            "pricing-table",
             "neo-brutalism",
             "brutalist",
-            "countdown",
+            "billing-toggle",
             "saas",
-            "announcement",
-            "offset-shadows"
+            "plans",
+            "cta",
+            "monochrome-accents"
           ],
           "features": [
-            "giant boxed headline with yellow accent",
-            "live countdown ticker script",
-            "dual offset-shadow CTAs",
-            "diagonal grid background",
-            "stacked product-card collage",
-            "bright accent panels",
+            "three pricing tiers",
+            "working monthly/annual billing toggle",
+            "highlighted popular tier with badge",
+            "check/dash feature lists",
+            "hard offset shadows",
+            "flat bright accent palette",
             "press-down hover states",
-            "monospace labels"
-          ],
-          "styles": [
-            "neo-brutalism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Feature Grid — Neo-Brutalism",
-          "path": "Tailwind/Sections/SaaS/feature-grid/neo-brutalism/",
-          "type": "section",
-          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
-          "tags": [
-            "features",
-            "feature-grid",
-            "neo-brutalism",
-            "brutalist",
-            "saas",
-            "bento",
-            "offset-shadows"
-          ],
-          "features": [
-            "6-up feature grid",
-            "rotating bright accent panels",
-            "numbered monospace tags",
-            "zig-zag offset layout",
-            "thick icon tiles",
-            "offset shadows",
-            "press-down hover states"
+            "keyboard accessible toggle buttons"
           ],
           "styles": [
             "neo-brutalism"
@@ -13182,30 +13151,27 @@
           ]
         },
         {
-          "name": "Pricing Table — Neo-Brutalism",
-          "path": "Tailwind/Sections/SaaS/pricing-table/neo-brutalism/",
+          "name": "SaaS Feature Grid — Neo-Brutalism",
+          "path": "Tailwind/Sections/SaaS/feature-grid/neo-brutalism/",
           "type": "section",
-          "description": "Brutalist three-tier SaaS pricing table with hard black borders, offset drop shadows, flat bright accents, check/dash feature lists, a highlighted popular tier, and a working monthly/annual billing toggle that swaps the displayed prices live. Press-down hover states and monospace labels give it a raw, editorial character.",
+          "description": "Brutalist 6-up feature grid with hard black borders, rotating bright accent panels, numbered monospace tags, offset shadows, and a zig-zag offset layout. Each card has a thick icon tile, a punchy feature title, and a body line. Press-down hover states animate the shadow.",
           "tags": [
-            "pricing",
-            "pricing-table",
+            "features",
+            "feature-grid",
             "neo-brutalism",
             "brutalist",
-            "billing-toggle",
             "saas",
-            "plans",
-            "cta",
-            "monochrome-accents"
+            "bento",
+            "offset-shadows"
           ],
           "features": [
-            "three pricing tiers",
-            "working monthly/annual billing toggle",
-            "highlighted popular tier with badge",
-            "check/dash feature lists",
-            "hard offset shadows",
-            "flat bright accent palette",
-            "press-down hover states",
-            "keyboard accessible toggle buttons"
+            "6-up feature grid",
+            "rotating bright accent panels",
+            "numbered monospace tags",
+            "zig-zag offset layout",
+            "thick icon tiles",
+            "offset shadows",
+            "press-down hover states"
           ],
           "styles": [
             "neo-brutalism"
@@ -13239,6 +13205,40 @@
             "diagonal grid background",
             "rotated guarantee sticker",
             "press-down hover states"
+          ],
+          "styles": [
+            "neo-brutalism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Startup Launch Hero — Neo-Brutalism",
+          "path": "Tailwind/Sections/SaaS/launch-hero/neo-brutalism/",
+          "type": "section",
+          "description": "Brutalist launch hero with a giant boxed headline, a black launch badge with a countdown ticker, dual offset-shadow CTAs, a diagonal grid background, and a stacked product-card collage with bright accent panels. Press-down hover states and monospace labels give it a raw, modern startup announcement feel.",
+          "tags": [
+            "hero",
+            "launch",
+            "neo-brutalism",
+            "brutalist",
+            "countdown",
+            "saas",
+            "announcement",
+            "offset-shadows"
+          ],
+          "features": [
+            "giant boxed headline with yellow accent",
+            "live countdown ticker script",
+            "dual offset-shadow CTAs",
+            "diagonal grid background",
+            "stacked product-card collage",
+            "bright accent panels",
+            "press-down hover states",
+            "monospace labels"
           ],
           "styles": [
             "neo-brutalism"
@@ -13320,25 +13320,59 @@
           ]
         },
         {
-          "name": "Testimonial Grid — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/SaaS/testimonials/sharp-glassmorphism/",
+          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/SaaS/screenshot-showcase/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
+          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
           "tags": [
-            "testimonials",
-            "social-proof",
+            "screenshots",
+            "gallery",
+            "showcase",
             "sharp-glassmorphism",
             "glassmorphism",
             "saas",
-            "quotes",
+            "tabs",
+            "product-preview"
+          ],
+          "features": [
+            "tabbed screenshot gallery",
+            "large framed preview",
+            "thumbnail tabs that swap preview live",
+            "caption metadata rail",
+            "cyan glow accents",
+            "luminous top edges",
+            "scoped keyboard-accessible tabs"
+          ],
+          "styles": [
+            "sharp-glassmorphism"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Bento Feature Showcase — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/SaaS/bento-showcase/sharp-glassmorphism/",
+          "type": "section",
+          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
+          "tags": [
+            "bento",
+            "bento-grid",
+            "sharp-glassmorphism",
+            "glassmorphism",
+            "saas",
+            "features",
             "gradient-mesh"
           ],
           "features": [
-            "asymmetric testimonial layout",
-            "large featured quote tile with gradient quote mark",
-            "medium and compact quote tiles",
-            "avatar initials chips",
-            "role and company labels",
+            "asymmetric bento layout",
+            "large hero tile with animated waveform",
+            "integration grid tile",
+            "mini command palette tile",
+            "security + global edge tiles",
+            "gradient icon chips",
             "luminous top edges",
             "hover lift states"
           ],
@@ -13386,26 +13420,25 @@
           ]
         },
         {
-          "name": "Bento Feature Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/SaaS/bento-showcase/sharp-glassmorphism/",
+          "name": "Testimonial Grid — Sharp Glassmorphism",
+          "path": "Tailwind/Sections/SaaS/testimonials/sharp-glassmorphism/",
           "type": "section",
-          "description": "Frosted-glass asymmetric bento grid over an animated gradient mesh — a large hero tile with an animated waveform, medium tiles for integrations and a mini command palette, and small tiles for security and global edge. Luminous top edges, gradient icon chips, and hover lift states.",
+          "description": "Frosted-glass asymmetric testimonial grid over an animated gradient mesh — one large featured quote tile with gradient quote mark, two medium quote tiles, and two compact stat-quote tiles. Avatar initials chips, role labels, and luminous top edges with hover lift.",
           "tags": [
-            "bento",
-            "bento-grid",
+            "testimonials",
+            "social-proof",
             "sharp-glassmorphism",
             "glassmorphism",
             "saas",
-            "features",
+            "quotes",
             "gradient-mesh"
           ],
           "features": [
-            "asymmetric bento layout",
-            "large hero tile with animated waveform",
-            "integration grid tile",
-            "mini command palette tile",
-            "security + global edge tiles",
-            "gradient icon chips",
+            "asymmetric testimonial layout",
+            "large featured quote tile with gradient quote mark",
+            "medium and compact quote tiles",
+            "avatar initials chips",
+            "role and company labels",
             "luminous top edges",
             "hover lift states"
           ],
@@ -13419,63 +13452,28 @@
           ]
         },
         {
-          "name": "Product Screenshot Showcase — Sharp Glassmorphism",
-          "path": "Tailwind/Sections/SaaS/screenshot-showcase/sharp-glassmorphism/",
+          "name": "Customer Logo Cloud — Vercel",
+          "path": "Tailwind/Sections/SaaS/logo-cloud/vercel/",
           "type": "section",
-          "description": "Frosted-glass product screenshot showcase over an animated gradient mesh — a tabbed gallery with a large framed screenshot, thumbnail tabs, and caption metadata. Active tab swaps the preview live via a scoped script. Cyan glow accents and luminous edges.",
+          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
           "tags": [
-            "screenshots",
-            "gallery",
-            "showcase",
-            "sharp-glassmorphism",
-            "glassmorphism",
-            "saas",
-            "tabs",
-            "product-preview"
-          ],
-          "features": [
-            "tabbed screenshot gallery",
-            "large framed preview",
-            "thumbnail tabs that swap preview live",
-            "caption metadata rail",
-            "cyan glow accents",
-            "luminous top edges",
-            "scoped keyboard-accessible tabs"
-          ],
-          "styles": [
-            "sharp-glassmorphism"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "SaaS Product Hero — Vercel",
-          "path": "Tailwind/Sections/SaaS/product-hero/vercel/",
-          "type": "section",
-          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
-          "tags": [
-            "hero",
-            "product-hero",
+            "logos",
+            "logo-cloud",
+            "customers",
             "vercel",
             "dark",
-            "monochrome",
             "saas",
-            "product-preview",
-            "trust-logos",
+            "wordmarks",
             "teal-accent"
           ],
           "features": [
-            "left-aligned two-line gradient headline",
-            "primary white CTA + secondary ghost demo CTA",
-            "announcement pill with teal dot",
-            "trust logo row",
-            "masked grid backdrop",
-            "framed product UI preview with sidebar and inbox",
-            "floating SLA stat chip",
-            "hairline borders and dark panel"
+            "centered headline with count chip",
+            "responsive wordmark-style SVG logo grid",
+            "white/white-40 logo hierarchy",
+            "hairline panel borders",
+            "pull-quote with avatar",
+            "teal accent on count chip",
+            "single teal dot"
           ],
           "styles": [
             "vercel"
@@ -13511,40 +13509,6 @@
             "white primary CTA",
             "subtle hover fills",
             "keyboard accessible toggle buttons"
-          ],
-          "styles": [
-            "vercel"
-          ],
-          "files": [
-            "code.html",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "Enterprise SaaS Footer — Vercel",
-          "path": "Tailwind/Sections/SaaS/enterprise-footer/vercel/",
-          "type": "section",
-          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
-          "tags": [
-            "footer",
-            "enterprise",
-            "vercel",
-            "dark",
-            "saas",
-            "newsletter",
-            "compliance",
-            "teal-accent"
-          ],
-          "features": [
-            "newsletter signup with email form",
-            "5-column link grid",
-            "status pill with teal dot",
-            "social icons",
-            "compliance badges row",
-            "bottom legal bar with locale",
-            "hairline borders",
-            "white/white-50/white-35 hierarchy"
           ],
           "styles": [
             "vercel"
@@ -13623,28 +13587,64 @@
           ]
         },
         {
-          "name": "Customer Logo Cloud — Vercel",
-          "path": "Tailwind/Sections/SaaS/logo-cloud/vercel/",
+          "name": "SaaS Product Hero — Vercel",
+          "path": "Tailwind/Sections/SaaS/product-hero/vercel/",
           "type": "section",
-          "description": "Dark monochrome customer logo cloud with a centered headline, a marquee-free responsive wrap of wordmark-style SVG logos, a count badge, and a pull-quote with avatar. Hairline borders, white/white-40 logo hierarchy, and a single teal accent on the count chip.",
+          "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
           "tags": [
-            "logos",
-            "logo-cloud",
-            "customers",
+            "hero",
+            "product-hero",
             "vercel",
             "dark",
+            "monochrome",
             "saas",
-            "wordmarks",
+            "product-preview",
+            "trust-logos",
             "teal-accent"
           ],
           "features": [
-            "centered headline with count chip",
-            "responsive wordmark-style SVG logo grid",
-            "white/white-40 logo hierarchy",
-            "hairline panel borders",
-            "pull-quote with avatar",
-            "teal accent on count chip",
-            "single teal dot"
+            "left-aligned two-line gradient headline",
+            "primary white CTA + secondary ghost demo CTA",
+            "announcement pill with teal dot",
+            "trust logo row",
+            "masked grid backdrop",
+            "framed product UI preview with sidebar and inbox",
+            "floating SLA stat chip",
+            "hairline borders and dark panel"
+          ],
+          "styles": [
+            "vercel"
+          ],
+          "files": [
+            "code.html",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "Enterprise SaaS Footer — Vercel",
+          "path": "Tailwind/Sections/SaaS/enterprise-footer/vercel/",
+          "type": "section",
+          "description": "Dark monochrome enterprise SaaS footer with a newsletter signup, a 5-column link grid, a status pill, social icons, compliance badges, and a bottom legal bar. Hairline borders, white/white-50/white-35 hierarchy, a single teal accent on the status dot, and a working email form.",
+          "tags": [
+            "footer",
+            "enterprise",
+            "vercel",
+            "dark",
+            "saas",
+            "newsletter",
+            "compliance",
+            "teal-accent"
+          ],
+          "features": [
+            "newsletter signup with email form",
+            "5-column link grid",
+            "status pill with teal dot",
+            "social icons",
+            "compliance badges row",
+            "bottom legal bar with locale",
+            "hairline borders",
+            "white/white-50/white-35 hierarchy"
           ],
           "styles": [
             "vercel"
@@ -15138,6 +15138,7 @@
             "editorial-warm-saas"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15235,6 +15236,7 @@
             "minimal-editorial-analytics"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15324,6 +15326,7 @@
             "neo-brutalism"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15404,6 +15407,7 @@
             "editorial-modern-monochrome-luxury"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15470,6 +15474,7 @@
             "cinematic-editorial"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15539,6 +15544,7 @@
             "neo-industrial-swiss-minimal"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15612,6 +15618,7 @@
             "soft-modern"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15673,6 +15680,7 @@
             "soft-modern"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15742,6 +15750,7 @@
             "neo-brutalism-editorial"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -15827,6 +15836,7 @@
             "glassmorphism-cyber-minimal"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -21785,8 +21795,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -21859,8 +21869,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -21951,8 +21961,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -22064,8 +22074,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -22123,6 +22133,7 @@
             "prefers-reduced-motion guard"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
             "metadata.json",
             "preview.html",
@@ -22197,8 +22208,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -22283,8 +22294,8 @@
             "modular file split (code.html + style.css + script.js)"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/code.html",
@@ -22364,8 +22375,8 @@
             "Zero dependencies — only external request is Google Fonts. Open preview.html (the template gallery) or any page in pages/ directly in a browser"
           ],
           "files": [
+            "AGENTS.md",
             "README.md",
-            "agent_instruction.md",
             "metadata.json",
             "preview.html",
             "pages/activity.html",
@@ -34806,6 +34817,7 @@
           ],
           "files": [
             ".gitignore",
+            "AGENTS.md",
             "README.md",
             "index.html",
             "metadata.json",

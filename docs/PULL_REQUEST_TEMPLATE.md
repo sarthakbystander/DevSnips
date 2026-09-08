@@ -10,6 +10,7 @@ Closes #<issue-number> (if applicable)
 
 - [ ] My snippet(s) include the standard comment header.
 - [ ] I followed project formatting and code style rules.
+- [ ] For templates, I added/updated the template-specific `AGENTS.md` agent instructions.
 - [ ] I reviewed snippet accessibility (semantic HTML + ARIA where needed).
 - [ ] I tested in multiple browsers.
 - [ ] I updated `snippets-index.json` for added/removed snippets.

@@ -1,4 +1,4 @@
-# Agent Instructions — Developer Portfolio
+# AGENTS.md — Developer Portfolio
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

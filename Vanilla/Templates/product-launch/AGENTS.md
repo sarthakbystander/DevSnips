@@ -1,4 +1,4 @@
-# Agent Instructions — Product Launch
+# AGENTS.md — Product Launch
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

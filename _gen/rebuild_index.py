@@ -526,6 +526,22 @@ def validate(data, families):
             if v.get("type") not in ("component", "section", "template"):
                 problems.append(f"{f['tech']} variant missing/invalid type: {v['path']}")
 
+    # 6. Every template must ship an AGENTS.md with template-specific
+    #    agent instructions (the universal template requirement).
+    for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
+                           (REACT, "React")):
+        tmpl = ROOT / root_dir / "Templates"
+        if not tmpl.exists():
+            continue
+        for top in tmpl.iterdir():
+            if not top.is_dir():
+                continue
+            agents = top / "AGENTS.md"
+            if not agents.exists():
+                problems.append(f"Template missing AGENTS.md: {top.relative_to(ROOT)}")
+            elif not agents.read_text(encoding="utf-8").strip():
+                problems.append(f"Template has empty AGENTS.md: {top.relative_to(ROOT)}")
+
     return problems
 
 

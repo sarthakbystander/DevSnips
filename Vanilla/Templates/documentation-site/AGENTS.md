@@ -1,4 +1,4 @@
-# Agent Instructions — Documentation Site
+# AGENTS.md — Documentation Site
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

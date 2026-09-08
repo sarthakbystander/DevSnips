@@ -1,4 +1,4 @@
-# Agent Instructions — SaaS Dashboard
+# AGENTS.md — SaaS Dashboard
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

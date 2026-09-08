@@ -82,6 +82,21 @@ The directory name is the canonical component id/slug; the primary component sou
 
 Templates may have multiple HTML, CSS, JS, and documentation files because they represent complete experiences rather than isolated snippets.
 
+## Template structure
+
+Every template under `Tailwind/Templates/`, `React/Templates/`, or `Vanilla/Templates/` must contain an `AGENTS.md` at its root:
+
+```text
+<template>/
+├── AGENTS.md          # template-specific AI agent instructions (required)
+├── metadata.json
+├── preview.html
+├── README.md
+└── pages/ or src/    # actual template source
+```
+
+`AGENTS.md` is DevSnips agent metadata/instructions — it is NOT template source code. It should explain what the template is, its structure, design system, how an agent should safely modify it, what NOT to change unnecessarily,and the quality bar to re-check. The validator enforces this structurally (`scripts/validate.py` fails when a template is missing it; `_gen/rebuild_index.py` refuses to write an index for a template that lacks it), so a new template contribution that omits `AGENTS.md` will not validate.
+
 ## Quality requirements
 
 Every contribution should aim for production-ready output, not merely a visual screenshot.
@@ -166,6 +181,7 @@ Mention validation commands you ran and any known limitations.
 - [ ] The component works at mobile and desktop widths.
 - [ ] I avoided unnecessary dependencies.
 - [ ] I regenerated `snippets-index.json` when content changed.
+- [ ] I added the `AGENTS.md` template-specific agent-instructions file when adding or editing a template.
 - [ ] `python3 scripts/validate.py` passes.
 - [ ] I documented any known limitations in the pull request.
 
