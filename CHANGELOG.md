@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-08
+
+### Added — `AGENTS.md` required for every template
+- **Standardized `AGENTS.md` across all templates**: every template under `Tailwind/Templates/`, `React/Templates/`, and `Vanilla/Templates/` now ships a root-level `AGENTS.md` — template-specific instructions for AI coding agents working with, modifying, extending, or adapting that template. 10 created for Tailwind templates (`ai-saas-platform`, `atlas-analytics`, `baseline-conference`, `devsnips-store`, `krat-adventure`, `meridian`, `northline-atelier`, `quiet-place`, `stratum`, `vesper`), 1 for the React template (`spray-art-school`), and 1 for the Vanilla `html5-boilerplate` (which previously had none).
+- **Vanilla `agent_instruction.md` renamed to `AGENTS.md`** — the 7 existing template agent-instruction files were renamed (and their headings updated) to the universal `AGENTS.md` name, keeping their template-specific content.
+- **Validator enforcement**: `scripts/validate.py` gains a structural `check_template_agents()` — it fails validation when any template under the three `Templates/` trees is missing an `AGENTS.md` (or has an empty one). `_gen/rebuild_index.py`'s cross-validation gains the same rule,so regenerating the index refuses to write when a template lacks `AGENTS.md`.
+- **Index regenerated** (`python3 -m _gen.rebuild_index`): every template's `files` manifest now includes its `AGENTS.md`; stats unchanged (116 families / 1018 variants / 1854 styles).
+- **Docs updated**: `docs/COMPONENT_STRUCTURE.md` (template structure diagram + standard-files table + requirement paragraph), `docs/CONTRIBUTING.md` (new "Template structure" section + contributor checklist item), `docs/PULL_REQUEST_TEMPLATE.md` (checklist item), and root `AGENTS.md` (Vanilla Templates layout + `AGENTS.md` section reflect the universal requirement.
+- **Verified**: `python3 scripts/validate.py` passes (0 problems; Vanilla quality bar: 191 components,  0 required failures); the validator and index generator both flag a missing `AGENTS.md` when simulated (exit 1 for validation).
+
 ## 2026-09-06
 
 ### Changed — Repo-wide naming, file, and folder consistency pass

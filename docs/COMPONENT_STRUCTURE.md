@@ -98,6 +98,7 @@ Templates are different because they may contain multiple pages and supporting f
 
 ```text
 Tailwind/Templates/<template-slug>/
+├── AGENTS.md
 ├── metadata.json
 ├── preview.html
 ├── README.md
@@ -106,7 +107,7 @@ Tailwind/Templates/<template-slug>/
     └── ...
 ```
 
-The exact internal template structure may vary when the template requires it. Do not force a multi-page template into the component three-file convention.
+Every template — Tailwind, Vanilla, and React — must ship an `AGENTS.md` at its root: template-specific instructions for AI coding agents working with, modifying, extending, or adapting that template. It is part of the template's DevSnips metadata layer, not installable source code. The exact internal template structure may vary when the template requires it. Do not force a multi-page template into the component three-file convention.
 
 ## Standard files
 
@@ -117,8 +118,13 @@ The exact internal template structure may vary when the template requires it. Do
 | `code.html` | Vanilla components | Self-contained single primary component source file (inline CSS + JS). |
 | `metadata.json` | Indexed variants | Structured identity, classification, search, and feature data. |
 | `README.md` | When useful / template-specific | Human-readable usage or implementation notes. |
+| `AGENTS.md` | Every template | Template-specific instructions for AI coding agents working with that template. |
 
 `preview.html` is a demonstration environment. It may contain CDN imports, demo content, page framing, and preview-only JavaScript. `code.html` should not inherit unnecessary preview scaffolding.
+
+
+
+`AGENTS.md` is required for every template under `Tailwind/Templates/`, `React/Templates/`, and `Vanilla/Templates/`. It explains what the template is, its structure, design system, how to safely modify it, what not to change, and the quality bar to re-check. The repository validator enforces its presence structurally — `python3 scripts/validate.py` fails if a template is missing it,and `python3 -m _gen.rebuild_index` refuses to write an index for a template that lacks it.
 
 ## Metadata principles
 

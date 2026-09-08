@@ -1,4 +1,4 @@
-# Agent Instructions — Job Board
+# AGENTS.md — Job Board
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

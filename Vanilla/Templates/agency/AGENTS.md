@@ -1,4 +1,4 @@
-# Agent Instructions — Agency
+# AGENTS.md — Agency
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

@@ -199,7 +199,7 @@ The Vanilla template collection follows the shared `Vanilla/Templates/design-tok
 
 **Final lineup (8 templates):** SaaS Dashboard (multipage), Documentation Site (modular), Job Board (modular), Agency (modular, dark-first), Developer Portfolio (modular, rebuilt), Product Launch (modular, rebuilt), Event Conference (modular, rebuilt), HTML5 Boilerplate (single-page starter). Stats after: totalFamilies=78, totalVariants=662 (Vanilla 40 families / 199 variants [297 Components + 8 Templates]). Index matches disk exactly.
 
-**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (+ optional `agent_instruction.md` for AI adaptation, + optional `assets/`/`css/`/`js/` for shared resources); all code files live in a `pages/` sub-directory:
+**Canonical folder layout (every Vanilla template):** the root holds exactly `preview.html` + `metadata.json` + `README.md` (required `AGENTS.md` — template-specific AI agent instructions, + optional `assets/`/`css/`/`js/` for shared resources); all code files live in a `pages/` sub-directory:
 ```
 <Template>/
 ├── pages/              ← all the code files
@@ -207,14 +207,14 @@ The Vanilla template collection follows the shared `Vanilla/Templates/design-tok
 ├── preview.html        ← self-contained single-file preview (modular templates inline CSS+JS); or thin iframe wrapper (html5-boilerplate); or the gallery shell (SaaS Dashboard)
 ├── metadata.json
 ├── README.md
-└── agent_instruction.md  (present on 7 templates; absent on html5-boilerplate)
+└── AGENTS.md            # template-specific AI agent instructions (required — every template)
 ```
 - **Modular templates** (Agency, Documentation Site, Job Board, Developer Portfolio, Product Launch, Event Conference): `pages/code.html` (HTML structure, links `style.css` + `script.js`) + `pages/style.css` (the `--ds-*` design system) + `pages/script.js` (interactions); `preview.html` is self-contained (inlines CSS+JS via `Vanilla/Templates/_build_preview.py`). All rebuilt templates are light-default with calm opt-in dark mode (no-flash pre-paint + persisted toggle), hairline 1px borders, small controlled radii, single controlled blue accent, Inter + JetBrains Mono, IntersectionObserver scroll-reveal (reduced-motion safe), skip link + semantic landmarks + single `h1` + ARIA + `:focus-visible` + native controls throughout.
 - **Single-page starter** (html5-boilerplate): `pages/index.html` holds a minimal HTML5 skeleton with the core `--ds-*` token foundation, no-flash dark-mode script, and reduced-motion guard; root `preview.html` is a thin full-viewport `<iframe src="pages/index.html">` wrapper.
 - **SaaS Dashboard** (multipage): the 31 page files live in `pages/`; `css/`, `js/`, `assets/` stay at root as shared resources referenced by the root `preview.html` gallery shell and the pages (via `../`).
 `snippets-index.json` variants list both root files (`README.md`, `metadata.json`, `preview.html`) and the one-level `pages/*` contents (via `_gen/rebuild_index.py` `make_variant`, which recurses into `pages/`).
 
-**`agent_instruction.md`** — present on 7 templates (all except html5-boilerplate). Concise AI-adaptation guide: what the template is, the design-system rules, the file layout, how to adapt (rebrand / swap content / add pages), explicit "do not" guardrails, and the quality bar to re-check. Points back to `design-tokens.md` as the source of truth.
+**`AGENTS.md`** — required at the root of EVERY template in the repository (Tailwind/Vanilla/React; the Vanilla files were renamed from the former `agent_instruction.md` convention). Concise template-specific AI-adaptation guide: what the template is,the design-system rules,the file layout,how to adapt (rebrand / swap content / add pages), explicit "do not" guardrails,and the quality bar to re-check. Vanilla files point back to `design-tokens.md` as the source of truth. `scripts/validate.py` and `_gen/rebuild_index.py` enforce the file's presence structurally,so a template without `AGENTS.md` cannot validate or be indexed.
 
 **`Vanilla/Templates/_build_preview.py`** — reusable helper that inlines `pages/style.css` + `pages/script.js` into `pages/code.html` to regenerate a self-contained `preview.html` for any modular Vanilla template. Run from inside the template folder: `python3 ../_build_preview.py .`.
 

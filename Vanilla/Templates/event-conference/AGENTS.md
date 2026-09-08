@@ -1,4 +1,4 @@
-# Agent Instructions — Event Conference
+# AGENTS.md — Event Conference
 
 Guidance for an AI agent adapting this template. Read this before editing.
 

@@ -221,10 +221,32 @@ def check_index_vs_disk():
                     problems.append("On-disk template not indexed: %s" % rel)
 
 
+def check_template_agents():
+    """Every template under `<Tech>/Templates/` must ship an AGENTS.md with
+    template-specific instructions for AI coding agents."""
+    for tech, td in TECH_DIRS:
+        tmpl = ROOT / td / "Templates"
+        if not tmpl.exists():
+            continue
+        for top in tmpl.iterdir():
+            if not top.is_dir():
+                continue
+            agents = top / "AGENTS.md"
+            if not agents.exists():
+                problems.append(
+                    "ERROR: Template %s is missing AGENTS.md"
+                    % (top.relative_to(ROOT)))
+            elif not agents.read_text(encoding="utf-8").strip():
+                problems.append(
+                    "ERROR: Template %s has an empty AGENTS.md"
+                    % (top.relative_to(ROOT)))
+
+
 def main():
     check_architecture()
     check_metadata_validity()
     check_index_vs_disk()
+    check_template_agents()
     # Quality-bar scan (Vanilla components). Non-fatal warnings are fine; only
     # required-check failures fail validation, so the bar is enforced in CI.
     qa_failures = _run_qa()
