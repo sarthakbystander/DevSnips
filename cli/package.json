@@ -1,0 +1,36 @@
+{
+  "name": "devsnips",
+  "version": "1.0.0",
+  "description": "DevSnips CLI - Install UI components from the DevSnips library",
+  "main": "src/index.js",
+  "bin": {
+    "devsnips": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node src/index.js --help"
+  },
+  "keywords": [
+    "devsnips",
+    "ui",
+    "components",
+    "tailwind",
+    "react",
+    "html",
+    "css",
+    "cli"
+  ],
+  "author": "DevSnips",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarthakbystander/DevSnips.git",
+    "directory": "cli"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/**/*",
+    "README.md"
+  ]
+}
