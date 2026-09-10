@@ -1,10 +1,10 @@
-# Icon Accordion
+# Timeline Accordion
 
-Accordion with leading category icons.
+Timeline-styled accordion sections.
 
 ## Usage
 ```bash
-npx devsnips add Tailwind/Components/Accordions/icon-accordion
+npx devsnips add Tailwind/Components/Accordions/timeline-accordion
 ```
 Copy from `code.html`.
 

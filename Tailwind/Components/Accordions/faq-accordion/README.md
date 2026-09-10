@@ -1,10 +1,10 @@
-# Icon Accordion
+# FAQ Accordion
 
-Accordion with leading category icons.
+FAQ-oriented accordion layout.
 
 ## Usage
 ```bash
-npx devsnips add Tailwind/Components/Accordions/icon-accordion
+npx devsnips add Tailwind/Components/Accordions/faq-accordion
 ```
 Copy from `code.html`.
 

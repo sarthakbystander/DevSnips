@@ -1,10 +1,10 @@
-# Icon Accordion
+# Pricing FAQ
 
-Accordion with leading category icons.
+Pricing-page FAQ accordion grouped by plan tier.
 
 ## Usage
 ```bash
-npx devsnips add Tailwind/Components/Accordions/icon-accordion
+npx devsnips add Tailwind/Components/Accordions/pricing-faq
 ```
 Copy from `code.html`.
 

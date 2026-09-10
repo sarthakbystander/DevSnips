@@ -1,10 +1,10 @@
-# Icon Accordion
+# Glass Accordion
 
-Accordion with leading category icons.
+Glassmorphism accordion.
 
 ## Usage
 ```bash
-npx devsnips add Tailwind/Components/Accordions/icon-accordion
+npx devsnips add Tailwind/Components/Accordions/glass-accordion
 ```
 Copy from `code.html`.
 

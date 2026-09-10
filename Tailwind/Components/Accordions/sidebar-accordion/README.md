@@ -1,10 +1,10 @@
-# Icon Accordion
+# Sidebar Accordion
 
-Accordion with leading category icons.
+Sidebar navigation accordion.
 
 ## Usage
 ```bash
-npx devsnips add Tailwind/Components/Accordions/icon-accordion
+npx devsnips add Tailwind/Components/Accordions/sidebar-accordion
 ```
 Copy from `code.html`.
 
