@@ -19,6 +19,8 @@ Checks:
   9. No stale Sections/Utilities/Resources path references in the index.
  10. Every metadata.json carries a `type` (component/section/template)
      matching its content-type bucket.
+ 11. Tailwind component leaves require README.md in addition to code.html +
+     preview.html + metadata.json.
 """
 import json
 import sys
@@ -123,6 +125,15 @@ def check_metadata_validity():
                         if not (leaf / need).exists():
                             problems.append(
                                 "Tailwind %s missing %s: %s" % (bucket.lower(), need, leaf))
+                    # Tailwind Components additionally require a useful README.md.
+                    if bucket == "Components" and not (leaf / "README.md").exists():
+                        problems.append(
+                            "Tailwind component missing README.md: %s" % leaf)
+                    elif bucket == "Components":
+                        readme = leaf / "README.md"
+                        if readme.exists() and not readme.read_text(encoding="utf-8").strip():
+                            problems.append(
+                                "Tailwind component has empty README.md: %s" % leaf)
                 # React leaves (components + sections) require code.tsx +
                 # preview.html. React templates ship preview.html only.
                 if tech == REACT and bucket in ("Components", "Sections") \
@@ -264,7 +275,7 @@ def _run_qa():
     """Run the Vanilla quality-bar scanner; return required-failure count.
 
     Only surfaces the summary line and any FAIL rows (warns are non-fatal and
-    not printed to keep validation output readable).
+    # not printed to keep validation output readable).
     """
     import subprocess
     qa = ROOT / "scripts" / "qa_vanilla.py"
