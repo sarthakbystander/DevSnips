@@ -50,7 +50,8 @@ A standard Tailwind component or section variant contains:
 <variant>/
 ├── code.html
 ├── preview.html
-└── metadata.json
+├── metadata.json
+└── README.md
 ```
 
 `code.html` must contain the focused copy-paste implementation. Keep demo-only wrappers and unrelated page content out of it.
@@ -58,6 +59,8 @@ A standard Tailwind component or section variant contains:
 `preview.html` is a complete standalone demonstration. It may contain Tailwind CDN setup, demo data, page framing, and scripts needed only for the preview.
 
 `metadata.json` must contain the structured information required by the repository schema, including a valid `type` for Tailwind content.
+
+`README.md` provides component-specific documentation: what the variant is, when to use it, how to install/customize it, accessibility notes, responsive behavior, and dependencies. Write it from the actual implementation in `code.html` rather than generic marketing text.
 
 Tailwind `type` values are:
 
@@ -173,7 +176,7 @@ Mention validation commands you ran and any known limitations.
 
 - [ ] I placed the content in the correct technology and content type.
 - [ ] I used kebab-case for new filesystem slugs.
-- [ ] I added the required files for the content type.
+- [ ] I added the required files for the content type (including README.md for Tailwind component variants).
 - [ ] Metadata accurately describes the implementation.
 - [ ] Interactive behavior is keyboard accessible.
 - [ ] Focus states are visible where applicable.
