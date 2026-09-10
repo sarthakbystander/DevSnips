@@ -80,7 +80,8 @@ For example:
 Tailwind/Components/Buttons/primary-button/
 ├── code.html
 ├── preview.html
-└── metadata.json
+├── metadata.json
+└── README.md
 ```
 
 Vanilla components use a single self-contained source file:
@@ -117,12 +118,10 @@ Every template — Tailwind, Vanilla, and React — must ship an `AGENTS.md` at 
 | `preview.html` | Tailwind components/sections | Standalone visual preview and demonstration. |
 | `code.html` | Vanilla components | Self-contained single primary component source file (inline CSS + JS). |
 | `metadata.json` | Indexed variants | Structured identity, classification, search, and feature data. |
-| `README.md` | When useful / template-specific | Human-readable usage or implementation notes. |
+| `README.md` | Tailwind component variants, Vanilla components, React components, templates | Human-readable usage, customization, accessibility, and implementation notes. |
 | `AGENTS.md` | Every template | Template-specific instructions for AI coding agents working with that template. |
 
 `preview.html` is a demonstration environment. It may contain CDN imports, demo content, page framing, and preview-only JavaScript. `code.html` should not inherit unnecessary preview scaffolding.
-
-
 
 `AGENTS.md` is required for every template under `Tailwind/Templates/`, `React/Templates/`, and `Vanilla/Templates/`. It explains what the template is, its structure, design system, how to safely modify it, what not to change, and the quality bar to re-check. The repository validator enforces its presence structurally — `python3 scripts/validate.py` fails if a template is missing it,and `python3 -m _gen.rebuild_index` refuses to write an index for a template that lacks it.
 
