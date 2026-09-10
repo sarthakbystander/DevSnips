@@ -1,0 +1,12 @@
+# Form Modal
+
+Form inside a modal.
+
+## Usage
+```bash
+npx devsnips add Tailwind/Components/Modals/form-modal
+```
+Copy from `code.html`.
+
+## File Structure
+`code.html` · `preview.html` · `metadata.json` · `README.md`
