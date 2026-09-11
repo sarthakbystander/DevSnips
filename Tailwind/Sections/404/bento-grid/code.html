@@ -1,17 +1,92 @@
 <!--
-Snippet Name: Dashboard 404 — Bento Grid
-Description: Bento Grid 404 page: Dashboard 404.
-Author: DevSnips Contributors
-Usage Example: Drop this snippet into any Tailwind CSS page.
+Snippet Name: Dashboard 404 — Bento Grid (refined)
+Description: Polished Bento / workspace-style 404. Fixed missing button padding & flex alignment, nested structure, focus states, vertical centering, and replaced hard-coded brand.
+Author: DevSnips Contributors (refined)
+Usage Example: Drop this snippet into any Tailwind CSS page. Ideal as an in-app "resource missing" state or full 404.
 -->
 
 <style>
-  /* DevSnips style-helper classes (self-contained snippet) */
-  .f-sans{font-family:'Inter',sans-serif}.f-mono{font-family:'JetBrains Mono',monospace}.f-disp{font-family:'Inter',sans-serif}
-      .bento{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(236,72,153,.08))}
+  /* Self-contained helpers */
+  .f-sans { font-family: 'Inter', system-ui, sans-serif; }
+  .f-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .bento-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  }
+  .bento-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  }
+  .bento-btn-primary:hover {
+    filter: brightness(1.08);
+  }
 </style>
-<section class="relative w-full py-20 sm:py-28 text-white" data-section="bento-grid">
-<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-<div class="max-w-lg mx-auto bg-white/[0.04] border border-white/10 rounded-3xl transition-transform duration-300 hover:-translate-y-1 p-8"><div class="flex items-center justify-between border-b border-current/10 pb-3 mb-6"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-2 h-7" style="color:currentColor"><svg viewBox="0 0 24 24" fill="none" class="h-full w-auto" aria-hidden="true"><path d="M12 2 2 19h20L12 2z" fill="currentColor"/></svg><span class="font-semibold tracking-tight">Flowbase</span></span><span class="text-sm font-medium">Workspace</span></div><span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 f-mono text-[11px] font-medium text-white/70">404</span></div><div class="text-center py-6"><div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center bg-white/[0.03] border border-white/10 rounded-2xl"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div><h1 class="font-semibold">Resource not found</h1><p class="mt-1 text-sm text-white/55">This item may have been deleted or you lack access.</p></div><div class="flex gap-2"><a href="/" class="bg-gradient-to-br from-indigo-500 to-pink-500 text-white rounded-2xl font-semibold hover:opacity-90 flex-1 justify-center"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg> Back to app</a><a href="#" class="border border-white/15 bg-white/5 text-white rounded-2xl font-medium hover:bg-white/10 flex-1 justify-center"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Report</a></div></div>
-</div>
+
+<section
+  class="relative w-full min-h-[65vh] flex items-center justify-center py-16 sm:py-24 text-white bg-[#0a0a0f]"
+  data-section="bento-grid"
+  aria-labelledby="bento-404-title"
+>
+  <div class="mx-auto max-w-7xl w-full px-5 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto bento-card rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-black/40 transition-transform duration-300 hover:-translate-y-0.5">
+      <!-- Header -->
+      <div class="flex items-center justify-between gap-3 px-5 py-3.5 border-b border-white/10">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center text-white/90" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+              <path d="M12 3 2 21h20L12 3z" />
+            </svg>
+          </span>
+          <span class="truncate text-sm font-medium tracking-tight text-white/90">
+            Your Workspace
+          </span>
+        </div>
+        <span class="shrink-0 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-xs font-medium tabular-nums text-white/70 f-mono">
+          404
+        </span>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 py-10 sm:px-8 sm:py-12 text-center">
+        <div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.04] border border-white/10">
+          <svg class="h-6 w-6 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+        </div>
+
+        <h1 id="bento-404-title" class="text-xl sm:text-2xl font-semibold tracking-tight text-white">
+          Resource not found
+        </h1>
+        <p class="mt-2 text-sm leading-relaxed text-white/55 max-w-xs mx-auto">
+          This item may have been deleted or you lack access.
+        </p>
+
+        <!-- Actions — flattened, explicit padding, focus rings -->
+        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+          <a
+            href="/"
+            class="bento-btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+          >
+            <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9.5 12 3l9 6.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <path d="M9 22V12h6v10" />
+            </svg>
+            Back to app
+          </a>
+          <a
+            href="#report"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+          >
+            <svg class="h-4 w-4 shrink-0 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            Report
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

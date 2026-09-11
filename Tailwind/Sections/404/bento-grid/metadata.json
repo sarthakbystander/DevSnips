@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Dashboard 404",
   "style": "bento-grid",
-  "description": "Bento Grid 404 page: Dashboard 404.",
+  "description": "Refined workspace-style resource-not-found card. Fixed missing button padding, flattened structure, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "bento-grid"
-  ],
-  "features": [
-    "dashboard 404",
-    "app shell panel",
-    "resource framing",
-    "report CTA",
-    "dual CTA"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "bento-grid"],
+  "features": ["glass card", "workspace header", "404 badge", "warning icon", "gradient primary CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
