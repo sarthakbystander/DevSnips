@@ -7,15 +7,35 @@
   "subcategory": "404",
   "section": "Retro 404",
   "style": "editorial",
-  "description": "Refined editorial magazine-style 404 with proper button padding, focus rings, and vertical centering.",
+  "description": "Editorial 404 page: Retro 404.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": ["404", "error", "not-found", "error-page", "editorial"],
-  "features": ["editorial 404", "serif display", "dual CTA", "focus-visible", "production-ready"],
+  "tags": [
+    "404",
+    "error",
+    "not-found",
+    "error-page",
+    "editorial"
+  ],
+  "features": [
+    "retro 404",
+    "drop-shadow numeral",
+    "uppercase tracking",
+    "display font",
+    "dual CTA"
+  ],
   "responsive": true,
   "darkMode": false,
   "accessibility": true,
-  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
-  "dependencies": ["Tailwind CSS (CDN)"],
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
   "type": "section"
 }
