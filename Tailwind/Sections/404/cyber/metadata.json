@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Moody 404",
   "style": "cyber",
-  "description": "Cyber 404 page: Moody 404.",
+  "description": "Refined neon cyber 404 with explicit button padding, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "cyber"
-  ],
-  "features": [
-    "moody 404",
-    "accent glow",
-    "oversized numeral",
-    "dark hero",
-    "dual CTA"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "cyber"],
+  "features": ["moody 404", "accent glow", "oversized numeral", "dark hero", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }

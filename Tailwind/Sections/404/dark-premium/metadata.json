@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Gradient 404",
   "style": "dark-premium",
-  "description": "Dark Premium 404 page: Gradient 404.",
+  "description": "Refined amber gradient 404 card with proper padding, focus states, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "dark-premium"
-  ],
-  "features": [
-    "gradient 404",
-    "full-bleed color",
-    "white CTA",
-    "oversized numeral",
-    "responsive"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "dark-premium"],
+  "features": ["gradient 404", "oversized numeral", "single CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
