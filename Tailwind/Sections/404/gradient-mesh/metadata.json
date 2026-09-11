@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Minimal 404",
   "style": "gradient-mesh",
-  "description": "Gradient Mesh 404 page: Minimal 404.",
+  "description": "Refined animated gradient-mesh 404 with proper padding, focus rings, vertical centering, and reduced-motion support.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "gradient-mesh"
-  ],
-  "features": [
-    "minimal 404",
-    "oversized numeral",
-    "centered",
-    "dual CTA",
-    "low chrome"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "gradient-mesh"],
+  "features": ["gradient mesh", "animated background", "dual CTA", "focus-visible", "reduced-motion", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
