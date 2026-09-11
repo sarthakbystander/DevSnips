@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Developer Theme 404",
   "style": "edge-glassmorphism",
-  "description": "Edge Glassmorphism 404 page: Developer 404.",
+  "description": "Refined edge glassmorphism terminal 404 with fixed button padding, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "edge-glassmorphism"
-  ],
-  "features": [
-    "developer 404",
-    "terminal window",
-    "shell output",
-    "blinking cursor",
-    "dual CTA"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "edge-glassmorphism"],
+  "features": ["edge glassmorphism", "terminal panel", "mesh background", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
