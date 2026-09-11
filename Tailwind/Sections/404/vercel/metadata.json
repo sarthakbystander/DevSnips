@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Terminal 404",
   "style": "vercel",
-  "description": "Vercel / Linear 404 page: Terminal 404.",
+  "description": "Refined terminal-style 404 with proper button padding, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "vercel"
-  ],
-  "features": [
-    "terminal 404",
-    "pure mono layout",
-    "shell prompt",
-    "blinking cursor",
-    "dual CTA"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "vercel"],
+  "features": ["terminal 404", "pure mono layout", "shell prompt", "blinking cursor", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": true,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }

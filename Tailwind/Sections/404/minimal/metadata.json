@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Illustration 404",
   "style": "minimal",
-  "description": "Minimal 404 page: Illustration 404.",
+  "description": "Refined minimal 404 with map illustration, proper button padding, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "minimal"
-  ],
-  "features": [
-    "illustration 404",
-    "SVG crosshair art",
-    "centered",
-    "dual CTA",
-    "no images needed"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "minimal"],
+  "features": ["illustration 404", "SVG crosshair art", "centered", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": false,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
