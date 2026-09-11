@@ -1,42 +1,18 @@
 <!--
-Snippet Name: Vercel-Inspired 404 — Futuristic (refined)
-Description: Cyan futuristic 404. Fixed padding, focus, centering.
-Author: DevSnips Contributors (refined)
+Snippet Name: Vercel-Inspired 404 — Futuristic
+Description: Futuristic 404 page: Vercel-inspired 404.
+Author: DevSnips Contributors
 Usage Example: Drop this snippet into any Tailwind CSS page.
 -->
 
 <style>
-  .f-disp { font-family: 'Space Grotesk', system-ui, sans-serif; }
-  .ft-glow { box-shadow: 0 0 0 1px rgba(34,211,238,0.2), 0 0 30px -8px rgba(34,211,238,0.4); }
+  /* DevSnips style-helper classes (self-contained snippet) */
+  .f-sans{font-family:'Space Grotesk',sans-serif}.f-mono{font-family:'JetBrains Mono',monospace}.f-disp{font-family:'Space Grotesk',sans-serif}
+      .ft-grid{background-image:linear-gradient(rgba(34,211,238,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.07) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 100%)}
+      .ft-glow{box-shadow:0 0 0 1px rgba(34,211,238,.2),0 0 30px -8px rgba(34,211,238,.4)}
 </style>
-
-<section
-  class="relative w-full min-h-[65vh] flex items-center justify-center py-16 sm:py-24 text-white bg-[#030712]"
-  data-section="futuristic"
-  aria-labelledby="ft-404-title"
->
-  <div class="mx-auto max-w-7xl w-full px-5 sm:px-6 lg:px-8">
-    <div class="text-center max-w-md mx-auto">
-      <div class="mx-auto mb-6 flex h-12 w-12 items-center justify-center bg-[#0b1220]/60 border border-cyan-400/15 rounded-xl ft-glow">
-        <svg class="h-6 w-6 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/>
-          <line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-      </div>
-      <p class="f-disp text-6xl sm:text-7xl font-bold tracking-tight text-cyan-300">404</p>
-      <h1 id="ft-404-title" class="mt-3 f-disp text-xl font-semibold">Signal lost</h1>
-      <p class="mt-2 text-sm text-white/50">The coordinate you requested does not exist in this sector.</p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/" class="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-[#030712] hover:bg-cyan-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712]">
-          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
-          Back home
-        </a>
-        <a href="#search" class="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-400/30 px-5 py-2.5 text-sm font-medium text-cyan-300 hover:bg-cyan-400/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712]">
-          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          Search
-        </a>
-      </div>
-    </div>
-  </div>
+<section class="relative w-full py-20 sm:py-28 text-white" data-section="futuristic">
+<div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+<div class="text-center"><div class="mx-auto mb-6 flex h-12 w-12 items-center justify-center bg-[#0b1220]/60 border border-cyan-400/15 rounded-xl"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div><p class="f-disp text-6xl sm:text-7xl font-bold tracking-tight text-cyan-300">404</p><h1 class="mt-3 f-disp text-xl font-semibold">Signal lost</h1><p class="mt-2 text-sm text-white/50">The coordinate you requested does not exist in this sector.</p><div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center"><a href="/" class="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-[#030712] hover:bg-cyan-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg> Back home</a><a href="#" class="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-400/30 px-5 py-2.5 text-sm font-medium text-cyan-300 hover:bg-cyan-400/10"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> Search</a></div></div>
+</div>
 </section>
