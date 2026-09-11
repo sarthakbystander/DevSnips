@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Space Theme 404",
   "style": "neo-brutalism",
-  "description": "Neo Brutalism 404 page: Space theme 404.",
+  "description": "Refined neo-brutalist space 404 with proper button padding, press states, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "neo-brutalism"
-  ],
-  "features": [
-    "space theme 404",
-    "starfield bg",
-    "satellite icon",
-    "glowing numeral",
-    "dual CTA"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "neo-brutalism"],
+  "features": ["space theme 404", "starfield bg", "satellite icon", "glowing numeral", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": false,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }

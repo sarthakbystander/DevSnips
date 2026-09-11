@@ -7,35 +7,15 @@
   "subcategory": "404",
   "section": "Funny 404",
   "style": "soft-ui",
-  "description": "Soft UI 404 page: Funny 404.",
+  "description": "Refined soft-UI neumorphic 404 with proper button padding, press states, focus rings, and vertical centering.",
   "framework": "Tailwind CSS",
   "language": "HTML",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "error-page",
-    "soft-ui"
-  ],
-  "features": [
-    "funny 404",
-    "ghost icon",
-    "playful copy",
-    "dual CTA",
-    "centered"
-  ],
+  "tags": ["404", "error", "not-found", "error-page", "soft-ui"],
+  "features": ["funny 404", "ghost icon", "playful copy", "dual CTA", "focus-visible", "production-ready"],
   "responsive": true,
   "darkMode": false,
   "accessibility": true,
-  "browserSupport": [
-    "Chrome",
-    "Firefox",
-    "Safari",
-    "Edge"
-  ],
-  "dependencies": [
-    "Tailwind CSS (CDN)",
-    "Google Fonts"
-  ],
+  "browserSupport": ["Chrome", "Firefox", "Safari", "Edge"],
+  "dependencies": ["Tailwind CSS (CDN)"],
   "type": "section"
 }
