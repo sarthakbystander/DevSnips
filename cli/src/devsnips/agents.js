@@ -41,13 +41,13 @@ under this \`devsnips/\` directory.
 When working with DevSnips resources:
 
 - Inspect the existing project before modifying UI.
-- Preserve the project\'s existing design language.
+- Preserve the project's existing design language.
 - Reuse existing project patterns and styles where appropriate.
 - Do not introduce unnecessary dependencies.
 - Keep UI responsive.
 - Keep UI accessible.
 - Avoid unnecessary duplication.
-- Prefer the project\'s existing components and utilities when they already solve the problem.
+- Prefer the project's existing components and utilities when they already solve the problem.
 
 ## Resource Adaptation
 
@@ -55,11 +55,11 @@ DevSnips resources are starting points for this project.
 
 When using an installed resource:
 
-- Inspect the resource\'s README.md.
+- Inspect the resource's README.md.
 - Inspect its actual source files.
-- Adapt the implementation to the project\'s existing conventions.
+- Adapt the implementation to the project's existing conventions.
 - Preserve intended functionality.
-- Do not blindly copy implementation details when they conflict with the project\'s architecture.
+- Do not blindly copy implementation details when they conflict with the project's architecture.
 - Reuse existing tokens, utilities, components, and patterns where appropriate.
 
 ## Quality Checks
