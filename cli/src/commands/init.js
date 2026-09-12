@@ -5,57 +5,46 @@
  * - ./devsnips/ directory
  * - ./devsnips/config.json (if missing)
  * - ./devsnips/AGENTS.md (if missing)
+ *
+ * Existing files are always preserved.
  */
 
 const { initializeContext, isContextInitialized } = require('../devsnips/context.js');
 
 /**
- * Execute the init command
+ * Execute the init command.
  */
 function runInitCommand() {
   console.log('DevSnips');
   console.log('');
-  
-  // Check if already initialized
+
+  // Both context files already exist - nothing to create
   if (isContextInitialized()) {
     console.log('  DevSnips project context already initialized.');
-    console.log('');
-    console.log('  devsnips/AGENTS.md exists');
-    console.log('  devsnips/config.json exists');
-    console.log('');
-    console.log('✓ No changes made (existing files preserved)');
     console.log('');
     process.exit(0);
     return;
   }
-  
-  console.log('  Initializing DevSnips project context... ');
-  
+
+  process.stdout.write('  Initializing DevSnips project context... ');
+
   try {
     const result = initializeContext();
-    
-    console.log('  ✓');
-    console.log('');
-    
+    console.log('✓');
+
     if (result.agentsCreated) {
       console.log('  Created devsnips/AGENTS.md');
-    } else {
-      console.log('  devsnips/AGENTS.md already exists');
     }
-    
     if (result.configCreated) {
       console.log('  Created devsnips/config.json');
-    } else {
-      console.log('  devsnips/config.json already exists');
     }
-    
+
     console.log('');
     console.log('✓ DevSnips project initialized successfully');
     console.log('');
-    
     process.exit(0);
   } catch (error) {
-    console.log('  ✗');
+    console.log('✗');
     console.log('');
     console.error('✗ Initialization failed');
     console.error('');

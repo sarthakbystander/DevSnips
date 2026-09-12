@@ -11,6 +11,7 @@ const os = require('node:os');
 
 const {
   getConfigPath,
+  getDevSnipsDirectory,
   ensureDevSnipsDirectory,
   createDefaultConfig,
   readConfig,
@@ -193,6 +194,51 @@ check('multiple installations are recorded', () => {
   
   const config = readConfig();
   assert.strictEqual(config.resources.length, 2);
+  teardown();
+});
+
+
+// Test: getDevSnipsDirectory returns correct path
+check('getDevSnipsDirectory returns correct path', () => {
+  const dir = getDevSnipsDirectory();
+  assert.strictEqual(dir, path.join(process.cwd(), 'devsnips'));
+});
+
+// Test: readConfig rejects non-object JSON (array)
+check('readConfig rejects non-object JSON (array)', () => {
+  setup();
+  const devsnipsDir = path.join(process.cwd(), 'devsnips');
+  fs.mkdirSync(devsnipsDir, { recursive: true });
+  fs.writeFileSync(getConfigPath(), '[1,2,3]', 'utf8');
+
+  assert.throws(() => readConfig(), /must contain a JSON object/i);
+  teardown();
+});
+
+// Test: readConfig rejects non-object JSON (null)
+check('readConfig rejects non-object JSON (null)', () => {
+  setup();
+  const devsnipsDir = path.join(process.cwd(), 'devsnips');
+  fs.mkdirSync(devsnipsDir, { recursive: true });
+  fs.writeFileSync(getConfigPath(), 'null', 'utf8');
+
+  assert.throws(() => readConfig(), /must contain a JSON object/i);
+  teardown();
+});
+
+// Test: recordInstallation keeps existing fields when updating
+check('recordInstallation preserves existing config fields', () => {
+  setup();
+  const devsnipsDir = path.join(process.cwd(), 'devsnips');
+  fs.mkdirSync(devsnipsDir, { recursive: true });
+  const existing = { version: 1, project: { framework: 'react' }, resources: [] };
+  fs.writeFileSync(getConfigPath(), JSON.stringify(existing, null, 2) + '\n', 'utf8');
+
+  recordInstallation('React/Components/Buttons/solid-button', 'React');
+
+  const config = readConfig();
+  assert.deepStrictEqual(config.project, { framework: 'react' });
+  assert.strictEqual(config.resources.length, 1);
   teardown();
 });
 

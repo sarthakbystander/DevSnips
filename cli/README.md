@@ -64,6 +64,24 @@ npx devsnips init
 
 Existing `AGENTS.md` files are never overwritten by the CLI. You may edit this file to add project-specific instructions.
 
+`config.json` is machine-readable and CLI-managed. After each successful installation the CLI records the installed resource at its canonical registry path:
+
+```json
+{
+  "version": 1,
+  "project": {},
+  "resources": [
+    {
+      "path": "Vanilla/Components/Buttons/split-button",
+      "technology": "Vanilla HTML/CSS/JS",
+      "installedAt": "2026-09-11T23:26:00.000Z"
+    }
+  ]
+}
+```
+
+`resources` tracks components, sections, and templates alike using one record type, so any resolvable registry entry is recorded correctly. The CLI never fabricates project/framework information it cannot know, and a malformed `config.json` fails safely instead of being replaced.
+
 ### Help and version
 
 ```bash

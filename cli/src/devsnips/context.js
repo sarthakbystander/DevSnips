@@ -2,41 +2,41 @@
  * DevSnips CLI - Project context management
  *
  * High-level API for initializing and updating the DevSnips project context.
- * This includes ensuring the devsnips directory, config.json, and AGENTS.md exist.
+ * This includes ensuring the devsnips directory, config.json, and AGENTS.md
+ * exist, and recording successful installations.
  */
 
-const { ensureDevSnipsDirectory, ensureConfig, recordInstallation } = require('./config.js');
-const { ensureAgents } = require('./agents.js');
+const fs = require('node:fs');
+const {
+  ensureDevSnipsDirectory,
+  ensureConfig,
+  recordInstallation,
+  getConfigPath
+} = require('./config.js');
+const { ensureAgents, getAgentsPath } = require('./agents.js');
 
 /**
- * Initialize the DevSnips project context if it does not exist
+ * Initialize the DevSnips project context if it does not exist.
  *
  * This creates:
  * - ./devsnips/ directory
  * - ./devsnips/config.json (if missing)
  * - ./devsnips/AGENTS.md (if missing)
  *
- * Safe to run multiple times - will not overwrite existing files.
+ * Safe to run multiple times - existing files are never overwritten.
  *
  * @returns {object} - { agentsCreated: boolean, configCreated: boolean }
  */
 function initializeContext() {
-  // Ensure directory exists
   ensureDevSnipsDirectory();
-  
-  // Check if config existed before ensureConfig
-  const fs = require('node:fs');
-  const path = require('node:path');
-  const configPath = path.join(process.cwd(), 'devsnips', 'config.json');
-  const configExisted = fs.existsSync(configPath);
-  
-  // Ensure config (creates if missing)
+
+  // Determine whether config was created by this call (must check before)
+  const configExisted = fs.existsSync(getConfigPath());
   ensureConfig();
   const configCreated = !configExisted;
-  
-  // Ensure AGENTS.md (creates only if missing)
+
   const agentsResult = ensureAgents();
-  
+
   return {
     agentsCreated: agentsResult.created,
     configCreated: configCreated
@@ -44,41 +44,27 @@ function initializeContext() {
 }
 
 /**
- * Update the project context after a successful installation
+ * Update the project context after a successful installation.
  *
- * This records the installed resource in config.json.
- * Does NOT modify AGENTS.md (user-owned file).
+ * Records the installed resource in config.json. Does NOT modify AGENTS.md
+ * (user-owned file).
  *
  * @param {string} canonicalPath - Canonical registry path
  * @param {string} technology - Technology name from registry
- * @returns {object} - { recorded: boolean, alreadyExisted: boolean }
+ * @returns {boolean} - True if a record was added, false if it already existed
+ * @throws {Error} - If the config cannot be read/written
  */
 function updateContextAfterInstall(canonicalPath, technology) {
-  try {
-    const recorded = recordInstallation(canonicalPath, technology);
-    return {
-      recorded: recorded,
-      alreadyExisted: !recorded
-    };
-  } catch (error) {
-    // Re-throw to be handled by caller
-    throw error;
-  }
+  return recordInstallation(canonicalPath, technology);
 }
 
 /**
- * Check if the DevSnips project context is initialized
+ * Check if the DevSnips project context is initialized.
  *
  * @returns {boolean} - True if both config.json and AGENTS.md exist
  */
 function isContextInitialized() {
-  const fs = require('node:fs');
-  const path = require('node:path');
-  
-  const configPath = path.join(process.cwd(), 'devsnips', 'config.json');
-  const agentsPath = path.join(process.cwd(), 'devsnips', 'AGENTS.md');
-  
-  return fs.existsSync(configPath) && fs.existsSync(agentsPath);
+  return fs.existsSync(getConfigPath()) && fs.existsSync(getAgentsPath());
 }
 
 module.exports = {

@@ -130,4 +130,60 @@ check('help output mentions init command', () => {
   teardown();
 });
 
+
+// Test: running init again prints the already-initialized message
+check('running init again prints already-initialized message', () => {
+  setup();
+  execSync(`node "${cliPath}" init`, { stdio: 'pipe' });
+  const output = execSync(`node "${cliPath}" init`, { encoding: 'utf8' });
+
+  assert.ok(output.includes('DevSnips project context already initialized.'));
+  teardown();
+});
+
+// Test: init output reports created files on first run
+check('init output reports created files on first run', () => {
+  setup();
+  const output = execSync(`node "${cliPath}" init`, { encoding: 'utf8' });
+
+  assert.ok(output.includes('Created devsnips/AGENTS.md'));
+  assert.ok(output.includes('Created devsnips/config.json'));
+  assert.ok(output.includes('DevSnips project initialized successfully'));
+  teardown();
+});
+
+// Test: init preserves arbitrary user files in devsnips directory
+check('init preserves arbitrary user files in devsnips dir', () => {
+  setup();
+  const devsnipsDir = path.join(process.cwd(), 'devsnips');
+  fs.mkdirSync(devsnipsDir, { recursive: true });
+  fs.writeFileSync(path.join(devsnipsDir, 'custom-file.txt'), 'keep me', 'utf8');
+
+  execSync(`node "${cliPath}" init`, { stdio: 'pipe' });
+
+  assert.strictEqual(fs.readFileSync(path.join(devsnipsDir, 'custom-file.txt'), 'utf8'), 'keep me');
+  teardown();
+});
+
+// Test: init fails cleanly when config.json is malformed
+check('init fails cleanly on malformed config.json', () => {
+  setup();
+  const devsnipsDir = path.join(process.cwd(), 'devsnips');
+  fs.mkdirSync(devsnipsDir, { recursive: true });
+  fs.writeFileSync(path.join(devsnipsDir, 'config.json'), '{ bad json', 'utf8');
+
+  let threw = false;
+  try {
+    execSync(`node "${cliPath}" init`, { stdio: 'pipe' });
+  } catch (error) {
+    threw = true;
+    assert.ok(error.status !== 0);
+  }
+  assert.ok(threw, 'init should exit nonzero on malformed config');
+
+  // Malformed file is left untouched
+  assert.strictEqual(fs.readFileSync(path.join(devsnipsDir, 'config.json'), 'utf8'), '{ bad json');
+  teardown();
+});
+
 console.log('\nAll init tests passed\n');

@@ -9,7 +9,7 @@ const { exitWithError } = require('../utils/errors.js');
 const { fetchRegistry, resolveComponent, findSimilarPaths } = require('../registry/resolver.js');
 const { downloadFile, getSourceFiles, buildRepoFilePath } = require('../install/downloader.js');
 const { calculateDestination, getDestinationFilePath, writeFile } = require('../install/writer.js');
-const { initializeContext, updateContextAfterInstall } = require('../devsnips/context.js');
+const { initializeContext, updateContextAfterInstall, isContextInitialized } = require('../devsnips/context.js');
 
 /**
  * Execute the add command
@@ -143,37 +143,44 @@ async function runAddCommand(inputPath) {
   }
 
   // Step 7: Initialize/update DevSnips project context
-  // This happens AFTER files are successfully written
+  // This happens AFTER files are successfully written, so only successful
+  // installations are ever recorded in config.json.
+  const existingContext = isContextInitialized();
+
+  process.stdout.write(
+    existingContext
+      ? '  Updating DevSnips project context... '
+      : '  Initializing DevSnips project context... '
+  );
+
   try {
-    // Ensure context is initialized (creates config.json and AGENTS.md if missing)
     const initResult = initializeContext();
-    
-    // Record this installation in config.json
-    const updateResult = updateContextAfterInstall(resolved.canonicalPath, resolved.technology);
-    
-    // Print context initialization messages
-    console.log('');
-    if (initResult.agentsCreated || initResult.configCreated) {
-      console.log('  Initializing DevSnips project context... ✓');
+
+    // Record this installation only after the resource is on disk
+    updateContextAfterInstall(resolved.canonicalPath, resolved.technology);
+
+    console.log('✓');
+
+    if (!existingContext) {
       if (initResult.agentsCreated) {
         console.log('  Created devsnips/AGENTS.md');
       }
       if (initResult.configCreated) {
         console.log('  Created devsnips/config.json');
       }
-    } else {
-      console.log('  Updating DevSnips project context... ✓');
     }
   } catch (error) {
-    // Context update failed but component was installed
+    console.log('✗');
     console.log('');
-    console.error('  ⚠ Warning: Could not update DevSnips project context');
+    console.error('✗ Component files were installed, but the DevSnips project context could not be updated');
     console.error('');
     console.error('  ' + error.message);
     console.error('');
-    console.error('  The component was installed successfully, but config.json could not be updated.');
-    console.error('  Please check the devsnips/config.json file manually.');
+    console.error('  The resource exists at: ' + destDir);
+    console.error('  but it was not recorded in devsnips/config.json.');
+    console.error('  Check the devsnips/config.json file and re-run the command once fixed.');
     console.error('');
+    process.exit(1);
   }
 
   // Step 8: Report success
