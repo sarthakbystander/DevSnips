@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — Grid — React Sections — DevSnips</title>
+<meta name="description" content="Features — Grid React Sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html" class="hover:text-neutral-900 dark:hover:text-white">Sections</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html#Features" class="hover:text-neutral-900 dark:hover:text-white">Features</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Features — Grid</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Features — Grid</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400"></p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Features — Grid &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Features — Grid preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Sections &rsaquo; Features</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/sections/Features/grid</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/sections/Features/grid');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../alternating/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Features — Alternating</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../bento/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Features — Bento</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Features — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../neo-brutalist/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Features — Neo-Brutalist</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><p>No documentation available.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import { useId } from &quot;react&quot;;
+import type { ReactNode } from &quot;react&quot;;
+
+/**
+ * DevSnips React Features — Grid composition (Minimal direction).
+ *
+ * The reference composition for the Features family: a left-aligned header
+ * block (eyebrow + heading + lede) above an even six-item grid
+ * (3 columns at lg, 2 at sm, 1 below — §12.2). Separation comes from
+ * whitespace and the items&#x27; own rhythm, not from cards: the Minimal
+ * direction lets content sit directly on the canvas (§4.2).
+ *
+ * Each item is icon + title + one-sentence description (§11.3). Icons are
+ * decorative — the title carries the meaning — so they are `aria-hidden`.
+ * One accent: the two actions below the grid. Everything else is neutral.
+ */
+
+export interface FeatureAction {
+  label: string;
+  href: string;
+}
+
+export type FeatureIconName =
+  | &quot;parallel&quot;
+  | &quot;deterministic&quot;
+  | &quot;cache&quot;
+  | &quot;preview&quot;
+  | &quot;rollback&quot;
+  | &quot;analytics&quot;;
+
+export interface GridFeature {
+  icon: FeatureIconName;
+  title: string;
+  description: string;
+}
+
+export interface FeaturesSectionProps {
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  features?: GridFeature[];
+  primaryAction?: FeatureAction;
+  secondaryAction?: FeatureAction;
+}
+
+const FOCUS_RING =
+  &quot;focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]&quot;;
+
+const PRIMARY_ACTION_CLASSES =
+  &quot;inline-flex h-11 items-center justify-center rounded-[var(--ds-radius-sm)] bg-[var(--ds-color-primary)] px-5 text-sm font-semibold leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const SECONDARY_ACTION_CLASSES =
+  &quot;inline-flex h-11 items-center justify-center rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border-strong)] bg-[var(--ds-color-surface)] px-5 text-sm font-semibold leading-5 text-[var(--ds-color-foreground)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const ICONS: Record&lt;FeatureIconName, ReactNode&gt; = {
+  parallel: (
+    &lt;&gt;
+      &lt;path d=&quot;M4 3v10&quot; /&gt;
+      &lt;path d=&quot;M8 3v10&quot; /&gt;
+      &lt;path d=&quot;M12 3v10&quot; /&gt;
+    &lt;/&gt;
+  ),
+  deterministic: (
+    &lt;&gt;
+      &lt;path d=&quot;M5 7V5a3 3 0 0 1 6 0v2&quot; /&gt;
+      &lt;path d=&quot;M4 7h8v6H4z&quot; /&gt;
+    &lt;/&gt;
+  ),
+  cache: (
+    &lt;&gt;
+      &lt;path d=&quot;M3 5h10&quot; /&gt;
+      &lt;path d=&quot;M3 8h10&quot; /&gt;
+      &lt;path d=&quot;M3 11h6&quot; /&gt;
+    &lt;/&gt;
+  ),
+  preview: (
+    &lt;&gt;
+      &lt;path d=&quot;M2 3.5h12v9H2z&quot; /&gt;
+      &lt;path d=&quot;M2 6h12&quot; /&gt;
+    &lt;/&gt;
+  ),
+  rollback: (
+    &lt;&gt;
+      &lt;circle cx=&quot;8&quot; cy=&quot;8&quot; r=&quot;5.5&quot; /&gt;
+      &lt;path d=&quot;M8 5v3l2 2&quot; /&gt;
+    &lt;/&gt;
+  ),
+  analytics: (
+    &lt;&gt;
+      &lt;path d=&quot;M3.5 13V9&quot; /&gt;
+      &lt;path d=&quot;M8 13V5&quot; /&gt;
+      &lt;path d=&quot;M12.5 13V7&quot; /&gt;
+    &lt;/&gt;
+  ),
+};
+
+function FeatureIcon({ name }: { name: FeatureIconName }) {
+  return (
+    &lt;svg
+      aria-hidden=&quot;true&quot;
+      viewBox=&quot;0 0 16 16&quot;
+      className=&quot;h-4 w-4&quot;
+      fill=&quot;none&quot;
+      stroke=&quot;currentColor&quot;
+      strokeWidth=&quot;1.5&quot;
+      strokeLinecap=&quot;round&quot;
+      strokeLinejoin=&quot;round&quot;
+    &gt;
+      {ICONS[name]}
+    &lt;/svg&gt;
+  );
+}
+
+const DEFAULT_FEATURES: GridFeature[] = [
+  {
+    icon: &quot;parallel&quot;,
+    title: &quot;Parallel workers&quot;,
+    description:
+      &quot;Every build fans out across isolated runners, so suites that took forty minutes finish in four.&quot;,
+  },
+  {
+    icon: &quot;deterministic&quot;,
+    title: &quot;Deterministic builds&quot;,
+    description:
+      &quot;Locked toolchains and hermetic sandboxes mean the same commit always produces the same artifact.&quot;,
+  },
+  {
+    icon: &quot;cache&quot;,
+    title: &quot;Content-addressed cache&quot;,
+    description:
+      &quot;Dependency layers are cached by hash, not by branch, so clean checkouts still build warm.&quot;,
+  },
+  {
+    icon: &quot;preview&quot;,
+    title: &quot;Preview environments&quot;,
+    description:
+      &quot;Each pull request gets an ephemeral environment with seeded data, torn down automatically on merge.&quot;,
+  },
+  {
+    icon: &quot;rollback&quot;,
+    title: &quot;Instant rollback&quot;,
+    description:
+      &quot;Every deploy is an immutable release; rolling back is a pointer change, not a rebuild.&quot;,
+  },
+  {
+    icon: &quot;analytics&quot;,
+    title: &quot;Build analytics&quot;,
+    description:
+      &quot;Queue time, cache hit rate, and flaky-test frequency are tracked per pipeline, per team.&quot;,
+  },
+];
+
+export function FeaturesSection({
+  eyebrow = &quot;Build platform&quot;,
+  heading = &quot;Everything a pipeline needs, nothing it doesn&#x27;t.&quot;,
+  lede = &quot;Branch CI handles the path from commit to production: fast builds, honest caching, and releases you can undo in seconds.&quot;,
+  features = DEFAULT_FEATURES,
+  primaryAction = { label: &quot;Start building&quot;, href: &quot;#get-started&quot; },
+  secondaryAction = { label: &quot;Read the docs&quot;, href: &quot;#docs&quot; },
+}: FeaturesSectionProps) {
+  const headingId = useId();
+  return (
+    &lt;section
+      aria-labelledby={headingId}
+      className=&quot;bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]&quot;
+    &gt;
+      &lt;div className=&quot;mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8&quot;&gt;
+        &lt;div className=&quot;max-w-2xl&quot;&gt;
+          &lt;p className=&quot;text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+            {eyebrow}
+          &lt;/p&gt;
+          &lt;h2
+            id={headingId}
+            className=&quot;mt-3 text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]&quot;
+          &gt;
+            {heading}
+          &lt;/h2&gt;
+          &lt;p className=&quot;mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+            {lede}
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;ul className=&quot;mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3&quot;&gt;
+          {features.map((feature) =&gt; (
+            &lt;li key={feature.title}&gt;
+              &lt;div className=&quot;flex items-center gap-2 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                &lt;FeatureIcon name={feature.icon} /&gt;
+                &lt;h3 className=&quot;text-base font-semibold leading-6 text-[var(--ds-color-foreground)]&quot;&gt;
+                  {feature.title}
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;p className=&quot;mt-2 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                {feature.description}
+              &lt;/p&gt;
+            &lt;/li&gt;
+          ))}
+        &lt;/ul&gt;
+
+        &lt;div className=&quot;mt-12 flex flex-col gap-3 sm:flex-row lg:mt-16&quot;&gt;
+          &lt;a href={primaryAction.href} className={PRIMARY_ACTION_CLASSES}&gt;
+            {primaryAction.label}
+          &lt;/a&gt;
+          &lt;a href={secondaryAction.href} className={SECONDARY_ACTION_CLASSES}&gt;
+            {secondaryAction.label}
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

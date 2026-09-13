@@ -1,0 +1,67 @@
+{
+  "id": "calendar-multiple-react-001",
+  "name": "Calendar \u2014 Multiple Dates",
+  "slug": "calendar-multiple",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-multiple",
+  "description": "Toggle-style multi-date selection with immutable updates: each click adds or removes one date, the selection is a plain Date array, and a controlled parent can clear or replace the whole set.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "multiple",
+    "toggle",
+    "immutable"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "multiple selection",
+    "toggle dates",
+    "immutable array updates"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-range",
+    "calendar-single",
+    "calendar-with-footer"
+  ]
+}

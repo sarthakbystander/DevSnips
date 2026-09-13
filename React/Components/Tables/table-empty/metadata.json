@@ -1,0 +1,57 @@
+{
+  "id": "table-empty-react-001",
+  "name": "Empty Table",
+  "slug": "table-empty",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-empty",
+  "description": "A table with an honest empty state: a zero-data message with a description and a real action, rendered as one real spanning row inside the semantic table structure \u2014 never fake placeholder rows.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "empty-state",
+    "zero-data",
+    "action"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "zero-data message",
+    "real resolving action",
+    "create/clear round-trip"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "accessible empty messaging",
+    "real action control",
+    "no fake rows"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-loading",
+    "table-with-actions"
+  ]
+}

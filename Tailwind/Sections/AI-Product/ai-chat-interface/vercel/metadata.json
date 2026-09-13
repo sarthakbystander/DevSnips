@@ -1,0 +1,37 @@
+{
+  "name": "AI Chat Interface — Vercel",
+  "slug": "ai-chat-interface-vercel",
+  "category": "Sections",
+  "subcategory": "ai-product",
+  "section": "ai-chat-interface",
+  "style": "vercel",
+  "description": "Refined dark monochrome AI chat surface with hairline borders, a subtle conic glow, a glowing ready-state dot, a streaming typing indicator, prompt chips, and a minimal input bar. Generous spacing and a single teal accent echo a premium dev-tool aesthetic.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "ai-chat",
+    "chatbot",
+    "vercel",
+    "dark-mode",
+    "chat-interface",
+    "assistant",
+    "minimal",
+    "monochrome"
+  ],
+  "features": [
+    "dark monochrome palette",
+    "hairline borders + glow",
+    "glowing status dot",
+    "bouncing typing indicator",
+    "pill prompt chips",
+    "wired send + auto-reply",
+    "thin custom scrollbar",
+    "keyboard accessible inputs"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ],
+  "type": "section"
+}

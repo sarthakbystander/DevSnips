@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-with-presets-react-001",
+  "name": "Date Picker \u2014 with Presets",
+  "slug": "date-picker-with-presets",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-with-presets",
+  "description": "A range date picker with a configurable preset panel (Today, Yesterday, Last 7 days, Last 30 days, This month): choosing a preset sets the actual typed range value and tracks the active preset with `aria-current`.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "presets",
+    "range",
+    "reporting"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "configurable presets",
+    "active-preset tracking",
+    "range presets",
+    "preset panel composition"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "role=\"group\" preset panel",
+    "aria-current=\"date\" on the active preset"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker-range",
+    "date-picker-with-footer"
+  ]
+}

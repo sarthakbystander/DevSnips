@@ -1,0 +1,70 @@
+{
+  "id": "calendar-min-max-react-001",
+  "name": "Calendar \u2014 Min / Max Dates",
+  "slug": "calendar-min-max",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-min-max",
+  "description": "Inclusive minimum and maximum selectable dates: out-of-window days, impossible navigation, and out-of-range month/year picker options are all disabled, across same-month and cross-year windows.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Constraints",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "minDate",
+    "maxDate",
+    "constraints",
+    "booking-window"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "minDate / maxDate",
+    "constrained navigation",
+    "constrained pickers",
+    "cross-year window"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "boundary nav buttons announce + enforce limits"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-disabled-dates",
+    "calendar-range",
+    "calendar-month-picker"
+  ]
+}

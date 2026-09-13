@@ -1,0 +1,68 @@
+{
+  "id": "calendar-outside-days-react-001",
+  "name": "Calendar \u2014 Outside Days",
+  "slug": "calendar-outside-days",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-outside-days",
+  "description": "Adjacent-month days rendered at the grid edges: muted but fully interactive, with their real month in the accessible name \u2014 selecting one pages the calendar to its month.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "outside days",
+    "grid",
+    "layout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "showOutsideDays",
+    "edge-only rendering",
+    "select-to-navigate"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "outside days keep their real month in the label"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar",
+    "calendar-week-numbers",
+    "calendar-range"
+  ]
+}

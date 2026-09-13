@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destructive Dialog — React Components — DevSnips</title>
+<meta name="description" content="The destructive confirmation pattern: `role=&quot;alertdialog&quot;`, a warning presentation in the semantic destructive tokens, Cancel focused first, and the destructive action styled with the destructive button treatment.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Dialogs" class="hover:text-neutral-900 dark:hover:text-white">Dialogs</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Destructive Dialog</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Destructive Dialog</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">The destructive confirmation pattern: `role=&quot;alertdialog&quot;`, a warning presentation in the semantic destructive tokens, Cancel focused first, and the destructive action styled with the destructive button treatment.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Destructive Dialog &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Destructive Dialog preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Dialogs</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dialog</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">modal</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accessible</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">keyboard</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">focus-trap</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">responsive</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Dialogs/dialog-destructive</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Dialogs/dialog-destructive');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>role=dialog semantics</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus trap</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus restoration</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>scroll lock</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>Escape to close</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>role=alertdialog</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>destructive action styling</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>warning presentation</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../dialog/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dialogs</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dialog</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">The canonical modal dialog: a real menu of compound parts — trigger, portaled role=dialog panel, header/title/description, footer actions, corner close — with focus trap, Escape, scroll lock, and focus restoration.</p>
+  
+</a><a href="../dialog-confirmation/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dialogs</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Confirmation Dialog</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">The proceed-or-cancel pattern as `role=&quot;alertdialog&quot;`: a focused question, the safe action focused first, and the confirming action on the trailing edge.</p>
+  
+</a><a href="../dialog-form/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dialogs</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dialog with Form</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A real `&lt;form&gt;` inside the dialog: labelled native inputs, native constraint validation (submit is blocked while invalid), and the dialog closes only after a successful submit.</p>
+  
+</a><a href="../dialog-nested/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dialogs</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Nested Dialogs</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A dialog opening another dialog: a member-removal confirmation stacked over the share dialog, with Escape closing only the top-most and focus restoring down the chain.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Destructive Dialog</h1>
+<p>The destructive confirmation pattern: <code>role=&quot;alertdialog&quot;</code>, a warning presentation in the semantic destructive tokens, Cancel focused first, and the destructive action styled with the destructive button treatment.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+import Dialog, {
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from &quot;./dialog-destructive&quot;;
+
+&lt;Dialog&gt;
+  &lt;DialogTrigger&gt;Delete repository&lt;/DialogTrigger&gt;
+  &lt;DialogContent role=&quot;alertdialog&quot;&gt;
+    &lt;DialogHeader&gt;
+      &lt;DialogTitle&gt;Delete this repository?&lt;/DialogTitle&gt;
+      &lt;DialogDescription&gt;All branches, releases, and settings will be permanently removed.&lt;/DialogDescription&gt;
+    &lt;/DialogHeader&gt;
+    &lt;DialogFooter&gt;
+      &lt;DialogClose&gt;Cancel&lt;/DialogClose&gt;
+      &lt;DialogClose variant=&quot;destructive&quot; onClick={deleteRepo}&gt;Delete repository&lt;/DialogClose&gt;
+    &lt;/DialogFooter&gt;
+  &lt;/DialogContent&gt;
+&lt;/Dialog&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+import Dialog, {
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from &quot;./dialog-destructive&quot;;
+
+&lt;Dialog&gt;
+  &lt;DialogTrigger&gt;Delete repository&lt;/DialogTrigger&gt;
+  &lt;DialogContent role=&quot;alertdialog&quot;&gt;
+    &lt;DialogHeader&gt;
+      &lt;DialogTitle&gt;Delete this repository?&lt;/DialogTitle&gt;
+      &lt;DialogDescription&gt;All branches, releases, and settings will be permanently removed.&lt;/DialogDescription&gt;
+    &lt;/DialogHeader&gt;
+    &lt;DialogFooter&gt;
+      &lt;DialogClose&gt;Cancel&lt;/DialogClose&gt;
+      &lt;DialogClose variant=&quot;destructive&quot; onClick={deleteRepo}&gt;Delete repository&lt;/DialogClose&gt;
+    &lt;/DialogFooter&gt;
+  &lt;/DialogContent&gt;
+&lt;/Dialog&gt;
+</code></pre>
+<h2>Props</h2>
+<h3><code>&lt;Dialog&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>open</code> | <code>boolean</code> | — | Open state (controlled). |</p>
+<p>| <code>defaultOpen</code> | <code>boolean</code> | <code>false</code> | Initial open state (uncontrolled). |</p>
+<p>| <code>onOpenChange</code> | <code>(open: boolean) =&gt; void</code> | — | Called whenever the dialog requests to open or close. |</p>
+<p>| <code>modal</code> | <code>boolean</code> | <code>true</code> | Modal behavior: overlay, scroll lock, focus trap, <code>aria-modal</code>. <code>false</code> renders a non-modal floating panel (no overlay; closes on Escape / outside pointer down). |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | <code>DialogTrigger</code> + <code>DialogContent</code>. |</p>
+<h3><code>&lt;DialogTrigger&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the button. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Visible trigger label. |</p>
+<p>A real <code>&lt;button type=&quot;button&quot;&gt;</code> with <code>aria-haspopup=&quot;dialog&quot;</code> + <code>aria-expanded</code>; every native button attribute (<code>disabled</code>, <code>aria-label</code>, …) is forwarded. Focus is restored here when the dialog closes.</p>
+<h3><code>&lt;DialogContent&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>role=&quot;dialog&quot;</code> panel (e.g. a larger <code>max-w-*</code>). |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Header, body content, footer, close button. |</p>
+<p>Portaled to <code>document.body</code> and rendered only while open. Labelled by <code>DialogTitle</code> / described by <code>DialogDescription</code> automatically when they are rendered; pass <code>aria-label</code> when a dialog intentionally has no visible title, and <code>role=&quot;alertdialog&quot;</code> for confirmation dialogs (forwarded via <code>...rest</code>).</p>
+<h3><code>&lt;DialogHeader&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the header. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | <code>DialogTitle</code> + <code>DialogDescription</code>. |</p>
+<h3><code>&lt;DialogTitle&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;h2&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Title text. |</p>
+<p>Registers itself so <code>DialogContent</code> sets <code>aria-labelledby</code> only while a title exists.</p>
+<h3><code>&lt;DialogDescription&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;p&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Supporting description text. |</p>
+<p>Registers itself so <code>DialogContent</code> sets <code>aria-describedby</code> only while a description exists.</p>
+<h3><code>&lt;DialogFooter&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the action row. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Footer actions (<code>DialogClose</code>, plain buttons, links). |</p>
+<p>Buttons stack full-width below <code>sm</code> and lay out right-aligned inline from <code>sm</code> up.</p>
+<h3><code>&lt;DialogClose&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>variant</code> | <code>&quot;outline&quot; \| &quot;primary&quot; \| &quot;destructive&quot; \| &quot;ghost&quot;</code> | <code>&quot;outline&quot;</code> | <code>outline</code> is the bordered footer cancel action; <code>primary</code> / <code>destructive</code> are confirming actions that also close; <code>ghost</code> is the icon-sized corner close button (positioned absolute top-right — give it an <code>aria-label</code> such as <code>&quot;Close&quot;</code>). |</p>
+<p>| <code>onClick</code> | <code>(event) =&gt; void</code> | — | Called before the dialog closes; <code>event.preventDefault()</code> keeps the dialog open. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the button. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Visible label (or the close icon for <code>ghost</code>). |</p>
+<p>A real <code>&lt;button type=&quot;button&quot;&gt;</code> that requests close; every native button attribute is forwarded.</p>
+<h2>Composition</h2>
+<ul>
+<li><code>Dialog</code> — the root provider. Owns the open state (controlled <code>open</code> + <code>onOpenChange</code>, or uncontrolled <code>defaultOpen</code>), the <code>modal</code> behavior switch, the generated ids, and the focus-restore memory.</li>
+<li><code>DialogTrigger</code> — a real <code>&lt;button type=&quot;button&quot;&gt;</code> with <code>aria-haspopup=&quot;dialog&quot;</code> + <code>aria-expanded</code>. Click toggles the dialog.</li>
+<li><code>DialogContent</code> — the portaled <code>role=&quot;dialog&quot;</code> panel (<code>aria-modal</code> when modal) plus, in modal mode, the overlay that blocks the background. Rendered only while open; moves focus inside on open and traps Tab while modal.</li>
+<li><code>DialogHeader</code> — the header layout slot (<code>DialogTitle</code> + <code>DialogDescription</code>).</li>
+<li><code>DialogTitle</code> — an <code>&lt;h2&gt;</code> that registers itself so the panel is labelled by it.</li>
+<li><code>DialogDescription</code> — a <code>&lt;p&gt;</code> that registers itself so the panel is described by it.</li>
+<li><code>DialogFooter</code> — the action row; buttons go full-width stacked on small screens, right-aligned inline from <code>sm</code> up.</li>
+<li><code>DialogClose</code> — a real <code>&lt;button&gt;</code> that closes the dialog (footer cancel actions, or the header close with <code>variant=&quot;ghost&quot;</code>).</li>
+</ul>
+<p>The destructive confirmation adds a warning row ahead of the title — an icon in a <code>--ds-color-destructive-soft</code> chip plus consequence copy — and uses <code>variant=&quot;destructive&quot;</code> on the confirming <code>DialogClose</code>. The icon chip is <code>aria-hidden</code>; the destructive nature is carried by the words, never by color alone.</p>
+<h2>Dialog Behavior</h2>
+<p>Like the plain confirmation, <code>role=&quot;alertdialog&quot;</code> is forwarded through <code>DialogContent</code> and the safe action (<code>Cancel</code>) is first in the DOM so it receives the initial focus. The destructive action is a <code>DialogClose variant=&quot;destructive&quot;</code>: it runs its <code>onClick</code> (the deletion) and then closes the dialog through the same close path as every other action.</p>
+<p>Escape and the overlay cancel — a destructive action can never be triggered by accident while moving through the interface.</p>
+<h2>Keyboard Interaction</h2>
+<p>| Key | Behavior |</p>
+<p>|---|---|</p>
+<p>| <code>Enter</code> / <code>Space</code> (trigger) | Open the dialog, focus the first focusable element inside |</p>
+<p>| <code>Tab</code> (modal dialog) | Move to the next focusable element; wraps from the last element back to the first |</p>
+<p>| <code>Shift+Tab</code> (modal dialog) | Move to the previous focusable element; wraps from the first element to the last |</p>
+<p>| <code>Escape</code> | Close the top-most open dialog and restore focus to its trigger |</p>
+<p>| <code>Tab</code> (non-modal dialog) | Moves forward naturally — the page stays reachable |</p>
+<p>The trigger and every action are native <code>&lt;button&gt;</code> elements, so Enter/Space activation follows normal browser behavior. Disabled actions use the native <code>disabled</code> attribute: they are skipped by Tab and cannot be activated.</p>
+<h2>Accessibility</h2>
+<p>The structure follows the WAI-ARIA dialog (modal) pattern.</p>
+<ul>
+<li>The trigger is a native <code>&lt;button&gt;</code> with <code>aria-haspopup=&quot;dialog&quot;</code>, <code>aria-expanded</code>, and <code>aria-controls</code> pointing at the panel.</li>
+<li>The panel is <code>role=&quot;dialog&quot;</code> with <code>aria-modal=&quot;true&quot;</code> in modal mode. <code>DialogTitle</code> / <code>DialogDescription</code> register themselves, and the panel wires <code>aria-labelledby</code> / <code>aria-describedby</code> only when they are present — a dialog without a visible title must pass <code>aria-label</code> to <code>DialogContent</code> (the attributes are omitted, never left pointing at nothing). Confirmation-style dialogs can pass <code>role=&quot;alertdialog&quot;</code> through <code>DialogContent</code>.</li>
+<li>Focus is real DOM focus: opening moves focus into the dialog, Tab is trapped while modal, and closing restores focus to the trigger — focus is never left on an unmounted element (the restore target is checked against <code>isConnected</code>).</li>
+<li>The background is unreachable while modal: the overlay blocks pointer interaction, the focus trap blocks keyboard access, and <code>aria-modal</code> tells assistive technology the rest of the page is inert.</li>
+<li>Disabled actions carry the native <code>disabled</code> attribute, which assistive technology announces as unavailable.</li>
+</ul>
+<p>The destructive action is exposed in words (“Delete repository”), not color alone; the warning icon is aria-hidden decoration in a destructive-soft chip.</p>
+<h2>States</h2>
+<ul>
+<li><strong>Trigger (idle)</strong> — bordered surface button per the shared control system (36px, radius-sm, <code>shadow-xs</code>).</li>
+<li><strong>Trigger (open)</strong> — <code>aria-expanded=&quot;true&quot;</code>; keeps the hover surface.</li>
+<li><strong>Overlay (modal)</strong> — <code>var(--ds-color-overlay)</code> backdrop covering the viewport; pointer down on it closes the dialog.</li>
+<li><strong>Panel</strong> — <code>--ds-color-surface-elevated</code> with a 1px <code>--ds-color-border</code> and the <code>--ds-shadow-lg</code> elevation, radius-md, centered, capped at <code>100dvh - 2rem</code> with internal column layout, per the Dialog token rules.</li>
+<li><strong>Title / description</strong> — heading-md (18px, 600) on foreground; body-sm on <code>--ds-color-muted-foreground</code>.</li>
+<li><strong>Footer actions</strong> — full-width stacked below <code>sm</code>, right-aligned inline from <code>sm</code> up.</li>
+<li><strong>Disabled actions</strong> — native <code>disabled</code>: 50% opacity, no pointer events, out of the tab order.</li>
+</ul>
+<h2>Responsive Behavior</h2>
+<p>The panel is <code>width: calc(100vw - 2rem)</code> up to <code>max-w-lg</code> (512px, inside the 400–640px dialog token range) and capped at <code>max-height: calc(100dvh - 2rem)</code>, so it stays inside the viewport at every width from 375px up — including small landscape screens — without page overflow. Long content scrolls inside a <code>min-h-0 flex-1 overflow-y-auto</code> body region while the header and footer stay pinned (see <code>dialog-scrollable</code>). Footer actions stack full-width below <code>sm</code> and lay out inline from <code>sm</code> up. The trigger keeps the shared 36px control height — a comfortable touch target — at every breakpoint.</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>bg-[var(--ds-color-surface-elevated)]</code>). Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This dialog variant uses the semantic color, radius, shadow, typography, and motion tokens — including <code>color.overlay</code> for the backdrop and the Dialog row of the component token rules (radius-md, shadow-lg).</p>
+<h2>Notes</h2>
+<p>For non-destructive proceed/cancel flows use <code>dialog-confirmation</code>; for nested destructive confirms inside another dialog see <code>dialog-nested</code>.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from &quot;react&quot;;
+import { createPortal } from &quot;react-dom&quot;;
+import type {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  KeyboardEvent as ReactKeyboardEvent,
+  MouseEvent as ReactMouseEvent,
+  ReactNode,
+  RefObject,
+} from &quot;react&quot;;
+
+/**
+ * DevSnips React Dialog — Destructive.
+ *
+ * The shared dialog core composed as a destructive confirmation:
+ * `role=&quot;alertdialog&quot;`, a warning presentation in the semantic destructive
+ * tokens, Cancel first in the DOM (initial focus), and the confirming
+ * action styled with `DialogClose variant=&quot;destructive&quot;`.
+ */
+
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Module-level dialog stack + scroll lock                                   */
+/* ------------------------------------------------------------------------ */
+
+/**
+ * Every open dialog registers its key here; the last entry is the top-most
+ * dialog. Escape handling uses the stack so only the top-most dialog closes.
+ */
+const openDialogKeys: string[] = [];
+
+let scrollLockCount = 0;
+let previousOverflow = &quot;&quot;;
+let previousPaddingRight = &quot;&quot;;
+
+function lockScroll(): void {
+  scrollLockCount += 1;
+  if (scrollLockCount === 1) {
+    previousOverflow = document.body.style.overflow;
+    previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth &gt; 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    document.body.style.overflow = &quot;hidden&quot;;
+  }
+}
+
+function unlockScroll(): void {
+  scrollLockCount -= 1;
+  if (scrollLockCount === 0) {
+    document.body.style.overflow = previousOverflow;
+    document.body.style.paddingRight = previousPaddingRight;
+  }
+}
+
+const FOCUSABLE_SELECTOR =
+  &#x27;a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex=&quot;-1&quot;])&#x27;;
+
+/** Focusable elements inside `root` (excludes hidden / aria-hidden nodes). */
+function focusableElements(root: HTMLElement): HTMLElement[] {
+  return Array.from(root.querySelectorAll&lt;HTMLElement&gt;(FOCUSABLE_SELECTOR)).filter(
+    (el) =&gt; !el.hasAttribute(&quot;disabled&quot;) &amp;&amp; !el.hidden &amp;&amp; el.getAttribute(&quot;aria-hidden&quot;) !== &quot;true&quot;,
+  );
+}
+
+const TRIGGER_CLASSES =
+  &quot;inline-flex h-9 max-w-full items-center justify-center gap-2 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-foreground)] shadow-[var(--ds-shadow-xs)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;;
+const OVERLAY_CLASSES = &quot;fixed inset-0 z-40 bg-[var(--ds-color-overlay)]&quot;;
+const CONTENT_CLASSES =
+  &quot;fixed left-1/2 top-1/2 z-50 flex max-h-[calc(100dvh-2rem)] w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface-elevated)] shadow-[var(--ds-shadow-lg)] focus:outline-none&quot;;
+const HEADER_CLASSES = &quot;flex flex-col gap-1.5 px-5 pt-5&quot;;
+const TITLE_CLASSES =
+  &quot;text-lg font-semibold leading-[1.35] tracking-[-0.01em] text-[var(--ds-color-foreground)]&quot;;
+const DESCRIPTION_CLASSES = &quot;text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;;
+const FOOTER_CLASSES =
+  &quot;flex flex-col-reverse gap-2 px-5 pb-5 pt-4 sm:flex-row sm:justify-end [&amp;&gt;button]:w-full sm:[&amp;&gt;button]:w-auto&quot;;
+// One class constant per close-action kind — the kinds never rely on
+// conflicting-utility overrides (Tailwind resolves conflicts by stylesheet
+// order, not class order, so overrides of bg-*/border-* are unreliable).
+const CLOSE_VARIANT_CLASSES: Record&lt;DialogCloseVariant, string&gt; = {
+  outline: TRIGGER_CLASSES,
+  primary:
+    &quot;inline-flex h-9 max-w-full items-center justify-center gap-2 rounded-[var(--ds-radius-sm)] border border-transparent bg-[var(--ds-color-primary)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] active:bg-[color-mix(in_srgb,var(--ds-color-primary)_80%,#000)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;,
+  destructive:
+    &quot;inline-flex h-9 max-w-full items-center justify-center gap-2 rounded-[var(--ds-radius-sm)] border border-transparent bg-[var(--ds-color-destructive)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-destructive-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-destructive)_88%,#000)] active:bg-[color-mix(in_srgb,var(--ds-color-destructive)_80%,#000)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;,
+  ghost:
+    &quot;absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-[var(--ds-radius-sm)] text-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] hover:text-[var(--ds-color-foreground)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;,
+};
+
+interface DialogContextValue {
+  open: boolean;
+  modal: boolean;
+  contentId: string;
+  titleId: string;
+  descriptionId: string;
+  hasTitle: boolean;
+  hasDescription: boolean;
+  registerTitle(): () =&gt; void;
+  registerDescription(): () =&gt; void;
+  rememberFocus(element: HTMLElement | null): void;
+  requestOpen(next: boolean): void;
+  requestClose(): void;
+  triggerRef: RefObject&lt;HTMLButtonElement&gt;;
+}
+
+const DialogContext = createContext&lt;DialogContextValue | null&gt;(null);
+
+function useDialog(component: string): DialogContextValue {
+  const context = useContext(DialogContext);
+  if (!context) {
+    throw new Error(`&lt;${component}&gt; must be rendered inside &lt;Dialog&gt;.`);
+  }
+  return context;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Dialog (root)                                                             */
+/* ------------------------------------------------------------------------ */
+
+export interface DialogProps {
+  /** Open state (controlled). */
+  open?: boolean;
+  /** Initial open state (uncontrolled). */
+  defaultOpen?: boolean;
+  /** Called whenever the dialog requests to open or close. */
+  onOpenChange?: (open: boolean) =&gt; void;
+  /**
+   * Modal behavior (default true): overlay, scroll lock, focus trap, and
+   * `aria-modal`. Set false for a non-modal floating panel (page stays
+   * interactive; close on Escape or outside pointer down).
+   */
+  modal?: boolean;
+  children?: ReactNode;
+}
+
+export function Dialog({
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  modal = true,
+  children,
+}: DialogProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = open !== undefined;
+  const actualOpen = isControlled ? open : internalOpen;
+  const triggerRef = useRef&lt;HTMLButtonElement&gt;(null);
+  const restoreFocusRef = useRef&lt;HTMLElement | null&gt;(null);
+  const reactId = useId();
+  const dialogKey = `ds-dialog${reactId}`;
+  const contentId = `ds-dialog-content${reactId}`;
+  const titleId = `ds-dialog-title${reactId}`;
+  const descriptionId = `ds-dialog-description${reactId}`;
+  const [hasTitle, setHasTitle] = useState(false);
+  const [hasDescription, setHasDescription] = useState(false);
+
+  const openRef = useRef(actualOpen);
+  openRef.current = actualOpen;
+  const requestOpen = useCallback(
+    (next: boolean) =&gt; {
+      // Remember the focused element at the moment the open is REQUESTED
+      // (the trigger, or a row action). Capturing here — not in the open
+      // effect — because mounted-child effects run before the root&#x27;s, so by
+      // effect time focus has already moved into the dialog.
+      if (next &amp;&amp; !openRef.current) {
+        restoreFocusRef.current = document.activeElement as HTMLElement | null;
+      }
+      if (!isControlled) setInternalOpen(next);
+      onOpenChange?.(next);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isControlled, onOpenChange],
+  );
+  const requestClose = useCallback(() =&gt; requestOpen(false), [requestOpen]);
+  const requestCloseRef = useRef(requestClose);
+  requestCloseRef.current = requestClose;
+
+  const registerTitle = useCallback(() =&gt; {
+    setHasTitle(true);
+    return () =&gt; setHasTitle(false);
+  }, []);
+  const registerDescription = useCallback(() =&gt; {
+    setHasDescription(true);
+    return () =&gt; setHasDescription(false);
+  }, []);
+
+  // Fallback focus capture for opens that never pass through requestOpen
+  // (e.g. a parent flipping controlled `open` directly): DialogContent calls
+  // this from its open effect — the first code that moves focus — while the
+  // pre-open focused element is still active.
+  const rememberFocus = useCallback((element: HTMLElement | null) =&gt; {
+    if (restoreFocusRef.current === null) {
+      restoreFocusRef.current = element;
+    }
+  }, []);
+
+  // While open: register on the dialog stack and lock body scroll (modal
+  // only); on close restore focus to the trigger (or whatever was focused
+  // when the dialog opened — captured in requestOpen).
+  useEffect(() =&gt; {
+    if (!actualOpen) return;
+    openDialogKeys.push(dialogKey);
+    if (modal) lockScroll();
+    return () =&gt; {
+      const index = openDialogKeys.indexOf(dialogKey);
+      if (index !== -1) openDialogKeys.splice(index, 1);
+      if (modal) unlockScroll();
+      const element = restoreFocusRef.current;
+      restoreFocusRef.current = null;
+      if (element &amp;&amp; element.isConnected) element.focus();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualOpen, modal, dialogKey]);
+
+  // Escape closes only the top-most open dialog (nesting-safe).
+  useEffect(() =&gt; {
+    if (!actualOpen) return;
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === &quot;Escape&quot; &amp;&amp; openDialogKeys[openDialogKeys.length - 1] === dialogKey) {
+        event.preventDefault();
+        requestCloseRef.current();
+      }
+    }
+    document.addEventListener(&quot;keydown&quot;, onKeyDown);
+    return () =&gt; document.removeEventListener(&quot;keydown&quot;, onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualOpen, dialogKey]);
+
+  const value: DialogContextValue = {
+    open: actualOpen,
+    modal,
+    contentId,
+    titleId,
+    descriptionId,
+    hasTitle,
+    hasDescription,
+    registerTitle,
+    registerDescription,
+    rememberFocus,
+    requestOpen,
+    requestClose,
+    triggerRef,
+  };
+
+  return &lt;DialogContext.Provider value={value}&gt;{children}&lt;/DialogContext.Provider&gt;;
+}
+
+export default Dialog;
+
+/* ------------------------------------------------------------------------ */
+/* DialogTrigger                                                             */
+/* ------------------------------------------------------------------------ */
+
+export interface DialogTriggerProps extends ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogTrigger({ children, className, onClick, ...rest }: DialogTriggerProps) {
+  const context = useDialog(&quot;DialogTrigger&quot;);
+
+  function handleClick(event: ReactMouseEvent&lt;HTMLButtonElement&gt;) {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+    if (context.open) {
+      context.requestClose();
+    } else {
+      context.requestOpen(true);
+    }
+  }
+
+  return (
+    &lt;button
+      type=&quot;button&quot;
+      ref={context.triggerRef}
+      aria-haspopup=&quot;dialog&quot;
+      aria-expanded={context.open}
+      aria-controls={context.contentId}
+      onClick={handleClick}
+      className={cx(TRIGGER_CLASSES, className)}
+      {...rest}
+    &gt;
+      {children}
+    &lt;/button&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DialogContent (portal to document.body)                                   */
+/* ------------------------------------------------------------------------ */
+
+export interface DialogContentProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogContent({ children, className, onKeyDown, ...rest }: DialogContentProps) {
+  const context = useDialog(&quot;DialogContent&quot;);
+  const contentRef = useRef&lt;HTMLDivElement&gt;(null);
+  const open = context.open;
+
+  // Move focus into the dialog on open: the first focusable element, or the
+  // dialog container itself when it has no focusable children. This effect
+  // is the first code that moves focus (child effects run before the root&#x27;s
+  // open effect), so it also captures the pre-open focused element for
+  // externally-controlled opens that never passed through requestOpen.
+  useEffect(() =&gt; {
+    if (!open) return;
+    const node = contentRef.current;
+    if (!node) return;
+    context.rememberFocus(document.activeElement as HTMLElement | null);
+    const items = focusableElements(node);
+    (items[0] ?? node).focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
+
+  // Non-modal mode: an outside pointer down closes the dialog (modal closes
+  // via its overlay instead).
+  useEffect(() =&gt; {
+    if (!open || context.modal) return;
+    function onPointerDown(event: PointerEvent) {
+      const node = contentRef.current;
+      const target = event.target as Node;
+      const trigger = context.triggerRef.current;
+      if (node &amp;&amp; !node.contains(target) &amp;&amp; !(trigger &amp;&amp; trigger.contains(target))) {
+        context.requestClose();
+      }
+    }
+    document.addEventListener(&quot;pointerdown&quot;, onPointerDown);
+    return () =&gt; document.removeEventListener(&quot;pointerdown&quot;, onPointerDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, context.modal]);
+
+  // Focus trap (modal only): wrap Tab / Shift+Tab at the first / last
+  // focusable element. Skipped while focus lives inside a NESTED dialog —
+  // the nested dialog traps its own keys.
+  function handleKeyDown(event: ReactKeyboardEvent&lt;HTMLDivElement&gt;) {
+    onKeyDown?.(event);
+    if (event.defaultPrevented || event.key !== &quot;Tab&quot; || !context.modal) return;
+    const node = contentRef.current;
+    if (!node || !node.contains(document.activeElement)) return;
+    const items = focusableElements(node);
+    if (items.length === 0) {
+      event.preventDefault();
+      node.focus();
+      return;
+    }
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey &amp;&amp; document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey &amp;&amp; document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  if (!open) return null;
+  if (typeof document === &quot;undefined&quot;) return null;
+
+  return createPortal(
+    &lt;&gt;
+      {context.modal ? (
+        &lt;div
+          aria-hidden=&quot;true&quot;
+          data-ds-dialog-overlay=&quot;&quot;
+          className={OVERLAY_CLASSES}
+          // Canceling pointerdown suppresses the compatibility mousedown, so
+          // the browser&#x27;s default &quot;focus the clicked surface&quot; behavior never
+          // steals focus from the trigger the close is about to restore.
+          onPointerDown={(event) =&gt; {
+            event.preventDefault();
+            context.requestClose();
+          }}
+        /&gt;
+      ) : null}
+      &lt;div
+        ref={contentRef}
+        id={context.contentId}
+        role=&quot;dialog&quot;
+        aria-modal={context.modal ? true : undefined}
+        aria-labelledby={context.hasTitle ? context.titleId : undefined}
+        aria-describedby={context.hasDescription ? context.descriptionId : undefined}
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
+        className={cx(CONTENT_CLASSES, className)}
+        {...rest}
+      &gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/&gt;,
+    document.body,
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DialogHeader / DialogTitle / DialogDescription                            */
+/* ------------------------------------------------------------------------ */
+
+export interface DialogHeaderProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogHeader({ className, children, ...rest }: DialogHeaderProps) {
+  return (
+    &lt;div className={cx(HEADER_CLASSES, className)} {...rest}&gt;
+      {children}
+    &lt;/div&gt;
+  );
+}
+
+export interface DialogTitleProps extends HTMLAttributes&lt;HTMLHeadingElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogTitle({ className, children, ...rest }: DialogTitleProps) {
+  const context = useDialog(&quot;DialogTitle&quot;);
+  // Register so DialogContent can wire `aria-labelledby` — and omit it when
+  // no title is rendered (content then relies on an explicit `aria-label`).
+  useEffect(() =&gt; context.registerTitle(), [context]);
+  return (
+    &lt;h2 id={context.titleId} className={cx(TITLE_CLASSES, className)} {...rest}&gt;
+      {children}
+    &lt;/h2&gt;
+  );
+}
+
+export interface DialogDescriptionProps extends HTMLAttributes&lt;HTMLParagraphElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogDescription({ className, children, ...rest }: DialogDescriptionProps) {
+  const context = useDialog(&quot;DialogDescription&quot;);
+  // Register so DialogContent can wire `aria-describedby`.
+  useEffect(() =&gt; context.registerDescription(), [context]);
+  return (
+    &lt;p id={context.descriptionId} className={cx(DESCRIPTION_CLASSES, className)} {...rest}&gt;
+      {children}
+    &lt;/p&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DialogFooter / DialogClose                                                */
+/* ------------------------------------------------------------------------ */
+
+export interface DialogFooterProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DialogFooter({ className, children, ...rest }: DialogFooterProps) {
+  return (
+    &lt;div className={cx(FOOTER_CLASSES, className)} {...rest}&gt;
+      {children}
+    &lt;/div&gt;
+  );
+}
+
+export type DialogCloseVariant = &quot;outline&quot; | &quot;primary&quot; | &quot;destructive&quot; | &quot;ghost&quot;;
+
+export interface DialogCloseProps extends ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
+  /**
+   * `outline` (default) is the bordered footer cancel action; `primary` /
+   * `destructive` are confirming actions that also close; `ghost` is the
+   * icon-sized corner close button (positioned top-right of the panel —
+   * give it an `aria-label`).
+   */
+  variant?: DialogCloseVariant;
+  children?: ReactNode;
+}
+
+export function DialogClose({ children, className, onClick, variant = &quot;outline&quot;, ...rest }: DialogCloseProps) {
+  const context = useDialog(&quot;DialogClose&quot;);
+
+  function handleClick(event: ReactMouseEvent&lt;HTMLButtonElement&gt;) {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+    context.requestClose();
+  }
+
+  return (
+    &lt;button
+      type=&quot;button&quot;
+      onClick={handleClick}
+      className={cx(CLOSE_VARIANT_CLASSES[variant], className)}
+      {...rest}
+    &gt;
+      {children}
+    &lt;/button&gt;
+  );
+}
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

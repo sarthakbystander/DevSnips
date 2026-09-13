@@ -1,0 +1,41 @@
+{
+  "id": "team-bento-grid",
+  "slug": "team-bento-grid",
+  "name": "Compact Team Grid — Bento Grid",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "team",
+  "section": "Compact Team Grid",
+  "style": "bento-grid",
+  "description": "Bento Grid team layout: Compact team grid.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "team",
+    "people",
+    "about",
+    "profiles",
+    "bento-grid"
+  ],
+  "features": [
+    "compact team grid",
+    "12 members",
+    "small tiles",
+    "responsive 2/3/6-col",
+    "truncate names"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

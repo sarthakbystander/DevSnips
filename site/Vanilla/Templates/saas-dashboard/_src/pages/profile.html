@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — Northstar | DevSnips</title>
+  <meta name="description" content="Your profile: avatar, personal info, bio, social links.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="profile">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="profile">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Profile</h1>
+          <p class="sub">Manage your personal information and how you appear to others.</p>
+        </div>
+        <div class="page-actions"><button class="btn btn-primary" id="save"><span class="btn-text">Save changes</span></button></div>
+      </div>
+
+      <div class="settings-layout">
+        <nav class="settings-nav" data-settings-nav></nav>
+        <div>
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>Avatar</h2><p class="desc">Your profile picture</p></div></div>
+            <div class="panel-body">
+              <div class="flex items-center gap-16 flex-wrap">
+                <span class="avatar lg" style="background:var(--ds-accent);width:72px;height:72px;font-size:26px">AM</span>
+                <div><div class="flex gap-8 flex-wrap"><button class="btn btn-sm">Upload new</button><button class="btn btn-sm btn-danger" data-confirm="Remove your avatar?" data-confirm-title="Remove avatar?" data-danger="true" data-confirm-label="Remove">Remove</button></div><p class="muted-block mt-8">JPG, PNG, or GIF. Max 2MB.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>Personal information</h2><p class="desc">Your name and contact details</p></div></div>
+            <div class="panel-body">
+              <div class="form-row">
+                <div class="field"><label class="field-label">First name <span class="req">*</span></label><input class="input" value="Alex"></div>
+                <div class="field"><label class="field-label">Last name <span class="req">*</span></label><input class="input" value="Morgan"></div>
+              </div>
+              <div class="field"><label class="field-label">Email <span class="req">*</span></label><input class="input" type="email" value="alex@northstar.io"></div>
+              <div class="field"><label class="field-label">Phone</label><input class="input" type="tel" value="+46 70 123 45 67"></div>
+              <div class="field"><label class="field-label">Title</label><input class="input" value="Founder & CEO"></div>
+              <div class="field"><label class="field-label">Bio</label><textarea class="textarea" placeholder="Tell us about yourself…">Building Northstar — a calm, powerful analytics platform for SaaS teams.</textarea></div>
+            </div>
+          </section>
+
+          <section class="panel mb-16">
+            <div class="panel-head"><div class="titles"><h2>Social</h2><p class="desc">Links to your profiles</p></div></div>
+            <div class="panel-body">
+              <div class="form-row">
+                <div class="field"><label class="field-label">Website</label><div class="input-prefix"><span class="pf">https://</span><input class="input" value="northstar.io"></div></div>
+                <div class="field"><label class="field-label">X / Twitter</label><div class="input-prefix"><span class="pf">@</span><input class="input" value="alexmorgan"></div></div>
+              </div>
+              <div class="form-row">
+                <div class="field"><label class="field-label">LinkedIn</label><div class="input-prefix"><span class="pf">in/</span><input class="input" value="alexmorgan"></div></div>
+                <div class="field"><label class="field-label">GitHub</label><div class="input-prefix"><span class="pf">@</span><input class="input" value="alexmorgan"></div></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel mb-0">
+            <div class="panel-head"><div class="titles"><h2>Workspace membership</h2><p class="desc">Where you belong</p></div></div>
+            <div class="panel-body">
+              <div class="flex items-center gap-12 flex-wrap">
+                <span class="avatar lg" style="background:var(--ds-accent)">N</span>
+                <div class="flex-1"><div class="font-bold" style="font-size:16px">Northstar</div><div class="muted-block">Owner · joined Jan 2023</div></div>
+                <a class="btn btn-sm" href="workspace-settings.html">Workspace settings</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Settings',href:'settings.html'},{label:'Profile'}]);
+      document.getElementById('save').addEventListener('click', function () { NS.toast('Profile saved', 'success'); });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

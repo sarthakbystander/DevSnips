@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Center — Cyber · DevSnips</title>
+<meta name="description" content="Cyber contact layout: Support center grid — a production-ready Tailwind CSS section by DevSnips.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#f4f6f8',
+          100: '#e5e9ec',
+          200: '#cdd5db',
+          300: '#a9b8c2',
+          400: '#7f94a3',
+          500: '#536878', // Cadet Gray
+          600: '#475b6b',
+          700: '#3c4d5a',
+          800: '#2f3d47',
+          900: '#1e2830',
+          950: '#11171d',
+        }
+      },
+      fontFamily: {
+        pixel: ['"Pixelify Sans"', 'cursive'],
+        code: ['"VT323"', 'monospace'],
+      }
+    }
+  }
+};
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+<style>
+  .mono{font-family:'VT323',ui-monospace,SFMono-Regular,monospace}
+  ::selection{background:rgba(83,104,120,.25)}
+
+  /* ---- Retro Pixel Effects ---- */
+  .pixel-extrude {
+    text-shadow: 2px 2px 0px #536878, 4px 4px 0px #2f3d47;
+  }
+  .dark .pixel-extrude {
+    text-shadow: 2px 2px 0px #a9b8c2, 4px 4px 0px #536878;
+  }
+  .pixel-outline {
+    -webkit-text-stroke: 1.5px #536878;
+    color: transparent;
+  }
+  .dark .pixel-outline {
+    -webkit-text-stroke: 1.5px #a9b8c2;
+  }
+
+  /* ---- tab pills ---- */
+  .tab-btn{transition:all .18s ease; font-family:'Pixelify Sans', cursive; font-size:0.8rem;}
+  .tab-btn[aria-selected="true"]{background:#fff;color:#111827;box-shadow:0 1px 2px rgba(0,0,0,.07),0 0 0 1px rgba(0,0,0,.03)}
+  .dark .tab-btn[aria-selected="true"]{background:#262626;color:#fff;box-shadow:none}
+  .tab-btn[aria-selected="false"]{color:#737373}
+  .tab-btn[aria-selected="false"]:hover{color:#171717}
+  .dark .tab-btn[aria-selected="false"]:hover{color:#e5e5e5}
+
+  /* ---- device toggle ---- */
+  .device-btn{transition:all .18s ease}
+  .device-btn[aria-pressed="true"]{background:#f4f6f8;color:#536878}
+  .dark .device-btn[aria-pressed="true"]{background:rgba(83,104,120,.16);color:#a9b8c2}
+
+  /* ---- code scrollbar ---- */
+  .code-block::-webkit-scrollbar{width:10px;height:10px}
+  .code-block::-webkit-scrollbar-track{background:transparent}
+  .code-block::-webkit-scrollbar-thumb{background:#3f3f46;border-radius:9999px;border:2px solid #0a0a0a}
+  .code-block::-webkit-scrollbar-thumb:hover{background:#52525b}
+
+  /* ---- docs prose ---- */
+  .prose-devsnips{font-size:.9375rem;line-height:1.75;color:#525252}
+  .dark .prose-devsnips{color:#a3a3a3}
+  .prose-devsnips h2{font-family:'Pixelify Sans', cursive;font-size:1.1rem;font-weight:700;color:#111827;margin:1.75rem 0 .5rem;letter-spacing:-.01em}
+  .dark .prose-devsnips h2{color:#fafafa}
+  .prose-devsnips h2:first-child{margin-top:0}
+  .prose-devsnips p{margin:.5rem 0}
+  .prose-devsnips strong{color:#171717;font-weight:600}
+  .dark .prose-devsnips strong{color:#e5e5e5}
+  .prose-devsnips ul{list-style:none;margin:.6rem 0;padding:0;display:grid;gap:.45rem}
+  .prose-devsnips ul li{position:relative;padding-left:1.3rem}
+  .prose-devsnips ul li::before{content:"";position:absolute;left:.3rem;top:.62em;width:.35rem;height:.35rem;border-radius:9999px;background:#536878}
+  .prose-devsnips ol{margin:.6rem 0;padding-left:1.3rem;display:grid;gap:.45rem}
+  .prose-devsnips ol li::marker{color:#536878;font-weight:700}
+  .prose-devsnips code{font-family:'VT323',monospace;font-size:.85em;background:#f4f4f5;border:1px solid #e5e7eb;padding:.1rem .38rem;border-radius:.4rem;color:#3c4d5a;white-space:nowrap}
+  .dark .prose-devsnips code{background:#171717;border-color:#262626;color:#a9b8c2}
+
+  @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .rise{animation:rise .45s cubic-bezier(.22,1,.36,1) both}
+</style>
+</head>
+<body class="min-h-screen bg-white text-neutral-900 antialiased dark:bg-[#0a0a0a] dark:text-neutral-100">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md dark:border-neutral-800/70 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <!-- Custom Brand Logo (IE Blocky) -->
+      <svg class="h-7 w-auto" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+        <rect x="15" y="15" width="18" height="20" />
+        <rect x="22" y="35" width="4" height="10" />
+        <rect x="15" y="45" width="18" height="40" />
+        <rect x="40" y="15" width="45" height="20" />
+        <rect x="52" y="35" width="33" height="10" />
+        <rect x="52" y="45" width="33" height="10" />
+        <rect x="40" y="55" width="45" height="30" />
+      </svg>
+      <span class="font-pixel text-xl">DevSnips</span>
+    </a>
+
+    <nav class="hidden items-center gap-0.5 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="font-pixel rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Home</a>
+      <a href="../../../../Tailwind/index.html" aria-current="page" class="font-pixel rounded-lg bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="font-pixel rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Vanilla</a>
+      <a href="../../../../React/index.html" class="font-pixel rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">React</a>
+      <a href="../../../../docs/index.html" class="font-pixel rounded-lg px-3 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">Docs</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="grid h-9 w-9 place-items-center rounded-lg border border-neutral-200 text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white">
+        <svg class="h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="hidden h-4 w-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false"
+        class="grid h-9 w-9 place-items-center rounded-lg border border-neutral-200 text-neutral-600 transition hover:bg-neutral-100 md:hidden dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-900">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+    <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+    <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+    <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+    <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-gradient-to-b from-brand-50/80 via-white to-transparent dark:from-brand-500/[0.07] dark:via-[#0a0a0a] dark:to-transparent"></div>
+
+    <div class="mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-6">
+      <!-- breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+        <a href="../../../../index.html" class="transition hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <span class="text-neutral-300 dark:text-neutral-600">/</span>
+        <a href="../../../../Tailwind/index.html" class="transition hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <span class="text-neutral-300 dark:text-neutral-600">/</span>
+        <a href="../../../../Tailwind/Sections/index.html" class="transition hover:text-neutral-900 dark:hover:text-white">Sections</a>
+        <span class="text-neutral-300 dark:text-neutral-600">/</span>
+        <a href="../../../../Tailwind/Sections/index.html#Contact" class="transition hover:text-neutral-900 dark:hover:text-white">Contact</a>
+        <span class="text-neutral-300 dark:text-neutral-600">/</span>
+        <span class="font-semibold text-neutral-900 dark:text-white">Support Center — Cyber</span>
+      </nav>
+
+      <div class="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-start">
+        <!-- left -->
+        <div class="rise">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="mono inline-flex items-center gap-1.5 rounded-full border border-brand-200 bg-brand-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-600 dark:border-brand-500/25 dark:bg-brand-500/10 dark:text-brand-400">
+              <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span> Section
+            </span>
+            <span class="mono inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-neutral-500 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
+              Cyber
+            </span>
+          </div>
+
+          <h1 class="font-pixel pixel-extrude mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">Support Center — Cyber</h1>
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
+            A sleek support center grid with six iconified channels, arrow indicators and clipped corner cards. Fully responsive from one to three columns.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="mono rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">contact</span>
+            <span class="mono rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">form</span>
+            <span class="mono rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">get-in-touch</span>
+            <span class="mono rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">cyber</span>
+          </div>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="_src/preview.html" target="_blank" rel="noopener"
+               class="font-pixel group inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-500 hover:shadow-md">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              Live preview
+            </a>
+            <button type="button" id="hero-copy"
+               class="font-pixel inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-sm dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-200 dark:hover:border-neutral-600">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              Copy code
+            </button>
+          </div>
+        </div>
+
+        <!-- right: spec card -->
+        <aside class="rise rounded-2xl border border-neutral-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/70">
+          <p class="mono text-[11px] font-bold uppercase tracking-widest text-neutral-400">Details</p>
+          <dl class="mt-3 divide-y divide-neutral-200 text-sm dark:divide-neutral-800">
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <dt class="text-neutral-500 dark:text-neutral-400">Technology</dt>
+              <dd class="font-bold">Tailwind CSS</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <dt class="text-neutral-500 dark:text-neutral-400">Category</dt>
+              <dd class="font-bold">Sections › Contact</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <dt class="text-neutral-500 dark:text-neutral-400">Files</dt>
+              <dd class="font-bold">4</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <dt class="text-neutral-500 dark:text-neutral-400">Dependencies</dt>
+              <dd class="font-bold text-emerald-600 dark:text-emerald-400">None</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <dt class="text-neutral-500 dark:text-neutral-400">Responsive</dt>
+              <dd class="font-bold">1 / 2 / 3 col</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PREVIEW / CODE WORKSPACE ============ -->
+  <section id="preview" class="mx-auto max-w-6xl scroll-mt-24 px-4 pb-4 sm:px-6">
+    <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-950">
+
+      <!-- toolbar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200 bg-neutral-50/70 px-3 py-2.5 dark:border-neutral-800 dark:bg-neutral-900/50">
+        <div class="flex items-center gap-1 rounded-xl bg-neutral-200/60 p-1 dark:bg-neutral-800/60" role="tablist" aria-label="View mode">
+          <button type="button" class="tab-btn rounded-lg px-3.5 py-1.5 text-xs font-bold" data-tab="preview" role="tab" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-lg px-3.5 py-1.5 text-xs font-bold" data-tab="code" role="tab" aria-selected="false">Code</button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div id="device-toggle" class="flex items-center gap-0.5 rounded-xl border border-neutral-200 bg-white p-0.5 dark:border-neutral-800 dark:bg-neutral-900">
+            <button type="button" class="device-btn grid h-7 w-7 place-items-center rounded-lg" data-device="desktop" aria-pressed="true" title="Desktop" aria-label="Desktop preview">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </button>
+            <button type="button" class="device-btn grid h-7 w-7 place-items-center rounded-lg" data-device="tablet" aria-pressed="false" title="Tablet" aria-label="Tablet preview">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+            </button>
+            <button type="button" class="device-btn grid h-7 w-7 place-items-center rounded-lg" data-device="mobile" aria-pressed="false" title="Mobile" aria-label="Mobile preview">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="12" height="20" x="6" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+            </button>
+          </div>
+
+          <a href="_src/preview.html" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-700 transition hover:border-neutral-300 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800">
+            Open <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- preview panel -->
+      <div id="panel-preview" class="bg-neutral-100/70 p-3 sm:p-5 dark:bg-neutral-900/40">
+        <div id="preview-wrap" class="mx-auto overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 ease-out dark:border-neutral-800 dark:bg-neutral-950" style="max-width:100%">
+          <iframe id="preview-frame" src="_src/preview.html" title="Support Center — Cyber preview"
+                  class="h-[480px] w-full bg-white sm:h-[560px] dark:bg-neutral-900" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- code panel -->
+      <div id="panel-code" class="hidden">
+        <div class="flex items-center justify-between gap-3 border-b border-neutral-200 bg-neutral-50/70 px-4 py-2.5 dark:border-neutral-800 dark:bg-neutral-900/50">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+            <span class="mono ml-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400">code.html</span>
+          </div>
+          <button type="button" id="copy-code"
+            class="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-700 transition hover:border-neutral-300 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800">
+            Copy
+          </button>
+        </div>
+        <pre class="code-block max-h-[560px] overflow-auto bg-neutral-950 p-5 text-xs leading-relaxed text-neutral-200"><code id="code-block">&lt;!--
+Snippet Name: Support Center — Cyber
+Description: Cyber contact layout: Support center grid.
+Author: DevSnips Contributors
+Usage Example: Drop this snippet into any Tailwind CSS page.
+--&gt;
+
+&lt;style&gt;
+  /* DevSnips style-helper classes (self-contained snippet) */
+  .f-sans{font-family:'Pixelify Sans',sans-serif}.f-mono{font-family:'VT323',monospace}.f-disp{font-family:'Pixelify Sans',cursive}
+      .cy-grid{background-image:linear-gradient(rgba(83,104,120,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(83,104,120,.06) 1px,transparent 1px);background-size:32px 32px}
+      .cy-glow{box-shadow:0 0 0 1px rgba(83,104,120,.3),0 0 24px -6px rgba(83,104,120,.4)}
+      .cy-clip{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+      .pixel-extrude { text-shadow: 2px 2px 0px #536878, 4px 4px 0px #2f3d47; }
+&lt;/style&gt;
+&lt;section class=&quot;relative w-full py-20 sm:py-28 text-[#c8d0d8]&quot; data-section=&quot;cyber&quot;&gt;
+&lt;div class=&quot;mx-auto max-w-7xl px-5 sm:px-6 lg:px-8&quot;&gt;
+&lt;div class=&quot;mb-10 text-center mx-auto&quot;&gt;&lt;p class=&quot;mb-4&quot;&gt;&lt;span class=&quot;inline-flex items-center gap-1.5 border border-[#536878]/40 bg-[#536878]/10 px-3 py-1 f-mono text-[11px] font-bold uppercase tracking-wider text-[#536878]&quot;&gt;&lt;svg class=&quot;h-3.5 w-3.5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;rect width=&quot;20&quot; height=&quot;16&quot; x=&quot;2&quot; y=&quot;4&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7&quot;/&gt;&lt;/svg&gt; Contact&lt;/span&gt;&lt;/p&gt;&lt;h2 class=&quot;f-disp pixel-extrude text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto&quot;&gt;Let&#x27;s talk&lt;/h2&gt;&lt;p class=&quot;mt-4 max-w-2xl text-center mx-auto text-base sm:text-lg leading-relaxed text-[#6b7f8e]&quot;&gt;Reach out and our team will reply within one business day.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/&gt;&lt;path d=&quot;M14 2v6h6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Documentation&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Guides, API reference, and tutorials&lt;/p&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot;/&gt;&lt;path d=&quot;M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3&quot;/&gt;&lt;path d=&quot;M12 17h.01&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Community&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Ask and answer with other users&lt;/p&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Live chat&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Talk to support in real time&lt;/p&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;m22 8-6 4 6 4V8Z&quot;/&gt;&lt;rect width=&quot;14&quot; height=&quot;12&quot; x=&quot;2&quot; y=&quot;6&quot; rx=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Video walkthroughs&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Watch step-by-step demos&lt;/p&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M3 14v-3a9 9 0 0 1 18 0v3&quot;/&gt;&lt;path d=&quot;M21 16a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 16a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Contact support&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Open a ticket with our team&lt;/p&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bg-[#0f1419]/80 border border-[#536878]/25 cy-clip cy-glow transition-transform duration-200 hover:-translate-y-1 p-6&quot;&gt;&lt;div class=&quot;flex items-start justify-between&quot;&gt;&lt;div class=&quot;flex h-11 w-11 items-center justify-center bg-[#0f1419]/60 border border-[#536878]/15 cy-clip&quot;&gt;&lt;svg class=&quot;h-5 w-5&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z&quot;/&gt;&lt;path d=&quot;m9 12 2 2 4-4&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;svg class=&quot;h-4 w-4&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 12h14M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;h3 class=&quot;mt-4 f-disp font-semibold&quot;&gt;Status page&lt;/h3&gt;&lt;p class=&quot;mt-1 text-sm text-[#6b7f8e]&quot;&gt;Live system status and incidents&lt;/p&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BODY GRID ============ -->
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+
+      <!-- LEFT COLUMN -->
+      <div class="space-y-6">
+
+        <!-- installation -->
+        <div id="installation" class="scroll-mt-24 rounded-2xl border border-neutral-200 p-5 sm:p-6 dark:border-neutral-800">
+          <div class="flex items-center gap-2">
+            <span class="grid h-7 w-7 place-items-center rounded-lg bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 17 6-6-6-6M12 19h8"/></svg>
+            </span>
+            <h2 class="font-pixel text-sm font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Installation</h2>
+          </div>
+
+          <div class="mt-4 flex items-center gap-3 rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3">
+            <span class="mono shrink-0 text-sm text-neutral-600">$</span>
+            <code class="mono flex-1 truncate text-sm text-emerald-300">npx devsnips add tailwind/sections/Contact/cyber</code>
+            <button type="button" id="copy-install"
+              class="mono shrink-0 rounded-lg border border-neutral-700 px-2.5 py-1 text-xs font-semibold text-neutral-300 transition hover:bg-neutral-800 hover:text-white">
+              Copy
+            </button>
+          </div>
+          <p class="mt-3 text-sm text-neutral-500 dark:text-neutral-400">Or copy the markup below directly — no build step required.</p>
+        </div>
+
+        <!-- features -->
+        <div id="features" class="scroll-mt-24 rounded-2xl border border-neutral-200 p-5 sm:p-6 dark:border-neutral-800">
+          <div class="flex items-center gap-2">
+            <span class="grid h-7 w-7 place-items-center rounded-lg bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <h2 class="font-pixel text-sm font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Features</h2>
+          </div>
+
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Support center grid
+            </li>
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              6 channels
+            </li>
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Arrow indicators
+            </li>
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Iconified cards
+            </li>
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Responsive 1/2/3-col
+            </li>
+            <li class="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50/60 px-3.5 py-2.5 text-sm font-medium dark:border-neutral-800 dark:bg-neutral-900/40">
+              <svg class="h-4 w-4 shrink-0 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              No JavaScript
+            </li>
+          </ul>
+        </div>
+
+        <!-- documentation -->
+        <div id="docs" class="scroll-mt-24 rounded-2xl border border-neutral-200 p-5 sm:p-6 dark:border-neutral-800">
+          <div class="flex items-center gap-2">
+            <span class="grid h-7 w-7 place-items-center rounded-lg bg-amber-50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <h2 class="font-pixel text-sm font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Documentation</h2>
+          </div>
+
+          <article class="prose-devsnips mt-4">
+            <h2>Overview</h2>
+            <p><strong>Support Center — Cyber</strong> is a Cadet Gray accented contact section that presents six support channels as clipped, glowing cards. Each card carries an icon, a title, a short description and an arrow affordance.</p>
+
+            <h2>Responsive support</h2>
+            <ul>
+              <li>Mobile-first layout</li>
+              <li>Breakpoints: <code>sm</code> (640px), <code>md</code> (768px), <code>lg</code> (1024px)</li>
+              <li>Stacks gracefully on small screens, expands on large viewports</li>
+            </ul>
+
+            <h2>Browser support</h2>
+            <ul>
+              <li>Chrome (latest)</li>
+              <li>Firefox (latest)</li>
+              <li>Safari (latest)</li>
+              <li>Edge (latest)</li>
+            </ul>
+
+            <h2>Usage</h2>
+            <ol>
+              <li>Copy the markup from <code>code.html</code> into your Tailwind CSS project.</li>
+              <li>Include the corresponding Google Fonts in your document <code>&lt;head&gt;</code> if the style requires them.</li>
+              <li>The snippet is self-contained and copy-paste ready — no build step or JavaScript required.</li>
+            </ol>
+
+            <h2>Design language</h2>
+            <p><strong>Cadet Gray</strong> — part of the DevSnips Tailwind Sections library. Every section is original, accessible, and production-ready.</p>
+
+            <h2>Files</h2>
+            <ul>
+              <li><code>preview.html</code> — full standalone preview page (Tailwind CDN + fonts)</li>
+              <li><code>code.html</code> — copy-paste snippet only (no <code>&lt;head&gt;</code> / CDN)</li>
+              <li><code>metadata.json</code> — structured metadata</li>
+              <li><code>README.md</code> — this file</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
+
+        <!-- on this page -->
+        <nav class="rounded-2xl border border-neutral-200 p-5 dark:border-neutral-800" aria-label="On this page">
+          <p class="mono text-[11px] font-bold uppercase tracking-widest text-neutral-400">On this page</p>
+          <ul class="mt-3 space-y-1 text-sm">
+            <li><a href="#preview" class="flex items-center gap-2 rounded-lg px-2 py-1.5 font-medium text-neutral-600 transition hover:bg-neutral-100 hover:text-brand-600 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-brand-400"><span class="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>Preview</a></li>
+            <li><a href="#installation" class="flex items-center gap-2 rounded-lg px-2 py-1.5 font-medium text-neutral-600 transition hover:bg-neutral-100 hover:text-brand-600 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-brand-400"><span class="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>Installation</a></li>
+            <li><a href="#features" class="flex items-center gap-2 rounded-lg px-2 py-1.5 font-medium text-neutral-600 transition hover:bg-neutral-100 hover:text-brand-600 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-brand-400"><span class="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>Features</a></li>
+            <li><a href="#docs" class="flex items-center gap-2 rounded-lg px-2 py-1.5 font-medium text-neutral-600 transition hover:bg-neutral-100 hover:text-brand-600 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-brand-400"><span class="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>Documentation</a></li>
+          </ul>
+        </nav>
+
+        <!-- related -->
+        <div>
+          <h2 class="font-pixel text-[11px] font-bold uppercase tracking-widest text-neutral-400">Related components</h2>
+          <div class="mt-3 grid gap-3">
+
+            <a href="../apple-inspired/index.html" class="group flex items-start gap-3 rounded-2xl border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/5 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-brand-500">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-50 text-xs font-black text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">AI</span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm font-bold leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400">Contact + Sidebar Info</span>
+                <span class="mt-0.5 block truncate text-xs text-neutral-500 dark:text-neutral-400">Apple Inspired</span>
+              </span>
+              <svg class="mt-1 h-4 w-4 shrink-0 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500 dark:text-neutral-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+            <a href="../bento-grid/index.html" class="group flex items-start gap-3 rounded-2xl border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/5 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-brand-500">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-50 text-xs font-black text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">BG</span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm font-bold leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400">Inline Contact Cards</span>
+                <span class="mt-0.5 block truncate text-xs text-neutral-500 dark:text-neutral-400">Bento Grid</span>
+              </span>
+              <svg class="mt-1 h-4 w-4 shrink-0 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500 dark:text-neutral-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+            <a href="../dark-premium/index.html" class="group flex items-start gap-3 rounded-2xl border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/5 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-brand-500">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-50 text-xs font-black text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">DP</span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm font-bold leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400">Contact + Subscribe</span>
+                <span class="mt-0.5 block truncate text-xs text-neutral-500 dark:text-neutral-400">Dark Premium</span>
+              </span>
+              <svg class="mt-1 h-4 w-4 shrink-0 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500 dark:text-neutral-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+            <a href="../edge-glassmorphism/index.html" class="group flex items-start gap-3 rounded-2xl border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/5 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-brand-500">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-50 text-xs font-black text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">EG</span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm font-bold leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400">Centered Contact</span>
+                <span class="mt-0.5 block truncate text-xs text-neutral-500 dark:text-neutral-400">Edge Glassmorphism</span>
+              </span>
+              <svg class="mt-1 h-4 w-4 shrink-0 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500 dark:text-neutral-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- back link -->
+        <a href="../../../../Tailwind/Sections/index.html#Contact"
+           class="font-pixel flex items-center justify-center gap-2 rounded-2xl border border-dashed border-neutral-300 px-4 py-3 text-sm font-semibold text-neutral-500 transition hover:border-brand-400 hover:text-brand-600 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-brand-500 dark:hover:text-brand-400">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          Browse all Contact sections
+        </a>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-2.5 font-extrabold tracking-tight">
+        <!-- Footer Logo -->
+        <svg class="h-7 w-auto" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+          <rect x="15" y="15" width="18" height="20" />
+          <rect x="22" y="35" width="4" height="10" />
+          <rect x="15" y="45" width="18" height="40" />
+          <rect x="40" y="15" width="45" height="20" />
+          <rect x="52" y="35" width="33" height="10" />
+          <rect x="52" y="45" width="33" height="10" />
+          <rect x="40" y="55" width="45" height="30" />
+        </svg>
+        <span class="font-pixel text-xl">DevSnips</span>
+        <span class="ml-2 text-sm font-normal text-neutral-500 dark:text-neutral-400">open-source frontend component library</span>
+      </div>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400" aria-label="Footer">
+        <a href="../../../../index.html" class="font-pixel transition hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="font-pixel transition hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="font-pixel transition hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="font-pixel transition hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="font-pixel transition hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---------- theme ---------- */
+  var themeBtn = document.getElementById('theme-toggle');
+  themeBtn.addEventListener('click', function () {
+    var d = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('devsnips-theme', d ? 'dark' : 'light');
+  });
+
+  /* ---------- mobile nav ---------- */
+  var mBtn = document.getElementById('mobile-menu-btn');
+  var mNav = document.getElementById('mobile-nav');
+  if (mBtn) {
+    mBtn.addEventListener('click', function () {
+      var open = mNav.classList.toggle('hidden') === false;
+      mBtn.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  /* ---------- copy helper ---------- */
+  function flash(btn, msg) {
+    if (!btn.dataset.label) btn.dataset.label = btn.textContent.trim();
+    btn.textContent = msg;
+    clearTimeout(btn._t);
+    btn._t = setTimeout(function () { btn.textContent = btn.dataset.label; }, 1400);
+  }
+  function copy(text, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn, 'Copied!'); },
+        function () { flash(btn, 'Press ⌘C'); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); flash(btn, 'Copied!'); } catch (e) { flash(btn, 'Failed'); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  var codeEl = document.getElementById('code-block');
+  var installCmd = 'npx devsnips add tailwind/sections/Contact/cyber';
+
+  document.getElementById('copy-code').addEventListener('click', function () {
+    copy(codeEl.innerText, this);
+  });
+  document.getElementById('hero-copy').addEventListener('click', function () {
+    copy(codeEl.innerText, this);
+  });
+  document.getElementById('copy-install').addEventListener('click', function () {
+    copy(installCmd, this);
+  });
+
+  /* ---------- tabs ---------- */
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = {
+    preview: document.getElementById('panel-preview'),
+    code: document.getElementById('panel-code')
+  };
+  var deviceToggle = document.getElementById('device-toggle');
+
+  function selectTab(name) {
+    tabBtns.forEach(function (b) {
+      b.setAttribute('aria-selected', String(b.dataset.tab === name));
+    });
+    Object.keys(panels).forEach(function (k) {
+      panels[k].classList.toggle('hidden', k !== name);
+    });
+    deviceToggle.classList.toggle('hidden', name !== 'preview');
+  }
+  tabBtns.forEach(function (b) {
+    b.addEventListener('click', function () { selectTab(b.dataset.tab); });
+  });
+
+  /* ---------- device preview sizing ---------- */
+  var widths = { desktop: '100%', tablet: '834px', mobile: '420px' };
+  var wrap = document.getElementById('preview-wrap');
+  var deviceBtns = document.querySelectorAll('.device-btn');
+
+  deviceBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      deviceBtns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      wrap.style.maxWidth = widths[b.dataset.device] || '100%';
+    });
+  });
+})();
+</script>
+</body>
+</html>

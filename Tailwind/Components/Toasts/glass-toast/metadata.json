@@ -1,0 +1,41 @@
+{
+  "name": "Glass Toast",
+  "slug": "glass-toast",
+  "component": "toast",
+  "family": "toasts",
+  "variant": "glass",
+  "description": "Frosted-glass notification toasts in the glassmorphism design language — translucent backdrop-blur panels with semantic glowing accents, a live countdown progress bar, and pause-on-hover, presented over an animated aurora mesh backdrop.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "toast",
+    "notification",
+    "glassmorphism",
+    "glass",
+    "aurora",
+    "dark",
+    "countdown",
+    "feedback"
+  ],
+  "related": [
+    "status-toasts",
+    "persistent-toast",
+    "stacked-toasts"
+  ],
+  "features": [
+    "glassmorphism design language",
+    "frosted backdrop-blur surfaces",
+    "animated aurora mesh backdrop",
+    "4 semantic types with glowing accents",
+    "countdown progress bar",
+    "pause on hover",
+    "role=alert for errors/warnings",
+    "role=status for success/info",
+    "aria-live polite region",
+    "prefers-reduced-motion safe",
+    "focus-visible ring",
+    "responsive"
+  ],
+  "type": "component",
+  "category": "Components"
+}

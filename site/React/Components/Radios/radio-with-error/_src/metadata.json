@@ -1,0 +1,58 @@
+{
+  "id": "radio-with-error-react-001",
+  "name": "Radio With Error",
+  "slug": "radio-with-error",
+  "component": "radio",
+  "family": "radios",
+  "variant": "radio-with-error",
+  "description": "Radio with an associated validation message; sets aria-invalid and links the error via aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Radios",
+  "subcategory": "Validation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "radio",
+    "form",
+    "selection",
+    "error",
+    "validation",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "radio",
+    "radio-with-helper",
+    "radio-group"
+  ]
+}

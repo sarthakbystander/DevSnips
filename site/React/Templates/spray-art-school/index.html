@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPRAY — Art School — React Template — DevSnips</title>
+<meta name="description" content="A premium four-page React + TypeScript template for SPRAY, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. A raw DIY-zine visual language — Anton + Space Grotesk type, ink-black surfaces with neon-green and hot-pink accents, torn-paper dividers, spray-splatter decorations, a film-grain noise overlay, and Framer Motion reveal animations. Four route pages (home, work, about, contact) compose reusable typed sections and data (hero, selected work, courses, about, process roadmap, testimonials, CTA, footer) over react-router, Vite build, no external image assets.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../React/Templates/index.html" class="hover:text-neutral-900 dark:hover:text-white">Templates</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">SPRAY — Art School</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">SPRAY — Art School</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A premium four-page React + TypeScript template for SPRAY, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. A raw DIY-zine visual language — Anton + Space Grotesk type, ink-black surfaces with neon-green and hot-pink accents, torn-paper dividers, spray-splatter decorations, a film-grain noise overlay, and Framer Motion reveal animations. Four route pages (home, work, about, contact) compose reusable typed sections and data (hero, selected work, courses, about, process roadmap, testimonials, CTA, footer) over react-router, Vite build, no external image assets.</p>
+      </div>
+      <a href="_src/preview.html" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Full preview &#8599;</a>
+    </div>
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">SPRAY — Art School &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="SPRAY — Art School preview" class="h-[460px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Pages in this template</h2>
+        <ul class="mt-3 space-y-2"><li class="text-sm text-neutral-500 dark:text-neutral-400">Single-page template &mdash; see preview.</li></ul>
+        <h2 class="mt-8 text-lg font-bold">Features</h2><ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>four-page responsive React app (home, work, about, contact) over react-router-dom</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>do-it-yourself zine visual system: Anton display + Space Grotesk body, ink-black/navy + bone surfaces, single neon-green accent + hot-pink secondary</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>ragged torn-paper divider and clip-path spray-button silhouette, hang splatter SVG decorations, subtle film-grain noise overlay</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>Framer Motion scroll reveals on headlines, cards, and roadmap steps (reduced-motion friendly via transition definitions)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>typed data-driven content arrays (projects, services, testimonials) — no hardcoded copy in the cards</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>sticky navbar with blur-on-scroll, mobile menu (aria-expanded), and a Sign-up CTA</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>hero with oversized clamp()-scaled display headline + spray CTA</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>selected-work gallery of student pieces with rotated cards and category badges (gradient placeholders — zero image assets)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>five named courses with schedule metadata (basics, sketching, muralism, stencils, freedom)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>five-step numbered roadmap (enroll → sketch → wall time → critique → show)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>student testimonials grid with rotated quote cards</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>contact page with labelled form,intrinsic validation,anded success state (role=status)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>theme-color metadata, semantic landmarks, heading hierarchy, visible focus-visible outline</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>React + TypeScript + Tailwind CSS via Vite with zero runtime dependencies beyond React, React Router, and Framer Motion</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Other templates</h2>
+        <div class="mt-3 grid gap-3"></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>SPRAY — Art School Template</h1>
+<p>A four-page React + TypeScript template for <strong>SPRAY</strong>, a fictional street-art school where beginners learn graffiti, sketching, muralism, and stencil work from working artists. No clean corners, no boring classrooms.</p>
+<p>Built with React, TypeScript, Tailwind CSS, react-router-dom, and Framer Motion, bundled by Vite. The template ships with <strong>zero image assets</strong> — every artwork slot is a labeled gradient placeholder, so it renders correctly out of the box.</p>
+<h2>Design direction</h2>
+<p><strong>Raw DIY-zine street art</strong> — a deliberate anti-gallery aesthetic:</p>
+<ul>
+<li><strong>Type:</strong> Anton (condensed display, tight tracking) for headlines; Space Grotesk (body, 400–700) for copy.</li>
+<li><strong>Palette:</strong> ink-black <code>#0a0a0f</code> surfaces, ink-navy panels, bone <code>#f2f0e6</code> text, one neon-green <code>#39FF14</code> primary accent, hot-pink <code>#ff2ec4</code> secondary accent.</li>
+<li><strong>Texture:</strong> torn-paper divider strips (<code>TornDivider.tsx</code>), hanging spray-splatter SVG blobs (<code>SplatterDecoration.tsx</code>), a subtle fixed film-grain noise overlay, and clip-path spray-button silhouettes (<code>Button.tsx</code>).</li>
+<li><strong>Motion:</strong> restrained Framer Motion reveals on headlines, cards, and roadmap steps; splatter blobs idle-float and torn strips drift.</li>
+<li><strong>Composition:</strong> rotated cards and badges, an oversized <code>clamp()</code>-scaled headline, numbered roadmap only where the sequence is real (enroll → sketch → wall time → critique → show).</li>
+</ul>
+<p>The visual system lives entirely in <code>tailwind.config.ts</code> (colors, fonts, keyframes), <code>src/styles/globals.css</code>, and the presentational components — it does not depend on the shared DevSnips <code>--ds-*</code> tokens.</p>
+<h2>Pages</h2>
+<p>| Route | File | Composition |</p>
+<p>| --- | --- | --- |</p>
+<p>| <code>/</code> | <code>src/pages/Home.tsx</code> | Hero, Selected Work, Courses, About, Roadmap, Testimonials, CTA, Footer |</p>
+<p>| <code>/work</code> | <code>src/pages/Work.tsx</code> | Section heading + full Selected Work archive, CTA, Footer |</p>
+<p>| <code>/about</code> | <code>src/pages/About.tsx</code> | About, Roadmap, Testimonials, CTA, Footer |</p>
+<p>| <code>/contact</code> | <code>src/pages/Contact.tsx</code> | Labelled contact form with validation + success state, Footer |</p>
+<h2>Structure</h2>
+<pre class="code-block"><code>
+spray-art-school/
+├── index.html                 # Vite entry (theme-color, root mount)
+├── preview.html               # self-contained static preview of the whole site (open directly)
+├── package.json               # React 18, React Router 6, Framer Motion 11, Vite 5
+├── tailwind.config.ts         # colors, fonts, animation keyframes
+├── postcss.config.js
+├── tsconfig.json              # strict TypeScript
+└── src/
+    ├── main.tsx              # BrowserRouter + StrictMode mount
+    ├── App.tsx               # Navbar + routed pages + noise overlay
+    ├── components/           # Navbar, Button, Logo, Badge, ProjectCard, ServiceCard,
+    │                            SectionHeading, TornDivider, SplatterDecoration
+    ├── sections/              # Hero, SelectedWork, Services, About, Process,
+    │                            Testimonials, CTA, Footer
+    ├── pages/                # Home, Work, About, Contact
+    ├── data/                 # Typed content arrays: projects, services, testimonials
+    └── styles/
+        └── globals.css        # Google Fonts, Tailwind layers, noise texture, clip-paths
+</code></pre>
+<h2>Setup &amp; run</h2>
+<p>Requires Node.js + npm. From the template root:</p>
+<pre class="code-block"><code>
+npm install
+npm run dev        # Vite dev server — open the printed URL (usually http://localhost:5173)
+</code></pre>
+<p>Production build + local preview:</p>
+<pre class="code-block"><code>
+npm run build      # tsc type-check + Vite production build → dist/
+npm run preview     # serve the built app
+</code></pre>
+<p><strong>Static preview:</strong> <code>preview.html</code> at the template root is a fully self-contained</p>
+<p>static prototype of the whole site (Tailwind CDN + hash-routed home/work/about/</p>
+<p>contact, working mobile menu and contact form, scroll reveals). Open it directly</p>
+<p>in a browser or serve the folder — no build step needed. It mirrors the real</p>
+<p>app&#x27;s markup and design system so you can preview the template without</p>
+<p>installing dependencies.</p>
+<h2>Sections &amp; components</h2>
+<ul>
+<li><strong>Navbar</strong> — sticky header that gains a blurred ink backdrop on scroll; mobile menu toggles <code>aria-expanded</code> and swaps ☰/✕ icons; Sign-up CTA.</li>
+<li><strong>Hero</strong> — oversized clamp()-scaled “ART / SCHOOL” display, torn divider, lede, spray CTA, floating splatters.</li>
+</ul>
+<ul>
+<li><strong>SelectedWork</strong> — responsive grid of rotated student-piece cards (gradient placeholder, category badge, student + year).</li>
+<li><strong>Services</strong> — five course cards with bullets and schedule metadata (Basics, Sketching, Muralism, Stencils, Freedom).</li>
+<li><strong>About</strong> — oversized manifesto pull-copy with neon/pink emphasis words, splat decoration.</li>
+</ul>
+<ul>
+<li><strong>Process</strong> — five-step numbered roadmap (Enroll → Sketch → Wall time → Critique → Show) on a vertical/horizontal timeline.</li>
+</ul>
+<ul>
+<li><strong>Testimonials</strong> — three rotated quote cards with student name + course.</li>
+<li><strong>CTA</strong> — centered display call-to-action with spray Button..</li>
+<li><strong>Footer</strong> — logo, social links, auto-year copyright.</li>
+<li><strong>Contact page</strong> — labelled Name/Email/Message form with native required validation; submit swaps to a <code>role=&quot;status&quot;</code> success message.</li>
+</ul>
+<h2>Customization</h2>
+<ul>
+<li><strong>Content:</strong> edit the typed arrays in <code>src/data/</code> (projects, services, testimonials) — card copy never lives in the components themselves.</li>
+<li><strong>Re-theme:</strong> colors, fonts, and keyframes are defined once in <code>tailwind.config.ts</code> and the base styles in <code>src/styles/globals.css</code>; swapping the palette re-colors every section consistently.</li>
+</ul>
+<ul>
+<li><strong>Real artwork:</strong> drop image files into <code>src/assets/images/</code>and replace the placeholder blocks in <code>ProjectCard.tsx</code> with <code>&lt;img&gt;</code> tags when ready. The scaffold intentionally ships asset-free so it always renders without broken images.</li>
+<li><strong>Add a page:</strong> create a <code>src/pages/*.tsx</code> route, compose existing sections, and register it in <code>src/App.tsx</code>.</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>Semantic landmarks (<code>header</code>, <code>main</code>, <code>section</code>, <code>footer</code>, <code>nav</code>, <code>form</code>).</li>
+<li>Single <code>h1</code> per page; descriptive <code>h2</code> section headings with eyebrows..</li>
+<li>Mobile menu wired with <code>aria-expanded</code>; contact form labels tied via <code>htmlFor</code>/<code>id</code>; the success message uses <code>role=&quot;status&quot;</code>.</li>
+<li>Global <code>:focus-visible</code> dashed outline; decorative SVGs (<code>SplatterDecoration</code>, <code>TornDivider</code>) are <code>aria-hidden</code>.</li>
+<li>Reduced-motion: Framer Motion transitions resolve instantly under <code>prefers-reduced-motion</code>; CSS animations are purely cosmetic, and the noise overlay is static.</li>
+</ul>
+<h2>Browser support</h2>
+<p>Modern evergreen browsers (Chrome, Firefox, Safari, Edge). Requires JS for routing and animations; no legacy-IE support.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

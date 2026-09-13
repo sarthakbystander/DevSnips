@@ -1,0 +1,60 @@
+{
+  "id": "alert-with-action-react-001",
+  "name": "Alert with Action",
+  "slug": "alert-with-action",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-with-action",
+  "description": "An alert with real action buttons in the `AlertAction` row \u2014 for messages that ask the user to do something: upgrade, retry, update billing. Actions are native `<button>` elements and wrap below the text at narrow widths.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "action",
+    "button",
+    "cta",
+    "composite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "wrapping action row",
+    "real buttons",
+    "primary + secondary pairing"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real <button> actions",
+    "focus-visible rings",
+    "no nested interactive elements"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-warning",
+    "alert-destructive",
+    "alert-with-link",
+    "alert-rich"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "blog-dark-premium",
+  "slug": "blog-dark-premium",
+  "name": "Minimal Articles — Dark Premium",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "blog",
+  "section": "Minimal Articles",
+  "style": "dark-premium",
+  "description": "Dark Premium blog layout: Minimal article list.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "blog",
+    "articles",
+    "content",
+    "posts",
+    "dark-premium"
+  ],
+  "features": [
+    "minimal article list",
+    "no images",
+    "hairline dividers",
+    "typographic",
+    "narrow max width"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

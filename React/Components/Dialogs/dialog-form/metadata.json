@@ -1,0 +1,71 @@
+{
+  "id": "dialog-form-react-001",
+  "name": "Dialog with Form",
+  "slug": "dialog-form",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-form",
+  "description": "A real `<form>` inside the dialog: labelled native inputs, native constraint validation (submit is blocked while invalid), and the dialog closes only after a successful submit.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "form",
+    "inputs",
+    "validation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "real form element",
+    "native constraint validation",
+    "submit closes after validation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "labelled native inputs",
+    "native validation messages",
+    "initial focus on the first field"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-controlled",
+    "dialog-destructive",
+    "dialog-scrollable"
+  ]
+}

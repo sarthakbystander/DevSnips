@@ -1,0 +1,38 @@
+{
+  "name": "SaaS Product Hero — Vercel",
+  "slug": "product-hero-vercel",
+  "category": "Sections",
+  "subcategory": "saas",
+  "section": "product-hero",
+  "style": "vercel",
+  "description": "Minimal monochrome SaaS product hero with a left-aligned two-line gradient headline, dual CTAs, trust logo row, a masked grid backdrop, and a framed dark product UI preview with sidebar, inbox rows, and a floating SLA stat chip. Single teal accent and hairline borders for a premium enterprise feel.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "hero",
+    "product-hero",
+    "vercel",
+    "dark",
+    "monochrome",
+    "saas",
+    "product-preview",
+    "trust-logos",
+    "teal-accent"
+  ],
+  "features": [
+    "left-aligned two-line gradient headline",
+    "primary white CTA + secondary ghost demo CTA",
+    "announcement pill with teal dot",
+    "trust logo row",
+    "masked grid backdrop",
+    "framed product UI preview with sidebar and inbox",
+    "floating SLA stat chip",
+    "hairline borders and dark panel"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ],
+  "type": "section"
+}

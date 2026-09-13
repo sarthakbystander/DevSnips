@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — Bento — React Sections — DevSnips</title>
+<meta name="description" content="Newsletter — Bento React Sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html" class="hover:text-neutral-900 dark:hover:text-white">Sections</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html#Newsletter" class="hover:text-neutral-900 dark:hover:text-white">Newsletter</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Newsletter — Bento</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Newsletter — Bento</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400"></p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Newsletter — Bento &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Newsletter — Bento preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Sections &rsaquo; Newsletter</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">newsletter</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">email signup</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">bento grid</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/sections/Newsletter/bento</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/sections/Newsletter/bento');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Newsletter — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Newsletter — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../neo-brutalist/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Newsletter — Neo-Brutalist</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><p>No documentation available.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import type { FormEvent } from &quot;react&quot;;
+import { useId, useState } from &quot;react&quot;;
+
+/**
+ * DevSnips React Newsletter — Bento composition(Bento direction).
+ *
+ * A genuine 12-column bento cell grid (§4.4) — varied cell sizes,
+ * varied jobs, not four identical cards: one large 7-column hero cell
+ * (span 7) carries the headline and the primary signup form — the visual
+ * focus of the whole composition; a 5-column supporting cell (span 5)
+ * lists what subscribers receive; two smaller topic cells (span 5 and 7,
+ * stacked beneath the supporting cell) hold the editorial beats;and a
+ * full-width bottom strip (span 12) carries the concise privacy/frequency
+ * statement. Cells share one radius (radius-lg), one 1px border, one
+ * uniform gap (16px mobile / 24px desktop),and a border-only hover
+ * lift. One accent:the subscribe button. Published issues are presented
+ * as plain editorial text, not cards-within-cards ($15).
+ *
+ * Collapse (§12.2):large cells span both columns at sm, everything stacks
+ * to one column below. Form behavior matches the family exactly:real
+ * label/email/required/autocomplete,visible error (`aria-invalid` +
+ * `role=&quot;alert&quot;`),an announced success state (`role=&quot;status&quot;`),and an
+ * overridable `onSubmit` — nothing reloads,and nothing leaves the page.
+
+ * Topics are neutral singular-value topicships (props, no emoji);the
+ * archive cell names two recent issuesas editorial text with real titles.
+
+ */
+
+export type NewsletterSubmitResult = {
+  success: boolean;
+  message?: string;
+};
+
+export interface NewsletterTopic {
+  label: string;
+  description: string;
+}
+
+export interface NewsletterIssue {
+  title: string;
+  issue: string;
+}
+
+export interface NewsletterSectionProps {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  emailLabel?: string;
+  emailPlaceholder?: string;
+  buttonLabel?: string;
+  privacyText?: string;
+  topics?: NewsletterTopic[];
+  issues?: NewsletterIssue[];
+  onSubmit?: (email: string) =&gt; NewsletterSubmitResult | void;
+}
+
+const FOCUS_RING =
+  &quot;focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]&quot;;
+
+const CELL_CLASSES =
+  &quot;rounded-[var(--ds-radius-lg)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-6 transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] motion-reduce:transition-none lg:p-8&quot;;
+
+const INPUT_CLASSES =
+  &quot;h-11 w-full min-w-0 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-4 text-sm leading-5 text-[var(--ds-color-foreground)] placeholder-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-focus-ring)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const ERROR_INPUT_CLASSES =
+  &quot;border-[var(--ds-color-destructive)] focus:border-[var(--ds-color-destructive)]&quot;;
+
+const BUTTON_CLASSES =
+  &quot;inline-flex h-11 w-full shrink-0 items-center justify-center rounded-[var(--ds-radius-sm)] bg-[var(--ds-color-primary)] px-5 text-sm font-semibold leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const DEFAULT_TOPICS: NewsletterTopic[] = [
+  {
+    label: &quot;React architecture&quot;,
+    description: &quot;Component contracts, state boundaries,and the tokens that hold them together.&quot;,
+  },
+  {
+    label: &quot;Performance&quot;,
+    description: &quot;Rendering budgets, layout stability,and measurable Core Web Vitals wins.&quot;,
+  },
+  {
+    label: &quot;Accessible interfaces&quot;,
+    description: &quot;Keyboard models, focus management,and states that never rely on color alone.&quot;,
+  },
+];
+
+const DEFAULT_ISSUES: NewsletterIssue[] = [
+  { issue: &quot;Issue 12&quot;, title: &quot;Designing a section direction matrix&quot; },
+  { issue: &quot;Issue 11&quot;, title: &quot;Contrast budgets for dark surfaces&quot; },
+];
+
+export function NewsletterSection({
+  eyebrow = &quot;The DevSnips Dispatch&quot;,
+  title = &quot;Frontend engineering, one idea at a time.&quot;,
+  description = &quot;A short, practical newsletter on React architecture, performance, and accessible interfaces — written by the people shipping DevSnips.&quot;,
+  emailLabel = &quot;Email address&quot;,
+  emailPlaceholder = &quot;you@example.com&quot;,
+  buttonLabel = &quot;Subscribe&quot;,
+  privacyText = &quot;Twice monthly. No spam. Unsubscribe anytime.&quot;,
+  topics = DEFAULT_TOPICS,
+  issues = DEFAULT_ISSUES,
+  onSubmit,
+}: NewsletterSectionProps) {
+  const headingId = useId();
+  const inputId = `${headingId}-email`;
+  const errorId = `${headingId}-error`;
+  const statusId = `${headingId}-status`;
+  const [email, setEmail] = useState(&quot;&quot;);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(event: FormEvent&lt;HTMLFormElement&gt;) {
+    event.preventDefault();
+    const value = email.trim();
+    if (!value) {
+      setError(&quot;Enter your email address to subscribe.&quot;);
+      setSubmitted(false);
+      return;
+    }
+    if (!EMAIL_PATTERN.test(value)) {
+      setError(&quot;Enter a valid email address — e.g. you@example.com.&quot;);
+      setSubmitted(false);
+      return;
+    }
+    setError(null);
+    setSubmitted(true);
+    if (onSubmit) {
+      void onSubmit(value);
+    }
+  }
+
+  return (
+    &lt;section
+      aria-labelledby={headingId}
+      className=&quot;bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]&quot;
+    &gt;
+      &lt;div className=&quot;mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8&quot;&gt;
+        &lt;div className=&quot;grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6&quot;&gt;
+          &lt;div className={&quot;sm:col-span-2 lg:col-span-7 &quot; + CELL_CLASSES}&gt;
+            &lt;p className=&quot;text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {eyebrow}
+            &lt;/p&gt;
+            &lt;h2
+              id={headingId}
+              className=&quot;mt-3 max-w-lg text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]&quot;
+            &gt;
+              {title}
+            &lt;/h2&gt;
+            &lt;p className=&quot;mt-4 max-w-lg text-sm leading-6 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {description}
+            &lt;/p&gt;
+
+            &lt;form
+              onSubmit={handleSubmit}
+              noValidate
+              className=&quot;mt-8&quot;
+            &gt;
+              &lt;div className=&quot;grid grid-cols-1 gap-3 sm:grid-cols-[1fr_auto] lg:max-w-xl&quot;&gt;
+                &lt;div className=&quot;min-w-0&quot;&gt;
+                  &lt;label
+                    htmlFor={inputId}
+                    className=&quot;sr-only&quot;
+                  &gt;
+                    {emailLabel}
+                  &lt;/label&gt;
+                  &lt;input
+                    id={inputId}
+                    type=&quot;email&quot;
+                    name=&quot;email&quot;
+                    autoComplete=&quot;email&quot;
+                    required
+                    placeholder={emailPlaceholder}
+                    value={email}
+                    onChange={(event) =&gt; setEmail(event.target.value)}
+                    aria-invalid={error ? true : undefined}
+                    aria-describedby={error ? errorId : undefined}
+                    className={INPUT_CLASSES + (error ? &quot; &quot; + ERROR_INPUT_CLASSES : &quot;&quot;)}
+                  /&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; className={BUTTON_CLASSES}&gt;
+                  {buttonLabel}
+                &lt;/button&gt;
+              &lt;/div&gt;
+
+              &lt;p
+                id={errorId}
+                role=&quot;alert&quot;
+                className={
+                  &quot;mt-2 text-sm font-medium leading-5 text-[var(--ds-color-destructive)] &quot; +
+                  (error ? &quot;&quot; : &quot;sr-only&quot;)
+                }
+              &gt;
+                {error ?? &quot;There was a problem with your subscription.&quot;}
+              &lt;/p&gt;
+
+              &lt;div
+                id={statusId}
+                role=&quot;status&quot;
+                aria-live=&quot;polite&quot;
+                className={
+                  &quot;mt-4 flex items-center gap-2 text-sm font-medium leading-5 &quot; +
+                  (submitted
+                    ? &quot;text-[var(--ds-color-foreground)]&quot;
+                    : &quot;sr-only&quot;)
+                }
+              &gt;
+                {submitted ? &quot;Thanks — you are on the list.&quot; : &quot;&quot;}
+              &lt;/div&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+
+          &lt;div className={&quot;sm:col-span-2 lg:col-span-5 &quot; + CELL_CLASSES}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              What you receive
+            &lt;/p&gt;
+            &lt;ul className=&quot;mt-4 space-y-5&quot;&gt;
+              &lt;li className=&quot;text-sm leading-6&quot;&gt;
+                &lt;p className=&quot;font-medium&quot;&gt;One dispatch, twice a month&lt;/p&gt;
+                &lt;p className=&quot;mt-1 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                  Two short essays on interface engineering and product systems — a 4–5 minute read each.
+                &lt;/p&gt;
+              &lt;/li&gt;
+              &lt;li className=&quot;text-sm leading-6&quot;&gt;
+                &lt;p className=&quot;font-medium&quot;&gt;Real, reviewable code&lt;/p&gt;
+                &lt;p className=&quot;mt-1 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                  Every dispatch links the actual snippets — tokens, props,and generated previews included.
+                &lt;/p&gt;
+              &lt;/li&gt;
+              &lt;li className=&quot;text-sm leading-6&quot;&gt;
+                &lt;p className=&quot;font-medium&quot;&gt;No feed, no noise&lt;/p&gt;
+                &lt;p className=&quot;mt-1 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                  Occasional extras only when there is something worth saying.
+                &lt;/p&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+
+          &lt;div className={&quot;sm:col-span-1 lg:col-span-5 &quot; + CELL_CLASSES}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Recent issues
+            &lt;/p&gt;
+            &lt;ul className=&quot;mt-4 space-y-4 border-t border-[var(--ds-color-border-subtle)] pt-4&quot;&gt;
+              {issues.map((item) =&gt; (
+                &lt;li key={item.issue} className=&quot;text-sm leading-5&quot;&gt;
+                  &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                    {item.issue}
+                  &lt;/p&gt;
+                  &lt;p className=&quot;mt-1 font-medium&quot;&gt;{item.title}&lt;/p&gt;
+                &lt;/li&gt;
+              ))}
+            &lt;/ul&gt;
+          &lt;/div&gt;
+
+          &lt;div className={&quot;sm:col-span-1 lg:col-span-7 &quot; + CELL_CLASSES}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Topics on rotation
+            &lt;/p&gt;
+            &lt;ul className=&quot;mt-4 grid grid-cols-1 gap-4 border-t border-[var(--ds-color-border-subtle)] pt-4 sm:grid-cols-3&quot;&gt;
+              {topics.map((topic) =&gt; (
+                &lt;li key={topic.label} className=&quot;text-sm leading-5&quot;&gt;
+                  &lt;p className=&quot;font-medium&quot;&gt;{topic.label}&lt;/p&gt;
+                  &lt;p className=&quot;mt-1 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                    {topic.description}
+                  &lt;/p&gt;
+                &lt;/li&gt;
+              ))}
+            &lt;/ul&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; lg:col-span-12&quot;}&gt;
+            &lt;p className=&quot;mx-auto max-w-2xl text-center text-xs leading-[1.4] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {privacyText}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

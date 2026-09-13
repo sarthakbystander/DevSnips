@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification Card — Tailwind Components — DevSnips</title>
+<meta name="description" content="Notification panel with header, badge count, grouped notifications, and action links.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Cards" class="hover:text-neutral-900 dark:hover:text-white">Cards</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Notification Card</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Notification Card</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Notification panel with header, badge count, grouped notifications, and action links.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Notification Card &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Notification Card preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Cards</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">card</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">notification</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">alerts</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">activity</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dashboard</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Cards/notification-card</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Cards/notification-card');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>badge count</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>notification list</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>timestamps</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>icons</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>mark all read</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../activity-feed-card/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Cards</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Activity Feed Card</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Activity feed card with grouped events, icons, user avatars, timestamps, and amounts.</p>
+  
+</a><a href="../chat-conversation-card/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Cards</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Chat Conversation Card</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Chat interface card with conversation thread, message bubbles, timestamps, and input field.</p>
+  
+</a><a href="../support-ticket-card/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Cards</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Support Ticket Card</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Customer support ticket card with priority badge, conversation thread, timestamps, and action buttons.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Notification Card</h1>
+<p>In-app notification card.</p>
+<h2>Preview</h2>
+<p>Open <code>preview.html</code> for a standalone demonstration.</p>
+<h2>Features</h2>
+<ul>
+<li>Icon / status + message</li>
+<li>Timestamp / actions</li>
+</ul>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Cards/notification-card
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>Customization</h2>
+<ul>
+<li>Status colors, typography, spacing</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>Do not rely on color alone for status</li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>Tailwind CSS only</li>
+</ul>
+<h2>File Structure</h2>
+<ul>
+<li><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></li>
+</ul></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;div class=&quot;bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden&quot;&gt;
+  &lt;div class=&quot;px-5 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50&quot;&gt;
+    &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+      &lt;div class=&quot;relative&quot;&gt;
+        &lt;div class=&quot;w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5 text-blue-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;span class=&quot;absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center&quot;&gt;3&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;h3 class=&quot;font-semibold text-gray-900&quot;&gt;Notifications&lt;/h3&gt;
+        &lt;p class=&quot;text-xs text-gray-500&quot;&gt;Recent activity&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;text-sm text-blue-600 font-medium hover:text-blue-700&quot;&gt;Mark all read&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;divide-y divide-gray-50&quot;&gt;
+    &lt;div class=&quot;px-5 py-4 flex items-start gap-4 bg-blue-50/30&quot;&gt;
+      &lt;div class=&quot;w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0&quot;&gt;
+        &lt;svg class=&quot;w-5 h-5 text-green-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flex-1 min-w-0&quot;&gt;
+        &lt;p class=&quot;text-sm text-gray-900&quot;&gt;&lt;span class=&quot;font-semibold&quot;&gt;Payment received&lt;/span&gt; of $2,450 from Acme Corp&lt;/p&gt;
+        &lt;p class=&quot;text-xs text-gray-500 mt-1&quot;&gt;2 minutes ago&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;px-5 py-4 flex items-start gap-4&quot;&gt;
+      &lt;img src=&quot;https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&amp;h=64&amp;fit=crop&amp;crop=faces&quot; alt=&quot;&quot; class=&quot;w-10 h-10 rounded-full object-cover shrink-0&quot;&gt;
+      &lt;div class=&quot;flex-1 min-w-0&quot;&gt;
+        &lt;p class=&quot;text-sm text-gray-900&quot;&gt;&lt;span class=&quot;font-semibold&quot;&gt;Sarah Mitchell&lt;/span&gt; commented on your design&lt;/p&gt;
+        &lt;p class=&quot;text-xs text-gray-500 mt-1&quot;&gt;15 minutes ago&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;px-5 py-4 flex items-start gap-4&quot;&gt;
+      &lt;div class=&quot;w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0&quot;&gt;
+        &lt;svg class=&quot;w-5 h-5 text-amber-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flex-1 min-w-0&quot;&gt;
+        &lt;p class=&quot;text-sm text-gray-900&quot;&gt;&lt;span class=&quot;font-semibold&quot;&gt;Reminder:&lt;/span&gt; Team meeting in 30 minutes&lt;/p&gt;
+        &lt;p class=&quot;text-xs text-gray-500 mt-1&quot;&gt;1 hour ago&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;px-5 py-3 border-t border-gray-100&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;text-sm text-blue-600 font-medium hover:text-blue-700&quot;&gt;View all notifications →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

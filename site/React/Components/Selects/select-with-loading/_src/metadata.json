@@ -1,0 +1,54 @@
+{
+  "id": "select-with-loading-react-001",
+  "name": "Select With Loading",
+  "slug": "select-with-loading",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-loading",
+  "description": "Custom select that shows a loading state with aria-busy while options load.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "loading",
+    "state",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "async-select",
+    "select-disabled",
+    "select"
+  ]
+}

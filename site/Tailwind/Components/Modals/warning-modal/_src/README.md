@@ -1,0 +1,12 @@
+# Warning Modal
+
+Warning dialog modal.
+
+## Usage
+```bash
+npx devsnips add Tailwind/Components/Modals/warning-modal
+```
+Copy from `code.html`.
+
+## File Structure
+`code.html` · `preview.html` · `metadata.json` · `README.md`

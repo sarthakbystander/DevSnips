@@ -1,0 +1,72 @@
+{
+  "id": "date-picker-react-001",
+  "name": "Date Picker",
+  "slug": "date-picker",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker",
+  "description": "The canonical compound date picker: a read-only display input + calendar trigger opening a non-modal dialog with the WAI-ARIA day grid \u2014 controlled and uncontrolled demos, full keyboard model, and focus restoration built in.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "single-date",
+    "controlled",
+    "uncontrolled",
+    "keyboard"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "single selection",
+    "popover viewport flip",
+    "focus restoration",
+    "input + trigger semantics"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker-with-label",
+    "date-picker-range",
+    "date-picker-with-footer",
+    "date-picker-month-year"
+  ]
+}

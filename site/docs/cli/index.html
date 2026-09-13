@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLI Reference — DevSnips Docs</title>
+<meta name="description" content="Install DevSnips components from the command line.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../docs/overview/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">CLI Reference</span></nav>
+    <div class="mt-4 flex flex-col gap-8 sm:flex-row">
+      <nav aria-label="Documentation" class="w-full shrink-0 space-y-0.5 sm:w-56"><a href="../../docs/overview/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Overview</a><a href="../../docs/structure/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Content Structure</a><a href="../../docs/contributing/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Contributing</a><a href="../../docs/vanilla-curation/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Vanilla Curation Report</a><a href="../../docs/cli/index.html" class="block rounded-lg px-3 py-1.5 text-sm bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">CLI Reference</a><a href="../../docs/agents/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Agent Instructions</a><a href="../../docs/changelog/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Changelog</a><a href="../../docs/license/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">License</a></nav>
+      <div class="min-w-0 flex-1">
+        <h1 class="text-3xl font-extrabold tracking-tight">CLI Reference</h1>
+        <p class="mt-2 text-neutral-600 dark:text-neutral-400">Install DevSnips components from the command line.</p>
+        <article class="prose-devsnips mt-8"><h1>DevSnips CLI</h1>
+<p>Install UI components from the <a href="https://github.com/sarthakbystander/DevSnips">DevSnips</a> library into your project.</p>
+<h2>Requirements</h2>
+<ul>
+<li>Node.js &gt;= 18</li>
+</ul>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add &lt;path&gt;
+</code></pre>
+<h3>Examples</h3>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel
+npx devsnips add React/Components/Buttons/solid-button
+npx devsnips add Vanilla/Components/Buttons/split-button
+</code></pre>
+<p>Paths match the repository layout under <code>Tailwind/</code>, <code>React/</code>, or <code>Vanilla/</code>.</p>
+<h3>Destination layout</h3>
+<p>Components, sections, and templates are installed under:</p>
+<pre class="code-block"><code>
+./devsnips/&lt;tech&gt;/&lt;category&gt;/&lt;family&gt;/&lt;variant&gt;/
+</code></pre>
+<p>where <code>&lt;tech&gt;</code> is one of <code>tailwind</code>, <code>react</code>, or <code>vanilla</code>.</p>
+<p>Example:</p>
+<p>| Input | Output |</p>
+<p>|-------|--------|</p>
+<p>| <code>Tailwind/Sections/AI-Product/agent-workflow/vercel</code> | <code>./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/</code> |</p>
+<p>The leading technology segment is stripped and normalized so it appears only once; remaining segments are lowercased for a consistent on-disk layout.</p>
+<h3>Help and version</h3>
+<pre class="code-block"><code>
+npx devsnips --help
+npx devsnips --version
+</code></pre>
+<h2>Notes</h2>
+<ul>
+<li>Any registry entry can be installed: components, sections, or templates</li>
+<li>Source files (<code>code.html</code>, <code>code.jsx</code>, <code>code.tsx</code>, <code>pages/*.html</code>, etc.) are installed.</li>
+<li><code>README.md</code> is installed when present.</li>
+<li><code>AGENTS.md</code> is installed when present.</li>
+<li><code>metadata.json</code> and <code>preview.html</code> are skipped.</li>
+<li>Existing files are not overwritten (remove them first if you need to reinstall).</li>
+<li>All writes are confined to the <code>./devsnips</code> directory under the current working directory.</li>
+</ul>
+<h2>License</h2>
+<p>MIT — same as the DevSnips repository.</p></article></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

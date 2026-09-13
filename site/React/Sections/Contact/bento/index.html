@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Bento — React Sections — DevSnips</title>
+<meta name="description" content="Contact — Bento React Sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html" class="hover:text-neutral-900 dark:hover:text-white">Sections</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html#Contact" class="hover:text-neutral-900 dark:hover:text-white">Contact</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Contact — Bento</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Contact — Bento</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400"></p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Contact — Bento &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Contact — Bento preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Sections &rsaquo; Contact</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">contact</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">inquiry form</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">bento grid</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/sections/Contact/bento</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/sections/Contact/bento');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Contact — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Contact — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../neo-brutalist/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Contact — Neo-Brutalist</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><p>No documentation available.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import type { FormEvent } from &quot;react&quot;;
+import { useId, useState } from &quot;react&quot;;
+
+/**
+ * DevSnips React Contact — Bento composition (Bento direction).
+ *
+ * A genuine 12-column bento contact composition (§4.4) — not a simple
+ * two-column form: one large 7-column hero cell (span 7) carries
+ * the eyebrow, headline, lede,and the primary contact form — the visual
+ * focus of the whole grid; a 5-column contact-information cell (span 5)
+ * holds the direct email, address, hours,and a quiet action cue;three
+ * smaller cells (span 4 each) carry single facts — email,response
+ * time/availability,and location/time zone — with labels and values as a
+ * real `&lt;dl&gt;`;and a full-width strip (span 12) holds the supporting
+ * response promise. Varied cell weights, one radius (radius-lg), one 1px
+ * border, one uniform gap (16px mobile / 24px desktop),and a
+ * border-only hover lift — no scale, no glow. One accent:the send
+ * transaction (buttons + focus states only, §3.5).
+ *
+ * Collapse (§12.2): authored spans at lg; the two large cells span both
+ * columns at sm, the smaller cells halve to 2-column rows,everything
+ * stacks to one column below. Form behavior matches the family exactly:
+ * real labels, typed fields, native `type=&quot;email&quot;` + `autocomplete`,
+ * per-field validation (`aria-invalid` + `aria-describedby` +
+ * `role=&quot;alert&quot;`),entered values preserved on failure, an announced success
+ * state (`role=&quot;status&quot;`),and an overridable `onSubmit` — nothing
+ * reloads,and nothing leaves the page.
+
+ * All sample values are fictional product details (Northlight Devices /
+ * hello@northlight.dev), clearly overridable props.
+
+ * The direct-email cell and the supporting strip are informational, never
+ * fake buttons — no cell in the grid is interactive except the form.**
+ */
+
+export type ContactFieldType = &quot;text&quot; | &quot;email&quot; | &quot;textarea&quot;;
+
+export interface ContactField {
+  name: string;
+  label: string;
+  type: ContactFieldType;
+  placeholder?: string;
+  required?: boolean;
+  autoComplete?: string;
+}
+
+export interface ContactFormValues {
+  name: string;
+  email: string;
+  company?: string;
+  message: string;
+}
+
+export interface ContactSubmitResult {
+  success: boolean;
+  message?: string;
+}
+
+export interface ContactSectionProps {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  email?: string;
+  location?: string;
+  hours?: string;
+  responseTime?: string;
+  availability?: string;
+  fields?: ContactField[];
+  submitLabel?: string;
+  successMessage?: string;
+  stripText?: string;
+  onSubmit?: (values: ContactFormValues) =&gt; ContactSubmitResult | void;
+}
+
+const FOCUS_RING =
+  &quot;focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]&quot;;
+
+const CELL_CLASSES =
+  &quot;rounded-[var(--ds-radius-lg)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] p-6 transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] motion-reduce:transition-none lg:p-8&quot;;
+
+const INPUT_CLASSES =
+  &quot;h-11 w-full min-w-0 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-4 text-sm leading-5 text-[var(--ds-color-foreground)] placeholder-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-focus-ring)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const TEXTAREA_CLASSES =
+  &quot;w-full min-w-0 resize-y rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-input)] px-4 py-3 text-sm leading-5 text-[var(--ds-color-foreground)] placeholder-[var(--ds-color-muted-foreground)] transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus:border-[var(--ds-color-focus-ring)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const ERROR_INPUT_CLASSES =
+  &quot;border-[var(--ds-color-destructive)] focus:border-[var(--ds-color-destructive)]&quot;;
+
+const ERROR_TEXT_CLASSES =
+  &quot;text-sm font-medium leading-5 text-[var(--ds-color-destructive)]&quot;;
+
+const BUTTON_CLASSES =
+  &quot;inline-flex h-11 shrink-0 items-center justify-center rounded-[var(--ds-radius-sm)] bg-[var(--ds-color-primary)] px-5 text-sm font-semibold leading-5 text-[var(--ds-color-primary-foreground)] transition-colors duration-150 ease-out hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)] motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const DEFAULT_FIELDS: ContactField[] = [
+  {
+    name: &quot;name&quot;,
+    label: &quot;Name&quot;,
+    type: &quot;text&quot;,
+    placeholder: &quot;Ada Lovelace&quot;,
+    required: true,
+    autoComplete: &quot;name&quot;,
+  },
+  {
+    name: &quot;email&quot;,
+    label: &quot;Email&quot;,
+    type: &quot;email&quot;,
+    placeholder: &quot;you@northlight.dev&quot;,
+    required: true,
+    autoComplete: &quot;email&quot;,
+  },
+  {
+    name: &quot;company&quot;,
+    label: &quot;Company&quot;,
+    type: &quot;text&quot;,
+    placeholder: &quot;Company (optional)&quot;,
+    required: false,
+    autoComplete: &quot;organization&quot;,
+  },
+  {
+    name: &quot;message&quot;,
+    label: &quot;Message&quot;,
+    type: &quot;textarea&quot;,
+    placeholder: &quot;What are you trying to ship?&quot;,
+    required: true,
+  },
+];
+
+export function ContactSection({
+  eyebrow = &quot;Northlight Devices&quot;,
+  title = &quot;Talk to the people building it.&quot;,
+  description =
+    &quot;Tell us about the device, the timeline,and the constraints. We route every inquiry to an engineer same-day.&quot;,
+  email = &quot;hello@northlight.dev&quot;,
+  location = &quot;Oslo, Norway — UTC+1&quot;,
+  hours = &quot;Mon–Fri, 9:00–16:00 CET&quot;,
+  responseTime = &quot;Same business day&quot;,
+  availability = &quot;Two build slots open for Q4&quot;,
+  fields = DEFAULT_FIELDS,
+  submitLabel = &quot;Send inquiry&quot;,
+  successMessage = &quot;Thanks. Your message has been received.&quot;,
+  stripText = &quot;We answer every inquiry in person — no bots, no ticketing queues. If you prefer email, write hello@northlight.dev and keep the thread with you.&quot;,
+  onSubmit,
+}: ContactSectionProps) {
+  const headingId = useId();
+  const statusId = `${headingId}-status`;
+  const [values, setValues] = useState&lt;Record&lt;string, string&gt;&gt;({});
+  const [errors, setErrors] = useState&lt;Record&lt;string, string&gt;&gt;({});
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleChange(field: ContactField, event: { target: { value: string } }) {
+    setValues((prev) =&gt; ({ ...prev, [field.name]: event.target.value }));
+    setErrors((prev) =&gt; {
+      if (!prev[field.name]) return prev;
+      const next = { ...prev };
+      delete next[field.name];
+      return next;
+    });
+  }
+
+  function validate() {
+    const next: Record&lt;string, string&gt; = {};
+    for (const field of fields) {
+      const raw = values[field.name] ?? &quot;&quot;;
+      if (field.required &amp;&amp; !raw.trim()) {
+        next[field.name] = `Enter your ${field.label.toLowerCase()}.`;
+      } else if (field.type === &quot;email&quot; &amp;&amp; raw.trim() &amp;&amp; !EMAIL_PATTERN.test(raw.trim())) {
+        next[field.name] = &quot;Enter a valid email address — e.g. you@northlight.dev.&quot;;
+      }
+    }
+    return next;
+  }
+
+  function handleSubmit(event: FormEvent&lt;HTMLFormElement&gt;) {
+    event.preventDefault();
+    const nextErrors = validate();
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length &gt; 0) {
+      setSubmitted(false);
+      const firstInvalid = fields.find((f) =&gt; nextErrors[f.name]);
+      if (firstInvalid) {
+        document.getElementById(`${headingId}-${firstInvalid.name}`)?.focus();
+      }
+      return;
+    }
+    setSubmitted(true);
+    const formValues: ContactFormValues = {
+      name: (values[&quot;name&quot;] ?? &quot;&quot;).trim(),
+      email: (values[&quot;email&quot;] ?? &quot;&quot;).trim(),
+      message: (values[&quot;message&quot;] ?? &quot;&quot;).trim(),
+    };
+    if (values[&quot;company&quot;]?.trim()) {
+      formValues.company = values[&quot;company&quot;].trim();
+    }
+    if (onSubmit) {
+      void onSubmit(formValues);
+    }
+  }
+
+  return (
+    &lt;section
+      aria-labelledby={headingId}
+      className=&quot;bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]&quot;
+    &gt;
+      &lt;div className=&quot;mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8&quot;&gt;
+        &lt;div className=&quot;grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6&quot;&gt;
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-2 lg:col-span-7&quot;}&gt;
+            &lt;p className=&quot;text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {eyebrow}
+            &lt;/p&gt;
+            &lt;h2
+              id={headingId}
+              className=&quot;mt-3 max-w-xl text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]&quot;
+            &gt;
+              {title}
+            &lt;/h2&gt;
+            &lt;p className=&quot;mt-4 max-w-xl text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {description}
+            &lt;/p&gt;
+
+            &lt;form
+              onSubmit={handleSubmit}
+              noValidate
+              className=&quot;mt-8&quot;
+            &gt;
+              &lt;div className=&quot;grid grid-cols-1 gap-5 sm:grid-cols-2&quot;&gt;
+                {fields.map((field) =&gt; {
+                  const fieldId = `${headingId}-${field.name}`;
+                  const errorId = `${fieldId}-error`;
+                  const error = errors[field.name];
+                  return (
+                    &lt;div
+                      key={field.name}
+                      className={
+                        &quot;min-w-0 &quot; +
+                        (field.type === &quot;textarea&quot; ? &quot;sm:col-span-2&quot; : &quot;&quot;)
+                      }
+                    &gt;
+                      &lt;div className=&quot;flex items-baseline justify-between gap-3&quot;&gt;
+                        &lt;label
+                          htmlFor={fieldId}
+                          className=&quot;mb-1.5 block text-sm font-medium leading-5&quot;
+                        &gt;
+                          {field.label}
+                        &lt;/label&gt;
+                        {field.required ? (
+                          &lt;span aria-hidden=&quot;true&quot; className=&quot;text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                            *
+                          &lt;/span&gt;
+                        ) : null}
+                      &lt;/div&gt;
+                      {field.type === &quot;textarea&quot; ? (
+                        &lt;textarea
+                          id={fieldId}
+                          name={field.name}
+                          rows={5}
+                          placeholder={field.placeholder}
+                          required={field.required}
+                          value={values[field.name] ?? &quot;&quot;}
+                          onChange={(event) =&gt; handleChange(field, event)}
+                          aria-invalid={error ? true : undefined}
+                          aria-describedby={error ? errorId : undefined}
+                          className={TEXTAREA_CLASSES + (error ? &quot; &quot; + ERROR_INPUT_CLASSES : &quot;&quot;)}
+                        /&gt;
+                      ) : (
+                        &lt;input
+                          id={fieldId}
+                          name={field.name}
+                          type={field.type}
+                          placeholder={field.placeholder}
+                          required={field.required}
+                          autoComplete={field.autoComplete}
+                          value={values[field.name] ?? &quot;&quot;}
+                          onChange={(event) =&gt; handleChange(field, event)}
+                          aria-invalid={error ? true : undefined}
+                          aria-describedby={error ? errorId : undefined}
+                          className={INPUT_CLASSES + (error ? &quot; &quot; + ERROR_INPUT_CLASSES : &quot;&quot;)}
+                        /&gt;
+                      )}
+                      {error ? (
+                        &lt;p
+                          id={errorId}
+                          role=&quot;alert&quot;
+                          className={&quot;mt-1.5 &quot; + ERROR_TEXT_CLASSES}
+                        &gt;
+                          {error}
+                        &lt;/p&gt;
+                      ) : null}
+                    &lt;/div&gt;
+                  );
+                })}
+              &lt;/div&gt;
+
+              &lt;div className=&quot;mt-6&quot;&gt;
+                &lt;button type=&quot;submit&quot; className={BUTTON_CLASSES}&gt;
+                  {submitLabel}
+                &lt;/button&gt;
+
+                &lt;div
+                  id={statusId}
+                  role=&quot;status&quot;
+                  aria-live=&quot;polite&quot;
+                  className={
+                    &quot;mt-4 text-sm font-medium leading-5 &quot; +
+                    (submitted
+                      ? &quot;text-[var(--ds-color-success)]&quot;
+                      : &quot;sr-only&quot;)
+                  }
+                &gt;
+                  {submitted ? successMessage : &quot;&quot;}
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-2 lg:col-span-5&quot;}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Direct
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-3 text-[clamp(1.125rem,1.05rem+0.4vw,1.375rem)] font-semibold leading-[1.35] break-words&quot;&gt;
+              &lt;a
+                href={`mailto:${email}`}
+                className={&quot;text-[var(--ds-color-link)] underline underline-offset-4 transition-colors duration-150 ease-out hover:text-[var(--ds-color-link-hover)] motion-reduce:transition-none break-words &quot; +
+                  FOCUS_RING}
+              &gt;
+                {email}
+              &lt;/a&gt;
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-3 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              For partnerships, media,and everything else — one inbox,one person on the other end.
+
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-8 border-t border-[var(--ds-color-border-subtle)] pt-4 font-[var(--ds-font-mono)] text-xs leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {hours}
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-1 lg:col-span-4&quot;}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Response time
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-3 text-xl font-semibold leading-[1.3] tracking-[-0.01em]&quot;&gt;
+              {responseTime}
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-2 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {availability}
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-1 lg:col-span-4&quot;}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Location
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-3 text-xl font-semibold leading-[1.3] tracking-[-0.01em]&quot;&gt;
+              {location}
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-2 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Repair lab + offices, appointments by request.
+
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-2 lg:col-span-4&quot;}&gt;
+            &lt;p className=&quot;font-[var(--ds-font-mono)] text-xs font-medium uppercase leading-[1.4] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Availability
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-3 text-xl font-semibold leading-[1.3] tracking-[-0.01em]&quot;&gt;
+              {availability}
+            &lt;/p&gt;
+            &lt;p className=&quot;mt-2 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              Current lead time for new project intake.
+
+
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className={CELL_CLASSES + &quot; sm:col-span-2 lg:col-span-12&quot;}&gt;
+            &lt;p className=&quot;mx-auto max-w-2xl text-center text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {stripText}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

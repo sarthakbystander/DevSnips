@@ -1,0 +1,54 @@
+{
+  "id": "segmented-select-react-001",
+  "name": "Segmented Select",
+  "slug": "segmented-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "segmented-select",
+  "description": "Horizontal segmented selector with radiogroup semantics.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Segmented",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "segmented",
+    "radiogroup",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-label",
+    "select-group"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "alert-dismissible-react-001",
+  "name": "Dismissible Alert",
+  "slug": "alert-dismissible",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-dismissible",
+  "description": "An alert the user can dismiss: a real close button with an accessible name, controlled (`open` + `onDismiss`) or uncontrolled (`defaultOpen`) state, and focus management that never strands keyboard users when the alert unmounts.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Behavior",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "dismissible",
+    "close",
+    "controlled",
+    "uncontrolled",
+    "focus management"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "real close button",
+    "controlled + uncontrolled",
+    "focus relocation on dismiss",
+    "custom close label"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "close button aria-label",
+    "keyboard-operable dismissal",
+    "focus moves to next operable element",
+    "onDismiss callback"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert",
+    "alert-compact",
+    "alert-rich",
+    "alert-live"
+  ]
+}

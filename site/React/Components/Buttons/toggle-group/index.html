@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Group — React Components — DevSnips</title>
+<meta name="description" content="A joined set of toggles. `type=&quot;single&quot;` behaves like a radiogroup (one on); `type=&quot;multiple&quot;` like a group of checkboxes. Selected segments use `surface-active` + `aria-pressed`, with arrow-key roving.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Buttons" class="hover:text-neutral-900 dark:hover:text-white">Buttons</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Toggle Group</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Toggle Group</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A joined set of toggles. `type=&quot;single&quot;` behaves like a radiogroup (one on); `type=&quot;multiple&quot;` like a group of checkboxes. Selected segments use `surface-active` + `aria-pressed`, with arrow-key roving.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Toggle Group &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Toggle Group preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Buttons</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">button</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">toggle-group</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">selection</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">multi-select</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">interactive</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Buttons/toggle-group</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Buttons/toggle-group');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>semantic HTML</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>keyboard accessible</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../button-group/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Buttons</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Button Group</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A joined row of related buttons. Inner buttons share borders (side radius removed, borders overlapped by 1px) so the group reads as one control. Pass children for full control, or the `items` prop for a quick group.</p>
+  
+</a><a href="../segmented-button/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Buttons</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Segmented Button</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A joined single-choice control that behaves like a radiogroup: one selected option at a time. Use for 2–5 mutually exclusive options in compact toolbars.</p>
+  
+</a><a href="../toggle-button/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Buttons</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Toggle Button</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A single binary switch. Controlled via `pressed`, or uncontrolled via `defaultPressed`. Exposes `aria-pressed` and swaps to `surface-active` when on so the state is conveyed by more than color alone.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Toggle Group</h1>
+<p>A joined set of toggles. <code>type=&quot;single&quot;</code> behaves like a radiogroup (one on); <code>type=&quot;multiple&quot;</code> like a group of checkboxes. Selected segments use <code>surface-active</code> + <code>aria-pressed</code>, with arrow-key roving.</p>
+<h2>Installation</h2>
+<p>This component requires <strong>React</strong> and <strong>Tailwind CSS</strong>. Drop <code>code.tsx</code> (or <code>code.jsx</code> for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.</p>
+<p>The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example <code>bg-[var(--ds-color-primary)]</code>). Define the <code>--ds-*</code> tokens once in your theme — see <code>React/DESIGN_TOKENS.md</code> for the full token spec.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+&lt;ToggleGroup type=&quot;single&quot; value={view} onValueChange={setView} options={[{value:&quot;list&quot;,label:&quot;List&quot;},{value:&quot;grid&quot;,label:&quot;Grid&quot;}}] /&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<h2>Props</h2>
+<p>| Prop | Type | Default |</p>
+<p>|---|---|---|</p>
+<p>| <code>options</code> | <code>Array&lt;{ value: string; label: ReactNode; icon?: string; disabled?: boolean }&gt;</code> | — |</p>
+<p>| <code>type</code> | <code>single \| multiple</code> | <code>single</code> |</p>
+<p>| <code>value</code> | <code>string</code> (single) \| <code>string[]</code> (multiple) | — (controlled) |</p>
+<p>| <code>defaultValue</code> | same shape as <code>value</code> | — (uncontrolled initial) |</p>
+<p>| <code>onValueChange</code> | <code>(value: string \| null) \| (string[]) =&gt; void</code> | — |</p>
+<p>| <code>size</code> | <code>ButtonSize</code> | <code>sm</code> |</p>
+<p>| <code>label</code> | <code>string</code> | — (group <code>aria-label</code>) |</p>
+<p>Plus all native <code>HTMLAttributes&lt;HTMLDivElement&gt;</code>.</p>
+<h2>Variants</h2>
+<p>Single bordered container. Selected segments use <code>surface-active</code> + <code>aria-pressed=&quot;true&quot;</code>. Unselected are transparent; hover lifts to <code>surface-hover</code>.</p>
+<h2>Sizes</h2>
+<p>xs (28px) · sm (32px) · <strong>md (36px, default)</strong> · lg (40px) · xl (44px). Horizontal padding scales 8 → 20px; icons scale 14 → 20px. Default is <code>sm</code> for compact toolbars.</p>
+<h2>States</h2>
+<p>default · hover · focus-visible · pressed (<code>aria-pressed</code>, surface-active + font-weight) · disabled (per option).</p>
+<h2>Accessibility</h2>
+<p>Renders <code>role=&quot;group&quot;</code> with <code>aria-label</code>. Each segment is a native <code>&lt;button&gt;</code> with <code>aria-pressed</code>. <strong>Keyboard</strong>: ArrowLeft/Right move focus (roving); Space/Enter toggles. Single-select toggles behave like a radiogroup but expose <code>aria-pressed</code> (one true at a time).</p>
+<h2>Styling</h2>
+<p>Tailwind classes are included directly in the component and consume the DevSnips semantic design tokens (<code>--ds-*</code>) via arbitrary values. The button themes with the surface automatically in light and dark mode. No component-specific CSS file is needed.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This button uses the semantic color, radius, and motion tokens; define them once in your project theme and every button in the family stays in sync.</p>
+<h2>Notes</h2>
+<p>For strictly single-choice radiogroup semantics, prefer SegmentedButton. ToggleGroup is for flexible single- or multi-select toggle sets.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import { useRef, useState } from &quot;react&quot;;
+import type { HTMLAttributes, ReactNode, KeyboardEvent } from &quot;react&quot;;
+
+/* DevSnips React — ToggleGroup
+ * Joined toggles, single or multi select. Selected segments use
+ * surface-active + aria-pressed. Arrow keys rove focus.
+ */
+
+export type ButtonSize = &quot;xs&quot; | &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; | &quot;xl&quot;;
+export type ToggleGroupType = &quot;single&quot; | &quot;multiple&quot;;
+
+export interface ToggleOption {
+  value: string;
+  label: ReactNode;
+  icon?: string;
+  disabled?: boolean;
+}
+
+export interface ToggleGroupProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  options: ToggleOption[];
+  type?: ToggleGroupType;
+  value?: string | string[];
+  defaultValue?: string | string[];
+  onValueChange?: (value: string | null | string[]) =&gt; void;
+  size?: ButtonSize;
+  label?: string;
+}
+
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+const SIZES: Record&lt;ButtonSize, string&gt; = {
+  xs: &quot;h-7 gap-1 px-2 text-xs [&amp;_svg]:size-[14px]&quot;,
+  sm: &quot;h-8 gap-1.5 px-3 text-xs [&amp;_svg]:size-[14px]&quot;,
+  md: &quot;h-9 gap-2 px-3.5 text-[13px] [&amp;_svg]:size-4&quot;,
+  lg: &quot;h-10 gap-2 px-4 text-[13px] [&amp;_svg]:size-[18px]&quot;,
+  xl: &quot;h-11 gap-2 px-5 text-sm [&amp;_svg]:size-5&quot;,
+};
+
+const SEG_BASE =
+  &quot;inline-flex items-center justify-center gap-2 border-0 bg-transparent px-3 font-medium leading-none &quot; +
+  &quot;transition-colors duration-150 ease-out motion-reduce:transition-none &quot; +
+  &quot;focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--ds-color-focus-ring)] &quot; +
+  &quot;disabled:pointer-events-none disabled:opacity-50&quot;;
+
+export function ToggleGroup({
+  options,
+  type = &quot;single&quot;,
+  value,
+  defaultValue,
+  onValueChange,
+  size = &quot;sm&quot;,
+  label,
+  className,
+  ...rest
+}: ToggleGroupProps) {
+  const initialArr = defaultValue
+    ? (Array.isArray(defaultValue) ? defaultValue : [defaultValue])
+    : [];
+  const [internal, setInternal] = useState&lt;string[]&gt;(initialArr);
+  const isControlled = value !== undefined;
+  const ctrlArr = Array.isArray(value) ? value : value ? [value] : [];
+  const current = isControlled ? ctrlArr : internal;
+  const refs = useRef&lt;Array&lt;HTMLButtonElement | null&gt;&gt;([]);
+
+  function isActive(v: string) { return current.indexOf(v) !== -1; }
+  function toggle(v: string) {
+    let next: string[];
+    if (type === &quot;single&quot;) next = isActive(v) ? [] : [v];
+    else next = isActive(v) ? current.filter((x) =&gt; x !== v) : [...current, v];
+    if (!isControlled) setInternal(next);
+    onValueChange?.(type === &quot;single&quot; ? next[0] ?? null : next);
+  }
+  function onKey(e: KeyboardEvent&lt;HTMLButtonElement&gt;, i: number) {
+    const n = options.length;
+    let next = -1;
+    if (e.key === &quot;ArrowRight&quot; || e.key === &quot;ArrowDown&quot;) next = (i + 1) % n;
+    else if (e.key === &quot;ArrowLeft&quot; || e.key === &quot;ArrowUp&quot;) next = (i - 1 + n) % n;
+    if (next &gt;= 0) { e.preventDefault(); refs.current[next]?.focus(); }
+  }
+
+  return (
+    &lt;div role=&quot;group&quot; aria-label={label} className={cx(&quot;inline-flex overflow-hidden rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border-strong)]&quot;, className)} {...rest}&gt;
+      {options.map((opt, i) =&gt; {
+        const on = isActive(opt.value);
+        return (
+          &lt;button
+            key={opt.value}
+            ref={(el) =&gt; { refs.current[i] = el; }}
+            type=&quot;button&quot;
+            aria-pressed={on}
+            disabled={opt.disabled}
+            onClick={() =&gt; toggle(opt.value)}
+            onKeyDown={(e) =&gt; onKey(e, i)}
+            className={cx(
+              SEG_BASE,
+              SIZES[size],
+              &quot;rounded-none&quot;,
+              i &gt; 0 &amp;&amp; &quot;-ml-px border-l border-[var(--ds-color-border)]&quot;,
+              on ? &quot;bg-[var(--ds-color-surface-active)] font-semibold&quot; : &quot;hover:bg-[var(--ds-color-surface-hover)]&quot;,
+            )}
+          &gt;
+            {opt.icon ? &lt;Icon name={opt.icon} className=&quot;shrink-0&quot; /&gt; : null}
+            &lt;span&gt;{opt.label}&lt;/span&gt;
+          &lt;/button&gt;
+        );
+      })}
+    &lt;/div&gt;
+  );
+}
+
+export default ToggleGroup;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

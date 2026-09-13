@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northline Atelier Architecture Studio — Tailwind Template — DevSnips</title>
+<meta name="description" content="A premium four-page architecture studio template pairing an editorial grid with warm neutrals, quiet typography, generous whitespace, and restrained interactions. Built as a responsive Tailwind CSS site without local assets.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../Tailwind/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/Templates/index.html" class="hover:text-neutral-900 dark:hover:text-white">Templates</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Northline Atelier Architecture Studio</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Northline Atelier Architecture Studio</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A premium four-page architecture studio template pairing an editorial grid with warm neutrals, quiet typography, generous whitespace, and restrained interactions. Built as a responsive Tailwind CSS site without local assets.</p>
+      </div>
+      <a href="_src/preview.html" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Full preview &#8599;</a>
+    </div>
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Northline Atelier Architecture Studio &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Northline Atelier Architecture Studio preview" class="h-[460px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Pages in this template</h2>
+        <ul class="mt-3 space-y-2"><li><a href="_src/pages/contact.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-indigo-400 dark:border-neutral-800"><span class="mono">contact.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/index.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-indigo-400 dark:border-neutral-800"><span class="mono">index.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/projects.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-indigo-400 dark:border-neutral-800"><span class="mono">projects.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/studio.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-indigo-400 dark:border-neutral-800"><span class="mono">studio.html</span><span class="text-neutral-400">Open &#8599;</span></a></li></ul>
+        <h2 class="mt-8 text-lg font-bold">Features</h2><ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>4 connected pages sharing one Soft Modern design system</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>editorial home page with featured project and studio metrics</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>responsive project archive with category filters</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>studio page with practice principles and team profiles</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>contact page with project enquiry form and studio details</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>inline SVG project diagrams and architectural motifs</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>mobile-first layouts from 320px through 1920px+</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>semantic HTML, accessible labels, focus states, and reduced-motion support</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Other templates</h2>
+        <div class="mt-3 grid gap-3"><a h</div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Northline Atelier — Architecture Studio Template</h1>
+<p>A premium four-page architecture studio website built with Tailwind CSS, semantic HTML, inline SVG, and small scoped vanilla JS where interaction is useful. The visual direction is <strong>Soft Modern</strong>: warm paper tones, quiet charcoal type, thin rules, editorial grids, restrained rounded corners, and generous whitespace.</p>
+<h2>Structure</h2>
+<pre class="code-block"><code>
+northline-atelier/
+├── pages/
+│   ├── index.html       # Home, featured project, practice overview, selected work
+│   ├── projects.html    # Project archive with category filters
+│   ├── studio.html      # Studio profile, principles, team, capabilities
+│   └── contact.html     # Enquiry form, studio details, process
+├── preview.html         # Template gallery shell: overview + pages index + design-system summary
+├── metadata.json
+└── README.md
+</code></pre>
+<p>There are no <code>assets/</code>, <code>css/</code>, <code>js/</code>, or <code>images/</code> directories. Visual details use Tailwind utilities, CSS shapes, gradients, and inline SVG.</p>
+<h2>Design language</h2>
+<ul>
+<li>Soft warm background: <code>#F5F2EC</code></li>
+<li>Ink: <code>#20201D</code>; muted text: <code>#77746C</code></li>
+<li>Fine borders instead of heavy cards</li>
+<li>Serif display headlines paired with a clean sans-serif body</li>
+<li>Large editorial whitespace and asymmetric grids</li>
+<li>Restrained olive accent used for active states and small highlights</li>
+<li>Subtle image-like architectural drawings made with inline SVG</li>
+</ul>
+<h2>Pages</h2>
+<p>| Page | Purpose |</p>
+<p>| --- | --- |</p>
+<p>| Home | Studio introduction, featured project, selected work, approach and CTA |</p>
+<p>| Projects | Filterable project archive with categories and project metadata |</p>
+<p>| Studio | Practice story, principles, capabilities and team |</p>
+<p>| Contact | Project enquiry form, process, contact details and studio hours |</p>
+<h2>Responsive &amp; accessibility</h2>
+<p>The layout is mobile-first and designed for 320px through 1920px+. Grids intentionally change composition at breakpoints rather than simply stacking. Navigation becomes a compact menu on smaller screens, forms remain touch-friendly, and long project titles wrap without overflow. Pages use semantic landmarks, visible keyboard focus, labelled form controls, descriptive SVG titles, and reduced-motion handling.</p>
+<h2>Usage</h2>
+<p>Open any file in <code>pages/</code> directly or serve the template with a static server. Tailwind is loaded through the CDN, so no build step is required.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

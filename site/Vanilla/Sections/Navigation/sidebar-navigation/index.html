@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar Navigation — Vanilla Sections — DevSnips</title>
+<meta name="description" content="App sidebar + content area, collapsible on mobile.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/Sections/index.html" class="hover:text-neutral-900 dark:hover:text-white">Sections</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/Sections/index.html#Navigation" class="hover:text-neutral-900 dark:hover:text-white">Navigation</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Sidebar Navigation</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Sidebar Navigation</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">App sidebar + content area, collapsible on mobile.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/code.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Sidebar Navigation &mdash; live preview</span>
+        <a href="_src/code.html" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-600 hover:underline dark:text-emerald-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/code.html" title="Sidebar Navigation preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Vanilla HTML/CSS/JS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Sections &rsaquo; Navigation</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">nav</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">sidebar</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dashboard</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add vanilla/sections/Navigation/sidebar-navigation</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add vanilla/sections/Navigation/sidebar-navigation');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>ARIA</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>semantic HTML</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../navbar-mega-menu/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Mega Menu</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Navbar with a click-to-open mega menu panel.</p>
+  
+</a><a href="../navbar-simple/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Simple Navbar</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Simple sticky navbar with a mobile drawer.</p>
+  
+</a><a href="../navbar-sticky/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Sticky Navbar</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Sticky navbar with scroll shadow and a slide-in mobile sheet.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Sidebar Navigation</h1>
+<p>App sidebar + content area, collapsible on mobile.</p>
+<p><strong>Technology:</strong> Vanilla HTML/CSS/JS</p>
+<p><strong>Category:</strong> sections / navigation</p>
+<p><strong>Design:</strong> Neo-Brutalist (flat colors, hard shadows, bold borders)</p>
+<p><strong>Responsive:</strong> Mobile-first (320px → 1920px)</p>
+<p><strong>Dark mode:</strong> via <code>prefers-color-scheme</code></p>
+<p><strong>Tags:</strong> nav, sidebar, dashboard</p>
+<p><strong>Features:</strong> responsive collapse, aria-current, scrim</p>
+<h2>Usage</h2>
+<ol>
+<li>Copy the contents of <code>code.html</code> into your page.</li>
+<li>The section is self-contained (inline CSS + JS). No build step.</li>
+<li>Tweak the CSS variables in <code>:root</code> to rebrand.</li>
+</ol></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;!-- Snippet Name: Sidebar Navigation | Family: Navigation | Description: App sidebar + content area, collapsible on mobile. | Author: DevSnips Contributors | Usage: Copy the .nb section into your page. --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Sidebar Navigation | DevSnips&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Neo-brutalist vanilla HTML/CSS/JS section: sidebar-navigation. Copy, customize, ship.&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;style&gt;  /* ---- Neo-Brutalist design tokens ---- */
+  :root{
+    --bg:#fbfbf9; --surface:#ffffff; --foreground:#0a0a0a; --muted:#525252;
+    --border:#0a0a0a; --primary:#4f46e5; --primary-fg:#ffffff;
+    --accent:#facc15; --pink:#ec4899; --lime:#a3e635; --cyan:#22d3ee;
+    --radius:6px; --radius-lg:10px;
+    --shadow:4px 4px 0 var(--border); --shadow-lg:8px 8px 0 var(--border);
+    --ring:0 0 0 3px #fff, 0 0 0 6px var(--primary);
+    --container:1200px; --gutter:20px;
+    --fs-h1:clamp(2.4rem,6vw,4.25rem); --fs-h2:clamp(1.9rem,4vw,2.9rem);
+    --fs-h3:clamp(1.25rem,2.4vw,1.6rem); --fs-lead:clamp(1.05rem,2vw,1.25rem);
+    --ff:&#x27;Inter&#x27;,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0a0a0a; --surface:#151515; --foreground:#fafafa; --muted:#a3a3a3;
+      --border:#fafafa; --ring:0 0 0 3px #000, 0 0 0 6px var(--primary); }
+  }
+  /* ---- base layout + components ---- */
+  *{box-sizing:border-box}
+  .nb{font-family:var(--ff);background:var(--bg);color:var(--foreground);
+    line-height:1.6;-webkit-font-smoothing:antialiased;margin:0}
+  .nb .container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+  .nb section{position:relative;padding-block:clamp(56px,9vw,120px)}
+  .nb h1,.nb h2,.nb h3,.nb h4{font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0}
+  .nb h1{font-size:var(--fs-h1)} .nb h2{font-size:var(--fs-h2)} .nb h3{font-size:var(--fs-h3)}
+  .nb p{margin:0} .nb a{color:inherit}
+  .nb .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;
+    font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+    border:2px solid var(--border);background:var(--surface);padding:6px 12px;
+    border-radius:999px;box-shadow:var(--shadow)}
+  .nb .lead{font-size:var(--fs-lead);color:var(--muted);max-width:62ch}
+  .nb .muted{color:var(--muted)}
+  .nb .center{text-align:center;margin-inline:auto}
+  .nb .grid{display:grid;gap:var(--gutter)}
+  .nb .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font:inherit;font-weight:700;font-size:.98rem;line-height:1;cursor:pointer;
+    text-decoration:none;border:3px solid var(--border);border-radius:var(--radius);
+    padding:14px 22px;background:var(--primary);color:var(--primary-fg);
+    box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease,background .12s}
+  .nb .btn:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-lg)}
+  .nb .btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--border)}
+  .nb .btn.outline{background:var(--surface);color:var(--foreground)}
+  .nb .btn.ghost{background:transparent;border-color:transparent;box-shadow:none}
+  .nb .btn.ghost:hover{box-shadow:var(--shadow);border-color:var(--border);transform:translate(-2px,-2px)}
+  .nb .btn.accent{background:var(--accent);color:#0a0a0a}
+  .nb .card{background:var(--surface);border:3px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:24px;transition:transform .14s ease,box-shadow .14s ease}
+  .nb .card.hover:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-lg)}
+  .nb .badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.08em;border:2px solid var(--border);
+    padding:4px 10px;border-radius:999px;background:var(--surface)}
+  .nb :focus-visible{outline:none;box-shadow:var(--ring);border-radius:4px}
+  .nb .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#000;
+    padding:10px 16px;border:2px solid var(--border);z-index:50;font-weight:700}
+  .nb .skip:focus{left:8px}
+  .nb .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0;margin:-1px}
+  @media (prefers-reduced-motion:reduce){
+    .nb *,.nb *::before,.nb *::after{animation-duration:.001ms!important;
+      transition-duration:.001ms!important;animation-iteration-count:1!important}
+  }
+
+  .sn{display:grid;grid-template-columns:1fr;min-height:100vh}
+  .sn .side{position:sticky;top:0;align-self:start;height:100vh;background:var(--surface);border-right:3px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:6px;display:none}
+  .sn .side .brand{font-weight:900;font-size:1.1rem;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .sn .side .brand .mark{width:30px;height:30px;background:var(--primary);border:3px solid var(--border);border-radius:8px}
+  .sn .side a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:8px;text-decoration:none;font-weight:600;color:var(--muted)}
+  .sn .side a:hover,.sn .side a[aria-current=&quot;true&quot;]{background:var(--bg);color:var(--foreground);box-shadow:var(--shadow)}
+  .sn .side .grp{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:14px 8px 6px}
+  .sn .side .foot{margin-top:auto;font-size:.8rem;color:var(--muted)}
+  .sn .main{padding:24px}
+  .sn .topbar{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .sn .topbar .btn{display:none}
+  .sn .toggle{border:3px solid var(--border);background:var(--surface);border-radius:8px;padding:8px;cursor:pointer;box-shadow:var(--shadow)}
+  @media(min-width:900px){.sn{grid-template-columns:248px 1fr}.sn .side{display:flex}.sn .toggle{display:none}.sn .topbar .btn{display:inline-flex}}
+  .sn .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  .sn.open .side{display:flex;position:fixed;top:0;left:0;width:248px;z-index:50}
+  .sn.open .scrim{display:block}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;nb&quot;&gt;
+  &lt;a class=&quot;skip&quot; href=&quot;#main&quot;&gt;Skip to content&lt;/a&gt;
+
+  &lt;div class=&quot;sn&quot; data-sn&gt;
+    &lt;aside class=&quot;side&quot; aria-label=&quot;Sidebar&quot;&gt;
+      &lt;div class=&quot;brand&quot;&gt;&lt;span class=&quot;mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Console&lt;/div&gt;
+      &lt;div class=&quot;grp&quot;&gt;Workspace&lt;/div&gt;
+      &lt;a href=&quot;#&quot; aria-current=&quot;true&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&#x27;M3 3v18h18M7 14l3-4 4 3 5-7&#x27;/&gt;&lt;/svg&gt; Dashboard&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;circle cx=&#x27;12&#x27; cy=&#x27;8&#x27; r=&#x27;4&#x27;/&gt;&lt;path d=&#x27;M4 21c0-4 4-6 8-6s8 2 8 6&#x27;/&gt;&lt;/svg&gt; Customers&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&#x27;M3 3h7v7H3zM14 3h7v7H3zM3 14h7v7H3zM14 14h7v7H3z&#x27;/&gt;&lt;/svg&gt; Projects&lt;/a&gt;
+      &lt;div class=&quot;grp&quot;&gt;Account&lt;/div&gt;
+      &lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;rect x=&#x27;4&#x27; y=&#x27;11&#x27; width=&#x27;16&#x27; height=&#x27;9&#x27; rx=&#x27;2&#x27;/&gt;&lt;path d=&#x27;M8 11V7a4 4 0 018 0v4&#x27;/&gt;&lt;/svg&gt; Security&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;circle cx=&#x27;12&#x27; cy=&#x27;12&#x27; r=&#x27;9&#x27;/&gt;&lt;path d=&#x27;M12 7v5l3 2&#x27;/&gt;&lt;/svg&gt; Billing&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;is&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;rect x=&#x27;3&#x27; y=&#x27;5&#x27; width=&#x27;18&#x27; height=&#x27;14&#x27; rx=&#x27;2&#x27;/&gt;&lt;path d=&#x27;M3 7l9 6 9-6&#x27;/&gt;&lt;/svg&gt; Notifications&lt;/a&gt;
+      &lt;div class=&quot;foot&quot;&gt;v2.4.1&lt;/div&gt;
+    &lt;/aside&gt;
+    &lt;div class=&quot;scrim&quot; data-scrim&gt;&lt;/div&gt;
+    &lt;main class=&quot;main&quot;&gt;
+      &lt;div class=&quot;topbar&quot;&gt;
+        &lt;button class=&quot;toggle&quot; type=&quot;button&quot; aria-label=&quot;Toggle sidebar&quot; data-toggle&gt;&lt;i style=&quot;display:block;width:22px;height:2px;background:var(--foreground)&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;h1 style=&quot;font-size:1.4rem&quot;&gt;Dashboard&lt;/h1&gt;
+        &lt;span style=&quot;margin-left:auto&quot;&gt;&lt;/span&gt;
+        &lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;+ New&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;grid&quot; style=&quot;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;b&gt;1,204&lt;/b&gt;&lt;p class=&quot;muted&quot;&gt;Users&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;b&gt;$48k&lt;/b&gt;&lt;p class=&quot;muted&quot;&gt;MRR&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;b&gt;1.4%&lt;/b&gt;&lt;p class=&quot;muted&quot;&gt;Churn&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+  (function(){
+    var sn=document.querySelector(&#x27;[data-sn]&#x27;);if(!sn)return;
+    var t=sn.querySelector(&#x27;[data-toggle]&#x27;),s=sn.querySelector(&#x27;[data-scrim]&#x27;);
+    t.addEventListener(&#x27;click&#x27;,function(){sn.classList.toggle(&#x27;open&#x27;)});
+    s.addEventListener(&#x27;click&#x27;,function(){sn.classList.remove(&#x27;open&#x27;)});
+  })();&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

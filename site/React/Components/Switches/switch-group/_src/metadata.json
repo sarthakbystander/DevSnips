@@ -1,0 +1,60 @@
+{
+  "id": "switch-group-react-001",
+  "name": "Switch Group",
+  "slug": "switch-group",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-group",
+  "description": "Group of related independent on/off settings in a fieldset/legend with a shared value array.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Group",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "group",
+    "fieldset",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch",
+    "switch-card-group",
+    "switch-with-description"
+  ]
+}

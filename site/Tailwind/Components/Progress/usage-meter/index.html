@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usage Meter — Tailwind Components — DevSnips</title>
+<meta name="description" content="Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text — ideal for billing and account settings pages.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Progress" class="hover:text-neutral-900 dark:hover:text-white">Progress</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Usage Meter</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Usage Meter</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Dark, minimal plan-usage panel with four accessible quota meters (bandwidth, invocations, image optimization, build minutes). Meters hydrate from data-used/data-limit attributes, animate to their values, and flag near-limit state in text — ideal for billing and account settings pages.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Usage Meter &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Usage Meter preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Progress</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">progress</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">usage</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">meter</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">quota</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">billing</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dashboard</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">minimal-vercel</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dark</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Progress/usage-meter</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Progress/usage-meter');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>Minimal Vercel design language</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>data-attribute hydration (data-used / data-limit / data-unit)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>role=progressbar with aria-valuenow / aria-valuemax / aria-valuetext</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>near-limit state communicated in text, not color alone</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>animated fills with prefers-reduced-motion guard</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>refresh action with aria-busy and spin feedback</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>single teal accent on near-black with hairline borders</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>tabular-nums values formatted with Intl.NumberFormat</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../linear-bar/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Progress</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Linear Progress Bar</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Animated horizontal progress bar with percentage label and gradient fill. Includes determinate (value-driven), completed (green), and indeterminate (sliding) modes. Accessible via role=progressbar with aria-valuenow/valuetext.</p>
+  
+</a><a href="../step-progress/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Progress</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Step Progress Timeline</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vertical milestone timeline showing ordered stages with status dots (completed green check, current blue pulse with ring, pending muted), timestamps, and descriptions. Ideal for order tracking, deployment logs, and onboarding.</p>
+  
+</a><a href="../upload-progress/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Progress</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Upload Progress</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Multi-file upload list where each file shows an animated progress bar and percentage, then transitions to a green success check when complete. Files can be removed mid-upload. Call addFile(name) to push files programmatically.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Usage Meter</h1>
+<p>Usage / quota meter.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Progress/usage-meter
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;!--
+Snippet Name: Usage Meter
+Description: Dark, minimal plan-usage panel with accessible quota meters. Each meter hydrates from data-used / data-limit attributes, animates to its value, and flags near-limit state in text.
+Author: DevSnips Contributors
+Usage Example: Drop into a billing or account settings page. Set data-used, data-limit, and data-unit on each [data-meter] row; the scoped script formats values, sets ARIA, and animates the fills.
+--&gt;
+&lt;section
+  class=&quot;w-full max-w-2xl rounded-lg border border-white/10 bg-[#0a0a0a] p-6 text-white sm:p-8&quot;
+  data-usage-meter=&quot;usage-meter&quot;
+  aria-labelledby=&quot;usage-meter-heading&quot;
+&gt;
+  &lt;header class=&quot;flex flex-wrap items-start justify-between gap-4&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;text-[11px] font-medium uppercase tracking-widest text-white/50&quot;&gt;Plan usage&lt;/p&gt;
+      &lt;h2 id=&quot;usage-meter-heading&quot; class=&quot;mt-1.5 text-lg font-medium tracking-tight text-white&quot;&gt;
+        Current billing cycle
+      &lt;/h2&gt;
+      &lt;p class=&quot;mt-1 text-xs text-white/50&quot;&gt;
+        Aug 1 – Aug 31, 2026 ·
+        &lt;span data-usage-updated&gt;Updated 4 minutes ago&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+      &lt;span class=&quot;rounded-md bg-[#50e3c2]/10 px-2 py-1 text-[11px] font-medium uppercase tracking-widest text-[#50e3c2] ring-1 ring-inset ring-[#50e3c2]/30&quot;&gt;
+        Pro
+      &lt;/span&gt;
+      &lt;button
+        type=&quot;button&quot;
+        data-usage-refresh
+        aria-label=&quot;Refresh usage data&quot;
+        class=&quot;inline-flex h-8 w-8 items-center justify-center rounded-md text-white/50 transition-colors duration-150 hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;
+      &gt;
+        &lt;svg data-usage-refresh-icon class=&quot;h-4 w-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.582m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;ul role=&quot;list&quot; class=&quot;mt-6 divide-y divide-white/10 border-y border-white/10&quot; aria-label=&quot;Usage by resource&quot;&gt;
+    &lt;li class=&quot;py-4&quot; data-meter data-name=&quot;Bandwidth&quot; data-used=&quot;812&quot; data-limit=&quot;1000&quot; data-unit=&quot;GB&quot;&gt;
+      &lt;div class=&quot;flex items-baseline justify-between gap-4&quot;&gt;
+        &lt;p class=&quot;text-sm font-medium text-white&quot;&gt;Bandwidth&lt;/p&gt;
+        &lt;p class=&quot;text-sm tabular-nums text-white/50&quot;&gt;
+          &lt;span data-meter-value class=&quot;text-white&quot;&gt;812&lt;/span&gt;&amp;nbsp;of&amp;nbsp;&lt;span data-meter-limit&gt;1,000&lt;/span&gt;&amp;nbsp;GB
+          &lt;span data-meter-percent class=&quot;ml-2 text-xs text-white/50&quot;&gt;81%&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div
+        class=&quot;mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10&quot;
+        role=&quot;progressbar&quot;
+        aria-label=&quot;Bandwidth&quot;
+        aria-valuemin=&quot;0&quot;
+        aria-valuemax=&quot;1000&quot;
+        aria-valuenow=&quot;812&quot;
+        aria-valuetext=&quot;812 of 1,000 GB used, 81 percent&quot;
+      &gt;
+        &lt;div data-meter-fill class=&quot;h-full w-[81%] rounded-full bg-[#50e3c2] transition-[width] duration-700 ease-out&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p data-meter-note class=&quot;mt-2 hidden items-center gap-1.5 text-xs font-medium text-white&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;span class=&quot;h-1.5 w-1.5 rounded-full bg-[#50e3c2]&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        Approaching limit — &lt;a href=&quot;#&quot; class=&quot;underline decoration-white/40 underline-offset-2 transition-colors duration-150 hover:decoration-[#50e3c2] hover:text-[#50e3c2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;&gt;upgrade plan&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/li&gt;
+
+    &lt;li class=&quot;py-4&quot; data-meter data-name=&quot;Function invocations&quot; data-used=&quot;8214930&quot; data-limit=&quot;10000000&quot; data-unit=&quot;invocations&quot;&gt;
+      &lt;div class=&quot;flex items-baseline justify-between gap-4&quot;&gt;
+        &lt;p class=&quot;text-sm font-medium text-white&quot;&gt;Function invocations&lt;/p&gt;
+        &lt;p class=&quot;text-sm tabular-nums text-white/50&quot;&gt;
+          &lt;span data-meter-value class=&quot;text-white&quot;&gt;8,214,930&lt;/span&gt;&amp;nbsp;of&amp;nbsp;&lt;span data-meter-limit&gt;10,000,000&lt;/span&gt;&amp;nbsp;invocations
+          &lt;span data-meter-percent class=&quot;ml-2 text-xs text-white/50&quot;&gt;82%&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div
+        class=&quot;mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10&quot;
+        role=&quot;progressbar&quot;
+        aria-label=&quot;Function invocations&quot;
+        aria-valuemin=&quot;0&quot;
+        aria-valuemax=&quot;10000000&quot;
+        aria-valuenow=&quot;8214930&quot;
+        aria-valuetext=&quot;8,214,930 of 10,000,000 invocations used, 82 percent&quot;
+      &gt;
+        &lt;div data-meter-fill class=&quot;h-full w-[82%] rounded-full bg-[#50e3c2] transition-[width] duration-700 ease-out&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p data-meter-note class=&quot;mt-2 hidden items-center gap-1.5 text-xs font-medium text-white&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;span class=&quot;h-1.5 w-1.5 rounded-full bg-[#50e3c2]&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        Approaching limit — &lt;a href=&quot;#&quot; class=&quot;underline decoration-white/40 underline-offset-2 transition-colors duration-150 hover:decoration-[#50e3c2] hover:text-[#50e3c2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;&gt;upgrade plan&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/li&gt;
+
+    &lt;li class=&quot;py-4&quot; data-meter data-name=&quot;Image optimization&quot; data-used=&quot;9412&quot; data-limit=&quot;10000&quot; data-unit=&quot;transformations&quot;&gt;
+      &lt;div class=&quot;flex items-baseline justify-between gap-4&quot;&gt;
+        &lt;p class=&quot;text-sm font-medium text-white&quot;&gt;Image optimization&lt;/p&gt;
+        &lt;p class=&quot;text-sm tabular-nums text-white/50&quot;&gt;
+          &lt;span data-meter-value class=&quot;text-white&quot;&gt;9,412&lt;/span&gt;&amp;nbsp;of&amp;nbsp;&lt;span data-meter-limit&gt;10,000&lt;/span&gt;&amp;nbsp;transformations
+          &lt;span data-meter-percent class=&quot;ml-2 text-xs text-white/50&quot;&gt;94%&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div
+        class=&quot;mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10&quot;
+        role=&quot;progressbar&quot;
+        aria-label=&quot;Image optimization&quot;
+        aria-valuemin=&quot;0&quot;
+        aria-valuemax=&quot;10000&quot;
+        aria-valuenow=&quot;9412&quot;
+        aria-valuetext=&quot;9,412 of 10,000 transformations used, 94 percent&quot;
+      &gt;
+        &lt;div data-meter-fill class=&quot;h-full w-[94%] rounded-full bg-[#50e3c2] transition-[width] duration-700 ease-out&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p data-meter-note class=&quot;mt-2 flex items-center gap-1.5 text-xs font-medium text-white&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;span class=&quot;h-1.5 w-1.5 rounded-full bg-[#50e3c2]&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        Approaching limit — &lt;a href=&quot;#&quot; class=&quot;underline decoration-white/40 underline-offset-2 transition-colors duration-150 hover:decoration-[#50e3c2] hover:text-[#50e3c2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;&gt;upgrade plan&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/li&gt;
+
+    &lt;li class=&quot;py-4&quot; data-meter data-name=&quot;Build execution&quot; data-used=&quot;187&quot; data-limit=&quot;6000&quot; data-unit=&quot;minutes&quot;&gt;
+      &lt;div class=&quot;flex items-baseline justify-between gap-4&quot;&gt;
+        &lt;p class=&quot;text-sm font-medium text-white&quot;&gt;Build execution&lt;/p&gt;
+        &lt;p class=&quot;text-sm tabular-nums text-white/50&quot;&gt;
+          &lt;span data-meter-value class=&quot;text-white&quot;&gt;187&lt;/span&gt;&amp;nbsp;of&amp;nbsp;&lt;span data-meter-limit&gt;6,000&lt;/span&gt;&amp;nbsp;minutes
+          &lt;span data-meter-percent class=&quot;ml-2 text-xs text-white/50&quot;&gt;3%&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div
+        class=&quot;mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10&quot;
+        role=&quot;progressbar&quot;
+        aria-label=&quot;Build execution&quot;
+        aria-valuemin=&quot;0&quot;
+        aria-valuemax=&quot;6000&quot;
+        aria-valuenow=&quot;187&quot;
+        aria-valuetext=&quot;187 of 6,000 minutes used, 3 percent&quot;
+      &gt;
+        &lt;div data-meter-fill class=&quot;h-full w-[3%] rounded-full bg-[#50e3c2] transition-[width] duration-700 ease-out&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p data-meter-note class=&quot;mt-2 hidden items-center gap-1.5 text-xs font-medium text-white&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;span class=&quot;h-1.5 w-1.5 rounded-full bg-[#50e3c2]&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        Approaching limit — &lt;a href=&quot;#&quot; class=&quot;underline decoration-white/40 underline-offset-2 transition-colors duration-150 hover:decoration-[#50e3c2] hover:text-[#50e3c2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;&gt;upgrade plan&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;footer class=&quot;mt-6 flex flex-wrap items-center justify-between gap-3&quot;&gt;
+    &lt;p class=&quot;text-xs text-white/50&quot;&gt;Cycle resets in 8 days. Usage is measured across all projects in this team.&lt;/p&gt;
+    &lt;a
+      href=&quot;#&quot;
+      class=&quot;inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium text-[#50e3c2] transition-colors duration-150 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50e3c2]&quot;
+    &gt;
+      View detailed usage
+      &lt;svg class=&quot;h-3.5 w-3.5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9 5l7 7-7 7&quot;/&gt;
+      &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/footer&gt;
+&lt;/section&gt;
+
+&lt;script&gt;
+  (function () {
+    const root = document.currentScript.closest(&#x27;[data-usage-meter]&#x27;);
+    if (!root) return;
+
+    const NEAR_LIMIT = 90;
+    const numberFormat = new Intl.NumberFormat(&#x27;en-US&#x27;);
+    const reduceMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;);
+
+    function hydrateMeter(meter, animate) {
+      const used = Number(meter.dataset.used) || 0;
+      const limit = Number(meter.dataset.limit) || 100;
+      const unit = meter.dataset.unit || &#x27;&#x27;;
+      const name = meter.dataset.name || &#x27;Usage&#x27;;
+      const percent = Math.max(0, Math.min(100, Math.round((used / limit) * 100)));
+
+      const fill = meter.querySelector(&#x27;[data-meter-fill]&#x27;);
+      const valueEl = meter.querySelector(&#x27;[data-meter-value]&#x27;);
+      const limitEl = meter.querySelector(&#x27;[data-meter-limit]&#x27;);
+      const percentEl = meter.querySelector(&#x27;[data-meter-percent]&#x27;);
+      const bar = meter.querySelector(&#x27;[role=&quot;progressbar&quot;]&#x27;);
+      const note = meter.querySelector(&#x27;[data-meter-note]&#x27;);
+
+      valueEl.textContent = numberFormat.format(used);
+      limitEl.textContent = numberFormat.format(limit);
+      percentEl.textContent = percent + &#x27;%&#x27;;
+
+      bar.setAttribute(&#x27;aria-valuemax&#x27;, String(limit));
+      bar.setAttribute(&#x27;aria-valuenow&#x27;, String(used));
+      bar.setAttribute(
+        &#x27;aria-valuetext&#x27;,
+        numberFormat.format(used) + &#x27; of &#x27; + numberFormat.format(limit) + &#x27; &#x27; + unit + &#x27; used, &#x27; + percent + &#x27; percent&#x27;
+      );
+
+      if (percent &gt;= NEAR_LIMIT) {
+        note.classList.remove(&#x27;hidden&#x27;);
+        note.classList.add(&#x27;flex&#x27;);
+      } else {
+        note.classList.add(&#x27;hidden&#x27;);
+        note.classList.remove(&#x27;flex&#x27;);
+      }
+
+      const target = percent + &#x27;%&#x27;;
+      if (animate &amp;&amp; !reduceMotion.matches) {
+        fill.style.width = &#x27;0%&#x27;;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            fill.style.width = target;
+          });
+        });
+      } else {
+        fill.style.width = target;
+      }
+    }
+
+    const meters = Array.prototype.slice.call(root.querySelectorAll(&#x27;[data-meter]&#x27;));
+    const refreshButton = root.querySelector(&#x27;[data-usage-refresh]&#x27;);
+    const refreshIcon = root.querySelector(&#x27;[data-usage-refresh-icon]&#x27;);
+    const updatedLabel = root.querySelector(&#x27;[data-usage-updated]&#x27;);
+
+    // Hydrate on load with the entrance animation
+    meters.forEach(function (meter) { hydrateMeter(meter, true); });
+
+    // Refresh button re-runs hydration (swap in a real fetch for live data)
+    let refreshing = false;
+    refreshButton.addEventListener(&#x27;click&#x27;, function () {
+      if (refreshing) return;
+      refreshing = true;
+      refreshButton.setAttribute(&#x27;aria-busy&#x27;, &#x27;true&#x27;);
+      refreshButton.disabled = true;
+      if (!reduceMotion.matches) refreshIcon.classList.add(&#x27;animate-spin&#x27;);
+
+      window.setTimeout(function () {
+        meters.forEach(function (meter) { hydrateMeter(meter, true); });
+        updatedLabel.textContent = &#x27;Updated just now&#x27;;
+        refreshIcon.classList.remove(&#x27;animate-spin&#x27;);
+        refreshButton.removeAttribute(&#x27;aria-busy&#x27;);
+        refreshButton.disabled = false;
+        refreshing = false;
+      }, reduceMotion.matches ? 150 : 900);
+    });
+  })();
+&lt;/script&gt;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

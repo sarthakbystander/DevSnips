@@ -1,0 +1,61 @@
+{
+  "id": "switch-loading-react-001",
+  "name": "Switch Loading",
+  "slug": "switch-loading",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-loading",
+  "description": "Switch with a real loading state that blocks interaction while the change is persisted.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "loading",
+    "async",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA",
+    "aria-busy"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch",
+    "switch-disabled",
+    "switch-with-status"
+  ]
+}

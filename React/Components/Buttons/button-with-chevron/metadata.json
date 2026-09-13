@@ -1,0 +1,55 @@
+{
+  "id": "button-with-chevron-react-001",
+  "name": "Button With Chevron",
+  "slug": "button-with-chevron",
+  "component": "button",
+  "family": "buttons",
+  "variant": "button-with-chevron",
+  "description": "A labeled button with a trailing chevron. `direction` controls orientation (down for menus/disclosure, right for advancing), and `open` rotates a down chevron to signal an expanded state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "chevron",
+    "menu",
+    "disclosure",
+    "composite",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "button-with-icon",
+    "split-button",
+    "more-actions-button"
+  ]
+}

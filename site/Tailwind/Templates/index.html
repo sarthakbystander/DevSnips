@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailwind Templates — DevSnips</title>
+<meta name="description" content="Browse all Tailwind templates.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Templates</span></nav>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight">Tailwind Templates</h1>
+    <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">10 complete, multi-page templates.</p>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="ai-saas-platform/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">AI SaaS Platform</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">11 pages</span>
+</a><a href="atlas-analytics/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Atlas Analytics Platform</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A flagship 11-page Tailwind CSS product-analytics application template for Atlas Analytics, a fictional enterprise analytics platform. A minimal, light, editorial, data-dense design language — white canvas, near-black text, 1px hairline borders, small radii, restrained shadows and a single controlled blue accent. Eleven independently-usable pages (overview, analytics explorer, funnels, cohorts, retention, revenue, reports, dashboards, segments, events, settings) share one Atlas shell (sticky topbar + fixed sidebar + calm dark-mode toggle). All charts are hand-built inline SVG; Tailwind CDN + scoped vanilla JS, fully responsive from 320px up, no build step.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">11 pages</span>
+</a><a href="baseline-conference/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Baseline Design &amp; Engineering Conference</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium multi-page website template for a design &amp; engineering conference, built in a bold Neo-Brutalist design system. Six connected pages (home, speakers, schedule, venue, register, code of conduct) sharing one cream + black + bright-accent language with hard borders and offset shadows. Tailwind CDN + vanilla JS, fully responsive from 320px up.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">6 pages</span>
+</a><a href="devsnips-store/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">DevSnips Curated Design Store</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury — a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">7 pages</span>
+</a><a href="krat-adventure/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Krat Adventure Wilderness</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A cinematic wilderness landing page inspired by premium outdoor editorial campaigns, combining oversized typography, saturated photography, asymmetrical adventure cards, field-note details, and a deep navy palette.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="meridian/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Meridian Incident Command Platform</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams. Neo-Industrial utility language meets Swiss Minimal discipline — 1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display type, JetBrains Mono metadata, a hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="northline-atelier/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Northline Atelier Architecture Studio</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium four-page architecture studio template pairing an editorial grid with warm neutrals, quiet typography, generous whitespace, and restrained interactions. Built as a responsive Tailwind CSS site without local assets.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 pages</span>
+</a><a href="quiet-place/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Quiet Place</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A calm, illustration-led Tailwind landing page inspired by a quiet lakeside sanctuary, pairing a muted mint canvas, condensed editorial typography, soft coral CTAs, and a detailed inline SVG pixel-art landscape.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="stratum/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Stratum Fintech Ops Platform</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium single-page Tailwind CSS template for a vertical fintech operations platform. Neo-Brutalist geometry meets editorial typography — thick 2px borders, offset hard shadows, Archivo display type, JetBrains Mono metadata, a hand-built treasury command-surface hero with live sparkline, an approval-routing graph visualization, staggered pillar cards, a bento capabilities grid, a five-step workflow, customer-outcome metrics, testimonial proof, cash-managed pricing, a scoped single-open FAQ accordion, and a dark conversion CTA.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="vesper/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Vesper Attack-Surface Management Platform</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium single-page Tailwind CSS template for an external attack-surface management platform built for security teams. Glassmorphism surfaces meet Cyber Minimal discipline — translucent frosted panels over an atmospheric fuchsia/indigo/cyan mesh, Sora display type, JetBrains Mono metadata, a hand-built attack-surface command-console hero with a live surface radar and sparkline plus floating critical-exposure/new-asset mini-cards, a signature asset-topology reachability graph with an exposed path highlighted in cyan, a five-step signed-state EASM lifecycle workflow, dark customer-outcome metrics, security-leader testimonials, per-asset pricing, a scoped single-open FAQ accordion, and a glass conversion CTA with a three-step onboarding panel.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a></div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

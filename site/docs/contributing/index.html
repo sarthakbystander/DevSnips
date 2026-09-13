@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contributing — DevSnips Docs</title>
+<meta name="description" content="How to add or change content in DevSnips.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../docs/overview/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Contributing</span></nav>
+    <div class="mt-4 flex flex-col gap-8 sm:flex-row">
+      <nav aria-label="Documentation" class="w-full shrink-0 space-y-0.5 sm:w-56"><a href="../../docs/overview/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Overview</a><a href="../../docs/structure/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Content Structure</a><a href="../../docs/contributing/index.html" class="block rounded-lg px-3 py-1.5 text-sm bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">Contributing</a><a href="../../docs/vanilla-curation/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Vanilla Curation Report</a><a href="../../docs/cli/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">CLI Reference</a><a href="../../docs/agents/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Agent Instructions</a><a href="../../docs/changelog/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Changelog</a><a href="../../docs/license/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">License</a></nav>
+      <div class="min-w-0 flex-1">
+        <h1 class="text-3xl font-extrabold tracking-tight">Contributing</h1>
+        <p class="mt-2 text-neutral-600 dark:text-neutral-400">How to add or change content in DevSnips.</p>
+        <article class="prose-devsnips mt-8"><h1>Contributing to DevSnips</h1>
+<p>Thanks for contributing to DevSnips. The goal is to keep the library useful at scale, so contributions should be easy to discover, copy, review, and maintain.</p>
+<h2>Before you start</h2>
+<p>Read these files first:</p>
+<ul>
+<li><code>README.md</code> for the current repository structure and content counts.</li>
+<li><code>COMPONENT_STRUCTURE.md</code> for folder, file, metadata, and naming rules.</li>
+<li><code>AGENTS.md</code> for repository-specific automation and maintainer guidance.</li>
+</ul>
+<p>Do not edit <code>snippets-index.json</code> by hand unless a maintainer specifically asks you to. It is generated from repository content.</p>
+<h2>Where content belongs</h2>
+<p>Use the technology and content type that matches what you are adding:</p>
+<pre class="code-block"><code>
+Tailwind/
+├── Components/&lt;family&gt;/&lt;variant&gt;/
+├── Sections/&lt;family&gt;/&lt;variant&gt;/
+└── Templates/&lt;template&gt;/
+
+Vanilla/
+├── Components/&lt;family&gt;/&lt;variant&gt;/
+└── Templates/&lt;template&gt;/
+
+React/
+├── Components/&lt;family&gt;/&lt;variant&gt;/
+├── Sections/&lt;family&gt;/&lt;variant&gt;/
+└── Templates/&lt;template&gt;/
+</code></pre>
+<p>Do not create standalone <code>Utilities/</code>, <code>Resources/</code>, <code>Snippets/</code>, <code>Pages/</code>, or <code>Tools/</code> collections.</p>
+<h2>Choosing a content type</h2>
+<p>Use a <strong>component</strong> when the contribution represents one focused UI pattern.</p>
+<p>Use a <strong>section</strong> when it is a larger composition that normally occupies part of a page, such as a hero, pricing area, testimonial block, or footer. Tailwind sections belong in <code>Tailwind/Sections/</code>.</p>
+<p>Use a <strong>template</strong> when the contribution represents a complete page or substantial page experience. Templates may contain multiple pages and supporting files.</p>
+<h2>Tailwind component and section structure</h2>
+<p>A standard Tailwind component or section variant contains:</p>
+<pre class="code-block"><code>
+&lt;variant&gt;/
+├── code.html
+├── preview.html
+├── metadata.json
+└── README.md
+</code></pre>
+<p><code>code.html</code> must contain the focused copy-paste implementation. Keep demo-only wrappers and unrelated page content out of it.</p>
+<p><code>preview.html</code> is a complete standalone demonstration. It may contain Tailwind CDN setup, demo data, page framing, and scripts needed only for the preview.</p>
+<p><code>metadata.json</code> must contain the structured information required by the repository schema, including a valid <code>type</code> for Tailwind content.</p>
+<p><code>README.md</code> provides component-specific documentation: what the variant is, when to use it, how to install/customize it, accessibility notes, responsive behavior, and dependencies. Write it from the actual implementation in <code>code.html</code> rather than generic marketing text.</p>
+<p>Tailwind <code>type</code> values are:</p>
+<ul>
+<li><code>component</code></li>
+<li><code>section</code></li>
+<li><code>template</code></li>
+</ul>
+<p>The value must agree with the directory in which the metadata lives.</p>
+<h2>Vanilla structure</h2>
+<p>Vanilla component variants use a single self-contained source file named <code>code.html</code> (inline <code>&lt;style&gt;</code> + <code>&lt;script&gt;</code>):</p>
+<pre class="code-block"><code>
+&lt;variant&gt;/
+├── code.html
+├── README.md
+└── metadata.json
+</code></pre>
+<p>The directory name is the canonical component id/slug; the primary component source file is always <code>code.html</code>. Do not introduce a second file convention for a new family without a clear repository-level reason.</p>
+<p>Templates may have multiple HTML, CSS, JS, and documentation files because they represent complete experiences rather than isolated snippets.</p>
+<h2>Template structure</h2>
+<p>Every template under <code>Tailwind/Templates/</code>, <code>React/Templates/</code>, or <code>Vanilla/Templates/</code> must contain an <code>AGENTS.md</code> at its root:</p>
+<pre class="code-block"><code>
+&lt;template&gt;/
+├── AGENTS.md          # template-specific AI agent instructions (required)
+├── metadata.json
+├── preview.html
+├── README.md
+└── pages/ or src/    # actual template source
+</code></pre>
+<p><code>AGENTS.md</code> is DevSnips agent metadata/instructions — it is NOT template source code. It should explain what the template is, its structure, design system, how an agent should safely modify it, what NOT to change unnecessarily,and the quality bar to re-check. The validator enforces this structurally (<code>scripts/validate.py</code> fails when a template is missing it; <code>_gen/rebuild_index.py</code> refuses to write an index for a template that lacks it), so a new template contribution that omits <code>AGENTS.md</code> will not validate.</p>
+<h2>Quality requirements</h2>
+<p>Every contribution should aim for production-ready output, not merely a visual screenshot.</p>
+<p>Use semantic HTML where appropriate. Interactive controls should be keyboard accessible and have visible focus states. Use ARIA only when native HTML semantics are insufficient.</p>
+<p>Respect reduced-motion preferences for meaningful animations. Avoid unnecessary JavaScript and external dependencies. Keep third-party dependencies explicit and minimal.</p>
+<p>Components should work at common viewport sizes without horizontal overflow. Text should remain readable and controls should remain usable on touch devices.</p>
+<p>Keep code focused. A component should demonstrate one clear pattern instead of becoming a miniature application unless it is intentionally a template or section.</p>
+<h2>Naming</h2>
+<p>Use kebab-case for filesystem slugs:</p>
+<pre class="code-block"><code>
+multi-step-form
+pricing-comparison
+animated-accordion
+</code></pre>
+<p>Use readable Title Case for display names in metadata.</p>
+<p>Keep IDs stable. Do not change an existing ID merely to make it look nicer. New content should use a unique ID that will not collide with another entry.</p>
+<h2>Metadata</h2>
+<p>Metadata is part of the library&#x27;s infrastructure, not decoration. Keep names, descriptions, categories, tags, search terms, and related entries accurate.</p>
+<p>Do not claim accessibility, responsiveness, browser support, or features that the implementation does not actually provide.</p>
+<p>When adding a new family, make sure the family and its variants can be represented cleanly in <code>snippets-index.json</code>.</p>
+<h2>Index and validation</h2>
+<p>After adding, moving, renaming, or deleting content, regenerate the index:</p>
+<pre class="code-block"><code>
+python3 -m _gen.rebuild_index
+</code></pre>
+<p>Then run:</p>
+<pre class="code-block"><code>
+python3 scripts/validate.py
+</code></pre>
+<p>Do not submit a pull request with a stale index or broken validation output.</p>
+<p>If a validator exposes a pre-existing issue that your change does not introduce, mention it clearly in the pull request instead of silently changing unrelated content.</p>
+<h2>Git workflow</h2>
+<p>A typical contribution looks like:</p>
+<pre class="code-block"><code>
+git checkout -b feat/your-component
+git add .
+git commit -m &quot;feat: add your component&quot;
+</code></pre>
+<p>Keep commits focused. Avoid mixing an unrelated repository-wide refactor into a component contribution.</p>
+<h2>Pull requests</h2>
+<p>Explain what changed and why. Include the affected technology and content type when useful.</p>
+<p>For visual changes, include screenshots or a preview link when possible.</p>
+<p>Mention validation commands you ran and any known limitations.</p>
+<h2>Contributor checklist</h2>
+<ul>
+<li>[ ] I placed the content in the correct technology and content type.</li>
+<li>[ ] I used kebab-case for new filesystem slugs.</li>
+<li>[ ] I added the required files for the content type (including README.md for Tailwind component variants).</li>
+<li>[ ] Metadata accurately describes the implementation.</li>
+<li>[ ] Interactive behavior is keyboard accessible.</li>
+<li>[ ] Focus states are visible where applicable.</li>
+<li>[ ] Motion respects <code>prefers-reduced-motion</code> where applicable.</li>
+<li>[ ] The component works at mobile and desktop widths.</li>
+<li>[ ] I avoided unnecessary dependencies.</li>
+<li>[ ] I regenerated <code>snippets-index.json</code> when content changed.</li>
+<li>[ ] I added the <code>AGENTS.md</code> template-specific agent-instructions file when adding or editing a template.</li>
+<li>[ ] <code>python3 scripts/validate.py</code> passes.</li>
+<li>[ ] I documented any known limitations in the pull request.</li>
+</ul>
+<h2>Maintainer principle</h2>
+<p>When in doubt, prefer the smallest change that preserves the repository&#x27;s existing architecture and makes the content easier to discover, reuse, and maintain.</p></article></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

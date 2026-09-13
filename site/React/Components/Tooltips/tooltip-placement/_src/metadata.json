@@ -1,0 +1,65 @@
+{
+  "id": "tooltip-placement-react-001",
+  "name": "Tooltip Placement",
+  "slug": "tooltip-placement",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-placement",
+  "description": "The full placement matrix through props \u2014 side \u00d7 align on one shared core \u2014 plus the viewport correction: a trigger at the page edge flips its tooltip instead of overflowing.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "Positioning",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "placement",
+    "positioning"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "side \u00d7 align matrix",
+    "edge flip demo",
+    "align shift demo"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip",
+    "tooltip-with-long-content",
+    "tooltip-controlled"
+  ]
+}

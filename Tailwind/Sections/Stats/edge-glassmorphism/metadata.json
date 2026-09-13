@@ -1,0 +1,41 @@
+{
+  "id": "stats-edge-glassmorphism",
+  "slug": "stats-edge-glassmorphism",
+  "name": "Progress Bar Stats — Edge Glassmorphism",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "stats",
+  "section": "Progress Bar Stats",
+  "style": "edge-glassmorphism",
+  "description": "Edge Glassmorphism stats layout: Progress bar stats.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "stats",
+    "metrics",
+    "kpi",
+    "numbers",
+    "edge-glassmorphism"
+  ],
+  "features": [
+    "progress bar stats",
+    "horizontal bars",
+    "5 metrics",
+    "value + label",
+    "accent fills"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

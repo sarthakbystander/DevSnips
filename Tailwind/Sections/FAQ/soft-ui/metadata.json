@@ -1,0 +1,40 @@
+{
+  "id": "faq-soft-ui",
+  "slug": "faq-soft-ui",
+  "name": "Documentation FAQ — Soft UI (Neumorphism)",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "faq",
+  "section": "Documentation FAQ",
+  "style": "soft-ui",
+  "description": "Soft UI FAQ layout: Docs-style anchor nav.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "faq",
+    "accordion",
+    "questions",
+    "soft-ui"
+  ],
+  "features": [
+    "docs-style anchor nav",
+    "table of contents",
+    "numbered questions",
+    "scoped accordions",
+    "responsive stack"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

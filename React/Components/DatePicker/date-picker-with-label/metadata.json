@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-with-label-react-001",
+  "name": "Date Picker \u2014 with Label",
+  "slug": "date-picker-with-label",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-with-label",
+  "description": "A date picker with the root-rendered field chrome: label, description, and helper text wired to the control with real `htmlFor` + `id` and `aria-describedby` associations \u2014 never visual proximity.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "label",
+    "description",
+    "helper-text",
+    "form"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "real label association",
+    "aria-describedby wiring",
+    "required marker"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "htmlFor label association",
+    "describedby description + helper ids"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker",
+    "date-picker-with-error"
+  ]
+}

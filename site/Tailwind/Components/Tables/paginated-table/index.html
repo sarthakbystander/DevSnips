@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paginated Table — Tailwind Components — DevSnips</title>
+<meta name="description" content="Subscription management table with complete pagination controls. Features per-page selection, page numbers, previous/next navigation, and result count display.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-900 bg-indigo-600 text-sm font-black text-white dark:border-white dark:bg-indigo-500">D</span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Tables" class="hover:text-neutral-900 dark:hover:text-white">Tables</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Paginated Table</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Paginated Table</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Subscription management table with complete pagination controls. Features per-page selection, page numbers, previous/next navigation, and result count display.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Paginated Table &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Paginated Table preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Tables</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">table</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">pagination</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">paginated</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">subscriptions</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">billing</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">navigation</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Tables/paginated-table</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Tables/paginated-table');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>pagination controls</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>per-page selector</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>page numbers</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>navigation arrows</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span><span>result count</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../basic-table/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Tables</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Basic Table</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Clean and professional data table with project information including icons, status badges, dates, and budget. Features subtle hover states and well-organized data hierarchy.</p>
+  
+</a><a href="../filterable-table/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Tables</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Filterable Table</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Task management table with multi-filter dropdowns. Filter by status, priority, and category with reset functionality. Ideal for project management dashboards.</p>
+  
+</a><a href="../searchable-table/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Tables</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Searchable Table</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Article library table with real-time search functionality. Filters by title, excerpt, author, and category with smooth animations and a no-results empty state.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Paginated Table</h1>
+<p>Table with pagination controls.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Tables/paginated-table
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;div class=&quot;bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto&quot;&gt;
+  &lt;table class=&quot;w-full min-w-[640px]&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr class=&quot;bg-gray-50 border-b border-gray-200&quot;&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Customer&lt;/th&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Subscription&lt;/th&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Billing Cycle&lt;/th&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Amount&lt;/th&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Status&lt;/th&gt;
+        &lt;th class=&quot;px-5 py-3.5 text-left text-xs font-bold text-gray-600 uppercase tracking-wider&quot;&gt;Next Billing&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class=&quot;divide-y divide-gray-100&quot; id=&quot;tableBody&quot;&gt;
+      &lt;tr class=&quot;hover:bg-gray-50 transition-colors&quot;&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;img src=&quot;https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop&quot; alt=&quot;Sarah Mitchell&quot; class=&quot;w-10 h-10 rounded-full object-cover&quot;&gt;
+            &lt;div&gt;
+              &lt;p class=&quot;text-sm font-medium text-gray-900&quot;&gt;Sarah Mitchell&lt;/p&gt;
+              &lt;p class=&quot;text-xs text-gray-500&quot;&gt;sarah.m@techcorp.io&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+            &lt;div class=&quot;w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-4 h-4 text-indigo-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;text-sm font-medium text-gray-900&quot;&gt;Pro Plan&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Monthly&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm font-semibold text-gray-900&quot;&gt;$49.00&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700&quot;&gt;Active&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Apr 12, 2026&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;hover:bg-gray-50 transition-colors&quot;&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;img src=&quot;https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&amp;h=80&amp;fit=crop&quot; alt=&quot;James Chen&quot; class=&quot;w-10 h-10 rounded-full object-cover&quot;&gt;
+            &lt;div&gt;
+              &lt;p class=&quot;text-sm font-medium text-gray-900&quot;&gt;James Chen&lt;/p&gt;
+              &lt;p class=&quot;text-xs text-gray-500&quot;&gt;j.chen@designlab.co&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+            &lt;div class=&quot;w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-4 h-4 text-amber-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;text-sm font-medium text-gray-900&quot;&gt;Enterprise&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Annual&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm font-semibold text-gray-900&quot;&gt;$299.00&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700&quot;&gt;Active&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Jan 5, 2027&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;hover:bg-gray-50 transition-colors&quot;&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;img src=&quot;https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&amp;h=80&amp;fit=crop&quot; alt=&quot;Emma Thompson&quot; class=&quot;w-10 h-10 rounded-full object-cover&quot;&gt;
+            &lt;div&gt;
+              &lt;p class=&quot;text-sm font-medium text-gray-900&quot;&gt;Emma Thompson&lt;/p&gt;
+              &lt;p class=&quot;text-xs text-gray-500&quot;&gt;emma.t@startup.xyz&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+            &lt;div class=&quot;w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-4 h-4 text-blue-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M13 10V3L4 14h7v7l9-11h-7z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;text-sm font-medium text-gray-900&quot;&gt;Starter&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Monthly&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm font-semibold text-gray-900&quot;&gt;$19.00&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700&quot;&gt;Trial&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Mar 20, 2026&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;hover:bg-gray-50 transition-colors&quot;&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;img src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&amp;h=80&amp;fit=crop&quot; alt=&quot;Michael Park&quot; class=&quot;w-10 h-10 rounded-full object-cover&quot;&gt;
+            &lt;div&gt;
+              &lt;p class=&quot;text-sm font-medium text-gray-900&quot;&gt;Michael Park&lt;/p&gt;
+              &lt;p class=&quot;text-xs text-gray-500&quot;&gt;m.park@enterprise.net&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+            &lt;div class=&quot;w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-4 h-4 text-amber-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;text-sm font-medium text-gray-900&quot;&gt;Enterprise&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Monthly&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm font-semibold text-gray-900&quot;&gt;$99.00&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700&quot;&gt;Active&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Apr 3, 2026&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;hover:bg-gray-50 transition-colors&quot;&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;img src=&quot;https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&amp;h=80&amp;fit=crop&quot; alt=&quot;Olivia Wang&quot; class=&quot;w-10 h-10 rounded-full object-cover&quot;&gt;
+            &lt;div&gt;
+              &lt;p class=&quot;text-sm font-medium text-gray-900&quot;&gt;Olivia Wang&lt;/p&gt;
+              &lt;p class=&quot;text-xs text-gray-500&quot;&gt;olivia.w@creative.studio&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+            &lt;div class=&quot;w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-4 h-4 text-indigo-600&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;text-sm font-medium text-gray-900&quot;&gt;Pro Plan&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Annual&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm font-semibold text-gray-900&quot;&gt;$490.00&lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4&quot;&gt;
+          &lt;span class=&quot;inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700&quot;&gt;Active&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;px-5 py-4 text-sm text-gray-600&quot;&gt;Aug 15, 2026&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  
+  &lt;!-- Pagination --&gt;
+  &lt;div class=&quot;px-5 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between&quot;&gt;
+    &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+      &lt;select class=&quot;px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;&gt;
+        &lt;option&gt;10 per page&lt;/option&gt;
+        &lt;option&gt;25 per page&lt;/option&gt;
+        &lt;option&gt;50 per page&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;span class=&quot;text-sm text-gray-600&quot;&gt;Showing 1-5 of 156 results&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex items-center gap-1&quot;&gt;
+      &lt;button class=&quot;p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors&quot;&gt;
+        &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 19l-7-7 7-7&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+      &lt;button class=&quot;w-8 h-8 bg-indigo-600 text-white text-sm font-medium rounded-lg&quot;&gt;1&lt;/button&gt;
+      &lt;button class=&quot;w-8 h-8 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors&quot;&gt;2&lt;/button&gt;
+      &lt;button class=&quot;w-8 h-8 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors&quot;&gt;3&lt;/button&gt;
+      &lt;span class=&quot;px-2 text-gray-400&quot;&gt;...&lt;/span&gt;
+      &lt;button class=&quot;w-8 h-8 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors&quot;&gt;16&lt;/button&gt;
+      &lt;button class=&quot;p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors&quot;&gt;
+        &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 5l7 7-7 7&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

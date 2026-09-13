@@ -1,0 +1,63 @@
+{
+  "id": "pagination-disabled-react-001",
+  "name": "Disabled Pagination",
+  "slug": "pagination-disabled",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-disabled",
+  "description": "Disabled-state patterns for page navigation: boundary-disabled steppers, an individually disabled page control, and a fully disabled navigation.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "disabled",
+    "states",
+    "boundaries"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "boundary-disabled steppers",
+    "per-control disabled",
+    "aria-disabled spans"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons",
+    "disabled controls removed from tab order"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-with-previous-next",
+    "pagination-with-numbers"
+  ]
+}
