@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="DevSnips — an open-source library of production-ready UI components, sections, and templates for Tailwind CSS, React, and Vanilla HTML/CSS/JS.">
+  <title>DevSnips — Build faster. Ship better.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="./" aria-label="DevSnips home"><span class="brand-mark">D</span><span>DevSnips</span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="library/">Library</a><a href="docs/">Docs</a><a href="https://github.com/sarthakbystander/DevSnips">GitHub</a>
+      </nav>
+      <div class="nav-actions"><a class="nav-command" href="library/" aria-label="Browse library"><span>⌘</span><span>K</span></a><button class="icon-button" data-theme-toggle aria-label="Toggle theme">◐</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="eyebrow"><span class="status-dot"></span> Open-source UI library <span class="eyebrow-divider"></span> MIT</div>
+      <h1>Interfaces worth<br><em>shipping.</em></h1>
+      <p class="hero-copy">Production-ready components, sections and templates for developers who would rather build the product than rebuild the button.</p>
+      <div class="hero-actions"><a class="button button-dark" href="library/">Explore the library <span>↗</span></a><a class="button button-quiet" href="docs/">Read the docs</a></div>
+      <div class="hero-meta"><span>Tailwind CSS</span><span>React</span><span>Vanilla</span><span class="meta-line"></span><span>1000+ variants</span></div>
+    </section>
+
+    <section class="marquee" aria-label="Supported technologies"><div class="marquee-track"><span>TAILWIND CSS</span><i>·</i><span>REACT</span><i>·</i><span>VANILLA</span><i>·</i><span>OPEN SOURCE</span><i>·</i><span>TAILWIND CSS</span><i>·</i><span>REACT</span><i>·</i><span>VANILLA</span><i>·</i><span>OPEN SOURCE</span></div></section>
+
+    <section class="section-shell intro-grid">
+      <div><p class="section-kicker">01 / The library</p><h2>A large library.<br>A small learning curve.</h2></div>
+      <div class="intro-copy"><p>Everything is organized around how you actually build: pick a technology, choose a level of abstraction, copy what you need, and keep moving.</p><a class="text-link" href="library/">Browse all resources <span>→</span></a></div>
+    </section>
+
+    <section class="section-shell family-grid">
+      <a class="family-card family-card-featured" href="library/?tech=tailwind">
+        <div class="card-top"><span class="mono-label">01</span><span class="arrow">↗</span></div>
+        <div class="family-symbol">TW</div><h3>Tailwind CSS</h3><p>Utility-first components, polished sections and complete templates ready to adapt.</p><div class="card-footer"><span>Components</span><span>Sections</span><span>Templates</span></div>
+      </a>
+      <a class="family-card" href="library/?tech=react">
+        <div class="card-top"><span class="mono-label">02</span><span class="arrow">↗</span></div><div class="family-symbol react-symbol">R</div><h3>React</h3><p>Composable UI built for modern React projects, with JSX and TypeScript source.</p><div class="card-footer"><span>JSX</span><span>TSX</span><span>Templates</span></div>
+      </a>
+      <a class="family-card" href="library/?tech=vanilla">
+        <div class="card-top"><span class="mono-label">03</span><span class="arrow">↗</span></div><div class="family-symbol vanilla-symbol">&lt;/&gt;</div><h3>Vanilla</h3><p>Framework-free HTML, CSS and JavaScript for maximum portability and control.</p><div class="card-footer"><span>HTML</span><span>CSS</span><span>JS</span></div>
+      </a>
+    </section>
+
+    <section class="section-shell philosophy">
+      <div class="philosophy-number">02</div><div><p class="section-kicker">Design philosophy</p><blockquote>Neutral first.<br><em>Expressive second.</em></blockquote><p class="philosophy-copy">DevSnips is deliberately restrained: clear typography, useful spacing, strong hierarchy and interfaces that stay out of the way of the code.</p></div>
+    </section>
+
+    <section class="section-shell terminal-section">
+      <div class="terminal-copy"><p class="section-kicker">03 / CLI</p><h2>From idea<br>to interface.</h2><p>Add resources directly from your terminal and keep your workflow inside the project.</p><a class="text-link" href="docs/cli/">Explore the CLI <span>→</span></a></div>
+      <div class="terminal"><div class="terminal-bar"><span></span><span></span><span></span><b>devsnips</b></div><div class="terminal-body"><div><span class="prompt">$</span> npx devsnips add Tailwind/Sections/AI-Product</div><div class="terminal-muted">Fetching resource…</div><div class="terminal-success">✓ Added AI-Product section</div><div class="terminal-muted">Ready to customize.</div></div></div>
+    </section>
+
+    <section class="section-shell cta-section"><p class="section-kicker">04 / Start building</p><h2>Don't start<br>from zero.</h2><a class="button button-dark" href="library/">Open DevSnips <span>↗</span></a></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main section-shell"><a class="brand" href="./"><span class="brand-mark">D</span><span>DevSnips</span></a><p>Open-source UI for developers.</p><div class="footer-links"><a href="library/">Library</a><a href="docs/">Docs</a><a href="https://github.com/sarthakbystander/DevSnips">GitHub</a></div></div><div class="footer-bottom section-shell"><span>MIT License</span><span>Built in public</span><span>© DevSnips</span></div></footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
