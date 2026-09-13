@@ -1,0 +1,92 @@
+name: Fix Atlas Analytics theme toggle
+
+on:
+  push:
+    branches:
+      - fix-atlas-analytics-theme-toggle
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair Atlas theme implementation
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('Tailwind/Templates/atlas-analytics')
+          files = [root / 'preview.html', *sorted((root / 'pages').glob('*.html'))]
+
+          replacement = '''<script>
+          (function () {
+            var root = document.documentElement;
+            var toggle = document.querySelector('[data-theme-toggle]');
+            var moon = document.querySelector('[data-theme-moon]');
+            var sun = document.querySelector('[data-theme-sun]');
+            var storageKey = 'atlas-theme';
+
+            function getTheme() {
+              try {
+                var stored = localStorage.getItem(storageKey);
+                if (stored === 'dark' || stored === 'light') return stored;
+              } catch (e) {}
+              return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function applyTheme(theme) {
+              var next = theme === 'dark' ? 'dark' : 'light';
+              root.setAttribute('data-theme', next);
+              root.style.colorScheme = next;
+              if (moon) moon.classList.toggle('hidden', next === 'dark');
+              if (sun) sun.classList.toggle('hidden', next !== 'dark');
+              if (toggle) toggle.setAttribute('aria-pressed', String(next === 'dark'));
+            }
+
+            applyTheme(root.getAttribute('data-theme') || getTheme());
+
+            if (toggle) {
+              toggle.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+                try { localStorage.setItem(storageKey, next); } catch (e) {}
+              });
+            }
+
+            window.addEventListener('storage', function (event) {
+              if (event.key === storageKey && (event.newValue === 'dark' || event.newValue === 'light')) {
+                applyTheme(event.newValue);
+              }
+            });
+          })();
+          </script>'''
+
+          pattern = re.compile(r'<script>\s*\(function\(\)\{var btn=document\.querySelector\(\'\[data-theme-toggle\]\'\);.*?\}\)\(\);\s*</script>', re.S)
+          for path in files:
+            text = path.read_text(encoding='utf-8')
+            new, count = pattern.subn(replacement, text, count=1)
+            if count != 1:
+              raise SystemExit(f'Could not locate theme toggle in {path}')
+            path.write_text(new, encoding='utf-8')
+            print(f'Updated {path}')
+
+          # Ensure the theme controls have explicit pressed state and never depend on Tailwind dark mode.
+          for path in files:
+            text = path.read_text(encoding='utf-8')
+            text = text.replace('aria-label="Toggle color theme">', 'aria-label="Toggle color theme" aria-pressed="false">')
+            path.write_text(text, encoding='utf-8')
+          PY
+
+          git diff --check
+      - name: Commit fix and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Tailwind/Templates/atlas-analytics .github/workflows/fix-atlas-theme.yml
+          git rm .github/workflows/fix-atlas-theme.yml
+          git commit -m "fix: repair Atlas Analytics theme toggling"
+          git push
