@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevSnips Curated Design Store — Tailwind Template — DevSnips</title>
+<meta name="description" content="A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury — a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../Tailwind/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/Templates/index.html" class="hover:text-neutral-900 dark:hover:text-white">Templates</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">DevSnips Curated Design Store</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">DevSnips Curated Design Store</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A premium six-page Tailwind CSS ecommerce template for DevSnips, a fictional curated store of considered design objects. Editorial Modern meets Monochrome Luxury — a warm neutral palette (ink, paper, bone, cream) with a single clay accent, a high-contrast Fraunces serif for display, Inter for body and JetBrains Mono for labels. Six connected pages (home, shop, product, cart, checkout, journal) plus an about/atelier page share one design system of hairline rules, square geometry and generous whitespace. Tailwind CDN + scoped vanilla JS, fully responsive from 320px up.</p>
+      </div>
+      <a href="_src/preview.html" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Full preview &#8599;</a>
+    </div>
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">DevSnips Curated Design Store &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-600 hover:underline dark:text-slate-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="DevSnips Curated Design Store preview" class="h-[460px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Pages in this template</h2>
+        <ul class="mt-3 space-y-2"><li><a href="_src/pages/about.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">about.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/cart.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">cart.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/checkout.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">checkout.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/index.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">index.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/journal.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">journal.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/product.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">product.html</span><span class="text-neutral-400">Open &#8599;</span></a></li><li><a href="_src/pages/shop.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">shop.html</span><span class="text-neutral-400">Open &#8599;</span></a></li></ul>
+        <h2 class="mt-8 text-lg font-bold">Features</h2><ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>6 connected pages sharing one editorial-luxury design system</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>shared sticky navbar (centered [D] logo, cart badge, scoped mobile menu) and footer</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>editorial issue-cover hero with oversized serif headline, featured object panel and numbered collection index</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>product grid with hover-reveal detail strips and inline SVG object illustrations</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>material-spectrum swatch visualization and a quiet metrics band</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>shop page with category filter chips, sort dropdown and live result count (scoped JS)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>product page with thumbnail gallery, finish swatches, quantity stepper and single-open care-guide accordion (CSS-grid, ARIA, keyboard)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>receipt-style cart order summary with working quantity steppers, line totals, shipping estimate and empty state (scoped JS)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>stepper-led checkout with contact, shipping, payment and a fixed order summary</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>editorial journal index with featured entry, tag filters and magazine-style article cards</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>atelier/about page with principles, process timeline and maker studio cards</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>consistent token system: warm neutrals, hairline rules, square radii, single clay accent, no gradients/shadows</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>semantic HTML, skip link, ARIA, visible focus states and prefers-reduced-motion support</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Tailwind CSS via CDN with no build step</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Other templates</h2>
+        <div class="mt-3 grid gap-3"><a h</div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>DevSnips Curated Design Store — Template</h1>
+<p>A premium <strong>six-page</strong> Tailwind CSS ecommerce template for <strong>DevSnips</strong>, a fictional curated store of considered design objects (vessels, lighting, textiles, furniture). Built in an <strong>Editorial Modern + Monochrome Luxury</strong> design language. Tailwind CSS (via CDN) + vanilla HTML + scoped vanilla JS. No frameworks, no build step.</p>
+<p>The store brand is <strong>DevSnips</strong>, and the logo mark is a hairline <strong>[D]</strong> representing DevSnips (<code>assets/icons/logo.svg</code>).</p>
+<h2>Design language</h2>
+<p>Editorial Modern fused with Monochrome Luxury — a magazine-influenced system, not a soft-glass SaaS store:</p>
+<ul>
+<li>Warm neutral palette: ink <code>#14110D</code>, paper <code>#F5F1EA</code>, bone <code>#ECE6DB</code>, cream <code>#FBF8F1</code>, stone <code>#8A8275</code></li>
+<li>A single warm accent: clay <code>#B5552D</code> (used sparingly for emphasis and the logo dot)</li>
+<li><strong>Fraunces</strong> (high-contrast serif, optical sizing) for display + headings; <strong>Inter</strong> for body; <strong>JetBrains Mono</strong> for labels, prices and metadata</li>
+<li>Hairline rules (<code>rgba(20,17,13,0.16)</code>), square-ish geometry, no drop shadows or gradients</li>
+<li>Oversized editorial headlines, numbered sections, magazine masthead rhythm</li>
+<li>Generous whitespace, restrained interactions (hover reveals, hover lifts, focus rings)</li>
+</ul>
+<h2>Structure</h2>
+<pre class="code-block"><code>
+devsnips-store/
+├── preview.html                # Template gallery shell — overview, pages index, design-system summary
+├── metadata.json
+├── README.md
+├── assets/
+│   ├── icons/logo.svg          # [D] mark representing DevSnips (hairline frame, bracket serif, clay dot)
+│   └── images/og-image.svg     # Editorial OG card with headline + vessel motif
+└── pages/
+    ├── index.html              # Home: editorial hero, new arrivals, material spectrum, featured collection, journal, newsletter
+    ├── shop.html               # Collection listing: filter chips, sort, responsive product grid
+    ├── product.html            # PDP: gallery, finish swatches, quantity stepper, care-guide accordion, related
+    ├── cart.html               # Line items, receipt-style order summary, shipping estimate, empty state
+    ├── checkout.html           # Stepper-led contact/shipping/payment + fixed order summary
+    ├── journal.html            # Editorial article index: featured entry, tag filters, magazine cards
+    └── about.html              # Atelier: principles, process timeline, maker studios, CTA
+</code></pre>
+<p>No <code>css/</code>, <code>js/</code> or <code>images/</code> directories beyond <code>assets/</code> — all visuals are inline SVG and Tailwind. Product illustrations are hand-built SVG silhouettes with a consistent stroke language.</p>
+<h2>Pages</h2>
+<p>| # | Page | Purpose |</p>
+<p>|---|------|---------|</p>
+<p>| 01 | Home | Editorial issue-cover hero, new arrivals grid, material spectrum, featured collection, journal preview, newsletter |</p>
+<p>| 02 | Shop | Collection listing with category filter chips, sort dropdown, live count (scoped JS) |</p>
+<p>| 03 | Product | PDP with thumbnail gallery, finish swatches, quantity stepper, single-open accordion, related objects |</p>
+<p>| 04 | Cart | Line items with working quantity steppers + remove, receipt-style summary, shipping estimate (scoped JS) |</p>
+<p>| 05 | Checkout | Three-step stepper, contact/shipping/payment form, fixed order summary |</p>
+<p>| 06 | Journal | Featured article + filterable magazine-style article index |</p>
+<p>| 07 | Atelier | Brand story, three principles, four-step process timeline, maker studio cards |</p>
+<h2>Notable design decisions</h2>
+<ul>
+<li><strong>Editorial hero as an &quot;issue cover&quot;</strong> — a masthead bar (Vol. 04 / The Vessel Collection / Spring–Summer 2026), oversized serif headline with an italic line and clay full stop, and a numbered collection index beside a featured object panel.</li>
+<li><strong>Product cards reveal on hover</strong> — a thin ink bar slides up showing the material/origin metadata, in place of a second image.</li>
+<li><strong>Material spectrum</strong> — a five-swatch row (stoneware, oak, linen, brass, wool) with firing/source metadata, paired with a quiet metrics band.</li>
+<li><strong>Receipt-style order summary</strong> — mono type, hairline rules and a <code>repeating-linear-gradient</code> ruled background give the cart summary a deliberate, paper-receipt quality.</li>
+<li><strong>Scoped vanilla JS</strong> — each interaction (mobile menu, filters, gallery, swatches, quantity, accordion, cart math, newsletter) is wrapped in an IIFE and reduced-motion-safe.</li>
+</ul>
+<h2>Responsiveness</h2>
+<p>Mobile-first, tested from 320px through 1920px+. Fluid type via <code>clamp()</code> on hero headings, responsive nav (hamburger → mobile menu below <code>lg</code>), grids that reflow (<code>grid-cols-1 → sm:2 → lg:3/4</code>), checkout that stacks the order summary below the form on mobile, and product/cart rows that recompose. No horizontal overflow.</p>
+<h2>Accessibility</h2>
+<p>Semantic landmarks (<code>header</code>, <code>nav</code>, <code>main</code>, <code>footer</code>), skip link, a single <code>h1</code> per page, ARIA on the mobile menu (<code>aria-expanded</code>/<code>aria-controls</code>), accordion (<code>aria-expanded</code>/<code>aria-controls</code>/<code>role=&quot;region&quot;</code>), and stepper; visible focus rings in clay; <code>prefers-reduced-motion</code> disables scroll reveal and transitions.</p>
+<h2>Technology &amp; dependencies</h2>
+<ul>
+<li>Tailwind CSS via CDN (<code>https://cdn.tailwindcss.com</code>) with a small inline <code>tailwind.config</code> theme extension (custom colors + font families)</li>
+<li>Google Fonts: Fraunces, Inter, JetBrains Mono</li>
+<li>Vanilla JavaScript (scoped IIFEs, IntersectionObserver for scroll reveal)</li>
+<li>No build step, no npm, no frameworks</li>
+</ul>
+<h2>Usage</h2>
+<p>Open <code>preview.html</code> for the template overview, or open any page in <code>pages/</code> directly in a browser. All links use relative paths so the template works from the file system.</p>
+<blockquote>DevSnips is a fictional brand created for this DevSnips template. All products, studios and copy are invented.</blockquote></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

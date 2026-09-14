@@ -1,0 +1,53 @@
+{
+  "id": "select-with-description-react-001",
+  "name": "Select With Description",
+  "slug": "select-with-description",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-description",
+  "description": "Custom single-select where options carry a label and a description.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Presentation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "description",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-groups",
+    "select-with-avatar"
+  ]
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrations — Northstar | DevSnips</title>
+  <meta name="description" content="Integrations marketplace: connect Stripe, Slack, Google, GitHub, Zapier, and more.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="integrations">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="integrations">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Integrations</h1>
+          <p class="sub">Connect Northstar to the tools your team already uses.</p>
+        </div>
+        <div class="page-actions">
+          <div class="table-filter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="search" id="integ-filter" placeholder="Search integrations…">
+          </div>
+        </div>
+      </div>
+
+      <section class="stat-grid mb-16">
+        <div class="stat"><div class="lbl">Connected</div><div class="val" id="c-connected">0</div></div>
+        <div class="stat"><div class="lbl">Available</div><div class="val" id="c-available">0</div></div>
+        <div class="stat"><div class="lbl">Categories</div><div class="val">7</div></div>
+        <div class="stat"><div class="lbl">Webhooks</div><div class="val">3</div></div>
+      </section>
+
+      <div class="integ-grid" id="integ-grid"></div>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Workspace',href:'team.html'},{label:'Integrations'}]);
+      document.getElementById('c-connected').textContent = DB.integrations.filter(function (i) { return i.connected; }).length;
+      document.getElementById('c-available').textContent = DB.integrations.length;
+
+      function render(filter) {
+        var f = (filter || '').toLowerCase();
+        var list = DB.integrations.filter(function (i) { return !f || i.name.toLowerCase().indexOf(f) > -1 || i.category.toLowerCase().indexOf(f) > -1 || i.desc.toLowerCase().indexOf(f) > -1; });
+        document.getElementById('integ-grid').innerHTML = list.map(function (i) {
+          var foot = i.connected ?
+            '<span class="pill connected">Connected</span><button class="btn btn-sm" data-action="configure" data-id="' + i.id + '">Configure</button><button class="btn btn-sm btn-danger" data-confirm="Disconnect ' + esc(i.name) + '? You will stop receiving data from this integration." data-confirm-title="Disconnect?" data-danger="true" data-confirm-label="Disconnect" data-id="' + i.id + '">Disconnect</button>' :
+            '<span class="pill inactive">Not connected</span><button class="btn btn-sm btn-primary" data-action="connect" data-id="' + i.id + '">Connect</button>';
+          return '<div class="integ-card"><div class="integ-top"><div class="integ-logo" style="background:' + i.tone + '">' + esc(i.logo) + '</div><div class="integ-name">' + esc(i.name) + '<div class="text-muted text-xs">' + esc(i.category) + '</div></div></div><p class="integ-desc">' + esc(i.desc) + '</p><div class="integ-foot">' + foot + '</div></div>';
+        }).join('') || '<div class="state" style="grid-column:1/-1"><span class="ic">' + ICONS.search + '</span><h3>No integrations found</h3><p>Try a different search term.</p></div>';
+      }
+      render();
+      document.getElementById('integ-filter').addEventListener('input', function () { render(this.value); });
+      document.getElementById('integ-grid').addEventListener('click', function (e) {
+        var c = e.target.closest('[data-action="connect"]'); if (c) {
+          var integ = DB.integrations.find(function (i) { return i.id === c.dataset.id; });
+          NS.modal({
+            title: 'Connect ' + integ.name, sub: integ.desc,
+            body: '<div class="state" style="padding:16px 0;text-align:left"><div class="flex items-center gap-16"><div class="integ-logo" style="background:' + integ.tone + ';width:48px;height:48px;font-size:22px">' + esc(integ.logo) + '</div><div><div class="font-bold" style="font-size:16px">' + esc(integ.name) + '</div><div class="muted-block">' + esc(integ.category) + '</div></div></div></div><p class="muted-block mb-16">You will be redirected to ' + esc(integ.name) + ' to authorize Northstar to access your account. This is a demo — no real connection is made.</p><div class="field"><label class="field-label">Account / workspace ID</label><input class="input" placeholder="Enter your ' + esc(integ.name) + ' workspace ID"></div><label class="switch"><input type="checkbox" checked><span class="track"></span><span class="lbl">Sync data automatically</span></label>',
+            foot: '<button class="btn" data-cancel-modal>Cancel</button><button class="btn btn-primary" id="connect-btn">Connect</button>',
+            onOpen: function (bd, close) { bd.querySelector('[data-cancel-modal]').addEventListener('click', close); bd.querySelector('#connect-btn').addEventListener('click', function () { integ.connected = true; close(); render(); document.getElementById('c-connected').textContent = DB.integrations.filter(function (i) { return i.connected; }).length; NS.toast(integ.name + ' connected', 'success'); }); }
+          });
+          return;
+        }
+        var cf = e.target.closest('[data-action="configure"]'); if (cf) {
+          var integ2 = DB.integrations.find(function (i) { return i.id === cf.dataset.id; });
+          NS.drawer({
+            title: integ2.name + ' settings',
+            body: '<p class="muted-block mb-16">' + esc(integ2.desc) + '</p><div class="field"><label class="field-label">Workspace ID</label><input class="input" value="T' + integ2.id.toUpperCase() + '9281"></div><div class="field"><label class="field-label">Sync frequency</label><select class="select"><option>Real-time</option><option>Every 5 minutes</option><option>Hourly</option><option>Daily</option></select></div><div class="field"><label class="field-label">Events to sync</label><ul class="check-list"><li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t">Customer events</span></span></li><li><input type="checkbox" class="cb" checked> <span class="txt"><span class="t">Billing events</span></span></li><li><input type="checkbox" class="cb"> <span class="txt"><span class="t">Support events</span></span></li></ul></div><hr class="divider"><div class="kv"><span class="k">Status</span><span><span class="pill connected">Connected</span></span></div><div class="kv"><span class="k">Last sync</span><span class="v">2 min ago</span></div>',
+            foot: '<button class="btn" data-drawer-close>Cancel</button><button class="btn btn-primary" id="save-integ">Save</button>'
+          });
+          var dc = document.querySelector('.drawer [data-drawer-close]'); if (dc) dc.addEventListener('click', function () { document.querySelector('.drawer .modal-close').click(); });
+          var si = document.getElementById('save-integ'); if (si) si.addEventListener('click', function () { document.querySelector('.drawer .modal-close').click(); NS.toast(integ2.name + ' settings saved', 'success'); });
+        }
+      });
+      // handle disconnect confirms
+      document.getElementById('integ-grid').addEventListener('click', function (e) {
+        var d = e.target.closest('[data-danger="true"]'); if (!d) return;
+        e.stopImmediatePropagation();
+        var integ = DB.integrations.find(function (i) { return i.id === d.dataset.id; });
+        NS.confirm({ title: 'Disconnect ' + integ.name + '?', message: 'You will stop receiving data from this integration. You can reconnect at any time.', danger: true, confirmLabel: 'Disconnect', onConfirm: function () { integ.connected = false; render(); document.getElementById('c-connected').textContent = DB.integrations.filter(function (i) { return i.connected; }).length; NS.toast(integ.name + ' disconnected', 'success'); } });
+      }, true);
+    });
+  })();
+  </script>
+  
+</body>
+</html>

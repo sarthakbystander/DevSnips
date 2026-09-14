@@ -1,0 +1,62 @@
+{
+  "id": "dialog-react-001",
+  "name": "Dialog",
+  "slug": "dialog",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog",
+  "description": "The canonical modal dialog: a real menu of compound parts \u2014 trigger, portaled role=dialog panel, header/title/description, footer actions, corner close \u2014 with focus trap, Escape, scroll lock, and focus restoration.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog-controlled",
+    "dialog-confirmation",
+    "dialog-form",
+    "dialog-scrollable"
+  ]
+}

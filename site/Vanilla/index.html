@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanilla — DevSnips</title>
+<meta name="description" content="Vanilla components, sections, and templates.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../Vanilla/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Vanilla</a>
+      <a href="../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Vanilla</span></nav>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight">Vanilla</h1>
+    <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Components, sections, and full page templates built with Vanilla.</p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="Components/index.html" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Browse Components</a>
+      <a href="Sections/index.html" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Browse Sections</a>
+      <a href="Templates/index.html" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Browse Templates</a>
+    </div>
+    
+    <div class="mt-10">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl font-bold">Components</h2>
+        <a href="Components/index.html" class="text-sm font-semibold text-emerald-600 hover:underline dark:text-emerald-400">View all &rarr;</a>
+      </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Components/index.html#Accordions" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Accordions</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Accordions (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Accordion Panel.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Components/index.html#Alerts" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Alerts</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Alerts (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Alert Messages.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Components/index.html#Avatars" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Avatars</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Avatars (1)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Contact Chip.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 variant</span>
+</a><a href="Components/index.html#Badges" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Badges</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Badges (1)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Notification Badge and hover interactions.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 variant</span>
+</a><a href="Components/index.html#Buttons" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Buttons</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Buttons (8)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3d Button Effect.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">8 variants</span>
+</a><a href="Components/index.html#Cards" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Cards</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Cards (7)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Blog Post Card.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">7 variants</span>
+</a><a href="Components/index.html#Display" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Display</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Display (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Simple Footer.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Components/index.html#Forms" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Forms</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Forms (22)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Checkbox Group.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">22 variants</span>
+</a><a href="Components/index.html#Loaders" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Loaders</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Loaders (6)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bouncing Loader.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">6 variants</span>
+</a><a href="Components/index.html#Media" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Media</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Media (10)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Canvas Element.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">10 variants</span>
+</a><a href="Components/index.html#Modals" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Modals (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Device Optimized Modal.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Components/index.html#Navigation" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Navigation (13)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bottom Navigation and hover interactions.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">13 variants</span>
+</a><a href="Components/index.html#Other" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Other</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Other (38)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Blockquote Citation.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">38 variants</span>
+</a><a href="Components/index.html#Ratings" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Ratings</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Ratings (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Css Only Star Rating.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Components/index.html#Tables" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Tables</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Tables (5)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Simple Table.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">5 variants</span>
+</a><a href="Components/index.html#Tabs" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Tabs</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Tabs (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Full Page Tabs.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Components/index.html#Tooltips" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Tooltips</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Tooltips (1)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Tooltip.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 variant</span>
+</a></div>
+    </div>
+    
+    <div class="mt-10">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl font-bold">Sections</h2>
+        <a href="Sections/index.html" class="text-sm font-semibold text-emerald-600 hover:underline dark:text-emerald-400">View all &rarr;</a>
+      </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Sections/index.html#CTA" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">CTA</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">CTA (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bold banner CTA on a colored panel with blobs.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Sections/index.html#Contact" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Contact (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Contact routing cards (sales/security/careers).</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Content" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Content</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Content (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-up blog post cards with category badges.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Sections/index.html#FAQ" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">FAQ (2)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Accessible single-open accordion FAQ.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">2 variants</span>
+</a><a href="Sections/index.html#Features" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Features (5)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento feature grid mixing tile sizes and colors.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">5 variants</span>
+</a><a href="Sections/index.html#Footer" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Footer (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Large colored footer with newsletter + link groups.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Gallery" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Gallery</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Gallery (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">CSS masonry gallery with varied aspect ratios.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Hero" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Hero (10)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Animated rotating-word hero with floating blobs.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">10 variants</span>
+</a><a href="Sections/index.html#Logos" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Logos (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Client cards with a short quote each.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Navigation" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Navigation (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Navbar with a click-to-open mega menu panel.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Sections/index.html#Pricing" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Pricing (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Full pricing comparison matrix table.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Sections/index.html#Process" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Process</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Process (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Split how-it-works with numbered steps and a preview.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a><a href="Sections/index.html#Products" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Products (6)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vertical changelog with version tags and timeline.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">6 variants</span>
+</a><a href="Sections/index.html#Statistics" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Statistics</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Statistics (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bold achievement stats on a colored band.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Team" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Team (3)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Compact advisor strip with initials and prior roles.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">3 variants</span>
+</a><a href="Sections/index.html#Testimonials" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Testimonials (4)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-column testimonial cards with star ratings.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">4 variants</span>
+</a></div>
+    </div>
+    <div class="mt-10">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl font-bold">Templates</h2>
+        <a href="Templates/index.html" class="text-sm font-semibold text-emerald-600 hover:underline dark:text-emerald-400">View all &rarr;</a>
+      </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Templates/agency/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Agency</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium editorial agency website template for DevSnips built with semantic HTML, CSS (Pico CSS foundation), and vanilla JavaScript. A dark-first, high-contrast editorial layout combining bold typography, an asymmetric hero, an about + statistics section, an editorial services list, selected work with alternating project layouts, a featured case study, a five-step process, a capabilities grid, a team grid, testimonials, an insights/blog section, and a contact CTA, plus a sticky header with responsive mobile navigation, scroll-reveal animations, and scrollspy active navigation. Split into modular files: code.html + style.css + script.js, with preview.html as a self-contained single-file preview. Follows the shared design-tokens.md system.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/developer-portfolio/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Developer Portfolio</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A personal, technical, editorial-minimal portfolio template for a software / design engineer, built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, anchor nav, theme toggle, and a responsive mobile drawer; an editorial intro with a clamp() lead, status badge, and metadata grid; a selected-work list of project cards (index, title, role, year, description, stack tags, case-study link); an about/capabilities split with a capability table and a four-up stat row; a notes/writing list with date + category meta; and a contact section with a lead, channels list, and footer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with light-default + calm opt-in dark mode and reduced-motion guard) + script.js (theme toggle, mobile nav, scrollspy active nav, IntersectionObserver reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/documentation-site/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Documentation Site</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A premium, minimal, light-mode-first developer-documentation template for DevSnips built with plain HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Split into modular files: code.html (HTML structure) + style.css (the design system) + script.js (router, content, interactions), with preview.html as a self-contained single-file preview of the UI. Layout: header + nested left documentation sidebar + main content + sticky On-this-page TOC. Covers 15 documentation sections (Documentation Home, Introduction, Getting Started, Installation, Quick Start, Vanilla, Components, Templates, Design Tokens, Guides, API Reference, Examples, FAQ, Changelog, Roadmap, Contributing) via hash routing. Includes nested sidebar navigation with active page state, breadcrumbs, sticky scrollspy table of contents, previous/next navigation, a Cmd+K search command palette, code blocks with a lightweight syntax highlighter, copy buttons, tabbed code blocks, callouts, responsive tables, badges, API reference blocks, an edit-on-GitHub action, last-updated metadata, and opt-in light/dark mode. Neutral-first design with one blue accent (never violet/neon), hairline borders, restrained shadows, light code blocks, and editorial typography — following the shared design-tokens.md specification. Fully responsive: sidebar becomes an off-canvas drawer, TOC becomes a collapsible panel, code blocks remain usable, tables adapt without page overflow, from 320px to 1920px. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or CMS.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/event-conference/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Event Conference</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A dense, structured single-track conference website template built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, date, anchor nav, theme toggle, and responsive mobile drawer; an editorial hero with a clamp() headline, facts grid (dates / location / talks / capacity), and a live countdown card; an about section with highlights table and a four-up stat row; a speakers grid (avatar initials, name, role, talk); a two-day schedule with an ARIA tablist (arrow-key nav, Home/End) and a time-rail slot list; a venue section with details table; a capped sponsorship tier list; and a three-tier register panel (early-bird / standard / workshop) + footer. Split into modular files: code.html + style.css (the --ds-* design-token system from design-tokens.md, light-default + calm opt-in dark mode, reduced-motion guard) + script.js (theme toggle, mobile nav, schedule tabs, live countdown, reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/html5-boilerplate/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">HTML5 Boilerplate</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A minimal, clean HTML5 starter template aligned with the DevSnips design system. A single self-contained index.html with the doctype, head, and body, plus the core --ds-* design-token foundation (light-default + calm opt-in dark mode via [data-theme=&quot;dark&quot;]), a no-flash pre-paint theme script, system-font stack (Inter + JetBrains Mono with fallbacks), box-sizing reset, :focus-visible ring, and a prefers-reduced-motion guard. Intentionally bare so a new page can build on the shared token base from the first line. No framework, no build step, no external dependencies.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/job-board/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Job Board</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/product-launch/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Product Launch</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A clean, restrained product launch / waitlist landing page for a dev-focused product, built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and typography-driven: a sticky header with brand mark, anchor nav, theme toggle, and responsive mobile drawer; an editorial hero with a clamp() headline, status meta, and a working waitlist card (name + email validation, simulated submission, success state, beta-capacity progress bar); a social-proof logo row; a three-column feature grid; a four-step how-it-works list; a two-plan pricing teaser; a single-open FAQ accordion (CSS-grid 0fr-&gt;1fr, aria-expanded/controls/region); and a final CTA panel + footer. Split into modular files: code.html + style.css (the --ds-* design-token system from design-tokens.md, light-default + calm opt-in dark mode, reduced-motion guard) + script.js (theme toggle, mobile nav, accordion, waitlist form validation, reveal), with preview.html as a self-contained single-file preview. No React, Vue, Next.js, Tailwind, Bootstrap, or backend.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">1 pages</span>
+</a><a href="Templates/saas-dashboard/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Template</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">SaaS Dashboard</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A complete, commercial-grade Vanilla HTML/CSS/JS SaaS dashboard template: 30 interconnected pages sharing one coherent mock dataset, a JS-injected app shell, and a single Northstar design system. Covers overview (dashboard, analytics, reports, activity), customer management (customers, details, activity, segments, invitations), revenue (billing, plans, payment methods, invoices, transactions), communication (3-panel inbox, notifications, preferences), workspace (team, roles &amp; permissions matrix, integrations, settings), settings (general, profile, security, sessions, API keys, webhooks), and support (help center, support, system status). Includes interactive SVG charts, sortable/paginated/filterable tables with bulk selection, modals, drawers, toasts, loading/empty/error states, light/dark mode, and a responsive sidebar that becomes an off-canvas drawer. No frameworks, no build step, no backend.</p>
+  <span class="mono mt-3 text-[11px] text-neutral-400">31 pages</span>
+</a></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

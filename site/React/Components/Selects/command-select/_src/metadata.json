@@ -1,0 +1,55 @@
+{
+  "id": "command-select-react-001",
+  "name": "Command Select",
+  "slug": "command-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "command-select",
+  "description": "Command-palette-style select with search over grouped options.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Command",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "command",
+    "search",
+    "groups",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "searchable-select",
+    "select-with-groups",
+    "combobox"
+  ]
+}

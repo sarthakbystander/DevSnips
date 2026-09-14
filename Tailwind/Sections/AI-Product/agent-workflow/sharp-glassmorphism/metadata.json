@@ -1,0 +1,39 @@
+{
+  "name": "Agent Workflow — Sharp Glassmorphism",
+  "slug": "agent-workflow-sharp-glassmorphism",
+  "category": "Sections",
+  "subcategory": "ai-product",
+  "section": "agent-workflow",
+  "style": "sharp-glassmorphism",
+  "description": "Frosted-glass agent execution stepper floating over a living gradient mesh, visualizing Plan, Search, Reason, Act, Reflect, Respond. Translucent layered nodes glow cyan when done and fuchsia when running, with a gradient filling progress bar. A Run button drives steps through pending → running → done on a timer with a live log line. Respects prefers-reduced-motion.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "agent-workflow",
+    "stepper",
+    "glassmorphism",
+    "glass",
+    "workflow",
+    "ai-agent",
+    "progress",
+    "gradient"
+  ],
+  "features": [
+    "backdrop-blur glass panel",
+    "animated gradient mesh backdrop",
+    "luminous edge highlight",
+    "cyan done + fuchsia running node glow",
+    "gradient filling progress bar",
+    "Run button with timer-driven progression",
+    "live run log line",
+    "pulsing active-step node",
+    "prefers-reduced-motion aware",
+    "keyboard accessible buttons"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Sora, JetBrains Mono"
+  ],
+  "type": "section"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "card-stat-react-001",
+  "name": "Stat Card",
+  "slug": "card-stat",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-stat",
+  "description": "Compact metric presentation: an uppercase muted label, a large tabular-numeral value, and a semantic trend (icon + text, success/quiet tokens \u2014 never color alone). Plain composition of the card primitives \u2014 no fake chart components.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "stat",
+    "metric",
+    "kpi",
+    "trend"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "tabular numerals",
+    "semantic trend colors",
+    "muted label",
+    "icon + text trend"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label/value trend readable as text",
+    "icon and color supplementary, text carries the delta"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card-with-icon",
+    "card",
+    "card-list"
+  ]
+}

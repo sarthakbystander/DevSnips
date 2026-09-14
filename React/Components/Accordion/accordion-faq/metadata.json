@@ -1,0 +1,60 @@
+{
+  "id": "accordion-faq-react-001",
+  "name": "FAQ Accordion",
+  "slug": "accordion-faq",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-faq",
+  "description": "A realistic frequently-asked-questions accordion: question/answer pairs with roomier region padding, body-sm answer copy, and semantic question text in the trigger (the question IS the button label \u2014 no redundant ARIA question roles).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "faq",
+    "questions",
+    "support",
+    "content"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "question/answer semantics",
+    "roomier region padding",
+    "multiple mode",
+    "realistic support copy"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "question text = accessible name",
+    "role=region labelled by trigger",
+    "closed region hidden from AT"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion-with-description",
+    "accordion",
+    "accordion-multiple"
+  ]
+}

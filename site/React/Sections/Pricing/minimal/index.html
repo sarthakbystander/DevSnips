@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Minimal — React Sections — DevSnips</title>
+<meta name="description" content="Pricing — Minimal React Sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html" class="hover:text-neutral-900 dark:hover:text-white">Sections</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Sections/index.html#Pricing" class="hover:text-neutral-900 dark:hover:text-white">Pricing</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Pricing — Minimal</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Pricing — Minimal</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400"></p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Pricing — Minimal &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Pricing — Minimal preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Sections &rsaquo; Pricing</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/sections/Pricing/minimal</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/sections/Pricing/minimal');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../bento/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Pricing — Bento</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Pricing — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a><a href="../neo-brutalist/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Pricing — Neo-Brutalist</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400"></p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><p>No documentation available.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import { useId } from &quot;react&quot;;
+
+/**
+ * DevSnips React Pricing — Minimal direction (the reference composition).
+ *
+ * A left-aligned header block above an even three-tier card grid
+ * (3 columns at lg, 1 below — §12.2). The design is the spacing: flat
+ * bordered cards, generous rhythm, hierarchy from type and border weight
+ * alone (§4.2). Per §11.3: 2–4 tiers, at most one highlighted tier via
+ * border-strong, feature lists are real &lt;ul&gt;.
+ *
+ * Each tier is a flat bordered card: name + audience, price block
+ * (tabular-nums), hairline, feature list, CTA. The featured tier is marked
+ * by a stronger border plus a &quot;Most popular&quot; pill — weight and border, not
+ * color alone (§13). The included-feature check glyphs are decorative; the
+ * text carries the meaning.
+ */
+
+export interface PricingAction {
+  label: string;
+  href: string;
+}
+
+export interface PricingTier {
+  name: string;
+  audience: string;
+  price: string;
+  period: string;
+  priceNote?: string;
+  features: string[];
+  action: PricingAction;
+  featured?: boolean;
+}
+
+export interface PricingSectionProps {
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  tiers?: PricingTier[];
+  footnote?: string;
+}
+
+const FOCUS_RING =
+  &quot;focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]&quot;;
+
+const ACTION_BASE =
+  &quot;inline-flex h-11 w-full items-center justify-center rounded-[var(--ds-radius-sm)] px-5 text-sm font-semibold leading-5 transition-colors duration-150 ease-out motion-reduce:transition-none &quot; +
+  FOCUS_RING;
+
+const FEATURED_ACTION_CLASSES =
+  ACTION_BASE +
+  &quot; bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)] hover:bg-[color-mix(in_srgb,var(--ds-color-primary)_88%,#000)]&quot;;
+
+const DEFAULT_ACTION_CLASSES =
+  ACTION_BASE +
+  &quot; border border-[var(--ds-color-border-strong)] bg-[var(--ds-color-surface)] text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)]&quot;;
+
+const DEFAULT_TIERS: PricingTier[] = [
+  {
+    name: &quot;Hobby&quot;,
+    audience: &quot;Side projects and experiments&quot;,
+    price: &quot;$0&quot;,
+    period: &quot;per month&quot;,
+    priceNote: &quot;Free forever, no card required&quot;,
+    features: [
+      &quot;1,000 components&quot;,
+      &quot;100 MB artifact storage&quot;,
+      &quot;Community snippets&quot;,
+      &quot;Public collections&quot;,
+    ],
+    action: { label: &quot;Start for free&quot;, href: &quot;#signup&quot; },
+  },
+  {
+    name: &quot;Pro&quot;,
+    audience: &quot;Working developers and freelancers&quot;,
+    price: &quot;$12&quot;,
+    period: &quot;per user / month&quot;,
+    priceNote: &quot;Billed monthly, cancel anytime&quot;,
+    features: [
+      &quot;Unlimited components&quot;,
+      &quot;10 GB artifact storage&quot;,
+      &quot;Private collections&quot;,
+      &quot;VS Code extension&quot;,
+      &quot;Priority support&quot;,
+    ],
+    action: { label: &quot;Start 14-day trial&quot;, href: &quot;#trial&quot; },
+    featured: true,
+  },
+  {
+    name: &quot;Team&quot;,
+    audience: &quot;Teams sharing a design system&quot;,
+    price: &quot;$24&quot;,
+    period: &quot;per user / month&quot;,
+    priceNote: &quot;Billed monthly, cancel anytime&quot;,
+    features: [
+      &quot;Everything in Pro&quot;,
+      &quot;Shared team workspaces&quot;,
+      &quot;Review and approval flows&quot;,
+      &quot;Usage analytics&quot;,
+      &quot;SSO / SAML&quot;,
+    ],
+    action: { label: &quot;Contact sales&quot;, href: &quot;#sales&quot; },
+  },
+];
+
+function CheckGlyph() {
+  return (
+    &lt;svg
+      aria-hidden=&quot;true&quot;
+      viewBox=&quot;0 0 16 16&quot;
+      className=&quot;mt-0.5 h-4 w-4 shrink-0 text-[var(--ds-color-muted-foreground)]&quot;
+      fill=&quot;none&quot;
+      stroke=&quot;currentColor&quot;
+      strokeWidth=&quot;1.5&quot;
+      strokeLinecap=&quot;round&quot;
+      strokeLinejoin=&quot;round&quot;
+    &gt;
+      &lt;path d=&quot;m3.5 8.5 2.5 2.5 6.5-6.5&quot; /&gt;
+    &lt;/svg&gt;
+  );
+}
+
+export function PricingSection({
+  eyebrow = &quot;Pricing&quot;,
+  heading = &quot;Pay for the library you actually use.&quot;,
+  lede = &quot;Every plan includes the full component library and unlimited previews. Upgrade when you need private collections, storage, or team controls.&quot;,
+  tiers = DEFAULT_TIERS,
+  footnote = &quot;Prices in USD. Taxes may apply. Downgrade or cancel at any time — your work stays exportable.&quot;,
+}: PricingSectionProps) {
+  const headingId = useId();
+  return (
+    &lt;section
+      aria-labelledby={headingId}
+      className=&quot;bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]&quot;
+    &gt;
+      &lt;div className=&quot;mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8&quot;&gt;
+        &lt;div className=&quot;max-w-2xl&quot;&gt;
+          &lt;p className=&quot;text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+            {eyebrow}
+          &lt;/p&gt;
+          &lt;h2
+            id={headingId}
+            className=&quot;mt-3 text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em]&quot;
+          &gt;
+            {heading}
+          &lt;/h2&gt;
+          &lt;p className=&quot;mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+            {lede}
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;ul className=&quot;mt-12 grid grid-cols-1 gap-6 lg:mt-16 lg:grid-cols-3&quot;&gt;
+          {tiers.map((tier) =&gt; (
+            &lt;li
+              key={tier.name}
+              className={
+                &quot;flex flex-col rounded-[var(--ds-radius-md)] border bg-[var(--ds-color-surface)] p-6 lg:p-8 &quot; +
+                (tier.featured
+                  ? &quot;border-[var(--ds-color-border-strong)]&quot;
+                  : &quot;border-[var(--ds-color-border)]&quot;)
+              }
+            &gt;
+              &lt;div className=&quot;flex items-center justify-between gap-4&quot;&gt;
+                &lt;h3 className=&quot;text-base font-semibold leading-6&quot;&gt;
+                  {tier.name}
+                &lt;/h3&gt;
+                {tier.featured ? (
+                  &lt;p className=&quot;rounded-[var(--ds-radius-full)] border border-[var(--ds-color-border-strong)] px-3 py-1 text-xs font-semibold leading-[1.4]&quot;&gt;
+                    Most popular
+                  &lt;/p&gt;
+                ) : null}
+              &lt;/div&gt;
+              &lt;p className=&quot;mt-1 text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                {tier.audience}
+              &lt;/p&gt;
+              &lt;p className=&quot;mt-6 flex items-baseline gap-2&quot;&gt;
+                &lt;span className=&quot;text-[clamp(1.75rem,1.5rem+1.2vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] tabular-nums&quot;&gt;
+                  {tier.price}
+                &lt;/span&gt;
+                &lt;span className=&quot;text-sm leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                  {tier.period}
+                &lt;/span&gt;
+              &lt;/p&gt;
+              {tier.priceNote ? (
+                &lt;p className=&quot;mt-1 text-xs leading-[1.4] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                  {tier.priceNote}
+                &lt;/p&gt;
+              ) : null}
+              &lt;ul className=&quot;mt-6 space-y-3 border-t border-[var(--ds-color-border)] pt-6&quot;&gt;
+                {tier.features.map((feature) =&gt; (
+                  &lt;li key={feature} className=&quot;flex gap-2&quot;&gt;
+                    &lt;CheckGlyph /&gt;
+                    &lt;span className=&quot;text-sm leading-5&quot;&gt;{feature}&lt;/span&gt;
+                  &lt;/li&gt;
+                ))}
+              &lt;/ul&gt;
+              &lt;div className=&quot;mt-8 flex-1&quot; aria-hidden=&quot;true&quot; /&gt;
+              &lt;a
+                href={tier.action.href}
+                className={
+                  tier.featured
+                    ? FEATURED_ACTION_CLASSES
+                    : DEFAULT_ACTION_CLASSES
+                }
+              &gt;
+                {tier.action.label}
+              &lt;/a&gt;
+            &lt;/li&gt;
+          ))}
+        &lt;/ul&gt;
+
+        &lt;p className=&quot;mt-8 text-xs leading-[1.4] text-[var(--ds-color-muted-foreground)]&quot;&gt;
+          {footnote}
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

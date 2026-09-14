@@ -1,0 +1,57 @@
+{
+  "id": "pagination-react-001",
+  "name": "Pagination",
+  "slug": "pagination",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination",
+  "description": "Accessible page navigation as a compound component: semantic nav landmark, numbered page controls, previous/next steppers, and an aria-current current page.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination-with-numbers",
+    "pagination-with-previous-next",
+    "pagination-with-ellipsis",
+    "pagination-disabled"
+  ]
+}

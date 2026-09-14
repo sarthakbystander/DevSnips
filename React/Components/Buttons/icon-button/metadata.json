@@ -1,0 +1,54 @@
+{
+  "id": "icon-button-react-001",
+  "name": "Icon Button",
+  "slug": "icon-button",
+  "component": "button",
+  "family": "buttons",
+  "variant": "icon-button",
+  "description": "A square icon-only control. No visible label, so an accessible name is required. Matches control height; the icon slot is square (width equals height).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Utility",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "icon",
+    "toolbar",
+    "utility",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "ghost-button",
+    "close-button",
+    "more-actions-button"
+  ]
+}

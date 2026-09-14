@@ -1,0 +1,54 @@
+{
+  "id": "button-group-react-001",
+  "name": "Button Group",
+  "slug": "button-group",
+  "component": "button",
+  "family": "buttons",
+  "variant": "button-group",
+  "description": "A joined row of related buttons. Inner buttons share borders (side radius removed, borders overlapped by 1px) so the group reads as one control. Pass children for full control, or the `items` prop for a quick group.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "group",
+    "composite",
+    "toolbar",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "segmented-button",
+    "toggle-group",
+    "outline-button"
+  ]
+}

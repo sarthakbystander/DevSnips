@@ -1,0 +1,66 @@
+{
+  "id": "navbar-transparent-react-001",
+  "name": "Transparent Navbar",
+  "slug": "navbar-transparent",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-transparent",
+  "description": "A navbar intended to sit over a page header or hero: the surface and bottom border are removed through the variant prop and the semantic token system, with no gradients, no glassmorphism, and no backdrop blur.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Appearance",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "transparent",
+    "hero",
+    "overlay"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "transparent surface",
+    "overlaid on page header",
+    "no gradients/glassmorphism"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-sticky"
+  ]
+}

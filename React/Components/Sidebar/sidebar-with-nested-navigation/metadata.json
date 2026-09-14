@@ -1,0 +1,72 @@
+{
+  "id": "sidebar-with-nested-navigation-react-001",
+  "name": "Sidebar with Nested Navigation",
+  "slug": "sidebar-with-nested-navigation",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-with-nested-navigation",
+  "description": "Expandable nested navigation: collapsible parent rows with aria-expanded, border-guided child lists, an active child that keeps its parent indicated, and a deliberate two-to-three-level depth cap with sensible indentation.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "nested",
+    "collapsible",
+    "submenu",
+    "tree"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "expandable parents",
+    "aria-expanded disclosure",
+    "border-guided nested lists",
+    "active descendant indication"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "disclosure pattern for nested levels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-with-active-state",
+    "sidebar-collapsible-groups",
+    "sidebar-dashboard"
+  ]
+}

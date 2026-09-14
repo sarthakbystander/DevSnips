@@ -1,0 +1,59 @@
+{
+  "id": "table-with-footer-react-001",
+  "name": "Table with Footer",
+  "slug": "table-with-footer",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-footer",
+  "description": "A table with a genuinely useful <tfoot>: the summary row is computed from the visible rows, so when a toolbar filter narrows the dataset the footer totals update with it \u2014 the summary can never disagree with the data above it.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "footer",
+    "tfoot",
+    "totals",
+    "summary",
+    "derived-data"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "semantic tfoot summary",
+    "totals computed from visible rows",
+    "live recompute on filter"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tfoot summary announced with the table",
+    "totals derive from row data",
+    "aria-live result status"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-with-header",
+    "table-with-filters"
+  ]
+}

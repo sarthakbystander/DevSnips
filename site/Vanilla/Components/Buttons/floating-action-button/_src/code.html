@@ -1,0 +1,182 @@
+<!--
+  Floating Action Button (FAB)
+  - Mobile-optimized placement
+  - Expandable menu on hover/click
+  - Smooth animations
+  - Accessible controls
+  - Touch-friendly hit areas
+-->
+
+<div class="fab-container">
+  <button class="fab-button main" aria-expanded="false" aria-haspopup="true" aria-label="Actions menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+    </svg>
+  </button>
+  
+  <div class="fab-actions" role="menu">
+    <button class="fab-button action" role="menuitem" aria-label="Share">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" fill="currentColor"/>
+      </svg>
+      <span class="fab-label">Share</span>
+    </button>
+    
+    <button class="fab-button action" role="menuitem" aria-label="Edit">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+      </svg>
+      <span class="fab-label">Edit</span>
+    </button>
+    
+    <button class="fab-button action" role="menuitem" aria-label="Delete">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor"/>
+      </svg>
+      <span class="fab-label">Delete</span>
+    </button>
+  </div>
+</div>
+
+<style>
+.fab-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.fab-button {
+  --size: 56px;
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  border-radius: 50%;
+  background: var(--ds-accent, #4a90e2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.fab-button.main {
+  z-index: 2;
+}
+
+.fab-button.action {
+  --size: 48px;
+  background: var(--ds-surface, #fff);
+  color: var(--ds-foreground, #333);
+  transform: scale(0);
+  opacity: 0;
+}
+
+.fab-label {
+  position: absolute;
+  right: 100%;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  background: var(--ds-foreground, #333);
+  color: white;
+  border-radius: var(--ds-radius-sm, 4px);
+  font-size: 0.875rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+/* Hover effects */
+.fab-button:hover {
+  transform: scale(1.1);
+}
+
+.fab-button.action:hover .fab-label {
+  opacity: 1;
+}
+
+/* Expanded state */
+.fab-container:hover .fab-button.action,
+.fab-button.main[aria-expanded="true"] ~ .fab-actions .fab-button.action {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.fab-container:hover .fab-button.main,
+.fab-button.main[aria-expanded="true"] {
+  transform: rotate(45deg);
+}
+
+/* Focus styles */
+.fab-button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .fab-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .fab-button {
+    --size: 48px;
+  }
+  
+  .fab-button.action {
+    --size: 40px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fab-button {
+    transition: none;
+  }
+}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+</style>
+
+<script>
+const mainButton = document.querySelector('.fab-button.main');
+
+mainButton.addEventListener('click', () => {
+  const isExpanded = mainButton.getAttribute('aria-expanded') === 'true';
+  mainButton.setAttribute('aria-expanded', !isExpanded);
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.fab-container')) {
+    mainButton.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Handle keyboard navigation
+const actionButtons = document.querySelectorAll('.fab-button.action');
+
+actionButtons.forEach((button, index) => {
+  button.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp' && index > 0) {
+      actionButtons[index - 1].focus();
+    } else if (e.key === 'ArrowDown' && index < actionButtons.length - 1) {
+      actionButtons[index + 1].focus();
+    }
+  });
+});
+</script>

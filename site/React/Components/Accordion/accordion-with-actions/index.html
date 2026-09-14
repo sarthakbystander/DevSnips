@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion with Actions — React Components — DevSnips</title>
+<meta name="description" content="Accordion regions that contain real actions — buttons and links inside the expanded content. The trigger itself stays a single clean button (no nested controls); actions live in the region, where they are fully keyboard reachable and operable while the item is open.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Accordion" class="hover:text-neutral-900 dark:hover:text-white">Accordion</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Accordion with Actions</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Accordion with Actions</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Accordion regions that contain real actions — buttons and links inside the expanded content. The trigger itself stays a single clean button (no nested controls); actions live in the region, where they are fully keyboard reachable and operable while the item is open.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Accordion with Actions &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Accordion with Actions preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Accordion</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accordion</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">disclosure</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accessible</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">responsive</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tokens</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">actions</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Accordion/accordion-with-actions</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Accordion/accordion-with-actions');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>WAI-ARIA disclosure</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>token-driven surface</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>real buttons in content</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>real links in content</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>keyboard reachable actions</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>no nested trigger controls</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../accordion/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Accordion</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Accordion</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">The reference accordion: single-expansion disclosure built from the shared compound primitives — real button triggers in headings, `aria-expanded`/`aria-controls` wiring, grid-rows height animation, and a clean border-divided list treatment. Every other variant in the family is built from these same primitives.</p>
+  
+</a><a href="../accordion-disabled/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Accordion</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Disabled Accordion Items</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Items disabled at the `&lt;AccordionItem&gt;` level: the trigger renders as a natively disabled button — unfocusable, not activatable by pointer or keyboard, exposed as disabled to assistive technology, and skipped by Tab. Disabled items can never open.</p>
+  
+</a><a href="../accordion-faq/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Accordion</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">FAQ Accordion</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A realistic frequently-asked-questions accordion: question/answer pairs with roomier region padding, body-sm answer copy, and semantic question text in the trigger (the question IS the button label — no redundant ARIA question roles).</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Accordion with Actions</h1>
+<p>Accordion regions that contain real actions — buttons and links inside the expanded content. The trigger itself stays a single clean button (no nested controls); actions live in the region, where they are fully keyboard reachable and operable while the item is open.</p>
+<h2>Installation</h2>
+<p>This component requires <strong>React</strong> and <strong>Tailwind CSS</strong>. Drop <code>code.tsx</code> (or <code>code.jsx</code> for JavaScript projects) into your project. Tailwind utility classes are included directly in the component, so no separate CSS file is required.</p>
+<p>The component consumes the DevSnips semantic design tokens through Tailwind arbitrary values (for example <code>bg-[var(--ds-color-surface)]</code>). Define the <code>--ds-*</code> tokens once in your theme — see <code>React/DESIGN_TOKENS.md</code> for the full token spec.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+import Accordion, {
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from &quot;./accordion&quot;;
+
+&lt;Accordion type=&quot;single&quot; collapsible&gt;
+  &lt;AccordionItem value=&quot;api-keys&quot;&gt;
+    &lt;AccordionTrigger&gt;API keys&lt;/AccordionTrigger&gt;
+    &lt;AccordionContent&gt;
+      &lt;p&gt;Rotate keys without downtime.&lt;/p&gt;
+      &lt;button type=&quot;button&quot;&gt;Rotate key&lt;/button&gt;
+      &lt;a href=&quot;/docs/keys&quot;&gt;Key rotation docs&lt;/a&gt;
+    &lt;/AccordionContent&gt;
+  &lt;/AccordionItem&gt;
+&lt;/Accordion&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+import Accordion, {
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from &quot;./accordion&quot;;
+
+&lt;Accordion type=&quot;single&quot; collapsible&gt;
+  &lt;AccordionItem value=&quot;api-keys&quot;&gt;
+    &lt;AccordionTrigger&gt;API keys&lt;/AccordionTrigger&gt;
+    &lt;AccordionContent&gt;
+      &lt;p&gt;Rotate keys without downtime.&lt;/p&gt;
+      &lt;button type=&quot;button&quot;&gt;Rotate key&lt;/button&gt;
+      &lt;a href=&quot;/docs/keys&quot;&gt;Key rotation docs&lt;/a&gt;
+    &lt;/AccordionContent&gt;
+  &lt;/AccordionItem&gt;
+&lt;/Accordion&gt;
+</code></pre>
+<h2>Props</h2>
+<h3><code>&lt;AccordionContent&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the inner content div (padding, typography overrides). |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Region content — paragraphs, lists, real controls. |</p>
+<p>The region element is <code>role=&quot;region&quot;</code> with <code>aria-labelledby</code> pointing at its trigger; <code>className</code> and forwarded attributes (for example <code>aria-busy</code>) land on the inner content div. Content stays mounted while closed so state inside it survives a close/reopen cycle.</p>
+<h3><code>&lt;AccordionItem&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>value</code> | <code>string</code> | required | Unique, id-safe identifier for the item within the accordion. It keys the open state and derives the trigger/region ids, so keep it stable and free of whitespace. |</p>
+<p>| <code>disabled</code> | <code>boolean</code> | <code>false</code> | Disable the item: the trigger becomes natively <code>disabled</code> — unfocusable, not activatable, exposed as disabled to assistive technology. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the item div. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | One <code>AccordionTrigger</code> + one <code>AccordionContent</code>. |</p>
+<p>Every other attribute of a plain <code>&lt;div&gt;</code> is forwarded.</p>
+<h3><code>&lt;AccordionTrigger&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>icon</code> | <code>ReactNode</code> | — | Leading visual affordance, rendered <code>aria-hidden</code> — it supplements the trigger text, never replaces it. |</p>
+<p>| <code>badge</code> | <code>ReactNode</code> | — | Short status/count content rendered as a neutral pill before the chevron. It is plain text inside the button, so it joins the accessible name — keep it short and meaningful. |</p>
+<p>| <code>description</code> | <code>ReactNode</code> | — | A short supporting line under the title. Also part of the accessible name — keep it brief. |</p>
+<p>| <code>onClick</code> | <code>(event) =&gt; void</code> | — | Runs before the toggle; call <code>event.preventDefault()</code> to veto it. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the button. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | The trigger title (required — it is the accessible name). |</p>
+<p>The rendered element is a real <code>&lt;button type=&quot;button&quot;&gt;</code> wrapped in an <code>&lt;h3&gt;</code>; every other button attribute (<code>aria-*</code>, <code>data-*</code>, …) is forwarded. <code>disabled</code> is set on <code>&lt;AccordionItem&gt;</code>, not here.</p>
+<h2>Composition</h2>
+<ul>
+<li><code>Accordion</code> — the root provider: owns the open-item state (controlled <code>value</code> + <code>onValueChange</code>, or uncontrolled <code>defaultValue</code>), picks the expansion mode (<code>type=&quot;single&quot;</code> default, <code>type=&quot;multiple&quot;</code>), and derives the stable per-instance id base every trigger/region pair is built from.</li>
+<li><code>AccordionItem</code> — one entry in the divided list (<code>border-b</code>, removed on the last item). Requires a unique id-safe <code>value</code>; computes its own open state from the root and derives the trigger/region ids.</li>
+<li><code>AccordionTrigger</code> — the disclosure control: a real <code>&lt;button type=&quot;button&quot;&gt;</code> inside an <code>&lt;h3&gt;</code> heading, with <code>aria-expanded</code> + <code>aria-controls</code>, an optional leading <code>icon</code> (<code>aria-hidden</code>), an optional trailing <code>badge</code> pill, an optional <code>description</code> line, and the rotating chevron (also <code>aria-hidden</code>).</li>
+<li><code>AccordionContent</code> — the collapsible region: <code>role=&quot;region&quot;</code> labelled by its trigger, animated with the CSS grid-rows trick (no JavaScript measurement), hidden from the accessibility tree and tab order while closed.</li>
+</ul>
+<p>Compose only what an entry needs — a bare trigger + content pair is valid; so is the full icon + description + badge composition.</p>
+<p>Compose actions from the DevSnips button treatments (the demo uses the family&#x27;s small primary/outline/ghost/destructive classes) and real anchors. Never put a button inside <code>AccordionTrigger</code> — a control inside a control is invalid HTML and breaks both.</p>
+<h2>Behavior</h2>
+<p>Regions are ordinary content containers, so real controls compose naturally: buttons trigger actions, anchors navigate. Because the closed region is removed from the tab order (<code>visibility: hidden</code>), keyboard users only ever reach the actions of open items — there are no ghost tab stops.</p>
+<p>Actions stay reachable at every viewport: the demo wraps them in a <code>flex flex-wrap</code> row so they reflow onto multiple lines at 375px instead of overflowing. Focus rings on actions use the standard <code>color.focus-ring</code> token.</p>
+<h2>Keyboard Interaction</h2>
+<p>Accordion triggers are real <code>&lt;button type=&quot;button&quot;&gt;</code> elements, so the keyboard model is the native button model: Tab moves focus through the triggers and through any interactive elements inside open regions, and Enter or Space toggles the focused item. Disabled triggers are natively <code>disabled</code>, so Tab skips them entirely and they cannot be activated by pointer or keyboard.</p>
+<p>Arrow-key navigation and roving tabindex are deliberately NOT implemented: the WAI-ARIA accordion pattern marks them as optional, and triggers that behave like ordinary buttons keep Tab order predictable — every focusable element stays exactly one Tab stop.</p>
+<p>Actions inside an open region are part of the normal Tab order: Tab from a trigger moves into its open region&#x27;s first control, and Enter/Space activates it. When the item closes, its actions leave the tab order with it.</p>
+<h2>Accessibility</h2>
+<ul>
+<li>Every trigger is a real <code>&lt;button type=&quot;button&quot;&gt;</code> with <code>aria-expanded</code> and <code>aria-controls</code> referencing its region&#x27;s stable id; the region is <code>role=&quot;region&quot;</code> with <code>aria-labelledby</code> pointing back at the trigger. Both ids derive from the accordion instance&#x27;s <code>useId</code> base plus the item&#x27;s <code>value</code>, so multiple accordions (including nested ones) never collide.</li>
+<li>The trigger sits inside an <code>&lt;h3&gt;</code> heading, so the accordion participates in the page outline.</li>
+<li>The leading <code>icon</code> and the trailing chevron are <code>aria-hidden=&quot;true&quot;</code> — state is exposed by <code>aria-expanded</code>, never by the glyph. The <code>badge</code> pill is plain text inside the button and joins the accessible name; keep it short and meaningful (for example <code>&quot;3 errors&quot;</code>, not a bare <code>&quot;!&quot;</code>).</li>
+<li>The closed region uses the CSS <code>visibility</code> transition: while closed it is <code>visibility: hidden</code>, which removes it from the accessibility tree AND the tab order — collapsed content can never be announced or focused.</li>
+<li>Disabled items use the native <code>disabled</code> attribute: the state is exposed to assistive technology and the trigger leaves the tab order. No redundant <code>aria-disabled</code>.</li>
+</ul>
+<h2>States</h2>
+<ul>
+<li><strong>Trigger (idle)</strong> — <code>color.foreground</code> title, <code>color.muted-foreground</code> icon/chevron; hover applies a <code>color.surface-hover</code> wash; keyboard focus shows a 2px <code>color.focus-ring</code> outline drawn inset (<code>-outline-offset-2</code>) so it is never clipped by bordered containers.</li>
+<li><strong>Trigger (open)</strong> — the chevron rotates 180° over 200ms (<code>motion-reduce</code> makes the flip instant); <code>aria-expanded</code> flips with it. The state is also visible in the open region below, never carried by color alone.</li>
+<li><strong>Trigger (disabled)</strong> — native <code>disabled</code>: 50% opacity, no pointer events, removed from the tab order.</li>
+<li><strong>Region</strong> — height animates with the CSS grid-rows trick (<code>0fr</code> ↔ <code>1fr</code>, 200ms, <code>ease-out</code>), and a discrete <code>visibility</code> transition hides closed content from the accessibility tree and tab order once the collapse completes. Under <code>prefers-reduced-motion</code> every transition is removed and state changes are instant.</li>
+<li><strong>Region content</strong> — body-sm on <code>color.muted-foreground</code>; mounted in both states so component state inside a region survives a close/reopen cycle.</li>
+</ul>
+<h2>Responsive Behavior</h2>
+<p>The accordion is fluid-width (<code>w-full min-w-0</code>) and fills its container at every viewport. Trigger titles and descriptions wrap (<code>break-words</code>), the text column is <code>flex-1 min-w-0</code>, and the icon, badge, and chevron are <code>shrink-0</code> so they never push text off-screen. Region content wraps and long words break. No horizontal overflow at 375 / 768 / 1280px.</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>bg-[var(--ds-color-surface)]</code>); no component-specific values are invented. Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This accordion follows the token system rules: 1px <code>color.border</code> dividers, <code>color.surface-hover</code> trigger feedback, body-sm text, the <code>color.focus-ring</code> token for keyboard focus (drawn inset so bordered containers never clip it), and <code>color.muted-foreground</code> for supporting text, icons, and badges.</p>
+<h2>Notes</h2>
+<ul>
+<li>Destructive actions (like Delete project below) should still confirm elsewhere — the accordion region is an entry point, not a confirmation pattern.</li>
+<li>Every visual value comes from the <code>--ds-*</code> semantic tokens; light and dark themes flip through the same token block. No component-specific CSS file, no inline styles, no hardcoded hex.</li>
+</ul></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import { createContext, useContext, useId, useState } from &quot;react&quot;;
+import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from &quot;react&quot;;
+
+/**
+ * DevSnips React Accordion — region-actions variant.
+ *
+ * Regions compose real controls: buttons and anchors inside the expanded
+ * content, fully keyboard reachable while the item is open and removed
+ * from the tab order when it closes. The trigger stays a single clean
+ * button — controls never nest inside it. Shares the entire reference
+ * core — only the registered demo content differs.
+ */
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+const TRIGGER_CLASSES =
+  &quot;flex w-full min-w-0 items-center gap-3 px-4 py-3 text-left transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;;
+
+const CHEVRON = (
+  &lt;svg
+    viewBox=&quot;0 0 24 24&quot;
+    fill=&quot;none&quot;
+    stroke=&quot;currentColor&quot;
+    strokeWidth={1.75}
+    strokeLinecap=&quot;round&quot;
+    strokeLinejoin=&quot;round&quot;
+    className=&quot;size-4&quot;
+    aria-hidden=&quot;true&quot;
+    focusable=&quot;false&quot;
+  &gt;
+    &lt;path d=&quot;m6 9 6 6 6-6&quot; /&gt;
+  &lt;/svg&gt;
+);
+
+/* ------------------------------------------------------------------------ */
+/* Accordion context (root state)                                            */
+/* ------------------------------------------------------------------------ */
+
+interface AccordionContextValue {
+  accordionId: string;
+  isOpen: (value: string) =&gt; boolean;
+  toggleItem: (value: string) =&gt; void;
+}
+
+const AccordionContext = createContext&lt;AccordionContextValue | null&gt;(null);
+
+function useAccordion(component: string): AccordionContextValue {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error(`&lt;${component}&gt; must be rendered inside &lt;Accordion&gt;.`);
+  }
+  return context;
+}
+
+/* ------------------------------------------------------------------------ */
+/* AccordionItem context (per-item state)                                    */
+/* ------------------------------------------------------------------------ */
+
+interface AccordionItemContextValue {
+  value: string;
+  open: boolean;
+  disabled: boolean;
+  triggerId: string;
+  contentId: string;
+  toggle: () =&gt; void;
+}
+
+const AccordionItemContext = createContext&lt;AccordionItemContextValue | null&gt;(null);
+
+function useAccordionItem(component: string): AccordionItemContextValue {
+  const context = useContext(AccordionItemContext);
+  if (!context) {
+    throw new Error(`&lt;${component}&gt; must be rendered inside &lt;AccordionItem&gt;.`);
+  }
+  return context;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Accordion (root provider)                                                 */
+/* ------------------------------------------------------------------------ */
+
+// `defaultValue` is omitted from the forwarded div attributes because the
+// Accordion API re-purposes it as the initial open value (the native
+// attribute only applies to form fields).
+interface AccordionBaseProps extends Omit&lt;HTMLAttributes&lt;HTMLDivElement&gt;, &quot;defaultValue&quot;&gt; {
+  /**
+   * Single mode only: allow the open item to be closed by activating its
+   * trigger again. When `false` (default), activating the open item&#x27;s
+   * trigger is a no-op — exactly one item stays open once one has been
+   * opened. Ignored when `type=&quot;multiple&quot;` (items always toggle freely).
+   */
+  collapsible?: boolean;
+  children?: ReactNode;
+}
+
+export interface AccordionSingleProps extends AccordionBaseProps {
+  /** Expansion mode: at most one item open at a time (default). */
+  type?: &quot;single&quot;;
+  /** Controlled open value (`null` = nothing open). */
+  value?: string | null;
+  /** Initial open value when uncontrolled. */
+  defaultValue?: string | null;
+  /** Called with the next open value (`null` when all items are closed). */
+  onValueChange?: (value: string | null) =&gt; void;
+}
+
+export interface AccordionMultipleProps extends AccordionBaseProps {
+  /** Expansion mode: all items may be open at once. */
+  type: &quot;multiple&quot;;
+  /** Controlled open values. */
+  value?: string[];
+  /** Initial open values when uncontrolled. */
+  defaultValue?: string[];
+  /** Called with the next array of open values. */
+  onValueChange?: (value: string[]) =&gt; void;
+}
+
+export type AccordionProps = AccordionSingleProps | AccordionMultipleProps;
+
+/** Normalize a mode-shaped value to the internal open-value list. */
+function toOpenList(value: string | string[] | null | undefined): string[] {
+  if (value == null) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+/**
+ * The accordion root. Owns the open-item state and provides it to every
+ * item. Internally the state is always a `string[]` of open values; the
+ * single-mode API only ever stores zero or one entry. The public props are
+ * a discriminated union so `value` / `onValueChange` always match `type`.
+ */
+export function Accordion(props: AccordionProps) {
+  const {
+    type = &quot;single&quot;,
+    collapsible = false,
+    value,
+    defaultValue,
+    onValueChange,
+    className,
+    children,
+    ...divProps
+  } = props;
+  const isMultiple = type === &quot;multiple&quot;;
+  const generatedId = useId();
+  const accordionId = `accordion-${generatedId}`;
+
+  const isControlled = value !== undefined;
+  const [internalOpen, setInternalOpen] = useState&lt;string[]&gt;(() =&gt;
+    toOpenList(defaultValue),
+  );
+  const openValues = isControlled ? toOpenList(value) : internalOpen;
+
+  const toggleItem = (itemValue: string): void =&gt; {
+    const open = openValues.includes(itemValue);
+    let next: string[];
+    if (isMultiple) {
+      next = open
+        ? openValues.filter((entry) =&gt; entry !== itemValue)
+        : [...openValues, itemValue];
+    } else if (open) {
+      if (!collapsible) return;
+      next = [];
+    } else {
+      next = [itemValue];
+    }
+    if (!isControlled) setInternalOpen(next);
+    // The public type guarantees the callback matches the mode: single
+    // receives `string | null`, multiple receives `string[]`.
+    (onValueChange as ((next: string | string[] | null) =&gt; void) | undefined)?.(
+      isMultiple ? next : (next[0] ?? null),
+    );
+  };
+
+  const context: AccordionContextValue = {
+    accordionId,
+    isOpen: (itemValue: string) =&gt; openValues.includes(itemValue),
+    toggleItem,
+  };
+
+  return (
+    &lt;AccordionContext.Provider value={context}&gt;
+      &lt;div className={cx(&quot;w-full min-w-0&quot;, className)} {...divProps}&gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/AccordionContext.Provider&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* AccordionItem                                                             */
+/* ------------------------------------------------------------------------ */
+
+export interface AccordionItemProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  /**
+   * Unique, id-safe identifier for this item within the accordion. It keys
+   * the open state and derives the trigger/region ids, so keep it stable
+   * and free of whitespace.
+   */
+  value: string;
+  /** Disable the item: the trigger cannot be focused or activated. */
+  disabled?: boolean;
+  children?: ReactNode;
+}
+
+/**
+ * One accordion entry: a bordered row in the divided list (`border-b`,
+ * removed on the last item). Computes its open state from the root and
+ * derives the stable trigger/region ids that wire the disclosure
+ * relationship.
+ */
+export function AccordionItem({
+  value,
+  disabled = false,
+  className,
+  children,
+  ...rest
+}: AccordionItemProps) {
+  const { accordionId, isOpen, toggleItem } = useAccordion(&quot;AccordionItem&quot;);
+  const open = isOpen(value);
+  const context: AccordionItemContextValue = {
+    value,
+    open,
+    disabled,
+    triggerId: `${accordionId}-trigger-${value}`,
+    contentId: `${accordionId}-content-${value}`,
+    toggle: () =&gt; {
+      if (!disabled) toggleItem(value);
+    },
+  };
+  return (
+    &lt;AccordionItemContext.Provider value={context}&gt;
+      &lt;div
+        className={cx(
+          &quot;border-b border-[var(--ds-color-border)] last:border-b-0&quot;,
+          className,
+        )}
+        {...rest}
+      &gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/AccordionItemContext.Provider&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* AccordionTrigger                                                          */
+/* ------------------------------------------------------------------------ */
+
+// `disabled` lives on AccordionItem (it disables the whole item), so it is
+// omitted from the forwarded button attributes.
+export interface AccordionTriggerProps
+  extends Omit&lt;ButtonHTMLAttributes&lt;HTMLButtonElement&gt;, &quot;disabled&quot;&gt; {
+  /**
+   * Leading visual affordance (an icon). Rendered `aria-hidden` — it must
+   * supplement the trigger text, never replace it.
+   */
+  icon?: ReactNode;
+  /**
+   * Short status/count text rendered as a neutral pill at the trailing
+   * edge (for example `&quot;3&quot;`, `&quot;Beta&quot;`, `&quot;4 errors&quot;`). It is plain text
+   * inside the button, so it becomes part of the trigger&#x27;s accessible
+   * name — keep it short and meaningful.
+   */
+  badge?: ReactNode;
+  /**
+   * A short supporting line rendered under the title. It is part of the
+   * button&#x27;s accessible name, so keep it brief.
+   */
+  description?: ReactNode;
+  children?: ReactNode;
+}
+
+/**
+ * The disclosure control: a real `&lt;button type=&quot;button&quot;&gt;` inside an `&lt;h3&gt;`
+ * heading (so the accordion participates in the page outline). Exposes
+ * `aria-expanded` + `aria-controls` pointing at the region, toggles on
+ * native button activation (click, Enter, Space), and carries the trailing
+ * chevron that rotates when open (`aria-hidden` — the state is exposed by
+ * `aria-expanded`, not by the glyph). A custom `onClick` runs first and may
+ * veto the toggle with `event.preventDefault()`. The focus ring is drawn
+ * inset (`-outline-offset-2`) so full-bleed triggers inside bordered
+ * containers keep an unclipped ring.
+ */
+export function AccordionTrigger({
+  icon,
+  badge,
+  description,
+  className,
+  children,
+  onClick,
+  type,
+  ...rest
+}: AccordionTriggerProps) {
+  const { open, disabled, triggerId, contentId, toggle } =
+    useAccordionItem(&quot;AccordionTrigger&quot;);
+  return (
+    &lt;h3 className=&quot;m-0 flex&quot;&gt;
+      &lt;button
+        type={type ?? &quot;button&quot;}
+        id={triggerId}
+        aria-expanded={open}
+        aria-controls={contentId}
+        disabled={disabled}
+        onClick={(event) =&gt; {
+          onClick?.(event);
+          if (!event.defaultPrevented) toggle();
+        }}
+        className={cx(TRIGGER_CLASSES, className)}
+        {...rest}
+      &gt;
+        {icon != null &amp;&amp; icon !== false ? (
+          &lt;span
+            aria-hidden=&quot;true&quot;
+            className=&quot;inline-flex size-4 shrink-0 items-center justify-center text-[var(--ds-color-muted-foreground)] [&amp;_svg]:size-4&quot;
+          &gt;
+            {icon}
+          &lt;/span&gt;
+        ) : null}
+        &lt;span className=&quot;flex min-w-0 flex-1 flex-col gap-0.5&quot;&gt;
+          &lt;span className=&quot;break-words text-sm font-medium leading-5 text-[var(--ds-color-foreground)]&quot;&gt;
+            {children}
+          &lt;/span&gt;
+          {description != null &amp;&amp; description !== false ? (
+            &lt;span className=&quot;break-words text-[13px] font-normal leading-5 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+              {description}
+            &lt;/span&gt;
+          ) : null}
+        &lt;/span&gt;
+        {badge != null &amp;&amp; badge !== false ? (
+          &lt;span className=&quot;inline-flex h-5 shrink-0 items-center justify-center rounded-[var(--ds-radius-full)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface-subtle)] px-1.5 text-[11px] font-medium leading-none text-[var(--ds-color-muted-foreground)]&quot;&gt;
+            {badge}
+          &lt;/span&gt;
+        ) : null}
+        &lt;span
+          aria-hidden=&quot;true&quot;
+          className={cx(
+            &quot;inline-flex size-4 shrink-0 items-center justify-center text-[var(--ds-color-muted-foreground)] transition-transform duration-200 ease-out motion-reduce:transition-none&quot;,
+            open &amp;&amp; &quot;rotate-180&quot;,
+          )}
+        &gt;
+          {CHEVRON}
+        &lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/h3&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* AccordionContent                                                          */
+/* ------------------------------------------------------------------------ */
+
+export interface AccordionContentProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+/**
+ * The collapsible region: `role=&quot;region&quot;` labelled by its trigger, with the
+ * stable id the trigger&#x27;s `aria-controls` references. Height animates via
+ * the CSS grid-rows trick (0fr &lt;-&gt; 1fr) — no JavaScript measurement — and a
+ * discrete `visibility` transition hides the region from the accessibility
+ * tree and tab order the moment the close transition completes (instantly
+ * under `prefers-reduced-motion`). The region stays mounted while closed so
+ * state inside it survives. `className` and forwarded attributes (for
+ * example `aria-busy`) land on the inner content div.
+ */
+export function AccordionContent({
+  className,
+  children,
+  ...rest
+}: AccordionContentProps) {
+  const { open, triggerId, contentId } = useAccordionItem(&quot;AccordionContent&quot;);
+  return (
+    &lt;div
+      id={contentId}
+      role=&quot;region&quot;
+      aria-labelledby={triggerId}
+      className={cx(
+        &quot;grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none&quot;,
+        open ? &quot;grid-rows-[1fr]&quot; : &quot;grid-rows-[0fr]&quot;,
+      )}
+    &gt;
+      &lt;div
+        className={cx(
+          &quot;min-h-0 overflow-hidden transition-[visibility] duration-200 motion-reduce:transition-none&quot;,
+          open ? &quot;visible&quot; : &quot;invisible&quot;,
+        )}
+      &gt;
+        &lt;div
+          className={cx(
+            &quot;break-words px-4 pb-4 text-sm leading-6 text-[var(--ds-color-muted-foreground)]&quot;,
+            className,
+          )}
+          {...rest}
+        &gt;
+          {children}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Accordion;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

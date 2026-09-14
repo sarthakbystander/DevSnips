@@ -1,0 +1,65 @@
+{
+  "id": "form-field-with-error-react-001",
+  "name": "Form Field With Error",
+  "slug": "form-field-with-error",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-with-error",
+  "description": "Error state: a destructive message with an alert icon in a role=alert live region, aria-invalid on the control, and a destructive control border \u2014 cleared by removing the message.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "error",
+    "validation",
+    "aria-invalid",
+    "alert"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "role=alert",
+    "aria-invalid wiring",
+    "live validation demo"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML",
+    "role=\"alert\" error announcement",
+    "aria-invalid on the control"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-with-success",
+    "form-field-required"
+  ]
+}

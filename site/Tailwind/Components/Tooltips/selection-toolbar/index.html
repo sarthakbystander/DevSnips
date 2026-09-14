@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selection Toolbar — Tailwind Components — DevSnips</title>
+<meta name="description" content="A floating toolbar that appears above any selected text inside its article scope, offering Highlight (real &lt;mark&gt; wrap), Copy, and Share actions. Positions itself over the selection with viewport clamping and re-tracks on scroll and resize.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Tooltips" class="hover:text-neutral-900 dark:hover:text-white">Tooltips</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Selection Toolbar</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Selection Toolbar</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A floating toolbar that appears above any selected text inside its article scope, offering Highlight (real &lt;mark&gt; wrap), Copy, and Share actions. Positions itself over the selection with viewport clamping and re-tracks on scroll and resize.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Selection Toolbar &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-600 hover:underline dark:text-slate-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Selection Toolbar preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Tooltips</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tooltip</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">selection</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">toolbar</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">neo-brutal</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">highlight</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">annotation</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Tooltips/selection-toolbar</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Tooltips/selection-toolbar');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Floating toolbar above selected text</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Highlight wraps the range in a real &lt;mark&gt;</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Copy and Share with clipboard fallback</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Screen-reader status via aria-live region</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Viewport clamping with scroll/resize re-positioning</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Neo-brutal design language with flat ink surfaces</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../hotspot-tooltip/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Tooltips</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Hotspot Tooltip</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Onboarding hotspot beacon that opens a multi-step guided tour tooltip. Click the pulsing beacon to start; Next/Done walk the steps, Skip or Escape dismiss it.</p>
+  
+</a><a href="../icon-tooltip/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Tooltips</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Icon Tooltip</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Tooltip on an icon-only button - the key accessibility use case where the tooltip serves as the visible label. Each icon button carries aria-label and a role=tooltip companion so screen readers announce the action. Pure CSS.</p>
+  
+</a><a href="../rich-tooltip/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Tooltips</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Rich Tooltip</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Wide tooltip with rich content - a title plus a multi-line description - ideal for help text on form fields and complex UI elements. Pure CSS using two data attributes, hover or focus to reveal.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Selection Toolbar</h1>
+<p>Selection toolbar with tooltip-like presentation.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Tooltips/selection-toolbar
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;!--
+Snippet Name: Selection Toolbar
+Description: A floating neo-brutalist toolbar that appears over selected text offering highlight, copy, and share actions.
+Author: DevSnips Contributors
+Usage Example: Wrap any article with the data-selection-toolbar scope; selecting prose opens the toolbar. Highlight wraps the range in a &lt;mark&gt;.
+--&gt;
+&lt;style&gt;
+  [data-selection-toolbar=&quot;selection-toolbar&quot;] ::selection { background: #FFE600; color: #0a0a0a; }
+&lt;/style&gt;
+&lt;div data-selection-toolbar=&quot;selection-toolbar&quot; class=&quot;relative&quot;&gt;
+  &lt;article class=&quot;border-2 border-black bg-white&quot;&gt;
+    &lt;header class=&quot;border-b-2 border-black p-6 pb-5 sm:p-8 sm:pb-6&quot;&gt;
+      &lt;span class=&quot;inline-block rounded-none bg-[#FFE600] px-2 py-1 text-xs font-bold uppercase tracking-widest text-black&quot;&gt;Design Systems Weekly · Essay №42&lt;/span&gt;
+      &lt;h2 class=&quot;mt-4 text-3xl font-black tracking-tight text-black sm:text-4xl&quot;&gt;Polish is a product feature&lt;/h2&gt;
+      &lt;div class=&quot;mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-neutral-600&quot;&gt;
+        &lt;span class=&quot;flex items-center gap-2&quot;&gt;
+          &lt;span aria-hidden=&quot;true&quot; class=&quot;flex h-6 w-6 items-center justify-center border-2 border-black bg-[#FFE600] text-[11px] font-black text-black&quot;&gt;MO&lt;/span&gt;
+          &lt;span class=&quot;font-semibold text-black&quot;&gt;Marina Okafor&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span aria-hidden=&quot;true&quot; class=&quot;h-4 w-px bg-neutral-300&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;Aug 25, 2026&lt;/span&gt;
+        &lt;span aria-hidden=&quot;true&quot; class=&quot;h-4 w-px bg-neutral-300&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;5 min read&lt;/span&gt;
+        &lt;span aria-hidden=&quot;true&quot; class=&quot;h-4 w-px bg-neutral-300&quot;&gt;&lt;/span&gt;
+        &lt;span data-highlights-count class=&quot;border-b-2 border-[#FFE600] font-medium text-black&quot;&gt;1 highlight&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;div class=&quot;px-6 py-6 sm:px-8 sm:py-8 text-[15px] sm:text-base leading-relaxed text-neutral-800&quot;&gt;
+      &lt;p&gt;
+        Every product team has a version of the same meeting. The feature works, the tests pass,
+        and someone on the call says the interface still &lt;em&gt;feels off&lt;/em&gt; in a way no ticket can
+        quite capture. The room treats that feeling as a luxury, and the polish it asks for goes
+        to the bottom of the backlog. That is a mistake — and it compounds.
+      &lt;/p&gt;
+      &lt;p class=&quot;mt-4&quot;&gt;
+        Rough edges accumulate the way interest does. A focus ring that never shows, a tooltip that
+        flickers, a button that does not visibly respond to press — none of these block a task on
+        their own, yet together they teach people to trust the product a little less with every
+        interaction. &lt;mark class=&quot;bg-[#FFE600] px-0.5 font-medium text-black&quot;&gt;Rough edges compound.&lt;/mark&gt;
+        Users may never quote the defect, but they will feel the average of every one of them.
+      &lt;/p&gt;
+      &lt;p class=&quot;mt-4&quot;&gt;
+        The fix is not heroics on a launch week. It is a standing budget for the last 1%: motion
+        tuned to 150ms ease-out, selection states that announce themselves, empty states written
+        like a colleague instead of a linter. Pick the details most worth sweating and make them
+        part of done.
+      &lt;/p&gt;
+      &lt;blockquote class=&quot;mt-6 border-l-4 border-black bg-neutral-50 px-4 py-3 font-medium text-black&quot;&gt;
+        Users never separate polish from quality. To them, one is simply evidence of the other.
+      &lt;/blockquote&gt;
+      &lt;p class=&quot;mt-4&quot;&gt;
+        Polish is not the coat of paint applied after engineering. It is the difference between a
+        tool that is merely correct and one that is a pleasure to operate — and it is why the
+        interface, not the feature list, is where brand gets built. Sweat it deliberately, or
+        watch it leak.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+
+  &lt;div
+    data-st-toolbar
+    role=&quot;toolbar&quot;
+    aria-label=&quot;Text formatting&quot;
+    class=&quot;fixed z-50 hidden items-stretch gap-0 border-2 border-black bg-black shadow-[6px_6px_0_0_rgba(0,0,0,0.9)]&quot;
+  &gt;
+    &lt;button
+      type=&quot;button&quot;
+      data-st-highlight
+      class=&quot;flex h-11 items-center gap-1.5 bg-[#FFE600] px-3 text-sm font-bold text-black transition-colors duration-150 hover:bg-[#FF4FA3] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white motion-reduce:transition-none&quot;
+    &gt;
+      &lt;svg class=&quot;h-4 w-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;2.4&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M15.2 4.3 19.7 8.8m-8.9-4.8 8.9 8.9-4.2 4.2-8.9-8.9 4.2-4.2ZM6.1 12.5l1.4 5.8 5.3-1.4&quot; /&gt;
+      &lt;/svg&gt;
+      Highlight
+    &lt;/button&gt;
+    &lt;button
+      type=&quot;button&quot;
+      data-st-copy
+      class=&quot;flex h-11 items-center gap-1.5 px-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFE600] motion-reduce:transition-none&quot;
+    &gt;
+      &lt;svg class=&quot;h-4 w-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M8 8V5.6A1.6 1.6 0 0 1 9.6 4h8.8A1.6 1.6 0 0 1 20 5.6v8.8a1.6 1.6 0 0 1-1.6 1.6H16M4 9.6A1.6 1.6 0 0 1 5.6 8h8.8A1.6 1.6 0 0 1 16 9.6v8.8a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 18.4V9.6Z&quot; /&gt;
+      &lt;/svg&gt;
+      &lt;span data-st-copy-label&gt;Copy&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button
+      type=&quot;button&quot;
+      data-st-share
+      class=&quot;flex h-11 items-center gap-1.5 px-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFE600] motion-reduce:transition-none&quot;
+    &gt;
+      &lt;svg class=&quot;h-4 w-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;2&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 4v12m0-12L7.5 8.5M12 4l4.5 4.5M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13&quot; /&gt;
+      &lt;/svg&gt;
+      &lt;span data-st-share-label&gt;Share&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;span aria-hidden=&quot;true&quot; class=&quot;w-px bg-white/20&quot;&gt;&lt;/span&gt;
+    &lt;span data-st-count aria-hidden=&quot;true&quot; class=&quot;flex items-center px-3 text-xs font-medium tabular-nums text-white/50&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;span data-st-live class=&quot;sr-only&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;
+
+  &lt;script&gt;
+    (function () {
+      var root = document.currentScript.closest(&#x27;[data-selection-toolbar=&quot;selection-toolbar&quot;]&#x27;);
+      var article = root.querySelector(&#x27;article&#x27;);
+      var toolbar = root.querySelector(&#x27;[data-st-toolbar]&#x27;);
+      var counter = root.querySelector(&#x27;[data-highlights-count]&#x27;);
+      var countLabel = toolbar.querySelector(&#x27;[data-st-count]&#x27;);
+      var live = root.querySelector(&#x27;[data-st-live]&#x27;);
+      var debounce = null;
+      var visible = false;
+      var currentText = &#x27;&#x27;;
+
+      function announce(message) {
+        live.textContent = message;
+      }
+
+      function updateCounter() {
+        var marks = article.querySelectorAll(&#x27;mark&#x27;).length;
+        var label = marks + (marks === 1 ? &#x27; highlight&#x27; : &#x27; highlights&#x27;);
+        counter.textContent = label;
+        counter.setAttribute(&#x27;aria-label&#x27;, label);
+      }
+
+      function selectionInArticle() {
+        var sel = window.getSelection();
+        if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return null;
+        var range = sel.getRangeAt(0);
+        var node = range.commonAncestorContainer;
+        if (node !== article &amp;&amp; !article.contains(node)) return null;
+        var text = sel.toString().trim();
+        if (!text) return null;
+        return { range: range, text: text };
+      }
+
+      function showToolbar() {
+        var snap = selectionInArticle();
+        if (!snap) { hideToolbar(); return; }
+        var rect = snap.range.getBoundingClientRect();
+        if (rect.width === 0) { hideToolbar(); return; }
+        toolbar.classList.remove(&#x27;hidden&#x27;);
+        toolbar.classList.add(&#x27;flex&#x27;);
+        visible = true;
+        currentText = snap.text;
+        countLabel.textContent = snap.text.length + (snap.text.length === 1 ? &#x27; char&#x27; : &#x27; chars&#x27;);
+        var w = toolbar.offsetWidth;
+        var h = toolbar.offsetHeight;
+        var left = rect.left + rect.width / 2 - w / 2;
+        left = Math.min(Math.max(left, 8), window.innerWidth - w - 8);
+        var top = rect.top - h - 12;
+        if (top &lt; 8) top = rect.bottom + 12;
+        toolbar.style.left = left + &#x27;px&#x27;;
+        toolbar.style.top = top + &#x27;px&#x27;;
+      }
+
+      function hideToolbar() {
+        toolbar.classList.add(&#x27;hidden&#x27;);
+        toolbar.classList.remove(&#x27;flex&#x27;);
+        visible = false;
+      }
+
+      function refresh() {
+        window.clearTimeout(debounce);
+        debounce = window.setTimeout(showToolbar, 120);
+      }
+
+      document.addEventListener(&#x27;selectionchange&#x27;, refresh);
+
+      window.addEventListener(&#x27;scroll&#x27;, function () {
+        if (visible) { refresh(); }
+      }, { passive: true });
+
+      window.addEventListener(&#x27;resize&#x27;, function () {
+        if (visible) { showToolbar(); }
+      });
+
+      document.addEventListener(&#x27;pointerdown&#x27;, function (event) {
+        if (!visible || root.contains(event.target)) return;
+        hideToolbar();
+      });
+
+      document.addEventListener(&#x27;keydown&#x27;, function (event) {
+        if (!visible || event.key !== &#x27;Escape&#x27;) return;
+        hideToolbar();
+        event.preventDefault();
+        event.stopPropagation();
+      }, true);
+
+      // Keep the selection alive across toolbar interaction.
+      toolbar.addEventListener(&#x27;mousedown&#x27;, function (event) {
+        event.preventDefault();
+      });
+
+      function copyText(text) {
+        if (navigator.clipboard &amp;&amp; navigator.clipboard.writeText) {
+          try {
+            return navigator.clipboard.writeText(text).then(function () { return true; });
+          } catch (e) {
+            // Denied clipboard permissions fall through to execCommand below.
+          }
+        }
+        var helper = document.createElement(&#x27;textarea&#x27;);
+        helper.value = text;
+        helper.setAttribute(&#x27;readonly&#x27;, &#x27;&#x27;);
+        helper.style.position = &#x27;absolute&#x27;;
+        helper.style.left = &#x27;-9999px&#x27;;
+        document.body.appendChild(helper);
+        helper.select();
+        var ok = false;
+        try { ok = document.execCommand(&#x27;copy&#x27;); } catch (e) { ok = false; }
+        document.body.removeChild(helper);
+        return Promise.resolve(ok);
+      }
+
+      function feedback(span, doneLabel) {
+        var original = span.textContent;
+        span.textContent = doneLabel;
+        window.setTimeout(function () { span.textContent = original; }, 1400);
+      }
+
+      toolbar.querySelector(&#x27;[data-st-copy]&#x27;).addEventListener(&#x27;click&#x27;, function () {
+        var span = toolbar.querySelector(&#x27;[data-st-copy-label]&#x27;);
+        copyText(currentText).then(function (ok) {
+          if (ok) {
+            feedback(span, &#x27;Copied&#x27;);
+            announce(&#x27;Copied to clipboard&#x27;);
+          } else {
+            announce(&#x27;Copy failed&#x27;);
+          }
+        });
+      });
+
+      toolbar.querySelector(&#x27;[data-st-share]&#x27;).addEventListener(&#x27;click&#x27;, function () {
+        var span = toolbar.querySelector(&#x27;[data-st-share-label]&#x27;);
+        var title = root.querySelector(&#x27;h2&#x27;) ? root.querySelector(&#x27;h2&#x27;).textContent.trim() : &#x27;this article&#x27;;
+        var payload = &#x27;“&#x27; + currentText + &#x27;” — &#x27; + title;
+        copyText(payload).then(function (ok) {
+          if (ok) {
+            feedback(span, &#x27;Copied&#x27;);
+            announce(&#x27;Share quote copied&#x27;);
+          } else {
+            announce(&#x27;Share failed&#x27;);
+          }
+        });
+      });
+
+      toolbar.querySelector(&#x27;[data-st-highlight]&#x27;).addEventListener(&#x27;click&#x27;, function () {
+        var snap = selectionInArticle();
+        if (!snap) return;
+        var mark = document.createElement(&#x27;mark&#x27;);
+        mark.className = &#x27;bg-[#FFE600] px-0.5 font-medium text-black&#x27;;
+        try {
+          snap.range.surroundContents(mark);
+        } catch (e) {
+          mark.appendChild(snap.range.extractContents());
+          snap.range.insertNode(mark);
+        }
+        window.getSelection().removeAllRanges();
+        updateCounter();
+        announce(&#x27;Highlighted passage&#x27;);
+        hideToolbar();
+      });
+
+      updateCounter();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

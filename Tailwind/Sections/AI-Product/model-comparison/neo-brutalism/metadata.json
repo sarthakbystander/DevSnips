@@ -1,0 +1,38 @@
+{
+  "name": "Model Comparison — Neo-Brutalism",
+  "slug": "model-comparison-neo-brutalism",
+  "category": "Sections",
+  "subcategory": "ai-product",
+  "section": "model-comparison",
+  "style": "neo-brutalism",
+  "description": "Brutalist LLM comparison arena — three models (GPT-Snip, Claude-Snip, Llama-Snip) shown side by side with hard black borders, offset drop shadows, and flat bright accents per model. A 'Best for' metric selector crowns a winner, animates the metric bars, and updates the recommendation footer.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "model-comparison",
+    "llm",
+    "benchmark",
+    "neo-brutalism",
+    "brutalist",
+    "comparison-table",
+    "winner",
+    "metrics",
+    "ai-product"
+  ],
+  "features": [
+    "side-by-side model cards",
+    "animated metric bars (context, speed, cost, quality)",
+    "Best-for metric selector with winner highlight",
+    "live recommendation footer",
+    "hard offset shadows and flat accent palette",
+    "press-down hover states",
+    "radiogroup semantics with aria-checked",
+    "keyboard accessible controls"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Archivo, JetBrains Mono"
+  ],
+  "type": "section"
+}

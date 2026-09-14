@@ -1,0 +1,70 @@
+{
+  "id": "dialog-nested-react-001",
+  "name": "Nested Dialogs",
+  "slug": "dialog-nested",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-nested",
+  "description": "A dialog opening another dialog: a member-removal confirmation stacked over the share dialog, with Escape closing only the top-most and focus restoring down the chain.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "nested",
+    "stacked",
+    "confirmation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "nested dialogs",
+    "top-most Escape handling",
+    "focus restore chain"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "Escape closes only the top-most dialog",
+    "focus restores into the parent dialog"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-destructive",
+    "dialog-confirmation",
+    "dialog-controlled"
+  ]
+}

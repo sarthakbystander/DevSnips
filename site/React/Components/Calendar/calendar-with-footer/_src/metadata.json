@@ -1,0 +1,69 @@
+{
+  "id": "calendar-with-footer-react-001",
+  "name": "Calendar \u2014 Footer Actions",
+  "slug": "calendar-with-footer",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-with-footer",
+  "description": "A calendar with a footer region: a live selected-date summary plus explicit Clear and Today actions, composed with CalendarFooter and the useCalendar hook.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "footer",
+    "actions",
+    "today",
+    "clear"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "CalendarFooter",
+    "useCalendar composition",
+    "explicit Today action"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "footer summary via role=status"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-single",
+    "calendar-controlled",
+    "calendar"
+  ]
+}

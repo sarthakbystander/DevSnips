@@ -1,0 +1,69 @@
+{
+  "id": "dropdown-menu-with-sections-react-001",
+  "name": "Dropdown Menu with Sections",
+  "slug": "dropdown-menu-with-sections",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-with-sections",
+  "description": "Related actions grouped under readable section labels with role=group semantics and hairline separators \u2014 an account/workspace switcher pattern, not a card stack.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "sections",
+    "grouped",
+    "labels"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "section labels",
+    "role=group",
+    "separators"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "role=group with aria-labelledby",
+    "non-interactive labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-with-icons",
+    "dropdown-menu-submenu"
+  ]
+}

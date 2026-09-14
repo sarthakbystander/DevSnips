@@ -1,0 +1,39 @@
+{
+  "name": "Hero Landing — Vercel",
+  "slug": "hero-landing-vercel",
+  "category": "Sections",
+  "subcategory": "marketing",
+  "section": "hero-landing",
+  "style": "vercel",
+  "description": "Refined dark monochrome marketing hero with hairline borders, a masked grid backdrop, a single teal glowing accent, dual CTAs, a star-rating trust row, and a floating glass-dark product preview card with a luminous top edge. Staggered fade-up entrance respects prefers-reduced-motion.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "hero",
+    "landing",
+    "marketing",
+    "vercel",
+    "dark-mode",
+    "monochrome",
+    "cta",
+    "trust-row"
+  ],
+  "features": [
+    "dark monochrome palette",
+    "hairline borders + glow",
+    "single teal accent",
+    "dual minimal CTAs",
+    "star rating trust row",
+    "floating preview card",
+    "luminous top edge",
+    "masked grid backdrop",
+    "staggered entrance animation",
+    "prefers-reduced-motion guard"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Geist, Geist Mono"
+  ],
+  "type": "section"
+}

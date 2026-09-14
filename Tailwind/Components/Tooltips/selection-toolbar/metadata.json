@@ -1,0 +1,33 @@
+{
+  "name": "Selection Toolbar",
+  "slug": "selection-toolbar",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "selection",
+  "type": "component",
+  "category": "Components",
+  "description": "A floating toolbar that appears above any selected text inside its article scope, offering Highlight (real <mark> wrap), Copy, and Share actions. Positions itself over the selection with viewport clamping and re-tracks on scroll and resize.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "tooltip",
+    "selection",
+    "toolbar",
+    "neo-brutal",
+    "highlight",
+    "annotation"
+  ],
+  "related": [
+    "rich-tooltip",
+    "icon-tooltip",
+    "hotspot-tooltip"
+  ],
+  "features": [
+    "Floating toolbar above selected text",
+    "Highlight wraps the range in a real <mark>",
+    "Copy and Share with clipboard fallback",
+    "Screen-reader status via aria-live region",
+    "Viewport clamping with scroll/resize re-positioning",
+    "Neo-brutal design language with flat ink surfaces"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "table-with-filters-react-001",
+  "name": "Table with Filters",
+  "slug": "table-with-filters",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-filters",
+  "description": "A table with multiple structured filter controls (native selects), a Clear filters action that restores the full dataset, an announced filtered-result count, and an honest empty state when a combination matches nothing.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Filtering",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "filters",
+    "multi-filter",
+    "reset",
+    "empty-state",
+    "aria-live"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "multiple filter controls",
+    "clear/reset filters",
+    "announced result count"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "labelled native selects",
+    "aria-live result count",
+    "empty state with reset action"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table-with-search",
+    "table-with-pagination",
+    "table-empty"
+  ]
+}

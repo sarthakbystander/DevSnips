@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-mobile-react-001",
+  "name": "Date Picker \u2014 Mobile",
+  "slug": "date-picker-mobile",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-mobile",
+  "description": "Mobile-first presentation: below `sm` the panel docks as a full-width bottom sheet over a dimmed overlay with 44px touch targets (`size=\"lg\"`); at desktop it stays a normal popover \u2014 pure CSS breakpoint behavior, zero viewport JavaScript.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "mobile",
+    "bottom-sheet",
+    "touch-targets"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "mobile bottom sheet",
+    "44px cells",
+    "CSS-only breakpoint behavior",
+    "overlay dismissal"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "overlay is aria-hidden + below sm only",
+    "touch sizes honored"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker",
+    "date-picker-range"
+  ]
+}

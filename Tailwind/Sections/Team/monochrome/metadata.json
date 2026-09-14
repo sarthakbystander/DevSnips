@@ -1,0 +1,41 @@
+{
+  "id": "team-monochrome",
+  "slug": "team-monochrome",
+  "name": "Editorial Team — Monochrome",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "team",
+  "section": "Editorial Team",
+  "style": "monochrome",
+  "description": "Monochrome team layout: Editorial team layout.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "team",
+    "people",
+    "about",
+    "profiles",
+    "monochrome"
+  ],
+  "features": [
+    "editorial team layout",
+    "featured profile",
+    "side list",
+    "serif headline",
+    "responsive split"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

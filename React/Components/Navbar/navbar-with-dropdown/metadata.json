@@ -1,0 +1,71 @@
+{
+  "id": "navbar-with-dropdown-react-001",
+  "name": "Navbar with Dropdown",
+  "slug": "navbar-with-dropdown",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-dropdown",
+  "description": "Primary navigation containing dropdown menus: disclosure-style panels of real links with full keyboard support, Escape and outside-pointer close, focus restoration, disabled items, and viewport-aware alignment.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "dropdown",
+    "submenu",
+    "disclosure"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "navigation dropdowns",
+    "roving dropdown focus",
+    "viewport-aware alignment",
+    "disabled dropdown items"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "aria-haspopup='true' trigger",
+    "Escape closes + restores focus",
+    "outside-pointer close"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-with-mega-menu",
+    "navbar-with-user-menu"
+  ]
+}

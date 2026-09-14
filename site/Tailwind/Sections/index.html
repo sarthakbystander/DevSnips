@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailwind Sections — DevSnips</title>
+<meta name="description" content="Browse all Tailwind sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Sections</span></nav>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight">Tailwind Sections</h1>
+    <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">150 variants across 10 families.</p>
+    <p class="mono mt-4 text-xs text-neutral-500 dark:text-neutral-400"><a href="#404" class="hover:underline">404</a> &middot; <a href="#Blog" class="hover:underline">Blog</a> &middot; <a href="#Contact" class="hover:underline">Contact</a> &middot; <a href="#FAQ" class="hover:underline">FAQ</a> &middot; <a href="#Footer" class="hover:underline">Footer</a> &middot; <a href="#Logos" class="hover:underline">Logos</a> &middot; <a href="#Newsletter" class="hover:underline">Newsletter</a> &middot; <a href="#Stats" class="hover:underline">Stats</a> &middot; <a href="#Team" class="hover:underline">Team</a> &middot; <a href="#Testimonials" class="hover:underline">Testimonials</a></p>
+    
+    <div id="404" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">404 <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="404/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Premium SaaS 404 — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired 404 page: Premium saas 404.</p>
+  
+</a><a href="404/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Dashboard 404 — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid 404 page: Dashboard 404.</p>
+  
+</a><a href="404/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Moody 404 — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber 404 page: Moody 404.</p>
+  
+</a><a href="404/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Gradient 404 — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium 404 page: Gradient 404.</p>
+  
+</a><a href="404/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Developer Theme 404 — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism 404 page: Developer 404.</p>
+  
+</a><a href="404/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Retro 404 — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial 404 page: Retro 404.</p>
+  
+</a><a href="404/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Spotlight 404 — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury 404 page: Spotlight 404.</p>
+  
+</a><a href="404/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Vercel-Inspired 404 — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic 404 page: Vercel-inspired 404.</p>
+  
+</a><a href="404/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal 404 — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh 404 page: Minimal 404.</p>
+  
+</a><a href="404/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Illustration 404 — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal 404 page: Illustration 404.</p>
+  
+</a><a href="404/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bold 404 — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome 404 page: Brutalist 404.</p>
+  
+</a><a href="404/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Space Theme 404 — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism 404 page: Space theme 404.</p>
+  
+</a><a href="404/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Funny 404 — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI 404 page: Funny 404.</p>
+  
+</a><a href="404/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Abstract 404 — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing 404 page: Abstract 404.</p>
+  
+</a><a href="404/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">404</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Terminal 404 — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear 404 page: Terminal 404.</p>
+  
+</a></div>
+    </div>
+    <div id="Blog" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Blog <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Blog/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Card Layout — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired blog layout: Card layout.</p>
+  
+</a><a href="Blog/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Sidebar Blog — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid blog layout: Sidebar blog layout.</p>
+  
+</a><a href="Blog/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Recent Posts — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber blog layout: Recent posts.</p>
+  
+</a><a href="Blog/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Articles — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium blog layout: Minimal article list.</p>
+  
+</a><a href="Blog/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Editorial Grid — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism blog layout: Editorial grid.</p>
+  
+</a><a href="Blog/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">News Layout — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial blog layout: News layout.</p>
+  
+</a><a href="Blog/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Magazine Layout — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury blog layout: Magazine layout.</p>
+  
+</a><a href="Blog/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Three-Column Grid — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic blog layout: Three-column grid.</p>
+  
+</a><a href="Blog/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Split Featured Blog — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh blog layout: Split featured blog.</p>
+  
+</a><a href="Blog/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Modern Blog — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal blog layout: Modern blog layout.</p>
+  
+</a><a href="Blog/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Featured Article — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome blog layout: Featured article hero.</p>
+  
+</a><a href="Blog/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bento Articles — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism blog layout: Bento articles.</p>
+  
+</a><a href="Blog/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Category Blog — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI blog layout: Category blog.</p>
+  
+</a><a href="Blog/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Article List — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing blog layout: Article list.</p>
+  
+</a><a href="Blog/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Blog</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Blog — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear blog layout: Startup blog grid.</p>
+  
+</a></div>
+    </div>
+    <div id="Contact" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Contact <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Contact/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Contact + Sidebar Info — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired contact layout: Form + sidebar info.</p>
+  
+</a><a href="Contact/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Inline Contact Cards — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid contact layout: Inline contact rows.</p>
+  
+</a><a href="Contact/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Support Center — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber contact layout: Support center grid.</p>
+  
+</a><a href="Contact/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Contact + Subscribe — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium contact layout: Contact + newsletter combo.</p>
+  
+</a><a href="Contact/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Centered Contact — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism contact layout: Centered hero form.</p>
+  
+</a><a href="Contact/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Onboarding Contact — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial contact layout: Onboarding steps.</p>
+  
+</a><a href="Contact/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Contact Form — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury contact layout: Minimal centered form.</p>
+  
+</a><a href="Contact/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Contact with Map — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic contact layout: Map placeholder panel.</p>
+  
+</a><a href="Contact/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Contact Method Cards — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh contact layout: Contact method cards.</p>
+  
+</a><a href="Contact/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Mega Contact Grid — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal contact layout: Mega contact grid.</p>
+  
+</a><a href="Contact/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Office Locations — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome contact layout: Office location cards.</p>
+  
+</a><a href="Contact/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Contact — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism contact layout: Startup contact form.</p>
+  
+</a><a href="Contact/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Team Contact Directory — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI contact layout: Team contact directory.</p>
+  
+</a><a href="Contact/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Split Contact Layout — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing contact layout: Split form + info.</p>
+  
+</a><a href="Contact/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Floating Contact — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear contact layout: Floating contact panel.</p>
+  
+</a></div>
+    </div>
+    <div id="FAQ" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">FAQ <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="FAQ/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Accordion FAQ — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired FAQ layout: Native &lt;details&gt; accordion.</p>
+  
+</a><a href="FAQ/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Two-Column FAQ — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid FAQ layout: Two-column layout.</p>
+  
+</a><a href="FAQ/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Spotlight FAQ — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber FAQ layout: Spotlight accordion.</p>
+  
+</a><a href="FAQ/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Sidebar Categories FAQ — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium FAQ layout: Sidebar categories nav.</p>
+  
+</a><a href="FAQ/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Tabbed FAQ UI — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism FAQ layout: Tabbed categories (ui).</p>
+  
+</a><a href="FAQ/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Searchable FAQ UI — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial FAQ layout: Search bar (ui only).</p>
+  
+</a><a href="FAQ/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal FAQ — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury FAQ layout: Static definition list.</p>
+  
+</a><a href="FAQ/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Pricing FAQ — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic FAQ layout: Pricing-specific faq.</p>
+  
+</a><a href="FAQ/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">SaaS FAQ — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh FAQ layout: Saas feature faq grid.</p>
+  
+</a><a href="FAQ/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">FAQ with Contact CTA — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal FAQ layout: Faq + contact cta.</p>
+  
+</a><a href="FAQ/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Compact FAQ — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome FAQ layout: Single-panel list.</p>
+  
+</a><a href="FAQ/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Categorized FAQ — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism FAQ layout: Grouped by category.</p>
+  
+</a><a href="FAQ/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Documentation FAQ — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI FAQ layout: Docs-style anchor nav.</p>
+  
+</a><a href="FAQ/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Modern FAQ Cards — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing FAQ layout: Card-style accordions.</p>
+  
+</a><a href="FAQ/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">FAQ</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Rich Content FAQ — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear FAQ layout: Rich answer rows.</p>
+  
+</a></div>
+    </div>
+    <div id="Footer" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Footer <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Footer/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Footer — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired footer: Minimal footer.</p>
+  
+</a><a href="Footer/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Multi-Column Footer — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid footer: 5-column footer.</p>
+  
+</a><a href="Footer/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Mega Footer — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber footer: Mega multi-column.</p>
+  
+</a><a href="Footer/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Compact Footer — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium footer: Compact footer.</p>
+  
+</a><a href="Footer/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Footer — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism footer: Startup footer.</p>
+  
+</a><a href="Footer/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Social-First Footer — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial footer: Social-first footer.</p>
+  
+</a><a href="Footer/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">SaaS Footer — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury footer: Saas footer.</p>
+  
+</a><a href="Footer/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Centered Footer — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic footer: Centered footer.</p>
+  
+</a><a href="Footer/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Grid Footer — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh footer: Grid footer.</p>
+  
+</a><a href="Footer/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Branded Footer — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal footer: Premium centered footer.</p>
+  
+</a><a href="Footer/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Newsletter Footer — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome footer: Newsletter banner.</p>
+  
+</a><a href="Footer/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Documentation Footer — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism footer: Documentation footer.</p>
+  
+</a><a href="Footer/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Four-Column Footer — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI footer: 4-column footer.</p>
+  
+</a><a href="Footer/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">CTA Footer — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing footer: Cta banner footer.</p>
+  
+</a><a href="Footer/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Editorial Footer — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear footer: Editorial footer.</p>
+  
+</a></div>
+    </div>
+    <div id="Logos" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Logos <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Logos/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Grid Logos — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired logos layout: Logo grid.</p>
+  
+</a><a href="Logos/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Partner Showcase — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid logos layout: Partner showcase.</p>
+  
+</a><a href="Logos/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Logo Strip — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber logos layout: Logo strip.</p>
+  
+</a><a href="Logos/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Trusted By — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium logos layout: Trusted-by row.</p>
+  
+</a><a href="Logos/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Marquee Logos — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism logos layout: Marquee logos.</p>
+  
+</a><a href="Logos/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Investors — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial logos layout: Investors grid.</p>
+  
+</a><a href="Logos/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Stat + Logos — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury logos layout: Stat + logos.</p>
+  
+</a><a href="Logos/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Monochrome Logos — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic logos layout: Minimal monochrome logos.</p>
+  
+</a><a href="Logos/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Premium Logos — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh logos layout: Premium logo panel.</p>
+  
+</a><a href="Logos/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Brand Wall — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal logos layout: Brand wall.</p>
+  
+</a><a href="Logos/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Categorized Logos — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome logos layout: Categorized logos.</p>
+  
+</a><a href="Logos/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Gradient Logo Cloud — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism logos layout: Gradient logo cloud.</p>
+  
+</a><a href="Logos/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Logos — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI logos layout: Startup logos.</p>
+  
+</a><a href="Logos/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bento Logos — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing logos layout: Bento logo cloud.</p>
+  
+</a><a href="Logos/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Infinite-Scroll Logos — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear logos layout: Infinite-scroll marquee.</p>
+  
+</a></div>
+    </div>
+    <div id="Newsletter" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Newsletter <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Newsletter/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Benefits Newsletter CTA — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired newsletter layout: Benefits newsletter.</p>
+  
+</a><a href="Newsletter/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Compact Newsletter CTA — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid newsletter layout: Compact newsletter cta.</p>
+  
+</a><a href="Newsletter/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Subscribe — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber newsletter layout: Minimal subscribe.</p>
+  
+</a><a href="Newsletter/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Split Newsletter — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium newsletter layout: Split newsletter.</p>
+  
+</a><a href="Newsletter/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Inline Newsletter Strip — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism newsletter layout: Inline strip.</p>
+  
+</a><a href="Newsletter/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Centered Newsletter CTA — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial newsletter layout: Centered cta.</p>
+  
+</a><a href="Newsletter/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Newsletter CTA — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury newsletter layout: Startup newsletter cta.</p>
+  
+</a><a href="Newsletter/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bold Newsletter CTA — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic newsletter layout: Bold newsletter cta.</p>
+  
+</a><a href="Newsletter/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Gradient Newsletter CTA — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh newsletter layout: Gradient cta.</p>
+  
+</a><a href="Newsletter/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Stat + Newsletter CTA — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal newsletter layout: Stat + newsletter.</p>
+  
+</a><a href="Newsletter/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Premium Newsletter CTA — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome newsletter layout: Premium newsletter cta.</p>
+  
+</a><a href="Newsletter/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Footer Newsletter — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism newsletter layout: Footer newsletter.</p>
+  
+</a><a href="Newsletter/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bento Newsletter CTA — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI newsletter layout: Bento newsletter.</p>
+  
+</a><a href="Newsletter/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Floating Newsletter CTA — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing newsletter layout: Floating glass cta.</p>
+  
+</a><a href="Newsletter/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Newsletter</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Card Newsletter CTA — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear newsletter layout: Card newsletter cta.</p>
+  
+</a></div>
+    </div>
+    <div id="Stats" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Stats <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Stats/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Circular Stats — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired stats layout: Circular progress stats.</p>
+  
+</a><a href="Stats/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">KPI Cards — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid stats layout: 4 kpi cards.</p>
+  
+</a><a href="Stats/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Premium Stats — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber stats layout: Premium stat panel.</p>
+  
+</a><a href="Stats/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Company Metrics — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium stats layout: Company metrics grid.</p>
+  
+</a><a href="Stats/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Progress Bar Stats — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism stats layout: Progress bar stats.</p>
+  
+</a><a href="Stats/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Dashboard Stats — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial stats layout: Dashboard stat panel.</p>
+  
+</a><a href="Stats/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bold Stats — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury stats layout: Bold stat grid.</p>
+  
+</a><a href="Stats/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Animated Counter Stats — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic stats layout: Animated counter ui.</p>
+  
+</a><a href="Stats/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bento Stats — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh stats layout: Bento stats grid.</p>
+  
+</a><a href="Stats/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Inline Stat Strip — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal stats layout: Inline stat strip.</p>
+  
+</a><a href="Stats/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Spotlight Stats — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome stats layout: Spotlight stat cards.</p>
+  
+</a><a href="Stats/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Split Stats — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism stats layout: Split stat layout.</p>
+  
+</a><a href="Stats/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Stats — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI stats layout: Minimal text stats.</p>
+  
+</a><a href="Stats/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Growth Stats — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing stats layout: Startup growth panel.</p>
+  
+</a><a href="Stats/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Stats</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Comparison Stats — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear stats layout: Year-over-year comparison.</p>
+  
+</a></div>
+    </div>
+    <div id="Team" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Team <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Team/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Featured Team — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired team layout: Featured + grid team.</p>
+  
+</a><a href="Team/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Compact Team Grid — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid team layout: Compact team grid.</p>
+  
+</a><a href="Team/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bento Team — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber team layout: Bento team grid.</p>
+  
+</a><a href="Team/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Avatar Wall Team — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium team layout: Avatar wall.</p>
+  
+</a><a href="Team/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Bold Team Cards — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism team layout: Bold team cards.</p>
+  
+</a><a href="Team/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Detailed Profile Cards — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial team layout: Detailed profile cards.</p>
+  
+</a><a href="Team/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Circular Profiles — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury team layout: Circular profiles.</p>
+  
+</a><a href="Team/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Team Grid — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic team layout: Team grid.</p>
+  
+</a><a href="Team/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Executive Cards — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh team layout: Executive cards.</p>
+  
+</a><a href="Team/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Profiles — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal team layout: Minimal profiles.</p>
+  
+</a><a href="Team/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Editorial Team — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome team layout: Editorial team layout.</p>
+  
+</a><a href="Team/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Spotlight Team — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism team layout: Spotlight team cards.</p>
+  
+</a><a href="Team/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Startup Founders — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI team layout: Founders spotlight.</p>
+  
+</a><a href="Team/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Leadership Row — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing team layout: Leadership row.</p>
+  
+</a><a href="Team/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Company Hierarchy — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear team layout: Org hierarchy.</p>
+  
+</a></div>
+    </div>
+    <div id="Testimonials" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Testimonials <span class="mono text-sm font-normal text-neutral-400">(15)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Testimonials/apple-inspired/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">User Avatar Wall — Apple Inspired</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Apple Inspired testimonials layout: Avatar wall.</p>
+  
+</a><a href="Testimonials/bento-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Rating Summary Testimonials — Bento Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento Grid testimonials layout: Aggregate rating summary.</p>
+  
+</a><a href="Testimonials/cyber/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Metrics + Testimonials — Cyber</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Cyber testimonials layout: Quote + metric tiles.</p>
+  
+</a><a href="Testimonials/dark-premium/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Split Testimonial Spotlight — Dark Premium</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dark Premium testimonials layout: Split spotlight layout.</p>
+  
+</a><a href="Testimonials/edge-glassmorphism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Masonry Testimonial Wall — Edge Glassmorphism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Edge Glassmorphism testimonials layout: Css masonry via columns.</p>
+  
+</a><a href="Testimonials/editorial/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Video Testimonial Placeholders — Editorial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Editorial testimonials layout: Video placeholder tiles.</p>
+  
+</a><a href="Testimonials/elegant-luxury/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Before/After Testimonials — Elegant Luxury</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Elegant Luxury testimonials layout: Before/after comparison.</p>
+  
+</a><a href="Testimonials/futuristic/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Minimal Testimonial Wall — Futuristic</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Futuristic testimonials layout: Dense minimal wall.</p>
+  
+</a><a href="Testimonials/gradient-mesh/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Featured + Grid Testimonials — Gradient Mesh</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Gradient Mesh testimonials layout: Featured wide card.</p>
+  
+</a><a href="Testimonials/minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Company Reviews — Minimal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal testimonials layout: Company-branded cards.</p>
+  
+</a><a href="Testimonials/monochrome/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Stacked Quote Testimonials — Monochrome</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Monochrome testimonials layout: Stacked single-column.</p>
+  
+</a><a href="Testimonials/neo-brutalism/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Card Grid Testimonials — Neo Brutalism</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Neo Brutalism testimonials layout: 3-column responsive grid.</p>
+  
+</a><a href="Testimonials/soft-ui/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Logo + Quote Testimonials — Soft UI (Neumorphism)</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Soft UI testimonials layout: Logo-tagged quotes.</p>
+  
+</a><a href="Testimonials/startup-landing/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Large Quote Feature — Startup Landing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Startup Landing testimonials layout: Oversized pull quote.</p>
+  
+</a><a href="Testimonials/vercel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Carousel-Style Testimonials — Vercel / Linear</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vercel / Linear testimonials layout: Horizontal snap carousel (no js).</p>
+  
+</a></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "id": "blog-soft-ui",
+  "slug": "blog-soft-ui",
+  "name": "Category Blog — Soft UI (Neumorphism)",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "blog",
+  "section": "Category Blog",
+  "style": "soft-ui",
+  "description": "Soft UI blog layout: Category blog.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "blog",
+    "articles",
+    "content",
+    "posts",
+    "soft-ui"
+  ],
+  "features": [
+    "category blog",
+    "filter tabs",
+    "active state",
+    "6 posts",
+    "responsive 1/2/3-col"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

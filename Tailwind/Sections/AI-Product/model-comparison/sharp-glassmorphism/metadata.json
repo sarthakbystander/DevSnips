@@ -1,0 +1,38 @@
+{
+  "name": "Model Comparison — Sharp Glassmorphism",
+  "slug": "model-comparison-sharp-glassmorphism",
+  "category": "Sections",
+  "subcategory": "ai-product",
+  "section": "model-comparison",
+  "style": "sharp-glassmorphism",
+  "description": "Frosted-glass LLM comparison panel floating over a vivid animated gradient mesh — three models compared side by side with luminous edges, gradient metric bars, and a glowing winner highlight that responds to the 'Best for' metric selector. Requires a colored backdrop behind the panel for the glass to read.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "model-comparison",
+    "llm",
+    "benchmark",
+    "glassmorphism",
+    "frosted-glass",
+    "comparison-table",
+    "winner",
+    "metrics",
+    "ai-product"
+  ],
+  "features": [
+    "side-by-side frosted-glass model cards",
+    "animated gradient metric bars",
+    "Best-for metric selector with glowing winner highlight",
+    "gradient mesh backdrop with cyan glow accents",
+    "live recommendation footer",
+    "backdrop blur and luminous edges",
+    "radiogroup semantics with aria-checked",
+    "keyboard accessible controls"
+  ],
+  "responsive": true,
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts: Sora, JetBrains Mono"
+  ],
+  "type": "section"
+}

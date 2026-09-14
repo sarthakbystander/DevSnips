@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview — Atlas Analytics</title>
+  <meta name="description" content="Atlas Analytics overview — key product metrics, weekly active users, top traffic sources and recent activity.">
+  <meta property="og:title" content="Overview — Atlas Analytics">
+  <meta property="og:description" content="Enterprise analytics platform — understand every signal.">
+  <meta property="og:image" content="../assets/images/og-image.svg">
+  <meta property="og:type" content="website">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('atlas-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#ffffff', surface: '#ffffff', subtle: '#f9fafb',
+            ink: '#111111', secondary: '#4b5563', muted: '#6b7280', faint: '#9ca3af',
+            line: '#e5e7eb', linestrong: '#d1d5db',
+            accent: '#2563eb', accentsoft: '#eff6ff',
+            ok: '#16a34a', warn: '#d97706', danger: '#dc2626', info: '#0ea5e9'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --bg-canvas:#ffffff; --bg-surface:#ffffff; --bg-subtle:#f9fafb; --bg-raised:#ffffff;
+      --text-primary:#111111; --text-secondary:#4b5563; --text-muted:#6b7280; --text-faint:#9ca3af;
+      --bd-subtle:#f3f4f6; --bd-default:#e5e7eb; --bd-strong:#d1d5db;
+      --accent:#2563eb; --accent-hover:#1d4ed8; --accent-soft:#eff6ff;
+      --ok:#16a34a; --warn:#d97706; --danger:#dc2626; --info:#0ea5e9;
+      --shadow-sm:0 1px 2px rgb(0 0 0 / 0.04);
+      --sidebar-w:248px;
+    }
+    [data-theme="dark"] {
+      --bg-canvas:#0a0a0a; --bg-surface:#111111; --bg-subtle:#161616; --bg-raised:#1b1b1b;
+      --text-primary:#f5f5f5; --text-secondary:#d1d5db; --text-muted:#9ca3af; --text-faint:#6b7280;
+      --bd-subtle:#1a1a1a; --bd-default:#262626; --bd-strong:#363636;
+      --accent:#3b82f6; --accent-hover:#60a5fa; --accent-soft:#172554;
+      --ok:#22c55e; --warn:#f59e0b; --danger:#f87171; --info:#38bdf8;
+      --shadow-sm:0 1px 2px rgb(0 0 0 / 0.5);
+    }
+    html { color-scheme: light; }
+    [data-theme="dark"] html, [data-theme="dark"] { color-scheme: dark; }
+    body { background:var(--bg-canvas); color:var(--text-primary); font-family:'Inter',system-ui,sans-serif; }
+    .bg-canvas{background:var(--bg-canvas)} .bg-surface{background:var(--bg-surface)} .bg-subtle{background:var(--bg-subtle)} .bg-raised{background:var(--bg-raised)}
+    .text-primary{color:var(--text-primary)} .text-secondary{color:var(--text-secondary)} .text-muted{color:var(--text-muted)} .text-faint{color:var(--text-faint)}
+    .bd{border-color:var(--bd-default)} .bd-subtle{border-color:var(--bd-subtle)} .bd-strong{border-color:var(--bd-strong)}
+    .accent{color:var(--accent)} .bg-accent{background:var(--accent)} .bg-accent-soft{background:var(--accent-soft)} .bd-accent{border-color:var(--accent)}
+    .c-ok{color:var(--ok)} .c-warn{color:var(--warn)} .c-danger{color:var(--danger)} .c-info{color:var(--info)}
+    .bg-ok-soft{background:rgb(22 163 74 / 0.10)} .bg-warn-soft{background:rgb(217 119 6 / 0.10)} .bg-danger-soft{background:rgb(220 38 38 / 0.10)}
+    .shadow-app{box-shadow:var(--shadow-sm)}
+    .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+    .nav-link{display:flex;align-items:center;gap:.625rem;padding:.4375rem .625rem;border-radius:5px;font-size:.8125rem;color:var(--text-secondary);transition:background .15s ease,color .15s ease}
+    .nav-link:hover{background:var(--bg-subtle);color:var(--text-primary)}
+    .nav-link[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+    .nav-link[aria-current="page"] svg{color:var(--accent)}
+    .kpi{transition:border-color .15s ease}
+    .kpi:hover{border-color:var(--bd-strong)}
+    .row-hover:hover{background:var(--bg-subtle)}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+    .drawer-transition{transition:transform .22s ease,opacity .18s ease}
+    .fade-in{animation:fade .15s ease}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+      .drawer-transition{transition:none !important}
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
+
+  <!-- ============ TOPBAR ============ -->
+  <header class="sticky top-0 z-50 border-b bd bg-surface/90 backdrop-blur-md">
+    <div class="flex h-16 items-center gap-3 px-4 sm:px-5">
+      <button type="button" data-drawer-toggle class="grid h-9 w-9 shrink-0 place-items-center rounded-md border bd-strong lg:hidden" aria-label="Open navigation" aria-expanded="false" aria-controls="atlas-sidebar">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="Atlas Analytics home">
+        <img src="../assets/icons/logo.svg" alt="" class="h-7 w-7" width="28" height="28">
+        <span class="text-[15px] font-semibold tracking-tight">Atlas</span>
+        <span class="hidden border bd px-1.5 py-0.5 mono text-[9px] uppercase tracking-[0.12em] text-muted sm:inline">analytics</span>
+      </a>
+
+      <div class="hidden items-center gap-2 md:flex ml-2">
+        <button type="button" class="flex items-center gap-1.5 rounded-md border bd px-2.5 py-1.5 text-[12px] font-medium text-secondary hover:bg-subtle" aria-label="Switch environment">
+          <span class="h-1.5 w-1.5 rounded-full bg-ok"></span> Production
+          <svg class="h-3.5 w-3.5 text-faint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="ml-auto flex items-center gap-2 sm:gap-3">
+        <button type="button" data-cmdk class="hidden items-center gap-2 rounded-md border bd px-3 py-1.5 text-[12px] text-muted hover:bg-subtle sm:flex" aria-label="Open command palette">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>Search</span>
+          <span class="mono ml-2 rounded border bd px-1.5 py-0.5 text-[10px] text-faint">⌘K</span>
+        </button>
+        <button type="button" data-theme-toggle class="grid h-9 w-9 place-items-center rounded-md border bd-strong hover:bg-subtle" aria-label="Toggle color theme">
+          <svg class="h-4 w-4" data-theme-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="h-4 w-4 hidden" data-theme-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" class="grid h-9 w-9 place-items-center rounded-full bg-accent text-white text-[12px] font-semibold" aria-label="Account: Jordan Diaz">JD</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex">
+    <!-- ============ SIDEBAR (drawer on mobile) ============ -->
+    <div id="drawer-backdrop" class="fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+    <aside id="atlas-sidebar" class="fixed lg:sticky top-16 z-40 h-[calc(100vh-4rem)] w-[248px] shrink-0 -translate-x-full lg:translate-x-0 border-r bd bg-surface drawer-transition lg:bg-transparent overflow-y-auto z-50" aria-label="Primary navigation">
+      <nav class="flex flex-col gap-6 p-4">
+        <div>
+          <p class="px-2.5 pb-2 mono text-[10px] uppercase tracking-[0.16em] text-faint">Analyze</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="index.html" class="nav-link" aria-current="page"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg> Overview</a></li>
+            <li><a href="analytics.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 3-4 3 3 5-7"/></svg> Analytics</a></li>
+            <li><a href="funnels.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h18l-7 8v8l-4-2v-6L3 4Z"/></svg> Funnels</a></li>
+            <li><a href="cohorts.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="11" y="3" width="6" height="6" rx="1"/><rect x="3" y="11" width="6" height="6" rx="1"/></svg> Cohorts</a></li>
+            <li><a href="retention.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12c4-9 14-9 18 0"/><path d="M3 12c4 9 14 9 18 0"/></svg> Retention</a></li>
+            <li><a href="revenue.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Revenue</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="px-2.5 pb-2 mono text-[10px] uppercase tracking-[0.16em] text-faint">Build</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="reports.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg> Reports</a></li>
+            <li><a href="dashboards.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="6" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/><rect x="3" y="17" width="8" height="4" rx="1"/></svg> Dashboards</a></li>
+            <li><a href="segments.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="7" cy="18" r="3"/><path d="M9 7l6 4M9 17l7-4"/></svg> Segments</a></li>
+            <li><a href="events.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 2 8 4-8 4M2 18l8 4 8-4M2 14l8 4 8-4"/></svg> Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="px-2.5 pb-2 mono text-[10px] uppercase tracking-[0.16em] text-faint">Configure</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="settings.html" class="nav-link"><svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg> Settings</a></li>
+          </ul>
+        </div>
+        <div class="mt-auto rounded-lg border bd bg-subtle p-3">
+          <p class="text-[12px] font-medium">Workspace: Northwind</p>
+          <p class="mt-0.5 text-[11px] text-muted">Growth plan · 12 seats</p>
+          <a href="settings.html" class="mt-2 inline-flex items-center gap-1 text-[12px] accent hover:underline">Manage <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main" class="min-w-0 flex-1">
+      <!-- page header -->
+      <div class="border-b bd px-4 py-5 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-[1280px]">
+          <nav aria-label="Breadcrumb" class="mono text-[11px] text-muted">
+            <ol class="flex items-center gap-1.5">
+              <li><a href="index.html" class="hover:text-primary">Atlas</a></li>
+              <li aria-hidden="true" class="text-faint">/</li>
+              <li aria-current="page" class="text-secondary">Overview</li>
+            </ol>
+          </nav>
+          <div class="mt-3 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h1 class="text-2xl font-semibold tracking-tight">Overview</h1>
+              <p class="mt-1 text-sm text-muted">A snapshot of product health across the last 30 days.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="flex items-center rounded-md border bd text-[12px]">
+                <button type="button" class="px-2.5 py-1.5 text-secondary hover:bg-subtle">7d</button>
+                <button type="button" class="border-x bd px-2.5 py-1.5 bg-subtle font-medium text-primary">30d</button>
+                <button type="button" class="px-2.5 py-1.5 text-secondary hover:bg-subtle">90d</button>
+              </div>
+              <button type="button" class="inline-flex items-center gap-1.5 rounded-md border bd px-3 py-1.5 text-[12px] font-medium hover:bg-subtle">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Export
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 py-6 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-[1280px] space-y-6">
+
+          <!-- KPI grid -->
+          <section aria-label="Key metrics" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- KPI 1 -->
+            <div class="kpi rounded-lg border bd bg-surface p-5">
+              <div class="flex items-center justify-between">
+                <p class="text-[12px] font-medium text-muted">Weekly active users</p>
+                <span class="mono text-[11px] c-ok">▲ 12.4%</span>
+              </div>
+              <p class="mt-2 text-[28px] font-semibold tracking-tight">48,920</p>
+              <svg class="mt-3 h-10 w-full" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,32 25,28 50,30 75,22 100,24 125,16 150,18 175,10 200,7" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              </svg>
+              <p class="mt-2 text-[11px] text-faint">vs 43,512 prev. 30d</p>
+            </div>
+            <!-- KPI 2 -->
+            <div class="kpi rounded-lg border bd bg-surface p-5">
+              <div class="flex items-center justify-between">
+                <p class="text-[12px] font-medium text-muted">New signups</p>
+                <span class="mono text-[11px] c-ok">▲ 8.1%</span>
+              </div>
+              <p class="mt-2 text-[28px] font-semibold tracking-tight">3,287</p>
+              <svg class="mt-3 h-10 w-full" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,26 25,24 50,28 75,20 100,22 125,18 150,21 175,14 200,12" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              </svg>
+              <p class="mt-2 text-[11px] text-faint">vs 3,041 prev. 30d</p>
+            </div>
+            <!-- KPI 3 -->
+            <div class="kpi rounded-lg border bd bg-surface p-5">
+              <div class="flex items-center justify-between">
+                <p class="text-[12px] font-medium text-muted">Conversion rate</p>
+                <span class="mono text-[11px] c-danger">▼ 0.6%</span>
+              </div>
+              <p class="mt-2 text-[28px] font-semibold tracking-tight">4.82<span class="text-lg text-muted">%</span></p>
+              <svg class="mt-3 h-10 w-full" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,14 25,16 50,13 75,18 100,17 125,20 150,19 175,23 200,22" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              </svg>
+              <p class="mt-2 text-[11px] text-faint">vs 4.85% prev. 30d</p>
+            </div>
+            <!-- KPI 4 -->
+            <div class="kpi rounded-lg border bd bg-surface p-5">
+              <div class="flex items-center justify-between">
+                <p class="text-[12px] font-medium text-muted">Net revenue</p>
+                <span class="mono text-[11px] c-ok">▲ 15.2%</span>
+              </div>
+              <p class="mt-2 text-[28px] font-semibold tracking-tight">$92,480</p>
+              <svg class="mt-3 h-10 w-full" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,30 25,26 50,28 75,20 100,22 125,14 150,16 175,9 200,6" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              </svg>
+              <p class="mt-2 text-[11px] text-faint">vs $80,274 prev. 30d</p>
+            </div>
+          </section>
+
+          <!-- WAU chart + top sources -->
+          <section class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div class="rounded-lg border bd bg-surface p-5 lg:col-span-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h2 class="text-[15px] font-semibold">Weekly active users</h2>
+                  <p class="mt-0.5 text-[12px] text-muted">Rolling 12 weeks · UTC</p>
+                </div>
+                <span class="mono text-[11px] c-ok">▲ 12.4%</span>
+              </div>
+              <div class="mt-5">
+                <svg class="w-full" viewBox="0 0 640 220" role="img" aria-label="Weekly active users line chart from 31,200 to 48,920 over 12 weeks">
+                  <defs>
+                    <linearGradient id="wauFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.16"/>
+                      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- gridlines -->
+                  <g stroke="var(--bd-default)" stroke-width="1">
+                    <line x1="40" y1="30" x2="640" y2="30"/>
+                    <line x1="40" y1="80" x2="640" y2="80"/>
+                    <line x1="40" y1="130" x2="640" y2="130"/>
+                    <line x1="40" y1="180" x2="640" y2="180"/>
+                  </g>
+                  <!-- y labels -->
+                  <g font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-faint)" text-anchor="end">
+                    <text x="34" y="34">50k</text>
+                    <text x="34" y="84">40k</text>
+                    <text x="34" y="134">30k</text>
+                    <text x="34" y="184">20k</text>
+                  </g>
+                  <!-- area + line -->
+                  <path d="M40,168 L93,160 L146,152 L199,140 L252,134 L305,118 L358,110 L411,96 L464,84 L517,72 L570,58 L623,40 L623,180 L40,180 Z" fill="url(#wauFill)"/>
+                  <polyline points="40,168 93,160 146,152 199,140 252,134 305,118 358,110 411,96 464,84 517,72 570,58 623,40" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                  <!-- last point -->
+                  <circle cx="623" cy="40" r="3.5" fill="var(--accent)"/>
+                  <!-- x labels -->
+                  <g font-family="JetBrains Mono,monospace" font-size="10" fill="var(--text-faint)" text-anchor="middle">
+                    <text x="40" y="205">W1</text><text x="199" y="205">W4</text><text x="358" y="205">W7</text><text x="517" y="205">W10</text><text x="623" y="205">W12</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="rounded-lg border bd bg-surface p-5">
+              <h2 class="text-[15px] font-semibold">Top traffic sources</h2>
+              <p class="mt-0.5 text-[12px] text-muted">By sessions, last 30d</p>
+              <ul class="mt-4 flex flex-col divide-y bd-subtle">
+                <li class="flex items-center justify-between py-2.5">
+                  <div class="flex items-center gap-2.5"><span class="grid h-6 w-6 place-items-center rounded bg-accent-soft mono text-[10px] accent font-semibold">D</span><span class="text-[13px]">Direct</span></div>
+                  <div class="text-right"><p class="mono text-[13px] font-medium">18,402</p><p class="text-[11px] text-faint">37.6%</p></div>
+                </li>
+                <li class="flex items-center justify-between py-2.5">
+                  <div class="flex items-center gap-2.5"><span class="grid h-6 w-6 place-items-center rounded bg-subtle mono text-[10px] text-secondary font-semibold">G</span><span class="text-[13px]">Organic search</span></div>
+                  <div class="text-right"><p class="mono text-[13px] font-medium">12,188</p><p class="text-[11px] text-faint">24.9%</p></div>
+                </li>
+                <li class="flex items-center justify-between py-2.5">
+                  <div class="flex items-center gap-2.5"><span class="grid h-6 w-6 place-items-center rounded bg-subtle mono text-[10px] text-secondary font-semibold">R</span><span class="text-[13px]">Referral</span></div>
+                  <div class="text-right"><p class="mono text-[13px] font-medium">8,914</p><p class="text-[11px] text-faint">18.2%</p></div>
+                </li>
+                <li class="flex items-center justify-between py-2.5">
+                  <div class="flex items-center gap-2.5"><span class="grid h-6 w-6 place-items-center rounded bg-subtle mono text-[10px] text-secondary font-semibold">S</span><span class="text-[13px]">Social</span></div>
+                  <div class="text-right"><p class="mono text-[13px] font-medium">5,607</p><p class="text-[11px] text-faint">11.5%</p></div>
+                </li>
+                <li class="flex items-center justify-between py-2.5">
+                  <div class="flex items-center gap-2.5"><span class="grid h-6 w-6 place-items-center rounded bg-subtle mono text-[10px] text-secondary font-semibold">E</span><span class="text-[13px]">Email</span></div>
+                  <div class="text-right"><p class="mono text-[13px] font-medium">3,809</p><p class="text-[11px] text-faint">7.8%</p></div>
+                </li>
+              </ul>
+              <a href="analytics.html" class="mt-4 inline-flex items-center gap-1 text-[12px] accent hover:underline">View full breakdown <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </section>
+
+          <!-- Recent activity -->
+          <section class="rounded-lg border bd bg-surface">
+            <div class="flex items-center justify-between border-b bd px-5 py-3.5">
+              <h2 class="text-[15px] font-semibold">Recent activity</h2>
+              <a href="events.html" class="text-[12px] accent hover:underline">View events</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-[13px]">
+                <thead>
+                  <tr class="border-b bd text-[11px] uppercase tracking-wide text-faint">
+                    <th scope="col" class="px-5 py-2.5 font-medium">Event</th>
+                    <th scope="col" class="px-5 py-2.5 font-medium">User</th>
+                    <th scope="col" class="hidden px-5 py-2.5 font-medium sm:table-cell">Source</th>
+                    <th scope="col" class="px-5 py-2.5 text-right font-medium">When</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y bd-subtle">
+                  <tr class="row-hover">
+                    <td class="px-5 py-3"><span class="mono text-[12px]">signup_completed</span></td>
+                    <td class="px-5 py-3">mira.okafor@helio.app</td>
+                    <td class="hidden px-5 py-3 text-muted sm:table-cell">Referral</td>
+                    <td class="px-5 py-3 text-right text-muted mono text-[12px]">2m ago</td>
+                  </tr>
+                  <tr class="row-hover">
+                    <td class="px-5 py-3"><span class="mono text-[12px]">subscription_upgraded</span></td>
+                    <td class="px-5 py-3">liam.park@northwind.io</td>
+                    <td class="hidden px-5 py-3 text-muted sm:table-cell">Direct</td>
+                    <td class="px-5 py-3 text-right text-muted mono text-[12px]">14m ago</td>
+                  </tr>
+                  <tr class="row-hover">
+                    <td class="px-5 py-3"><span class="mono text-[12px]">dashboard_created</span></td>
+                    <td class="px-5 py-3">sven.lindqvist@altavista.se</td>
+                    <td class="hidden px-5 py-3 text-muted sm:table-cell">Organic</td>
+                    <td class="px-5 py-3 text-right text-muted mono text-[12px]">38m ago</td>
+                  </tr>
+                  <tr class="row-hover">
+                    <td class="px-5 py-3"><span class="mono text-[12px]">report_shared</span></td>
+                    <td class="px-5 py-3">ana.vargas@cobalt.dev</td>
+                    <td class="hidden px-5 py-3 text-muted sm:table-cell">Direct</td>
+                    <td class="px-5 py-3 text-right text-muted mono text-[12px]">1h ago</td>
+                  </tr>
+                  <tr class="row-hover">
+                    <td class="px-5 py-3"><span class="mono text-[12px]">funnel_saved</span></td>
+                    <td class="px-5 py-3">jordan.diaz@northwind.io</td>
+                    <td class="hidden px-5 py-3 text-muted sm:table-cell">Email</td>
+                    <td class="px-5 py-3 text-right text-muted mono text-[12px]">2h ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ COMMAND PALETTE ============ -->
+  <div id="cmdk" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="absolute inset-0 bg-black/40" data-cmdk-close></div>
+    <div class="relative mx-auto mt-[12vh] w-[92%] max-w-lg rounded-lg border bd bg-surface shadow-app fade-in">
+      <div class="flex items-center gap-2.5 border-b bd px-4 py-3">
+        <svg class="h-4 w-4 text-faint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" data-cmdk-input placeholder="Search pages and actions…" class="w-full bg-transparent text-[14px] outline-none placeholder:text-faint" aria-label="Search">
+        <kbd class="mono rounded border bd px-1.5 py-0.5 text-[10px] text-faint">Esc</kbd>
+      </div>
+      <ul class="max-h-80 overflow-y-auto p-2" data-cmdk-list>
+        <li><a href="index.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Overview</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="analytics.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Analytics</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="funnels.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Funnels</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="cohorts.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Cohorts</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="retention.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Retention</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="revenue.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Revenue</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="reports.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Reports</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="dashboards.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Dashboards</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="segments.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Segments</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="events.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Events</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+        <li><a href="settings.html" class="flex items-center justify-between rounded px-3 py-2 text-[13px] hover:bg-subtle"><span>Go to Settings</span><span class="mono text-[10px] text-faint">↵</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    (function () {
+      var btn = document.querySelector('[data-theme-toggle]');
+      if (!btn) return;
+      function syncIcons() {
+        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var moon = document.querySelector('[data-theme-moon]');
+        var sun = document.querySelector('[data-theme-sun]');
+        if (moon) moon.classList.toggle('hidden', dark);
+        if (sun) sun.classList.toggle('hidden', !dark);
+      }
+      syncIcons();
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('atlas-theme', next); } catch (e) {}
+        syncIcons();
+      });
+    })();
+
+    // Sidebar drawer (mobile)
+    (function () {
+      var toggle = document.querySelector('[data-drawer-toggle]');
+      var sidebar = document.getElementById('atlas-sidebar');
+      var backdrop = document.getElementById('drawer-backdrop');
+      if (!toggle || !sidebar) return;
+      function open() { sidebar.classList.remove('-translate-x-full'); backdrop.classList.remove('hidden'); toggle.setAttribute('aria-expanded', 'true'); sidebar.setAttribute('aria-hidden', 'false'); }
+      function close() { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); sidebar.setAttribute('aria-hidden', 'true'); }
+      toggle.addEventListener('click', function () {
+        if (sidebar.classList.contains('-translate-x-full')) open(); else close();
+      });
+      if (backdrop) backdrop.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sidebar.classList.contains('-translate-x-full')) close(); });
+      // close on nav click (mobile)
+      sidebar.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { if (window.matchMedia('(max-width: 1023px)').matches) close(); });
+      });
+    })();
+
+    // Command palette
+    (function () {
+      var trigger = document.querySelector('[data-cmdk]');
+      var palette = document.getElementById('cmdk');
+      if (!palette) return;
+      var input = palette.querySelector('[data-cmdk-input]');
+      var list = palette.querySelector('[data-cmdk-list]');
+      var items = list ? list.querySelectorAll('a') : [];
+      function open() { palette.classList.remove('hidden'); if (input) setTimeout(function(){input.focus();},10); }
+      function close() { palette.classList.add('hidden'); if (input) input.value = ''; }
+      if (trigger) trigger.addEventListener('click', open);
+      palette.querySelectorAll('[data-cmdk-close]').forEach(function (el) { el.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); palette.classList.contains('hidden') ? open() : close(); }
+        if (e.key === 'Escape' && !palette.classList.contains('hidden')) close();
+      });
+      if (input && list) {
+        input.addEventListener('input', function () {
+          var q = input.value.toLowerCase();
+          items.forEach(function (a) {
+            a.parentElement.style.display = a.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

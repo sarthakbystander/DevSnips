@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="DevSnips — [D] mark">
+  <!-- Monochrome luxury [D] mark: hairline frame, bracket serif, single clay accent dot -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="2" fill="#F5F1EA" stroke="#14110D" stroke-width="1"/>
+  <!-- left serif stem of the D -->
+  <path d="M9 8.5 V23.5" fill="none" stroke="#14110D" stroke-width="2" stroke-linecap="square"/>
+  <!-- the D bowl, drawn as a serifed arc -->
+  <path d="M9 8.5 H14.5 C20.5 8.5 24 12 24 16 C24 20 20.5 23.5 14.5 23.5 H9" fill="none" stroke="#14110D" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <!-- top + bottom bracket serifs -->
+  <path d="M7 8.5 H11 M7 23.5 H11" stroke="#14110D" stroke-width="1" stroke-linecap="square"/>
+  <!-- single clay accent dot inside the bowl -->
+  <circle cx="18" cy="16" r="1.4" fill="#B5552D"/>
+</svg>

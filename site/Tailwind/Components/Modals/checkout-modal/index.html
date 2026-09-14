@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout Modal — Tailwind Components — DevSnips</title>
+<meta name="description" content="Full checkout flow modal with order items, summary with pricing breakdown, promo code input, and payment method selection.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Modals" class="hover:text-neutral-900 dark:hover:text-white">Modals</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Checkout Modal</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Checkout Modal</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Full checkout flow modal with order items, summary with pricing breakdown, promo code input, and payment method selection.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Checkout Modal &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-600 hover:underline dark:text-slate-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Checkout Modal preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Modals</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">modal</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">checkout</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">cart</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">payment</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">shopping</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Modals/checkout-modal</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Modals/checkout-modal');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../payment-modal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Payment Modal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Credit card payment form modal with card inputs, security toggle, amount display, and SSL security badge.</p>
+  
+</a><a href="../share-modal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-slate-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-slate-600 dark:group-hover:text-slate-400">Share Modal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Social sharing modal with platform buttons, link copy functionality, and collaborators preview for file sharing.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Checkout Modal</h1>
+<p>Checkout flow modal.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Modals/checkout-modal
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;!-- Checkout Modal --&gt;
+&lt;div id=&quot;checkout-modal&quot; class=&quot;fixed inset-0 z-50 hidden&quot;&gt;
+  &lt;!-- Backdrop --&gt;
+  &lt;div class=&quot;fixed inset-0 bg-black/60 backdrop-blur-sm&quot; onclick=&quot;closeModal(&#x27;checkout-modal&#x27;)&quot;&gt;&lt;/div&gt;
+  
+  &lt;!-- Modal Container --&gt;
+  &lt;div class=&quot;fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl md:max-h-[90vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col transform transition-all overflow-hidden&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;checkout-modal-title&quot;&gt;
+    
+    &lt;!-- Header --&gt;
+    &lt;div class=&quot;flex-shrink-0 flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800&quot;&gt;
+      &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+        &lt;div class=&quot;w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5 text-indigo-600 dark:text-indigo-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3 id=&quot;checkout-modal-title&quot; class=&quot;text-lg font-semibold text-gray-900 dark:text-white&quot;&gt;Checkout&lt;/h3&gt;
+          &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;Review your order&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button onclick=&quot;closeModal(&#x27;checkout-modal&#x27;)&quot; class=&quot;p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors&quot;&gt;
+        &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M6 18L18 6M6 6l12 12&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Content --&gt;
+    &lt;div class=&quot;flex-1 overflow-y-auto&quot;&gt;
+      &lt;div class=&quot;grid md:grid-cols-2 gap-6 p-6&quot;&gt;
+        &lt;!-- Order Items --&gt;
+        &lt;div class=&quot;space-y-4&quot;&gt;
+          &lt;h4 class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider&quot;&gt;Order Items&lt;/h4&gt;
+          
+          &lt;!-- Item 1 --&gt;
+          &lt;div class=&quot;flex gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl&quot;&gt;
+            &lt;div class=&quot;w-20 h-20 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-lg flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-10 h-10 text-indigo-600 dark:text-indigo-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;flex-1&quot;&gt;
+              &lt;h5 class=&quot;font-medium text-gray-900 dark:text-white&quot;&gt;Pro Subscription&lt;/h5&gt;
+              &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;Annual plan • Billed yearly&lt;/p&gt;
+              &lt;p class=&quot;mt-1 font-semibold text-indigo-600 dark:text-indigo-400&quot;&gt;$99.00&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;button class=&quot;self-start p-1.5 text-gray-400 hover:text-red-500 transition-colors&quot;&gt;
+              &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          
+          &lt;!-- Item 2 --&gt;
+          &lt;div class=&quot;flex gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl&quot;&gt;
+            &lt;div class=&quot;w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-lg flex items-center justify-center&quot;&gt;
+              &lt;svg class=&quot;w-10 h-10 text-amber-600 dark:text-amber-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;flex-1&quot;&gt;
+              &lt;h5 class=&quot;font-medium text-gray-900 dark:text-white&quot;&gt;Developer Course&lt;/h5&gt;
+              &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;Complete Web Development&lt;/p&gt;
+              &lt;p class=&quot;mt-1 font-semibold text-amber-600 dark:text-amber-400&quot;&gt;$49.00&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;button class=&quot;self-start p-1.5 text-gray-400 hover:text-red-500 transition-colors&quot;&gt;
+              &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Order Summary --&gt;
+        &lt;div class=&quot;space-y-4&quot;&gt;
+          &lt;h4 class=&quot;text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider&quot;&gt;Order Summary&lt;/h4&gt;
+          
+          &lt;div class=&quot;bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-6 text-white&quot;&gt;
+            &lt;div class=&quot;space-y-3&quot;&gt;
+              &lt;div class=&quot;flex justify-between text-sm opacity-90&quot;&gt;
+                &lt;span&gt;Subtotal&lt;/span&gt;
+                &lt;span&gt;$148.00&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;flex justify-between text-sm opacity-90&quot;&gt;
+                &lt;span&gt;Discount (20%)&lt;/span&gt;
+                &lt;span&gt;-$29.60&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;flex justify-between text-sm opacity-90&quot;&gt;
+                &lt;span&gt;Tax&lt;/span&gt;
+                &lt;span&gt;$11.84&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;border-t border-white/20 pt-3 mt-3&quot;&gt;
+                &lt;div class=&quot;flex justify-between&quot;&gt;
+                  &lt;span class=&quot;font-semibold&quot;&gt;Total&lt;/span&gt;
+                  &lt;span class=&quot;text-2xl font-bold&quot;&gt;$130.24&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- Promo Code --&gt;
+            &lt;div class=&quot;mt-6&quot;&gt;
+              &lt;div class=&quot;flex gap-2&quot;&gt;
+                &lt;input type=&quot;text&quot; placeholder=&quot;Promo code&quot; class=&quot;flex-1 px-4 py-2 bg-white/20 backdrop-blur rounded-lg text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50&quot;&gt;
+                &lt;button class=&quot;px-4 py-2 bg-white text-indigo-600 font-medium rounded-lg hover:bg-white/90 transition-colors&quot;&gt;Apply&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          
+          &lt;!-- Payment Method --&gt;
+          &lt;div class=&quot;bg-gray-50 dark:bg-gray-800 rounded-xl p-4&quot;&gt;
+            &lt;div class=&quot;flex items-center justify-between mb-3&quot;&gt;
+              &lt;span class=&quot;text-sm font-medium text-gray-700 dark:text-gray-300&quot;&gt;Payment Method&lt;/span&gt;
+              &lt;button class=&quot;text-sm text-indigo-600 dark:text-indigo-400 hover:underline&quot;&gt;Change&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+              &lt;div class=&quot;w-12 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded flex items-center justify-center text-white text-xs font-bold&quot;&gt;VISA&lt;/div&gt;
+              &lt;div class=&quot;flex-1&quot;&gt;
+                &lt;p class=&quot;text-sm font-medium text-gray-900 dark:text-white&quot;&gt;•••• •••• •••• 4242&lt;/p&gt;
+                &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;&gt;Expires 12/28&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Footer --&gt;
+    &lt;div class=&quot;flex-shrink-0 p-6 border-t border-gray-100 dark:border-gray-800&quot;&gt;
+      &lt;div class=&quot;flex gap-3&quot;&gt;
+        &lt;button onclick=&quot;closeModal(&#x27;checkout-modal&#x27;)&quot; class=&quot;flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors&quot;&gt;Continue Shopping&lt;/button&gt;
+        &lt;button onclick=&quot;closeModal(&#x27;checkout-modal&#x27;)&quot; class=&quot;flex-1 py-3 text-sm font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2&quot;&gt;
+          &lt;span&gt;Complete Purchase&lt;/span&gt;
+          &lt;svg class=&quot;w-4 h-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M14 5l7 7m0 0l-7 7m7-7H3&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Demo Trigger Button --&gt;
+&lt;button onclick=&quot;openModal(&#x27;checkout-modal&#x27;)&quot; class=&quot;px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2&quot;&gt;Open Checkout Modal&lt;/button&gt;
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

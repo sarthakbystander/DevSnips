@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown Menu — React Components — DevSnips</title>
+<meta name="description" content="The canonical action menu: a real menu-button trigger, a role=menu panel of menuitem actions, roving keyboard focus, separators, disabled items, and viewport-aware placement.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Dropdowns" class="hover:text-neutral-900 dark:hover:text-white">Dropdowns</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Dropdown Menu</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Dropdown Menu</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">The canonical action menu: a real menu-button trigger, a role=menu panel of menuitem actions, roving keyboard focus, separators, disabled items, and viewport-aware placement.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Dropdown Menu &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline dark:text-sky-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Dropdown Menu preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Dropdowns</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dropdown</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">menu</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">actions</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accessible</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">keyboard</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">responsive</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Dropdowns/dropdown-menu</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Dropdowns/dropdown-menu');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>role=menu semantics</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>keyboard navigation</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus management</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>outside-pointer close</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>viewport-aware placement</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../dropdown-menu-destructive/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dropdowns</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dropdown Menu Destructive</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A menu containing destructive actions, styled with the restrained semantic destructive token and quarantined below a separator — clearly dangerous, never neon.</p>
+  
+</a><a href="../dropdown-menu-submenu/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dropdowns</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dropdown Menu Submenu</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">One nested menu level with correct menu semantics: ArrowRight opens, ArrowLeft closes, Escape collapses only the submenu, and the panel flips sides at the viewport edge.</p>
+  
+</a><a href="../dropdown-menu-with-icons/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dropdowns</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dropdown Menu with Icons</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Menu items with meaningful leading icons in a consistent 16px aria-hidden slot — the text label still carries the accessible name, so meaning never depends on the icon alone.</p>
+  
+</a><a href="../dropdown-menu-with-sections/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Dropdowns</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Dropdown Menu with Sections</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Related actions grouped under readable section labels with role=group semantics and hairline separators — an account/workspace switcher pattern, not a card stack.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Dropdown Menu</h1>
+<p>The canonical action menu: a real menu-button trigger, a role=menu panel of menuitem actions, roving keyboard focus, separators, disabled items, and viewport-aware placement.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+import DropdownMenu, {
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from &quot;./dropdown-menu&quot;;
+
+&lt;DropdownMenu&gt;
+  &lt;DropdownMenuTrigger&gt;Actions&lt;/DropdownMenuTrigger&gt;
+  &lt;DropdownMenuContent&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; renameProject()}&gt;Rename project&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; duplicateProject()}&gt;Duplicate project&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuItem disabled&gt;Transfer ownership&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuSeparator /&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; archiveProject()}&gt;Archive project&lt;/DropdownMenuItem&gt;
+  &lt;/DropdownMenuContent&gt;
+&lt;/DropdownMenu&gt;
+
+// Uncontrolled (default) or controlled:
+const [open, setOpen] = useState(false);
+&lt;DropdownMenu open={open} onOpenChange={setOpen}&gt;…&lt;/DropdownMenu&gt;
+
+// Placement (flips to stay in the viewport):
+&lt;DropdownMenu placement=&quot;bottom-end&quot;&gt;…&lt;/DropdownMenu&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+import DropdownMenu, {
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from &quot;./dropdown-menu&quot;;
+
+&lt;DropdownMenu&gt;
+  &lt;DropdownMenuTrigger&gt;Actions&lt;/DropdownMenuTrigger&gt;
+  &lt;DropdownMenuContent&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; renameProject()}&gt;Rename project&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; duplicateProject()}&gt;Duplicate project&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuItem disabled&gt;Transfer ownership&lt;/DropdownMenuItem&gt;
+    &lt;DropdownMenuSeparator /&gt;
+    &lt;DropdownMenuItem onSelect={() =&gt; archiveProject()}&gt;Archive project&lt;/DropdownMenuItem&gt;
+  &lt;/DropdownMenuContent&gt;
+&lt;/DropdownMenu&gt;
+
+// Uncontrolled (default) or controlled:
+const [open, setOpen] = useState(false);
+&lt;DropdownMenu open={open} onOpenChange={setOpen}&gt;…&lt;/DropdownMenu&gt;
+
+// Placement (flips to stay in the viewport):
+&lt;DropdownMenu placement=&quot;bottom-end&quot;&gt;…&lt;/DropdownMenu&gt;
+</code></pre>
+<h2>Props</h2>
+<h3><code>&lt;DropdownMenu&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>open</code> | <code>boolean</code> | — | Open state (controlled). |</p>
+<p>| <code>defaultOpen</code> | <code>boolean</code> | <code>false</code> | Initial open state (uncontrolled). |</p>
+<p>| <code>onOpenChange</code> | <code>(open: boolean) =&gt; void</code> | — | Called whenever the menu requests to open or close. |</p>
+<p>| <code>placement</code> | <code>&quot;bottom-start&quot; \| &quot;bottom-end&quot; \| &quot;top-start&quot; \| &quot;top-end&quot;</code> | <code>&quot;bottom-start&quot;</code> | Preferred placement; flips to stay in the viewport. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the relative wrapper. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | <code>DropdownMenuTrigger</code> + <code>DropdownMenuContent</code>. |</p>
+<h3><code>&lt;DropdownMenuTrigger&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the button. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Visible trigger label (a chevron is rendered after it). |</p>
+<p>A real <code>&lt;button type=&quot;button&quot;&gt;</code> with <code>aria-haspopup=&quot;menu&quot;</code> + <code>aria-expanded</code>; every native button attribute (<code>disabled</code>, <code>aria-label</code>, …) is forwarded.</p>
+<h3><code>&lt;DropdownMenuContent&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>role=&quot;menu&quot;</code> panel. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Items, labels, groups, and separators. |</p>
+<p>Rendered only while open. Labelled by the trigger via <code>aria-labelledby</code>; pass <code>aria-label</code> to override.</p>
+<h3><code>&lt;DropdownMenuItem&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>icon</code> | <code>ReactNode</code> | — | Meaningful leading icon (rendered aria-hidden). |</p>
+<p>| <code>shortcut</code> | <code>string</code> | — | Informational shortcut at the trailing edge (aria-hidden; exposed via <code>aria-keyshortcuts</code>). |</p>
+<p>| <code>destructive</code> | <code>boolean</code> | <code>false</code> | Destructive styling via the semantic destructive token. |</p>
+<p>| <code>disabled</code> | <code>boolean</code> | <code>false</code> | Native disabled: skipped by arrow keys, out of the tab order, not activatable. |</p>
+<p>| <code>closeOnSelect</code> | <code>boolean</code> | <code>true</code> | Whether activating the item closes the menu. |</p>
+<p>| <code>onSelect</code> | <code>(event) =&gt; void</code> | — | Called on activation before the menu closes; <code>event.preventDefault()</code> keeps the menu open. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Visible item label. |</p>
+<h3><code>&lt;DropdownMenuLabel&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the label. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Section heading text. |</p>
+<p>Non-interactive. Give it an <code>id</code> and point the group&#x27;s <code>aria-labelledby</code> at it when labelling a <code>DropdownMenuGroup</code>.</p>
+<h3><code>&lt;DropdownMenuGroup&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the group. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Grouped items. |</p>
+<p>Renders <code>role=&quot;group&quot;</code>; forward <code>aria-labelledby</code> to associate it with its <code>DropdownMenuLabel</code>.</p>
+<h3><code>&lt;DropdownMenuSeparator&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the separator. |</p>
+<p>A <code>role=&quot;separator&quot;</code> horizontal rule. Not focusable, not announced as an item.</p>
+<h2>Composition</h2>
+<p>Dropdown Menu is a compound component. Seven primitives compose the pattern:</p>
+<pre class="code-block"><code>
+&lt;DropdownMenu&gt;
+  &lt;DropdownMenuTrigger&gt;Actions&lt;/DropdownMenuTrigger&gt;
+  &lt;DropdownMenuContent&gt;
+    &lt;DropdownMenuLabel&gt;Project&lt;/DropdownMenuLabel&gt;
+    &lt;DropdownMenuGroup&gt;
+      &lt;DropdownMenuItem&gt;Edit&lt;/DropdownMenuItem&gt;
+      &lt;DropdownMenuItem&gt;Duplicate&lt;/DropdownMenuItem&gt;
+    &lt;/DropdownMenuGroup&gt;
+    &lt;DropdownMenuSeparator /&gt;
+    &lt;DropdownMenuItem destructive&gt;Delete&lt;/DropdownMenuItem&gt;
+  &lt;/DropdownMenuContent&gt;
+&lt;/DropdownMenu&gt;
+</code></pre>
+<ul>
+<li><code>DropdownMenu</code> — the root. Owns the open state (controlled via <code>open</code> + <code>onOpenChange</code>, or uncontrolled via <code>defaultOpen</code>), the trigger/content id wiring, the placement preference, and outside-pointer closing. Renders a <code>relative inline-flex</code> wrapper the menu panel anchors to.</li>
+<li><code>DropdownMenuTrigger</code> — a real <code>&lt;button type=&quot;button&quot;&gt;</code> with <code>aria-haspopup=&quot;menu&quot;</code> + <code>aria-expanded</code>. Click toggles; ArrowDown opens with the first item focused, ArrowUp with the last. The trailing chevron rotates while open.</li>
+<li><code>DropdownMenuContent</code> — the <code>role=&quot;menu&quot;</code> panel, labelled by the trigger. Rendered only while open; measures itself before paint and flips placement to stay in the viewport.</li>
+<li><code>DropdownMenuItem</code> — one action: a real <code>&lt;button&gt;</code> with <code>role=&quot;menuitem&quot;</code>. Optional <code>icon</code>, <code>shortcut</code>, <code>destructive</code>, <code>disabled</code>, <code>closeOnSelect</code>, and <code>onSelect</code> props.</li>
+<li><code>DropdownMenuLabel</code> — a non-interactive section heading (uppercase, tracked, smaller type).</li>
+<li><code>DropdownMenuGroup</code> — a <code>role=&quot;group&quot;</code> wrapper; associate it with its label via <code>aria-labelledby</code>.</li>
+<li><code>DropdownMenuSeparator</code> — a <code>role=&quot;separator&quot;</code> horizontal rule between groups.</li>
+</ul>
+<p>This is the reference composition — every other variant in the family uses the same primitives and extends the same class constants, states, and accessibility model.</p>
+<h2>Menu Behavior</h2>
+<p>The root <code>&lt;DropdownMenu&gt;</code> owns the open state. Both modes are supported:</p>
+<ul>
+<li><strong>Controlled</strong> — pass <code>open</code> + <code>onOpenChange</code>; the parent owns the state.</li>
+<li><strong>Uncontrolled</strong> — pass <code>defaultOpen</code>; the component owns the state.</li>
+</ul>
+<p>Opening moves focus into the menu: the first item, or the last item when the trigger was invoked with ArrowUp. Activating an item runs its <code>onSelect</code> and then closes the menu (set <code>closeOnSelect={false}</code> or call <code>event.preventDefault()</code> in <code>onSelect</code> to keep it open). Closing — via selection, Escape, the trigger, or a pointer down outside — returns focus to the trigger, except on Tab, where focus is allowed to move forward naturally.</p>
+<p>The panel opens relative to its trigger at the requested <code>placement</code> (<code>bottom-start</code> by default) and measures itself in a layout effect before paint: if the preferred side would leave the viewport, it flips to the other side (bottom ↔ top, start ↔ end). The panel also caps its own height (<code>min(20rem, 100vh - 2rem)</code> with internal scrolling) and width (<code>100vw - 1.5rem</code>), so menus never routinely overflow the viewport. No positioning library is involved.</p>
+<h2>Keyboard Interaction</h2>
+<p>| Key | Behavior |</p>
+<p>|---|---|</p>
+<p>| <code>Enter</code> / <code>Space</code> (trigger) | Open the menu, focus the first item |</p>
+<p>| <code>ArrowDown</code> (trigger) | Open the menu, focus the first item |</p>
+<p>| <code>ArrowUp</code> (trigger) | Open the menu, focus the last item |</p>
+<p>| <code>ArrowDown</code> / <code>ArrowUp</code> (menu) | Move focus to the next / previous enabled item, wrapping at the ends |</p>
+<p>| <code>Home</code> / <code>End</code> (menu) | Focus the first / last enabled item |</p>
+<p>| <code>Enter</code> / <code>Space</code> (menu) | Activate the focused item (native button behavior) |</p>
+<p>| <code>Escape</code> | Close the menu and return focus to the trigger |</p>
+<p>| <code>Tab</code> | Close the menu and move focus forward naturally |</p>
+<p>The trigger and items are native <code>&lt;button&gt;</code> elements, so Enter/Space activation follows normal browser behavior. Disabled items use the native <code>disabled</code> attribute: they are skipped by arrow-key navigation, removed from the tab order, and cannot be activated.</p>
+<h2>Accessibility</h2>
+<p>The structure follows the WAI-ARIA menu button pattern.</p>
+<ul>
+<li>The trigger is a native <code>&lt;button&gt;</code> with <code>aria-haspopup=&quot;menu&quot;</code>, <code>aria-expanded</code>, and <code>aria-controls</code> pointing at the open panel.</li>
+<li>The panel is <code>role=&quot;menu&quot;</code> labelled by its trigger (<code>aria-labelledby</code>); items are <code>role=&quot;menuitem&quot;</code> on real <code>&lt;button&gt;</code> elements — no <code>div</code> click handlers.</li>
+<li>Focus is real DOM focus: opening moves focus into the menu, closing returns it to the trigger, and focus is never left on an unmounted element.</li>
+<li>Disabled items carry the native <code>disabled</code> attribute, which assistive technology announces as unavailable.</li>
+<li><code>DropdownMenuSeparator</code> uses <code>role=&quot;separator&quot;</code>; icons are <code>aria-hidden</code> decoration and shortcuts are exposed via <code>aria-keyshortcuts</code>, so accessible names stay clean.</li>
+</ul>
+<p>Only one menu is open at a time per root; mounting a second <code>&lt;DropdownMenu&gt;</code> on the same page is safe because each root scopes its own trigger, panel, and listeners.</p>
+<h2>States</h2>
+<ul>
+<li><strong>Trigger (idle)</strong> — bordered surface button with a muted chevron; hover shifts to a subtle surface.</li>
+<li><strong>Trigger (open)</strong> — <code>aria-expanded=&quot;true&quot;</code>; keeps the hover surface and rotates the chevron 180°.</li>
+<li><strong>Item (idle)</strong> — foreground text on the elevated menu surface.</li>
+<li><strong>Item (hover / focus)</strong> — <code>--ds-color-surface-hover</code> background; keyboard focus additionally shows the <code>--ds-color-focus-ring</code> outline inside the item bounds.</li>
+<li><strong>Item (disabled)</strong> — native <code>disabled</code>: 50% opacity, no pointer events, skipped by arrow keys, out of the tab order.</li>
+<li><strong>Panel</strong> — <code>--ds-color-surface-elevated</code> with a 1px <code>--ds-color-border</code> and the restrained <code>--ds-shadow-md</code>, per the Dropdown/Popover token rules (radius-md, subtle border, body-sm type).</li>
+</ul>
+<h2>Responsive Behavior</h2>
+<p>The menu panel caps its width at <code>100vw - 1.5rem</code> and its height at <code>min(20rem, 100vh - 2rem)</code> with internal scrolling, so it stays inside the viewport at every width from 375px up without shrinking the trigger. Placement flips (bottom ↔ top, start ↔ end) keep the panel attached to its trigger near viewport edges. Long item labels truncate within the panel rather than forcing horizontal page overflow; the trigger label truncates within its own <code>max-w-full</code> bounds. The trigger keeps the shared 36px (h-9) control height — a comfortable touch target — at every breakpoint.</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>bg-[var(--ds-color-surface-elevated)]</code>). Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This dropdown-menu variant uses the semantic color, radius, shadow, typography, and motion tokens.</p>
+<h2>Notes</h2>
+<p>Reference implementation for the Dropdowns family. It establishes the shared menu geometry (radius-md panel, 13px items, 36px trigger), the surface/border/shadow model, the focus-ring treatment, the open/close + focus-restore behavior, and the viewport flip logic that every other variant extends.</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>import {
+  createContext,
+  useContext,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from &quot;react&quot;;
+import type {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  KeyboardEvent as ReactKeyboardEvent,
+  MouseEvent as ReactMouseEvent,
+  ReactNode,
+  RefObject,
+} from &quot;react&quot;;
+
+/**
+ * DevSnips React Dropdown Menu — reference implementation.
+ *
+ * A compound action menu following the WAI-ARIA menu button pattern:
+ * a real `&lt;button&gt;` trigger (`aria-haspopup=&quot;menu&quot;` + `aria-expanded`),
+ * a `role=&quot;menu&quot;` panel of `role=&quot;menuitem&quot;` buttons, real DOM focus
+ * (arrow keys move actual focus between items), Escape / outside pointer
+ * close with focus restored to the trigger, and a viewport-aware
+ * placement flip (bottom/top × start/end) with no positioning dependency.
+ *
+ * Composition: `&lt;DropdownMenu&gt;` (root state) + `&lt;DropdownMenuTrigger&gt;` +
+ * `&lt;DropdownMenuContent&gt;` + `&lt;DropdownMenuItem&gt;` / `&lt;DropdownMenuLabel&gt;` /
+ * `&lt;DropdownMenuGroup&gt;` / `&lt;DropdownMenuSeparator&gt;`. Checkbox, radio, and
+ * submenu primitives extend this same core in their own variants.
+ */
+
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+export type DropdownMenuPlacement = &quot;bottom-start&quot; | &quot;bottom-end&quot; | &quot;top-start&quot; | &quot;top-end&quot;;
+
+const TRIGGER_CLASSES =
+  &quot;inline-flex h-9 max-w-full items-center gap-2 rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] px-3 text-sm font-medium leading-5 text-[var(--ds-color-foreground)] shadow-[var(--ds-shadow-xs)] transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] aria-expanded:bg-[var(--ds-color-surface-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;;
+const MENU_CLASSES =
+  &quot;absolute z-40 max-h-[min(20rem,calc(100vh-2rem))] min-w-[12rem] max-w-[calc(100vw-1.5rem)] overflow-y-auto rounded-[var(--ds-radius-md)] border border-[var(--ds-color-border)] bg-[var(--ds-color-surface-elevated)] p-1 shadow-[var(--ds-shadow-md)]&quot;;
+// Layout/interaction only — the text/hover/focus tone is composed per item
+// kind so the destructive tone never conflicts with the default tone.
+const ITEM_CLASSES =
+  &quot;flex w-full items-center gap-2 rounded-[var(--ds-radius-sm)] px-2 py-1.5 text-left text-[13px] leading-5 transition-colors duration-150 ease-out focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--ds-color-focus-ring)] disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none&quot;;
+const ITEM_TONE_DEFAULT =
+  &quot;text-[var(--ds-color-foreground)] hover:bg-[var(--ds-color-surface-hover)] focus:bg-[var(--ds-color-surface-hover)]&quot;;
+const ITEM_TONE_DESTRUCTIVE =
+  &quot;text-[var(--ds-color-destructive)] hover:bg-[var(--ds-color-destructive-soft)] focus:bg-[var(--ds-color-destructive-soft)]&quot;;
+const ICON_SLOT_CLASSES = &quot;inline-flex shrink-0 [&amp;_svg]:size-4&quot;;
+const SHORTCUT_CLASSES =
+  &quot;ml-auto shrink-0 pl-6 text-xs leading-5 text-[var(--ds-color-muted-foreground)]&quot;;
+const LABEL_CLASSES =
+  &quot;px-2 pb-1 pt-1.5 text-[11px] font-medium uppercase tracking-[0.05em] text-[var(--ds-color-muted-foreground)]&quot;;
+const SEPARATOR_CLASSES = &quot;mx-1 my-1 h-px bg-[var(--ds-color-border)]&quot;;
+
+const PLACEMENT_CLASSES: Record&lt;DropdownMenuPlacement, string&gt; = {
+  &quot;bottom-start&quot;: &quot;left-0 top-full mt-1.5&quot;,
+  &quot;bottom-end&quot;: &quot;right-0 top-full mt-1.5&quot;,
+  &quot;top-start&quot;: &quot;bottom-full left-0 mb-1.5&quot;,
+  &quot;top-end&quot;: &quot;bottom-full right-0 mb-1.5&quot;,
+};
+
+/** Items owned directly by `content` (excludes items of nested open submenus). */
+function menuItems(content: HTMLElement): HTMLElement[] {
+  return Array.from(
+    content.querySelectorAll&lt;HTMLElement&gt;(
+      &#x27;[role=&quot;menuitem&quot;], [role=&quot;menuitemcheckbox&quot;], [role=&quot;menuitemradio&quot;]&#x27;,
+    ),
+  ).filter(
+    (el) =&gt;
+      el.closest(&#x27;[role=&quot;menu&quot;]&#x27;) === content &amp;&amp;
+      !el.hasAttribute(&quot;disabled&quot;) &amp;&amp;
+      el.getAttribute(&quot;aria-disabled&quot;) !== &quot;true&quot;,
+  );
+}
+
+function focusItem(items: HTMLElement[], index: number): void {
+  if (items.length === 0) return;
+  const wrapped = ((index % items.length) + items.length) % items.length;
+  items[wrapped].focus();
+}
+
+function ChevronDown({ className }: { className?: string }) {
+  return (
+    &lt;svg
+      className={className}
+      viewBox=&quot;0 0 24 24&quot;
+      fill=&quot;none&quot;
+      stroke=&quot;currentColor&quot;
+      strokeWidth={1.75}
+      strokeLinecap=&quot;round&quot;
+      strokeLinejoin=&quot;round&quot;
+      aria-hidden=&quot;true&quot;
+      focusable=&quot;false&quot;
+    &gt;
+      &lt;path d=&quot;m6 9 6 6 6-6&quot; /&gt;
+    &lt;/svg&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* Root context                                                              */
+/* ------------------------------------------------------------------------ */
+
+interface DropdownMenuContextValue {
+  open: boolean;
+  initialFocus: &quot;first&quot; | &quot;last&quot;;
+  requestOpen(next: boolean, focusTarget?: &quot;first&quot; | &quot;last&quot;): void;
+  closeMenu(options?: { refocus?: boolean }): void;
+  triggerRef: RefObject&lt;HTMLButtonElement&gt;;
+  rootRef: RefObject&lt;HTMLDivElement&gt;;
+  triggerId: string;
+  contentId: string;
+  placement: DropdownMenuPlacement;
+}
+
+const DropdownMenuContext = createContext&lt;DropdownMenuContextValue | null&gt;(null);
+
+function useDropdownMenu(component: string): DropdownMenuContextValue {
+  const context = useContext(DropdownMenuContext);
+  if (!context) {
+    throw new Error(`&lt;${component}&gt; must be rendered inside &lt;DropdownMenu&gt;.`);
+  }
+  return context;
+}
+
+/**
+ * Registry of open submenus at one menu level, so pointer interaction with a
+ * sibling item can close the open submenu at that level. Provided by every
+ * menu panel (`DropdownMenuContent`, and `DropdownMenuSubContent` in the
+ * submenu variant).
+ */
+interface MenuLevelContextValue {
+  registerSub(close: () =&gt; void): () =&gt; void;
+  closeSubs(except?: () =&gt; void): void;
+}
+
+const MenuLevelContext = createContext&lt;MenuLevelContextValue | null&gt;(null);
+
+function useMenuLevel(): MenuLevelContextValue {
+  const subsRef = useRef&lt;Set&lt;() =&gt; void&gt; | null&gt;(null);
+  const levelRef = useRef&lt;MenuLevelContextValue | null&gt;(null);
+  if (!subsRef.current) subsRef.current = new Set();
+  if (!levelRef.current) {
+    const subs = subsRef.current;
+    levelRef.current = {
+      registerSub(close) {
+        subs.add(close);
+        return () =&gt; {
+          subs.delete(close);
+        };
+      },
+      closeSubs(except) {
+        subs.forEach((close) =&gt; {
+          if (close !== except) close();
+        });
+      },
+    };
+  }
+  return levelRef.current;
+}
+
+/* ------------------------------------------------------------------------ */
+/* DropdownMenu (root)                                                       */
+/* ------------------------------------------------------------------------ */
+
+export interface DropdownMenuProps {
+  /** Open state (controlled). */
+  open?: boolean;
+  /** Initial open state (uncontrolled). */
+  defaultOpen?: boolean;
+  /** Called whenever the menu requests to open or close. */
+  onOpenChange?: (open: boolean) =&gt; void;
+  /** Preferred placement relative to the trigger; flips to stay in the viewport. */
+  placement?: DropdownMenuPlacement;
+  className?: string;
+  children?: ReactNode;
+}
+
+export function DropdownMenu({
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  placement = &quot;bottom-start&quot;,
+  className,
+  children,
+}: DropdownMenuProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [initialFocus, setInitialFocus] = useState&lt;&quot;first&quot; | &quot;last&quot;&gt;(&quot;first&quot;);
+  const isControlled = open !== undefined;
+  const actualOpen = isControlled ? open : internalOpen;
+  const triggerRef = useRef&lt;HTMLButtonElement&gt;(null);
+  const rootRef = useRef&lt;HTMLDivElement&gt;(null);
+  const reactId = useId();
+  const triggerId = `ds-menu-trigger${reactId}`;
+  const contentId = `ds-menu${reactId}`;
+
+  function requestOpen(next: boolean, focusTarget: &quot;first&quot; | &quot;last&quot; = &quot;first&quot;) {
+    setInitialFocus(focusTarget);
+    if (!isControlled) setInternalOpen(next);
+    onOpenChange?.(next);
+  }
+
+  function closeMenu({ refocus = true }: { refocus?: boolean } = {}) {
+    requestOpen(false);
+    if (refocus) triggerRef.current?.focus();
+  }
+
+  // Outside pointer interaction closes the tree; listeners exist only while
+  // open and are removed as soon as it closes.
+  useEffect(() =&gt; {
+    if (!actualOpen) return;
+    function onPointerDown(event: PointerEvent) {
+      if (rootRef.current &amp;&amp; !rootRef.current.contains(event.target as Node)) {
+        if (!isControlled) setInternalOpen(false);
+        onOpenChange?.(false);
+      }
+    }
+    document.addEventListener(&quot;pointerdown&quot;, onPointerDown);
+    return () =&gt; document.removeEventListener(&quot;pointerdown&quot;, onPointerDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualOpen]);
+
+  const value: DropdownMenuContextValue = {
+    open: actualOpen,
+    initialFocus,
+    requestOpen,
+    closeMenu,
+    triggerRef,
+    rootRef,
+    triggerId,
+    contentId,
+    placement,
+  };
+
+  return (
+    &lt;DropdownMenuContext.Provider value={value}&gt;
+      &lt;div ref={rootRef} className={cx(&quot;relative inline-flex&quot;, className)}&gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/DropdownMenuContext.Provider&gt;
+  );
+}
+
+export default DropdownMenu;
+
+/* ------------------------------------------------------------------------ */
+/* DropdownMenuTrigger                                                       */
+/* ------------------------------------------------------------------------ */
+
+export interface DropdownMenuTriggerProps
+  extends ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
+  children?: ReactNode;
+}
+
+export function DropdownMenuTrigger({
+  children,
+  className,
+  onClick,
+  onKeyDown,
+  ...rest
+}: DropdownMenuTriggerProps) {
+  const context = useDropdownMenu(&quot;DropdownMenuTrigger&quot;);
+
+  function handleClick(event: ReactMouseEvent&lt;HTMLButtonElement&gt;) {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+    if (context.open) {
+      context.closeMenu();
+    } else {
+      context.requestOpen(true, &quot;first&quot;);
+    }
+  }
+
+  function handleKeyDown(event: ReactKeyboardEvent&lt;HTMLButtonElement&gt;) {
+    onKeyDown?.(event);
+    if (event.defaultPrevented) return;
+    if (event.key === &quot;ArrowDown&quot;) {
+      event.preventDefault();
+      context.requestOpen(true, &quot;first&quot;);
+    } else if (event.key === &quot;ArrowUp&quot;) {
+      event.preventDefault();
+      context.requestOpen(true, &quot;last&quot;);
+    }
+  }
+
+  return (
+    &lt;button
+      type=&quot;button&quot;
+      ref={context.triggerRef}
+      id={context.triggerId}
+      aria-haspopup=&quot;menu&quot;
+      aria-expanded={context.open}
+      aria-controls={context.open ? context.contentId : undefined}
+      data-state={context.open ? &quot;open&quot; : &quot;closed&quot;}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      className={cx(TRIGGER_CLASSES, className)}
+      {...rest}
+    &gt;
+      &lt;span className=&quot;min-w-0 truncate&quot;&gt;{children}&lt;/span&gt;
+      &lt;ChevronDown
+        className={cx(
+          &quot;size-4 shrink-0 text-[var(--ds-color-muted-foreground)] transition-transform duration-150 ease-out motion-reduce:transition-none&quot;,
+          context.open &amp;&amp; &quot;rotate-180&quot;,
+        )}
+      /&gt;
+    &lt;/button&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DropdownMenuContent                                                       */
+/* ------------------------------------------------------------------------ */
+
+export interface DropdownMenuContentProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DropdownMenuContent({
+  children,
+  className,
+  onKeyDown,
+  ...rest
+}: DropdownMenuContentProps) {
+  const context = useDropdownMenu(&quot;DropdownMenuContent&quot;);
+  const level = useMenuLevel();
+  const contentRef = useRef&lt;HTMLDivElement&gt;(null);
+  const [resolved, setResolved] = useState&lt;DropdownMenuPlacement&gt;(context.placement);
+  const [measured, setMeasured] = useState(false);
+
+  const open = context.open;
+
+  // Move focus into the menu when it opens (first item, or last when the
+  // trigger was invoked with ArrowUp).
+  useEffect(() =&gt; {
+    if (!open) return;
+    const node = contentRef.current;
+    if (!node) return;
+    const items = menuItems(node);
+    focusItem(items, context.initialFocus === &quot;last&quot; ? items.length - 1 : 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
+
+  // Measure against the viewport and flip the placement when the preferred
+  // side/alignment would overflow. Runs before paint, so the flip never
+  // flashes; the panel stays `invisible` until the first measurement.
+  useLayoutEffect(() =&gt; {
+    if (!open) {
+      setMeasured(false);
+      setResolved(context.placement);
+      return;
+    }
+    const node = contentRef.current;
+    const trigger = context.triggerRef.current;
+    if (!node || !trigger) return;
+    const t = trigger.getBoundingClientRect();
+    const c = node.getBoundingClientRect();
+    const margin = 8;
+    const below = window.innerHeight - t.bottom;
+    const above = t.top;
+    let side: &quot;top&quot; | &quot;bottom&quot; = context.placement.startsWith(&quot;top&quot;) ? &quot;top&quot; : &quot;bottom&quot;;
+    if (side === &quot;bottom&quot; &amp;&amp; below &lt; c.height + margin &amp;&amp; above &gt; below) side = &quot;top&quot;;
+    else if (side === &quot;top&quot; &amp;&amp; above &lt; c.height + margin &amp;&amp; below &gt; above) side = &quot;bottom&quot;;
+    let align: &quot;start&quot; | &quot;end&quot; = context.placement.endsWith(&quot;end&quot;) ? &quot;end&quot; : &quot;start&quot;;
+    if (align === &quot;start&quot; &amp;&amp; t.left + c.width &gt; window.innerWidth - margin &amp;&amp; t.right - c.width &gt;= margin) {
+      align = &quot;end&quot;;
+    } else if (align === &quot;end&quot; &amp;&amp; t.right - c.width &lt; margin &amp;&amp; t.left + c.width &lt;= window.innerWidth - margin) {
+      align = &quot;start&quot;;
+    }
+    setResolved(`${side}-${align}`);
+    setMeasured(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, context.placement]);
+
+  function handleKeyDown(event: ReactKeyboardEvent&lt;HTMLDivElement&gt;) {
+    onKeyDown?.(event);
+    if (event.defaultPrevented) return;
+    const node = contentRef.current;
+    if (!node) return;
+    const items = menuItems(node);
+    const current = items.indexOf(document.activeElement as HTMLElement);
+    switch (event.key) {
+      case &quot;ArrowDown&quot;:
+        event.preventDefault();
+        event.stopPropagation();
+        focusItem(items, current + 1);
+        break;
+      case &quot;ArrowUp&quot;:
+        event.preventDefault();
+        event.stopPropagation();
+        focusItem(items, current - 1);
+        break;
+      case &quot;Home&quot;:
+        event.preventDefault();
+        event.stopPropagation();
+        focusItem(items, 0);
+        break;
+      case &quot;End&quot;:
+        event.preventDefault();
+        event.stopPropagation();
+        focusItem(items, items.length - 1);
+        break;
+      case &quot;Escape&quot;:
+        event.preventDefault();
+        event.stopPropagation();
+        context.closeMenu();
+        break;
+      case &quot;Tab&quot;:
+        // Let focus leave naturally; close without stealing it back.
+        context.closeMenu({ refocus: false });
+        break;
+      default:
+        break;
+    }
+  }
+
+  // Hovering a plain item closes the open submenu at this level.
+  function handlePointerOver(event: ReactMouseEvent&lt;HTMLDivElement&gt;) {
+    const node = contentRef.current;
+    if (!node) return;
+    const item = (event.target as HTMLElement).closest&lt;HTMLElement&gt;(
+      &#x27;[role=&quot;menuitem&quot;], [role=&quot;menuitemcheckbox&quot;], [role=&quot;menuitemradio&quot;]&#x27;,
+    );
+    if (!item || item.closest(&#x27;[role=&quot;menu&quot;]&#x27;) !== node) return;
+    if (!item.hasAttribute(&quot;data-ds-subtrigger&quot;)) level.closeSubs();
+  }
+
+  if (!open) return null;
+
+  return (
+    &lt;MenuLevelContext.Provider value={level}&gt;
+      &lt;div
+        ref={contentRef}
+        id={context.contentId}
+        role=&quot;menu&quot;
+        aria-labelledby={context.triggerId}
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
+        onPointerOver={handlePointerOver}
+        className={cx(MENU_CLASSES, PLACEMENT_CLASSES[resolved], !measured &amp;&amp; &quot;invisible&quot;, className)}
+        {...rest}
+      &gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/MenuLevelContext.Provider&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DropdownMenuItem                                                          */
+/* ------------------------------------------------------------------------ */
+
+export interface DropdownMenuItemProps
+  extends ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
+  /** Meaningful leading icon (rendered aria-hidden). */
+  icon?: ReactNode;
+  /** Informational keyboard shortcut shown at the trailing edge (aria-hidden; exposed via aria-keyshortcuts). */
+  shortcut?: string;
+  /** Destructive action styling via the semantic destructive token. */
+  destructive?: boolean;
+  /** Whether activating the item closes the menu (default true). */
+  closeOnSelect?: boolean;
+  /** Called when the item is activated, before the menu closes. Call `event.preventDefault()` to keep the menu open. */
+  onSelect?: (event: ReactMouseEvent&lt;HTMLButtonElement&gt;) =&gt; void;
+  children?: ReactNode;
+}
+
+export function DropdownMenuItem({
+  icon,
+  shortcut,
+  destructive = false,
+  closeOnSelect = true,
+  onSelect,
+  onClick,
+  onMouseEnter,
+  className,
+  children,
+  ...rest
+}: DropdownMenuItemProps) {
+  const context = useDropdownMenu(&quot;DropdownMenuItem&quot;);
+
+  function handleClick(event: ReactMouseEvent&lt;HTMLButtonElement&gt;) {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+    onSelect?.(event);
+    if (event.defaultPrevented) return;
+    if (closeOnSelect) context.closeMenu();
+  }
+
+  function handleMouseEnter(event: ReactMouseEvent&lt;HTMLButtonElement&gt;) {
+    onMouseEnter?.(event);
+    event.currentTarget.focus();
+  }
+
+  return (
+    &lt;button
+      type=&quot;button&quot;
+      role=&quot;menuitem&quot;
+      tabIndex={-1}
+      aria-keyshortcuts={shortcut}
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      className={cx(ITEM_CLASSES, destructive ? ITEM_TONE_DESTRUCTIVE : ITEM_TONE_DEFAULT, className)}
+      {...rest}
+    &gt;
+      {icon ? (
+        &lt;span
+          aria-hidden=&quot;true&quot;
+          className={cx(
+            ICON_SLOT_CLASSES,
+            destructive ? &quot;text-current&quot; : &quot;text-[var(--ds-color-muted-foreground)]&quot;,
+          )}
+        &gt;
+          {icon}
+        &lt;/span&gt;
+      ) : null}
+      &lt;span className=&quot;min-w-0 flex-1 truncate&quot;&gt;{children}&lt;/span&gt;
+      {shortcut ? (
+        &lt;span aria-hidden=&quot;true&quot; className={SHORTCUT_CLASSES}&gt;
+          {shortcut}
+        &lt;/span&gt;
+      ) : null}
+    &lt;/button&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* DropdownMenuLabel / DropdownMenuGroup / DropdownMenuSeparator             */
+/* ------------------------------------------------------------------------ */
+
+export interface DropdownMenuLabelProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DropdownMenuLabel({ className, children, ...rest }: DropdownMenuLabelProps) {
+  return (
+    &lt;div className={cx(LABEL_CLASSES, className)} {...rest}&gt;
+      {children}
+    &lt;/div&gt;
+  );
+}
+
+export interface DropdownMenuGroupProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  children?: ReactNode;
+}
+
+export function DropdownMenuGroup({ className, children, ...rest }: DropdownMenuGroupProps) {
+  return (
+    &lt;div role=&quot;group&quot; className={className} {...rest}&gt;
+      {children}
+    &lt;/div&gt;
+  );
+}
+
+export function DropdownMenuSeparator({
+  className,
+  ...rest
+}: HTMLAttributes&lt;HTMLDivElement&gt;) {
+  return (
+    &lt;div
+      role=&quot;separator&quot;
+      aria-orientation=&quot;horizontal&quot;
+      className={cx(SEPARATOR_CLASSES, className)}
+      {...rest}
+    /&gt;
+  );
+}
+</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

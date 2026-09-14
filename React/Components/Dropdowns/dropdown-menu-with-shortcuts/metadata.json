@@ -1,0 +1,69 @@
+{
+  "id": "dropdown-menu-with-shortcuts-react-001",
+  "name": "Dropdown Menu with Shortcuts",
+  "slug": "dropdown-menu-with-shortcuts",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-with-shortcuts",
+  "description": "Informational keyboard shortcuts aligned to the trailing edge of menu items \u2014 exposed via aria-keyshortcuts, never part of the accessible name, with stable right alignment.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "shortcuts",
+    "hotkeys",
+    "keyboard"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "aria-keyshortcuts",
+    "trailing shortcut column",
+    "truncation-safe"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "aria-keyshortcuts",
+    "aria-hidden shortcut glyphs"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-with-icons",
+    "dropdown-menu-checkboxes"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "switch-react-001",
+  "name": "Switch",
+  "slug": "switch",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch",
+  "description": "Native switch styled to the DevSnips select/input visual language with controlled and uncontrolled modes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch-with-label",
+    "switch-group",
+    "switch-card",
+    "switch-disabled"
+  ]
+}

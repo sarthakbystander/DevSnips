@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Incident Command Platform — Tailwind Template — DevSnips</title>
+<meta name="description" content="A premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams. Neo-Industrial utility language meets Swiss Minimal discipline — 1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display type, JetBrains Mono metadata, a hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../Tailwind/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Tailwind/Templates/index.html" class="hover:text-neutral-900 dark:hover:text-white">Templates</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Meridian Incident Command Platform</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Meridian Incident Command Platform</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A premium single-page Tailwind CSS template for an incident command platform built for on-call engineering teams. Neo-Industrial utility language meets Swiss Minimal discipline — 1px hairline rules, graph-paper blueprint surfaces, Space Grotesk display type, JetBrains Mono metadata, a hand-built incident command-surface hero with a live latency sparkline and floating signal/escalation cards, a directed alert-routing graph visualization, a five-step incident lifecycle workflow, dark customer-outcome metrics, engineer testimonials, per-on-call-team pricing, a scoped single-open FAQ accordion, and a dark corner-tick conversion CTA.</p>
+      </div>
+      <a href="_src/preview.html" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Full preview &#8599;</a>
+    </div>
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Meridian Incident Command Platform &mdash; live preview</span>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-slate-600 hover:underline dark:text-slate-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/preview.html" title="Meridian Incident Command Platform preview" class="h-[460px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Pages in this template</h2>
+        <ul class="mt-3 space-y-2"><li><a href="_src/pages/index.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-slate-400 dark:border-neutral-800"><span class="mono">index.html</span><span class="text-neutral-400">Open &#8599;</span></a></li></ul>
+        <h2 class="mt-8 text-lg font-bold">Features</h2><ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>single-page responsive landing page (320px → 1920px+)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>editorial-technical split hero with incident command-surface product visualization (live status, latency sparkline, responders, timeline, runbook footer)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>floating signal-correlation + stepped-escalation mini-cards layered around the hero panel</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>hairline-divided three-pillar panels (Route / Respond / Learn)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>signature directed alert-routing graph (signal → correlate → rule → page) with animated edges and an ack-fallback branch</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>five-step incident lifecycle workflow with per-step timings and a signed-state rail</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>dark customer-outcome metrics band (MTTA / MTTR / noise / burnout) on a divided grid</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>featured pull-quote testimonial + secondary engineer testimonial cards</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>three-tier per-on-call-team pricing with featured Squad plan</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>scoped single-open FAQ accordion (CSS-grid animation, ARIA, keyboard)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>dark conversion CTA with corner-tick framing and a three-line onboarding panel</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>five-column footer with live system-status indicator</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>sticky navbar with scoped vanilla-JS mobile menu (escape-safe)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>consistent Neo-Industrial + Swiss Minimal token system: 1px hairlines, square radii, single amber accent, blueprint graph-paper surfaces, restrained tonal elevation</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>semantic HTML, skip link, ARIA, visible focus states, and prefers-reduced-motion support</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span>Tailwind CSS via CDN with no build step</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Other templates</h2>
+        <div class="mt-3 grid gap-3"><a h</div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Meridian — Incident Command Platform Template</h1>
+<p>A premium single-page website template built with <strong>Tailwind CSS only</strong> (via CDN), vanilla HTML, and scoped vanilla JS. No frameworks, no build step.</p>
+<p>Brand used in the template: <strong>Meridian</strong> — a fictional incident command platform for on-call engineering teams. It correlates alerts, routes them to the right owner, coordinates response, and turns every incident into a structured postmortem.</p>
+<h2>Design direction</h2>
+<p><strong>Neo-Industrial + Swiss Minimal</strong> — a deliberate fusion, not a decoration mix.</p>
+<ul>
+<li><strong>Neo-Industrial language:</strong> utility labels and metadata set in monospace, structured grids, dense information panels, engineering vocabulary, directed routing diagrams, status indicators, and a restrained blueprint graph-paper surface.</li>
+<li><strong>Swiss Minimal discipline:</strong> 1px hairline rules, square corners, a single restrained accent, strict alignment, precise spacing rhythm, and typography-driven hierarchy with generous, intentional whitespace.</li>
+<li><strong>On-call voice:</strong> realistic incident-ops content — MTTA, MTTR, noise suppression, severity, escalation, runbooks, correlation, signed audit trail — instead of generic SaaS copy.</li>
+</ul>
+<p>The combination stays coherent because both directions share the same hairline geometry, the same single-accent restraint, and the same monospace metadata voice.</p>
+<p>This template deliberately differs from the repo&#x27;s existing <code>stratum</code> template: where Stratum uses thick 2px borders and offset hard shadows (Neo-Brutalism), Meridian uses 1px hairlines and tonal elevation; where Stratum uses Archivo + lime, Meridian uses Space Grotesk + amber on a cool canvas.</p>
+<h2>Design system</h2>
+<p>A single token set, applied consistently across every section.</p>
+<p>| Token | Value | Use |</p>
+<p>| --- | --- | --- |</p>
+<p>| canvas | <code>#F5F6F8</code> | page background (cool engineering paper) |</p>
+<p>| ink | <code>#0B0D10</code> | foreground, borders, dark surfaces |</p>
+<p>| surface | <code>#FFFFFF</code> | panels / cards |</p>
+<p>| panel | <code>#EDEFF3</code> | secondary surface |</p>
+<p>| muted | <code>#5C6470</code> | secondary text |</p>
+<p>| amber | <code>#E8A33C</code> | primary accent / signal highlight |</p>
+<p>| ok | <code>#16A34A</code> | healthy status (dots/badges only) |</p>
+<p>| alert | <code>#DC2626</code> | incident / degraded status (dots/badges only) |</p>
+<ul>
+<li><strong>Type:</strong> Space Grotesk (display, 400–700) · Inter (body, 400–700) · JetBrains Mono (labels/metadata, 400–700).</li>
+<li><strong>Geometry:</strong> 1px hairline borders, square corners, restrained tonal elevation (no offset shadows), a single amber accent used sparingly.</li>
+<li><strong>Spacing:</strong> consistent 4px-based rhythm, max container <code>1280px</code>, mobile-first padding <code>px-5 sm:px-8</code>.</li>
+</ul>
+<h2>Structure</h2>
+<pre class="code-block"><code>
+meridian/
+├── pages/
+│   └── index.html          # Full landing page (11 composed sections)
+├── assets/
+│   ├── icons/
+│   │   └── logo.svg        # Logo mark (favicon)
+│   └── images/
+│       └── og-image.svg    # Open Graph / preview graphic
+├── preview.html            # Template gallery shell (overview + sections index)
+├── metadata.json
+└── README.md
+</code></pre>
+<p>There are no external image assets. The incident console, routing graph, sparkline, logo, and OG image are all hand-built inline SVG / HTML so they stay crisp at every viewport and are editable directly in the markup. No photography dependencies.</p>
+<h2>Sections</h2>
+<p>| # | Section | Purpose |</p>
+<p>| --- | --- | --- |</p>
+<p>| 01 | Navbar + mobile menu | Sticky nav, scoped JS menu, brand mark, mono utility labels |</p>
+<p>| 02 | Hero | Editorial-technical split: copy + incident command-surface visualization with live sparkline and floating signal/escalation cards |</p>
+<p>| 03 | Logos strip | Trust marquee of fictional engineering customer brands |</p>
+<p>| 04 | Three pillars | Hairline-divided panels: Route / Respond / Learn |</p>
+<p>| 05 | Routing graph | Signature directed alert-routing diagram (signal → correlate → rule → page) with ack-fallback |</p>
+<p>| 06 | Lifecycle | Five-step incident workflow with timings + signed-state rail |</p>
+<p>| 07 | Outcomes band | Customer outcomes on a dark divided grid |</p>
+<p>| 08 | Proof | Featured pull-quote + secondary engineer testimonials |</p>
+<p>| 09 | Pricing | Three-tier, per-on-call-team pricing with featured Squad plan |</p>
+<p>| 10 | FAQ | Scoped single-open accordion (ARIA + keyboard) |</p>
+<p>| 11 | CTA + Footer | Dark corner-tick conversion panel + five-column footer with live status |</p>
+<h2>Notable design decisions</h2>
+<ul>
+<li><strong>Product visualization over decoration.</strong> The hero&#x27;s right column is a believable incident console (status title bar, latency metric, animated sparkline, responders, timeline, runbook footer) flanked by two floating contextual mini-cards (correlated signal + stepped escalation) — not a generic gradient blob.</li>
+<li><strong>Directed routing graph.</strong> The signature visual is an engineering diagram of the alert-routing pipeline (three signals → correlate node → routing rule → page owner, with a dashed ack-fallback branch) — reinforcing the &quot;signal to the right page&quot; message with animated flow edges.</li>
+<li><strong>Hairline discipline.</strong> Cards live inside 1px-rule containers and use tonal/background shifts on hover rather than offset shadows — keeping the Swiss Minimal restraint consistent across every surface.</li>
+<li><strong>Per-on-call-team pricing.</strong> Plans are priced by rotation, not per seat — reinforcing the product positioning (&quot;on-call is a team sport&quot;) in the pricing architecture itself.</li>
+<li><strong>Section numbering.</strong> Mono <code>/ 01 — …</code> eyebrows give editorial-industrial structure and aid scanning.</li>
+<li><strong>Blueprint surfaces.</strong> Subtle graph-paper grid backgrounds anchor the engineering aesthetic without becoming noise.</li>
+</ul>
+<h2>Responsive behavior</h2>
+<p>Mobile-first, designed from <strong>320px through 1920px+</strong>:</p>
+<ul>
+<li>Below <code>lg</code>, the hero stacks vertically and the floating mini-cards hide (they&#x27;re a desktop enhancement).</li>
+<li>The routing graph is a responsive inline SVG that scales to its container; the surrounding metric dl and the legend reflow on narrow widths.</li>
+<li>The lifecycle grid goes 5 → 2 → 1, keeping step order and timings legible.</li>
+<li>Outcomes metrics reflow from 2×2 to a stacked single column with maintained dividers.</li>
+<li>Pricing reflows to 1-column with maintained hairline dividers; the featured plan keeps its &quot;Most popular&quot; tag.</li>
+<li>The navbar collapses to a scoped mobile menu with safe open/close behavior.</li>
+<li>No accidental horizontal scrolling — <code>overflow-x-hidden</code> on the body and careful use of <code>max-w</code> containers.</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>Semantic landmarks (<code>header</code>, <code>main</code>, <code>section</code>, <code>footer</code>, <code>nav</code>, <code>figure</code>, <code>article</code>, <code>ol</code>).</li>
+<li>Skip-to-content link.</li>
+<li>Correct heading hierarchy (single <code>h1</code>, descriptive <code>h2</code> per section, <code>h3</code> for FAQ items).</li>
+<li>Accordion uses <code>aria-expanded</code>, <code>aria-controls</code>, <code>role=&quot;region&quot;</code>, <code>aria-labelledby</code>, keyboard-operable buttons, single-open behavior.</li>
+<li>Mobile menu button toggles <code>aria-expanded</code> and swaps icons.</li>
+<li>Visible focus states via Tailwind defaults; interactive cards are links/buttons.</li>
+<li>SVG diagrams carry <code>role=&quot;img&quot;</code> and descriptive <code>aria-label</code>s; decorative SVGs are <code>aria-hidden</code>.</li>
+<li><code>prefers-reduced-motion</code> disables marquee, sparkline draw, edge flow, and all transitions.</li>
+</ul>
+<h2>Interactions (scoped vanilla JS)</h2>
+<p>Only two small scoped scripts — no libraries:</p>
+<ol>
+<li><strong>Mobile menu</strong> — toggle open/close, swap icon, update <code>aria-expanded</code>, auto-close on link click.</li>
+<li><strong>FAQ accordion</strong> — single-open, CSS-grid <code>0fr → 1fr</code> panel animation, chevron rotation, ARIA state syncing.</li>
+</ol>
+<p>CSS-only interactions: hairline card hover (border + tonal lift), link-underline grow, live-status dot pulse, animated routing edges, sparkline draw, logos marquee.</p>
+<h2>Usage</h2>
+<p>Open <code>pages/index.html</code> directly in a browser, or serve the directory with any static server:</p>
+<pre class="code-block"><code>
+cd Tailwind/Templates/meridian
+python3 -m http.server 8080
+# visit http://localhost:8080/pages/index.html
+</code></pre>
+<p><code>preview.html</code> is the template gallery shell — open it for an overview and a clickable index of every section. Tailwind is loaded from the CDN, so there is no build step and no <code>node_modules</code>.</p>
+<h2>Customization</h2>
+<ul>
+<li><strong>Rebrand:</strong> swap the <code>Meridian</code> wordmark, the SVG logo (<code>assets/icons/logo.svg</code>), and the accent tokens in the <code>tailwind.config</code> <code>colors</code> block at the top of <code>pages/index.html</code>.</li>
+<li><strong>Re-theme:</strong> the entire palette is defined once in the Tailwind config + <code>&lt;style&gt;</code>; changing <code>amber</code> re-colors every accent consistently, while <code>ok</code>/<code>alert</code> only touch status indicators.</li>
+<li><strong>Add a page:</strong> duplicate <code>pages/index.html</code>, keep the shared <code>&lt;head&gt;</code> + navbar + footer, and swap the <code>&lt;main&gt;</code> content.</li>
+</ul></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

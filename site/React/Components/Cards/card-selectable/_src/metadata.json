@@ -1,0 +1,64 @@
+{
+  "id": "card-selectable-react-001",
+  "name": "Selectable Card",
+  "slug": "card-selectable",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-selectable",
+  "description": "Real selection semantics, not a clickable `<div>`: `SelectableCard` wraps a native radio or checkbox input whose whole card is the `<label>`, and `SelectableCardGroup` manages the single choice inside a `<fieldset>`/`legend`. Controlled and uncontrolled modes both supported.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "selectable",
+    "radio",
+    "checkbox",
+    "fieldset",
+    "keyboard"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "native input semantics",
+    "label-as-card",
+    "single + multi select",
+    "group tracking",
+    "arrow-key radio nav"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "native <input type=radio/checkbox>",
+    "visible label is the accessible name",
+    "selected border + control, not color alone",
+    "aria-describedby description",
+    "native disabled"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-interactive",
+    "card-list"
+  ]
+}

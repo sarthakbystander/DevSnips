@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSnips Store — Multi-Page Template | DevSnips</title>
+  <meta name="description" content="A premium multi-page Tailwind CSS ecommerce template — DevSnips, a curated store of considered design objects. 6 connected pages, editorial-luxury design system, fully responsive.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink: '#14110D', paper: '#F5F1EA', bone: '#ECE6DB', stone: '#8A8275', clay: '#B5552D', cream: '#FBF8F1' }, fontFamily: { display: ['Fraunces', 'Georgia', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] } } } };
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    html, body { background: #F5F1EA; }
+    body { font-family: 'Inter', sans-serif; color: #14110D; }
+    .font-display { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    ::selection { background: #B5552D; color: #FBF8F1; }
+    .rule { border-color: rgba(20,17,13,0.16); }
+    .rule-strong { border-color: rgba(20,17,13,0.30); }
+    a:focus-visible, button:focus-visible { outline: 2px solid #B5552D; outline-offset: 2px; }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- preview shell navbar -->
+  <header class="sticky top-0 z-50 border-b rule bg-paper/90 backdrop-blur-md">
+    <nav class="mx-auto flex h-[64px] max-w-[1200px] items-center justify-between px-5 sm:px-8 lg:px-12" aria-label="Primary">
+      <a href="pages/index.html" class="flex items-center gap-2.5" aria-label="DevSnips store template home">
+        <img src="assets/icons/logo.svg" alt="" class="h-7 w-7" width="32" height="32">
+        <span class="font-display text-[15px] font-semibold tracking-[0.04em]">DevSnips</span>
+        <span class="ml-1 hidden border rule-strong px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-ink/55 sm:inline">template</span>
+      </a>
+      <a href="pages/index.html" class="inline-flex items-center gap-2 border border-ink bg-ink px-4 py-2 text-[12px] font-medium uppercase tracking-[0.12em] text-paper transition-colors hover:bg-clay hover:border-clay">
+        Open store
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- intro -->
+    <section class="border-b rule">
+      <div class="mx-auto max-w-[1200px] px-5 pt-16 pb-12 sm:px-8 lg:px-12 lg:pt-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="inline-flex items-center gap-2 border rule-strong px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/65">
+            <span class="bg-clay px-1.5 py-0.5 text-[9px] font-medium text-cream">Template</span>
+            Multi-page ecommerce &middot; 6 pages
+          </div>
+          <h1 class="font-display mt-6 text-[clamp(2.6rem,6vw,5rem)] font-medium leading-[0.96] tracking-[-0.03em]">
+            DevSnips &mdash; a curated store <span class="italic font-normal">of considered design objects.</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-xl text-[16px] leading-7 text-ink/70">A complete, production-ready Tailwind CSS ecommerce template built in an editorial-luxury design system. Home, shop, product, cart, checkout and journal &mdash; all sharing one coherent language.</p>
+          <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="pages/index.html" class="group inline-flex w-full items-center justify-center gap-2 border border-ink bg-ink px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.12em] text-paper transition-colors hover:bg-clay hover:border-clay sm:w-auto">
+              Open the site
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#pages" class="inline-flex w-full items-center justify-center gap-2 border rule-strong px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.12em] hover:border-ink hover:bg-ink hover:text-paper sm:w-auto">View all pages</a>
+          </div>
+        </div>
+
+        <!-- preview panel -->
+        <div class="mx-auto mt-16 max-w-5xl">
+          <div class="overflow-hidden border rule bg-bone">
+            <div class="flex items-center gap-2 border-b rule px-4 py-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-ink/20"></span><span class="h-2.5 w-2.5 rounded-full bg-ink/20"></span><span class="h-2.5 w-2.5 rounded-full bg-ink/20"></span>
+              <span class="ml-3 border rule-strong px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink/50">pages/index.html</span>
+            </div>
+            <img src="assets/images/og-image.svg" alt="DevSnips store template preview" class="w-full" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- pages index -->
+    <section id="pages" class="border-b rule">
+      <div class="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">All six pages</p>
+          <h2 class="font-display mt-3 text-4xl font-medium tracking-[-0.02em] sm:text-5xl">A complete shopping experience.</h2>
+          <p class="mt-4 text-[15px] leading-7 text-ink/65">Every page a considered store needs, sharing one navbar, footer and design language.</p>
+        </div>
+        <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="pages/index.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">01</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Home</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">Editorial hero, new arrivals, material spectrum, featured collection, journal preview.</p>
+          </a>
+          <a href="pages/shop.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">02</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Shop</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">Collection listing with category filters, sort, and responsive product grid.</p>
+          </a>
+          <a href="pages/product.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">03</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Product</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">PDP with gallery, finish swatches, quantity stepper, care-guide accordion, related objects.</p>
+          </a>
+          <a href="pages/cart.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">04</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Cart</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">Line items with quantity steppers, receipt-style order summary, shipping estimate.</p>
+          </a>
+          <a href="pages/checkout.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">05</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Checkout</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">Stepper-led contact, shipping and payment form with a fixed order summary.</p>
+          </a>
+          <a href="pages/journal.html" class="group border rule bg-cream p-6 transition-colors hover:border-ink">
+            <div class="flex items-center justify-between"><span class="font-mono text-[11px] text-ink/45">06</span><svg class="h-4 w-4 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <h3 class="font-display mt-4 text-xl font-medium">Journal</h3>
+            <p class="mt-1 text-[13px] leading-6 text-ink/65">Editorial article index with featured entry, tag filters and magazine layout.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- design system summary -->
+    <section>
+      <div class="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">Design direction</p>
+            <h2 class="font-display mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.02em] sm:text-5xl">Editorial Modern &middot; Monochrome Luxury</h2>
+            <p class="mt-6 max-w-md text-[15px] leading-7 text-ink/70">A magazine-influenced system built on a warm neutral palette, a high-contrast serif for display and a single clay accent. Hairline rules, square-ish geometry and generous whitespace replace shadows and gradients.</p>
+          </div>
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">Palette</p>
+            <div class="mt-4 grid grid-cols-3 gap-3">
+              <div><div class="aspect-square border rule" style="background:#14110D"></div><p class="mt-2 font-display text-sm">Ink</p><p class="font-mono text-[10px] text-ink/50">#14110D</p></div>
+              <div><div class="aspect-square border rule" style="background:#F5F1EA"></div><p class="mt-2 font-display text-sm">Paper</p><p class="font-mono text-[10px] text-ink/50">#F5F1EA</p></div>
+              <div><div class="aspect-square border rule" style="background:#ECE6DB"></div><p class="mt-2 font-display text-sm">Bone</p><p class="font-mono text-[10px] text-ink/50">#ECE6DB</p></div>
+              <div><div class="aspect-square border rule" style="background:#B5552D"></div><p class="mt-2 font-display text-sm">Clay</p><p class="font-mono text-[10px] text-ink/50">#B5552D</p></div>
+              <div><div class="aspect-square border rule" style="background:#8A8275"></div><p class="mt-2 font-display text-sm">Stone</p><p class="font-mono text-[10px] text-ink/50">#8A8275</p></div>
+              <div><div class="aspect-square border rule" style="background:#FBF8F1"></div><p class="mt-2 font-display text-sm">Cream</p><p class="font-mono text-[10px] text-ink/50">#FBF8F1</p></div>
+            </div>
+            <dl class="mt-8 grid grid-cols-2 gap-y-2 font-mono text-[12px]">
+              <dt class="text-ink/50">Display</dt><dd>Fraunces (serif, optical)</dd>
+              <dt class="text-ink/50">Body</dt><dd>Inter</dd>
+              <dt class="text-ink/50">Mono / labels</dt><dd>JetBrains Mono</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t rule bg-paper">
+    <div class="mx-auto max-w-[1200px] px-5 py-8 sm:px-8 lg:px-12">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">&copy; 2026 DevSnips &mdash; A fictional store for this DevSnips template</p>
+        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">Tailwind CSS &middot; 6 pages &middot; 320px &rarr; 1920px+</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

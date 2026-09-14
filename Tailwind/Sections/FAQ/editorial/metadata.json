@@ -1,0 +1,40 @@
+{
+  "id": "faq-editorial",
+  "slug": "faq-editorial",
+  "name": "Searchable FAQ UI — Editorial",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "faq",
+  "section": "Searchable FAQ UI",
+  "style": "editorial",
+  "description": "Editorial FAQ layout: Search bar (ui only).",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "faq",
+    "accordion",
+    "questions",
+    "editorial"
+  ],
+  "features": [
+    "search bar (UI only)",
+    "keyboard hint chip",
+    "filtered-looking list",
+    "native accordions",
+    "centered search"
+  ],
+  "responsive": true,
+  "darkMode": false,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

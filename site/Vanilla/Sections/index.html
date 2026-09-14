@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanilla Sections — DevSnips</title>
+<meta name="description" content="Browse all Vanilla sections.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Sections</span></nav>
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight">Vanilla Sections</h1>
+    <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">65 variants across 16 families.</p>
+    <p class="mono mt-4 text-xs text-neutral-500 dark:text-neutral-400"><a href="#CTA" class="hover:underline">CTA</a> &middot; <a href="#Contact" class="hover:underline">Contact</a> &middot; <a href="#Content" class="hover:underline">Content</a> &middot; <a href="#FAQ" class="hover:underline">FAQ</a> &middot; <a href="#Features" class="hover:underline">Features</a> &middot; <a href="#Footer" class="hover:underline">Footer</a> &middot; <a href="#Gallery" class="hover:underline">Gallery</a> &middot; <a href="#Hero" class="hover:underline">Hero</a> &middot; <a href="#Logos" class="hover:underline">Logos</a> &middot; <a href="#Navigation" class="hover:underline">Navigation</a> &middot; <a href="#Pricing" class="hover:underline">Pricing</a> &middot; <a href="#Process" class="hover:underline">Process</a> &middot; <a href="#Products" class="hover:underline">Products</a> &middot; <a href="#Statistics" class="hover:underline">Statistics</a> &middot; <a href="#Team" class="hover:underline">Team</a> &middot; <a href="#Testimonials" class="hover:underline">Testimonials</a></p>
+    
+    <div id="CTA" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">CTA <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="CTA/cta-banner/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">cta</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Banner CTA</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bold banner CTA on a colored panel with blobs.</p>
+  
+</a><a href="CTA/cta-download/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">cta</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Download CTA</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Download CTA with store buttons and a QR mock.</p>
+  
+</a><a href="CTA/cta-newsletter/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">cta</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Newsletter CTA</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Newsletter signup CTA with consent checkbox.</p>
+  
+</a><a href="CTA/cta-split/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">cta</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Split CTA</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Two-pane split CTA (offer + actions).</p>
+  
+</a></div>
+    </div>
+    <div id="Contact" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Contact <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Contact/contact-cards/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Contact Cards</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Contact routing cards (sales/security/careers).</p>
+  
+</a><a href="Contact/contact-form/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Contact Form</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Split contact section with info + accessible form.</p>
+  
+</a><a href="Contact/contact-office-locations/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">contact</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Office Locations</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Office location cards with time zones.</p>
+  
+</a></div>
+    </div>
+    <div id="Content" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Content <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Content/content-blog-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">content</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Blog Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-up blog post cards with category badges.</p>
+  
+</a><a href="Content/content-documentation-preview/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">content</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Documentation Preview</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Docs layout with sidebar nav and a code block.</p>
+  
+</a><a href="Content/content-featured-articles/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">content</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Featured Articles</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Featured article + side list of recent posts.</p>
+  
+</a><a href="Content/content-resources/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">content</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Resources</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Filterable resources grid with type tags.</p>
+  
+</a></div>
+    </div>
+    <div id="FAQ" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">FAQ <span class="mono text-sm font-normal text-neutral-400">(2)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="FAQ/faq-accordion/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">faq</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Accordion FAQ</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Accessible single-open accordion FAQ.</p>
+  
+</a><a href="FAQ/faq-searchable/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">faq</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Searchable FAQ</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Searchable + category-filterable FAQ.</p>
+  
+</a></div>
+    </div>
+    <div id="Features" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Features <span class="mono text-sm font-normal text-neutral-400">(5)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Features/feature-bento/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Bento Features</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento feature grid mixing tile sizes and colors.</p>
+  
+</a><a href="Features/feature-comparison/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Comparison Features</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Feature comparison table vs. competitors.</p>
+  
+</a><a href="Features/feature-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Feature Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-column feature grid with colored icon tiles.</p>
+  
+</a><a href="Features/feature-icons/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Icon Features</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Compact icon + text feature list in a 4-col grid.</p>
+  
+</a><a href="Features/feature-timeline/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">features</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Feature Timeline</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vertical/zig-zag timeline doubling as a feature walk.</p>
+  
+</a></div>
+    </div>
+    <div id="Footer" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Footer <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Footer/footer-large/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Large Footer</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Large colored footer with newsletter + link groups.</p>
+  
+</a><a href="Footer/footer-minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Minimal Footer</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Minimal footer with brand, links and socials.</p>
+  
+</a><a href="Footer/footer-multi-column/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">footer</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Multi-column Footer</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Multi-column footer with brand + 4 link groups.</p>
+  
+</a></div>
+    </div>
+    <div id="Gallery" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Gallery <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Gallery/gallery-masonry/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">gallery</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Masonry Gallery</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">CSS masonry gallery with varied aspect ratios.</p>
+  
+</a><a href="Gallery/gallery-portfolio/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">gallery</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Portfolio</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Portfolio grid with category filters.</p>
+  
+</a><a href="Gallery/gallery-projects/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">gallery</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Projects</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Project case-study cards with tags.</p>
+  
+</a></div>
+    </div>
+    <div id="Hero" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Hero <span class="mono text-sm font-normal text-neutral-400">(10)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Hero/hero-animated/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Animated Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Animated rotating-word hero with floating blobs.</p>
+  
+</a><a href="Hero/hero-bento/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Bento Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bento-grid hero summarizing multiple value props at once.</p>
+  
+</a><a href="Hero/hero-center/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Center Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Center-stage hero with social proof avatars.</p>
+  
+</a><a href="Hero/hero-gradient/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Gradient Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bold gradient-text hero on a spinning conic backdrop.</p>
+  
+</a><a href="Hero/hero-image/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Image Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Image-led hero with a floating product tag.</p>
+  
+</a><a href="Hero/hero-minimal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Minimal Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">A minimal, centered hero with eyebrow, headline, lead and dual CTA.</p>
+  
+</a><a href="Hero/hero-product/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Product Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Product hero showcasing three feature shots in a grid.</p>
+  
+</a><a href="Hero/hero-saas/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">SaaS Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">SaaS hero with a floating metric mock and reassurance line.</p>
+  
+</a><a href="Hero/hero-split/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Split Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Two-pane split hero comparing value vs. included features.</p>
+  
+</a><a href="Hero/hero-startup/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">hero</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Startup Hero</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Split startup hero with inline stats and a product preview pane.</p>
+  
+</a></div>
+    </div>
+    <div id="Logos" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Logos <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Logos/logo-clients/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Client Logos</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Client cards with a short quote each.</p>
+  
+</a><a href="Logos/logo-cloud/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Logo Cloud</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Static logo cloud grid with hover lift.</p>
+  
+</a><a href="Logos/logo-trusted-by/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">logos</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Trusted By</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Infinite marquee of client names with edge fades.</p>
+  
+</a></div>
+    </div>
+    <div id="Navigation" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Navigation <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Navigation/navbar-mega-menu/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Mega Menu</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Navbar with a click-to-open mega menu panel.</p>
+  
+</a><a href="Navigation/navbar-simple/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Simple Navbar</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Simple sticky navbar with a mobile drawer.</p>
+  
+</a><a href="Navigation/navbar-sticky/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Sticky Navbar</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Sticky navbar with scroll shadow and a slide-in mobile sheet.</p>
+  
+</a><a href="Navigation/sidebar-navigation/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">navigation</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Sidebar Navigation</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">App sidebar + content area, collapsible on mobile.</p>
+  
+</a></div>
+    </div>
+    <div id="Pricing" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Pricing <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Pricing/pricing-comparison/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Comparison Pricing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Full pricing comparison matrix table.</p>
+  
+</a><a href="Pricing/pricing-enterprise/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Enterprise Pricing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Enterprise CTA panel with feature checklist.</p>
+  
+</a><a href="Pricing/pricing-saas/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">SaaS Pricing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-tier SaaS pricing with monthly/yearly toggle.</p>
+  
+</a><a href="Pricing/pricing-simple/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">pricing</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Simple Pricing</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Two-plan simple pricing with feature lists.</p>
+  
+</a></div>
+    </div>
+    <div id="Process" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Process <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Process/process-how-it-works/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">process</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">How It Works</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Split how-it-works with numbered steps and a preview.</p>
+  
+</a><a href="Process/process-steps/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">process</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Process Steps</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Numbered step cards in a 4-col grid.</p>
+  
+</a><a href="Process/process-timeline/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">process</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Process Timeline</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Alternating vertical timeline of process steps.</p>
+  
+</a><a href="Process/process-workflow/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">process</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Process Workflow</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Horizontal (stacked on mobile) workflow with arrows.</p>
+  
+</a></div>
+    </div>
+    <div id="Products" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Products <span class="mono text-sm font-normal text-neutral-400">(6)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Products/product-changelog/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Changelog</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Vertical changelog with version tags and timeline.</p>
+  
+</a><a href="Products/product-dashboard-preview/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Dashboard Preview</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Mock dashboard preview with sidebar, KPIs and a bar chart.</p>
+  
+</a><a href="Products/product-integrations/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Integrations</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Grid of integration cards with &#x27;new&#x27; tags.</p>
+  
+</a><a href="Products/product-mobile-app/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Mobile App Showcase</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Mobile app showcase with two phone mockups and store buttons.</p>
+  
+</a><a href="Products/product-roadmap/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Roadmap</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Three-column roadmap: shipped / in progress / next.</p>
+  
+</a><a href="Products/product-showcase/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">products</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Product Showcase</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Split product showcase with checklist and device frame.</p>
+  
+</a></div>
+    </div>
+    <div id="Statistics" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Statistics <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Statistics/stats-achievement-numbers/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">statistics</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Achievement Numbers</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Bold achievement stats on a colored band.</p>
+  
+</a><a href="Statistics/stats-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">statistics</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Stats Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">4 colored stat tiles with animated counters.</p>
+  
+</a><a href="Statistics/stats-kpi-cards/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">statistics</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">KPI Cards</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">KPI cards with trend chips and progress bars.</p>
+  
+</a></div>
+    </div>
+    <div id="Team" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Team <span class="mono text-sm font-normal text-neutral-400">(3)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Team/team-advisors/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Advisors</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Compact advisor strip with initials and prior roles.</p>
+  
+</a><a href="Team/team-grid/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Team Grid</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Team member grid with avatar placeholders and social links.</p>
+  
+</a><a href="Team/team-leadership/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">team</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Leadership</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Leadership cards with initials, role and tenure.</p>
+  
+</a></div>
+    </div>
+    <div id="Testimonials" class="mt-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Testimonials <span class="mono text-sm font-normal text-neutral-400">(4)</span></h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="Testimonials/testimonials-cards/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Testimonial Cards</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">3-column testimonial cards with star ratings.</p>
+  
+</a><a href="Testimonials/testimonials-carousel/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Testimonial Carousel</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Auto-rotating carousel with dots and arrows.</p>
+  
+</a><a href="Testimonials/testimonials-masonry/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Testimonial Masonry</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Masonry wall of testimonials of varying heights.</p>
+  
+</a><a href="Testimonials/testimonials-video/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">testimonials</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Video Testimonial</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Video testimonial layout with play button and stats.</p>
+  
+</a></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>

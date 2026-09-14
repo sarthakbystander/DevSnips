@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toast Notification — Vanilla Components — DevSnips</title>
+<meta name="description" content="Toast Notification.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <svg viewBox="0 0 680 620" class="h-8 w-auto text-neutral-900 dark:text-white" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-slate-500 dark:text-slate-400 transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Vanilla/Components/index.html#Modals" class="hover:text-neutral-900 dark:hover:text-white">Modals</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Toast Notification</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Toast Notification</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Toast Notification.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/code.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <span class="mono text-xs text-neutral-500">Toast Notification &mdash; live preview</span>
+        <a href="_src/code.html" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-600 hover:underline dark:text-emerald-400">Open full preview &#8599;</a>
+      </div>
+      <iframe src="_src/code.html" title="Toast Notification preview" class="h-[420px] w-full bg-white dark:bg-neutral-900" loading="lazy"></iframe>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Vanilla HTML/CSS/JS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Modals</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">3</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">badge</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">animation</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">hover-effect</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">shadow</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">flexbox</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">center</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">layout</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">button</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add vanilla/components/Modals/toast-notification</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add vanilla/components/Modals/toast-notification');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>ARIA</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>focus-visible</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../device-optimized-modal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Device Optimized Modal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Device Optimized Modal.</p>
+  
+</a><a href="../dialog-element/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Dialog Element</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Dialog Element.</p>
+  
+</a><a href="../popup-chat-window/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-emerald-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Popup Chat Window</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Popup Chat Window.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Snippet 08 Toast Notification</h1>
+<p>Snippet 08 Toast Notification with animations and hover interactions.</p>
+<p><strong>Technology:</strong> vanilla</p>
+<p><strong>Category:</strong> components</p>
+<p><strong>Subcategory:</strong> modals</p>
+<p><strong>Tags:</strong> badge, animation, hover-effect, shadow, flexbox, center, layout, button</p>
+<p><strong>Responsive:</strong> Yes</p></article>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">Source code</h2>
+      <pre id="code-block" class="code-block mt-3 max-h-[420px] overflow-auto rounded-xl border border-neutral-200 bg-neutral-950 p-4 text-xs text-neutral-200 dark:border-neutral-800"><code>&lt;!--
+  Toast Notification System
+  - Stackable notifications
+  - Auto-dismiss with progress bar
+  - Different types (success, error, info)
+  - Accessible announcements
+  - Smooth animations
+--&gt;
+
+&lt;div class=&quot;toast-container&quot; role=&quot;log&quot; aria-live=&quot;polite&quot; aria-atomic=&quot;true&quot;&gt;
+  &lt;!-- Toasts will be inserted here dynamically --&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;demo-buttons&quot;&gt;
+  &lt;button onclick=&quot;showToast(&#x27;success&#x27;, &#x27;Success!&#x27;, &#x27;Operation completed successfully.&#x27;)&quot;&gt;
+    Show Success Toast
+  &lt;/button&gt;
+  &lt;button onclick=&quot;showToast(&#x27;error&#x27;, &#x27;Error!&#x27;, &#x27;Something went wrong.&#x27;)&quot;&gt;
+    Show Error Toast
+  &lt;/button&gt;
+  &lt;button onclick=&quot;showToast(&#x27;info&#x27;, &#x27;Info&#x27;, &#x27;This is an informational message.&#x27;)&quot;&gt;
+    Show Info Toast
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toast {
+  --toast-bg: white;
+  --toast-border: var(--ds-border, #ddd);
+  --toast-progress: var(--ds-accent, #4a90e2);
+  
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--toast-bg);
+  border: 1px solid var(--toast-border);
+  border-radius: var(--ds-radius-sm, 4px);
+  padding: 1rem;
+  margin: 0;
+  box-shadow: var(--ds-shadow-lg, 0 4px 12px rgba(0, 0, 0, 0.15));
+  pointer-events: auto;
+  overflow: hidden;
+  animation: toastSlideIn 0.3s;
+}
+
+.toast.removing {
+  animation: toastSlideOut 0.3s forwards;
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--toast-progress);
+  transform-origin: left;
+  animation: toastProgress 5s linear forwards;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.toast-title {
+  font-weight: bold;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.toast-close {
+  padding: 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+.toast-message {
+  margin: 0;
+}
+
+/* Toast types */
+.toast[data-type=&quot;success&quot;] {
+  --toast-border: var(--ds-success, #4caf50);
+  border-left: 4px solid var(--toast-border);
+}
+
+.toast[data-type=&quot;error&quot;] {
+  --toast-border: var(--ds-danger, #f44336);
+  border-left: 4px solid var(--toast-border);
+}
+
+.toast[data-type=&quot;info&quot;] {
+  --toast-border: var(--ds-accent, #2196f3);
+  border-left: 4px solid var(--toast-border);
+}
+
+/* Animations */
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Demo buttons */
+.demo-buttons {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.demo-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-sm, 4px);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.demo-buttons button:hover {
+  background: var(--ds-surface-2, #f5f5f5);
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+:focus-visible{outline:2px solid var(--ds-accent, #2563eb);outline-offset:2px;}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,&#x27;Segoe UI&#x27;,Roboto,Inter,&#x27;Helvetica Neue&#x27;,Arial,sans-serif;--ds-font-mono:ui-monospace,&#x27;SF Mono&#x27;,&#x27;JetBrains Mono&#x27;,Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+&lt;/style&gt;
+
+&lt;script&gt;
+class ToastNotification {
+  static container = document.querySelector(&#x27;.toast-container&#x27;);
+  static icons = {
+    success: &#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;&#x27;,
+    error: &#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;&#x27;,
+    info: &#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;&#x27;
+  };
+  
+  constructor(type, title, message) {
+    this.type = type;
+    this.title = title;
+    this.message = message;
+    this.element = null;
+    this.timeout = null;
+    
+    this.create();
+    this.show();
+  }
+  
+  create() {
+    this.element = document.createElement(&#x27;div&#x27;);
+    this.element.className = &#x27;toast&#x27;;
+    this.element.setAttribute(&#x27;data-type&#x27;, this.type);
+    this.element.setAttribute(&#x27;role&#x27;, &#x27;alert&#x27;);
+    
+    this.element.innerHTML = `
+      &lt;div class=&quot;toast-header&quot;&gt;
+        &lt;span class=&quot;toast-icon&quot; aria-hidden=&quot;true&quot;&gt;
+          ${ToastNotification.icons[this.type]}
+        &lt;/span&gt;
+        &lt;h3 class=&quot;toast-title&quot;&gt;${this.title}&lt;/h3&gt;
+        &lt;button class=&quot;toast-close&quot; aria-label=&quot;Close notification&quot;&gt;
+          ${ToastNotification.icons.error}
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;toast-message&quot;&gt;${this.message}&lt;/p&gt;
+      &lt;div class=&quot;toast-progress&quot;&gt;&lt;/div&gt;
+    `;
+    
+    this.element.querySelector(&#x27;.toast-close&#x27;)
+      .addEventListener(&#x27;click&#x27;, () =&gt; this.close());
+  }
+  
+  show() {
+    ToastNotification.container.appendChild(this.element);
+    
+    // Auto-dismiss after 5 seconds
+    this.timeout = setTimeout(() =&gt; this.close(), 5000);
+    
+    // Clear timeout if user hovers over toast
+    this.element.addEventListener(&#x27;mouseenter&#x27;, () =&gt; {
+      clearTimeout(this.timeout);
+      this.element.querySelector(&#x27;.toast-progress&#x27;).style.animationPlayState = &#x27;paused&#x27;;
+    });
+    
+    this.element.addEventListener(&#x27;mouseleave&#x27;, () =&gt; {
+      this.timeout = setTimeout(() =&gt; this.close(), 5000);
+      this.element.querySelector(&#x27;.toast-progress&#x27;).style.animationPlayState = &#x27;running&#x27;;
+    });
+  }
+  
+  close() {
+    clearTimeout(this.timeout);
+    this.element.classList.add(&#x27;removing&#x27;);
+    
+    this.element.addEventListener(&#x27;animationend&#x27;, () =&gt; {
+      this.element.remove();
+    });
+  }
+}
+
+function showToast(type, title, message) {
+  new ToastNotification(type, title, message);
+}
+&lt;/script&gt;</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+</script>
+</body>
+</html>
