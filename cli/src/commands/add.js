@@ -9,6 +9,7 @@ const { exitWithError } = require('../utils/errors.js');
 const { fetchRegistry, resolveComponent, findSimilarPaths } = require('../registry/resolver.js');
 const { downloadFile, getSourceFiles, buildRepoFilePath } = require('../install/downloader.js');
 const { calculateDestination, getDestinationFilePath, writeFile } = require('../install/writer.js');
+const { initializeContext, updateContextAfterInstall, isContextInitialized } = require('../devsnips/context.js');
 
 /**
  * Execute the add command
@@ -141,7 +142,48 @@ async function runAddCommand(inputPath) {
     }
   }
 
-  // Step 7: Report success
+  // Step 7: Initialize/update DevSnips project context
+  // This happens AFTER files are successfully written, so only successful
+  // installations are ever recorded in config.json.
+  const existingContext = isContextInitialized();
+
+  process.stdout.write(
+    existingContext
+      ? '  Updating DevSnips project context... '
+      : '  Initializing DevSnips project context... '
+  );
+
+  try {
+    const initResult = initializeContext();
+
+    // Record this installation only after the resource is on disk
+    updateContextAfterInstall(resolved.canonicalPath, resolved.technology);
+
+    console.log('✓');
+
+    if (!existingContext) {
+      if (initResult.agentsCreated) {
+        console.log('  Created devsnips/AGENTS.md');
+      }
+      if (initResult.configCreated) {
+        console.log('  Created devsnips/config.json');
+      }
+    }
+  } catch (error) {
+    console.log('✗');
+    console.log('');
+    console.error('✗ Component files were installed, but the DevSnips project context could not be updated');
+    console.error('');
+    console.error('  ' + error.message);
+    console.error('');
+    console.error('  The resource exists at: ' + destDir);
+    console.error('  but it was not recorded in devsnips/config.json.');
+    console.error('  Check the devsnips/config.json file and re-run the command once fixed.');
+    console.error('');
+    process.exit(1);
+  }
+
+  // Step 8: Report success
   console.log('');
   console.log('✓ Component installed successfully');
   console.log('');
