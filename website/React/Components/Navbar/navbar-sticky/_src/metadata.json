@@ -1,0 +1,66 @@
+{
+  "id": "navbar-sticky-react-001",
+  "name": "Sticky Navbar",
+  "slug": "navbar-sticky",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-sticky",
+  "description": "The sticky navigation pattern: the bar pins to the viewport top while page content scrolls beneath it, implemented with pure CSS position \u2014 no scroll listeners, no JavaScript.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Positioning",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "sticky",
+    "position",
+    "scroll"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "sticky positioning",
+    "no scroll JS",
+    "elevated while pinned"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-transparent"
+  ]
+}

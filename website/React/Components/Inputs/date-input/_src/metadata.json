@@ -1,0 +1,52 @@
+{
+  "id": "date-input-react-008",
+  "name": "Date Input",
+  "slug": "date-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "date-input",
+  "description": "Native date input using the shared input visual system.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Date and time",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date",
+    "date-and-time",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

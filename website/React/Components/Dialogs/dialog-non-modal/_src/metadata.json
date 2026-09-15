@@ -1,0 +1,70 @@
+{
+  "id": "dialog-non-modal-react-001",
+  "name": "Non-Modal Dialog",
+  "slug": "dialog-non-modal",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-non-modal",
+  "description": "`modal={false}`: a floating keyboard-shortcuts reference panel \u2014 no overlay, no scroll lock, no focus trap; the page behind stays interactive and the panel closes on Escape, outside pointer down, or its close actions.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Behavior",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "non-modal",
+    "floating",
+    "panel"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "modal={false}",
+    "no overlay or scroll lock",
+    "page stays interactive"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "no aria-modal in non-modal mode",
+    "Tab leaves the panel naturally"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-scrollable",
+    "dialog-controlled",
+    "dialog-with-custom-footer"
+  ]
+}

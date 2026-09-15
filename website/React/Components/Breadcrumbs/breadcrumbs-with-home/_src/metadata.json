@@ -1,0 +1,63 @@
+{
+  "id": "breadcrumbs-with-home-react-001",
+  "name": "Breadcrumbs With Home",
+  "slug": "breadcrumbs-with-home",
+  "component": "breadcrumbs",
+  "family": "breadcrumbs",
+  "variant": "breadcrumbs-with-home",
+  "description": "Breadcrumb trail whose first level is the application home, rendered with a meaningful home icon that stays hidden from screen readers when a visible label is present.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Breadcrumbs",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "breadcrumbs",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "links",
+    "hierarchy",
+    "icon",
+    "home"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "ordered list",
+    "aria-current=\"page\"",
+    "leading home icon",
+    "icon-only home link option"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "ordered list structure",
+    "real anchor links",
+    "aria-current=\"page\"",
+    "aria-hidden separators",
+    "focus-visible",
+    "icon aria-hidden",
+    "aria-label on icon-only link"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "breadcrumbs",
+    "breadcrumbs-with-icons",
+    "breadcrumbs-with-current"
+  ]
+}

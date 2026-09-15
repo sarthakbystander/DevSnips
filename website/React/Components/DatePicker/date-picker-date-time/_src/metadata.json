@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-date-time-react-001",
+  "name": "Date Picker \u2014 Date + Time",
+  "slug": "date-picker-date-time",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-date-time",
+  "description": "Combined date and time selection: the day grid plus real hour/minute `<select>` controls (disabled until a date exists), a Done commit, and a form value serialized as `yyyy-mm-ddThh:mm`.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "date-time",
+    "time-select",
+    "form"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "hour/minute selects",
+    "off-step values preserved",
+    "ISO datetime form value",
+    "time default 12:00"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "labelled time selects",
+    "disabled-until-date time section"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker",
+    "date-picker-with-footer"
+  ]
+}

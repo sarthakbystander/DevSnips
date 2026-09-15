@@ -1,0 +1,52 @@
+{
+  "id": "url-input-react-006",
+  "name": "URL Input",
+  "slug": "url-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "url-input",
+  "description": "URL field for repository and endpoint values.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Text",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind",
+    "text",
+    "url"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

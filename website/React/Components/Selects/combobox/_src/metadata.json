@@ -1,0 +1,54 @@
+{
+  "id": "combobox-react-001",
+  "name": "Combobox",
+  "slug": "combobox",
+  "component": "select",
+  "family": "selects",
+  "variant": "combobox",
+  "description": "True WAI-ARIA combobox: a text input that filters and selects from a listbox.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Combobox",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "combobox",
+    "select",
+    "form",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "searchable-select",
+    "creatable-select",
+    "command-select"
+  ]
+}

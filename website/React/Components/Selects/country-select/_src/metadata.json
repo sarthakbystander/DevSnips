@@ -1,0 +1,53 @@
+{
+  "id": "country-select-react-001",
+  "name": "Country Select",
+  "slug": "country-select",
+  "component": "select",
+  "family": "selects",
+  "variant": "country-select",
+  "description": "Single-select listbox for countries with a 2-letter ISO code badge (no emoji flags).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Data",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "country",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "timezone-select",
+    "language-select",
+    "select"
+  ]
+}

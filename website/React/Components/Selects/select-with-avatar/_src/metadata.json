@@ -1,0 +1,53 @@
+{
+  "id": "select-with-avatar-react-001",
+  "name": "Select With Avatar",
+  "slug": "select-with-avatar",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-avatar",
+  "description": "Custom select where each option may carry an avatar shown in trigger and rows.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Presentation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "avatar",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-description",
+    "select-with-leading-icon"
+  ]
+}

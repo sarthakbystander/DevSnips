@@ -1,0 +1,59 @@
+{
+  "id": "switch-with-helper-react-001",
+  "name": "Switch With Helper",
+  "slug": "switch-with-helper",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-with-helper",
+  "description": "Switch with a visible label plus helper text wired via aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "helper",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch",
+    "switch-with-label",
+    "switch-with-error"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "pagination-compact-react-001",
+  "name": "Compact Pagination",
+  "slug": "pagination-compact",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-compact",
+  "description": "Compact pagination (32px controls, size=sm) for dense interfaces such as table footers and admin lists \u2014 same system, smaller density.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Density",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "compact",
+    "dense",
+    "table"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "32px controls",
+    "size=sm"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-large",
+    "pagination-with-numbers"
+  ]
+}
