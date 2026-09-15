@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PromptShelf — prompts built for real work</title>
+  <meta name="description" content="A lightweight prompt-sharing starter built from DevSnips UI patterns.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    const saved = localStorage.getItem('prompt-shelf-theme');
+    if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .prompt-card { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .prompt-card:hover { transform: translateY(-2px); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg dark:focus:bg-gray-900">Skip to content</a>
+
+  <header class="sticky top-0 z-30 border-b border-gray-200/80 bg-white/90 backdrop-blur dark:border-gray-800 dark:bg-gray-950/90">
+    <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Primary navigation">
+      <a href="#" class="flex items-center gap-2 font-extrabold tracking-tight">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-gray-900 text-sm font-black text-white dark:bg-white dark:text-gray-900">P</span>
+        PromptShelf
+      </a>
+      <div class="hidden items-center gap-6 text-sm font-medium sm:flex">
+        <a href="#prompts" class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">Prompts</a>
+        <a href="#categories" class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">Categories</a>
+        <a href="https://github.com/sarthakbystander/DevSnips" class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">Built with DevSnips</a>
+      </div>
+      <button id="theme" type="button" aria-label="Toggle color theme" class="px-6 py-2.5 border-2 border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors dark:hover:bg-blue-950 dark:focus:ring-offset-gray-950">
+        Theme
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="mx-auto max-w-6xl px-4 pb-14 pt-16 sm:px-6 sm:pt-24">
+      <div class="max-w-3xl">
+        <p class="mono mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">Prompt library</p>
+        <h1 class="text-4xl font-black tracking-tight sm:text-6xl">Useful prompts, without the noise.</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">A lightweight place to publish, discover, and copy prompts for coding, research, writing, and everyday AI workflows.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <!-- DevSnips: Tailwind/Components/Buttons/basic-button/primary -->
+          <a href="#prompts" class="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">Browse prompts</a>
+          <!-- DevSnips: Tailwind/Components/Buttons/outline-button/primary -->
+          <a href="#submit" class="px-6 py-2.5 border-2 border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors dark:hover:bg-blue-950">Share a prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="mx-auto max-w-6xl px-4 pb-10 sm:px-6" aria-labelledby="category-heading">
+      <div class="flex items-end justify-between gap-4">
+        <div><p class="mono text-xs font-semibold uppercase tracking-widest text-gray-500">Explore</p><h2 id="category-heading" class="mt-2 text-2xl font-bold">Categories</h2></div>
+        <span id="count" class="mono text-xs text-gray-500">6 prompts</span>
+      </div>
+      <div id="filters" class="mt-5 flex flex-wrap gap-2"></div>
+    </section>
+
+    <section id="prompts" class="mx-auto max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="prompt-heading">
+      <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div><h2 id="prompt-heading" class="text-2xl font-bold">Latest prompts</h2><p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Copy a prompt and adapt it to your workflow.</p></div>
+        <label class="w-full sm:w-72"><span class="sr-only">Search prompts</span><input id="search" type="search" placeholder="Search prompts..." class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-800 dark:bg-gray-900"></label>
+      </div>
+      <div id="grid" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
+      <p id="empty" class="hidden rounded-2xl border border-dashed border-gray-300 p-10 text-center text-sm text-gray-500 dark:border-gray-700">No prompts match your search.</p>
+    </section>
+
+    <section id="submit" class="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+      <div class="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm dark:border-gray-800 dark:bg-gray-900 sm:p-10">
+        <p class="mono text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">Next step</p>
+        <h2 class="mt-2 text-2xl font-bold">Turn this starter into your prompt publishing workflow.</h2>
+        <p class="mt-3 max-w-2xl text-sm leading-6 text-gray-600 dark:text-gray-400">For now, prompts live in the page data. The next iteration can move them into Markdown or JSON and generate one static, machine-readable page per prompt.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <span>PromptShelf starter · built with DevSnips</span>
+      <a class="hover:text-gray-900 dark:hover:text-white" href="https://github.com/sarthakbystander/DevSnips">View source library</a>
+    </div>
+  </footer>
+
+  <script>
+    const prompts = [
+      { title: 'Refactor a messy component', category: 'Coding', description: 'Ask an AI coding agent to simplify a component while preserving behavior and accessibility.', prompt: 'Review this component for unnecessary complexity. Preserve behavior, accessibility, public API, and visual output. Refactor only where the result is clearly simpler and easier to maintain.' },
+      { title: 'Research with evidence', category: 'Research', description: 'Turn a broad research question into a structured, source-aware investigation.', prompt: 'Research this topic systematically. Separate established facts from uncertain claims, identify primary sources where possible, and present the conclusion with concise evidence for each major claim.' },
+      { title: 'Improve technical writing', category: 'Writing', description: 'Clean up developer documentation without making it sound generic or inflated.', prompt: 'Rewrite this technical text for clarity. Keep the meaning and technical accuracy, remove filler, use concrete language, and preserve useful implementation details.' },
+      { title: 'Debug before changing code', category: 'Coding', description: 'A debugging prompt that makes the agent establish the failure before proposing a fix.', prompt: 'First reproduce and localize the problem from the available evidence. State the most likely root cause, verify it against the code, then make the smallest reliable fix. Do not refactor unrelated code.' },
+      { title: 'Extract the real requirements', category: 'Planning', description: 'Convert an ambiguous product request into implementation-ready requirements.', prompt: 'Read this request and extract the actual requirements. Distinguish explicit requirements, implied constraints, open questions, and non-requirements. Finish with a minimal implementation checklist.' },
+      { title: 'Make an AI review its own work', category: 'AI Agents', description: 'A verification loop for agents working on a multi-file change.', prompt: 'Review the change as if you did not write it. Check functionality, edge cases, accessibility, links, consistency, and unintended changes. Report concrete failures first, then make fixes and re-check the affected areas.' }
+    ];
+
+    const categories = ['All', ...new Set(prompts.map(p => p.category))];
+    let active = 'All';
+    const grid = document.querySelector('#grid');
+    const empty = document.querySelector('#empty');
+    const search = document.querySelector('#search');
+    const count = document.querySelector('#count');
+
+    function buttonClass(selected) {
+      return selected
+        ? 'px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
+        : 'px-4 py-2.5 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-900';
+    }
+
+    function renderFilters() {
+      document.querySelector('#filters').innerHTML = categories.map(c => `<button class="${buttonClass(c === active)}" data-category="${c}">${c}</button>`).join('');
+      document.querySelectorAll('[data-category]').forEach(b => b.addEventListener('click', () => { active = b.dataset.category; renderFilters(); render(); }));
+    }
+
+    function card(p) {
+      return `<article class="prompt-card group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-blue-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-blue-800">
+        <div class="flex items-center justify-between gap-3"><span class="mono rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-300">${p.category}</span><span class="text-xs text-gray-400">Prompt</span></div>
+        <h3 class="mt-5 text-xl font-bold tracking-tight">${p.title}</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-gray-600 dark:text-gray-400">${p.description}</p>
+        <pre class="mt-5 max-h-36 overflow-auto rounded-xl bg-gray-950 p-4 text-xs leading-5 text-gray-200"><code>${p.prompt.replaceAll('&','&amp;').replaceAll('<','&lt;')}</code></pre>
+        <div class="mt-5 flex items-center justify-between gap-3 border-t border-gray-100 pt-4 dark:border-gray-800">
+          <span class="mono text-[11px] text-gray-400">copy-ready</span>
+          <button class="copy px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors" data-prompt="${encodeURIComponent(p.prompt)}">Copy prompt</button>
+        </div>
+      </article>`;
+    }
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const visible = prompts.filter(p => (active === 'All' || p.category === active) && (!q || `${p.title} ${p.description} ${p.prompt}`.toLowerCase().includes(q)));
+      grid.innerHTML = visible.map(card).join('');
+      empty.classList.toggle('hidden', visible.length > 0);
+      count.textContent = `${visible.length} prompt${visible.length === 1 ? '' : 's'}`;
+      document.querySelectorAll('.copy').forEach(btn => btn.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(decodeURIComponent(btn.dataset.prompt));
+        const old = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => btn.textContent = old, 1200);
+      }));
+    }
+
+    document.querySelector('#theme').addEventListener('click', () => {
+      const dark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('prompt-shelf-theme', dark ? 'dark' : 'light');
+    });
+    search.addEventListener('input', render);
+    renderFilters();
+    render();
+  </script>
+</body>
+</html>
