@@ -1,0 +1,35 @@
+{
+  "id": "Tailwind/Components/Progress/circular-spinner",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Progress",
+  "slug": "circular-spinner",
+  "name": "Circular Spinner",
+  "description": "Spinning ring loading indicator in four sizes (xs, sm, md, lg) and multiple colors, with an optional text label. Pure CSS animation via Tailwind's animate-spin \u2014 no JavaScript required.",
+  "tags": [
+    "progress",
+    "spinner",
+    "loading",
+    "circular",
+    "ring",
+    "indicator",
+    "css-only"
+  ],
+  "features": [
+    "4 sizes",
+    "color variants",
+    "optional label",
+    "pure CSS animation",
+    "role=status",
+    "aria-live polite",
+    "aria-hidden on decorative svg"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "linear-bar",
+    "skeleton-loader",
+    "upload-progress"
+  ],
+  "url": "Tailwind/Components/Progress/circular-spinner/index.html"
+}

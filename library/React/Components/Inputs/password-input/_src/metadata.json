@@ -1,0 +1,52 @@
+{
+  "id": "password-input-react-003",
+  "name": "Password Input",
+  "slug": "password-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "password-input",
+  "description": "Password entry field with an accessible visibility toggle.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Security",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "input",
+    "interactive",
+    "password",
+    "react",
+    "security",
+    "tailwind"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

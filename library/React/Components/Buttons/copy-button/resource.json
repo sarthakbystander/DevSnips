@@ -1,0 +1,34 @@
+{
+  "id": "React/Components/Buttons/copy-button",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Buttons",
+  "slug": "copy-button",
+  "name": "Copy Button",
+  "description": "Clipboard copy with transient feedback. Uses the async Clipboard API with an execCommand fallback. On success, swaps the icon to a check and the label to \"Copied\", then reverts. An `aria-live` region announces the copied state.",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "copy",
+    "clipboard",
+    "feedback",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "framework": "React",
+  "related": [
+    "refresh-button",
+    "download-button",
+    "outline-button"
+  ],
+  "url": "React/Components/Buttons/copy-button/index.html"
+}

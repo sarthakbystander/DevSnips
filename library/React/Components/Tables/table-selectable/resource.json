@@ -1,0 +1,43 @@
+{
+  "id": "React/Components/Tables/table-selectable",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tables",
+  "slug": "table-selectable",
+  "name": "Selectable Table",
+  "description": "A table with real row selection: native checkboxes, a select-all header checkbox with a true indeterminate tri-state, selected-row styling with aria-selected, a live selected count, and a disabled row excluded from selection.",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "selection",
+    "checkbox",
+    "indeterminate",
+    "select-all",
+    "aria-selected"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "row + select-all checkboxes",
+    "true indeterminate tri-state",
+    "selected count",
+    "disabled row",
+    "bulk remove"
+  ],
+  "framework": "React",
+  "related": [
+    "table",
+    "table-with-pagination",
+    "table-with-actions"
+  ],
+  "url": "React/Components/Tables/table-selectable/index.html"
+}

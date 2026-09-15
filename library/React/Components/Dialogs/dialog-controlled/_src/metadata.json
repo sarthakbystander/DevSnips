@@ -1,0 +1,68 @@
+{
+  "id": "dialog-controlled-react-001",
+  "name": "Dialog with Controlled State",
+  "slug": "dialog-controlled",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-controlled",
+  "description": "Open state lifted to the parent: one controlled dialog serves a whole table of API tokens, `onOpenChange` keeps the parent in sync, and a second demo shows `aria-label` labelling when no visible title is rendered.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "controlled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "controlled open state",
+    "onOpenChange sync",
+    "aria-label without visible title"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "aria-label when no DialogTitle is rendered"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-confirmation",
+    "dialog-destructive",
+    "dialog-non-modal"
+  ]
+}

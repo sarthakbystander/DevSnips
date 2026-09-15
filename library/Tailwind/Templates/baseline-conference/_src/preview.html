@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baseline — Conference Template | DevSnips</title>
+  <meta name="description" content="A premium multi-page Tailwind CSS template for a design &amp; engineering conference — bold Neo-Brutalist design system. Six connected pages, fully responsive." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; }
+    html, body { background: #FFFDF5; }
+    body { font-family: 'Archivo', sans-serif; color: #111; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    ::selection { background: #FFE600; color: #111; }
+    .nb { border:2px solid #111; }
+    .nb-shadow { box-shadow:8px 8px 0 0 #111; }
+    .nb-shadow-sm { box-shadow:4px 4px 0 0 #111; }
+    .nb-shadow-lg { box-shadow:12px 12px 0 0 #111; }
+    .nb-press { transition:transform .12s ease, box-shadow .12s ease; }
+    .nb-press:hover { transform:translate(4px,4px); box-shadow:2px 2px 0 0 #111; }
+    .grid-paper {
+      background-image: linear-gradient(#1111110d 1px, transparent 1px), linear-gradient(90deg, #1111110d 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    @media (prefers-reduced-motion: reduce) { .nb-press:hover { transform:none; box-shadow:8px 8px 0 0 #111; } }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Template shell navbar -->
+  <header class="sticky top-0 z-50 border-b-2 border-black bg-[#FFFDF5]/90 backdrop-blur-md">
+    <nav class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8" aria-label="Template">
+      <a href="preview.html" class="flex items-center gap-2.5" aria-label="Baseline template home">
+        <span class="grid h-8 w-8 place-items-center border-2 border-black bg-black"><span class="block h-1 w-4 bg-[#FFE600]"></span></span>
+        <span class="text-[17px] font-extrabold uppercase tracking-tight">Baseline</span>
+        <span class="font-mono ml-1 hidden border border-black/30 px-1.5 py-0.5 text-[10px] font-medium text-black/60 sm:inline">template</span>
+      </a>
+      <div class="hidden items-center gap-3 lg:flex">
+        <span class="font-mono text-[11px] font-medium text-black/60">6 pages · Neo-Brutalism</span>
+        <a href="pages/index.html" class="nb-press nb-shadow-sm inline-flex items-center gap-2 border-2 border-black bg-[#FFE600] px-4 py-2 text-[13px] font-bold uppercase tracking-wide">Open site →</a>
+      </div>
+      <a href="pages/index.html" class="nb-press nb-shadow-sm border-2 border-black bg-[#FFE600] px-4 py-2 text-[13px] font-bold uppercase tracking-wide lg:hidden">Open →</a>
+    </nav>
+  </header>
+
+  <!-- Template overview -->
+  <section class="relative overflow-hidden border-b-2 border-black bg-[#FFFDF5]" aria-labelledby="overview-heading">
+    <div class="pointer-events-none absolute inset-0 grid-paper opacity-70" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-14 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:py-20">
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="font-mono border-2 border-black bg-[#FFFDF5] px-3 py-1 text-[11px] font-bold uppercase tracking-wide">Tailwind CSS</span>
+          <span class="font-mono border-2 border-black bg-[#FF4FA3] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Conference</span>
+          <span class="font-mono text-[11px] font-medium text-black/60">6 pages · production-ready</span>
+        </div>
+        <h1 id="overview-heading" class="mt-6 text-[2.6rem] font-black uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-[4.4rem]">Baseline — a design &amp; engineering conference template.</h1>
+        <p class="mt-6 max-w-xl text-[16px] leading-relaxed text-black/70 lg:text-lg">A premium multi-page template for a fictional two-day conference. Six connected pages share one cream + black + bright-accent Neo-Brutalist language: hard borders, offset shadows, Archivo display type, and JetBrains Mono metadata.</p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="pages/index.html" class="nb-press nb-shadow inline-flex items-center justify-center gap-2 border-2 border-black bg-black px-6 py-3.5 text-sm font-bold uppercase text-[#FFFDF5]">
+            Open the live site
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#pages-index" class="nb-press nb-shadow inline-flex items-center justify-center gap-2 border-2 border-black bg-[#00E676] px-6 py-3.5 text-sm font-bold uppercase">Browse pages</a>
+        </div>
+
+        <dl class="mt-9 grid grid-cols-3 gap-4 border-t-2 border-black pt-5 max-w-lg">
+          <div>
+            <dt class="font-mono text-[10px] uppercase tracking-wide text-black/60">Design</dt>
+            <dd class="mt-1 text-lg font-extrabold uppercase sm:text-xl">Neo-Brutalist</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-[10px] uppercase tracking-wide text-black/60">Responsive</dt>
+            <dd class="mt-1 text-lg font-extrabold uppercase sm:text-xl">320px → 1920+</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-[10px] uppercase tracking-wide text-black/60">Build</dt>
+            <dd class="mt-1 text-lg font-extrabold uppercase sm:text-xl">No build</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- preview frame -->
+      <div class="lg:col-span-5">
+        <a href="pages/index.html" class="block" aria-label="Open Baseline live site">
+          <div class="border-2 border-black bg-[#FFFDF5] nb-shadow-lg">
+            <div class="flex items-center justify-between border-b-2 border-black bg-black px-4 py-2 text-[#FFFDF5]">
+              <div class="flex items-center gap-1.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#FFE600]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#FF4FA3]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#00E676]"></span>
+              </div>
+              <span class="font-mono text-[10px] text-[#FFFDF5]/60">baseline.conference</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden grid-paper bg-[#FFE600]">
+              <div class="flex h-full w-full items-center justify-center p-8">
+                <span class="font-black uppercase leading-[0.86] tracking-tight text-black text-[clamp(2.5rem,7vw,4.5rem)] text-center">Baseline<br><span class="text-black/40">Lisbon '26</span></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <p class="font-mono mt-3 text-center text-[10px] text-black/60">click the frame to open the full page</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pages index -->
+  <section id="pages-index" class="border-b-2 border-black bg-black text-[#FFFDF5]" aria-labelledby="pages-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-20">
+      <div class="flex flex-col gap-4 border-b-2 border-white/15 pb-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#FFE600]">/ Pages</p>
+          <h2 id="pages-heading" class="mt-3 text-[2rem] font-black uppercase leading-[1.02] tracking-tight sm:text-4xl">Six connected pages.</h2>
+        </div>
+        <p class="max-w-md text-[14px] text-white/70">Every page shares one Neo-Brutalist design system.</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="pages/index.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">01</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Home</p>
+          <p class="mt-1 text-[13px] text-white/70">Hero, stats, tracks, speakers preview, schedule teaser, sponsors, register CTA.</p>
+        </a>
+        <a href="pages/speakers.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">02</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Speakers</p>
+          <p class="mt-1 text-[13px] text-white/70">Track filter chips + responsive speaker grid (scoped JS).</p>
+        </a>
+        <a href="pages/schedule.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">03</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Schedule</p>
+          <p class="mt-1 text-[13px] text-white/70">Day 1 / Day 2 tabs + session timetable (scoped JS).</p>
+        </a>
+        <a href="pages/venue.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">04</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Venue</p>
+          <p class="mt-1 text-[13px] text-white/70">CSS map illustration, venue details, travel &amp; accessibility.</p>
+        </a>
+        <a href="pages/register.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">05</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Register</p>
+          <p class="mt-1 text-[13px] text-white/70">Ticket tiers, order summary, validated registration form.</p>
+        </a>
+        <a href="pages/conduct.html" class="nb-press block border-2 border-white/20 bg-[#111] p-5 nb-shadow-sm">
+          <span class="font-mono text-[10px] font-bold text-white/60">06</span>
+          <p class="mt-2 text-lg font-extrabold uppercase tracking-tight">Code of Conduct</p>
+          <p class="mt-1 text-[13px] text-white/70">Long-form policy article with quick-nav.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design system summary -->
+  <section class="border-b-2 border-black bg-[#FFFDF5]" aria-labelledby="design-heading">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 lg:py-20">
+      <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-black/60">/ Design system</p>
+      <h2 id="design-heading" class="mt-3 text-[2rem] font-black uppercase leading-[1.02] tracking-tight sm:text-4xl">Hard borders, offset shadows, bright accents.</h2>
+
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <!-- palette -->
+        <div class="border-2 border-black bg-[#FFFDF5] p-6 nb-shadow-sm">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wide text-black/60">Palette</p>
+          <div class="mt-4 grid grid-cols-4 gap-3">
+            <div><div class="h-12 border-2 border-black bg-black"></div><p class="font-mono mt-1 text-[9px]">ink</p><p class="font-mono text-[9px] text-black/60">#111111</p></div>
+            <div><div class="h-12 border-2 border-black bg-[#FFFDF5]"></div><p class="font-mono mt-1 text-[9px]">paper</p><p class="font-mono text-[9px] text-black/60">#FFFDF5</p></div>
+            <div><div class="h-12 border-2 border-black bg-[#FFE600]"></div><p class="font-mono mt-1 text-[9px]">yellow</p><p class="font-mono text-[9px] text-black/60">#FFE600</p></div>
+            <div><div class="h-12 border-2 border-black bg-[#FF4FA3]"></div><p class="font-mono mt-1 text-[9px]">pink</p><p class="font-mono text-[9px] text-black/60">#FF4FA3</p></div>
+            <div><div class="h-12 border-2 border-black bg-[#00E676]"></div><p class="font-mono mt-1 text-[9px]">lime</p><p class="font-mono text-[9px] text-black/60">#00E676</p></div>
+            <div><div class="h-12 border-2 border-black bg-[#00C2FF]"></div><p class="font-mono mt-1 text-[9px]">cyan</p><p class="font-mono text-[9px] text-black/60">#00C2FF</p></div>
+          </div>
+        </div>
+        <!-- typography -->
+        <div class="border-2 border-black bg-[#FFFDF5] p-6 nb-shadow-sm">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wide text-black/60">Typography</p>
+          <p class="mt-4 text-3xl font-black uppercase tracking-tight">Archivo</p>
+          <p class="font-mono text-[11px] text-black/60">display · 500–900</p>
+          <p class="mt-4 font-mono text-sm">JetBrains Mono</p>
+          <p class="font-mono text-[11px] text-black/60">labels &amp; numbers · 400–700</p>
+        </div>
+        <!-- geometry -->
+        <div class="border-2 border-black bg-[#FFFDF5] p-6 nb-shadow-sm">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wide text-black/60">Geometry</p>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-12 w-12 border-2 border-black bg-[#FFE600] nb-shadow-sm"></div>
+            <div>
+              <p class="text-sm font-bold uppercase">2px borders</p>
+              <p class="font-mono text-[10px] text-black/60">square radius · hard edges</p>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center gap-4">
+            <div class="h-10 w-16 border-2 border-black bg-[#FF4FA3] nb-shadow"></div>
+            <div>
+              <p class="text-sm font-bold uppercase">Offset shadows</p>
+              <p class="font-mono text-[10px] text-black/60">4 / 8 / 12px</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm font-bold uppercase">Press interaction</p>
+            <p class="font-mono text-[10px] text-black/60">translate + shadow shrink on hover/active</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-[#FFFDF5]">
+    <div class="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-3 px-5 py-8 sm:flex-row sm:items-center sm:px-8">
+      <p class="font-mono text-[11px] text-black/60">Baseline — fictional brand for template demonstration · DevSnips</p>
+      <a href="pages/index.html" class="font-mono text-[11px] font-bold uppercase tracking-wide">Open the live site →</a>
+    </div>
+  </footer>
+</body>
+</html>

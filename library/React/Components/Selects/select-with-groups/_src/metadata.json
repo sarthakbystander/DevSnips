@@ -1,0 +1,53 @@
+{
+  "id": "select-with-groups-react-001",
+  "name": "Select With Groups",
+  "slug": "select-with-groups",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-groups",
+  "description": "Custom single-select with grouped options and accessible group dividers.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Grouped",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "groups",
+    "form",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "command-select",
+    "select",
+    "select-with-description"
+  ]
+}

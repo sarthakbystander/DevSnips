@@ -1,0 +1,60 @@
+{
+  "id": "accordion-disabled-react-001",
+  "name": "Disabled Accordion Items",
+  "slug": "accordion-disabled",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-disabled",
+  "description": "Items disabled at the `<AccordionItem>` level: the trigger renders as a natively disabled button \u2014 unfocusable, not activatable by pointer or keyboard, exposed as disabled to assistive technology, and skipped by Tab. Disabled items can never open.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "disabled",
+    "states",
+    "permissions"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "item-level disabled",
+    "native disabled semantics",
+    "skipped in tab order",
+    "state not color alone"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "native disabled attribute",
+    "unfocusable + unactivatable",
+    "skipped by Tab",
+    "no redundant aria-disabled"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion",
+    "accordion-with-badge",
+    "accordion-with-actions"
+  ]
+}

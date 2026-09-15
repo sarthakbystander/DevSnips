@@ -1,0 +1,54 @@
+{
+  "id": "button-with-icon-react-001",
+  "name": "Button With Icon",
+  "slug": "button-with-icon",
+  "component": "button",
+  "family": "buttons",
+  "variant": "button-with-icon",
+  "description": "A labeled button with a leading or trailing icon. Icons use the shared size token for the chosen button size, with the standard control gap keeping icon and label optically aligned.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "icon",
+    "action",
+    "composite",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "solid-button",
+    "button-with-chevron",
+    "icon-button"
+  ]
+}

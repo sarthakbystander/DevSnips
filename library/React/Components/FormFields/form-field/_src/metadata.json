@@ -1,0 +1,57 @@
+{
+  "id": "form-field-react-001",
+  "name": "Form Field",
+  "slug": "form-field",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field",
+  "description": "The structural layer around a form control: label, description, control, helper, and validation message with automatic id / aria-describedby / aria-invalid wiring.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field-required",
+    "form-field-with-error",
+    "form-field-group",
+    "form-field-horizontal"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "React/Components/Dialogs/dialog-scrollable",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Dialogs",
+  "slug": "dialog-scrollable",
+  "name": "Scrollable Dialog",
+  "description": "Long content in a pinned-header/pinned-footer layout: the body region scrolls internally while the panel stays capped inside the viewport.",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "scrollable",
+    "long-content",
+    "layout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "internal body scrolling",
+    "pinned header + footer",
+    "viewport-capped panel"
+  ],
+  "framework": "React",
+  "related": [
+    "dialog",
+    "dialog-form",
+    "dialog-with-custom-footer",
+    "dialog-non-modal"
+  ],
+  "url": "React/Components/Dialogs/dialog-scrollable/index.html"
+}

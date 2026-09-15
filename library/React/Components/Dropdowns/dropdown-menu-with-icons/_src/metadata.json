@@ -1,0 +1,68 @@
+{
+  "id": "dropdown-menu-with-icons-react-001",
+  "name": "Dropdown Menu with Icons",
+  "slug": "dropdown-menu-with-icons",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-with-icons",
+  "description": "Menu items with meaningful leading icons in a consistent 16px aria-hidden slot \u2014 the text label still carries the accessible name, so meaning never depends on the icon alone.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "icons",
+    "icon"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "leading icon slot",
+    "currentColor icons"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "aria-hidden icons",
+    "text label carries the name"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-with-shortcuts",
+    "dropdown-menu-destructive",
+    "dropdown-menu-with-sections"
+  ]
+}

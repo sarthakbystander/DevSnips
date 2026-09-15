@@ -1,0 +1,57 @@
+{
+  "id": "radio-react-001",
+  "name": "Radio",
+  "slug": "radio",
+  "component": "radio",
+  "family": "radios",
+  "variant": "radio",
+  "description": "Native radio styled to the DevSnips select/input visual language with controlled and uncontrolled modes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Radios",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "radio",
+    "form",
+    "selection",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "radio-with-label",
+    "radio-group",
+    "radio-card"
+  ]
+}

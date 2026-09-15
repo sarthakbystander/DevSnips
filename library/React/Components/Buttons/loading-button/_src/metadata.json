@@ -1,0 +1,55 @@
+{
+  "id": "loading-button-react-001",
+  "name": "Loading Button",
+  "slug": "loading-button",
+  "component": "button",
+  "family": "buttons",
+  "variant": "loading-button",
+  "description": "An action button with a first-class loading state. `loading` swaps the leading slot for a spinner, sets `aria-busy`, and disables the button so the action can't be double-fired.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Buttons",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "loading",
+    "spinner",
+    "async",
+    "feedback",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "reduced-motion"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "solid-button",
+    "refresh-button",
+    "download-button"
+  ]
+}

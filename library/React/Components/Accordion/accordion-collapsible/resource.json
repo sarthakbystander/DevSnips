@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Accordion/accordion-collapsible",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Accordion",
+  "slug": "accordion-collapsible",
+  "name": "Collapsible Accordion",
+  "description": "Single-expansion mode with `collapsible`: the open item can be closed again by activating its trigger, so zero or one items are open. Shown side-by-side with the default mandatory behavior, where activating the open item's trigger is a no-op and exactly one item stays open.",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "collapsible",
+    "single",
+    "toggle",
+    "behavior"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "collapsible single mode",
+    "mandatory single-open contrast",
+    "zero-open state"
+  ],
+  "framework": "React",
+  "related": [
+    "accordion",
+    "accordion-multiple",
+    "accordion-disabled"
+  ],
+  "url": "React/Components/Accordion/accordion-collapsible/index.html"
+}

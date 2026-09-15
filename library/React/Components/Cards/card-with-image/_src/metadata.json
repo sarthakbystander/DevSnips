@@ -1,0 +1,60 @@
+{
+  "id": "card-with-image-react-001",
+  "name": "Card with Image",
+  "slug": "card-with-image",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-with-image",
+  "description": "Image-led cards with `CardMedia`: a real `<img>` cropped into a 16:9 (or square) frame with `object-cover`, meaningful `alt` text, lazy loading, and a graceful decorative placeholder when no image is available.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "image",
+    "media",
+    "object-cover",
+    "alt-text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "16:9 and square crop boxes",
+    "object-cover cropping",
+    "missing-image placeholder",
+    "lazy loading"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "meaningful alt text on content images",
+    "decorative placeholder is aria-hidden",
+    "no layout collapse without an image"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card",
+    "card-horizontal",
+    "card-list"
+  ]
+}

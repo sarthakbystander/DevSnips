@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System status — Northstar | DevSnips</title>
+  <meta name="description" content="Service status, uptime, operational components, and incident history.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="system-status">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="system-status">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>System status</h1>
+          <p class="sub">Real-time status and historical uptime for Northstar services.</p>
+        </div>
+        <div class="page-actions"><button class="btn" data-toast="Subscribed to status updates"><span class="btn-text">Subscribe</span></button></div>
+      </div>
+
+      <div class="status-overall degraded" id="overall"></div>
+
+      <section class="panel mb-16">
+        <div class="panel-head"><div class="titles"><h2>Components</h2><p class="desc">Status of individual services</p></div></div>
+        <div id="components"></div>
+      </section>
+
+      <section class="panel mb-16">
+        <div class="panel-head"><div class="titles"><h2>90-day uptime</h2><p class="desc">All systems</p></div></div>
+        <div class="panel-body">
+          <div class="flex items-center gap-8 mb-8"><span class="status-bars" style="display:inline-flex;gap:2px"><span class="b" style="width:8px;height:18px"></span><span class="b" style="width:8px;height:18px"></span><span class="b warn" style="width:8px;height:18px"></span><span class="b" style="width:8px;height:18px"></span></span><span class="muted-block">Operational · Degraded · Down</span></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><div class="titles"><h2>Incident history</h2><p class="desc">Past incidents and maintenance</p></div></div>
+        <div class="panel-body" id="incidents"></div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Support',href:'help-center.html'},{label:'System status'}]);
+      var degraded = DB.statusComponents.some(function (c) { return c.status === 'degraded'; });
+      var down = DB.statusComponents.some(function (c) { return c.status === 'down'; });
+      var overall = document.getElementById('overall');
+      if (down) { overall.className = 'status-overall'; overall.innerHTML = '<span class="ic">' + ICONS.alert + '</span><div><h2>Some systems are down</h2><p>We are actively investigating. Check incidents below.</p></div>'; }
+      else if (degraded) { overall.className = 'status-overall degraded'; overall.innerHTML = '<span class="ic">' + ICONS.alert + '</span><div><h2>All systems operational with minor issues</h2><p>One service is experiencing degraded performance. We are monitoring.</p></div>'; }
+      else { overall.className = 'status-overall'; overall.innerHTML = '<span class="ic">' + ICONS.checkCircle + '</span><div><h2>All systems operational</h2><p>All Northstar services are running normally.</p></div>'; }
+
+      document.getElementById('components').innerHTML = DB.statusComponents.map(function (c) {
+        var bars = '';
+        for (var i = 0; i < 12; i++) {
+          var cls = c.status === 'degraded' && (i === 4 || i === 5) ? 'warn' : c.status === 'down' && i === 6 ? 'down' : '';
+          bars += '<span class="b ' + cls + '"></span>';
+        }
+        var statusPill = c.status === 'operational' ? '<span class="pill operational">Operational</span>' : c.status === 'degraded' ? '<span class="pill pending">Degraded</span>' : '<span class="pill failed">Down</span>';
+        return '<div class="status-component"><div class="nm">' + esc(c.name) + '<div class="d">' + esc(c.desc) + '</div></div><span class="status-uptime">' + c.uptime + '</span><div class="status-bars">' + bars + '</div>' + statusPill + '</div>';
+      }).join('');
+
+      document.getElementById('incidents').innerHTML = DB.incidents.map(function (inc) {
+        var sevPill = inc.severity === 'minor' ? '<span class="pill pending">Minor</span>' : inc.severity === 'major' ? '<span class="pill failed">Major</span>' : '<span class="pill plain">Maintenance</span>';
+        var statusPill = inc.status === 'resolved' ? '<span class="pill operational">Resolved</span>' : inc.status === 'monitoring' ? '<span class="pill pending">Monitoring</span>' : '<span class="pill active">Active</span>';
+        var updates = inc.updates.map(function (u) {
+          return '<div class="incident-update"><span class="when">' + esc(u.when) + '</span><span class="txt">' + esc(u.text) + '</span></div>';
+        }).join('');
+        return '<div class="incident mb-16"><div class="incident-head"><div class="title">' + esc(inc.title) + ' ' + sevPill + ' ' + statusPill + '<div class="date">' + esc(inc.date) + '</div></div></div><div class="incident-updates">' + updates + '</div></div>';
+      }).join('');
+    });
+  })();
+  </script>
+  
+</body>
+</html>

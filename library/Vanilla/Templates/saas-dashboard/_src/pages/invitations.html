@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitations — Northstar | DevSnips</title>
+  <meta name="description" content="Invite users and customers, manage pending invitations, resend and revoke.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="invitations">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app">
+    <main class="main" id="main" data-page="invitations">
+      <div class="page-head">
+        <div class="titles">
+          <div id="crumbs"></div>
+          <h1>Invitations</h1>
+          <p class="sub">Invite team members and customers to your workspace.</p>
+        </div>
+      </div>
+
+      <section class="panel mb-16">
+        <div class="panel-head"><div class="titles"><h2>Send invitation</h2><p class="desc">Invite a new member or customer</p></div></div>
+        <div class="panel-body">
+          <div class="form-row-3">
+            <div class="field"><label class="field-label">Email address <span class="req">*</span></label><input class="input" type="email" id="inv-email" placeholder="name@company.com"></div>
+            <div class="field"><label class="field-label">Name</label><input class="input" id="inv-name" placeholder="Optional"></div>
+            <div class="field"><label class="field-label">Role</label><select class="select" id="inv-role"><option>Viewer</option><option>Member</option><option>Manager</option><option>Admin</option></select></div>
+          </div>
+          <button class="btn btn-primary" id="send-inv"><span class="btn-text">Send invitation</span></button>
+        </div>
+      </section>
+
+      <section class="stat-grid mb-16" id="inv-stats"></section>
+
+      <section class="panel mb-0">
+        <div class="table-head"><h2>Pending & sent invitations</h2></div>
+        <div class="data-table-wrap">
+          <table class="data">
+            <thead><tr><th class="nosort">Recipient</th><th class="nosort">Role</th><th class="nosort">Sent by</th><th class="nosort">Sent</th><th class="nosort">Status</th><th class="nosort" style="text-align:right">Actions</th></tr></thead>
+            <tbody id="inv-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 Northstar — DevSnips Vanilla template demo. Data is illustrative.</span>
+        <div class="links"><a href="help-center.html">Docs</a><a href="support.html">Support</a><a href="system-status.html">Status</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var NS = window.NS, DB = window.DB, esc = NS.esc, pill = NS.pill, ICONS = NS.ICONS;
+    function onReady(fn) { if (document.querySelector('.topbar')) fn(); else window.addEventListener('ns:ready', fn); }
+    onReady(function () {
+      document.getElementById('crumbs').innerHTML = NS.crumbs([{label:'Customers',href:'customers.html'},{label:'Invitations'}]);
+      var pending = DB.invitations.filter(function (i) { return i.status === 'pending'; }).length;
+      var expired = DB.invitations.filter(function (i) { return i.status === 'expired'; }).length;
+      var accepted = DB.invitations.filter(function (i) { return i.status === 'accepted'; }).length;
+      document.getElementById('inv-stats').innerHTML = [
+        { lbl: 'Pending', val: pending }, { lbl: 'Accepted', val: accepted }, { lbl: 'Expired', val: expired }, { lbl: 'Total sent', val: DB.invitations.length }
+      ].map(function (s) { return '<div class="stat"><div class="lbl">' + s.lbl + '</div><div class="val">' + s.val + '</div></div>'; }).join('');
+
+      function render() {
+        document.getElementById('inv-rows').innerHTML = DB.invitations.map(function (i) {
+          var acts = '';
+          if (i.status === 'pending') acts = '<button class="row-act" data-action="resend" data-email="' + esc(i.email) + '" aria-label="Resend">' + ICONS.send + '</button><button class="row-act" data-confirm="Revoke invitation to ' + esc(i.email) + '?" data-confirm-title="Revoke invitation?" data-danger="true" data-confirm-label="Revoke" data-name="' + esc(i.email) + '" aria-label="Revoke">' + ICONS.trash + '</button>';
+          else if (i.status === 'expired') acts = '<button class="row-act" data-action="resend" data-email="' + esc(i.email) + '" aria-label="Resend">' + ICONS.refresh + '</button>';
+          else acts = '<span class="muted">—</span>';
+          return '<tr><td><div class="cust"><span class="pic" style="background:var(--ds-accent)">' + ICONS.mail + '</span><div class="meta"><div class="nm">' + esc(i.name || i.email) + '</div><div class="em">' + esc(i.email) + '</div></div></div></td><td>' + esc(i.role) + '</td><td class="muted">' + esc(i.sentBy) + '</td><td class="muted">' + esc(i.sent) + '</td><td>' + pill(i.status) + '</td><td class="row-acts">' + acts + '</td></tr>';
+        }).join('');
+      }
+      render();
+      document.getElementById('inv-rows').addEventListener('click', function (e) {
+        var r = e.target.closest('[data-action="resend"]'); if (!r) return;
+        NS.toast('Invitation resent to ' + r.dataset.email, 'success');
+      });
+      document.getElementById('send-inv').addEventListener('click', function () {
+        var email = document.getElementById('inv-email').value.trim();
+        if (!email || email.indexOf('@') < 0) { NS.toast('Please enter a valid email', 'danger'); return; }
+        var name = document.getElementById('inv-name').value.trim() || email.split('@')[0];
+        var role = document.getElementById('inv-role').value;
+        DB.invitations.unshift({ id: 'i' + Date.now(), email: email, name: name, role: role, sent: 'just now', status: 'pending', sentBy: 'Alex Morgan' });
+        document.getElementById('inv-email').value = ''; document.getElementById('inv-name').value = '';
+        render(); NS.toast('Invitation sent to ' + email, 'success');
+      });
+    });
+  })();
+  </script>
+  
+</body>
+</html>

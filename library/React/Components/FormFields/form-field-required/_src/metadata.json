@@ -1,0 +1,62 @@
+{
+  "id": "form-field-required-react-001",
+  "name": "Form Field Required",
+  "slug": "form-field-required",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-required",
+  "description": "Required fields: the label gains a destructive asterisk plus an sr-only indicator, and the control receives the native required attribute \u2014 so native form validation and assistive technology both agree.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "required",
+    "constraint-validation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "native required",
+    "native form validation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML",
+    "native required attribute",
+    "aria-hidden asterisk + sr-only (required)"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-optional",
+    "form-field-with-error"
+  ]
+}

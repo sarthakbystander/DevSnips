@@ -1,0 +1,62 @@
+{
+  "id": "accordion-react-001",
+  "name": "Accordion",
+  "slug": "accordion",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion",
+  "description": "The reference accordion: single-expansion disclosure built from the shared compound primitives \u2014 real button triggers in headings, `aria-expanded`/`aria-controls` wiring, grid-rows height animation, and a clean border-divided list treatment. Every other variant in the family is built from these same primitives.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "reference",
+    "single",
+    "compound",
+    "disclosure"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "single expansion",
+    "controlled + uncontrolled",
+    "compound regions",
+    "grid-rows animation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "button triggers with aria-expanded/aria-controls",
+    "role=region labelled by trigger",
+    "h3 heading wrapper",
+    "closed region hidden from AT"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion-collapsible",
+    "accordion-multiple",
+    "accordion-disabled",
+    "accordion-bordered"
+  ]
+}

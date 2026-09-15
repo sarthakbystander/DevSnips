@@ -1,0 +1,70 @@
+{
+  "id": "dialog-with-custom-footer-react-001",
+  "name": "Dialog with Custom Footer",
+  "slug": "dialog-with-custom-footer",
+  "component": "dialog",
+  "family": "dialogs",
+  "variant": "dialog-with-custom-footer",
+  "description": "The footer as a free composition area: a real checklist link and draft metadata on the leading edge, cancel/publish actions on the trailing edge.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dialogs",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "footer",
+    "layout",
+    "composition"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "split footer layout",
+    "footer link + metadata",
+    "stacked on small screens"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"dialog\" trigger",
+    "role=\"dialog\" panel",
+    "aria-modal when modal",
+    "aria-labelledby + aria-describedby wiring",
+    "focus trap while modal",
+    "focus restoration on close",
+    "Escape closes the top-most dialog",
+    "footer link is a real anchor",
+    "focus order follows the DOM"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dialog",
+    "dialog-scrollable",
+    "dialog-form",
+    "dialog-confirmation"
+  ]
+}

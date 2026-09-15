@@ -1,0 +1,60 @@
+{
+  "id": "textarea-disabled-react-001",
+  "name": "Textarea Disabled",
+  "slug": "textarea-disabled",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-disabled",
+  "description": "Disabled textarea using the real native disabled attribute \u2014 not focusable, not submitted.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "disabled",
+    "state",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea",
+    "textarea-readonly",
+    "textarea-with-error"
+  ]
+}

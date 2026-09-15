@@ -1,0 +1,68 @@
+{
+  "id": "tooltip-rich-content-react-001",
+  "name": "Tooltip with Rich Content",
+  "slug": "tooltip-rich-content",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-rich-content",
+  "description": "Structured \u2014 still non-interactive \u2014 content: a title row, supporting metadata, a status dot, or a keyboard-shortcut chip, composed with plain markup inside TooltipContent.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "rich content",
+    "structured",
+    "shortcut"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "title + metadata structure",
+    "kbd chip",
+    "status dot",
+    "non-interactive content"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only",
+    "structured content, still announced as one description"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip",
+    "tooltip-with-icon",
+    "tooltip-with-long-content"
+  ]
+}

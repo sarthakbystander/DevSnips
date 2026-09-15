@@ -1,0 +1,45 @@
+{
+  "id": "React/Components/DatePicker/date-picker-with-label",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "DatePicker",
+  "slug": "date-picker-with-label",
+  "name": "Date Picker \u2014 with Label",
+  "description": "A date picker with the root-rendered field chrome: label, description, and helper text wired to the control with real `htmlFor` + `id` and `aria-describedby` associations \u2014 never visual proximity.",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "label",
+    "description",
+    "helper-text",
+    "form"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "real label association",
+    "aria-describedby wiring",
+    "required marker"
+  ],
+  "framework": "React",
+  "related": [
+    "date-picker",
+    "date-picker-with-error"
+  ],
+  "url": "React/Components/DatePicker/date-picker-with-label/index.html"
+}

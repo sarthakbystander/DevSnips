@@ -1,0 +1,36 @@
+{
+  "id": "Tailwind/Components/Toasts/minimal-toast",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Toasts",
+  "slug": "minimal-toast",
+  "name": "Minimal Toast",
+  "description": "Compact pill-shaped toast for terse, icon-led feedback like \"Copied!\" or \"Saved\". No body text \u2014 just an icon and a label. Appears centered at the bottom and fades after 2 seconds.",
+  "tags": [
+    "toast",
+    "notification",
+    "minimal",
+    "compact",
+    "pill",
+    "copied",
+    "inline",
+    "feedback"
+  ],
+  "features": [
+    "pill shape",
+    "centered bottom position",
+    "icon + label only",
+    "2s auto-dismiss",
+    "dark theme",
+    "pause on hover",
+    "role status",
+    "aria-live polite"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "status-toasts",
+    "action-toast"
+  ],
+  "url": "Tailwind/Components/Toasts/minimal-toast/index.html"
+}

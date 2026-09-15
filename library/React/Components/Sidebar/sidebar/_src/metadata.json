@@ -1,0 +1,64 @@
+{
+  "id": "sidebar-react-001",
+  "name": "Sidebar",
+  "slug": "sidebar",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar",
+  "description": "The canonical application sidebar: a persistent desktop navigation landmark (expandable to an icon rail), a mobile modal drawer with overlay and focus management, and header / content / footer regions with grouped navigation \u2014 the reference implementation every other variant in the family composes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-collapsed",
+    "sidebar-mobile",
+    "sidebar-with-groups",
+    "sidebar-dashboard"
+  ]
+}

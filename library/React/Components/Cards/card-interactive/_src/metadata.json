@@ -1,0 +1,62 @@
+{
+  "id": "card-interactive-react-001",
+  "name": "Interactive Card",
+  "slug": "card-interactive",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-interactive",
+  "description": "A card that is itself the interactive element \u2014 without the fake-`<div>` anti-pattern. With `href` it renders a real anchor (navigation); without `href` it renders a real `<button type=\"button\">` (actions). Discriminated-union typing keeps the two modes apart.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Interaction",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "interactive",
+    "anchor",
+    "button",
+    "navigation",
+    "keyboard"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "real <a> navigation mode",
+    "real <button> action mode",
+    "hover/active surface feedback",
+    "disabled button mode"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real anchor for navigation",
+    "real button for actions",
+    "no nested interactive elements",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card-selectable",
+    "card-with-actions",
+    "card"
+  ]
+}

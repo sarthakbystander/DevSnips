@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switch Card Group — React Components — DevSnips</title>
+<meta name="description" content="Group of settings cards in a fieldset/legend, each with an independently-controlled switch.">
+<link rel="canonical" href="https://devsnips.dev/React/Components/Switches/switch-card-group/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Switch Card Group — React Components — DevSnips">
+<meta property="og:description" content="Group of settings cards in a fieldset/legend, each with an independently-controlled switch.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Switch Card Group — React Components — DevSnips">
+<meta name="twitter:description" content="Group of settings cards in a fieldset/legend, each with an independently-controlled switch.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Switches" class="hover:text-neutral-900 dark:hover:text-white">Switches</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Switch Card Group</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Switch Card Group</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Group of settings cards in a fieldset/legend, each with an independently-controlled switch.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800" data-tabs>
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-900">
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="preview" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="code" aria-selected="false">Code</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="frame-switch-card-group">
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+          </div>
+          <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full &#8599;</a>
+        </div>
+      </div>
+      <div data-panel="preview" class="flex justify-center bg-neutral-100 dark:bg-neutral-950">
+        <iframe id="frame-switch-card-group" src="_src/preview.html" title="Switch Card Group preview" class="h-[420px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe>
+      </div>
+      <pre data-panel="code" class="code-block hidden max-h-[420px] overflow-auto bg-neutral-950 p-4 text-xs text-neutral-200"><code id="code-block">import type { ChangeEvent, ReactNode } from &quot;react&quot;;
+import { useId, useState } from &quot;react&quot;;
+
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+export interface SwitchCardOption {
+  value: string;
+  label: ReactNode;
+  description?: ReactNode;
+  disabled?: boolean;
+}
+
+export interface SwitchCardGroupProps {
+  legend: ReactNode;
+  options: SwitchCardOption[];
+  value?: string[];
+  defaultValue?: string[];
+  onChange?: (value: string[], event: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; void;
+  disabled?: boolean;
+  required?: boolean;
+  invalid?: boolean;
+  error?: string;
+  helperText?: ReactNode;
+  name?: string;
+  id?: string;
+  columns?: 1 | 2;
+  className?: string;
+}
+
+/**
+ * A group of settings cards inside a `&lt;fieldset&gt;`/`&lt;legend&gt;`, each pairing a
+ * label/description with an independently-controlled switch. Maintains a
+ * value array of the options that are on; controlled and uncontrolled modes
+ * both supported. Each card is a clickable `&lt;label htmlFor&gt;` wrapping a real
+ * `&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;`.
+ */
+export function SwitchCardGroup({
+  legend,
+  options,
+  value,
+  defaultValue = [],
+  onChange,
+  disabled,
+  required,
+  invalid,
+  error,
+  helperText,
+  name,
+  id,
+  columns = 1,
+  className,
+}: SwitchCardGroupProps) {
+  const generatedId = useId();
+  const groupId = id ?? `switch-card-group-${generatedId}`;
+  const messageId = `${groupId}-msg`;
+  const isControlled = value !== undefined;
+  const [internal, setInternal] = useState&lt;string[]&gt;(defaultValue);
+  const selected = isControlled ? value : internal;
+
+  function handleChange(option: SwitchCardOption, event: ChangeEvent&lt;HTMLInputElement&gt;) {
+    const next = event.target.checked
+      ? [...selected, option.value]
+      : selected.filter((v) =&gt; v !== option.value);
+    if (!isControlled) setInternal(next);
+    onChange?.(next, event);
+  }
+
+  const describedby = error || helperText ? messageId : undefined;
+  const gridCols = columns === 2 ? &quot;sm:grid-cols-2&quot; : &quot;grid-cols-1&quot;;
+
+  return (
+    &lt;fieldset
+      id={groupId}
+      className={cx(&quot;min-w-0 border-0 p-0&quot;, className)}
+      aria-invalid={invalid || error ? true : undefined}
+      aria-describedby={describedby}
+    &gt;
+      &lt;legend className=&quot;mb-2 block text-[13px] font-medium leading-5 text-[var(--ds-color-foreground)]&quot;&gt;
+        {legend}
+        {required ? (
+          &lt;span aria-hidden=&quot;true&quot; className=&quot;ml-0.5 text-[var(--ds-color-destructive)]&quot;&gt;*&lt;/span&gt;
+        ) : null}
+      &lt;/legend&gt;
+      &lt;div className={cx(&quot;grid gap-2&quot;, gridCols)}&gt;
+        {options.map((option) =&gt; {
+          const isOn = selected.includes(option.value);
+          const isDisabled = option.disabled || disabled;
+          return (
+            &lt;label
+              key={option.value}
+              htmlFor={`${groupId}-${option.value}`}
+              className={cx(
+                &quot;flex w-full items-center gap-3 rounded-[var(--ds-radius-md)] border bg-[var(--ds-color-surface)] p-3.5 text-left transition-colors duration-150 ease-out hover:bg-[var(--ds-color-surface-hover)] focus-within:border-[var(--ds-color-border-strong)] motion-reduce:transition-none&quot;,
+                isDisabled &amp;&amp; &quot;cursor-not-allowed hover:bg-[var(--ds-color-surface)]&quot;,
+                isOn ? &quot;border-[var(--ds-color-primary)]&quot; : &quot;border-[var(--ds-color-border)]&quot;,
+                (invalid || error) &amp;&amp; &quot;border-[var(--ds-color-destructive)]&quot;,
+              )}
+            &gt;
+              &lt;span className=&quot;flex min-w-0 flex-1 flex-col gap-0.5&quot;&gt;
+                &lt;span className=&quot;text-sm font-medium leading-5 text-[var(--ds-color-foreground)]&quot;&gt;{option.label}&lt;/span&gt;
+                {option.description ? (
+                  &lt;span id={`${groupId}-${option.value}-desc`} className=&quot;text-xs leading-4 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+                    {option.description}
+                  &lt;/span&gt;
+                ) : null}
+              &lt;/span&gt;
+              &lt;span className={cx(&quot;relative inline-flex h-[14px] w-[24px] shrink-0 items-center&quot;, isDisabled &amp;&amp; &quot;opacity-50&quot;)}&gt;
+                &lt;input
+                  id={`${groupId}-${option.value}`}
+                  type=&quot;checkbox&quot;
+                  role=&quot;switch&quot;
+                  aria-checked={isOn}
+                  name={name}
+                  value={option.value}
+                  checked={isOn}
+                  disabled={isDisabled}
+                  required={required}
+                  aria-invalid={invalid || error ? true : undefined}
+                  aria-describedby={option.description ? `${groupId}-${option.value}-desc` : undefined}
+                  className={cx(
+                    &quot;absolute inset-0 h-full w-full cursor-pointer appearance-none rounded-full border transition-colors duration-150 ease-out hover:border-[var(--ds-color-border-strong)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] disabled:cursor-not-allowed motion-reduce:transition-none&quot;,
+                    invalid || error
+                      ? (isOn
+                        ? &quot;border-[var(--ds-color-destructive)] bg-[var(--ds-color-destructive)]&quot;
+                        : &quot;border-[var(--ds-color-destructive)]&quot;)
+                      : isOn
+                        ? &quot;border-[var(--ds-color-primary)] bg-[var(--ds-color-primary)]&quot;
+                        : &quot;border-[var(--ds-color-border)] bg-[var(--ds-color-input)]&quot;,
+                  )}
+                  onChange={(e) =&gt; handleChange(option, e)}
+                /&gt;
+                &lt;span
+                  aria-hidden=&quot;true&quot;
+                  className={cx(
+                    &quot;pointer-events-none absolute left-[2px] top-[2px] size-[10px] rounded-full transition-[transform,background-color] duration-150 ease-out motion-reduce:transition-none&quot;,
+                    isOn ? &quot;translate-x-[10px]&quot; : &quot;translate-x-0&quot;,
+                    (invalid || error) &amp;&amp; isOn
+                      ? &quot;bg-[var(--ds-color-destructive-foreground)]&quot;
+                      : isOn
+                        ? &quot;bg-[var(--ds-color-primary-foreground)]&quot;
+                        : &quot;bg-[var(--ds-color-muted-foreground)]&quot;,
+                  )}
+                /&gt;
+              &lt;/span&gt;
+            &lt;/label&gt;
+          );
+        })}
+      &lt;/div&gt;
+      {error ? (
+        &lt;p id={messageId} role=&quot;alert&quot; className=&quot;mt-2 text-xs leading-4 text-[var(--ds-color-destructive)]&quot;&gt;
+          {error}
+        &lt;/p&gt;
+      ) : helperText ? (
+        &lt;p id={messageId} className=&quot;mt-2 text-xs leading-4 text-[var(--ds-color-muted-foreground)]&quot;&gt;
+          {helperText}
+        &lt;/p&gt;
+      ) : null}
+    &lt;/fieldset&gt;
+  );
+}
+
+export default SwitchCardGroup;
+</code></pre>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Switches</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">switch</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">toggle</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">form</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">control</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">group</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">card</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">fieldset</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">settings</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Switches/switch-card-group</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Switches/switch-card-group');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>semantic HTML</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>keyboard accessible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>native form control</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../switch-card/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Switches</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Switch Card</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Settings card that pairs a label and supporting content with a switch in a deliberate, accessible row.</p>
+  
+</a><a href="../switch-group/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Switches</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Switch Group</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Group of related independent on/off settings in a fieldset/legend with a shared value array.</p>
+  
+</a><a href="../switch-with-description/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Switches</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Switch With Description</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Switch with a strong label plus a supporting description wired via aria-describedby.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Switch Card Group</h1>
+<p>Group of settings cards in a fieldset/legend, each with an independently-controlled switch.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+&lt;SwitchCardGroup legend=&quot;Privacy&quot; columns={2} options={[{value:&quot;analytics&quot;,label:&quot;Analytics&quot;,description:&quot;Share anonymous usage data.&quot;},{value:&quot;public&quot;,label:&quot;Public profile&quot;,description:&quot;Visible outside the workspace.&quot;}]} defaultValue={[&quot;analytics&quot;]} /&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+&lt;SwitchCardGroup legend=&quot;Privacy&quot; columns={2} options={[{value:&quot;analytics&quot;,label:&quot;Analytics&quot;,description:&quot;Share anonymous usage data.&quot;},{value:&quot;public&quot;,label:&quot;Public profile&quot;,description:&quot;Visible outside the workspace.&quot;}]} defaultValue={[&quot;analytics&quot;]} /&gt;
+</code></pre>
+<h2>Props</h2>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---:|---|</p>
+<p>| <code>legend</code> | <code>ReactNode</code> (required) | — | Group label rendered in <code>&lt;legend&gt;</code>. |</p>
+<p>| <code>options</code> | <code>{value,label,description?,disabled?}[]</code> (required) | — | Option list. |</p>
+<p>| <code>value</code> / <code>defaultValue</code> | <code>string[]</code> | <code>[]</code> | Controlled / uncontrolled set of options that are on. |</p>
+<p>| <code>onChange</code> | <code>(value[], event) =&gt; void</code> | — | Change callback. |</p>
+<p>| <code>columns</code> | <code>1 \| 2</code> | <code>1</code> | Card columns at the <code>sm</code> breakpoint. |</p>
+<p>| <code>disabled</code> / <code>required</code> / <code>invalid</code> / <code>error</code> / <code>helperText</code> / <code>name</code> / <code>id</code> | — | — | Standard field props. |</p>
+<h2>States</h2>
+<p>A group of settings cards inside a <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code>. Maintains a value array of the options that are on; each card&#x27;s switch stays independently controllable. Controlled and uncontrolled modes both supported. <code>columns={2}</code> collapses to a single column below the <code>sm</code> breakpoint.</p>
+<h2>Accessibility</h2>
+<p><code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> group labeling; each card is a <code>&lt;label htmlFor&gt;</code> wrapping a real native input. Per-option descriptions linked with <code>aria-describedby</code>; <code>aria-invalid</code> + <code>role=&quot;alert&quot;</code> error message; visible <code>focus-visible</code> ring per control.</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>bg-[var(--ds-color-primary)]</code>). Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This switch uses the semantic color, radius, spacing, and motion tokens.</p>
+<h2>Notes</h2>
+<p>Use this for a small set of heavyweight settings that each need a sentence of context (privacy, backups, integrations). For lightweight inline settings use <code>switch-group</code>.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

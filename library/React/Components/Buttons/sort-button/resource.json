@@ -1,0 +1,35 @@
+{
+  "id": "React/Components/Buttons/sort-button",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Buttons",
+  "slug": "sort-button",
+  "name": "Sort Button",
+  "description": "Sets the sort field and direction. Clicking toggles direction (desc \u2192 asc \u2192 none \u2192 desc). The active sort is shown via the field label + a rotated chevron, not color alone. `aria-label` conveys the current state.",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "sort",
+    "table",
+    "toolbar",
+    "utility",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "framework": "React",
+  "related": [
+    "filter-button",
+    "pagination-button",
+    "outline-button"
+  ],
+  "url": "React/Components/Buttons/sort-button/index.html"
+}

@@ -1,0 +1,70 @@
+{
+  "id": "calendar-range-react-001",
+  "name": "Calendar \u2014 Range Selection",
+  "slug": "calendar-range",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-range",
+  "description": "Two-month range selection with a continuous in-range band: click a start, then an end \u2014 earlier clicks and disabled-day crossings restart the range predictably (the demo venue holds Aug 15), same-day ranges are supported, and the selection survives month navigation.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "range",
+    "multi-month"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "range selection",
+    "numberOfMonths=2",
+    "same-day ranges",
+    "restart-on-crossing",
+    "responsive stacking"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "start/end/middle exposed via aria-selected"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-single",
+    "calendar-multiple",
+    "calendar-min-max",
+    "calendar-disabled-dates"
+  ]
+}

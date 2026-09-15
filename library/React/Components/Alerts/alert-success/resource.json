@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Alerts/alert-success",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Alerts",
+  "slug": "alert-success",
+  "name": "Success Alert",
+  "description": "Confirmation of a completed operation: a green tint derived from the `color.success` token, the check glyph, and a polite `role=\"status\"` \u2014 for \"it worked\" feedback after saves, payments, backups, and syncs.",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "success",
+    "confirmation",
+    "status",
+    "polite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "success tint + check glyph",
+    "polite role=status"
+  ],
+  "framework": "React",
+  "related": [
+    "alert-info",
+    "alert-destructive",
+    "alert-dismissible",
+    "alert-live"
+  ],
+  "url": "React/Components/Alerts/alert-success/index.html"
+}

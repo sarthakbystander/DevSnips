@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagination with Numbers — React Components — DevSnips</title>
+<meta name="description" content="Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.">
+<link rel="canonical" href="https://devsnips.dev/React/Components/Pagination/pagination-with-numbers/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Pagination with Numbers — React Components — DevSnips">
+<meta property="og:description" content="Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pagination with Numbers — React Components — DevSnips">
+<meta name="twitter:description" content="Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#Pagination" class="hover:text-neutral-900 dark:hover:text-white">Pagination</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Pagination with Numbers</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Pagination with Numbers</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800" data-tabs>
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-900">
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="preview" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="code" aria-selected="false">Code</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="frame-pagination-with-numbers">
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+          </div>
+          <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full &#8599;</a>
+        </div>
+      </div>
+      <div data-panel="preview" class="flex justify-center bg-neutral-100 dark:bg-neutral-950">
+        <iframe id="frame-pagination-with-numbers" src="_src/preview.html" title="Pagination with Numbers preview" class="h-[420px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe>
+      </div>
+      <pre data-panel="code" class="code-block hidden max-h-[420px] overflow-auto bg-neutral-950 p-4 text-xs text-neutral-200"><code id="code-block">import { createContext, useContext, useState } from &quot;react&quot;;
+import type { HTMLAttributes, LiHTMLAttributes, ReactNode } from &quot;react&quot;;
+
+/**
+/**
+ * DevSnips React Pagination — explicit numbered page navigation. Built on the
+ * reference compound core: compose one `&lt;PaginationLink&gt;` per page and let
+ * the current page carry `aria-current=&quot;page&quot;`. Intended for small, known
+ * page counts; for large datasets use the ellipsis variant.
+ *
+ * `&lt;Pagination&gt;` renders `&lt;nav aria-label&gt;` and owns the current page
+ * (controlled via `page` + `onPageChange`, or uncontrolled via `defaultPage`).
+ * `&lt;PaginationContent&gt;` renders the list of controls; `&lt;PaginationItem&gt;` one
+ * position. `&lt;PaginationLink&gt;` is a numbered page control,
+ * `&lt;PaginationPrevious&gt;` / `&lt;PaginationNext&gt;` step one page back / forward,
+ * and `&lt;PaginationEllipsis&gt;` marks a hidden range of pages.
+ *
+ * Controls render as real `&lt;a href&gt;` when `buildHref` (or an explicit `href`)
+ * is provided — normal browser navigation — and as `&lt;button type=&quot;button&quot;&gt;`
+ * for state-driven pagination. Disabled controls render as non-interactive
+ * spans with `aria-disabled`. The current page carries `aria-current=&quot;page&quot;`.
+ */
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+export type PaginationSize = &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;;
+
+const SIZES: Record&lt;PaginationSize, string&gt; = {
+  sm: &quot;h-8 min-w-8 gap-1 px-2 text-[13px] leading-4 [&amp;_svg]:size-3.5&quot;,
+  md: &quot;h-9 min-w-9 gap-1.5 px-2.5 text-sm leading-5 [&amp;_svg]:size-3.5&quot;,
+  lg: &quot;h-11 min-w-11 gap-2 px-3 text-sm leading-5 [&amp;_svg]:size-4&quot;,
+};
+
+const CONTROL_BASE_CLASSES =
+  &quot;inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--ds-radius-sm)] font-medium tabular-nums transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)] motion-reduce:transition-none&quot;;
+const CONTROL_IDLE_CLASSES =
+  &quot;text-[var(--ds-color-muted-foreground)] hover:bg-[var(--ds-color-surface-hover)] hover:text-[var(--ds-color-foreground)]&quot;;
+const CONTROL_ACTIVE_CLASSES =
+  &quot;border border-[var(--ds-color-border)] bg-[var(--ds-color-surface)] text-[var(--ds-color-foreground)] shadow-[var(--ds-shadow-xs)]&quot;;
+const CONTROL_DISABLED_CLASSES = &quot;pointer-events-none opacity-50&quot;;
+const ICON_WRAP_CLASSES = &quot;inline-flex shrink-0&quot;;
+
+const CHEVRON_LEFT = (
+  &lt;svg
+    viewBox=&quot;0 0 24 24&quot;
+    fill=&quot;none&quot;
+    stroke=&quot;currentColor&quot;
+    strokeWidth={1.75}
+    strokeLinecap=&quot;round&quot;
+    strokeLinejoin=&quot;round&quot;
+    aria-hidden=&quot;true&quot;
+    focusable=&quot;false&quot;
+  &gt;
+    &lt;path d=&quot;m15 6-6 6 6 6&quot; /&gt;
+  &lt;/svg&gt;
+);
+const CHEVRON_RIGHT = (
+  &lt;svg
+    viewBox=&quot;0 0 24 24&quot;
+    fill=&quot;none&quot;
+    stroke=&quot;currentColor&quot;
+    strokeWidth={1.75}
+    strokeLinecap=&quot;round&quot;
+    strokeLinejoin=&quot;round&quot;
+    aria-hidden=&quot;true&quot;
+    focusable=&quot;false&quot;
+  &gt;
+    &lt;path d=&quot;m9 6 6 6-6 6&quot; /&gt;
+  &lt;/svg&gt;
+);
+
+function clampPage(page: number, totalPages: number): number {
+  return Math.min(Math.max(1, page), Math.max(1, totalPages));
+}
+
+interface PaginationContextValue {
+  page: number;
+  totalPages: number;
+  setPage: (page: number) =&gt; void;
+  size: PaginationSize;
+  disabled: boolean;
+  buildHref?: (page: number) =&gt; string;
+}
+
+const PaginationContext = createContext&lt;PaginationContextValue | null&gt;(null);
+
+function usePagination(component: string): PaginationContextValue {
+  const context = useContext(PaginationContext);
+  if (!context) {
+    throw new Error(`&lt;${component}&gt; must be rendered inside &lt;Pagination&gt;.`);
+  }
+  return context;
+}
+
+export interface PaginationProps extends Omit&lt;HTMLAttributes&lt;HTMLElement&gt;, &quot;onChange&quot;&gt; {
+  /** Current page, 1-based (controlled). Omit to run uncontrolled. */
+  page?: number;
+  /** Initial page, 1-based (uncontrolled). */
+  defaultPage?: number;
+  /** Total number of pages (required). */
+  totalPages: number;
+  /** Called with the next 1-based page whenever it changes. */
+  onPageChange?: (page: number) =&gt; void;
+  /** Builds a URL for a page; controls render as real anchors when set. */
+  buildHref?: (page: number) =&gt; string;
+  /** Control density. */
+  size?: PaginationSize;
+  /** Disable every control in the navigation. */
+  disabled?: boolean;
+  /** Accessible label for the navigation landmark. */
+  label?: string;
+  className?: string;
+  children?: ReactNode;
+}
+
+export function Pagination({
+  page,
+  defaultPage = 1,
+  totalPages,
+  onPageChange,
+  buildHref,
+  size = &quot;md&quot;,
+  disabled = false,
+  label = &quot;Pagination&quot;,
+  className,
+  children,
+  ...rest
+}: PaginationProps) {
+  const isControlled = page !== undefined;
+  const [internal, setInternal] = useState(defaultPage);
+  const current = clampPage(isControlled ? page : internal, totalPages);
+  function setPage(next: number) {
+    const clamped = clampPage(next, totalPages);
+    if (clamped === current) return;
+    if (!isControlled) {
+      setInternal(clamped);
+    }
+    onPageChange?.(clamped);
+  }
+  return (
+    &lt;PaginationContext.Provider
+      value={{ page: current, totalPages, setPage, size, disabled, buildHref }}
+    &gt;
+      &lt;nav aria-label={label} className={className} {...rest}&gt;
+        {children}
+      &lt;/nav&gt;
+    &lt;/PaginationContext.Provider&gt;
+  );
+}
+
+export interface PaginationContentProps extends HTMLAttributes&lt;HTMLUListElement&gt; {
+  className?: string;
+  children?: ReactNode;
+}
+
+export function PaginationContent({ className, children, ...rest }: PaginationContentProps) {
+  return (
+    &lt;ul
+      className={cx(&quot;m-0 flex max-w-full list-none flex-wrap items-center gap-1 p-0&quot;, className)}
+      {...rest}
+    &gt;
+      {children}
+    &lt;/ul&gt;
+  );
+}
+
+export interface PaginationItemProps extends LiHTMLAttributes&lt;HTMLLIElement&gt; {
+  className?: string;
+  children?: ReactNode;
+}
+
+export function PaginationItem({ className, children, ...rest }: PaginationItemProps) {
+  return (
+    &lt;li className={cx(&quot;inline-flex&quot;, className)} {...rest}&gt;
+      {children}
+    &lt;/li&gt;
+  );
+}
+
+export interface PaginationLinkProps {
+  /** 1-based page number this control navigates to. */
+  page: number;
+  /** Explicit URL for URL-based pagination (overrides `buildHref`). */
+  href?: string;
+  /** Disable this page control (renders a non-interactive span). */
+  disabled?: boolean;
+  className?: string;
+  children?: ReactNode;
+  &quot;aria-label&quot;?: string;
+}
+
+export function PaginationLink({
+  page,
+  href,
+  disabled,
+  className,
+  children,
+  &quot;aria-label&quot;: ariaLabel,
+}: PaginationLinkProps) {
+  const context = usePagination(&quot;PaginationLink&quot;);
+  const isCurrent = page === context.page;
+  const isDisabled = Boolean(disabled) || context.disabled;
+  const label = ariaLabel ?? (isCurrent ? `Page ${page}` : `Go to page ${page}`);
+  const classes = cx(
+    CONTROL_BASE_CLASSES,
+    SIZES[context.size],
+    isCurrent ? CONTROL_ACTIVE_CLASSES : CONTROL_IDLE_CLASSES,
+    isDisabled &amp;&amp; CONTROL_DISABLED_CLASSES,
+    className,
+  );
+  const url = href ?? context.buildHref?.(page);
+  if (isDisabled) {
+    return (
+      &lt;span
+        aria-disabled=&quot;true&quot;
+        aria-label={label}
+        aria-current={isCurrent ? &quot;page&quot; : undefined}
+        className={classes}
+      &gt;
+        {children ?? page}
+      &lt;/span&gt;
+    );
+  }
+  if (url !== undefined) {
+    return (
+      &lt;a href={url} aria-label={label} aria-current={isCurrent ? &quot;page&quot; : undefined} className={classes}&gt;
+        {children ?? page}
+      &lt;/a&gt;
+    );
+  }
+  return (
+    &lt;button
+      type=&quot;button&quot;
+      onClick={() =&gt; context.setPage(page)}
+      aria-label={label}
+      aria-current={isCurrent ? &quot;page&quot; : undefined}
+      className={classes}
+    &gt;
+      {children ?? page}
+    &lt;/button&gt;
+  );
+}
+
+interface StepControlProps {
+  direction: &quot;previous&quot; | &quot;next&quot;;
+  href?: string;
+  label: string;
+  className?: string;
+}
+
+function StepControl({ direction, href, label, className }: StepControlProps) {
+  const context = usePagination(direction === &quot;previous&quot; ? &quot;PaginationPrevious&quot; : &quot;PaginationNext&quot;);
+  const target = direction === &quot;previous&quot; ? context.page - 1 : context.page + 1;
+  const isDisabled = context.disabled || target &lt; 1 || target &gt; context.totalPages;
+  const classes = cx(
+    CONTROL_BASE_CLASSES,
+    SIZES[context.size],
+    CONTROL_IDLE_CLASSES,
+    isDisabled &amp;&amp; CONTROL_DISABLED_CLASSES,
+    className,
+  );
+  const content =
+    direction === &quot;previous&quot; ? (
+      &lt;&gt;
+        &lt;span aria-hidden=&quot;true&quot; className={ICON_WRAP_CLASSES}&gt;
+          {CHEVRON_LEFT}
+        &lt;/span&gt;
+        &lt;span&gt;{label}&lt;/span&gt;
+      &lt;/&gt;
+    ) : (
+      &lt;&gt;
+        &lt;span&gt;{label}&lt;/span&gt;
+        &lt;span aria-hidden=&quot;true&quot; className={ICON_WRAP_CLASSES}&gt;
+          {CHEVRON_RIGHT}
+        &lt;/span&gt;
+      &lt;/&gt;
+    );
+  const url = href ?? context.buildHref?.(target);
+  if (isDisabled) {
+    return (
+      &lt;span aria-disabled=&quot;true&quot; className={classes}&gt;
+        {content}
+      &lt;/span&gt;
+    );
+  }
+  if (url !== undefined) {
+    return (
+      &lt;a href={url} className={classes}&gt;
+        {content}
+      &lt;/a&gt;
+    );
+  }
+  return (
+    &lt;button type=&quot;button&quot; onClick={() =&gt; context.setPage(target)} className={classes}&gt;
+      {content}
+    &lt;/button&gt;
+  );
+}
+
+export interface PaginationPreviousProps {
+  /** Explicit URL for the previous page (overrides `buildHref`). */
+  href?: string;
+  /** Visible label (also the accessible name). */
+  label?: string;
+  className?: string;
+}
+
+export function PaginationPrevious({ href, label = &quot;Previous&quot;, className }: PaginationPreviousProps) {
+  return &lt;StepControl direction=&quot;previous&quot; href={href} label={label} className={className} /&gt;;
+}
+
+export interface PaginationNextProps {
+  /** Explicit URL for the next page (overrides `buildHref`). */
+  href?: string;
+  /** Visible label (also the accessible name). */
+  label?: string;
+  className?: string;
+}
+
+export function PaginationNext({ href, label = &quot;Next&quot;, className }: PaginationNextProps) {
+  return &lt;StepControl direction=&quot;next&quot; href={href} label={label} className={className} /&gt;;
+}
+
+export interface PaginationEllipsisProps {
+  className?: string;
+}
+
+export function PaginationEllipsis({ className }: PaginationEllipsisProps) {
+  const context = usePagination(&quot;PaginationEllipsis&quot;);
+  return (
+    &lt;span
+      className={cx(
+        &quot;inline-flex select-none items-center justify-center text-[var(--ds-color-muted-foreground)]&quot;,
+        SIZES[context.size],
+        className,
+      )}
+    &gt;
+      &lt;span aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;
+      &lt;span className=&quot;sr-only&quot;&gt;More pages&lt;/span&gt;
+    &lt;/span&gt;
+  );
+}
+
+export default Pagination;
+</code></pre>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Pagination</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">pagination</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">navigation</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accessible</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">responsive</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">pages</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">numbers</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/Pagination/pagination-with-numbers</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/Pagination/pagination-with-numbers');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>semantic nav landmark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>aria-current=&quot;page&quot;</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>keyboard accessible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>one control per page</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../pagination/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pagination</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Pagination</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Accessible page navigation as a compound component: semantic nav landmark, numbered page controls, previous/next steppers, and an aria-current current page.</p>
+  
+</a><a href="../pagination-compact/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pagination</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Compact Pagination</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Compact pagination (32px controls, size=sm) for dense interfaces such as table footers and admin lists — same system, smaller density.</p>
+  
+</a><a href="../pagination-with-ellipsis/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">Pagination</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Pagination with Ellipsis</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Windowed page navigation for large datasets: first/last pages plus a sibling window around the current page, with hidden ranges collapsed to a non-interactive ellipsis.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Pagination with Numbers</h1>
+<p>Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+import Pagination, {
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from &quot;./pagination-with-numbers&quot;;
+
+const [page, setPage] = useState(1);
+const totalPages = 6;
+
+&lt;Pagination page={page} totalPages={totalPages} onPageChange={setPage}&gt;
+  &lt;PaginationContent&gt;
+    {Array.from({ length: totalPages }, (_, i) =&gt; (
+      &lt;PaginationItem key={i + 1}&gt;
+        &lt;PaginationLink page={i + 1} /&gt;
+      &lt;/PaginationItem&gt;
+    ))}
+  &lt;/PaginationContent&gt;
+&lt;/Pagination&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+import Pagination, {
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from &quot;./pagination-with-numbers&quot;;
+
+const [page, setPage] = useState(1);
+const totalPages = 6;
+
+&lt;Pagination page={page} totalPages={totalPages} onPageChange={setPage}&gt;
+  &lt;PaginationContent&gt;
+    {Array.from({ length: totalPages }, (_, i) =&gt; (
+      &lt;PaginationItem key={i + 1}&gt;
+        &lt;PaginationLink page={i + 1} /&gt;
+      &lt;/PaginationItem&gt;
+    ))}
+  &lt;/PaginationContent&gt;
+&lt;/Pagination&gt;
+</code></pre>
+<h2>Props</h2>
+<h3><code>&lt;Pagination&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>page</code> | <code>number</code> | — | Current page, 1-based (controlled). |</p>
+<p>| <code>defaultPage</code> | <code>number</code> | <code>1</code> | Initial page, 1-based (uncontrolled). |</p>
+<p>| <code>totalPages</code> | <code>number</code> (required) | — | Total number of pages. |</p>
+<p>| <code>onPageChange</code> | <code>(page: number) =&gt; void</code> | — | Called with the next 1-based page. |</p>
+<p>| <code>buildHref</code> | <code>(page: number) =&gt; string</code> | — | Builds a URL per page; controls render as real anchors. |</p>
+<p>| <code>size</code> | <code>&quot;sm&quot; \| &quot;md&quot; \| &quot;lg&quot;</code> | <code>&quot;md&quot;</code> | Control density (32px / 36px / 44px). |</p>
+<p>| <code>disabled</code> | <code>boolean</code> | <code>false</code> | Disable every control in the navigation. |</p>
+<p>| <code>label</code> | <code>string</code> | <code>&quot;Pagination&quot;</code> | Accessible label for the <code>&lt;nav&gt;</code> landmark. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;nav&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | <code>PaginationContent</code> composition. |</p>
+<h3><code>&lt;PaginationContent&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;ul&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | <code>PaginationItem</code> elements. |</p>
+<h3><code>&lt;PaginationItem&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;li&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Usually one page control or an ellipsis. |</p>
+<h3><code>&lt;PaginationLink&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>page</code> | <code>number</code> (required) | — | 1-based page number this control navigates to. |</p>
+<p>| <code>href</code> | <code>string</code> | — | Explicit URL (overrides <code>buildHref</code>); renders a real anchor. |</p>
+<p>| <code>disabled</code> | <code>boolean</code> | <code>false</code> | Disable this page control (non-interactive span). |</p>
+<p>| <code>aria-label</code> | <code>string</code> | <code>&quot;Go to page N&quot;</code> / <code>&quot;Page N&quot;</code> | Accessible name override. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the control. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | the page number | Visible content. |</p>
+<h3><code>&lt;PaginationPrevious&gt;</code> / <code>&lt;PaginationNext&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>href</code> | <code>string</code> | — | Explicit URL for the target page (overrides <code>buildHref</code>). |</p>
+<p>| <code>label</code> | <code>string</code> | <code>&quot;Previous&quot;</code> / <code>&quot;Next&quot;</code> | Visible label (also the accessible name). |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the control. |</p>
+<p>Previous disables automatically on the first page; Next on the last page.</p>
+<h3><code>&lt;PaginationEllipsis&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the marker. |</p>
+<p>Informational only: an <code>aria-hidden</code> &quot;…&quot; glyph plus a screen-reader-only &quot;More pages&quot; text. Never a button.</p>
+<h2>Composition</h2>
+<p>Pagination is a compound component. Seven primitives compose the pattern:</p>
+<pre class="code-block"><code>
+&lt;Pagination totalPages={5} page={page} onPageChange={setPage}&gt;
+  &lt;PaginationContent&gt;
+    &lt;PaginationItem&gt;&lt;PaginationPrevious /&gt;&lt;/PaginationItem&gt;
+    &lt;PaginationItem&gt;&lt;PaginationLink page={1} /&gt;&lt;/PaginationItem&gt;
+    &lt;PaginationItem&gt;&lt;PaginationLink page={2} /&gt;&lt;/PaginationItem&gt;
+    &lt;PaginationItem&gt;&lt;PaginationLink page={3} /&gt;&lt;/PaginationItem&gt;
+    &lt;PaginationItem&gt;&lt;PaginationEllipsis /&gt;&lt;/PaginationItem&gt;
+    &lt;PaginationItem&gt;&lt;PaginationNext /&gt;&lt;/PaginationItem&gt;
+  &lt;/PaginationContent&gt;
+&lt;/Pagination&gt;
+</code></pre>
+<ul>
+<li><code>Pagination</code> — the root <code>&lt;nav aria-label=&quot;Pagination&quot;&gt;</code> landmark. Owns the current page (controlled via <code>page</code> + <code>onPageChange</code>, or uncontrolled via <code>defaultPage</code>) and provides it — plus <code>totalPages</code>, <code>size</code>, <code>disabled</code>, and <code>buildHref</code> — to every child through context.</li>
+<li><code>PaginationContent</code> — the list of controls (<code>&lt;ul&gt;</code>). Wraps onto multiple lines instead of scrolling horizontally.</li>
+<li><code>PaginationItem</code> — one position in the control list (<code>&lt;li&gt;</code>).</li>
+<li><code>PaginationLink</code> — a numbered page control. Renders a real <code>&lt;a href&gt;</code> when <code>buildHref</code> (or an explicit <code>href</code>) is set, otherwise a <code>&lt;button type=&quot;button&quot;&gt;</code>. The current page carries <code>aria-current=&quot;page&quot;</code>.</li>
+<li><code>PaginationPrevious</code> / <code>PaginationNext</code> — step one page back / forward. Disabled automatically at the first / last page.</li>
+<li><code>PaginationEllipsis</code> — an informational marker for a hidden range of pages (<code>aria-hidden</code> glyph + screen-reader-only &quot;More pages&quot;). Not a button.</li>
+</ul>
+<p>This variant composes only numbered <code>PaginationLink</code> controls — no steppers. Map one <code>PaginationLink</code> per page; each renders its page number as the default <code>children</code> and computes its own accessible name.</p>
+<h2>Pagination Logic</h2>
+<p>The root <code>&lt;Pagination&gt;</code> owns the current page and clamps every navigation target into <code>1 … totalPages</code>, so out-of-range requests are impossible. Both modes are supported:</p>
+<ul>
+<li><strong>Controlled</strong> — pass <code>page</code> + <code>onPageChange</code>; the parent owns the state.</li>
+<li><strong>Uncontrolled</strong> — pass <code>defaultPage</code>; the component owns the state.</li>
+</ul>
+<p>Controls pick their element from how navigation is driven: with <code>buildHref</code> (or an explicit <code>href</code>) they render real <code>&lt;a href&gt;</code> anchors and the browser performs normal navigation; without URLs they render <code>&lt;button type=&quot;button&quot;&gt;</code> and call <code>setPage</code>. <code>PaginationPrevious</code> is disabled when the current page is 1, <code>PaginationNext</code> when it is <code>totalPages</code>.</p>
+<p>Numbered pagination renders every page explicitly, so it is intended for small page counts (roughly up to 8). Mapping <code>Array.from({ length: totalPages })</code> guarantees the controls and the <code>totalPages</code> prop never disagree. For larger datasets, switch to the ellipsis variant, which windows the range instead of rendering hundreds of buttons.</p>
+<h2>Keyboard Interaction</h2>
+<p>| Key | Behavior |</p>
+<p>|---|---|</p>
+<p>| <code>Tab</code> / <code>Shift+Tab</code> | Move focus through the page controls |</p>
+<p>| <code>Enter</code> / <code>Space</code> | Activate the focused button (state-driven pagination) |</p>
+<p>| <code>Enter</code> | Follow the focused link (URL-based pagination) |</p>
+<p>Controls are native anchors or buttons, so they keep their expected browser behavior. The ellipsis is not focusable — it is informational only.</p>
+<h2>Accessibility</h2>
+<p>The structure follows the W3C pagination navigation pattern: a <code>&lt;nav aria-label=&quot;Pagination&quot;&gt;</code> landmark containing a list of controls.</p>
+<ul>
+<li>State-driven controls are native <code>&lt;button type=&quot;button&quot;&gt;</code> elements; URL-based controls are real <code>&lt;a href&gt;</code> anchors. No <code>div</code> click handlers.</li>
+<li>The current page carries <code>aria-current=&quot;page&quot;</code> and its accessible name is &quot;Page N&quot;; other pages are named &quot;Go to page N&quot;.</li>
+<li>Previous / Next keep visible text labels — the chevron icons are <code>aria-hidden</code> decoration.</li>
+<li>Disabled controls are non-interactive spans with <code>aria-disabled=&quot;true&quot;</code>: not focusable, not activatable.</li>
+<li>The ellipsis glyph is <code>aria-hidden</code> with a screen-reader-only &quot;More pages&quot; text; it is never a control.</li>
+</ul>
+<p>Every numbered control has an explicit accessible name: &quot;Go to page N&quot; for inactive pages and &quot;Page N&quot; with <code>aria-current=&quot;page&quot;</code> for the active one — assistive technology never hears a bare &quot;3&quot;.</p>
+<h2>States</h2>
+<ul>
+<li><strong>Page control (idle)</strong> — muted foreground; hover shifts to a subtle surface with foreground text.</li>
+<li><strong>Current page</strong> — bordered surface with a hairline border, foreground text, and <code>aria-current=&quot;page&quot;</code>. Distinguished by border, surface, and weight together — never by color alone.</li>
+<li><strong>Previous / Next</strong> — same idle treatment with a directional chevron; the visible text label carries the accessible name.</li>
+<li><strong>Disabled</strong> — non-interactive <code>aria-disabled</code> span at 50% opacity; removed from the tab order.</li>
+<li><strong>Focus-visible</strong> — <code>--ds-color-focus-ring</code> outline on every interactive control in both themes.</li>
+</ul>
+<h2>Responsive Behavior</h2>
+<p>The control list uses <code>flex-wrap</code> with a <code>gap-1</code> rhythm, so on narrow screens controls wrap onto a second line instead of shrinking below usable sizes or forcing page-level horizontal scrolling. From 375px up, prefer intentional reduction over squeezing: show fewer numbered links (previous/next-only with <code>pagination-with-previous-next</code>), or collapse the range with <code>pagination-with-ellipsis</code>. Controls keep their full height at every width: 36px at <code>md</code>, 32px at <code>sm</code>, 44px at <code>lg</code> (a comfortable touch target).</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>text-[var(--ds-color-muted-foreground)]</code>). Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This pagination variant uses the semantic color, radius, shadow, typography, and motion tokens.</p>
+<h2>Notes</h2>
+<p>Use for short, stable lists: a handful of search result pages, a small catalog, an admin list. Above ~8 pages the row gets crowded on mobile — move to <code>pagination-with-ellipsis</code>.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings Modal — Tailwind Components — DevSnips</title>
+<meta name="description" content="Settings panel modal with sidebar navigation, profile editing, avatar upload, and toggle switches for preferences.">
+<link rel="canonical" href="https://devsnips.dev/Tailwind/Components/Modals/settings-modal/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Settings Modal — Tailwind Components — DevSnips">
+<meta property="og:description" content="Settings panel modal with sidebar navigation, profile editing, avatar upload, and toggle switches for preferences.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Settings Modal — Tailwind Components — DevSnips">
+<meta name="twitter:description" content="Settings panel modal with sidebar navigation, profile editing, avatar upload, and toggle switches for preferences.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Modals" class="hover:text-neutral-900 dark:hover:text-white">Modals</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Settings Modal</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Settings Modal</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Settings panel modal with sidebar navigation, profile editing, avatar upload, and toggle switches for preferences.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800" data-tabs>
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-900">
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="preview" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="code" aria-selected="false">Code</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="frame-settings-modal">
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+          </div>
+          <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full &#8599;</a>
+        </div>
+      </div>
+      <div data-panel="preview" class="flex justify-center bg-neutral-100 dark:bg-neutral-950">
+        <iframe id="frame-settings-modal" src="_src/preview.html" title="Settings Modal preview" class="h-[420px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe>
+      </div>
+      <pre data-panel="code" class="code-block hidden max-h-[420px] overflow-auto bg-neutral-950 p-4 text-xs text-neutral-200"><code id="code-block">&lt;!-- Settings Modal --&gt;
+&lt;div id=&quot;settings-modal&quot; class=&quot;fixed inset-0 z-50 hidden&quot;&gt;
+  &lt;!-- Backdrop --&gt;
+  &lt;div class=&quot;fixed inset-0 bg-black/50 backdrop-blur-sm&quot; onclick=&quot;closeModal(&#x27;settings-modal&#x27;)&quot;&gt;&lt;/div&gt;
+  
+  &lt;!-- Modal Container --&gt;
+  &lt;div class=&quot;fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-3xl md:max-h-[85vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex transform transition-all overflow-hidden&quot;&gt;
+    
+    &lt;!-- Sidebar --&gt;
+    &lt;div class=&quot;w-64 bg-gray-50 dark:bg-gray-800 border-r border-gray-100 dark:border-gray-800 p-4 flex-shrink-0&quot;&gt;
+      &lt;h3 class=&quot;text-lg font-semibold text-gray-900 dark:text-white px-3 mb-4&quot;&gt;Settings&lt;/h3&gt;
+      &lt;nav class=&quot;space-y-1&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg font-medium&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z&quot;/&gt;
+          &lt;/svg&gt;
+          Profile
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z&quot;/&gt;
+          &lt;/svg&gt;
+          Account
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z&quot;/&gt;
+          &lt;/svg&gt;
+          Security
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z&quot;/&gt;
+          &lt;/svg&gt;
+          Team
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z&quot;/&gt;
+          &lt;/svg&gt;
+          Privacy
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M13 10V3L4 14h7v7l9-11h-7z&quot;/&gt;
+          &lt;/svg&gt;
+          Integrations
+        &lt;/a&gt;
+      &lt;/nav&gt;
+      
+      &lt;div class=&quot;mt-6 pt-6 border-t border-gray-200 dark:border-gray-700&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&quot;/&gt;
+          &lt;/svg&gt;
+          Help &amp; Support
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Content --&gt;
+    &lt;div class=&quot;flex-1 flex flex-col overflow-hidden&quot;&gt;
+      &lt;!-- Header --&gt;
+      &lt;div class=&quot;flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800&quot;&gt;
+        &lt;div&gt;
+          &lt;h2 class=&quot;text-xl font-semibold text-gray-900 dark:text-white&quot;&gt;Profile Settings&lt;/h2&gt;
+          &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;Manage your public profile information&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button onclick=&quot;closeModal(&#x27;settings-modal&#x27;)&quot; class=&quot;p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M6 18L18 6M6 6l12 12&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Form --&gt;
+      &lt;div class=&quot;flex-1 overflow-y-auto p-6 space-y-6&quot;&gt;
+        &lt;!-- Avatar --&gt;
+        &lt;div class=&quot;flex items-center gap-6&quot;&gt;
+          &lt;img src=&quot;https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&amp;h=80&amp;fit=crop&quot; class=&quot;w-20 h-20 rounded-full object-cover&quot;&gt;
+          &lt;div&gt;
+            &lt;button class=&quot;px-4 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors&quot;&gt;Change Photo&lt;/button&gt;
+            &lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400 mt-2&quot;&gt;JPG, GIF or PNG. Max 2MB.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Name --&gt;
+        &lt;div class=&quot;grid grid-cols-2 gap-4&quot;&gt;
+          &lt;div&gt;
+            &lt;label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;First Name&lt;/label&gt;
+            &lt;input type=&quot;text&quot; value=&quot;Marcus&quot; class=&quot;w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all&quot;&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Last Name&lt;/label&gt;
+            &lt;input type=&quot;text&quot; value=&quot;Chen&quot; class=&quot;w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Email --&gt;
+        &lt;div&gt;
+          &lt;label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Email Address&lt;/label&gt;
+          &lt;input type=&quot;email&quot; value=&quot;marcus@company.com&quot; class=&quot;w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all&quot;&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Bio --&gt;
+        &lt;div&gt;
+          &lt;label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Bio&lt;/label&gt;
+          &lt;textarea rows=&quot;3&quot; class=&quot;w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none&quot;&gt;Senior Product Designer with 8+ years of experience creating user-centered digital experiences for SaaS companies.&lt;/textarea&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Toggle --&gt;
+        &lt;div class=&quot;flex items-center justify-between py-4 border-t border-gray-100 dark:border-gray-800&quot;&gt;
+          &lt;div&gt;
+            &lt;p class=&quot;font-medium text-gray-900 dark:text-white&quot;&gt;Make profile public&lt;/p&gt;
+            &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;Allow others to view your profile&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;relative w-11 h-6 bg-blue-600 rounded-full transition-colors&quot;&gt;
+            &lt;span class=&quot;absolute right-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Footer --&gt;
+      &lt;div class=&quot;flex items-center justify-end gap-3 p-6 border-t border-gray-100 dark:border-gray-800&quot;&gt;
+        &lt;button onclick=&quot;closeModal(&#x27;settings-modal&#x27;)&quot; class=&quot;px-5 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors&quot;&gt;Cancel&lt;/button&gt;
+        &lt;button onclick=&quot;closeModal(&#x27;settings-modal&#x27;)&quot; class=&quot;px-5 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30&quot;&gt;Save Changes&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Demo Trigger Button --&gt;
+&lt;button onclick=&quot;openModal(&#x27;settings-modal&#x27;)&quot; class=&quot;px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2&quot;&gt;Open Settings Modal&lt;/button&gt;
+</code></pre>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Modals</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">modal</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">settings</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">preferences</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">profile</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">dashboard</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Modals/settings-modal</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Modals/settings-modal');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../form-modal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Form Modal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Comprehensive form modal with various input types including text, select, textarea, date pickers, file upload, and checkboxes.</p>
+  
+</a><a href="../slide-over/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Slide Over</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Slide-over panel from the left with task details, subtasks, assignees, priority selection, and activity feed.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Settings Modal</h1>
+<p>Settings panel modal.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Modals/settings-modal
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

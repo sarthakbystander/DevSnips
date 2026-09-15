@@ -1,0 +1,41 @@
+{
+  "id": "blog-cyber",
+  "slug": "blog-cyber",
+  "name": "Recent Posts — Cyber",
+  "technology": "tailwind",
+  "category": "Sections",
+  "subcategory": "blog",
+  "section": "Recent Posts",
+  "style": "cyber",
+  "description": "Cyber blog layout: Recent posts.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "blog",
+    "articles",
+    "content",
+    "posts",
+    "cyber"
+  ],
+  "features": [
+    "recent posts",
+    "view-all link",
+    "4 posts",
+    "section header",
+    "responsive 1/2/4-col"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": true,
+  "browserSupport": [
+    "Chrome",
+    "Firefox",
+    "Safari",
+    "Edge"
+  ],
+  "dependencies": [
+    "Tailwind CSS (CDN)",
+    "Google Fonts"
+  ],
+  "type": "section"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "checkbox-react-001",
+  "name": "Checkbox",
+  "slug": "checkbox",
+  "component": "checkbox",
+  "family": "checkboxes",
+  "variant": "checkbox",
+  "description": "Native checkbox styled to the DevSnips select/input visual language with controlled and uncontrolled modes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Checkboxes",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "checkbox",
+    "form",
+    "selection",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "checkbox-with-label",
+    "checkbox-indeterminate",
+    "checkbox-group",
+    "checkbox-card"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "datetime-input-react-010",
+  "name": "Datetime Input",
+  "slug": "datetime-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "datetime-input",
+  "description": "Native date-time input using datetime-local semantics.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Date and time",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-and-time",
+    "datetime-local",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

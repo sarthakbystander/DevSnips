@@ -1,0 +1,60 @@
+{
+  "id": "table-with-pagination-react-001",
+  "name": "Table with Pagination",
+  "slug": "table-with-pagination",
+  "component": "table",
+  "family": "tables",
+  "variant": "table-with-pagination",
+  "description": "A table integrated with real pagination: changing the page or page size changes the visible rows, Previous/Next disable at the boundaries, the current page carries aria-current, and an aria-live status announces the visible range.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tables",
+  "subcategory": "Pagination",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "pagination",
+    "page-size",
+    "aria-current",
+    "windowed pages"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "self-contained pagination bar",
+    "page-size select",
+    "boundary disabling",
+    "aria-live range status"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with accessible label",
+    "aria-current=page",
+    "native disabled boundaries",
+    "aria-live status"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "table",
+    "table-sortable",
+    "table-selectable"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "React/Components/Calendar/calendar-single",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Calendar",
+  "slug": "calendar-single",
+  "name": "Calendar \u2014 Single Date",
+  "description": "Explicit single-date selection, controlled by the parent: the selected date drives a milestone summary, re-selecting the same day is a no-op, and clearing is only possible through the explicit external action.",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "single-date",
+    "controlled"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "controlled selection",
+    "no accidental deselect",
+    "external clear"
+  ],
+  "framework": "React",
+  "related": [
+    "calendar",
+    "calendar-with-footer",
+    "calendar-controlled"
+  ],
+  "url": "React/Components/Calendar/calendar-single/index.html"
+}

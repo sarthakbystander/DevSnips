@@ -1,0 +1,45 @@
+{
+  "id": "React/Components/Dialogs/dialog-controlled",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Dialogs",
+  "slug": "dialog-controlled",
+  "name": "Dialog with Controlled State",
+  "description": "Open state lifted to the parent: one controlled dialog serves a whole table of API tokens, `onOpenChange` keeps the parent in sync, and a second demo shows `aria-label` labelling when no visible title is rendered.",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive",
+    "controlled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close",
+    "controlled open state",
+    "onOpenChange sync",
+    "aria-label without visible title"
+  ],
+  "framework": "React",
+  "related": [
+    "dialog",
+    "dialog-confirmation",
+    "dialog-destructive",
+    "dialog-non-modal"
+  ],
+  "url": "React/Components/Dialogs/dialog-controlled/index.html"
+}

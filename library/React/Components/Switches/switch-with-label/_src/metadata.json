@@ -1,0 +1,59 @@
+{
+  "id": "switch-with-label-react-001",
+  "name": "Switch With Label",
+  "slug": "switch-with-label",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-with-label",
+  "description": "Switch with a visibly-associated label wrapped in a clickable label element.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "label",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch",
+    "switch-with-helper",
+    "switch-with-description"
+  ]
+}

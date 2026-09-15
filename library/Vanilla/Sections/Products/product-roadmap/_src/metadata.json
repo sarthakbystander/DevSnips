@@ -1,0 +1,45 @@
+{
+  "id": "product-roadmap-001",
+  "name": "Roadmap",
+  "slug": "product-roadmap",
+  "component": "product",
+  "family": "products",
+  "variant": "product-roadmap",
+  "description": "Three-column roadmap: shipped / in progress / next.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "technology": "vanilla",
+  "category": "sections",
+  "type": "section",
+  "subcategory": "products",
+  "tags": [
+    "product",
+    "roadmap",
+    "columns"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "browserSupport": [
+    "chrome",
+    "firefox",
+    "safari",
+    "edge"
+  ],
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}

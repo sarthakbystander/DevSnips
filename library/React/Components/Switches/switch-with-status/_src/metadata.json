@@ -1,0 +1,59 @@
+{
+  "id": "switch-with-status-react-001",
+  "name": "Switch With Status",
+  "slug": "switch-with-status",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-with-status",
+  "description": "Switch paired with an explicit text status readout (Enabled / Disabled).",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Status",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "status",
+    "settings",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch-with-label",
+    "switch-loading",
+    "switch-card"
+  ]
+}

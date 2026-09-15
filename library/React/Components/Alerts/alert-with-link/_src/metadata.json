@@ -1,0 +1,59 @@
+{
+  "id": "alert-with-link-react-001",
+  "name": "Alert with Link",
+  "slug": "alert-with-link",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-with-link",
+  "description": "An alert containing real anchors \u2014 an inline link inside the description, or a link in the action row. Links navigate, so they are `<a href>` elements with normal browser behavior, never click handlers on text.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "link",
+    "anchor",
+    "navigation",
+    "composite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "real <a href> links",
+    "inline + action-row placement",
+    "hash navigation demo"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real anchors (keyboard + screen-reader link semantics)",
+    "focus-visible rings",
+    "underlined, not color alone"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-with-action",
+    "alert-info",
+    "alert-warning"
+  ]
+}

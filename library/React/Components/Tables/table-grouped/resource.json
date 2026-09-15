@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Tables/table-grouped",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tables",
+  "slug": "table-grouped",
+  "name": "Grouped Table",
+  "description": "A table with logically grouped rows: one <tbody> per department, a th scope=rowgroup header row per group (visually distinct without color alone), member counts, and collapsible groups.",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "grouping",
+    "rowgroup",
+    "collapsible",
+    "multiple-tbody"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "one tbody per group",
+    "scope=rowgroup headers",
+    "collapse/expand groups",
+    "member counts"
+  ],
+  "framework": "React",
+  "related": [
+    "table",
+    "table-expandable",
+    "table-compact"
+  ],
+  "url": "React/Components/Tables/table-grouped/index.html"
+}

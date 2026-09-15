@@ -1,0 +1,66 @@
+{
+  "id": "navbar-with-actions-react-001",
+  "name": "Navbar with Actions",
+  "slug": "navbar-with-actions",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-actions",
+  "description": "Brand and primary navigation plus a trailing action area: a ghost Sign in button and a primary Get started link, with a realistic sign-in state change driven entirely by local component state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "actions",
+    "sign-in",
+    "cta"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "ghost/outline/primary actions",
+    "sign-in state demo"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-with-user-menu",
+    "navbar-centered"
+  ]
+}

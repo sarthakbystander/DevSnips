@@ -1,0 +1,63 @@
+{
+  "id": "tabs-vertical-react-001",
+  "name": "Tabs (Vertical)",
+  "slug": "tabs-vertical",
+  "component": "tabs",
+  "family": "tabs",
+  "variant": "tabs-vertical",
+  "description": "Vertical tablist for settings and multi-pane navigation; arrow keys follow the vertical axis.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tabs",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tabs",
+    "navigation",
+    "tablist",
+    "tabpanel",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "keyboard",
+    "responsive",
+    "vertical",
+    "layout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic tab roles",
+    "roving tabIndex",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tablist / tab / tabpanel roles",
+    "aria-selected",
+    "aria-controls",
+    "aria-labelledby",
+    "roving tabIndex",
+    "Home / End support",
+    "focus-visible",
+    "aria-orientation"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tabs",
+    "tabs-underline",
+    "tabs-scrollable"
+  ]
+}

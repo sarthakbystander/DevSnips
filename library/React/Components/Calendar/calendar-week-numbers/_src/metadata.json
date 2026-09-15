@@ -1,0 +1,68 @@
+{
+  "id": "calendar-week-numbers-react-001",
+  "name": "Calendar \u2014 Week Numbers",
+  "slug": "calendar-week-numbers",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-week-numbers",
+  "description": "ISO-8601 week numbers in a leading, non-interactive rowheader column, paired with a Monday week start \u2014 the standard layout for sprint and capacity planning.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "week numbers",
+    "iso-8601",
+    "monday-start"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "ISO week numbers",
+    "weekStartsOn=1",
+    "non-interactive week column"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model",
+    "week numbers as rowheaders, never selectable"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar",
+    "calendar-outside-days",
+    "calendar-controlled"
+  ]
+}

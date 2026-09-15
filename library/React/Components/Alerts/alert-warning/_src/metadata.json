@@ -1,0 +1,59 @@
+{
+  "id": "alert-warning-react-001",
+  "name": "Warning Alert",
+  "slug": "alert-warning",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert-warning",
+  "description": "Caution that needs attention before it becomes a failure: an amber tint derived from the `color.warning` token, the triangle glyph, and an assertive `role=\"alert\"` \u2014 for quota, deprecation, and expiring-access messages.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Severity",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "warning",
+    "caution",
+    "alert-role",
+    "assertive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "warning tint + triangle glyph",
+    "assertive role=alert",
+    "deprecation pattern"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=alert (assertive)",
+    "icon aria-hidden, risk in text",
+    "not color alone: glyph + wording"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-destructive",
+    "alert-with-action",
+    "alert-dismissible"
+  ]
+}

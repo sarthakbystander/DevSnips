@@ -1,0 +1,65 @@
+{
+  "id": "tooltip-controlled-react-001",
+  "name": "Tooltip with Controlled State",
+  "slug": "tooltip-controlled",
+  "component": "tooltip",
+  "family": "tooltips",
+  "variant": "tooltip-controlled",
+  "description": "Open state lifted to the parent: a copy action forces its confirmation tooltip open for a moment, an external toggle pins a hint open, and every request flows through onOpenChange.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tooltips",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "controlled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "controlled open state",
+    "onOpenChange sync",
+    "programmatic open/close"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"tooltip\" content",
+    "aria-describedby wiring",
+    "keyboard focus opens (no hover-only)",
+    "Escape dismisses",
+    "pointer-events-none content",
+    "supplementary information only"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tooltip",
+    "tooltip-disabled-trigger",
+    "tooltip-with-icon"
+  ]
+}

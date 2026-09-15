@@ -1,0 +1,65 @@
+{
+  "id": "breadcrumbs-max-width-react-001",
+  "name": "Breadcrumbs Max Width",
+  "slug": "breadcrumbs-max-width",
+  "component": "breadcrumbs",
+  "family": "breadcrumbs",
+  "variant": "breadcrumbs-max-width",
+  "description": "Breadcrumb trail that bounds long labels with max-width truncation while keeping the full text available through the title attribute \u2014 no clipped, meaningless navigation.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Breadcrumbs",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "breadcrumbs",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "links",
+    "hierarchy",
+    "truncation",
+    "max-width",
+    "long-labels"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "ordered list",
+    "aria-current=\"page\"",
+    "label truncation",
+    "auto title from label",
+    "wraps on narrow screens"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "ordered list structure",
+    "real anchor links",
+    "aria-current=\"page\"",
+    "aria-hidden separators",
+    "focus-visible",
+    "full label via title",
+    "full text in accessibility tree"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "breadcrumbs",
+    "breadcrumbs-collapsed",
+    "breadcrumbs-with-separator"
+  ]
+}

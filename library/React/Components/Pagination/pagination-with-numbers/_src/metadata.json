@@ -1,0 +1,59 @@
+{
+  "id": "pagination-with-numbers-react-001",
+  "name": "Pagination with Numbers",
+  "slug": "pagination-with-numbers",
+  "component": "pagination",
+  "family": "pagination",
+  "variant": "pagination-with-numbers",
+  "description": "Explicit numbered page navigation for small, known page counts: one aria-labeled control per page with aria-current on the active page.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Pagination",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "pagination",
+    "navigation",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "pages",
+    "numbers",
+    "page-numbers"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "aria-current=\"page\"",
+    "keyboard accessible",
+    "one control per page"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "nav landmark with aria-label",
+    "aria-current=\"page\"",
+    "accessible control labels",
+    "aria-disabled disabled states",
+    "focus-visible",
+    "native anchors or buttons"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "pagination",
+    "pagination-with-ellipsis",
+    "pagination-compact"
+  ]
+}

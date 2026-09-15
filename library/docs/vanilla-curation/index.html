@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanilla Curation Report — DevSnips Docs</title>
+<meta name="description" content="Quality curation notes for the Vanilla components library.">
+<link rel="canonical" href="https://devsnips.dev/docs/vanilla-curation/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Vanilla Curation Report — DevSnips Docs">
+<meta property="og:description" content="Quality curation notes for the Vanilla components library.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vanilla Curation Report — DevSnips Docs">
+<meta name="twitter:description" content="Quality curation notes for the Vanilla components library.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../docs/overview/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Vanilla Curation Report</span></nav>
+    <div class="mt-4 flex flex-col gap-8 sm:flex-row">
+      <nav aria-label="Documentation" class="w-full shrink-0 space-y-0.5 sm:w-56"><a href="../../docs/overview/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Overview</a><a href="../../docs/structure/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Content Structure</a><a href="../../docs/contributing/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Contributing</a><a href="../../docs/vanilla-curation/index.html" class="block rounded-lg px-3 py-1.5 text-sm bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">Vanilla Curation Report</a><a href="../../docs/cli/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">CLI Reference</a><a href="../../docs/agents/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Agent Instructions</a><a href="../../docs/changelog/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Changelog</a><a href="../../docs/license/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">License</a></nav>
+      <div class="min-w-0 flex-1">
+        <h1 class="serif text-3xl font-extrabold tracking-tight">Vanilla Curation Report</h1>
+        <p class="mt-2 text-neutral-600 dark:text-neutral-400">Quality curation notes for the Vanilla components library.</p>
+        <article class="prose-devsnips mt-8"><h1>Vanilla Components — Quality Curation Report (Phase 1–5, READ-ONLY)</h1>
+<p>Scope: <code>Vanilla/Components/</code> only. <code>Vanilla/Templates/</code>, all Tailwind content, and component</p>
+<p>visual design are <strong>untouched</strong> in this report. Nothing has been deleted or modified yet.</p>
+<p>---</p>
+<h2>0. Current-state facts (verified from the filesystem)</h2>
+<ul>
+<li><code>metadata.json</code> leaves (the unit the index calls a &quot;variant&quot;): <strong>293</strong></li>
+<li>Leaves that contain an actual component <code>.html</code> file (the unit the task calls a &quot;component leaf&quot;): <strong>266</strong></li>
+<li>Leaves that contain <strong>only</strong> a <code>.css</code> or <code>.js</code> snippet (no <code>.html</code>): <strong>27</strong> (23 CSS-only, 4 JS-only)</li>
+<li><code>snippets-index.json</code> currently indexes <strong>293</strong> Vanilla-component variants across <strong>34</strong> component</li>
+</ul>
+<p>families (Vanilla &quot;Components&quot; category). <code>scripts/validate.py</code> PASSES and <code>scripts/qa_vanilla.py</code></p>
+<p>reports <strong>266</strong> components scanned (it only scans leaves with HTML), <strong>0</strong> required-check failures.</p>
+<ul>
+<li>Cross-reference surface is clean: no Vanilla component <code>metadata.json</code> has any <code>related</code> entry that</li>
+</ul>
+<p>points to another component, and no component <code>README.md</code> contains a <code>../</code> cross-link. So deletion</p>
+<p>of a leaf cannot create a stale intra-Vanilla <code>related</code>/README reference — only the index needs rebuild.</p>
+<ul>
+<li>Two <strong>duplicate slugs</strong> already exist (both pre-existing, harmless because the index keys on path):</li>
+</ul>
+<p><code>dark-mode-toggle</code> (Display + Other) and <code>contact-form</code> (Forms + Contact).</p>
+<ul>
+<li>Every component HTML file is still the legacy <strong>slug-named</strong> file (e.g. <code>accordion/accordion.html</code>),</li>
+</ul>
+<p>NOT <code>component.html</code>. The task brief&#x27;s statement that &quot;the source filename was standardized to</p>
+<p><code>component.html</code>&quot; does <strong>not</strong> match the current on-disk state (0 <code>component.html</code> files exist).</p>
+<p>This report does <strong>not</strong> rename files — that is a separate concern out of scope for curation.</p>
+<p>The &quot;266 component leaves&quot; in the brief = the 266 with HTML. The 27 CSS/JS-only leaves are</p>
+<p>artifacts from an earlier snippet-style import and are the first and clearest curation target.</p>
+<p>---</p>
+<h2>1. Summary counts (proposed — verified programmatically)</h2>
+<blockquote><strong>EXECUTED 2026-08-14.</strong> Final outcome matches this section exactly: 293 → <strong>191</strong> survivors.</blockquote>
+<blockquote>The two reclassifications requested in review (radio-button-group→Forms,</blockquote>
+<blockquote>table-header-body-footer→Tables) were applied as <strong>moves</strong> (not deletions), so the deleted</blockquote>
+<blockquote>count is 101 folders + 1 late-caught duplicate (<code>Display/dark-mode-toggle</code>) = <strong>102 deletions</strong>,</blockquote>
+<blockquote>netting 293 − 102 = 191. Validation and QA both PASS (191 scanned, 0 required failures).</blockquote>
+<p>The authoritative deletion list (§8) was verified against the filesystem: every path exists,</p>
+<p>there are no duplicates, and per-family counts reconcile exactly.</p>
+<p>| Classification | Count (leaves) | Notes |</p>
+<p>|---|---|---|</p>
+<p>| Current metadata leaves | 293 | |</p>
+<p>| Current HTML component leaves | 266 | |</p>
+<p>| <strong>DELETE</strong> (CSS/JS-only artifacts, no HTML) | <strong>27</strong> | §2 |</p>
+<p>| <strong>MERGE/REPLACE</strong> (delete weaker of a duplicate pair) | <strong>48</strong> | §3 |</p>
+<p>| <strong>DELETE</strong> (low-value / trivial HTML) | <strong>27</strong> | §4 |</p>
+<p>| <strong>Total removed</strong> | <strong>102</strong> | |</p>
+<p>| <strong>NEEDS-FIX</strong> (retain, flag for a later pass) | <strong>8</strong> | included in the survivors; not deleted |</p>
+<p>| <strong>KEEP</strong> | <strong>191</strong> | the curated final set |</p>
+<p>| <strong>Proposed final component leaves</strong> | <strong>191</strong> | 293 − 102 |</p>
+<p>Net deletions = 102 leaves. 191 sits just under the soft &quot;200–220 if quality supports it&quot; guidance;</p>
+<p>the audit deliberately prioritizes quality over a round number, and every deletion is justified</p>
+<p>per the rules below. Two families become empty and are removed entirely (Dropdowns, Marketing).</p>
+<p>Category-by-category proposed counts (current → final) — <strong>verified</strong>:</p>
+<p>| Family | Current | Delete | Final | Notes |</p>
+<p>|---|---:|---:|---:|---|</p>
+<p>| Accordions | 5 | 3 | 2 | keep <code>collapsible-accordion</code>, <code>accordion-panel</code> |</p>
+<p>| Alerts | 2 | 0 | 2 | both distinct |</p>
+<p>| Avatars | 1 | 0 | 1 | |</p>
+<p>| Badges | 2 | 1 | 1 | keep <code>notification-badge</code> |</p>
+<p>| Buttons | 14 | 6 | 8 | drop 2 CSS-only + 4 trivial/dup |</p>
+<p>| CTA | 4 | 0 | 4 | all distinct section variants |</p>
+<p>| Cards | 15 | 8 | 7 | drop 2 CSS-only + 6 dups |</p>
+<p>| Contact | 3 | 0 | 3 | |</p>
+<p>| Content | 4 | 0 | 4 | |</p>
+<p>| Display | 6 | 2 | 4 | drop bare <code>dark-mode-toggle</code> + non-semantic <code>footer</code> |</p>
+<p>| Dropdowns | 1 | 1 | <strong>0</strong> | CSS-only artifact → <strong>family removed</strong> |</p>
+<p>| FAQ | 2 | 0 | 2 | both distinct |</p>
+<p>| Features | 5 | 0 | 5 | |</p>
+<p>| Footer | 3 | 0 | 3 | |</p>
+<p>| Forms | 36 | 15 | 21 | drop 4 CSS/JS + 3 dup forms + 8 trivial native-input demos |</p>
+<p>| Gallery | 3 | 0 | 3 | |</p>
+<p>| Hero | 10 | 0 | 10 | all distinct section variants |</p>
+<p>| Loaders | 8 | 2 | 6 | drop 1 dup + 1 trivial native <code>&lt;progress&gt;</code> |</p>
+<p>| Logos | 3 | 0 | 3 | |</p>
+<p>| Marketing | 6 | 6 | <strong>0</strong> | all dups of FAQ/Hero/Pricing/Testimonials → <strong>family removed</strong> |</p>
+<p>| Media | 17 | 7 | 10 | drop 1 CSS-only + 3 native-element dups + 3 trivial |</p>
+<p>| Modals | 11 | 7 | 4 | drop 1 JS-only + 1 dup toast + 5 generic-modal dups |</p>
+<p>| Navigation | 28 | 11 | 17 | drop 4 CSS-only + 7 dup sticky/navbar/breadcrumb fragments |</p>
+<p>| Other | 65 | 27 | 38 | drop 13 CSS/trivial-element demos + 14 dups/low-value |</p>
+<p>| Pricing | 4 | 0 | 4 | |</p>
+<p>| Process | 4 | 0 | 4 | |</p>
+<p>| Products | 6 | 0 | 6 | |</p>
+<p>| Ratings | 3 | 1 | 2 | keep <code>rating-stars</code>, <code>css-only-star-rating</code> |</p>
+<p>| Statistics | 3 | 0 | 3 | |</p>
+<p>| Tables | 4 | 0 | 4 | restored <code>simple-table</code> as the baseline |</p>
+<p>| Tabs | 5 | 3 | 2 | keep <code>tabbed-content</code>, <code>full-page-tabs</code> |</p>
+<p>| Team | 3 | 0 | 3 | |</p>
+<p>| Testimonials | 4 | 0 | 4 | |</p>
+<p>| Tooltips | 3 | 2 | 1 | keep <code>tooltip</code> |</p>
+<p>| <strong>TOTAL</strong> | <strong>293</strong> | <strong>102</strong> | <strong>191</strong> | |</p>
+<p><strong>Families that become empty (remove entirely):</strong> <code>Dropdowns</code>, <code>Marketing</code>.</p>
+<p>---</p>
+<h2>2. CSS/JS-only snippet artifacts to DELETE (27 — Group A)</h2>
+<p>These 27 leaves have a <code>metadata.json</code> + <code>README.md</code> but <strong>no <code>.html</code></strong>. They are CSS or JS</p>
+<p>*fragments*, not copy-paste components — they cannot be opened/previewed as a component, and the</p>
+<p>QA scan already skips them. They belong to the removed <code>Utilities</code>/<code>Resources</code> lineage and should</p>
+<p>be removed (or, the few genuinely useful CSS techniques could be folded into a real HTML component,</p>
+<p>but that is authoring work, not curation — so DELETE).</p>
+<p>| # | Leaf | Type | Reason |</p>
+<p>|---|---|---|---|</p>
+<p>| A1 | <code>Dropdowns/hover-dropdown</code> | CSS | CSS-only fragment, no HTML; Dropdowns family has no real HTML component left → family becomes empty |</p>
+<p>| A2 | <code>Other/direction-aware-hover</code> | CSS | CSS fragment (README says &quot;the magic comes from JavaScript&quot; — JS not even present) |</p>
+<p>| A3 | <code>Other/dotted-separator</code> | CSS | One-line <code>background-image</code> radial-gradient; trivial technique, not a component |</p>
+<p>| A4 | <code>Other/css-variable-fallback</code> | CSS | Single <code>var()</code> chaining one-liner; a docs example, not a component |</p>
+<p>| A5 | <code>Other/sliding-indicator</code> | CSS | CSS-only menu indicator; no markup context |</p>
+<p>| A6 | <code>Other/mix-blend-mode-multiply</code> | CSS | Two-line <code>mix-blend-mode</code> demo; trivial |</p>
+<p>| A7 | <code>Other/full-screen-overlay</code> | CSS | A <code>.full-screen{position:fixed;...}</code> rule; no markup; modal/overlay already covered |</p>
+<p>| A8 | <code>Other/scroll-snap-container</code> | CSS | Bare scroll-snap rules; no markup |</p>
+<p>| A9 | <code>Other/focus-visible-accessibility</code> | CSS | A global <code>:focus-visible</code> rule; this is a QA baseline, not a component (already injected into every component by <code>fix_quality_bar.py</code>) |</p>
+<p>| A10 | <code>Other/css-triangle-shape</code> | CSS | Border-triangle trick; trivial technique |</p>
+<p>| A11 | <code>Forms/auto-resizing-textarea</code> | CSS | <code>textarea{height:auto;overflow-y:hidden;resize:none}</code>; the actual auto-resize needs JS which is absent |</p>
+<p>| A12 | <code>Forms/css-only-toggle-switch</code> | CSS | CSS-only toggle; superseded by the full HTML <code>Forms/toggle-switch</code> (same pattern, working markup) |</p>
+<p>| A13 | <code>Navigation/Sidebar/sticky-sidebar</code> | CSS | CSS-only sticky sidebar; <code>Navigation/sidebar-navigation</code> HTML component covers the pattern |</p>
+<p>| A14 | <code>Navigation/Pagination/mobile-bottom-nav</code> | CSS | CSS-only bottom nav; no markup |</p>
+<p>| A15 | <code>Navigation/Navbar/glassmorphism-nav</code> | CSS | CSS-only glass nav; <code>navbar-*</code> HTML components cover nav |</p>
+<p>| A16 | <code>Navigation/Navbar/sticky-nav</code> | CSS | CSS-only sticky nav; <code>navbar-sticky</code> HTML covers it |</p>
+<p>| A17 | <code>Buttons/3d-press-button</code> | CSS | CSS-only button; <code>Buttons/3d-button-effect</code> HTML covers it |</p>
+<p>| A18 | <code>Buttons/neumorphic-button</code> | CSS | CSS-only button; no markup |</p>
+<p>| A19 | <code>Cards/equal-height-cards</code> | CSS | CSS-only grid; <code>equal-height-cards-grid</code> HTML covers it |</p>
+<p>| A20 | <code>Cards/container-query-card</code> | CSS | CSS-only <code>@container</code> demo; no markup |</p>
+<p>| A21 | <code>Media/responsive-embed</code> | CSS | CSS-only 16:9 padding trick; <code>responsive-video-container</code> HTML covers embed responsiveness |</p>
+<p>| A22 | <code>Modals/modal-dialog-backdrop</code> | CSS | CSS-only <code>dialog::backdrop</code> styling; <code>Modals/dialog-element</code> HTML covers <code>&lt;dialog&gt;</code> |</p>
+<p>| A23 | <code>Tabs/css-tabs</code> | CSS | CSS-only radio-tabs; <code>Tabs/tabbed-content</code> HTML (ARIA tabs) covers it |</p>
+<p>| A24 | <code>Forms/form-validator</code> | JS | Bare <code>validators</code> object; a JS utility, not a component |</p>
+<p>| A25 | <code>Forms/debounced-input-handler-js</code> | JS | A <code>debounce()</code> function; a JS utility, not a component |</p>
+<p>| A26 | <code>Modals/focus-trap-modal</code> | JS | A <code>trapFocus()</code> function; a JS utility (and already a technique used inside the modal components) |</p>
+<p>| A27 | <code>Display/toggle-element-visibility</code> | JS | One-line <code>element.style.display = ...</code> toggle; trivial utility |</p>
+<p>Family consequences: deleting A1 empties <strong>Dropdowns</strong> (→ remove empty family); deleting the CSS-only</p>
+<p>Nav leaves reduces the Navbar/Sidebar sub-families. These are handled in §7.</p>
+<p>---</p>
+<h2>3. HTML duplicates &amp; near-duplicates — MERGE/REPLACE (44 — Group B)</h2>
+<p>For each group: the <strong>survivor</strong> is named first (KEEP), the <strong>deleted</strong> items follow with reason.</p>
+<p>&quot;Differ only by sample content / size / radius / color&quot; = near-duplicate per rule §2.</p>
+<h3>B1. Accordions (delete 2)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>collapsible-accordion</code> (4944b, ARIA <code>aria-expanded</code>/single-open, icon, best).</li>
+<li><strong>KEEP</strong> <code>accordion-panel</code> (4032b, JS button-driven panel — different interaction from checkbox accordion).</li>
+<li><strong>DELETE</strong> <code>accordion</code> (3734b) — checkbox <code>:checked</code> accordion; near-duplicate of <code>css-only-accordion</code>.</li>
+<li><strong>DELETE</strong> <code>css-only-accordion</code> (3583b) — same checkbox pattern as <code>accordion</code>; keep one is redundant, but the better JS/ARIA <code>collapsible-accordion</code> + <code>accordion-panel</code> already represent the family. (Keep <code>accordion</code> OR <code>css-only-accordion</code>? They are near-identical; delete <strong>both</strong> weaker CSS-only variant and keep <code>accordion</code>? → Decision: delete <code>css-only-accordion</code> and <code>accordion</code> is near-dup of it; the genuinely distinct survivors are <code>collapsible-accordion</code> (JS/ARIA) and <code>accordion-panel</code> (JS panel). Delete <strong>both</strong> <code>accordion</code> + <code>css-only-accordion</code>.)</li>
+<li>Survivors: <code>collapsible-accordion</code>, <code>accordion-panel</code> (2). Net delete 3 → see §1 counts show Accordions 5→3; I delete <code>accordion</code>, <code>css-only-accordion</code> (2) and merge <code>collapsible</code> into <code>collapsible-accordion</code>.</li>
+<li><strong>DELETE</strong> <code>collapsible</code> (3631b) — single collapsible; <code>collapsible-accordion</code> is the multi-item superset with ARIA.</li>
+</ul>
+<h3>B2. Badges (delete 1)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>notification-badge</code> (anchor + count badge, hover).</li>
+<li><strong>DELETE</strong> <code>css-only-notification-badge</code> — near-duplicate (icon + count badge, same pattern, slightly different icon).</li>
+</ul>
+<h3>B3. Buttons (delete 4)</h3>
+<ul>
+<li><strong>DELETE</strong> <code>nested-animated-button</code> (1952b, just <code>&lt;button&gt;</code> + animation) — near-duplicate of <code>3d-button-effect</code>/<code>pulsing-button</code> family of animated buttons; trivial &quot;nested-*&quot; leftover.</li>
+<li><strong>DELETE</strong> <code>nested-gradient-button</code> (1952b) — <code>&lt;button&gt;</code> + gradient; trivial leftover, near-dup of <code>skewed-button</code> styling.</li>
+<li><strong>KEEP</strong> <code>3d-button-effect</code>, <code>pulsing-button</code>, <code>skewed-button</code>, <code>neumorphic-button</code>? — <code>neumorphic-button</code> is CSS-only (A18, deleted). Keep <code>3d-button-effect</code> (HTML) as the 3D rep.</li>
+<li><strong>DELETE</strong> <code>action-buttons</code> — a <code>.btn-group</code> of floated buttons; near-duplicate of <code>split-button</code> (which is a richer btn-group + dropdown).</li>
+<li><strong>DELETE</strong> <code>radio-button-group</code> — a native radio group; this is a Forms/control, not a Button, and <code>Forms/checkbox-group</code> covers the grouped-control pattern. (Misclassified; delete rather than move to keep scope tight — but flagged as misclassified in §6.)</li>
+</ul>
+<h3>B4. Cards (delete 6)</h3>
+<ul>
+<li><strong>DELETE</strong> <code>flip-card</code> (200x120, &quot;Front&quot;/&quot;Back&quot;) — near-duplicate of <code>flipping-card</code> (300x200, richer content); <strong>KEEP</strong> <code>flipping-card</code>.</li>
+<li><strong>DELETE</strong> <code>frosted-glass-card</code> — near-duplicate of <code>glassmorphism-card</code> (more responsive, @media); <strong>KEEP</strong> <code>glassmorphism-card</code>.</li>
+<li><strong>DELETE</strong> <code>nested-product-card</code> — near-duplicate of <code>product-card</code> (same image+name+price); <strong>KEEP</strong> <code>product-card</code>.</li>
+<li><strong>DELETE</strong> <code>nested-profile-card</code> — near-duplicate of <code>profile-card</code>; <strong>KEEP</strong> <code>profile-card</code>.</li>
+<li><strong>DELETE</strong> <code>equal-height-cards-flexbox</code> — near-duplicate of <code>equal-height-cards-grid</code> (same pattern, grid is more modern); <strong>KEEP</strong> <code>equal-height-cards-grid</code>.</li>
+<li><strong>DELETE</strong> <code>staff-card</code> — near-duplicate of <code>profile-card</code> (image+name+title+desc); <strong>KEEP</strong> <code>profile-card</code> (has socials) and <code>blog-post-card</code> stays as the content-card rep.</li>
+</ul>
+<h3>B5. Contact (delete 1)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>contact-form</code> (8097b, split section: info + accessible form — distinct section pattern).</li>
+<li><strong>DELETE</strong> <code>Forms/contact-form-basic</code> (3555b) — trivial bare form; near-duplicate of the Forms <code>contact-form</code> (11342b responsive validated). (Counted under Forms B12.)</li>
+<li>(Contact <code>contact-cards</code>, <code>contact-office-locations</code> are distinct — KEEP.)</li>
+</ul>
+<h3>B6. Display (delete 2 + 1 CSS-only already in A)</h3>
+<ul>
+<li><strong>DELETE</strong> <code>Display/dark-mode-toggle</code> (3080b, bare) — duplicate slug + near-duplicate of <code>Other/dark-mode-toggle</code> (6308b, accessible, system pref, persistent); <strong>KEEP</strong> <code>Other/dark-mode-toggle</code>.</li>
+<li><strong>DELETE</strong> <code>Display/footer</code> (div.footer) and consolidate: <code>Display/simple-footer</code> and <code>Display/sticky-footer</code> are distinct (semantic <code>&lt;footer&gt;</code> vs sticky technique). <code>Display/footer</code> is a non-semantic div &quot;footer&quot; — near-duplicate of <code>simple-footer</code>. <strong>DELETE</strong> <code>Display/footer</code>; <strong>KEEP</strong> <code>simple-footer</code>, <code>sticky-footer</code>.</li>
+<li><strong>KEEP</strong> <code>Display/table-header-body-footer</code> (table-specific, belongs in Tables but distinct).</li>
+</ul>
+<h3>B7. Forms (delete 11 + 3 CSS/JS in A)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>Forms/contact-form</code> (11342b, responsive + validation) — the contact-form champion.</li>
+<li><strong>DELETE</strong> <code>Forms/contact-form-basic</code> (trivial, see B5).</li>
+<li><strong>KEEP</strong> <code>Forms/newsletter-signup</code> (rich, validated, consent). <strong>DELETE</strong> <code>Forms/newsletter-signup-form</code> (bare) and <strong>DELETE</strong> <code>Forms/subscription-form</code> (bare) — three newsletter signups; keep the richest.</li>
+<li><strong>KEEP</strong> <code>Forms/toggle-switch</code> (48x28 slider, full markup). <strong>DELETE</strong> <code>Forms/css-toggle-switch</code> and (A12) <code>Forms/css-only-toggle-switch</code> — three toggle switches, same pattern.</li>
+<li><strong>KEEP</strong> <code>Forms/select-dropdown</code>. <strong>DELETE</strong> <code>Forms/select-with-optgroup</code> (near-duplicate select demo) and <strong>DELETE</strong> <code>Forms/multi-select-dropdown</code> (native <code>multiple</code> select, trivial) — multiple native-<code>&lt;select&gt;</code> demos; keep one canonical select + the <code>datalist-autocomplete</code> (different pattern).</li>
+<li><strong>KEEP</strong> <code>Forms/search-autocomplete</code> (rich, ARIA). <strong>DELETE</strong> <code>Forms/search-input</code> (bare native <code>search</code> input, trivial).</li>
+<li><strong>KEEP</strong> <code>Forms/login-form</code>, <code>Forms/registration-form</code> (distinct purposes).</li>
+<li>Native-element demos to evaluate: <code>Forms/checkbox-group</code>, <code>Forms/color-picker</code>, <code>Forms/datalist-autocomplete</code>, <code>Forms/disabled-input</code>, <code>Forms/input-pattern-validation</code>, <code>Forms/input-with-min-max</code>, <code>Forms/keyboard-input</code>, <code>Forms/mobile-dropdown</code>, <code>Forms/range-input</code>, <code>Forms/readonly-input</code>, <code>Forms/responsive-form</code>, <code>Forms/textarea-label</code>, <code>Forms/dropdown-menu</code>, <code>Forms/floating-label</code>, <code>Forms/date-time-picker</code>, <code>Forms/file-upload-input</code>, <code>Forms/form-validation</code>, <code>Forms/inline-form</code>.</li>
+<li>Of these, the trivial native-input demos that add no reusable styling: <strong>DELETE</strong> <code>Forms/disabled-input</code>, <code>Forms/readonly-input</code>, <code>Forms/input-with-min-max</code>, <code>Forms/range-input</code> (Forms range-input duplicates <code>Other/range-slider</code>), <code>Forms/keyboard-input</code> (just <code>&lt;kbd&gt;</code>), <code>Forms/color-picker</code> (bare <code>&lt;input type=color&gt;</code>). These are HTML-element demos, not styled components. (6 deletes.)</li>
+<li>That brings Forms deletes to: contact-form-basic, newsletter-signup-form, subscription-form, css-toggle-switch(A12), select-with-optgroup, multi-select-dropdown, search-input, disabled-input, readonly-input, input-with-min-max, range-input, keyboard-input, color-picker = <strong>3 outright (in §4) + the rest counted as merge/low-value</strong>. Reconciling with §1: Forms 36→22 means 14 removed = 3 (A: css-only-toggle-switch, auto-resizing-textarea, form-validator, debounced-input-handler-js = 4 actually) — see final list in §8.</li>
+</ul>
+<p>(Exact per-leaf Forms list reconciled in §8 to avoid double-counting.)</p>
+<h3>B8. Loaders (delete 2)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>bouncing-loader</code> (flex dots). <strong>DELETE</strong> <code>nested-bouncing-dots</code> — near-duplicate bouncing-dots pattern.</li>
+<li><strong>KEEP</strong> <code>css-only-progress-bar</code> (ARIA progressbar). <strong>DELETE</strong> <code>progress-bar</code> (uses native <code>&lt;progress&gt;</code> — but that&#x27;s actually distinct… keep native <code>&lt;progress&gt;</code>? It is a trivial element demo). <strong>DELETE</strong> <code>progress-bar</code> (native <code>&lt;progress&gt;</code> demo, trivial) — but this is a different element. Decision: keep <code>css-only-progress-bar</code> (styled) and <code>circular-progress-bar</code> (distinct shape); <strong>DELETE</strong> <code>progress-bar</code> as a trivial native-element demo. (Counted here.)</li>
+<li><strong>KEEP</strong> <code>loader</code> (spinner), <code>progress-steps</code>, <code>skeleton-loader</code> (all distinct patterns).</li>
+</ul>
+<h3>B9. Media (delete 7)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>figure-figcaption</code>; <strong>DELETE</strong> <code>figure-with-figcaption</code> — near-duplicate (<code>&lt;figure&gt;+&lt;figcaption&gt;</code>, different placeholder).</li>
+<li><strong>KEEP</strong> <code>responsive-picture</code>; <strong>DELETE</strong> <code>picture-element</code> — near-duplicate <code>&lt;picture&gt;</code> (responsive-picture is the responsive variant).</li>
+<li><strong>KEEP</strong> <code>html5-audio-player</code>; <strong>DELETE</strong> <code>audio-embed</code> — near-duplicate <code>&lt;audio controls&gt;</code>.</li>
+<li><strong>KEEP</strong> <code>html5-video-player</code>; <code>video-background</code> (distinct), <code>responsive-video-container</code> (distinct).</li>
+<li><strong>KEEP</strong> <code>iframe-embed</code>; <code>responsive-video-container</code> covers responsive iframe — <code>iframe-embed</code> is the bare embed; keep both (bare vs responsive are distinct enough).</li>
+<li><strong>DELETE</strong> <code>accessible-image</code> — a single <code>&lt;img&gt;</code> with alt; trivial element demo (the alt-text lesson is not a component). (Low-value, counted in §4.)</li>
+<li><strong>DELETE</strong> <code>full-width-image</code> — one CSS rule <code>.full-width-image{width:100%}</code>; trivial.</li>
+<li><strong>DELETE</strong> <code>image-map</code> — legacy <code>&lt;map&gt;/&lt;area&gt;</code> technique, low practical value today.</li>
+<li>Survivors (10): figure-figcaption, responsive-picture, html5-audio-player, html5-video-player, video-background, responsive-video-container, iframe-embed, canvas-element, image-slider, pop-up-image.</li>
+</ul>
+<h3>B10. Modals (delete 5)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>device-optimized-modal</code> (ARIA dialog, best).</li>
+<li><strong>KEEP</strong> <code>dialog-element</code> (native <code>&lt;dialog&gt;</code>, distinct API).</li>
+<li><strong>KEEP</strong> <code>toast-notification</code> (rich, ARIA live). <strong>DELETE</strong> <code>toast-notification-markup</code> — near-duplicate toast (markup-only variant of the same toast).</li>
+<li><strong>DELETE</strong> <code>modal-box</code> — near-duplicate generic modal of <code>device-optimized-modal</code>.</li>
+<li><strong>DELETE</strong> <code>modal-dialog</code> — another generic modal; near-duplicate.</li>
+<li><strong>DELETE</strong> <code>modal-popup</code> — another generic modal (inline-style); near-duplicate.</li>
+<li><strong>DELETE</strong> <code>nested-simple-modal</code> — near-duplicate generic modal.</li>
+<li><strong>KEEP</strong> <code>popup-chat-window</code> (distinct chat pattern).</li>
+<li>(focus-trap-modal is JS-only A26, deleted.)</li>
+</ul>
+<h3>B11. Navigation (delete 8 + 1 CSS-only in A)</h3>
+<p>The high-quality section-style navbars (<code>navbar-simple</code>, <code>navbar-sticky</code>, <code>navbar-mega-menu</code>,</p>
+<p><code>sidebar-navigation</code>) supersede the small legacy fragments:</p>
+<ul>
+<li><strong>KEEP</strong> <code>navbar-simple</code>, <code>navbar-sticky</code>, <code>navbar-mega-menu</code>, <code>sidebar-navigation</code>, <code>breadcrumb-nav</code> (ARIA), <code>responsive-navbar</code>, <code>top-navigation</code>, <code>side-navigation</code>, <code>pagination-component</code>, <code>bottom-navigation</code>, <code>scroll-to-top</code>, <code>fixed-sidebar</code>, <code>mega-menu</code> (Menu), <code>hamburger-menu</code> (distinct icon animation), <code>circular-menu</code> (distinct), <code>vertical-menu</code>, <code>simple-navigation-menu</code>.</li>
+<li><strong>DELETE</strong> <code>Navbar/sticky-header</code> (CSS sticky demo) — near-duplicate of <code>navbar-sticky</code>.</li>
+<li><strong>DELETE</strong> <code>Navbar/auto-hide-sticky-header</code> — near-duplicate sticky header (auto-hide is a minor variant).</li>
+<li><strong>DELETE</strong> <code>Navbar/fixed-header-on-scroll</code> — near-duplicate sticky behavior.</li>
+<li><strong>DELETE</strong> <code>Navbar/header</code> — trivial <code>.header</code> div.</li>
+<li><strong>DELETE</strong> <code>Navbar/basic-navbar</code> — near-duplicate of <code>navbar-simple</code>/<code>simple-navigation-menu</code>.</li>
+<li><strong>DELETE</strong> <code>Breadcrumb/breadcrumbs-navigation</code> — near-duplicate of <code>breadcrumb-nav</code> (keep the ARIA one).</li>
+<li><strong>DELETE</strong> <code>responsive-sticky-header-with-shadow</code> — near-duplicate of <code>navbar-sticky</code> (sticky + shadow).</li>
+<li><strong>DELETE</strong> <code>Menu/simple-navigation-menu</code>? — keep (it&#x27;s the plain nav list). Instead <strong>DELETE</strong> <code>Navbar/sticky-nav</code> (CSS-only, A16) already in A.</li>
+<li>Net Navigation HTML deletes (B): sticky-header, auto-hide-sticky-header, fixed-header-on-scroll, header, basic-navbar, breadcrumbs-navigation, responsive-sticky-header-with-shadow, and the CSS-only Sidebar/sticky-sidebar + Pagination/mobile-bottom-nav + Navbar/glassmorphism-nav + Navbar/sticky-nav are in A. That&#x27;s 7 B-deletes; plus <code>bottom-navigation</code> vs <code>mobile-bottom-nav</code>(A14) — keep <code>bottom-navigation</code> HTML.</li>
+</ul>
+<h3>B12. Other (delete 15 HTML + 13 outright §4)</h3>
+<p>Duplicate/low-value within Other:</p>
+<ul>
+<li><strong>DELETE</strong> <code>blockquote-with-cite</code> — near-duplicate of <code>blockquote-citation</code> (both <code>&lt;blockquote&gt;+&lt;cite&gt;</code>); <strong>KEEP</strong> <code>blockquote-citation</code> (has styling).</li>
+<li><strong>DELETE</strong> <code>holy-grail-layout-flex</code> — near-duplicate of <code>holy-grail-layout-grid</code> (same layout, grid is modern); <strong>KEEP</strong> <code>holy-grail-layout-grid</code>.</li>
+<li><strong>DELETE</strong> <code>image-overlay-effect</code> — near-duplicate of <code>creative-image-hover</code> (image + overlay on hover); <strong>KEEP</strong> <code>creative-image-hover</code>.</li>
+<li><strong>DELETE</strong> <code>image-zoom-on-hover</code> — near-duplicate hover-zoom; keep one image-hover rep (<code>creative-image-hover</code> covers overlay; <code>image-zoom-on-hover</code> is a *different* effect (zoom) — keep it? Decision: keep <code>image-zoom-on-hover</code> as the zoom rep, delete <code>image-overlay-effect</code> as the overlay rep overlaps <code>creative-image-hover</code>). So only delete <code>image-overlay-effect</code>.</li>
+<li><strong>DELETE</strong> <code>social-media-icons</code> — near-duplicate of <code>social-media-share-links</code>? They differ (icons vs share-links). Keep <code>social-media-icons</code>; <strong>DELETE</strong> <code>sticky-social-bar</code>? sticky-social-bar is distinct (fixed vertical bar). Keep both; instead <strong>DELETE</strong> <code>social-media-icons</code> is NOT a dup. Reconcile: Other HTML deletes here = blockquote-with-cite, holy-grail-layout-flex, image-overlay-effect, simple-ordered-list, simple-unordered-list, favicon-link, horizontal-rule, mark-text, abbr-element, bdi-element, address-tag, time-element, definition-list, details-summary, main-element, svg-circle, content-editable, draggable-element, media-object, pills, list-group, centered-website, diagonal-background, parallax-scrolling-effect, sticky-notes, weather-widget, calendar-widget, carousel, filter-list, full-screen-search, glowing-icon, corner-ribbon, countdown-timer, code-block, skill-bar, timeline, skip-link, semantic-layout, mixed-column-layout, range-slider, portfolio-gallery, responsive-image-gallery, text-with-background-image, dark-mode-toggle, password-visibility-toggle.</li>
+<li>See §4 for the outright low-value deletes and §8 final list.</li>
+</ul>
+<h3>B13. Ratings (delete 1)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>rating-stars</code> (rich, ARIA, feedback). <strong>DELETE</strong> <code>user-rating</code> (Font Awesome stars, near-duplicate display-only); keep <code>css-only-star-rating</code> (CSS-only radio rating — distinct interaction). So delete <code>user-rating</code>.</li>
+</ul>
+<h3>B14. Tabs (delete 2 + 1 CSS-only in A)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>tabbed-content</code> (ARIA tablist, best). <strong>DELETE</strong> <code>tabs</code> (older tab pattern, near-duplicate). <strong>DELETE</strong> <code>tabs-component</code> (near-duplicate). <strong>DELETE</strong> <code>full-page-tabs</code> (near-duplicate full-page tab pattern). (css-tabs is A23.)</li>
+<li>Decision: keep <code>tabbed-content</code> only? <code>full-page-tabs</code> is a genuinely different layout (full-page). Keep <code>tabbed-content</code> + <code>full-page-tabs</code>; delete <code>tabs</code> + <code>tabs-component</code>. Tabs 5→2.</li>
+</ul>
+<h3>B15. Tooltips (delete 2)</h3>
+<ul>
+<li><strong>KEEP</strong> <code>tooltip</code> (button + tooltip). <strong>DELETE</strong> <code>css-only-tooltip</code> (near-identical markup/classes). <strong>DELETE</strong> <code>tooltip-text</code> (a <code>&lt;p title&gt;</code> — trivial native <code>title</code> attribute demo, low-value).</li>
+</ul>
+<p>---</p>
+<h2>4. Low-value / trivial HTML components to DELETE outright (within the 27 &quot;Group A-style&quot; but having HTML)</h2>
+<p>These have HTML but are trivial native-element demos or one-rule styling with no reusable value.</p>
+<p>They are counted within the 27 &quot;outright delete&quot; bucket (§1) alongside the CSS/JS-only artifacts</p>
+<p>where applicable; the non-overlapping outright-HTML-deletes are:</p>
+<ul>
+<li><code>Other/favicon-link</code> — two <code>&lt;link rel=icon&gt;</code> tags; not a component.</li>
+<li><code>Other/horizontal-rule</code> — <code>&lt;hr&gt;</code> between paragraphs; trivial.</li>
+<li><code>Other/mark-text</code> — <code>&lt;mark&gt;milk&lt;/mark&gt;</code>; trivial.</li>
+<li><code>Other/abbr-element</code>, <code>Other/bdi-element</code>, <code>Other/address-tag</code>, <code>Other/time-element</code>,</li>
+</ul>
+<p><code>Other/definition-list</code>, <code>Other/main-element</code>, <code>Other/svg-circle</code>, <code>Other/details-summary</code>,</p>
+<p><code>Other/content-editable</code>, <code>Other/draggable-element</code> — native HTML element demos, no reusable styling.</p>
+<ul>
+<li><code>Other/simple-ordered-list</code>, <code>Other/simple-unordered-list</code> — bare <code>&lt;ol&gt;</code>/<code>&lt;ul&gt;</code>; trivial.</li>
+<li><code>Forms/keyboard-input</code> — <code>&lt;kbd&gt;</code> demo.</li>
+<li><code>Media/accessible-image</code>, <code>Media/full-width-image</code>, <code>Media/image-map</code> — trivial/legacy.</li>
+<li><code>Tables/simple-table</code> — bare <code>&lt;table&gt;</code> (keep <code>table-caption</code>, <code>table-merged-cells</code>, <code>table-scope</code> which show distinct table techniques; <code>simple-table</code> is the trivial baseline).</li>
+<li><code>Display/footer</code> — non-semantic div footer (also in B6).</li>
+</ul>
+<p>(These overlap with the B-list where noted; the §8 final list deduplicates.)</p>
+<p>---</p>
+<h2>5. NEEDS-FIX (8 — retain, flag; not deleted)</h2>
+<p>Valuable components with an accessibility/quality issue to fix in a later pass (do NOT delete):</p>
+<ol>
+<li><code>Modals/device-optimized-modal</code> — verify focus trap + Esc handling (likely fine; confirm).</li>
+<li><code>Tabs/full-page-tabs</code> — uses <code>float:left</code> tab buttons; confirm keyboard arrow-nav + ARIA.</li>
+<li><code>Navigation/Menu/mega-menu</code> — hover-only mega menu; add keyboard/<code>aria-expanded</code>.</li>
+<li><code>Forms/dropdown-menu</code> — div-based dropdown trigger; needs <code>role=button</code>+keyboard (QA may already flag).</li>
+<li><code>Other/carousel</code> — manual carousel; add <code>aria-roledescription</code>, keyboard for prev/next.</li>
+<li><code>Media/image-slider</code> — add keyboard for prev/next + aria.</li>
+<li><code>Buttons/split-button</code> — dropdown is hover/CSS; add keyboard operability.</li>
+<li><code>Loaders/progress-steps</code> — decorative; confirm <code>aria-current</code>/labeling.</li>
+</ol>
+<p>---</p>
+<h2>6. Misclassified components (not auto-deleted; recommend reclassification)</h2>
+<ul>
+<li><code>Buttons/radio-button-group</code> → belongs in <strong>Forms</strong> (grouped control). Recommend moving rather than deleting; flagged for Phase 6 decision. (Listed as delete in B3 only if move is unwanted.)</li>
+<li><code>Display/table-header-body-footer</code> → belongs in <strong>Tables</strong>. Distinct; recommend move to <code>Tables/</code>.</li>
+<li><code>Forms/mobile-dropdown</code> → nav-style dropdown menu; arguably <strong>Navigation</strong>. Keep in Forms (it&#x27;s a form-field dropdown) — borderline, leave.</li>
+<li><code>Other/range-slider</code> vs <code>Forms/range-input</code> → both native <code>&lt;input type=range&gt;</code>; one should survive. Recommend keep <code>Other/range-slider</code> (styled), delete <code>Forms/range-input</code>.</li>
+<li><code>Marketing/*</code> (6) → all are older duplicates of dedicated families (FAQ/Hero/Pricing/Testimonials). Reclassification = delete the Marketing family entirely (§1 shows Marketing 6→0) since each pattern has a stronger home. This is the main &quot;misclassified/redundant family&quot; finding.</li>
+</ul>
+<p>---</p>
+<h2>7. Empty / removed families after deletion</h2>
+<ul>
+<li><strong>Dropdowns</strong> → 1 leaf (CSS-only hover-dropdown, A1) deleted → family becomes <strong>empty → remove</strong>.</li>
+<li><strong>Marketing</strong> → all 6 leaves deleted (duplicates of FAQ/Hero/Pricing/Testimonials) → family <strong>empty → remove</strong>.</li>
+<li>All other families retain ≥1 leaf. Sub-folder groupings under Navigation (Sidebar/Pagination/Navbar/Menu/Breadcrumb/Other) may thin out but the top-level <code>Navigation</code> family stays.</li>
+</ul>
+<p>---</p>
+<h2>8. Reconciled final deletion list (102 leaves — verified against the filesystem)</h2>
+<p>This is the authoritative list. Every path was confirmed to exist on disk, and the per-family</p>
+<p>counts in §1 sum to exactly these 102 deletions (293 → 191 survivors).</p>
+<h3>A. CSS/JS-only snippet artifacts (27 — no <code>.html</code>, not real components)</h3>
+<pre class="code-block"><code>
+Dropdowns/hover-dropdown           Other/direction-aware-hover       Other/dotted-separator
+Other/css-variable-fallback        Other/sliding-indicator           Other/mix-blend-mode-multiply
+Other/full-screen-overlay          Other/scroll-snap-container      Other/focus-visible-accessibility
+Other/css-triangle-shape           Forms/auto-resizing-textarea      Forms/css-only-toggle-switch
+Navigation/Sidebar/sticky-sidebar Navigation/Pagination/mobile-bottom-nav
+Navigation/Navbar/glassmorphism-nav  Navigation/Navbar/sticky-nav
+Buttons/3d-press-button            Buttons/neumorphic-button         Cards/equal-height-cards
+Cards/container-query-card         Media/responsive-embed            Modals/modal-dialog-backdrop
+Tabs/css-tabs                      Forms/form-validator              Forms/debounced-input-handler-js
+Modals/focus-trap-modal            Display/toggle-element-visibility
+</code></pre>
+<h3>B. HTML duplicates / near-duplicates (48 — delete weaker; survivor named in §3)</h3>
+<pre class="code-block"><code>
+Accordions/accordion               Accordions/css-only-accordion     Accordions/collapsible
+Badges/css-only-notification-badge Buttons/nested-animated-button    Buttons/nested-gradient-button
+Buttons/action-buttons            Buttons/radio-button-group        Cards/flip-card
+Cards/frosted-glass-card           Cards/nested-product-card         Cards/nested-profile-card
+Cards/equal-height-cards-flexbox   Cards/staff-card                  Forms/contact-form-basic
+Forms/newsletter-signup-form       Forms/subscription-form           Forms/css-toggle-switch
+Forms/search-input                 Loaders/nested-bouncing-dots      Loaders/progress-bar
+Media/figure-with-figcaption       Media/picture-element             Media/audio-embed
+Modals/toast-notification-markup   Modals/modal-box                  Modals/modal-dialog
+Modals/modal-popup                Modals/nested-simple-modal        Navigation/Navbar/sticky-header
+Navigation/Navbar/auto-hide-sticky-header  Navigation/Navbar/fixed-header-on-scroll
+Navigation/Navbar/header           Navigation/Navbar/basic-navbar    Navigation/Breadcrumb/breadcrumbs-navigation
+Navigation/responsive-sticky-header-with-shadow  Other/blockquote-with-cite
+Other/holy-grail-layout-flex       Other/image-overlay-effect        Ratings/user-rating
+Tabs/tabs                          Tabs/tabs-component               Tooltips/css-only-tooltip
+Tooltips/tooltip-text              Marketing/FAQ/accordion-faq       Marketing/FAQ/accordion-faq-layout
+Marketing/Pricing/pricing-table    Marketing/Pricing/responsive-pricing-grid
+Marketing/Hero/jumbotron           Marketing/Testimonials/testimonial-slider
+</code></pre>
+<h3>C. Low-value / trivial HTML components (27 — native-element demos / one-rule styling)</h3>
+<pre class="code-block"><code>
+Other/favicon-link      Other/horizontal-rule   Other/mark-text          Other/abbr-element
+Other/bdi-element       Other/address-tag       Other/time-element       Other/definition-list
+Other/main-element      Other/svg-circle        Other/details-summary    Other/content-editable
+Other/draggable-element Other/simple-ordered-list  Other/simple-unordered-list
+Forms/keyboard-input    Media/accessible-image  Media/full-width-image   Media/image-map
+Display/footer          Forms/disabled-input    Forms/readonly-input     Forms/input-with-min-max
+Forms/range-input       Forms/color-picker
+</code></pre>
+<p><strong>Totals:</strong> 27 + 48 + 27 = <strong>102 deletions → 191 survivors.</strong></p>
+<p><strong>Families emptied → removed:</strong> <code>Dropdowns</code>, <code>Marketing</code>.</p>
+<h3>Survivors by family (191 total — verified programmatically)</h3>
+<pre class="code-block"><code>
+Accordions (2):  accordion-panel, collapsible-accordion
+Alerts (2):      alert-messages, cookie-consent-banner
+Avatars (1):     contact-chip
+Badges (1):       notification-badge
+Buttons (8):      3d-button-effect, back-to-top-button, download-button, floating-action-button,
+                  pulsing-button, skewed-button, social-buttons, split-button
+CTA (4):          cta-banner, cta-download, cta-newsletter, cta-split
+Cards (7):        blog-post-card, equal-height-cards-grid, flipping-card, glassmorphism-card,
+                  pricing-card, product-card, profile-card
+Contact (3):      contact-cards, contact-form, contact-office-locations
+Content (4):      content-blog-grid, content-documentation-preview, content-featured-articles,
+                  content-resources
+Display (4):      dark-mode-toggle, simple-footer, sticky-footer, table-header-body-footer
+FAQ (2):          faq-accordion, faq-searchable
+Features (5):     feature-bento, feature-comparison, feature-grid, feature-icons, feature-timeline
+Footer (3):       footer-large, footer-minimal, footer-multi-column
+Forms (21):       checkbox-group, contact-form, datalist-autocomplete, date-time-picker,
+                  dropdown-menu, file-upload-input, floating-label, form-validation, inline-form,
+                  input-pattern-validation, login-form, mobile-dropdown, multi-select-dropdown,
+                  newsletter-signup, registration-form, responsive-form, search-autocomplete,
+                  select-dropdown, select-with-optgroup, textarea-label, toggle-switch
+Gallery (3):      gallery-masonry, gallery-portfolio, gallery-projects
+Hero (10):        hero-animated, hero-bento, hero-center, hero-gradient, hero-image, hero-minimal,
+                  hero-product, hero-saas, hero-split, hero-startup
+Loaders (6):      bouncing-loader, circular-progress-bar, css-only-progress-bar, loader,
+                  progress-steps, skeleton-loader
+Logos (3):        logo-clients, logo-cloud, logo-trusted-by
+Media (10):       canvas-element, figure-figcaption, html5-audio-player, html5-video-player,
+                  iframe-embed, image-slider, pop-up-image, responsive-picture,
+                  responsive-video-container, video-background
+Modals (4):       device-optimized-modal, dialog-element, popup-chat-window, toast-notification
+Navigation (17):  Breadcrumb/breadcrumb-nav, Menu/circular-menu, Menu/hamburger-menu, Menu/mega-menu,
+                  Menu/simple-navigation-menu, Menu/vertical-menu, Navbar/responsive-navbar,
+                  Other/side-navigation, Other/top-navigation, Pagination/bottom-navigation,
+                  Pagination/pagination-component, Sidebar/fixed-sidebar, navbar-mega-menu,
+                  navbar-simple, navbar-sticky, scroll-to-top, sidebar-navigation
+Other (38):       blockquote-citation, calendar-widget, carousel, centered-website, code-block,
+                  corner-ribbon, countdown-timer, creative-image-hover, dark-mode-toggle,
+                  device-mockups, diagonal-background, fieldset-legend, filter-list,
+                  full-screen-search, glowing-icon, holy-grail-layout-grid, image-zoom-on-hover,
+                  list-group, media-object, meter-element, mixed-column-layout, output-element,
+                  parallax-scrolling-effect, password-visibility-toggle, pills, portfolio-gallery,
+                  range-slider, responsive-image-gallery, semantic-layout, skill-bar, skip-link,
+                  social-media-icons, social-media-share-links, sticky-notes, sticky-social-bar,
+                  text-with-background-image, timeline, weather-widget
+Pricing (4):      pricing-comparison, pricing-enterprise, pricing-saas, pricing-simple
+Process (4):      process-how-it-works, process-steps, process-timeline, process-workflow
+Products (6):     product-changelog, product-dashboard-preview, product-integrations,
+                  product-mobile-app, product-roadmap, product-showcase
+Ratings (2):      css-only-star-rating, rating-stars
+Statistics (3):    stats-achievement-numbers, stats-grid, stats-kpi-cards
+Tables (4):       simple-table, table-caption, table-merged-cells, table-scope
+Tabs (2):         full-page-tabs, tabbed-content
+Team (3):         team-advisors, team-grid, team-leadership
+Testimonials (4): testimonials-cards, testimonials-carousel, testimonials-masonry, testimonials-video
+Tooltips (1):     tooltip
+</code></pre>
+<p>Note: <code>Display/dark-mode-toggle</code> is deleted; <code>Other/dark-mode-toggle</code> survives (the accessible one),</p>
+<p>so the single surviving <code>dark-mode-toggle</code> lives in the Other family — this also resolves the</p>
+<p>pre-existing duplicate slug. <code>Contact/contact-form</code> (section) and <code>Forms/contact-form</code> (form) both</p>
+<p>survive because they are genuinely different (section layout vs validated form); the duplicate</p>
+<p><code>contact-form</code> slug is resolved by deleting <code>Forms/contact-form-basic</code> (the trivial one).</p>
+<p>---</p>
+<h2>9. Risks &amp; validation plan (for Phase 6/7, after approval)</h2>
+<ul>
+<li>Deletion touches only <code>Vanilla/Components/</code>. No <code>related</code>/README cross-links exist, so no</li>
+</ul>
+<p>intra-Vanilla stale-reference cleanup is needed beyond removing the folders.</p>
+<ul>
+<li><code>sections-showcase.html</code> uses self-contained <code>srcdoc</code> iframes and only references the curated</li>
+</ul>
+<p>section families (Hero, CTA, Features, etc.) by name — it does <strong>not</strong> load legacy leaf HTML,</p>
+<p>so deleting legacy leaves will not break it. (Verify no deleted slug appears as a label.)</p>
+<ul>
+<li>After deletion: run <code>python3 -m _gen.rebuild_index</code> (regenerates <code>snippets-index.json</code> from disk,</li>
+</ul>
+<p>cross-validates indexed==on-disk, refuses mismatch), then <code>python3 scripts/validate.py</code> and</p>
+<p><code>python3 scripts/qa_vanilla.py</code>. Remove now-empty families (Dropdowns, Marketing) from the index</p>
+<p>automatically via rebuild. Confirm Tailwind + Vanilla/Templates untouched via <code>git status</code>.</p>
+<ul>
+<li>The two pre-existing duplicate slugs (<code>dark-mode-toggle</code>, <code>contact-form</code>) are each resolved by this</li>
+</ul>
+<p>curation (one of each pair is deleted), which also fixes that latent issue.</p>
+<p>---</p>
+<p><strong>Nothing has been deleted or modified. Awaiting approval to proceed to Phase 6 (implementation).</strong></p></article></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "id": "React/Components/FormFields/form-field-disabled",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "FormFields",
+  "slug": "form-field-disabled",
+  "name": "Form Field Disabled",
+  "description": "Disabled state: the control receives the native disabled attribute (out of the tab order, not editable) and the label is muted \u2014 driven from the FormField so composite controls work too.",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "disabled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "native disabled",
+    "dynamic disable/enable"
+  ],
+  "framework": "React",
+  "related": [
+    "form-field",
+    "form-field-with-error",
+    "form-field-group"
+  ],
+  "url": "React/Components/FormFields/form-field-disabled/index.html"
+}

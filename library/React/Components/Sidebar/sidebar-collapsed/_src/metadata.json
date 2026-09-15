@@ -1,0 +1,73 @@
+{
+  "id": "sidebar-collapsed-react-001",
+  "name": "Sidebar (Collapsed Rail)",
+  "slug": "sidebar-collapsed",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-collapsed",
+  "description": "The desktop icon-rail mode: a 64px sidebar with icon-only navigation rows, measured tooltips that expose full labels on hover/focus, sr-only accessible names, badge dots, and one-step expansion \u2014 including activating a collapsed parent icon to expand the sidebar and open its group.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "State",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "collapsed",
+    "icon-rail",
+    "tooltip"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "icon-only rail",
+    "measured tooltips",
+    "sr-only labels",
+    "badge dots",
+    "controlled collapsed state"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "tooltip labels on icon-only rows",
+    "accessible names preserved in the rail"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar",
+    "sidebar-with-badges",
+    "sidebar-dashboard"
+  ]
+}

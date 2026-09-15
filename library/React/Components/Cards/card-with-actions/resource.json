@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Cards/card-with-actions",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Cards",
+  "slug": "card-with-actions",
+  "name": "Card with Actions",
+  "description": "Contextual actions in the `CardAction` header slot: real icon buttons (pin, settings, more) with accessible names and live feedback \u2014 composed from the same button recipe as the rest of the library, not re-implemented inside Cards.",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "actions",
+    "icon-button",
+    "contextual",
+    "menu"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "header action slot",
+    "icon buttons with aria-label",
+    "live action feedback"
+  ],
+  "framework": "React",
+  "related": [
+    "card-with-header",
+    "card",
+    "card-interactive"
+  ],
+  "url": "React/Components/Cards/card-with-actions/index.html"
+}

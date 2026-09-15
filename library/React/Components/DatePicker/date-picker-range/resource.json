@@ -1,0 +1,48 @@
+{
+  "id": "React/Components/DatePicker/date-picker-range",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "DatePicker",
+  "slug": "date-picker-range",
+  "name": "Date Picker \u2014 Range",
+  "description": "Two-month date range selection with a typed `DateRange` value (`{ from, to }`), live hover preview while the range is incomplete, an incomplete-range summary, and range clear \u2014 never an ambiguous string.",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "range",
+    "hover-preview",
+    "multi-month",
+    "clear"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "range selection",
+    "hover preview band",
+    "2-month popover",
+    "incomplete-range summary",
+    "range clear"
+  ],
+  "framework": "React",
+  "related": [
+    "date-picker",
+    "date-picker-with-presets",
+    "date-picker-with-disabled-dates"
+  ],
+  "url": "React/Components/DatePicker/date-picker-range/index.html"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Promise Toast",
+  "slug": "promise-toast",
+  "component": "toast",
+  "family": "toasts",
+  "variant": "promise",
+  "description": "Async-operation toast that opens in a loading state and transitions in place to success or error when a promise settles. Pass any promise to showPromiseToast() with loading/success/error copy; once settled it auto-dismisses behind a pause-on-hover countdown bar.",
+  "framework": "Tailwind CSS",
+  "language": "HTML",
+  "tags": [
+    "toast",
+    "notification",
+    "promise",
+    "async",
+    "loading",
+    "neo-brutal"
+  ],
+  "related": [
+    "status-toasts",
+    "action-toast",
+    "persistent-toast"
+  ],
+  "features": [
+    "promise-driven loading → success / error transition",
+    "showPromiseToast() API",
+    "pause-on-hover countdown bar",
+    "role=status / role=alert by state",
+    "Escape key + focus-aware dismissal",
+    "reduced-motion safe",
+    "neo-brutal design language"
+  ],
+  "type": "component",
+  "category": "Components"
+}

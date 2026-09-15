@@ -1,0 +1,54 @@
+{
+  "id": "select-with-error-react-001",
+  "name": "Select With Error",
+  "slug": "select-with-error",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-error",
+  "description": "Custom select with an error message and aria-invalid state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "form",
+    "error",
+    "validation",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-helper",
+    "select-with-success"
+  ]
+}

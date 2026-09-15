@@ -1,0 +1,227 @@
+<!--
+  Search Bar with Autocomplete
+  - Live search suggestions
+  - Keyboard navigation support
+  - Mobile-friendly design
+  - ARIA roles and states
+  - Minimal styling with smooth animations
+-->
+
+<form class="search-container" role="search">
+  <div class="search-wrapper">
+    <input 
+      type="search" 
+      class="search-input" 
+      placeholder="Search..." 
+      aria-label="Search"
+      aria-expanded="false"
+      aria-controls="search-suggestions"
+      aria-autocomplete="list"
+      autocomplete="off"
+    >
+    <button type="submit" class="search-button" aria-label="Submit search">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
+      </svg>
+    </button>
+    
+    <ul id="search-suggestions" class="search-suggestions" role="listbox" hidden>
+      <!-- Demo suggestions -->
+      <li role="option" tabindex="-1">
+        <button type="button" class="suggestion-button">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" fill="currentColor"/>
+          </svg>
+          <span>Search suggestion 1</span>
+        </button>
+      </li>
+      <li role="option" tabindex="-1">
+        <button type="button" class="suggestion-button">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" fill="currentColor"/>
+          </svg>
+          <span>Search suggestion 2</span>
+        </button>
+      </li>
+      <li role="option" tabindex="-1">
+        <button type="button" class="suggestion-button">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" fill="currentColor"/>
+          </svg>
+          <span>Search suggestion 3</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</form>
+
+<style>
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 3rem 0.75rem 1rem;
+  border: 2px solid var(--ds-border, #ddd);
+  border-radius: var(--ds-radius-md, 8px);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ds-accent, #4a90e2);
+  border-radius: var(--ds-radius-md, 8px) 8px 0 0;
+}
+
+.search-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  color: var(--ds-muted, #666);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.search-button:hover {
+  color: var(--ds-foreground, #333);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border: 2px solid var(--ds-accent, #4a90e2);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: var(--ds-shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  z-index: 1000;
+}
+
+.suggestion-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestion-button:hover,
+.suggestion-button:focus {
+  background-color: var(--ds-surface-2, #f5f5f5);
+}
+
+/* Focus styles */
+.search-button:focus-visible {
+  outline: 2px solid var(--ds-accent, #4a90e2);
+  outline-offset: 2px;
+  border-radius: var(--ds-radius-sm, 4px);
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .search-input {
+    padding: 0.875rem 3rem 0.875rem 1rem;
+  }
+  
+  .suggestion-button {
+    padding: 1rem;
+  }
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+</style>
+
+<script>
+const searchForm = document.querySelector('.search-container');
+const searchInput = document.querySelector('.search-input');
+const suggestionsList = document.querySelector('.search-suggestions');
+const suggestions = document.querySelectorAll('[role="option"]');
+
+// Toggle suggestions visibility
+searchInput.addEventListener('input', (e) => {
+  const hasValue = e.target.value.length > 0;
+  suggestionsList.hidden = !hasValue;
+  searchInput.setAttribute('aria-expanded', hasValue);
+});
+
+// Handle keyboard navigation
+searchInput.addEventListener('keydown', (e) => {
+  if (!['ArrowDown', 'ArrowUp', 'Escape'].includes(e.key)) return;
+  
+  e.preventDefault();
+  
+  if (e.key === 'Escape') {
+    suggestionsList.hidden = true;
+    searchInput.setAttribute('aria-expanded', 'false');
+    return;
+  }
+  
+  if (suggestionsList.hidden) {
+    suggestionsList.hidden = false;
+    searchInput.setAttribute('aria-expanded', 'true');
+    suggestions[0].querySelector('button').focus();
+    return;
+  }
+  
+  const currentIndex = Array.from(suggestions).findIndex(
+    suggestion => suggestion.contains(document.activeElement)
+  );
+  
+  let nextIndex;
+  if (e.key === 'ArrowDown') {
+    nextIndex = currentIndex < suggestions.length - 1 ? currentIndex + 1 : 0;
+  } else {
+    nextIndex = currentIndex > 0 ? currentIndex - 1 : suggestions.length - 1;
+  }
+  
+  suggestions[nextIndex].querySelector('button').focus();
+});
+
+// Close suggestions when clicking outside
+document.addEventListener('click', (e) => {
+  if (!searchForm.contains(e.target)) {
+    suggestionsList.hidden = true;
+    searchInput.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Handle suggestion selection
+suggestions.forEach(suggestion => {
+  suggestion.querySelector('button').addEventListener('click', () => {
+    searchInput.value = suggestion.textContent.trim();
+    suggestionsList.hidden = true;
+    searchInput.setAttribute('aria-expanded', 'false');
+    searchInput.focus();
+  });
+});
+</script>

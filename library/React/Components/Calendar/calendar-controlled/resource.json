@@ -1,0 +1,47 @@
+{
+  "id": "React/Components/Calendar/calendar-controlled",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Calendar",
+  "slug": "calendar-controlled",
+  "name": "Calendar \u2014 Controlled State",
+  "description": "A fully parent-controlled calendar: the visible month, the selected date, and even the locale live in parent state, with external month/year/locale selectors and an event log of every callback.",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "controlled",
+    "month",
+    "locale",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "controlled month + selection",
+    "external month/year jump",
+    "locale switching",
+    "callback log"
+  ],
+  "framework": "React",
+  "related": [
+    "calendar-single",
+    "calendar-month-picker",
+    "calendar-year-picker"
+  ],
+  "url": "React/Components/Calendar/calendar-controlled/index.html"
+}

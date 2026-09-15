@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Board — Vanilla Template — DevSnips</title>
+<meta name="description" content="A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.">
+<link rel="canonical" href="https://devsnips.dev/Vanilla/Templates/job-board/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Job Board — Vanilla Template — DevSnips">
+<meta property="og:description" content="A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Job Board — Vanilla Template — DevSnips">
+<meta name="twitter:description" content="A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">Vanilla</a>
+      <a href="../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../Vanilla/Templates/index.html" class="hover:text-neutral-900 dark:hover:text-white">Templates</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Job Board</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Job Board</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">A dense, structured developer job-board template for DevSnips built with semantic HTML, CSS, and vanilla JavaScript. Light, neutral, and information-dense: a sticky navigation bar with a responsive mobile menu, a jobs view with keyword search plus location and job-type filters, category chips, a result count, and a paginated job list; a job detail view with company sidebar (apply / save) and a details sidebar; a companies directory grid and a company detail view with open positions; a saved jobs view with an empty state; and a candidate area with a sidebar and profile, applications (status table), and saved-jobs tabs. Includes a scoped apply modal, toast notifications, and a mobile filter drawer. Split into modular files: code.html (HTML structure) + style.css (the design system, following the shared design-tokens.md --ds-* token layer with an opt-in dark mode and reduced-motion guard) + script.js (all views, rendering, filtering, pagination, save/apply, and interactions), with preview.html as a self-contained single-file preview of the UI. No React, Vue, Next.js, Tailwind, Bootstrap, backend, database, or job-posting API.</p>
+      </div>
+      <a href="_src/preview.html" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Full preview &#8599;</a>
+    </div>
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span></div>
+        <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="tframe-job-board">
+          <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+          <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+          <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+        </div>
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full preview &#8599;</a>
+      </div>
+      <div class="flex justify-center bg-neutral-100 dark:bg-neutral-950"><iframe id="tframe-job-board" src="_src/preview.html" title="Job Board preview" class="h-[460px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe></div>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-3" data-tabs>
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Pages in this template</h2>
+        <ul class="mt-3 space-y-2"><li><a href="_src/pages/code.html" target="_blank" rel="noopener" class="flex items-center justify-between rounded-lg border border-neutral-200 px-3 py-2 text-sm hover:border-emerald-400 dark:border-neutral-800"><span class="mono">code.html</span><span class="text-neutral-400">Open &#8599;</span></a></li></ul>
+        <h2 class="mt-8 text-lg font-bold">Features</h2><ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>sticky navigation with responsive mobile menu (aria-expanded toggle)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>jobs view with keyword search (title, skill, company, location)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>location and job-type filter selects</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>category filter chips (all, remote, frontend, backend, full stack, devops, data, design)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>live result count</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>paginated job list (8 per page) with prev/next and numbered pages</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>job cards with company logo letter, title, company, meta (location, salary, work mode, posted), and skill tags</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>save / unsave jobs (bookmark) with toast feedback</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>job detail view with description, responsibilities, requirements, skills, and benefits plus a company info sidebar and apply/save actions</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>companies directory grid (auto-fill responsive cards)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>company detail view with about, info sidebar, and open positions list</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>saved jobs view with empty state</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>candidate area with sidebar (avatar, name, role) and profile, applications, and saved tabs</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>applications table with status badges (applied, pending, shortlisted, interview, rejected, accepted)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>scoped apply modal (role=dialog, aria-modal, Escape to close, click-overlay to close)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>toast notifications (success and default)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>mobile filter drawer (location, type, category chips) with overlay and Escape handling</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>single-page view switching (jobs, job detail, companies, company detail, saved, candidate)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>opt-in dark mode via prefers-color-scheme (calm inverted system, accent preserved)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>reduced-motion support (prefers-reduced-motion disables animations and smooth scroll)</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>DevSnips --ds-* shared design-token layer (design-tokens.md) with template tokens mapped on top</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span>modular file split (code.html + style.css + script.js)</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Other templates</h2>
+        <div class="mt-3 grid gap-3"><a h</div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Job Board Template (Vanilla)</h1>
+<p>A dense, structured <strong>developer job-board</strong> template built for DevSnips with</p>
+<p>semantic HTML, CSS, and vanilla JavaScript. The template is split into modular</p>
+<p>files — <code>code.html</code> (HTML structure) + <code>style.css</code> (the design system) +</p>
+<p><code>script.js</code> (all views, rendering, filtering, pagination, save/apply, and</p>
+<p>interactions) — with <code>preview.html</code> as a self-contained single-file preview of</p>
+<p>the UI so you can open it directly and see exactly how the template looks.</p>
+<p><strong>Technology:</strong> vanilla</p>
+<p><strong>Category:</strong> templates</p>
+<p><strong>Subcategory:</strong> job-board</p>
+<p><strong>Type:</strong> single-page (one-page job-board application with view switching)</p>
+<h2>Files</h2>
+<pre class="code-block"><code>
+Job Board/
+├── code.html               # HTML structure (links style.css + script.js) — the modular source
+├── style.css               # the design system (DevSnips --ds-* tokens + Job Board template tokens)
+├── script.js               # views, rendering, search, filters, pagination, save/apply, mobile nav + drawer (vanilla JS, no deps)
+├── preview.html            # single-file preview of the UI (inlines style.css + script.js) — open this to see it
+├── metadata.json           # DevSnips registration metadata
+└── README.md               # This file
+</code></pre>
+<p>No <code>assets/</code> directory is required. The template uses no local images, icons,</p>
+<p>or fonts. Company logos are rendered as single-letter text avatars, status and</p>
+<p>meta indicators use inline SVG and emoji, and the fonts (Inter and JetBrains</p>
+<p>Mono) are loaded from Google Fonts (see <strong>Dependencies</strong>).</p>
+<h2>Preview</h2>
+<p>Open <code>preview.html</code> directly in a browser to see the template — it is a</p>
+<p>self-contained single-file preview that inlines the CSS and JS:</p>
+<pre class="code-block"><code>
+cd &quot;Vanilla/Templates/job-board&quot;
+python3 -m http.server 8080
+# visit http://localhost:8080/preview.html
+</code></pre>
+<p>For development and customization, work with the split files — open <code>code.html</code></p>
+<p>(which references <code>style.css</code> and <code>script.js</code> relatively) in the same served</p>
+<p>folder. The whole template runs without a build step. The only external requests</p>
+<p>are Google Fonts (Inter and JetBrains Mono), loaded from a CDN.</p>
+<p>Per the shared <code>design-tokens.md</code> convention, the template folder contains</p>
+<p>exactly <strong>one</strong> <code>preview.html</code>. It is the canonical preview shown by the DevSnips</p>
+<p>website. It is fully responsive, uses the template&#x27;s real CSS/JS, uses relative</p>
+<p>paths, and loads correctly when opened directly.</p>
+<h3>Architecture</h3>
+<p>The template is split into three modular files plus a single-file preview:</p>
+<ul>
+<li><strong><code>code.html</code></strong> — the HTML shell (navigation, jobs view, job detail view,</li>
+</ul>
+<p>companies view, company detail view, saved jobs view, candidate area, apply</p>
+<p>modal, toast container, and mobile filter drawer) that links <code>style.css</code> and</p>
+<p><code>script.js</code>. This is the modular source you customize.</p>
+<ul>
+<li><strong><code>style.css</code></strong> — the entire design system: the DevSnips <code>--ds-*</code> shared token</li>
+</ul>
+<p>block (per <code>design-tokens.md</code>), the Job Board <code>--template-*</code> and original</p>
+<p><code>--color-*</code> tokens mapped onto the shared layer, base/typography/button styles,</p>
+<p>every view and component style, the responsive breakpoints, the opt-in dark</p>
+<p>mode override, and the reduced-motion guard.</p>
+<ul>
+<li><strong><code>script.js</code></strong> — the runtime: application data (10 companies, 24 jobs,</li>
+</ul>
+<p>applications), view state, render functions (job cards, job list, pagination,</p>
+<p>job detail, company directory, company detail, candidate tabs), search and</p>
+<p>filtering, save/apply, the apply modal, toasts, mobile nav, and the mobile</p>
+<p>filter drawer. No dependencies.</p>
+<ul>
+<li><strong><code>preview.html</code></strong> — a self-contained single-file preview that inlines</li>
+</ul>
+<p><code>style.css</code> and <code>script.js</code> into the <code>code.html</code> structure, so it can be opened</p>
+<p>directly with no build step and renders identically to the modular version.</p>
+<h2>Views</h2>
+<p>The application is a single page that switches between these views (no page</p>
+<p>reloads):</p>
+<ol>
+<li><strong>Jobs</strong> — the default view. A search bar (keyword search across title,</li>
+</ol>
+<p>skill, company, and location), location and job-type filter selects, category</p>
+<p>chips, a live result count, and a paginated job list (8 jobs per page).</p>
+<ol>
+<li><strong>Job Detail</strong> — full job posting with description, responsibilities,</li>
+</ol>
+<p>requirements, skills, and benefits, plus a company-info sidebar with an</p>
+<p><strong>Apply Now</strong> button and a <strong>Save Job</strong> toggle, and a job-details sidebar.</p>
+<ol>
+<li><strong>Companies</strong> — a responsive auto-fill grid of company cards (logo, name,</li>
+</ol>
+<p>description, location, size, open positions).</p>
+<ol>
+<li><strong>Company Detail</strong> — company about, an info sidebar, and the list of open</li>
+</ol>
+<p>positions at that company.</p>
+<ol>
+<li><strong>Saved Jobs</strong> — the jobs the user has bookmarked, with an empty state when</li>
+</ol>
+<p>none are saved.</p>
+<ol>
+<li><strong>Candidate</strong> — a sidebar (avatar, name, role) with three tabs: <strong>Profile</strong></li>
+</ol>
+<p>(candidate details and profile completion), <strong>Applications</strong> (a status table</p>
+<p>with badges), and <strong>Saved Jobs</strong>.</p>
+<h2>Interactions</h2>
+<ul>
+<li><strong>Search</strong> — debounced keyword search (250ms) filtering across job title,</li>
+</ul>
+<p>company, skills, and location.</p>
+<ul>
+<li><strong>Filters</strong> — location and job-type selects refine the list; category chips</li>
+</ul>
+<p>filter by role family.</p>
+<ul>
+<li><strong>Pagination</strong> — prev/next and numbered page buttons; the list shows 8 jobs</li>
+</ul>
+<p>per page.</p>
+<ul>
+<li><strong>Save / Unsave</strong> — bookmark any job from its card or the detail sidebar; a</li>
+</ul>
+<p>toast confirms the action and the saved view updates live.</p>
+<ul>
+<li><strong>Apply</strong> — opens a scoped modal dialog (name, email, cover note) that records</li>
+</ul>
+<p>an application and shows a success toast.</p>
+<ul>
+<li><strong>Mobile nav</strong> — below 768px the nav links collapse into a dropdown toggled by</li>
+</ul>
+<p>a hamburger button with <code>aria-expanded</code> state.</p>
+<ul>
+<li><strong>Mobile filter drawer</strong> — below 768px the location/type filter selects move</li>
+</ul>
+<p>into a slide-in drawer with an overlay and an <strong>Apply Filters</strong> action;</p>
+<p>Escape and overlay click close it.</p>
+<ul>
+<li><strong>Toasts</strong> — transient success and default notifications in the bottom-right.</li>
+</ul>
+<h2>Design System</h2>
+<p>The template follows the shared <code>Vanilla/Templates/design-tokens.md</code></p>
+<p>specification. The <code>:root</code> block defines the DevSnips <code>--ds-*</code> token layer</p>
+<p>(neutrals, blue accent, semantic status colors, typography, radius, shadow,</p>
+<p>motion) and maps the template&#x27;s original <code>--color-*</code> vocabulary onto those</p>
+<p>tokens, so the visual output is preserved while the shared system remains the</p>
+<p>source of truth. Template-specific tokens (<code>--template-nav-height</code>,</p>
+<p><code>--template-sidebar-width</code>, <code>--template-max-width</code>) extend the shared system.</p>
+<h2>Customization</h2>
+<ul>
+<li><strong>Content</strong> — edit the <code>companies</code> and <code>jobs</code> arrays and the <code>applications</code></li>
+</ul>
+<p>state at the top of <code>script.js</code> (or in the inlined block of <code>preview.html</code>).</p>
+<p>Each job carries title, company, location, salary, work mode, type,</p>
+<p>experience, posted time, skills, description, responsibilities, requirements,</p>
+<p>and benefits.</p>
+<ul>
+<li><strong>Theme</strong> — adjust the <code>--ds-*</code> tokens in <code>style.css</code> (<code>:root</code>). Because the</li>
+</ul>
+<p>component styles consume the template&#x27;s <code>--color-*</code> names (which map onto</p>
+<p><code>--ds-*</code>), changing the shared tokens re-themes the whole board. The dark</p>
+<p>mode override lives in the <code>@media (prefers-color-scheme: dark)</code> block.</p>
+<ul>
+<li><strong>Branding</strong> — the nav brand mark and wordmark live in the <code>.nav-brand</code> /</li>
+</ul>
+<p><code>.nav-brand-icon</code> elements in <code>code.html</code>.</p>
+<ul>
+<li><strong>Page size</strong> — change <code>pageSize</code> (default <code>8</code>) in <code>script.js</code> to alter how</li>
+</ul>
+<p>many jobs appear per page.</p>
+<h2>Responsive Behavior</h2>
+<p>The layout adapts at four breakpoints:</p>
+<ul>
+<li><strong>≤ 1024px</strong> — the job-detail two-column grid collapses to one column; the</li>
+</ul>
+<p>detail sidebar becomes a two-column grid; the candidate sidebar narrows.</p>
+<ul>
+<li><strong>≤ 768px</strong> — nav links collapse into a dropdown menu; the candidate sidebar</li>
+</ul>
+<p>becomes a horizontal row; the company grid becomes a single column; the</p>
+<p>location/type filter selects hide and a <strong>Filters</strong> button opens the drawer.</p>
+<ul>
+<li><strong>≤ 640px</strong> — the search bar compacts to a single-row search input plus the</li>
+</ul>
+<p>Filters button.</p>
+<ul>
+<li><strong>≤ 480px</strong> — page and nav padding reduce; the search bar stacks vertically;</li>
+</ul>
+<p>the filter drawer goes full-width.</p>
+<p>There is no horizontal overflow from 320px to 1920px.</p>
+<h2>Accessibility</h2>
+<ul>
+<li>Semantic landmarks (<code>nav</code>, the main container, <code>aside</code>, <code>section</code>).</li>
+<li>ARIA labels on navigation, the search input, filter selects, the modal dialog,</li>
+</ul>
+<p>and icon buttons; <code>aria-expanded</code> on the mobile nav toggle and menu.</p>
+<ul>
+<li>The apply modal uses <code>role=&quot;dialog&quot;</code>, <code>aria-modal=&quot;true&quot;</code>, and</li>
+</ul>
+<p><code>aria-labelledby</code>; Escape and overlay-click close it.</p>
+<ul>
+<li><code>role=&quot;list&quot;</code> / <code>role=&quot;listitem&quot;</code> on job listings.</li>
+<li>Visible <code>:focus-visible</code> outlines on all interactive controls.</li>
+<li>All controls are native <code>button</code>, <code>a</code>, <code>input</code>, <code>select</code>, or <code>textarea</code>, so</li>
+</ul>
+<p>they are keyboard-operable by default.</p>
+<ul>
+<li><code>prefers-reduced-motion</code> disables animations and smooth scrolling.</li>
+<li>Status badges use text labels (not color alone) to convey application state.</li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>Google Fonts — Inter (UI) and JetBrains Mono (monospace), loaded from a CDN.</li>
+</ul>
+<p>System font fallbacks are defined in the token stack, so the template remains</p>
+<p>usable without the font download.</p>
+<p>No JavaScript libraries, build tools, or frameworks are used.</p>
+<h2>Browser Support</h2>
+<p>Chrome, Firefox, Safari, and Edge (modern evergreen browsers). The template</p>
+<p>uses standard HTML, CSS custom properties, and vanilla JavaScript (ES2015+).</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

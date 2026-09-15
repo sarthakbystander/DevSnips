@@ -1,0 +1,72 @@
+{
+  "id": "sidebar-with-active-state-react-001",
+  "name": "Sidebar with Active State",
+  "slug": "sidebar-with-active-state",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-with-active-state",
+  "description": "Realistic route-driven navigation built on the typed SidebarNav renderer: aria-current on the current page, automatic parent expansion when a child route is active, and parent indication that never steals the current page's treatment.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Navigation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "active",
+    "routing",
+    "aria-current",
+    "data-driven"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "route-driven active item",
+    "auto-expanding parents",
+    "typed SidebarNav renderer"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "exactly one aria-current item",
+    "parent indication without aria-current"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-with-nested-navigation",
+    "sidebar-with-search",
+    "sidebar-dashboard"
+  ]
+}

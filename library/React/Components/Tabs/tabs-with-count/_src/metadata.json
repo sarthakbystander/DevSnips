@@ -1,0 +1,61 @@
+{
+  "id": "tabs-with-count-react-001",
+  "name": "Tabs With Count",
+  "slug": "tabs-with-count",
+  "component": "tabs",
+  "family": "tabs",
+  "variant": "tabs-with-count",
+  "description": "Tabs with meaningful numeric counts rendered as bordered chips with tabular figures.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Tabs",
+  "subcategory": "Content",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "tabs",
+    "navigation",
+    "tablist",
+    "tabpanel",
+    "react",
+    "tailwind",
+    "accessible",
+    "interactive",
+    "keyboard",
+    "responsive",
+    "count"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic tab roles",
+    "roving tabIndex",
+    "keyboard navigation"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "tablist / tab / tabpanel roles",
+    "aria-selected",
+    "aria-controls",
+    "aria-labelledby",
+    "roving tabIndex",
+    "Home / End support",
+    "focus-visible"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "tabs",
+    "tabs-with-badge",
+    "tabs-with-icons"
+  ]
+}

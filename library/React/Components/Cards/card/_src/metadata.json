@@ -1,0 +1,59 @@
+{
+  "id": "card-react-001",
+  "name": "Card",
+  "slug": "card",
+  "component": "card",
+  "family": "cards",
+  "variant": "card",
+  "description": "The reference card: a restrained content surface (radius-md, 1px border, shadow-xs) with the header / content / footer region primitives. Every other variant in the family is built from these same primitives.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "reference",
+    "compound",
+    "composition"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "compound regions",
+    "real h3 title",
+    "non-interactive surface"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "real <h3> card title",
+    "semantic header/content/footer regions",
+    "no fake interactivity"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card-with-header",
+    "card-with-footer",
+    "card-with-actions",
+    "card-list"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "dropdown-menu-checkboxes-react-001",
+  "name": "Dropdown Menu Checkboxes",
+  "slug": "dropdown-menu-checkboxes",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-checkboxes",
+  "description": "Checkable menu items (role=menuitemcheckbox + aria-checked) for toggling view options \u2014 controlled and uncontrolled, with the menu staying open while options are flipped.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "checkbox",
+    "selection",
+    "toggle",
+    "view-options"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "role=menuitemcheckbox",
+    "aria-checked state",
+    "stays open on toggle",
+    "controlled + uncontrolled"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "role=menuitemcheckbox",
+    "aria-checked announced",
+    "aria-hidden check indicator"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-radio",
+    "dropdown-menu-with-shortcuts"
+  ]
+}

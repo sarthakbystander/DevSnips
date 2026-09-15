@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Alerts/alert-with-link",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Alerts",
+  "slug": "alert-with-link",
+  "name": "Alert with Link",
+  "description": "An alert containing real anchors \u2014 an inline link inside the description, or a link in the action row. Links navigate, so they are `<a href>` elements with normal browser behavior, never click handlers on text.",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "link",
+    "anchor",
+    "navigation",
+    "composite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "real <a href> links",
+    "inline + action-row placement",
+    "hash navigation demo"
+  ],
+  "framework": "React",
+  "related": [
+    "alert-with-action",
+    "alert-info",
+    "alert-warning"
+  ],
+  "url": "React/Components/Alerts/alert-with-link/index.html"
+}

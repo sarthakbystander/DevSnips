@@ -1,0 +1,40 @@
+{
+  "id": "React/Components/Cards/card-with-footer",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Cards",
+  "slug": "card-with-footer",
+  "name": "Card with Footer",
+  "description": "The footer region: a primary + secondary action row that stacks full-width on small screens, plus a split footer (metadata left, action right) via a `sm:justify-between` className override.",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "footer",
+    "actions",
+    "buttons"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "stack-to-inline action row",
+    "split footer via className",
+    "equal-height grid tracks"
+  ],
+  "framework": "React",
+  "related": [
+    "card",
+    "card-with-header",
+    "card-with-actions"
+  ],
+  "url": "React/Components/Cards/card-with-footer/index.html"
+}

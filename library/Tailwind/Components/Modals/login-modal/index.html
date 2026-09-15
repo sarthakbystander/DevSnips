@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Modal — Tailwind Components — DevSnips</title>
+<meta name="description" content="Complete login form modal with email/password inputs, social login buttons, remember me option, and forgot password link.">
+<link rel="canonical" href="https://devsnips.dev/Tailwind/Components/Modals/login-modal/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Login Modal — Tailwind Components — DevSnips">
+<meta property="og:description" content="Complete login form modal with email/password inputs, social login buttons, remember me option, and forgot password link.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Login Modal — Tailwind Components — DevSnips">
+<meta name="twitter:description" content="Complete login form modal with email/password inputs, social login buttons, remember me option, and forgot password link.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../Tailwind/Components/index.html#Modals" class="hover:text-neutral-900 dark:hover:text-white">Modals</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Login Modal</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Login Modal</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Complete login form modal with email/password inputs, social login buttons, remember me option, and forgot password link.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800" data-tabs>
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-900">
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="preview" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="code" aria-selected="false">Code</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="frame-login-modal">
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+          </div>
+          <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full &#8599;</a>
+        </div>
+      </div>
+      <div data-panel="preview" class="flex justify-center bg-neutral-100 dark:bg-neutral-950">
+        <iframe id="frame-login-modal" src="_src/preview.html" title="Login Modal preview" class="h-[420px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe>
+      </div>
+      <pre data-panel="code" class="code-block hidden max-h-[420px] overflow-auto bg-neutral-950 p-4 text-xs text-neutral-200"><code id="code-block">&lt;!-- Login Modal --&gt;
+&lt;div id=&quot;login-modal&quot; class=&quot;fixed inset-0 z-50 hidden&quot;&gt;
+  &lt;!-- Backdrop --&gt;
+  &lt;div class=&quot;fixed inset-0 bg-black/50 backdrop-blur-sm&quot; onclick=&quot;closeModal(&#x27;login-modal&#x27;)&quot;&gt;&lt;/div&gt;
+  
+  &lt;!-- Modal Container --&gt;
+  &lt;div class=&quot;fixed inset-0 flex items-center justify-center p-4&quot;&gt;
+    &lt;div class=&quot;relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-md transform transition-all&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;login-modal-title&quot;&gt;
+      
+      &lt;!-- Header --&gt;
+      &lt;div class=&quot;p-6 pb-0 text-center&quot;&gt;
+        &lt;div class=&quot;w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4&quot;&gt;
+          &lt;svg class=&quot;w-7 h-7 text-blue-600 dark:text-blue-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;h3 id=&quot;login-modal-title&quot; class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;&gt;Welcome Back&lt;/h3&gt;
+        &lt;p class=&quot;text-gray-500 dark:text-gray-400 mt-2&quot;&gt;Sign in to continue to your account&lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Form --&gt;
+      &lt;form class=&quot;p-6 space-y-4&quot; onsubmit=&quot;event.preventDefault(); closeModal(&#x27;login-modal&#x27;);&quot;&gt;
+        &lt;!-- Email --&gt;
+        &lt;div&gt;
+          &lt;label for=&quot;login-email&quot; class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Email Address&lt;/label&gt;
+          &lt;div class=&quot;relative&quot;&gt;
+            &lt;div class=&quot;absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none&quot;&gt;
+              &lt;svg class=&quot;w-5 h-5 text-gray-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;input type=&quot;email&quot; id=&quot;login-email&quot; placeholder=&quot;alex@company.com&quot; class=&quot;w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all&quot; required&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Password --&gt;
+        &lt;div&gt;
+          &lt;label for=&quot;login-password&quot; class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Password&lt;/label&gt;
+          &lt;div class=&quot;relative&quot;&gt;
+            &lt;div class=&quot;absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none&quot;&gt;
+              &lt;svg class=&quot;w-5 h-5 text-gray-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;input type=&quot;password&quot; id=&quot;login-password&quot; placeholder=&quot;Enter your password&quot; class=&quot;w-full pl-10 pr-12 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all&quot; required&gt;
+            &lt;button type=&quot;button&quot; class=&quot;absolute inset-y-0 right-0 pr-3 flex items-center&quot;&gt;
+              &lt;svg class=&quot;w-5 h-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;/&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z&quot;/&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Remember &amp; Forgot --&gt;
+        &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+          &lt;label class=&quot;flex items-center gap-2 cursor-pointer&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500&quot;&gt;
+            &lt;span class=&quot;text-sm text-gray-600 dark:text-gray-400&quot;&gt;Remember me&lt;/span&gt;
+          &lt;/label&gt;
+          &lt;button type=&quot;button&quot; onclick=&quot;closeModal(&#x27;login-modal&#x27;);&quot; class=&quot;text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium&quot;&gt;Forgot password?&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Submit --&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg shadow-blue-600/30&quot;&gt;Sign In&lt;/button&gt;
+      &lt;/form&gt;
+      
+      &lt;!-- Divider --&gt;
+      &lt;div class=&quot;px-6 flex items-center gap-4&quot;&gt;
+        &lt;div class=&quot;flex-1 h-px bg-gray-200 dark:bg-gray-700&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;or continue with&lt;/span&gt;
+        &lt;div class=&quot;flex-1 h-px bg-gray-200 dark:bg-gray-700&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Social Login --&gt;
+      &lt;div class=&quot;p-6 pt-4 grid grid-cols-2 gap-3&quot;&gt;
+        &lt;button class=&quot;flex items-center justify-center gap-2 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path fill=&quot;#4285F4&quot; d=&quot;M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z&quot;/&gt;
+            &lt;path fill=&quot;#34A853&quot; d=&quot;M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z&quot;/&gt;
+            &lt;path fill=&quot;#FBBC05&quot; d=&quot;M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z&quot;/&gt;
+            &lt;path fill=&quot;#EA4335&quot; d=&quot;M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z&quot;/&gt;
+          &lt;/svg&gt;
+          &lt;span class=&quot;text-sm font-medium text-gray-700 dark:text-gray-300&quot;&gt;Google&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button class=&quot;flex items-center justify-center gap-2 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors&quot;&gt;
+          &lt;svg class=&quot;w-5 h-5 text-gray-900 dark:text-white&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+            &lt;path d=&quot;M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z&quot;/&gt;
+          &lt;/svg&gt;
+          &lt;span class=&quot;text-sm font-medium text-gray-700 dark:text-gray-300&quot;&gt;GitHub&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Footer --&gt;
+      &lt;div class=&quot;p-6 pt-0 text-center&quot;&gt;
+        &lt;p class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;
+          Don&#x27;t have an account? &lt;button class=&quot;text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium&quot;&gt;Sign up&lt;/button&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Demo Trigger Button --&gt;
+&lt;button onclick=&quot;openModal(&#x27;login-modal&#x27;)&quot; class=&quot;px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2&quot;&gt;Open Login Modal&lt;/button&gt;
+</code></pre>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">Tailwind CSS</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; Modals</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">4</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">modal</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">login</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">signin</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">authentication</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">form</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add tailwind/components/Modals/login-modal</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add tailwind/components/Modals/login-modal');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="text-neutral-500 dark:text-neutral-400">No listed features.</li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../signup-modal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-indigo-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Modals</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Signup Modal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Registration form modal with name fields, email, password with strength indicator, terms agreement, and social signup options.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Login Modal</h1>
+<p>Login form modal.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+npx devsnips add Tailwind/Components/Modals/login-modal
+</code></pre>
+<p>Copy from <code>code.html</code>.</p>
+<h2>File Structure</h2>
+<p><code>code.html</code> · <code>preview.html</code> · <code>metadata.json</code> · <code>README.md</code></p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

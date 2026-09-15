@@ -1,0 +1,66 @@
+{
+  "id": "calendar-single-react-001",
+  "name": "Calendar \u2014 Single Date",
+  "slug": "calendar-single",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar-single",
+  "description": "Explicit single-date selection, controlled by the parent: the selected date drives a milestone summary, re-selecting the same day is a no-op, and clearing is only possible through the explicit external action.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Selection",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "single-date",
+    "controlled"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "controlled selection",
+    "no accidental deselect",
+    "external clear"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar",
+    "calendar-with-footer",
+    "calendar-controlled"
+  ]
+}

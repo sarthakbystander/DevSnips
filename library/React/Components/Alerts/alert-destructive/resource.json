@@ -1,0 +1,43 @@
+{
+  "id": "React/Components/Alerts/alert-destructive",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Alerts",
+  "slug": "alert-destructive",
+  "name": "Destructive Alert",
+  "description": "Failures and blocking errors: a red tint derived from the `color.destructive` token, the error glyph, and an assertive `role=\"alert\"` \u2014 for failed operations and validation summaries the user must resolve.",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "destructive",
+    "error",
+    "alert-role",
+    "assertive",
+    "validation"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "destructive tint + error glyph",
+    "assertive role=alert",
+    "error-summary pattern"
+  ],
+  "framework": "React",
+  "related": [
+    "alert-warning",
+    "alert-with-action",
+    "alert-rich",
+    "alert-live"
+  ],
+  "url": "React/Components/Alerts/alert-destructive/index.html"
+}

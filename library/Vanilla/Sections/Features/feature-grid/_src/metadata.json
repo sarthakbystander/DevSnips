@@ -1,0 +1,45 @@
+{
+  "id": "feature-grid-001",
+  "name": "Feature Grid",
+  "slug": "feature-grid",
+  "component": "feature",
+  "family": "features",
+  "variant": "feature-grid",
+  "description": "3-column feature grid with colored icon tiles.",
+  "framework": "Vanilla HTML/CSS/JS",
+  "language": "HTML",
+  "technology": "vanilla",
+  "category": "sections",
+  "type": "section",
+  "subcategory": "features",
+  "tags": [
+    "features",
+    "grid",
+    "icons"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "reduced-motion",
+    "ARIA",
+    "focus-visible",
+    "semantic HTML"
+  ],
+  "browserSupport": [
+    "chrome",
+    "firefox",
+    "safari",
+    "edge"
+  ],
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": []
+}

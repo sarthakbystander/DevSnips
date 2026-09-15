@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Notes Conf 2027 — A conference for software &amp; design engineers</title>
+  <meta name="description" content="Field Notes Conf 2027: two days of talks on design systems, front-end architecture, and the craft of building interfaces. Lisbon, March 18–19.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ec-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="Field Notes Conf, home">
+        <span class="brand__mark" aria-hidden="true">FN</span>
+        <span class="brand__name">Field Notes Conf</span>
+        <span class="brand__date">Mar 18–19, 2027</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#venue">Venue</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="btn btn--secondary" href="#register">Get a ticket</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" data-open="false">
+    <a href="#about">About</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#venue">Venue</a>
+    <a href="#sponsors">Sponsors</a>
+    <a class="btn btn--primary" href="#register">Get a ticket</a>
+  </div>
+
+  <main id="main">
+    <span id="top" tabindex="-1"></span>
+
+    <!-- Hero + countdown -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="reveal">
+            <span class="eyebrow">Field Notes Conf · 2027 · Third edition</span>
+            <h1 id="hero-title" class="hero__title">
+              Two days on the <em>craft of building interfaces.</em>
+            </h1>
+            <p class="hero__lede">
+              A small, technical conference for software and design engineers&mdash;design systems, front-end architecture, accessibility, and the slow, deliberate work of making software that holds up.
+            </p>
+            <div class="hero__facts">
+              <div class="fact">
+                <span class="fact__label">Dates</span>
+                <span class="fact__value">Mar 18–19, 2027</span>
+              </div>
+              <div class="fact">
+                <span class="fact__label">Location</span>
+                <span class="fact__value">Lisbon, PT</span>
+              </div>
+              <div class="fact">
+                <span class="fact__label">Talks</span>
+                <span class="fact__value">18 sessions</span>
+              </div>
+              <div class="fact">
+                <span class="fact__label">Capacity</span>
+                <span class="fact__value">420 attendees</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="countdown reveal" aria-labelledby="cd-title">
+            <div class="countdown__head">
+              <h2 id="cd-title" class="countdown__title">Doors open in</h2>
+              <span class="countdown__sub" id="cd-target">Mar 18, 09:00 WET</span>
+            </div>
+            <div class="countdown__grid" role="timer" aria-live="off" aria-atomic="true">
+              <div class="cd-unit">
+                <span class="cd-unit__num" id="cd-days">00</span>
+                <span class="cd-unit__label">days</span>
+              </div>
+              <div class="cd-unit">
+                <span class="cd-unit__num" id="cd-hours">00</span>
+                <span class="cd-unit__label">hours</span>
+              </div>
+              <div class="cd-unit">
+                <span class="cd-unit__num" id="cd-mins">00</span>
+                <span class="cd-unit__label">mins</span>
+              </div>
+              <div class="cd-unit">
+                <span class="cd-unit__num" id="cd-secs">00</span>
+                <span class="cd-unit__label">secs</span>
+              </div>
+            </div>
+            <a class="btn btn--primary btn--lg countdown__cta" href="#register">Get a ticket</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">01 — About</span>
+          <h2 id="about-title" class="section-title">A conference for people who build the interface</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__body reveal">
+            <p>Field Notes Conf is a two-day, single-track conference for the engineers and designers who care about how software actually feels to use. No marketing track, no sponsored keynotes&mdash;just practitioners sharing what they learned shipping real products.</p>
+            <p>Talks cover design systems, front-end architecture, accessibility, documentation, and the operational software most of us actually build. The format is dense: 30-minute talks, 10-minute breaks, long lunches for conversation.</p>
+            <p>The third edition moves to Lisbon, with a workshop day on March 17 for hands-on design-system and accessibility sessions.</p>
+          </div>
+          <div class="reveal">
+            <span class="eyebrow">At a glance</span>
+            <div class="about__highlights">
+              <div class="highlight">
+                <span class="highlight__label">Single track</span>
+                <span class="highlight__detail">18 talks · 2 days</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight__label">Workshop day</span>
+                <span class="highlight__detail">Mar 17 · extra ticket</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight__label">Format</span>
+                <span class="highlight__detail">30-min talks + Q&amp;A</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight__label">Recordings</span>
+                <span class="highlight__detail">All talks, post-event</span>
+              </div>
+              <div class="highlight">
+                <span class="highlight__label">Catering</span>
+                <span class="highlight__detail">Lunch + breaks included</span>
+              </div>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <div class="stat__value">420</div>
+                <div class="stat__label">Attendees</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">18</div>
+                <div class="stat__label">Talks</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">24</div>
+                <div class="stat__label">Speakers</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">2</div>
+                <div class="stat__label">Days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speakers -->
+    <section class="section" id="speakers" aria-labelledby="speakers-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">02 — Speakers</span>
+          <h2 id="speakers-title" class="section-title">Selected speakers</h2>
+          <p class="section-intro">Practitioners from product teams, open source, and design-systems work. Full lineup announced January 2027.</p>
+        </div>
+        <div class="speakers">
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">MV</span>
+            <div>
+              <h3 class="speaker__name">Mara Velez</h3>
+              <p class="speaker__role">Design Engineer · Halcyon</p>
+            </div>
+            <p class="speaker__talk">Borders before shadows: building a treasury console that stays legible at 4 a.m.</p>
+          </article>
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">DO</span>
+            <div>
+              <h3 class="speaker__name">Dev Okafor</h3>
+              <p class="speaker__role">Staff Engineer · Northwind</p>
+            </div>
+            <p class="speaker__talk">A token stack that survived a rebrand: primitive, semantic, template, component.</p>
+          </article>
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">SK</span>
+            <div>
+              <h3 class="speaker__name">Sana Khoury</h3>
+              <p class="speaker__role">Accessibility Lead · Meridian</p>
+            </div>
+            <p class="speaker__talk">Keyboard-first is not keyboard-only: designing dense operator surfaces.</p>
+          </article>
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">JT</span>
+            <div>
+              <h3 class="speaker__name">Jonas Tamm</h3>
+              <p class="speaker__role">Front-end Architect · Stratum</p>
+            </div>
+            <p class="speaker__talk">Hash routing and a 90&nbsp;KB docs site: building docs without a framework.</p>
+          </article>
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">RL</span>
+            <div>
+              <h3 class="speaker__name">Rin Lemaire</h3>
+              <p class="speaker__role">Design Systems Lead · Atlas</p>
+            </div>
+            <p class="speaker__talk">A QA bar you can enforce: turning principles into required checks.</p>
+          </article>
+          <article class="speaker reveal">
+            <span class="speaker__avatar" aria-hidden="true">AC</span>
+            <div>
+              <h3 class="speaker__name">Aiko Chen</h3>
+              <p class="speaker__role">Staff Engineer · Vesper</p>
+            </div>
+            <p class="speaker__talk">Reading the attack surface: visualizing security data without the cyber aesthetic.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="section" id="schedule" aria-labelledby="schedule-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">03 — Schedule</span>
+          <h2 id="schedule-title" class="section-title">Two days, single track</h2>
+          <p class="section-intro">All times in Western European Time (WET). Schedule is provisional; final slots confirmed in January.</p>
+        </div>
+
+        <div class="schedule-tabs reveal" role="tablist" aria-label="Schedule days">
+          <button class="tab-link" role="tab" id="tab-day1" aria-selected="true" aria-controls="panel-day1" data-tab="day1">Day 1 · Mar 18</button>
+          <button class="tab-link" role="tab" id="tab-day2" aria-selected="false" aria-controls="panel-day2" data-tab="day2" tabindex="-1">Day 2 · Mar 19</button>
+        </div>
+
+        <div class="tab-panel" id="panel-day1" role="tabpanel" aria-labelledby="tab-day1" data-active="true" data-day="day1">
+          <div class="schedule-list">
+            <div class="slot">
+              <span class="slot__time">09:00</span>
+              <div>
+                <div class="slot__title">Registration &amp; coffee</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">09:30</span>
+              <div>
+                <div class="slot__title">Borders before shadows</div>
+                <div class="slot__speaker">Mara Velez · Halcyon</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">10:15</span>
+              <div>
+                <div class="slot__title">A token stack that survived a rebrand</div>
+                <div class="slot__speaker">Dev Okafor · Northwind</div>
+              </div>
+            </div>
+            <div class="slot slot--break">
+              <span class="slot__time">11:00</span>
+              <div>
+                <div class="slot__title">Break</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">11:20</span>
+              <div>
+                <div class="slot__title">Keyboard-first is not keyboard-only</div>
+                <div class="slot__speaker">Sana Khoury · Meridian</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">12:05</span>
+              <div>
+                <div class="slot__title">Hash routing and a 90&nbsp;KB docs site</div>
+                <div class="slot__speaker">Jonas Tamm · Stratum</div>
+              </div>
+            </div>
+            <div class="slot slot--break">
+              <span class="slot__time">12:50</span>
+              <div>
+                <div class="slot__title">Lunch</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">14:00</span>
+              <div>
+                <div class="slot__title">A QA bar you can enforce</div>
+                <div class="slot__speaker">Rin Lemaire · Atlas</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">14:45</span>
+              <div>
+                <div class="slot__title">Reading the attack surface</div>
+                <div class="slot__speaker">Aiko Chen · Vesper</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">15:30</span>
+              <div>
+                <div class="slot__title">Panel: the state of design systems</div>
+                <div class="slot__speaker">All speakers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-day2" role="tabpanel" aria-labelledby="tab-day2" data-active="false" data-day="day2" hidden>
+          <div class="schedule-list">
+            <div class="slot">
+              <span class="slot__time">09:30</span>
+              <div>
+                <div class="slot__title">Opening &amp; day-two keynote</div>
+                <div class="slot__speaker">TBA</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">10:15</span>
+              <div>
+                <div class="slot__title">CRDTs for product engineers</div>
+                <div class="slot__speaker">TBA</div>
+              </div>
+            </div>
+            <div class="slot slot--break">
+              <span class="slot__time">11:00</span>
+              <div>
+                <div class="slot__title">Break</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">11:20</span>
+              <div>
+                <div class="slot__title">Documentation as a product surface</div>
+                <div class="slot__speaker">TBA</div>
+              </div>
+            </div>
+            <div class="slot slot--break">
+              <span class="slot__time">12:05</span>
+              <div>
+                <div class="slot__title">Lightning talks</div>
+                <div class="slot__speaker">Community</div>
+              </div>
+            </div>
+            <div class="slot slot--break">
+              <span class="slot__time">12:50</span>
+              <div>
+                <div class="slot__title">Lunch</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">14:00</span>
+              <div>
+                <div class="slot__title">Workshop teaser: token migrations</div>
+                <div class="slot__speaker">Rin Lemaire · Atlas</div>
+              </div>
+            </div>
+            <div class="slot">
+              <span class="slot__time">15:00</span>
+              <div>
+                <div class="slot__title">Closing remarks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue -->
+    <section class="section" id="venue" aria-labelledby="venue-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">04 — Venue</span>
+          <h2 id="venue-title" class="section-title">Where you&rsquo;ll be</h2>
+        </div>
+        <div class="venue">
+          <div class="venue__body reveal">
+            <p>The conference is held at the Altitude Hall, a converted printing house in the Marvila district&mdash;a 10-minute metro ride from Lisbon city centre. Single-track stage, dedicated Q&amp;A mic, and a catered common area for the long lunches.</p>
+            <p>An accessibility entrance is on the east side, with step-free access to the stage and seating. We&rsquo;ll share a detailed accessibility guide two weeks before the event.</p>
+          </div>
+          <div class="reveal">
+            <span class="eyebrow">Details</span>
+            <div class="venue__details">
+              <div class="venue-row">
+                <span class="venue-row__label">Venue</span>
+                <span class="venue-row__value">Altitude Hall, Marvila</span>
+              </div>
+              <div class="venue-row">
+                <span class="venue-row__label">Address</span>
+                <span class="venue-row__value">R. do Açúcar 12, 1950-009 Lisboa</span>
+              </div>
+              <div class="venue-row">
+                <span class="venue-row__label">Transit</span>
+                <span class="venue-row__value">Metro · Olivais (10 min walk)</span>
+              </div>
+              <div class="venue-row">
+                <span class="venue-row__label">Doors</span>
+                <span class="venue-row__value">08:30 WET daily</span>
+              </div>
+              <div class="venue-row">
+                <span class="venue-row__label">Access</span>
+                <span class="venue-row__value">Step-free, east entrance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section class="section" id="sponsors" aria-labelledby="sponsors-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">05 — Sponsors</span>
+          <h2 id="sponsors-title" class="section-title">Sponsored by teams, not marketers</h2>
+          <p class="section-intro">Sponsorship is capped and limited to product teams. No sponsored talks.</p>
+        </div>
+        <div class="sponsor-tiers reveal">
+          <div class="sponsor-tier">
+            <div class="sponsor-tier__head">
+              <span class="sponsor-tier__name">Partner</span>
+              <span class="sponsor-tier__count">2 sponsors</span>
+            </div>
+            <div class="sponsor-grid">
+              <span class="sponsor-mark sponsor-mark--lg">Halcyon</span>
+              <span class="sponsor-mark sponsor-mark--lg">Northwind</span>
+            </div>
+          </div>
+          <div class="sponsor-tier">
+            <div class="sponsor-tier__head">
+              <span class="sponsor-tier__name">Supporter</span>
+              <span class="sponsor-tier__count">4 sponsors</span>
+            </div>
+            <div class="sponsor-grid">
+              <span class="sponsor-mark sponsor-mark--md">Meridian</span>
+              <span class="sponsor-mark sponsor-mark--md">Stratum</span>
+              <span class="sponsor-mark sponsor-mark--md">Vesper</span>
+              <span class="sponsor-mark sponsor-mark--md">Atlas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section class="section" id="register" aria-labelledby="register-title">
+      <div class="container">
+        <div class="register reveal">
+          <h2 id="register-title" class="register__title">Get your ticket</h2>
+          <p class="register__sub">Tickets are sold per attendee and include both conference days, lunch, and breaks. Workshop day is a separate ticket. Early-bird pricing ends January 31, 2027.</p>
+          <div class="register__tiers">
+            <article class="reg-tier">
+              <div class="reg-tier__head">
+                <span class="reg-tier__name">Early bird</span>
+                <span class="reg-tier__price">&euro;180<span class="reg-tier__price-unit"> / both days</span></span>
+              </div>
+              <ul class="reg-tier__list">
+                <li>Both conference days</li>
+                <li>Lunch &amp; breaks</li>
+                <li>Post-event recordings</li>
+                <li>Until Jan 31</li>
+              </ul>
+              <a class="btn btn--secondary" href="#register">Sold out</a>
+            </article>
+            <article class="reg-tier reg-tier--featured">
+              <div class="reg-tier__head">
+                <span class="reg-tier__name">Standard</span>
+                <span class="reg-tier__price">&euro;240<span class="reg-tier__price-unit"> / both days</span></span>
+              </div>
+              <ul class="reg-tier__list">
+                <li>Both conference days</li>
+                <li>Lunch &amp; breaks</li>
+                <li>Post-event recordings</li>
+                <li>Networking lounge</li>
+              </ul>
+              <a class="btn btn--primary" href="#register">Buy standard</a>
+            </article>
+            <article class="reg-tier">
+              <div class="reg-tier__head">
+                <span class="reg-tier__name">Workshop</span>
+                <span class="reg-tier__price">&euro;140<span class="reg-tier__price-unit"> / Mar 17</span></span>
+              </div>
+              <ul class="reg-tier__list">
+                <li>Hands-on workshop day</li>
+                <li>Token migration track</li>
+                <li>Accessibility track</li>
+                <li>Lunch included</li>
+              </ul>
+              <a class="btn btn--secondary" href="#register">Add workshop</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-meta">
+        <span>&copy; 2026 Field Notes Conf</span>
+        <span aria-hidden="true">·</span>
+        <span>A DevSnips demo template</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#register">Tickets</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

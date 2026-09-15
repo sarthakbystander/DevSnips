@@ -1,0 +1,43 @@
+{
+  "id": "React/Components/Accordion/accordion-loading",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Accordion",
+  "slug": "accordion-loading",
+  "name": "Loading Accordion",
+  "description": "A region that loads asynchronously: while data is pending the content area renders geometry-preserving skeleton bars (aria-hidden) with an sr-only announcement and `aria-busy` on the region \u2014 then swaps to the real data without a layout jump. The pulse is disabled under reduced motion.",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "loading",
+    "skeleton",
+    "aria-busy",
+    "async"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "skeleton bars",
+    "aria-busy region",
+    "sr-only announcement",
+    "geometry preserved",
+    "reduced-motion pulse off"
+  ],
+  "framework": "React",
+  "related": [
+    "accordion",
+    "accordion-with-actions",
+    "accordion-disabled"
+  ],
+  "url": "React/Components/Accordion/accordion-loading/index.html"
+}

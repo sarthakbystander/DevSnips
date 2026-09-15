@@ -1,0 +1,40 @@
+{
+  "id": "React/Components/Tooltips/tooltip",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tooltips",
+  "slug": "tooltip",
+  "name": "Tooltip",
+  "description": "The canonical compound tooltip: a real focusable trigger (aria-describedby), a role=tooltip bubble with a pointing arrow, hover-open after a short delay, immediate keyboard-focus open, and Escape/blur/pointer-leave dismissal.",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled"
+  ],
+  "framework": "React",
+  "related": [
+    "tooltip-placement",
+    "tooltip-with-icon",
+    "tooltip-controlled",
+    "tooltip-disabled-trigger"
+  ],
+  "url": "React/Components/Tooltips/tooltip/index.html"
+}

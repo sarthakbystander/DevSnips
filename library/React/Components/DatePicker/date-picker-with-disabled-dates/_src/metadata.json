@@ -1,0 +1,71 @@
+{
+  "id": "date-picker-with-disabled-dates-react-001",
+  "name": "Date Picker \u2014 with Disabled Dates",
+  "slug": "date-picker-with-disabled-dates",
+  "component": "date-picker",
+  "family": "datepicker",
+  "variant": "date-picker-with-disabled-dates",
+  "description": "Constraint enforcement end to end: disabled weekends + a holiday hold + a min/max booking window. Disabled days are genuinely non-selectable \u2014 pointer, keyboard, and range completion all respect them.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "DatePicker",
+  "subcategory": "Constraints",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "date-picker",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "popover",
+    "responsive",
+    "interactive",
+    "disabled-dates",
+    "min-max",
+    "constraints"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA dialog + grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "disabled matcher",
+    "min/max window",
+    "range-crossing guard",
+    "nav button clamping"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"dialog\" popover",
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "aria-haspopup + aria-expanded field semantics",
+    "focus restoration on close",
+    "native disabled on constrained days",
+    "keyboard movement skips disabled constraints"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "date-picker-range",
+    "date-picker-month-year"
+  ]
+}

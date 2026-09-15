@@ -1,0 +1,35 @@
+{
+  "id": "React/Components/Buttons/filter-button",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Buttons",
+  "slug": "filter-button",
+  "name": "Filter Button",
+  "description": "Opens filters and shows the active count. `activeCount` renders a count chip and switches the button to `surface-active` so the filtered state is obvious. `open` rotates the leading icon and exposes `aria-expanded`.",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "filter",
+    "count",
+    "toolbar",
+    "utility",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "framework": "React",
+  "related": [
+    "sort-button",
+    "export-button",
+    "outline-button"
+  ],
+  "url": "React/Components/Buttons/filter-button/index.html"
+}

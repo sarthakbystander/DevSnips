@@ -1,0 +1,40 @@
+{
+  "id": "React/Components/Dialogs/dialog",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Dialogs",
+  "slug": "dialog",
+  "name": "Dialog",
+  "description": "The canonical modal dialog: a real menu of compound parts \u2014 trigger, portaled role=dialog panel, header/title/description, footer actions, corner close \u2014 with focus trap, Escape, scroll lock, and focus restoration.",
+  "tags": [
+    "dialog",
+    "modal",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "focus-trap",
+    "responsive",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=dialog semantics",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "Escape to close"
+  ],
+  "framework": "React",
+  "related": [
+    "dialog-controlled",
+    "dialog-confirmation",
+    "dialog-form",
+    "dialog-scrollable"
+  ],
+  "url": "React/Components/Dialogs/dialog/index.html"
+}

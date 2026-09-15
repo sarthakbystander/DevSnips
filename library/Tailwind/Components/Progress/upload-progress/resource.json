@@ -1,0 +1,37 @@
+{
+  "id": "Tailwind/Components/Progress/upload-progress",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Progress",
+  "slug": "upload-progress",
+  "name": "Upload Progress",
+  "description": "Multi-file upload list where each file shows an animated progress bar and percentage, then transitions to a green success check when complete. Files can be removed mid-upload. Call addFile(name) to push files programmatically.",
+  "tags": [
+    "progress",
+    "upload",
+    "files",
+    "bar",
+    "queue",
+    "success",
+    "feedback"
+  ],
+  "features": [
+    "per-file progress bars",
+    "percentage labels",
+    "success state transition",
+    "remove mid-upload",
+    "programmatic addFile()",
+    "role=progressbar",
+    "aria-valuenow",
+    "tabular-nums",
+    "focus-visible ring"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "linear-bar",
+    "step-progress",
+    "skeleton-loader"
+  ],
+  "url": "Tailwind/Components/Progress/upload-progress/index.html"
+}

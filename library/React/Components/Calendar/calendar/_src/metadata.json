@@ -1,0 +1,67 @@
+{
+  "id": "calendar-react-001",
+  "name": "Calendar",
+  "slug": "calendar",
+  "component": "calendar",
+  "family": "calendar",
+  "variant": "calendar",
+  "description": "The canonical compound calendar: a WAI-ARIA grid of real day buttons with roving-tabindex keyboard navigation, month/year picker views, locale-aware labels, and local-calendar-date semantics \u2014 shown here as an uncontrolled single-date calendar.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Calendar",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "calendar",
+    "date",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "grid",
+    "responsive",
+    "interactive",
+    "single-date",
+    "uncontrolled"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA grid",
+    "roving tabindex",
+    "controlled/uncontrolled",
+    "locale-aware",
+    "local calendar dates",
+    "single selection",
+    "month/year picker views",
+    "fixed 6-row grid"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=\"grid\" day matrix",
+    "full locale-aware day labels",
+    "aria-selected on gridcells",
+    "aria-current=\"date\" for today",
+    "native disabled day buttons",
+    "aria-live month/year heading",
+    "roving tabindex keyboard model"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "calendar-single",
+    "calendar-range",
+    "calendar-multiple",
+    "calendar-with-footer"
+  ]
+}

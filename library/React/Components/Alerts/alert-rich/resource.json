@@ -1,0 +1,43 @@
+{
+  "id": "React/Components/Alerts/alert-rich",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Alerts",
+  "slug": "alert-rich",
+  "name": "Rich Alert",
+  "description": "The full composition: semantic icon, title, description, action row, and a dismiss button working together \u2014 the shape for product updates and operational incidents that carry both context and next steps.",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "rich",
+    "composite",
+    "actions",
+    "dismissible",
+    "full composition"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "icon + title + description + actions + close",
+    "mixed buttons and anchors",
+    "graceful mobile collapse"
+  ],
+  "framework": "React",
+  "related": [
+    "alert-with-action",
+    "alert-with-link",
+    "alert-dismissible",
+    "alert"
+  ],
+  "url": "React/Components/Alerts/alert-rich/index.html"
+}

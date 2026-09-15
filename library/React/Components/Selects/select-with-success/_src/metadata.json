@@ -1,0 +1,53 @@
+{
+  "id": "select-with-success-react-001",
+  "name": "Select With Success",
+  "slug": "select-with-success",
+  "component": "select",
+  "family": "selects",
+  "variant": "select-with-success",
+  "description": "Custom select with a success message and confirmation state.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Selects",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "select",
+    "form",
+    "success",
+    "react",
+    "tailwind",
+    "accessible"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "select",
+    "select-with-helper",
+    "select-with-error"
+  ]
+}

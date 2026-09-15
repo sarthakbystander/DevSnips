@@ -1,0 +1,62 @@
+{
+  "id": "textarea-auto-resize-react-001",
+  "name": "Textarea Auto Resize",
+  "slug": "textarea-auto-resize",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-auto-resize",
+  "description": "Textarea that grows and shrinks with its content, capped at a configurable maximum height.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "Behavior",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "auto-resize",
+    "autogrow",
+    "autosize",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control",
+    "auto-resize"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea",
+    "textarea-with-counter",
+    "textarea-with-actions"
+  ]
+}

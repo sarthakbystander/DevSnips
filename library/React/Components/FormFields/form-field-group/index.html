@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Field Group — React Components — DevSnips</title>
+<meta name="description" content="Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group — plus a horizontal orientation for compact choice rows.">
+<link rel="canonical" href="https://devsnips.dev/React/Components/FormFields/form-field-group/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Form Field Group — React Components — DevSnips">
+<meta property="og:description" content="Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group — plus a horizontal orientation for compact choice rows.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Form Field Group — React Components — DevSnips">
+<meta name="twitter:description" content="Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group — plus a horizontal orientation for compact choice rows.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../../../React/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">React</a>
+      <a href="../../../../docs/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html" class="hover:text-neutral-900 dark:hover:text-white">Components</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../../../React/Components/index.html#FormFields" class="hover:text-neutral-900 dark:hover:text-white">FormFields</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Form Field Group</span></nav>
+    <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="serif text-2xl font-extrabold tracking-tight sm:text-3xl">Form Field Group</h1>
+        <p class="mt-2 max-w-2xl text-neutral-600 dark:text-neutral-400">Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group — plus a horizontal orientation for compact choice rows.</p>
+      </div>
+      <div class="flex shrink-0 gap-2">
+        <a href="_src/preview.html" target="_blank" rel="noopener" class="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-bold text-white hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">Preview &#8599;</a>
+        <button type="button" onclick="var c=document.getElementById('code-block').innerText;navigator.clipboard.writeText(c);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy code',1200);" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Copy code</button>
+      </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800" data-tabs>
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-900">
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="preview" aria-selected="true">Preview</button>
+          <button type="button" class="tab-btn rounded-md px-3 py-1.5 text-xs font-bold" data-tab="code" aria-selected="false">Code</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hidden items-center gap-1 rounded-lg bg-neutral-100 p-1 sm:flex dark:bg-neutral-900" data-devicegroup="frame-form-field-group">
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="desktop" aria-pressed="true" title="Desktop">&#128421;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="tablet" aria-pressed="false" title="Tablet">&#128432;</button>
+            <button type="button" class="device-btn rounded-md px-2.5 py-1 text-xs font-semibold" data-device="mobile" aria-pressed="false" title="Mobile">&#128241;</button>
+          </div>
+          <a href="_src/preview.html" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-300">Open full &#8599;</a>
+        </div>
+      </div>
+      <div data-panel="preview" class="flex justify-center bg-neutral-100 dark:bg-neutral-950">
+        <iframe id="frame-form-field-group" src="_src/preview.html" title="Form Field Group preview" class="h-[420px] w-full bg-white transition-[width] duration-200 dark:bg-neutral-900" style="width:100%" loading="lazy"></iframe>
+      </div>
+      <pre data-panel="code" class="code-block hidden max-h-[420px] overflow-auto bg-neutral-950 p-4 text-xs text-neutral-200"><code id="code-block">import {
+  Children,
+  cloneElement,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+} from &quot;react&quot;;
+import type {
+  FieldsetHTMLAttributes,
+  HTMLAttributes,
+  LabelHTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from &quot;react&quot;;
+
+/**
+ * DevSnips React Form Field — grouped controls.
+ *
+ * `&lt;FormFieldGroup&gt;` is a real `&lt;fieldset&gt;` + `&lt;legend&gt;`: related controls
+ * (radios, checkboxes, address blocks) get a programmatic group name, and
+ * `disabled` disables every descendant natively. Description / helper /
+ * message primitives placed directly inside register against the fieldset
+ * and are linked to it with `aria-describedby`; nested `&lt;FormField&gt;`
+ * children keep their own wiring (nearest provider wins).
+ * `orientation=&quot;horizontal&quot;` lays the children out in a wrapping row.
+ * Same compound core as the reference `form-field`.
+ */
+
+function cx(...parts: Array&lt;string | false | null | undefined&gt;): string {
+  return parts.filter(Boolean).join(&quot; &quot;);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Types + contexts                                                          */
+/* ------------------------------------------------------------------------ */
+
+export type FormFieldOrientation = &quot;vertical&quot; | &quot;horizontal&quot;;
+export type FormFieldMessageTone = &quot;error&quot; | &quot;success&quot;;
+
+type RegisteredTextKind = &quot;description&quot; | &quot;helper&quot; | &quot;message&quot;;
+
+interface RegisteredText {
+  id: string;
+  kind: RegisteredTextKind;
+  tone?: FormFieldMessageTone;
+}
+
+/**
+ * Nearest-registry contract: `FormField` and `FormFieldGroup` both provide
+ * one. Description / helper / message primitives register into the nearest
+ * registry, so texts placed inside a `&lt;FormField&gt;` describe that field&#x27;s
+ * control, and texts placed directly inside a `&lt;FormFieldGroup&gt;` describe
+ * the whole `&lt;fieldset&gt;`.
+ */
+interface FieldTextRegistryValue {
+  registerText: (entry: RegisteredText) =&gt; () =&gt; void;
+}
+
+interface FormFieldContextValue {
+  controlId: string;
+  required: boolean;
+  disabled: boolean;
+  orientation: FormFieldOrientation;
+  describedBy: string | undefined;
+  hasError: boolean;
+}
+
+const FieldTextRegistryContext = createContext&lt;FieldTextRegistryValue | null&gt;(null);
+const FormFieldContext = createContext&lt;FormFieldContextValue | null&gt;(null);
+
+/**
+ * Access the wiring of the enclosing `&lt;FormField&gt;` (control id, described-by
+ * ids, error / required / disabled state). Use it to build custom controls
+ * that participate in the field wiring without `&lt;FormFieldControl&gt;`.
+ */
+export function useFormField(): FormFieldContextValue {
+  const field = useContext(FormFieldContext);
+  if (!field) {
+    throw new Error(&quot;useFormField must be used inside &lt;FormField&gt;&quot;);
+  }
+  return field;
+}
+
+function useRegisterFieldText(
+  id: string,
+  kind: RegisteredTextKind,
+  tone?: FormFieldMessageTone,
+): void {
+  const registry = useContext(FieldTextRegistryContext);
+  useEffect(() =&gt; {
+    if (!registry) return;
+    return registry.registerText({ id, kind, tone });
+  }, [registry, id, kind, tone]);
+}
+
+function useFieldTexts(): [RegisteredText[], FieldTextRegistryValue[&quot;registerText&quot;]] {
+  const [texts, setTexts] = useState&lt;RegisteredText[]&gt;([]);
+  const registerText = useCallback((entry: RegisteredText) =&gt; {
+    setTexts((prev) =&gt; (prev.some((t) =&gt; t.id === entry.id) ? prev : [...prev, entry]));
+    return () =&gt; {
+      setTexts((prev) =&gt; prev.filter((t) =&gt; t.id !== entry.id));
+    };
+  }, []);
+  return [texts, registerText];
+}
+
+/* ------------------------------------------------------------------------ */
+/* Shared classes                                                            */
+/* ------------------------------------------------------------------------ */
+
+const LABEL_CLASSES = &quot;block text-[13px] font-medium leading-5&quot;;
+const DESCRIPTION_CLASSES = &quot;text-xs leading-4 text-[var(--ds-color-muted-foreground)]&quot;;
+const HELPER_CLASSES = &quot;text-xs leading-4 text-[var(--ds-color-muted-foreground)]&quot;;
+const MESSAGE_CLASSES = &quot;flex items-start gap-1.5 text-xs leading-4&quot;;
+const LEGEND_CLASSES = &quot;p-0 text-[13px] font-medium leading-5 text-[var(--ds-color-foreground)]&quot;;
+// In the horizontal layout the label sits in the left column; every other
+// primitive (and the control) is placed in the right column via sm:col-start-2.
+const LABEL_HORIZONTAL_CLASSES = &quot;sm:col-start-1 sm:row-start-1 sm:pt-2&quot;;
+const BODY_HORIZONTAL_CLASSES = &quot;sm:col-start-2&quot;;
+
+/* ------------------------------------------------------------------------ */
+/* &lt;FormField&gt; — root provider                                               */
+/* ------------------------------------------------------------------------ */
+
+export interface FormFieldProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
+  /** Id given to the control (and the label&#x27;s `htmlFor`). Generated when omitted. */
+  controlId?: string;
+  /** Marks the field required: the label gets a required indicator and the control a native `required`. */
+  required?: boolean;
+  /** Disables the field: the control gets a native `disabled` and the label is muted. */
+  disabled?: boolean;
+  /** `horizontal` puts the label in a left column from `sm` up; below `sm` the field stacks. */
+  orientation?: FormFieldOrientation;
+  children?: ReactNode;
+}
+
+export function FormField({
+  controlId,
+  required = false,
+  disabled = false,
+  orientation = &quot;vertical&quot;,
+  className,
+  children,
+  ...rest
+}: FormFieldProps) {
+  const generatedId = useId();
+  const resolvedControlId = controlId ?? `field-${generatedId}`;
+  const [texts, registerText] = useFieldTexts();
+
+  const describedBy = texts.length ? texts.map((t) =&gt; t.id).join(&quot; &quot;) : undefined;
+  const hasError = texts.some((t) =&gt; t.kind === &quot;message&quot; &amp;&amp; t.tone === &quot;error&quot;);
+
+  // Context values are memoized: the primitives&#x27; registration effects depend
+  // on the registry, so a new object identity every render would re-run the
+  // effects (setState) in a loop.
+  const fieldValue = useMemo&lt;FormFieldContextValue&gt;(
+    () =&gt; ({
+      controlId: resolvedControlId,
+      required,
+      disabled,
+      orientation,
+      describedBy,
+      hasError,
+    }),
+    [resolvedControlId, required, disabled, orientation, describedBy, hasError],
+  );
+  const registryValue = useMemo&lt;FieldTextRegistryValue&gt;(
+    () =&gt; ({ registerText }),
+    [registerText],
+  );
+
+  return (
+    &lt;FieldTextRegistryContext.Provider value={registryValue}&gt;
+      &lt;FormFieldContext.Provider value={fieldValue}&gt;
+        &lt;div
+          data-ds-form-field=&quot;&quot;
+          data-orientation={orientation}
+          className={cx(
+            orientation === &quot;horizontal&quot;
+              ? &quot;grid w-full min-w-0 grid-cols-1 gap-2 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-x-4&quot;
+              : &quot;flex w-full min-w-0 flex-col gap-2&quot;,
+            className,
+          )}
+          {...rest}
+        &gt;
+          {children}
+        &lt;/div&gt;
+      &lt;/FormFieldContext.Provider&gt;
+    &lt;/FieldTextRegistryContext.Provider&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* &lt;FormFieldLabel&gt;                                                          */
+/* ------------------------------------------------------------------------ */
+
+export interface FormFieldLabelProps extends LabelHTMLAttributes&lt;HTMLLabelElement&gt; {
+  /** Show a muted &quot;(optional)&quot; indicator. Use on the optional fields of a mostly-required form. */
+  optional?: boolean;
+  children?: ReactNode;
+}
+
+export function FormFieldLabel({
+  optional = false,
+  className,
+  children,
+  ...rest
+}: FormFieldLabelProps) {
+  const field = useFormField();
+  return (
+    &lt;label
+      htmlFor={field.controlId}
+      className={cx(
+        LABEL_CLASSES,
+        field.disabled
+          ? &quot;text-[var(--ds-color-muted-foreground)]&quot;
+          : &quot;text-[var(--ds-color-foreground)]&quot;,
+        field.orientation === &quot;horizontal&quot; &amp;&amp; LABEL_HORIZONTAL_CLASSES,
+        className,
+      )}
+      {...rest}
+    &gt;
+      {children}
+      {field.required ? (
+        &lt;&gt;
+          &lt;span aria-hidden=&quot;true&quot; className=&quot;ml-0.5 text-[var(--ds-color-destructive)]&quot;&gt;*&lt;/span&gt;
+          &lt;span className=&quot;sr-only&quot;&gt; (required)&lt;/span&gt;
+        &lt;/&gt;
+      ) : optional ? (
+        &lt;span className=&quot;ml-1 font-normal text-[var(--ds-color-muted-foreground)]&quot;&gt;(optional)&lt;/span&gt;
+      ) : null}
+    &lt;/label&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* &lt;FormFieldControl&gt; — injects the wiring into the wrapped control          */
+/* ------------------------------------------------------------------------ */
+
+export interface FormFieldControlProps {
+  /**
+   * Exactly one control element: a native `&lt;input&gt;` / `&lt;select&gt;` /
+   * `&lt;textarea&gt;` / `&lt;button&gt;`-style control, or a DevSnips component that
+   * forwards these props to its underlying control.
+   */
+  children: ReactElement;
+}
+
+export function FormFieldControl({ children }: FormFieldControlProps) {
+  const field = useFormField();
+  const child = Children.only(children);
+  const own = child.props as { className?: string; &quot;aria-describedby&quot;?: string };
+  const describedBy = cx(own[&quot;aria-describedby&quot;], field.describedBy) || undefined;
+
+  return cloneElement(child, {
+    id: field.controlId,
+    &quot;aria-describedby&quot;: describedBy,
+    ...(field.hasError ? { &quot;aria-invalid&quot;: true } : {}),
+    ...(field.required ? { required: true } : {}),
+    ...(field.disabled ? { disabled: true } : {}),
+    className: cx(
+      own.className,
+      field.orientation === &quot;horizontal&quot; &amp;&amp; BODY_HORIZONTAL_CLASSES,
+    ),
+  });
+}
+
+/* ------------------------------------------------------------------------ */
+/* &lt;FormFieldDescription&gt; / &lt;FormFieldHelper&gt; / &lt;FormFieldMessage&gt;           */
+/* ------------------------------------------------------------------------ */
+
+export interface FormFieldDescriptionProps extends HTMLAttributes&lt;HTMLParagraphElement&gt; {
+  children?: ReactNode;
+}
+
+/**
+ * Supporting text that frames the field before typing (purpose, impact).
+ * Renders between the label and the control and is linked to the control
+ * with `aria-describedby`. In the horizontal layout it may also be placed
+ * after the control.
+ */
+export function FormFieldDescription({
+  className,
+  children,
+  ...rest
+}: FormFieldDescriptionProps) {
+  const id = useId();
+  useRegisterFieldText(id, &quot;description&quot;);
+  const field = useContext(FormFieldContext);
+  return (
+    &lt;p
+      id={id}
+      className={cx(
+        DESCRIPTION_CLASSES,
+        field?.orientation === &quot;horizontal&quot; &amp;&amp; BODY_HORIZONTAL_CLASSES,
+        className,
+      )}
+      {...rest}
+    &gt;
+      {children}
+    &lt;/p&gt;
+  );
+}
+
+export interface FormFieldHelperProps extends HTMLAttributes&lt;HTMLParagraphElement&gt; {
+  children?: ReactNode;
+}
+
+/**
+ * Persistent hint below the control (format, constraints — &quot;how is this
+ * used&quot;), linked with `aria-describedby`. For validation feedback use
+ * `&lt;FormFieldMessage&gt;` instead.
+ */
+export function FormFieldHelper({ className, children, ...rest }: FormFieldHelperProps) {
+  const id = useId();
+  useRegisterFieldText(id, &quot;helper&quot;);
+  const field = useContext(FormFieldContext);
+  return (
+    &lt;p
+      id={id}
+      className={cx(
+        HELPER_CLASSES,
+        field?.orientation === &quot;horizontal&quot; &amp;&amp; BODY_HORIZONTAL_CLASSES,
+        className,
+      )}
+      {...rest}
+    &gt;
+      {children}
+    &lt;/p&gt;
+  );
+}
+
+export interface FormFieldMessageProps extends HTMLAttributes&lt;HTMLParagraphElement&gt; {
+  /** `error` announces with `role=&quot;alert&quot;` and marks the control `aria-invalid`; `success` announces politely with `role=&quot;status&quot;`. */
+  tone: FormFieldMessageTone;
+  children?: ReactNode;
+}
+
+/**
+ * Validation feedback below the control. An error message is destructive
+ * text with an alert icon, announced with `role=&quot;alert&quot;`, and flips the
+ * control to `aria-invalid=&quot;true&quot;` while it is rendered — remove the
+ * message to clear the error state. A success message uses the success
+ * token with a check icon and `role=&quot;status&quot;`. An icon + text carry the
+ * state, never color alone.
+ */
+export function FormFieldMessage({ tone, className, children, ...rest }: FormFieldMessageProps) {
+  const id = useId();
+  useRegisterFieldText(id, &quot;message&quot;, tone);
+  const field = useContext(FormFieldContext);
+  return (
+    &lt;p
+      id={id}
+      data-tone={tone}
+      role={tone === &quot;error&quot; ? &quot;alert&quot; : &quot;status&quot;}
+      className={cx(
+        MESSAGE_CLASSES,
+        tone === &quot;error&quot;
+          ? &quot;text-[var(--ds-color-destructive)]&quot;
+          : &quot;text-[var(--ds-color-success)]&quot;,
+        field?.orientation === &quot;horizontal&quot; &amp;&amp; BODY_HORIZONTAL_CLASSES,
+        className,
+      )}
+      {...rest}
+    &gt;
+      &lt;svg
+        aria-hidden=&quot;true&quot;
+        viewBox=&quot;0 0 24 24&quot;
+        fill=&quot;none&quot;
+        stroke=&quot;currentColor&quot;
+        strokeWidth={1.75}
+        strokeLinecap=&quot;round&quot;
+        strokeLinejoin=&quot;round&quot;
+        className=&quot;mt-px size-3.5 shrink-0&quot;
+      &gt;
+        {tone === &quot;error&quot; ? (
+          &lt;&gt;
+            &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+            &lt;path d=&quot;M12 8v4&quot; /&gt;
+            &lt;path d=&quot;M12 16h.01&quot; /&gt;
+          &lt;/&gt;
+        ) : (
+          &lt;&gt;
+            &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+            &lt;path d=&quot;m9 12 2 2 4-4&quot; /&gt;
+          &lt;/&gt;
+        )}
+      &lt;/svg&gt;
+      &lt;span&gt;{children}&lt;/span&gt;
+    &lt;/p&gt;
+  );
+}
+
+/* ------------------------------------------------------------------------ */
+/* &lt;FormFieldGroup&gt; — fieldset + legend for related fields                   */
+/* ------------------------------------------------------------------------ */
+
+export interface FormFieldGroupProps extends FieldsetHTMLAttributes&lt;HTMLFieldSetElement&gt; {
+  /** The group&#x27;s accessible name, rendered as the `&lt;legend&gt;` (required). */
+  legend: ReactNode;
+  /** `horizontal` lays the children out in a wrapping row; `vertical` stacks them. */
+  orientation?: FormFieldOrientation;
+  children?: ReactNode;
+}
+
+/**
+ * A real `&lt;fieldset&gt;` + `&lt;legend&gt;` grouping related controls (radio groups,
+ * checkbox sets, address blocks). `disabled` disables every descendant
+ * control natively. `FormFieldDescription` / `FormFieldHelper` /
+ * `FormFieldMessage` placed directly inside register against the fieldset
+ * and are linked to it with `aria-describedby`; nested `&lt;FormField&gt;`
+ * children keep their own wiring.
+ */
+export function FormFieldGroup({
+  legend,
+  orientation = &quot;vertical&quot;,
+  disabled,
+  className,
+  children,
+  ...rest
+}: FormFieldGroupProps) {
+  const [texts, registerText] = useFieldTexts();
+  const describedBy = texts.length ? texts.map((t) =&gt; t.id).join(&quot; &quot;) : undefined;
+  const registryValue = useMemo&lt;FieldTextRegistryValue&gt;(
+    () =&gt; ({ registerText }),
+    [registerText],
+  );
+
+  return (
+    &lt;FieldTextRegistryContext.Provider value={registryValue}&gt;
+      &lt;fieldset
+        data-ds-form-field-group=&quot;&quot;
+        data-orientation={orientation}
+        disabled={disabled}
+        aria-describedby={describedBy}
+        className={cx(&quot;m-0 w-full min-w-0 border-0 p-0&quot;, className)}
+        {...rest}
+      &gt;
+        &lt;legend className={LEGEND_CLASSES}&gt;{legend}&lt;/legend&gt;
+        &lt;div
+          className={cx(
+            &quot;mt-2&quot;,
+            orientation === &quot;horizontal&quot;
+              ? &quot;flex flex-wrap gap-x-4 gap-y-2&quot;
+              : &quot;flex flex-col gap-2&quot;,
+          )}
+        &gt;
+          {children}
+        &lt;/div&gt;
+      &lt;/fieldset&gt;
+    &lt;/FieldTextRegistryContext.Provider&gt;
+  );
+}
+
+export default FormField;
+</code></pre>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Technology</p>
+        <p class="mt-1 font-bold">React</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Category</p>
+        <p class="mt-1 font-bold">Components &rsaquo; FormFields</p>
+      </div>
+      <div class="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+        <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Files</p>
+        <p class="mt-1 font-bold">5</p>
+      </div>
+    </div>
+
+    <div class="mt-2 flex flex-wrap gap-2"><span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">form</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">field</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">label</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">react</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">tailwind</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">accessible</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">validation</span> <span class="mono rounded-full px-2.5 py-1 text-xs font-semibold bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">responsive</span></div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+      <p class="mono text-[11px] font-semibold uppercase tracking-widest text-neutral-400">Installation</p>
+      <div class="mt-2 flex items-center justify-between gap-3 rounded-lg bg-neutral-950 px-4 py-3">
+        <code class="mono truncate text-sm text-emerald-300">npx devsnips add react/components/FormFields/form-field-group</code>
+        <button type="button" onclick="navigator.clipboard.writeText('npx devsnips add react/components/FormFields/form-field-group');this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);" class="mono shrink-0 rounded-md border border-neutral-700 px-2 py-1 text-xs font-semibold text-neutral-200 hover:bg-neutral-800">Copy</button>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-lg font-bold">Features</h2>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 dark:text-neutral-300"><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>responsive</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>light/dark</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>reduced-motion</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>focus-visible</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>semantic HTML</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>aria-describedby wiring</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>control-agnostic</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>fieldset + legend</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>group-level validation</span></li><li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"></span><span>wrapping row orientation</span></li></ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold">Related</h2>
+        <div class="mt-3 grid gap-3"><a href="../form-field/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">FormFields</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Form Field</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">The structural layer around a form control: label, description, control, helper, and validation message with automatic id / aria-describedby / aria-invalid wiring.</p>
+  
+</a><a href="../form-field-horizontal/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">FormFields</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Form Field Horizontal</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Horizontal orientation: label in a fixed left column, control and supporting text on the right — a settings-page layout that collapses to the vertical stack below sm.</p>
+  
+</a><a href="../form-field-with-error/index.html" class="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500">
+  <span class="mono text-[11px] font-semibold uppercase tracking-widest text-sky-600 dark:text-sky-400">FormFields</span>
+  <h3 class="mt-2 text-base font-bold group-hover:text-sky-600 dark:group-hover:text-sky-400">Form Field With Error</h3>
+  <p class="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">Error state: a destructive message with an alert icon in a role=alert live region, aria-invalid on the control, and a destructive control border — cleared by removing the message.</p>
+  
+</a></div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+      <h2 class="text-lg font-bold">Documentation</h2>
+      <article class="prose-devsnips mt-4"><h1>Form Field Group</h1>
+<p>Related controls grouped in a real fieldset + legend, with group-level description and validation described to the whole group — plus a horizontal orientation for compact choice rows.</p>
+<h2>Usage</h2>
+<pre class="code-block"><code>
+&lt;FormFieldGroup legend=&quot;Notification channels&quot;&gt;
+  &lt;FormFieldDescription&gt;Choose how you want to be notified.&lt;/FormFieldDescription&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;channels&quot; value=&quot;email&quot; /&gt; Email&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;channels&quot; value=&quot;push&quot; /&gt; Push&lt;/label&gt;
+  {noneSelected &amp;&amp; (
+    &lt;FormFieldMessage tone=&quot;error&quot;&gt;Select at least one channel.&lt;/FormFieldMessage&gt;
+  )}
+&lt;/FormFieldGroup&gt;
+</code></pre>
+<h2>JavaScript</h2>
+<p>A <code>code.jsx</code> build is provided for projects that ship plain JSX. It exposes the same API and behavior as <code>code.tsx</code> — only the TypeScript types are removed.</p>
+<pre class="code-block"><code>
+&lt;FormFieldGroup legend=&quot;Notification channels&quot;&gt;
+  &lt;FormFieldDescription&gt;Choose how you want to be notified.&lt;/FormFieldDescription&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;channels&quot; value=&quot;email&quot; /&gt; Email&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;channels&quot; value=&quot;push&quot; /&gt; Push&lt;/label&gt;
+  {noneSelected &amp;&amp; (
+    &lt;FormFieldMessage tone=&quot;error&quot;&gt;Select at least one channel.&lt;/FormFieldMessage&gt;
+  )}
+&lt;/FormFieldGroup&gt;
+</code></pre>
+<h2>Props</h2>
+<h3><code>&lt;FormFieldGroup&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>legend</code> | <code>ReactNode</code> | (required) | The group&#x27;s accessible name, rendered as the <code>&lt;legend&gt;</code>. |</p>
+<p>| <code>orientation</code> | <code>&quot;vertical&quot; \| &quot;horizontal&quot;</code> | <code>&quot;vertical&quot;</code> | <code>horizontal</code> lays the children out in a wrapping row. |</p>
+<p>| <code>disabled</code> | <code>boolean</code> | <code>false</code> | Native <code>fieldset</code> disabled — every descendant control is disabled. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;fieldset&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Controls, nested <code>FormField</code>s, and group-level texts. |</p>
+<p>A real <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code>. <code>FormFieldDescription</code> / <code>FormFieldHelper</code> / <code>FormFieldMessage</code> placed directly inside describe the whole group (linked with <code>aria-describedby</code> on the fieldset); nested <code>FormField</code> children keep their own wiring.</p>
+<h3><code>&lt;FormFieldDescription&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;p&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Description text. |</p>
+<p>Muted supporting text that frames the field (purpose, impact). Registered with the nearest provider and linked with <code>aria-describedby</code> — the attribute is only set while the description is rendered.</p>
+<h3><code>&lt;FormFieldHelper&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;p&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Helper text. |</p>
+<p>Muted persistent hint below the control (format, constraints), linked with <code>aria-describedby</code>. For validation feedback use <code>FormFieldMessage</code>.</p>
+<h3><code>&lt;FormFieldMessage&gt;</code></h3>
+<p>| Name | Type | Default | Description |</p>
+<p>|---|---|---|---|</p>
+<p>| <code>tone</code> | <code>&quot;error&quot; \| &quot;success&quot;</code> | (required) | <code>error</code>: destructive text + alert icon, <code>role=&quot;alert&quot;</code>, and the control flips to <code>aria-invalid=&quot;true&quot;</code>. <code>success</code>: success text + check icon, <code>role=&quot;status&quot;</code>. |</p>
+<p>| <code>className</code> | <code>string</code> | — | Extra classes on the <code>&lt;p&gt;</code>. |</p>
+<p>| <code>children</code> | <code>ReactNode</code> | — | Message text. |</p>
+<p>Render the message only while the state holds (e.g. <code>{error &amp;&amp; &lt;FormFieldMessage tone=&quot;error&quot;&gt;{error}&lt;/FormFieldMessage&gt;}</code>); removing it clears the wiring. State is carried by icon + text + ARIA — never by color alone.</p>
+<h2>Composition</h2>
+<ul>
+<li><code>FormField</code> — the root provider. Owns the control id (generated or via <code>controlId</code>), the <code>required</code> / <code>disabled</code> / <code>orientation</code> state, and the registry that description, helper, and message texts register into.</li>
+<li><code>FormFieldLabel</code> — a real <code>&lt;label htmlFor&gt;</code> pointing at the control. Renders the required indicator (<code>*</code> + sr-only text) when the field is required, or a muted &quot;(optional)&quot; when <code>optional</code> is set.</li>
+<li><code>FormFieldControl</code> — wraps exactly one control element (native <code>&lt;input&gt;</code> / <code>&lt;select&gt;</code> / <code>&lt;textarea&gt;</code> or a DevSnips component that forwards props to its control) and injects the wiring: <code>id</code>, <code>aria-describedby</code>, <code>aria-invalid</code> (only while an error message is rendered), <code>required</code>, <code>disabled</code>.</li>
+<li><code>FormFieldDescription</code> — muted supporting text framing the field; registered, then linked with <code>aria-describedby</code>.</li>
+<li><code>FormFieldHelper</code> — muted persistent hint below the control; registered, then linked with <code>aria-describedby</code>.</li>
+<li><code>FormFieldMessage</code> — validation feedback. <code>tone=&quot;error&quot;</code> announces with <code>role=&quot;alert&quot;</code> and flips the control to <code>aria-invalid=&quot;true&quot;</code>; <code>tone=&quot;success&quot;</code> announces politely with <code>role=&quot;status&quot;</code>. An icon + text carry the state — never color alone.</li>
+<li><code>FormFieldGroup</code> — a real <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> for related controls; texts placed directly inside describe the whole group. <code>disabled</code> disables every descendant control natively.</li>
+<li><code>useFormField</code> — hook exposing the field wiring (control id, described-by ids, error / required / disabled) for building custom controls.</li>
+</ul>
+<p>Group-level texts (description, helper, message) register against the <strong>fieldset</strong>, while a <code>FormField</code> nested inside the group keeps its own per-control wiring — the nearest provider wins.</p>
+<h2>Field Wiring</h2>
+<p><code>FormField</code> generates a control id (or takes <code>controlId</code>) and hands it to <code>FormFieldLabel</code> (<code>htmlFor</code>) and <code>FormFieldControl</code> (<code>id</code>), so the label/control association is automatic and can never dangle. <code>FormFieldDescription</code>, <code>FormFieldHelper</code>, and <code>FormFieldMessage</code> each generate their own id and <strong>register</strong> it with the nearest provider in an effect; only then does the control&#x27;s <code>aria-describedby</code> reference those ids — the attribute is omitted entirely while no text is rendered, and removed ids are unregistered on unmount. <code>FormFieldControl</code> merges these ids with any <code>aria-describedby</code> the control already carries.</p>
+<p>An error <code>FormFieldMessage</code> additionally flips the control to <code>aria-invalid=&quot;true&quot;</code> for as long as it is rendered; removing the message clears both the described-by id and the invalid state. <code>required</code> / <code>disabled</code> on <code>FormField</code> are forwarded to the control as the <strong>native</strong> attributes, so constraint validation, form submission, and assistive-technology announcements behave natively.</p>
+<p>The wiring is control-agnostic: <code>FormFieldControl</code> clones its single child and merges props, so native elements and DevSnips components (which forward these props to their underlying control) both work. Custom controls can read the same wiring through <code>useFormField()</code>.</p>
+<h2>Accessibility</h2>
+<ul>
+<li>Label ↔ control: <code>FormFieldLabel</code> is a real <code>&lt;label&gt;</code> whose <code>htmlFor</code> is the control&#x27;s <code>id</code> — clicking the label focuses the control, and assistive technology announces the label as the control&#x27;s accessible name.</li>
+<li>Descriptions, helpers, and messages are linked with <code>aria-describedby</code> <strong>by registration</strong>: ids are generated, registered, and only then referenced. There are no dangling ARIA references, and <code>aria-describedby</code> is omitted entirely when nothing describes the control.</li>
+<li>Error messages render <code>role=&quot;alert&quot;</code> (announced immediately on appearance) and set <code>aria-invalid=&quot;true&quot;</code> on the control; success messages render <code>role=&quot;status&quot;</code> (politely announced). Both pair an icon with text, so state is never communicated by color alone.</li>
+<li><code>required</code> is the native attribute (announced as required), plus a destructive <code>*</code> marked <code>aria-hidden</code> with an sr-only &quot;(required)&quot; fallback — the visual asterisk is never the only indicator.</li>
+<li><code>disabled</code> is the native attribute: the control leaves the tab order and cannot be edited.</li>
+<li><code>FormFieldGroup</code> is a real <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code>, so grouped controls (radios, checkboxes) get a programmatic group name; group-level texts describe the whole fieldset via <code>aria-describedby</code>.</li>
+</ul>
+<h2>States</h2>
+<ul>
+<li><strong>Default</strong> — foreground label, muted supporting text, control styled by its own component.</li>
+<li><strong>Required</strong> — destructive <code>*</code> + sr-only &quot;(required)&quot; on the label; native <code>required</code> on the control.</li>
+<li><strong>Optional</strong> — muted &quot;(optional)&quot; label indicator (a label choice, not a control state).</li>
+<li><strong>Disabled</strong> — native <code>disabled</code> control (out of tab order, not editable) + muted label.</li>
+<li><strong>Error</strong> — destructive message with alert icon, <code>role=&quot;alert&quot;</code>, <code>aria-invalid=&quot;true&quot;</code> on the control.</li>
+<li><strong>Success</strong> — success-token message with check icon, <code>role=&quot;status&quot;</code>.</li>
+<li><strong>Grouped</strong> — <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code>; group texts describe the whole group.</li>
+</ul>
+<h2>Responsive Behavior</h2>
+<p>The default vertical layout stacks label, description, control, and helper/message in one column at every width — full-width, <code>min-w-0</code>, no overflow. <code>orientation=&quot;horizontal&quot;</code> uses a <code>10rem</code> label column + <code>minmax(0,1fr)</code> control column from <code>sm</code> up and collapses to the single-column stack below <code>sm</code>, so labels are never clipped and controls never overflow on narrow screens. <code>FormFieldGroup orientation=&quot;horizontal&quot;</code> lays children out in a wrapping row (<code>flex-wrap</code>), so choice rows reflow instead of overflowing. Verified at 375 / 768 / 1280px with zero horizontal overflow.</p>
+<h2>Styling</h2>
+<p>Built with React, Tailwind CSS, and DevSnips design tokens. The component consumes the <code>--ds-*</code> semantic tokens via arbitrary values (for example <code>text-[var(--ds-color-muted-foreground)]</code>). Define the tokens once in your theme — no component-specific CSS file is required.</p>
+<h2>Design Tokens</h2>
+<p>See <code>React/DESIGN_TOKENS.md</code> for the authoritative token specification. This form field variant uses the semantic color, typography, and spacing tokens — including <code>color.muted-foreground</code> for supporting text, <code>color.destructive</code> for the error state, <code>color.success</code> for the success state, and <code>color.focus-ring</code> on the wrapped control.</p>
+<h2>Notes</h2>
+<p>The demo groups notification-channel checkboxes with a live “select at least one” group error, and lays a radio plan-picker out in a wrapping horizontal row. Use a group for radios/checkboxes that share one question; use individual <code>FormField</code>s for unrelated fields.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

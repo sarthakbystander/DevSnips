@@ -1,0 +1,70 @@
+{
+  "id": "sidebar-collapsible-groups-react-001",
+  "name": "Sidebar with Collapsible Groups",
+  "slug": "sidebar-collapsible-groups",
+  "component": "sidebar",
+  "family": "sidebar",
+  "variant": "sidebar-collapsible-groups",
+  "description": "Independently collapsible navigation groups: the sidebar stays open while individual sections expand and collapse with aria-expanded, plus controlled expand-all / collapse-all coordination from outside the sidebar.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Sidebar",
+  "subcategory": "Structure",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "sidebar",
+    "navigation",
+    "drawer",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "collapsible",
+    "groups",
+    "expand",
+    "controlled"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "collapsed icon rail",
+    "mobile drawer",
+    "keyboard navigation",
+    "independent group state",
+    "expand-all / collapse-all",
+    "aria-expanded group controls"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aside + nav landmark",
+    "role=dialog aria-modal mobile drawer",
+    "aria-current='page' active item",
+    "aria-expanded collapsible parents",
+    "focus trap + restoration in the drawer",
+    "sr-only labels in the collapsed rail",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "independent aria-expanded per group"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "sidebar-with-groups",
+    "sidebar-with-nested-navigation"
+  ]
+}

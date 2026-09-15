@@ -1,0 +1,41 @@
+{
+  "id": "React/Components/Tables/table-expandable",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tables",
+  "slug": "table-expandable",
+  "name": "Expandable Table",
+  "description": "A table with expandable rows: a real toggle button per row (aria-expanded + aria-controls), an associated detail panel rendered as a real spanning row, instant reduced-motion-safe toggling, and multiple rows open at once.",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "expandable",
+    "collapsible",
+    "aria-expanded",
+    "row-details"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "expand/collapse toggle",
+    "associated detail panel",
+    "multiple open rows",
+    "no layout-jump animation"
+  ],
+  "framework": "React",
+  "related": [
+    "table",
+    "table-grouped",
+    "table-with-actions"
+  ],
+  "url": "React/Components/Tables/table-expandable/index.html"
+}

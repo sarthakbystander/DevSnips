@@ -1,0 +1,34 @@
+{
+  "id": "React/Components/Buttons/pagination-button",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Buttons",
+  "slug": "pagination-button",
+  "name": "Pagination Button",
+  "description": "Page navigation for paginated lists and tables. Renders Prev, a windowed number set with ellipses, and Next. The active page uses `surface-active` + `aria-current=\"page\"`. Prev/Next disable at the bounds (kept perceivable, not removed).",
+  "tags": [
+    "button",
+    "react",
+    "tailwind",
+    "pagination",
+    "navigation",
+    "table",
+    "interactive"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "framework": "React",
+  "related": [
+    "back-button",
+    "sort-button",
+    "button-group"
+  ],
+  "url": "React/Components/Buttons/pagination-button/index.html"
+}

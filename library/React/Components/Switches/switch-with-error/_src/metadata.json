@@ -1,0 +1,59 @@
+{
+  "id": "switch-with-error-react-001",
+  "name": "Switch With Error",
+  "slug": "switch-with-error",
+  "component": "switch",
+  "family": "switches",
+  "variant": "switch-with-error",
+  "description": "Switch with an associated validation message; sets aria-invalid and links the error via aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Switches",
+  "subcategory": "Validation",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "switch",
+    "toggle",
+    "form",
+    "control",
+    "error",
+    "validation",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native input + role=switch",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "switch",
+    "switch-with-helper",
+    "switch-group"
+  ]
+}

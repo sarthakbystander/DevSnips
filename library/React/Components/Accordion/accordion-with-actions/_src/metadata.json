@@ -1,0 +1,60 @@
+{
+  "id": "accordion-with-actions-react-001",
+  "name": "Accordion with Actions",
+  "slug": "accordion-with-actions",
+  "component": "accordion",
+  "family": "accordion",
+  "variant": "accordion-with-actions",
+  "description": "Accordion regions that contain real actions \u2014 buttons and links inside the expanded content. The trigger itself stays a single clean button (no nested controls); actions live in the region, where they are fully keyboard reachable and operable while the item is open.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Accordion",
+  "subcategory": "Composite",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "actions",
+    "buttons",
+    "links",
+    "composite"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "real buttons in content",
+    "real links in content",
+    "keyboard reachable actions",
+    "no nested trigger controls"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "actions inside role=region",
+    "no nested controls in trigger",
+    "focus-visible rings on actions"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "accordion",
+    "accordion-disabled",
+    "accordion-faq"
+  ]
+}

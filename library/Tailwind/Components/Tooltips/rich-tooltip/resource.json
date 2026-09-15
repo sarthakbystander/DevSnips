@@ -1,0 +1,36 @@
+{
+  "id": "Tailwind/Components/Tooltips/rich-tooltip",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Tooltips",
+  "slug": "rich-tooltip",
+  "name": "Rich Tooltip",
+  "description": "Wide tooltip with rich content - a title plus a multi-line description - ideal for help text on form fields and complex UI elements. Pure CSS using two data attributes, hover or focus to reveal.",
+  "tags": [
+    "tooltip",
+    "rich",
+    "help",
+    "multiline",
+    "form",
+    "css-only",
+    "accessibility"
+  ],
+  "features": [
+    "title + description content",
+    "multi-line wrapping",
+    "wider tooltip box",
+    "hover + focus triggers",
+    "shadow elevation",
+    "pure CSS no JS",
+    "role=tooltip",
+    "aria-describedby",
+    "icon trigger"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "directional-tooltip",
+    "status-tooltip"
+  ],
+  "url": "Tailwind/Components/Tooltips/rich-tooltip/index.html"
+}

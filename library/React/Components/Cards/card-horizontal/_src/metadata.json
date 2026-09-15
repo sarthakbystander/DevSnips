@@ -1,0 +1,57 @@
+{
+  "id": "card-horizontal-react-001",
+  "name": "Horizontal Card",
+  "slug": "card-horizontal",
+  "component": "card",
+  "family": "cards",
+  "variant": "card-horizontal",
+  "description": "A responsive horizontal card: media in a fixed left column with content beside it from `sm` up, collapsing to a top banner + stacked content below `sm`. Uses `CardMedia aspect=\"none\"` with showcase-level layout classes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Cards",
+  "subcategory": "Layout",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "horizontal",
+    "media",
+    "layout"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "fixed-width media column",
+    "vertical collapse below sm",
+    "no overflow at 375/768/1280"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "image alt text as with CardMedia",
+    "reading order preserved when stacked"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "card-with-image",
+    "card",
+    "card-list"
+  ]
+}

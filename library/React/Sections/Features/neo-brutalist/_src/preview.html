@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Features — Neo-Brutalist — DevSnips React Sections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "ds-bg": "var(--ds-color-background)",
+          "ds-fg": "var(--ds-color-foreground)",
+          "ds-surface": "var(--ds-color-surface)",
+          "ds-subtle": "var(--ds-color-surface-subtle)",
+          "ds-hover": "var(--ds-color-surface-hover)",
+          "ds-active": "var(--ds-color-surface-active)",
+          "ds-muted": "var(--ds-color-muted-foreground)",
+          "ds-border": "var(--ds-color-border)",
+          "ds-border-strong": "var(--ds-color-border-strong)",
+          "ds-primary": "var(--ds-color-primary)",
+          "ds-primary-fg": "var(--ds-color-primary-foreground)",
+          "ds-accent": "var(--ds-color-accent)",
+          "ds-destructive": "var(--ds-color-destructive)",
+          "ds-success": "var(--ds-color-success)",
+          "ds-link": "var(--ds-color-link)",
+          "ds-focus": "var(--ds-color-focus-ring)",
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --ds-color-background: #FAFAFA;
+    --ds-color-foreground: #171717;
+    --ds-color-surface: #FFFFFF;
+    --ds-color-surface-subtle: #F5F5F5;
+    --ds-color-surface-elevated: #FFFFFF;
+    --ds-color-surface-hover: #F5F5F5;
+    --ds-color-surface-active: #E5E5E5;
+    --ds-color-surface-selected: #F5F5F5;
+    --ds-color-muted: #F5F5F5;
+    --ds-color-muted-foreground: #737373;
+    --ds-color-border: #E5E5E5;
+    --ds-color-border-subtle: #EFEFEF;
+    --ds-color-border-strong: #D4D4D4;
+    --ds-color-input: #FFFFFF;
+    --ds-color-primary: #171717;
+    --ds-color-primary-foreground: #FFFFFF;
+    --ds-color-secondary: #F5F5F5;
+    --ds-color-secondary-foreground: #171717;
+    --ds-color-accent: #2563EB;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(37, 99, 235, 0.10);
+    --ds-color-destructive: #C2261B;
+    --ds-color-destructive-foreground: #FFFFFF;
+    --ds-color-destructive-soft: rgba(194, 38, 27, 0.10);
+    --ds-color-success: #15803D;
+    --ds-color-success-foreground: #FFFFFF;
+    --ds-color-success-soft: rgba(21, 128, 61, 0.12);
+    --ds-color-warning: #B45309;
+    --ds-color-warning-foreground: #FFFFFF;
+    --ds-color-info: #2563EB;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #2563EB;
+    --ds-color-link-hover: #1D4ED8;
+    --ds-color-focus-ring: #2563EB;
+    --ds-color-overlay: rgba(10, 10, 10, 0.50);
+    --ds-radius-none: 0;
+    --ds-radius-xs: 3px;
+    --ds-radius-sm: 5px;
+    --ds-radius-md: 8px;
+    --ds-radius-lg: 12px;
+    --ds-radius-xl: 16px;
+    --ds-radius-full: 9999px;
+    --ds-shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.08), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --ds-shadow-md: 0 4px 12px rgba(10, 10, 10, 0.10), 0 2px 4px rgba(10, 10, 10, 0.06);
+    --ds-shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.14), 0 4px 8px rgba(10, 10, 10, 0.08);
+    --ds-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --ds-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --ds-color-background: #0A0A0A;
+    --ds-color-foreground: #FAFAFA;
+    --ds-color-surface: #171717;
+    --ds-color-surface-subtle: #1F1F1F;
+    --ds-color-surface-elevated: #1F1F1F;
+    --ds-color-surface-hover: #1F1F1F;
+    --ds-color-surface-active: #2A2A2A;
+    --ds-color-surface-selected: #1F1F1F;
+    --ds-color-muted: #1F1F1F;
+    --ds-color-muted-foreground: #A3A3A3;
+    --ds-color-border: #2A2A2A;
+    --ds-color-border-subtle: #1F1F1F;
+    --ds-color-border-strong: #404040;
+    --ds-color-input: #171717;
+    --ds-color-primary: #FAFAFA;
+    --ds-color-primary-foreground: #0A0A0A;
+    --ds-color-secondary: #1F1F1F;
+    --ds-color-secondary-foreground: #FAFAFA;
+    --ds-color-accent: #3B82F6;
+    --ds-color-accent-foreground: #FFFFFF;
+    --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+    --ds-color-destructive: #F1635A;
+    --ds-color-destructive-foreground: #0A0A0A;
+    --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+    --ds-color-success: #4ADE80;
+    --ds-color-success-foreground: #052E16;
+    --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+    --ds-color-warning: #FBBF24;
+    --ds-color-warning-foreground: #1A1206;
+    --ds-color-info: #3B82F6;
+    --ds-color-info-foreground: #FFFFFF;
+    --ds-color-link: #60A5FA;
+    --ds-color-link-hover: #93C5FD;
+    --ds-color-focus-ring: #3B82F6;
+    --ds-color-overlay: rgba(0, 0, 0, 0.65);
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+    --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+    --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ds-color-background: #0A0A0A;
+      --ds-color-foreground: #FAFAFA;
+      --ds-color-surface: #171717;
+      --ds-color-surface-subtle: #1F1F1F;
+      --ds-color-surface-elevated: #1F1F1F;
+      --ds-color-surface-hover: #1F1F1F;
+      --ds-color-surface-active: #2A2A2A;
+      --ds-color-surface-selected: #1F1F1F;
+      --ds-color-muted: #1F1F1F;
+      --ds-color-muted-foreground: #A3A3A3;
+      --ds-color-border: #2A2A2A;
+      --ds-color-border-subtle: #1F1F1F;
+      --ds-color-border-strong: #404040;
+      --ds-color-input: #171717;
+      --ds-color-primary: #FAFAFA;
+      --ds-color-primary-foreground: #0A0A0A;
+      --ds-color-secondary: #1F1F1F;
+      --ds-color-secondary-foreground: #FAFAFA;
+      --ds-color-accent: #3B82F6;
+      --ds-color-accent-foreground: #FFFFFF;
+      --ds-color-accent-soft: rgba(59, 130, 246, 0.16);
+      --ds-color-destructive: #F1635A;
+      --ds-color-destructive-foreground: #0A0A0A;
+      --ds-color-destructive-soft: rgba(241, 99, 90, 0.16);
+      --ds-color-success: #4ADE80;
+      --ds-color-success-foreground: #052E16;
+      --ds-color-success-soft: rgba(74, 222, 128, 0.18);
+      --ds-color-warning: #FBBF24;
+      --ds-color-warning-foreground: #1A1206;
+      --ds-color-info: #3B82F6;
+      --ds-color-info-foreground: #FFFFFF;
+      --ds-color-link: #60A5FA;
+      --ds-color-link-hover: #93C5FD;
+      --ds-color-focus-ring: #3B82F6;
+      --ds-color-overlay: rgba(0, 0, 0, 0.65);
+      --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.40);
+      --ds-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.45);
+      --ds-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.50);
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font-family:var(--ds-font-sans);background:var(--ds-color-background);color:var(--ds-color-foreground);}
+  .ds-page{min-height:100vh;}
+  .ds-topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:color-mix(in srgb,var(--ds-color-surface) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ds-color-border);}
+  .ds-brand{display:flex;align-items:center;gap:8px;font:500 13px/1.4 var(--ds-font-sans);}
+  .ds-mark{width:18px;height:18px;border:1.5px solid var(--ds-color-foreground);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--ds-font-sans);}
+  .ds-crumb{color:var(--ds-color-muted-foreground);font:400 13px/1.45 var(--ds-font-sans);}
+  .ds-crumb b{color:var(--ds-color-foreground);font-weight:500;}
+  .ds-theme-toggle{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-foreground);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);cursor:pointer;}
+  .ds-theme-toggle:hover{background:var(--ds-color-surface-hover);}
+  .ds-theme-toggle:focus-visible{outline:2px solid var(--ds-color-focus-ring);outline-offset:2px;}
+  .ds-main{max-width:980px;margin:0 auto;padding:32px 24px 64px;}
+  .ds-eyebrow{font:600 11px/1.3 var(--ds-font-sans);letter-spacing:0.06em;text-transform:uppercase;color:var(--ds-color-muted-foreground);margin:0 0 8px;}
+  .ds-title{font:600 18px/1.35 var(--ds-font-sans);letter-spacing:-0.01em;margin:0 0 8px;}
+  .ds-lede{color:var(--ds-color-muted-foreground);font:400 14px/1.5 var(--ds-font-sans);margin:0 0 32px;max-width:60ch;}
+  .ds-section{margin-top:32px;}
+  .ds-section-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--ds-color-border-subtle);}
+  .ds-section-h h2{font:600 16px/1.4 var(--ds-font-sans);margin:0;letter-spacing:-0.01em;}
+  .ds-section-h .ds-note{font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;}
+  .ds-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+  .ds-label{font:500 12px/1.35 var(--ds-font-sans);color:var(--ds-color-muted-foreground);margin:0 0 8px;text-transform:uppercase;letter-spacing:0.04em;}
+  .ds-card{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-canvas{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);padding:20px;}
+  .ds-pos-wrap{position:relative;}
+  .ds-footer{border-top:1px solid var(--ds-color-border);padding:24px;text-align:center;font:400 12px/1.4 var(--ds-font-sans);color:var(--ds-color-muted-foreground);}
+  .ds-footer code{font-family:var(--ds-font-mono);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+
+  .ds-intro{max-width:980px;margin:0 auto;padding:32px 24px 40px;}
+  .ds-stage{width:100%;}
+
+</style>
+</head>
+<body>
+<div class="ds-page">
+  <header class="ds-topbar">
+    <div class="ds-brand"><span class="ds-mark" aria-hidden="true">D</span><span>DevSnips</span><span class="ds-crumb" aria-hidden="true">/ <b>React</b> / Sections / Features / neo-brutalist</span></div>
+    <button class="ds-theme-toggle" id="ds-theme-toggle" type="button" aria-pressed="false">
+      <span id="ds-theme-label">Dark</span>
+    </button>
+  </header>
+  <div class="ds-intro">
+    <p class="ds-eyebrow">React Sections · Features</p>
+    <h1 class="ds-title">Features — Neo-Brutalist</h1>
+    <p class="ds-lede">The expressive ceiling, kept disciplined: four square blocks with uniform 2px borders, hard offset shadows, mono index numbers, one flat accent fill, and press-down buttons.</p>
+  </div>
+  <main class="ds-stage">
+    <div id="ds-root"></div>
+  </main>
+  <footer class="ds-footer">DevSnips React · Sections · Features · <code>neo-brutalist</code> · live render of code.tsx</footer>
+</div>
+<script>
+(function(){
+  var root = document.documentElement;
+  function apply(t){ root.setAttribute("data-theme", t); try{ localStorage.setItem("ds-react-theme", t); }catch(e){} var b=document.getElementById("ds-theme-toggle"); var l=document.getElementById("ds-theme-label"); if(b){b.setAttribute("aria-pressed", t==="dark"?"true":"false");} if(l){l.textContent = t==="dark"?"Light":"Dark";} }
+  var saved = null; try{ saved = localStorage.getItem("ds-react-theme"); }catch(e){}
+  if(!saved){ saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light"; }
+  apply(saved);
+  document.getElementById("ds-theme-toggle").addEventListener("click", function(){ var cur = root.getAttribute("data-theme") === "dark" ? "light":"dark"; apply(cur); });
+})();
+</script>
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" data-presets="react">
+// The section below is the actual code.tsx implementation, transformed to
+// JSX (types removed, exports stripped) so Babel standalone can run it. It
+// is identical in behavior and classes to code.tsx.
+(function() {
+  const {  useId  } = React;
+  const FOCUS_RING = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ds-color-focus-ring)]";
+  const NB_ACTION_BASE = "inline-flex h-11 items-center justify-center rounded-[var(--ds-radius-none)] border-2 border-[var(--ds-color-border-strong)] px-5 text-sm font-semibold leading-5 shadow-[4px_4px_0_0_var(--ds-color-border-strong)] transition-[transform,box-shadow] duration-100 ease-out active:translate-x-[4px] active:translate-y-[4px] active:shadow-none motion-reduce:transition-none " + FOCUS_RING;
+  const PRIMARY_ACTION_CLASSES = NB_ACTION_BASE + " bg-[var(--ds-color-primary)] text-[var(--ds-color-primary-foreground)]";
+  const SECONDARY_ACTION_CLASSES = NB_ACTION_BASE + " bg-[var(--ds-color-surface)] text-[var(--ds-color-foreground)]";
+  const DEFAULT_FEATURES = [
+    {
+      title: "Zero configuration",
+      description: "Point Turbosnap at any repository with a lockfile. It detects the toolchain, the test runner, and the deploy target \u2014 no YAML.",
+      filled: true
+    },
+    {
+      title: "Remote execution",
+      description: "Build steps run on warmed workers next to the cache, so a laptop fan never spins up for a monorepo build again."
+    },
+    {
+      title: "Flaky-test quarantine",
+      description: "Tests that fail nondeterministically are detected statistically, quarantined, and reported \u2014 the suite stays green and honest."
+    },
+    {
+      title: "Build-time budgets",
+      description: "Set a wall-clock budget per pipeline. When a change pushes past it, the build fails loudly with the diff that caused it."
+    }
+  ];
+  function FeaturesSection({
+    eyebrow = "Build accelerator",
+    heading = "Slow builds are a choice.",
+    lede = "Turbosnap makes the fast path the default path: remote execution, an honest cache, and budgets that keep pipelines honest.",
+    features = DEFAULT_FEATURES,
+    primaryAction = { label: "Snap your builds", href: "#get-started" },
+    secondaryAction = { label: "How it works", href: "#how-it-works" }
+  }) {
+    const headingId = useId();
+    return <section
+      aria-labelledby={headingId}
+      className="bg-[var(--ds-color-background)] font-[var(--ds-font-sans)] text-[var(--ds-color-foreground)]"
+    >
+        <div className="mx-auto max-w-[1280px] px-4 py-[clamp(4rem,3rem+4vw,6rem)] sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="inline-block rounded-[var(--ds-radius-none)] border-2 border-[var(--ds-color-border-strong)] bg-[var(--ds-color-surface)] px-3 py-1 font-[var(--ds-font-mono)] text-xs font-semibold uppercase leading-[1.3] tracking-[0.05em] shadow-[4px_4px_0_0_var(--ds-color-border-strong)]">
+              {eyebrow}
+            </p>
+            <h2
+      id={headingId}
+      className="mt-6 text-[clamp(1.875rem,1.65rem+1vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em]"
+    >
+              {heading}
+            </h2>
+            <p className="mt-4 max-w-xl text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.5] text-[var(--ds-color-muted-foreground)]">
+              {lede}
+            </p>
+          </div>
+
+          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16">
+            {features.map((feature, index) => <li
+      key={feature.title}
+      className={"rounded-[var(--ds-radius-none)] border-2 border-[var(--ds-color-border-strong)] p-6 shadow-[4px_4px_0_0_var(--ds-color-border-strong)] sm:p-8 " + (feature.filled ? "bg-[var(--ds-color-warning)] text-[var(--ds-color-warning-foreground)]" : "bg-[var(--ds-color-surface)]")}
+    >
+                <p
+      className={"font-[var(--ds-font-mono)] text-xs font-semibold uppercase leading-[1.4] tracking-[0.05em] " + (feature.filled ? "" : "text-[var(--ds-color-muted-foreground)]")}
+    >
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-3 text-xl font-bold leading-[1.25] tracking-[-0.01em]">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm leading-5">
+                  {feature.description}
+                </p>
+              </li>)}
+          </ul>
+
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row lg:mt-16">
+            <a href={primaryAction.href} className={PRIMARY_ACTION_CLASSES}>
+              {primaryAction.label}
+            </a>
+            <a href={secondaryAction.href} className={SECONDARY_ACTION_CLASSES}>
+              {secondaryAction.label}
+            </a>
+          </div>
+        </div>
+      </section>;
+  }
+  window.FeaturesSection = FeaturesSection;
+})();
+
+</script>
+<script type="text/babel" data-presets="react">
+// Mount the section full-bleed, as it would sit on a real page.
+ReactDOM.createRoot(document.getElementById("ds-root")).render(<FeaturesSection />);
+</script>
+</body>
+</html>

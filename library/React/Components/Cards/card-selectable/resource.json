@@ -1,0 +1,44 @@
+{
+  "id": "React/Components/Cards/card-selectable",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Cards",
+  "slug": "card-selectable",
+  "name": "Selectable Card",
+  "description": "Real selection semantics, not a clickable `<div>`: `SelectableCard` wraps a native radio or checkbox input whose whole card is the `<label>`, and `SelectableCardGroup` manages the single choice inside a `<fieldset>`/`legend`. Controlled and uncontrolled modes both supported.",
+  "tags": [
+    "card",
+    "surface",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "selectable",
+    "radio",
+    "checkbox",
+    "fieldset",
+    "keyboard"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic regions",
+    "token-driven surface",
+    "native input semantics",
+    "label-as-card",
+    "single + multi select",
+    "group tracking",
+    "arrow-key radio nav"
+  ],
+  "framework": "React",
+  "related": [
+    "card",
+    "card-interactive",
+    "card-list"
+  ],
+  "url": "React/Components/Cards/card-selectable/index.html"
+}

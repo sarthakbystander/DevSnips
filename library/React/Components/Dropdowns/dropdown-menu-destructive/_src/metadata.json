@@ -1,0 +1,68 @@
+{
+  "id": "dropdown-menu-destructive-react-001",
+  "name": "Dropdown Menu Destructive",
+  "slug": "dropdown-menu-destructive",
+  "component": "dropdown-menu",
+  "family": "dropdowns",
+  "variant": "dropdown-menu-destructive",
+  "description": "A menu containing destructive actions, styled with the restrained semantic destructive token and quarantined below a separator \u2014 clearly dangerous, never neon.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Dropdowns",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "destructive",
+    "danger",
+    "delete"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "destructive token styling",
+    "separator quarantine",
+    "confirmable via onSelect"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "aria-haspopup=\"menu\" trigger",
+    "role=\"menu\" panel",
+    "role=\"menuitem\" items",
+    "aria-expanded state",
+    "focus restoration on close",
+    "native disabled items",
+    "focus-visible ring",
+    "destructive distinguished by token + wording"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-with-icons",
+    "dropdown-menu-with-sections"
+  ]
+}

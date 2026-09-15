@@ -1,0 +1,42 @@
+{
+  "id": "React/Components/Accordion/accordion-multiple",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Accordion",
+  "slug": "accordion-multiple",
+  "name": "Multiple Accordion",
+  "description": "Multiple-expansion mode: any number of items can stay open at once. `value` and `onValueChange` become `string[]` \u2014 the TypeScript types are discriminated by `type=\"multiple\"`, so the compiler enforces the array shape. Includes a controlled demo with external Expand all / Collapse all actions.",
+  "tags": [
+    "accordion",
+    "disclosure",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "multiple",
+    "controlled",
+    "uncontrolled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "WAI-ARIA disclosure",
+    "token-driven surface",
+    "multiple open items",
+    "discriminated union types",
+    "controlled with external actions",
+    "open-count readout"
+  ],
+  "framework": "React",
+  "related": [
+    "accordion",
+    "accordion-collapsible",
+    "accordion-nested"
+  ],
+  "url": "React/Components/Accordion/accordion-multiple/index.html"
+}

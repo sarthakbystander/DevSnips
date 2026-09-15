@@ -1,0 +1,35 @@
+{
+  "id": "Tailwind/Components/Tooltips/hotspot-tooltip",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Tooltips",
+  "slug": "hotspot-tooltip",
+  "name": "Hotspot Tooltip",
+  "description": "Onboarding hotspot beacon that opens a multi-step guided tour tooltip. Click the pulsing beacon to start; Next/Done walk the steps, Skip or Escape dismiss it.",
+  "tags": [
+    "tooltip",
+    "hotspot",
+    "tour",
+    "onboarding",
+    "beacon",
+    "minimal-vercel"
+  ],
+  "features": [
+    "multi-step guided tour",
+    "pulsing beacon trigger",
+    "step progress segments",
+    "Escape and outside-click dismiss",
+    "aria-expanded + role dialog",
+    "optional kbd hint per step",
+    "reduced-motion safe",
+    "minimal-vercel design language"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "rich-tooltip",
+    "status-tooltip",
+    "icon-tooltip"
+  ],
+  "url": "Tailwind/Components/Tooltips/hotspot-tooltip/index.html"
+}

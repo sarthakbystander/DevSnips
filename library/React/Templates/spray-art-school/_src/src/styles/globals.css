@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-black text-bone font-body antialiased;
+    background-image: radial-gradient(circle at 20% 10%, rgba(57, 255, 20, 0.04), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(255, 46, 196, 0.05), transparent 45%);
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-wide;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: #39ff14;
+    color: #0a0a0f;
+  }
+
+  :focus-visible {
+    outline: 2px dashed #39ff14;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* subtle grain/noise texture overlay, applied via a fixed pseudo-layer in App.tsx */
+  .noise-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .clip-torn {
+    clip-path: polygon(
+      0 4%, 4% 0, 12% 3%, 20% 0, 30% 4%, 40% 1%, 50% 5%, 60% 0, 70% 3%, 80% 0, 90% 4%, 100% 0,
+      100% 96%, 92% 100%, 82% 97%, 72% 100%, 62% 96%, 50% 100%, 40% 97%, 30% 100%, 18% 96%, 8% 100%, 0 97%
+    );
+  }
+
+  .clip-spray-btn {
+    clip-path: polygon(
+      3% 12%, 14% 0, 30% 6%, 48% 1%, 65% 7%, 82% 0, 97% 10%, 100% 30%, 95% 50%, 100% 72%,
+      90% 92%, 72% 100%, 55% 94%, 38% 100%, 18% 96%, 4% 100%, 0 78%, 5% 55%, 0 32%
+    );
+  }
+}

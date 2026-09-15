@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Structure — DevSnips Docs</title>
+<meta name="description" content="How components, sections, templates, and metadata are organized.">
+<link rel="canonical" href="https://devsnips.dev/docs/structure/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevSnips">
+<meta property="og:title" content="Content Structure — DevSnips Docs">
+<meta property="og:description" content="How components, sections, templates, and metadata are organized.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Content Structure — DevSnips Docs">
+<meta name="twitter:description" content="How components, sections, templates, and metadata are organized.">
+<meta name="theme-color" content="#536878">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: {
+  50:'#f4f6f8',100:'#e5e9ec',200:'#cdd5db',300:'#a9b8c2',400:'#7f94a3',
+  500:'#536878',600:'#475b6b',700:'#3c4d5a',800:'#2f3d47',900:'#1e2830',950:'#11171d'
+} } } } };
+(function(){var s=localStorage.getItem('devsnips-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body class="min-h-screen bg-white text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+<header class="sticky top-0 z-30 border-b border-neutral-200/80 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-[#0a0a0a]/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="../../index.html" class="flex items-center gap-2.5 font-extrabold tracking-tight">
+      <span class="h-7 w-7 shrink-0 text-neutral-900 dark:text-white"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>
+      DevSnips
+    </a>
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      <a href="../../index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Home</a>
+      <a href="../../Tailwind/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">Vanilla</a>
+      <a href="../../React/index.html" class="text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition">React</a>
+      <a href="../../docs/index.html" class="text-sm font-semibold text-brand-600 dark:text-brand-300 transition">Docs</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme"
+        class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+        <span class="dark:hidden">&#9789; Dark</span><span class="hidden dark:inline">&#9728; Light</span>
+      </button>
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" class="rounded-md border border-neutral-300 px-3 py-1.5 text-sm font-semibold md:hidden dark:border-neutral-700">&#9776;</button>
+    </div>
+  </div>
+  <div id="mobile-nav" class="hidden border-t border-neutral-200 px-4 py-3 md:hidden dark:border-neutral-800">
+    <a href="../../index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Home</a>
+      <a href="../../Tailwind/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Tailwind</a>
+      <a href="../../Vanilla/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Vanilla</a>
+      <a href="../../React/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">React</a>
+      <a href="../../docs/index.html" class="block rounded-lg px-3 py-2 text-sm font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-900">Docs</a>
+  </div>
+</header>
+<main id="main">
+
+  <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mono flex flex-wrap items-center text-xs text-neutral-500 dark:text-neutral-400"><a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a><span class="mx-1.5 text-neutral-400">/</span><a href="../../docs/overview/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a><span class="mx-1.5 text-neutral-400">/</span><span class="text-neutral-900 dark:text-white">Content Structure</span></nav>
+    <div class="mt-4 flex flex-col gap-8 sm:flex-row">
+      <nav aria-label="Documentation" class="w-full shrink-0 space-y-0.5 sm:w-56"><a href="../../docs/overview/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Overview</a><a href="../../docs/structure/index.html" class="block rounded-lg px-3 py-1.5 text-sm bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">Content Structure</a><a href="../../docs/contributing/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Contributing</a><a href="../../docs/vanilla-curation/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Vanilla Curation Report</a><a href="../../docs/cli/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">CLI Reference</a><a href="../../docs/agents/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Agent Instructions</a><a href="../../docs/changelog/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">Changelog</a><a href="../../docs/license/index.html" class="block rounded-lg px-3 py-1.5 text-sm text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-900">License</a></nav>
+      <div class="min-w-0 flex-1">
+        <h1 class="serif text-3xl font-extrabold tracking-tight">Content Structure</h1>
+        <p class="mt-2 text-neutral-600 dark:text-neutral-400">How components, sections, templates, and metadata are organized.</p>
+        <article class="prose-devsnips mt-8"><h1>DevSnips Content Structure Specification</h1>
+<p>This document defines how DevSnips organizes components, sections, templates, variants, and metadata. The structure is designed so every useful piece of content can be addressed independently by the repository, indexer, and future website.</p>
+<h2>Design goals</h2>
+<p>DevSnips treats individual variants as first-class content. A variant should be:</p>
+<ul>
+<li>independently discoverable</li>
+<li>independently indexable</li>
+<li>easy to copy and reuse</li>
+<li>understandable without opening unrelated files</li>
+<li>stable enough to receive a permanent URL later</li>
+</ul>
+<p>A family groups related variants. A content type describes the size and purpose of the content.</p>
+<h2>Repository architecture</h2>
+<pre class="code-block"><code>
+DevSnips/
+├── Tailwind/
+│   ├── Components/
+│   ├── Sections/
+│   └── Templates/
+├── Vanilla/
+│   ├── Components/
+│   ├── Sections/
+│   └── Templates/
+└── React/
+    ├── Components/
+    ├── Sections/
+    └── Templates/
+</code></pre>
+<h3>Tailwind and Vanilla</h3>
+<p>Tailwind and Vanilla have three first-class content types:</p>
+<p>| Directory | <code>type</code> | Purpose |</p>
+<p>|---|---|---|</p>
+<p>| <code>Components/</code> | <code>component</code> | One focused reusable UI pattern. |</p>
+<p>| <code>Sections/</code> | <code>section</code> | A larger page-section composition. |</p>
+<p>| <code>Templates/</code> | <code>template</code> | A complete page or substantial page experience. |</p>
+<p>Vanilla <code>Sections/</code> holds the 65 neo-brutalist page sections across 16</p>
+<p>families (Hero, Navigation, Features, Logos, Statistics, Products, Pricing,</p>
+<p>Testimonials, Team, Process, Content, Gallery, FAQ, CTA, Contact, Footer);</p>
+<p><code>Vanilla/Sections/sections-index.html</code> and <code>sections-showcase.html</code> are the</p>
+<p>browsing galleries. Vanilla <code>Components/</code> keeps the legacy component</p>
+<p>collection (including the legacy navigation sub-families).</p>
+<h3>React</h3>
+<p>React uses three content types: <code>Components/</code>, <code>Sections/</code>, and <code>Templates/</code>.</p>
+<p>React component variants ship a TypeScript-first <code>code.tsx</code> + runnable</p>
+<p><code>preview.html</code> (+ <code>code.jsx</code> parity build, <code>README.md</code>); React section variants</p>
+<p>ship <code>code.tsx</code> + <code>preview.html</code>; React templates are full Vite/TypeScript</p>
+<p>projects with <code>preview.html</code>. React content follows the same family/variant</p>
+<p>model, index registration, and validation as the other technologies.</p>
+<h3>Forbidden content collections</h3>
+<p>Do not create technology-level <code>Utilities/</code>, <code>Resources/</code>, <code>Snippets/</code>, <code>Pages/</code>, or <code>Tools/</code> collections. If something is a reusable UI pattern, it should have an appropriate component, section, or template classification. Repository tooling belongs under <code>_gen/</code> or <code>scripts/</code>.</p>
+<h2>Family and variant model</h2>
+<p>A <strong>family</strong> is a group of related UI patterns, such as <code>Buttons</code>, <code>Cards</code>, <code>Navigation</code>, or <code>Pricing</code>.</p>
+<p>A <strong>variant</strong> is one concrete implementation inside a family, such as <code>primary-button</code>, <code>icon-button</code>, or <code>pricing-comparison</code>.</p>
+<p>The preferred structure is:</p>
+<pre class="code-block"><code>
+&lt;Technology&gt;/&lt;ContentType&gt;/&lt;Family&gt;/&lt;variant&gt;/
+</code></pre>
+<p>For example:</p>
+<pre class="code-block"><code>
+Tailwind/Components/Buttons/primary-button/
+├── code.html
+├── preview.html
+├── metadata.json
+└── README.md
+</code></pre>
+<p>Vanilla components use a single self-contained source file:</p>
+<pre class="code-block"><code>
+Vanilla/Components/Buttons/3d-button-effect/
+├── code.html
+├── README.md
+└── metadata.json
+</code></pre>
+<p>The directory name is the canonical component id/slug. The single primary component source file is always named <code>code.html</code> (inline <code>&lt;style&gt;</code> + <code>&lt;script&gt;</code>, copy-paste self-contained).</p>
+<p>Templates are different because they may contain multiple pages and supporting files:</p>
+<pre class="code-block"><code>
+Tailwind/Templates/&lt;template-slug&gt;/
+├── AGENTS.md
+├── metadata.json
+├── preview.html
+├── README.md
+└── pages/
+    ├── index.html
+    └── ...
+</code></pre>
+<p>Every template — Tailwind, Vanilla, and React — must ship an <code>AGENTS.md</code> at its root: template-specific instructions for AI coding agents working with, modifying, extending, or adapting that template. It is part of the template&#x27;s DevSnips metadata layer, not installable source code. The exact internal template structure may vary when the template requires it. Do not force a multi-page template into the component three-file convention.</p>
+<h2>Standard files</h2>
+<p>| File | Required for | Purpose |</p>
+<p>|---|---|---|</p>
+<p>| <code>code.html</code> | Tailwind components/sections | Clean copy-paste implementation. |</p>
+<p>| <code>preview.html</code> | Tailwind components/sections | Standalone visual preview and demonstration. |</p>
+<p>| <code>code.html</code> | Vanilla components | Self-contained single primary component source file (inline CSS + JS). |</p>
+<p>| <code>metadata.json</code> | Indexed variants | Structured identity, classification, search, and feature data. |</p>
+<p>| <code>README.md</code> | Tailwind component variants, Vanilla components, React components, templates | Human-readable usage, customization, accessibility, and implementation notes. |</p>
+<p>| <code>AGENTS.md</code> | Every template | Template-specific instructions for AI coding agents working with that template. |</p>
+<p><code>preview.html</code> is a demonstration environment. It may contain CDN imports, demo content, page framing, and preview-only JavaScript. <code>code.html</code> should not inherit unnecessary preview scaffolding.</p>
+<p><code>AGENTS.md</code> is required for every template under <code>Tailwind/Templates/</code>, <code>React/Templates/</code>, and <code>Vanilla/Templates/</code>. It explains what the template is, its structure, design system, how to safely modify it, what not to change, and the quality bar to re-check. The repository validator enforces its presence structurally — <code>python3 scripts/validate.py</code> fails if a template is missing it,and <code>python3 -m _gen.rebuild_index</code> refuses to write an index for a template that lacks it.</p>
+<h2>Metadata principles</h2>
+<p>Metadata is consumed by repository tooling and the future DevSnips website. It should be accurate, deterministic, and consistent with the filesystem.</p>
+<p>A Tailwind variant must declare its content type:</p>
+<pre class="code-block"><code>
+{
+  &quot;id&quot;: &quot;primary-button-001&quot;,
+  &quot;name&quot;: &quot;Primary Button&quot;,
+  &quot;description&quot;: &quot;A primary call-to-action button with a clear focus state.&quot;,
+  &quot;type&quot;: &quot;component&quot;,
+  &quot;category&quot;: &quot;components&quot;,
+  &quot;subcategory&quot;: &quot;buttons&quot;,
+  &quot;tags&quot;: [&quot;button&quot;, &quot;primary&quot;, &quot;cta&quot;],
+  &quot;responsive&quot;: true
+}
+</code></pre>
+<p>The exact metadata schema used by the repository may contain additional fields. When adding fields, keep their meaning consistent across entries rather than creating one-off names.</p>
+<h3>Required consistency rules</h3>
+<ul>
+<li><code>type</code> must match the directory for Tailwind content.</li>
+<li>IDs should be globally unique.</li>
+<li>Names and descriptions should describe the actual implementation.</li>
+<li>Categories and subcategories should agree with the family structure.</li>
+<li>Tags should be lowercase and useful for search.</li>
+<li>Boolean fields should use actual JSON booleans, not strings.</li>
+<li>Do not claim support for behavior that the code does not implement.</li>
+</ul>
+<h2>Naming conventions</h2>
+<p>Filesystem names and IDs should use kebab-case:</p>
+<pre class="code-block"><code>
+pricing-comparison
+animated-accordion
+multi-step-form
+</code></pre>
+<p>Display names should be human-readable:</p>
+<pre class="code-block"><code>
+Pricing Comparison
+Animated Accordion
+Multi-Step Form
+</code></pre>
+<p>Avoid generic variants such as <code>new</code>, <code>test</code>, <code>final</code>, or <code>version-2</code>.</p>
+<h2>Accessibility expectations</h2>
+<p>Accessibility is part of the component quality bar.</p>
+<p>Prefer native HTML semantics over custom ARIA. Interactive controls should be keyboard operable, have visible focus states, and expose an understandable accessible name.</p>
+<p>Use <code>aria-*</code> attributes when they add semantics that native HTML cannot provide. Do not add ARIA merely to make metadata or a validator look complete.</p>
+<p>Animations should respect <code>prefers-reduced-motion</code> when motion conveys meaningful movement or transition effects.</p>
+<h2>Responsive expectations</h2>
+<p>Components should remain usable across common mobile and desktop widths. Avoid fixed widths that cause horizontal overflow and make interactive targets difficult to use on touch screens.</p>
+<p>A responsive component does not need to look identical at every viewport. It needs to preserve its hierarchy, readability, and usability.</p>
+<h2>Design tokens</h2>
+<p>When a family uses shared design tokens, keep token definitions consistent within that family and avoid unnecessary duplication.</p>
+<p>Tailwind&#x27;s section-style component work has a dedicated token reference at:</p>
+<pre class="code-block"><code>
+Tailwind/Components/STYLE_TOKENS.md
+</code></pre>
+<p>Do not silently introduce a second token vocabulary for an existing family unless there is a documented reason.</p>
+<h2>Indexing model</h2>
+<p><code>snippets-index.json</code> is generated from repository content and provides the global machine-readable index.</p>
+<p>The index contains family and variant records, technology information, content types, paths, descriptions, tags, features, and aggregate statistics.</p>
+<p>After adding, moving, renaming, or deleting content, regenerate it with:</p>
+<pre class="code-block"><code>
+python3 -m _gen.rebuild_index
+</code></pre>
+<p>Then validate the repository:</p>
+<pre class="code-block"><code>
+python3 scripts/validate.py
+</code></pre>
+<p>The validator checks architecture, metadata, index-to-disk consistency, stale paths, duplicate variant paths, and content coverage.</p>
+<h2>Migration and refactoring rules</h2>
+<p>When moving existing content:</p>
+<ol>
+<li>Preserve existing IDs unless there is a documented reason to change them.</li>
+<li>Update metadata to match the new location and content type.</li>
+<li>Regenerate the index.</li>
+<li>Run validation.</li>
+<li>Search for stale paths and references.</li>
+<li>Update documentation and the changelog when the repository architecture changes.</li>
+</ol>
+<p>Do not perform a large migration by changing folders alone. The index and metadata are part of the same data model.</p>
+<h2>Why this structure exists</h2>
+<p>This model allows DevSnips to grow without turning every category into a large monolithic file. Each variant can eventually have its own website page, search result, metadata, preview, analytics, and canonical URL while families still provide useful organization for humans.</p></article></div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 sm:px-6 dark:text-neutral-400">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <span class="flex items-center gap-2"><span class="h-4 w-4 text-neutral-400"><svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"><path d="M113 100 H233 V193 H196 V233 H233 V567 H113 V233 H150 V193 H113 Z"/><path d="M278 100 H577 V181 L360 200 L360 233 H577 V307 H360 V351 H577 V567 H278 Z"/></svg></span>DevSnips &middot; open-source frontend component library</span>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a href="../../index.html" class="hover:text-neutral-900 dark:hover:text-white">Home</a>
+        <a href="../../Tailwind/index.html" class="hover:text-neutral-900 dark:hover:text-white">Tailwind</a>
+        <a href="../../Vanilla/index.html" class="hover:text-neutral-900 dark:hover:text-white">Vanilla</a>
+        <a href="../../React/index.html" class="hover:text-neutral-900 dark:hover:text-white">React</a>
+        <a href="../../docs/index.html" class="hover:text-neutral-900 dark:hover:text-white">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');localStorage.setItem('devsnips-theme',d?'dark':'light');});
+var mbtn=document.getElementById('mobile-menu-btn'),mnav=document.getElementById('mobile-nav');
+if(mbtn){mbtn.addEventListener('click',function(){mnav.classList.toggle('hidden');});}
+document.querySelectorAll('[data-tabs]').forEach(function(wrap){
+  var tabs=wrap.querySelectorAll('.tab-btn'),panels=wrap.querySelectorAll('[data-panel]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    panels.forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-panel')!==t.getAttribute('data-tab'))});
+  })});
+});
+document.querySelectorAll('[data-devicegroup]').forEach(function(wrap){
+  var btns=wrap.querySelectorAll('.device-btn'),frame=document.getElementById(wrap.getAttribute('data-devicegroup'));
+  var widths={desktop:'100%',tablet:'768px',mobile:'375px'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    if(frame)frame.style.width=widths[b.getAttribute('data-device')]||'100%';
+  })});
+});
+</script>
+</body>
+</html>

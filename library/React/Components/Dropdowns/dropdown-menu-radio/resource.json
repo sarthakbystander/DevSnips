@@ -1,0 +1,47 @@
+{
+  "id": "React/Components/Dropdowns/dropdown-menu-radio",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Dropdowns",
+  "slug": "dropdown-menu-radio",
+  "name": "Dropdown Menu Radio Group",
+  "description": "Mutually exclusive menu options (role=menuitemradio + aria-checked) for settings like theme or sort order \u2014 exactly one checked, controlled or uncontrolled.",
+  "tags": [
+    "dropdown",
+    "menu",
+    "actions",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "radio",
+    "selection",
+    "single-select",
+    "theme",
+    "sort"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=menu semantics",
+    "keyboard navigation",
+    "focus management",
+    "outside-pointer close",
+    "viewport-aware placement",
+    "role=menuitemradio",
+    "aria-checked exclusivity",
+    "controlled + uncontrolled"
+  ],
+  "framework": "React",
+  "related": [
+    "dropdown-menu",
+    "dropdown-menu-checkboxes",
+    "dropdown-menu-with-sections"
+  ],
+  "url": "React/Components/Dropdowns/dropdown-menu-radio/index.html"
+}

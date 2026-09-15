@@ -1,0 +1,148 @@
+<!--
+  Dark/Light Mode Toggle Button
+  - System preference detection
+  - Persistent preference storage
+  - Smooth transition effects
+  - Accessible toggle button
+  - CSS variables for theming
+-->
+
+<button class="theme-toggle" aria-label="Toggle dark mode" role="switch" aria-checked="false">
+  <span class="theme-toggle-icon">
+    <!-- Sun icon -->
+    <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24">
+      <circle cx="12" cy="12" r="5" fill="currentColor"/>
+      <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <!-- Moon icon -->
+    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+    </svg>
+  </span>
+  <span class="theme-toggle-label">Dark mode</span>
+</button>
+
+<style>
+:root {
+  --color-text: var(--ds-foreground, #333);
+  --color-bg: var(--ds-surface, #fff);
+  --color-primary: var(--ds-accent, #4a90e2);
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  --color-text: var(--ds-surface, #fff);
+  --color-bg: var(--ds-foreground, #1a1a1a);
+  --color-primary: var(--ds-accent-hover, #66b1ff);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--transition-speed),
+              color var(--transition-speed);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-text);
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.theme-toggle:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  transition: transform var(--transition-speed),
+              opacity var(--transition-speed);
+}
+
+[data-theme="dark"] .sun-icon {
+  transform: rotate(360deg) scale(0);
+  opacity: 0;
+}
+
+[data-theme="dark"] .moon-icon {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}
+
+.sun-icon {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}
+
+.moon-icon {
+  transform: rotate(-360deg) scale(0);
+  opacity: 0;
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* devsnips-qa:quality-bar */
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
+
+/* DevSnips design tokens (Swiss) — edit tokens.css to re-theme */
+:root{
+--ds-bg:#fff;--ds-surface:#fff;--ds-surface-2:#f7f7f7;--ds-surface-3:#ededed;--ds-foreground:#0a0a0a;--ds-muted:#525252;--ds-subtle:#a3a3a3;--ds-border:#e5e5e5;--ds-border-strong:#d4d4d4;--ds-accent:#2563eb;--ds-accent-hover:#1d4ed8;--ds-accent-fg:#fff;--ds-accent-soft:#eff6ff;--ds-success:#16a34a;--ds-success-soft:#f0fdf4;--ds-warning:#d97706;--ds-warning-soft:#fffbeb;--ds-danger:#dc2626;--ds-danger-soft:#fef2f2;--ds-info:#2563eb;--ds-info-soft:#eff6ff;--ds-font-sans:system-ui,-apple-system,'Segoe UI',Roboto,Inter,'Helvetica Neue',Arial,sans-serif;--ds-font-mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;--ds-text-xs:.75rem;--ds-text-sm:.875rem;--ds-text-base:1rem;--ds-text-lg:1.125rem;--ds-text-xl:1.25rem;--ds-text-2xl:1.5rem;--ds-text-3xl:1.875rem;--ds-text-4xl:2.25rem;--ds-leading-tight:1.25;--ds-leading-normal:1.5;--ds-leading-relaxed:1.625;--ds-weight-normal:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-space-0:0;--ds-space-px:1px;--ds-space-1:.25rem;--ds-space-2:.5rem;--ds-space-3:.75rem;--ds-space-4:1rem;--ds-space-5:1.25rem;--ds-space-6:1.5rem;--ds-space-8:2rem;--ds-space-10:2.5rem;--ds-space-12:3rem;--ds-space-16:4rem;--ds-radius-sm:.25rem;--ds-radius-md:.5rem;--ds-radius-lg:.75rem;--ds-radius-xl:1rem;--ds-radius-2xl:1.5rem;--ds-radius-full:9999px;--ds-shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--ds-shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.05);--ds-shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.05);--ds-duration-fast:120ms;--ds-duration-normal:200ms;--ds-duration-slow:300ms;--ds-ease-out:cubic-bezier(.16,1,.3,1);--ds-ease-in-out:cubic-bezier(.4,0,.2,1);--ds-ring:0 0 0 2px #2563eb;--ds-container:1200px;--ds-gutter:1rem;
+}
+@media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
+</style>
+
+<script>
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check for saved theme preference or system preference
+const currentTheme = localStorage.getItem('theme') || 
+                    (prefersDarkScheme.matches ? 'dark' : 'light');
+
+// Initial theme setup
+if (currentTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeToggle.setAttribute('aria-checked', 'true');
+}
+
+// Theme toggle handler
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  themeToggle.setAttribute('aria-checked', !isDark);
+});
+
+// System theme change handler
+prefersDarkScheme.addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    const newTheme = e.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    themeToggle.setAttribute('aria-checked', e.matches);
+  }
+});
+</script>

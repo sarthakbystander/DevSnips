@@ -1,0 +1,52 @@
+{
+  "id": "input-with-helper-react-012",
+  "name": "Input With Helper",
+  "slug": "input-with-helper",
+  "component": "input",
+  "family": "inputs",
+  "variant": "input-with-helper",
+  "description": "Input with helper text connected through aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "feedback",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind",
+    "text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

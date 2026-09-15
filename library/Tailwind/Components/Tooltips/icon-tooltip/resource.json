@@ -1,0 +1,34 @@
+{
+  "id": "Tailwind/Components/Tooltips/icon-tooltip",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Tooltips",
+  "slug": "icon-tooltip",
+  "name": "Icon Tooltip",
+  "description": "Tooltip on an icon-only button - the key accessibility use case where the tooltip serves as the visible label. Each icon button carries aria-label and a role=tooltip companion so screen readers announce the action. Pure CSS.",
+  "tags": [
+    "tooltip",
+    "icon",
+    "icon-button",
+    "label",
+    "accessibility",
+    "toolbar",
+    "css-only"
+  ],
+  "features": [
+    "icon-button labeling",
+    "aria-label",
+    "role=tooltip companion",
+    "hover + focus triggers",
+    "compact tooltip sizing",
+    "pure CSS no JS",
+    "focus-visible ring"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "delayed-tooltip",
+    "status-tooltip"
+  ],
+  "url": "Tailwind/Components/Tooltips/icon-tooltip/index.html"
+}

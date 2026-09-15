@@ -1,0 +1,44 @@
+{
+  "id": "React/Components/Tooltips/tooltip-controlled",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tooltips",
+  "slug": "tooltip-controlled",
+  "name": "Tooltip with Controlled State",
+  "description": "Open state lifted to the parent: a copy action forces its confirmation tooltip open for a moment, an external toggle pins a hint open, and every request flows through onOpenChange.",
+  "tags": [
+    "tooltip",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "hover",
+    "focus",
+    "responsive",
+    "interactive",
+    "controlled",
+    "state"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "role=tooltip semantics",
+    "hover + focus open",
+    "Escape to dismiss",
+    "viewport flip",
+    "controlled/uncontrolled",
+    "controlled open state",
+    "onOpenChange sync",
+    "programmatic open/close"
+  ],
+  "framework": "React",
+  "related": [
+    "tooltip",
+    "tooltip-disabled-trigger",
+    "tooltip-with-icon"
+  ],
+  "url": "React/Components/Tooltips/tooltip-controlled/index.html"
+}

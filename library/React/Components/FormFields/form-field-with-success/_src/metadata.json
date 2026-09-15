@@ -1,0 +1,61 @@
+{
+  "id": "form-field-with-success-react-001",
+  "name": "Form Field With Success",
+  "slug": "form-field-with-success",
+  "component": "form-field",
+  "family": "formfields",
+  "variant": "form-field-with-success",
+  "description": "Success state: a success-token message with a check icon in a role=status live region, linked to the control with aria-describedby \u2014 positive validation feedback without color-only signaling.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Form Fields",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "form",
+    "field",
+    "label",
+    "react",
+    "tailwind",
+    "accessible",
+    "validation",
+    "responsive",
+    "success",
+    "validation",
+    "status"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "aria-describedby wiring",
+    "control-agnostic",
+    "role=status",
+    "polite live region"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "label htmlFor + control id association",
+    "aria-describedby registered ids",
+    "no dangling ARIA references",
+    "focus-visible",
+    "semantic HTML",
+    "role=\"status\" success announcement"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "form-field",
+    "form-field-with-error"
+  ]
+}

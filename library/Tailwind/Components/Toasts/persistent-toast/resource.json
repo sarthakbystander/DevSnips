@@ -1,0 +1,35 @@
+{
+  "id": "Tailwind/Components/Toasts/persistent-toast",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Toasts",
+  "slug": "persistent-toast",
+  "name": "Persistent Toast",
+  "description": "Toast that stays open until explicitly dismissed, with a shrinking progress bar showing the remaining time. The bar pauses on hover and resumes on leave. Ideal for upload results and important notices that shouldn't be missed.",
+  "tags": [
+    "toast",
+    "notification",
+    "persistent",
+    "progress",
+    "countdown",
+    "upload",
+    "feedback"
+  ],
+  "features": [
+    "countdown progress bar",
+    "stays open until dismissed",
+    "pause on hover",
+    "resume on leave",
+    "close button",
+    "role status",
+    "aria-live polite",
+    "focus-visible ring"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "action-toast",
+    "stacked-toasts"
+  ],
+  "url": "Tailwind/Components/Toasts/persistent-toast/index.html"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "textarea-with-counter-react-001",
+  "name": "Textarea With Counter",
+  "slug": "textarea-with-counter",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-with-counter",
+  "description": "Textarea with a live character counter (current / maximum) derived from the real value.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "Feedback",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "character-count",
+    "counter",
+    "maxlength",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA",
+    "aria-live counter"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea-with-helper",
+    "textarea-with-error",
+    "textarea-with-actions"
+  ]
+}

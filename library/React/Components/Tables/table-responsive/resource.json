@@ -1,0 +1,40 @@
+{
+  "id": "React/Components/Tables/table-responsive",
+  "type": "component",
+  "technology": "React",
+  "category": "Components",
+  "family": "Tables",
+  "slug": "table-responsive",
+  "name": "Responsive Table",
+  "description": "A table with an intentionally designed narrow-screen presentation: a full semantic table at desktop, replaced below 640px by a card list built from the same data \u2014 not a squeezed table and not an afterthought scroll.",
+  "tags": [
+    "table",
+    "data-table",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "responsive",
+    "mobile",
+    "card-list",
+    "adaptive"
+  ],
+  "features": [
+    "semantic table elements",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "token-driven surfaces",
+    "desktop table + mobile cards",
+    "same data both presentations",
+    "usable at 375px"
+  ],
+  "framework": "React",
+  "related": [
+    "table",
+    "table-compact",
+    "table-status"
+  ],
+  "url": "React/Components/Tables/table-responsive/index.html"
+}

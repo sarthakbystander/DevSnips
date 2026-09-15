@@ -1,0 +1,70 @@
+{
+  "id": "navbar-with-mobile-menu-react-001",
+  "name": "Navbar with Mobile Menu",
+  "slug": "navbar-with-mobile-menu",
+  "component": "navbar",
+  "family": "navbar",
+  "variant": "navbar-with-mobile-menu",
+  "description": "The responsive collapse pattern in depth: below the breakpoint the desktop navigation becomes a toggle-disclosed mobile region with aria-expanded / aria-controls wiring, Escape and outside-pointer close, and predictable focus \u2014 shown in both uncontrolled and controlled state modes.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Navbar",
+  "subcategory": "Mobile",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "navbar",
+    "navigation",
+    "header",
+    "react",
+    "tailwind",
+    "accessible",
+    "keyboard",
+    "responsive",
+    "interactive",
+    "mobile",
+    "hamburger",
+    "disclosure",
+    "controlled"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic nav landmark",
+    "real anchors",
+    "aria-current active item",
+    "mobile disclosure",
+    "keyboard navigation",
+    "controlled + uncontrolled mobile state",
+    "Escape close",
+    "outside-pointer close",
+    "focus restoration"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "semantic nav landmark",
+    "aria-current='page' active item",
+    "aria-expanded + aria-controls toggle",
+    "aria-haspopup dropdown triggers",
+    "focus restoration on close",
+    "aria-disabled inactive items",
+    "focus-visible ring",
+    "toggle aria-expanded/aria-controls wiring",
+    "focus restored to toggle on close"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "navbar",
+    "navbar-with-sidebar-mobile"
+  ]
+}

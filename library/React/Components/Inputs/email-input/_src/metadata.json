@@ -1,0 +1,52 @@
+{
+  "id": "email-input-react-002",
+  "name": "Email Input",
+  "slug": "email-input",
+  "component": "input",
+  "family": "inputs",
+  "variant": "email-input",
+  "description": "Email address field with native email semantics.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Inputs",
+  "subcategory": "Text",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "email",
+    "form",
+    "input",
+    "interactive",
+    "react",
+    "tailwind",
+    "text"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "ARIA",
+    "semantic HTML",
+    "associated labels"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "text-input"
+  ]
+}

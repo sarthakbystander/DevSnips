@@ -1,0 +1,380 @@
+<!--
+  Snippet Name: DevSnips Agency (modular)
+  Description: A premium editorial agency website template built with semantic HTML, CSS (Pico CSS foundation), and vanilla JavaScript. Dark-first high-contrast editorial layout: sticky header with mobile navigation, large-typography hero, about + statistics, editorial services list, selected work with alternating project layouts, featured case study, five-step process, capabilities grid, team grid, testimonials, insights/blog, and a contact CTA. Scroll-reveal animations (IntersectionObserver) and scrollspy active navigation. Follows the shared design-tokens.md system. Files: code.html (this file) + style.css + script.js; preview.html is a self-contained single-file preview.
+  Author: DevSnips Contributors
+  Usage Example: Open code.html in a browser, or copy this folder into your project and link code.html (which references style.css and script.js relatively). For a self-contained single-file preview of the UI, open preview.html instead.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSnips Agency — Open Source Interfaces &amp; Design Systems</title>
+    <meta name="description" content="DevSnips delivers open source interfaces, design systems, and developer experiences crafted for the modern web.">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+    <a class="ds-skip-link" href="#main">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="ds-header">
+        <div class="container">
+            <a href="#home" class="ds-logo">Dev<span>Snips</span></a>
+            <nav class="ds-nav" aria-label="Main navigation">
+                <ul id="ds-nav-list">
+                    <li><a href="#work" class="active">Work</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="ds-btn-primary">Get in touch</a>
+                <button class="ds-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="ds-nav-list">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="ds-hero ds-reveal" id="home">
+            <div class="container ds-hero-grid">
+                <div class="ds-hero-text">
+                    <span class="ds-eyebrow">Award-Winning Digital Agency</span>
+                    <h1>Where Innovation Meets <span class="ds-accent-text">Digital Excellence</span></h1>
+                    <p>DevSnips delivers open source interfaces, design systems, and developer experiences crafted for the modern web.</p>
+                    <div class="ds-cta-group">
+                        <a href="#work" class="ds-btn-primary">Explore Work</a>
+                        <a href="#contact" class="ds-btn-secondary">Contact Us</a>
+                    </div>
+                    <div class="ds-hero-meta">
+                        <span>50+ Projects</span>
+                        <span>10+ Contributors</span>
+                        <span>4.9/5 Client Rating</span>
+                    </div>
+                </div>
+                <div class="ds-hero-visual">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Design and development team collaborating around a table">
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="ds-about ds-reveal" id="about">
+            <div class="container ds-about-grid">
+                <div>
+                    <span class="ds-eyebrow">About DevSnips</span>
+                    <h2>Open source interfaces, <br>design systems, and <br>developer experiences.</h2>
+                </div>
+                <div>
+                    <p>We are a collective of designers and engineers dedicated to building world-class open source interfaces. Our work empowers developers to create exceptional digital experiences. From component libraries to full design systems, we bridge the gap between design and code.</p>
+                    <div class="ds-about-stats">
+                        <div class="ds-stat"><span>50+</span><small>Projects Delivered</small></div>
+                        <div class="ds-stat"><span>10+</span><small>Core Contributors</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="ds-services ds-reveal" id="services">
+            <div class="container">
+                <span class="ds-eyebrow">Our Expertise</span>
+                <h2>Discover Our <br>Digital Solutions</h2>
+                <div class="ds-services-list">
+                    <div class="ds-service-item">
+                        <span class="ds-number">01.</span>
+                        <h3>UI Systems</h3>
+                        <p>Scalable, accessible, and robust component libraries designed for enterprise-grade applications.</p>
+                    </div>
+                    <div class="ds-service-item">
+                        <span class="ds-number">02.</span>
+                        <h3>Web Design</h3>
+                        <p>Editorial, high-contrast web experiences that prioritize typography, composition, and user flow.</p>
+                    </div>
+                    <div class="ds-service-item">
+                        <span class="ds-number">03.</span>
+                        <h3>Frontend Development</h3>
+                        <p>Clean, performance-optimized HTML, CSS, and JavaScript adhering to modern web standards.</p>
+                    </div>
+                    <div class="ds-service-item">
+                        <span class="ds-number">04.</span>
+                        <h3>Design Systems</h3>
+                        <p>Comprehensive design systems that ensure consistency, efficiency, and brand cohesion at scale.</p>
+                    </div>
+                    <div class="ds-service-item">
+                        <span class="ds-number">05.</span>
+                        <h3>Developer Experience</h3>
+                        <p>Improving tools, documentation, and workflows to make developers more productive and satisfied.</p>
+                    </div>
+                    <div class="ds-service-item">
+                        <span class="ds-number">06.</span>
+                        <h3>Open Source Interfaces</h3>
+                        <p>Fostering community-driven development and maintaining high-quality open source UI libraries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTED WORK -->
+        <section class="ds-work ds-reveal" id="work">
+            <div class="container">
+                <span class="ds-eyebrow">Selected Work</span>
+                <h2>Projects that define us.</h2>
+                <div class="ds-work-grid">
+                    <article class="ds-project">
+                        <div class="ds-project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="DevSnips Core Components interface" loading="lazy" decoding="async">
+                        </div>
+                        <div class="ds-project-content">
+                            <h3>DevSnips Core</h3>
+                            <p>An open-source design system built for scale. Used by over 100 teams to maintain visual consistency across their digital products.</p>
+                            <div class="ds-project-meta">
+                                <span>Design System</span>
+                                <span>2025</span>
+                            </div>
+                            <a href="#" class="ds-btn-secondary">View Case Study →</a>
+                        </div>
+                    </article>
+                    <article class="ds-project">
+                        <div class="ds-project-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="DevSnips Documentation platform" loading="lazy" decoding="async">
+                        </div>
+                        <div class="ds-project-content">
+                            <h3>DevSnips Documentation</h3>
+                            <p>A comprehensive documentation platform for developers. Designed to make learning complex APIs intuitive and engaging.</p>
+                            <div class="ds-project-meta">
+                                <span>Developer Experience</span>
+                                <span>2024</span>
+                            </div>
+                            <a href="#" class="ds-btn-secondary">View Case Study →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY -->
+        <section class="ds-case-study ds-reveal">
+            <div class="container ds-case-study-grid">
+                <div class="ds-case-study-content">
+                    <span class="ds-eyebrow">Featured Case Study</span>
+                    <h2>DevSnips Design System</h2>
+                    <p><strong>Challenge:</strong> A large tech corporation needed a unified design language across 12 disparate applications, resulting in inconsistent user experiences and high design debt.</p>
+                    <p><strong>Approach:</strong> We conducted an exhaustive audit of existing interfaces, established a foundational design token library (colors, typography, spacing), and built a modular component library using modern web standards.</p>
+                    <p><strong>Solution:</strong> A scalable, accessible, and version-controlled design system. We provided comprehensive documentation, developer tooling, and seamless migration strategies.</p>
+                    <p><strong>Results:</strong> 40% reduction in design review time, 60% increase in frontend development velocity, and a unified brand experience across all platforms.</p>
+                    <a href="#" class="ds-btn-primary">Read Full Case Study</a>
+                </div>
+                <div class="ds-case-study-image">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a5638d48?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Design system documentation and component library" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="ds-process ds-reveal">
+            <div class="container">
+                <span class="ds-eyebrow">Our Process</span>
+                <h2>How we work.</h2>
+                <div class="ds-process-grid">
+                    <div class="ds-process-step">
+                        <span class="ds-number">01</span>
+                        <h4>Discover</h4>
+                        <p>Deep research, stakeholder interviews, and user journey mapping to understand the core problem.</p>
+                    </div>
+                    <div class="ds-process-step">
+                        <span class="ds-number">02</span>
+                        <h4>Define</h4>
+                        <p>Synthesizing research into clear design principles, technical specifications, and project roadmaps.</p>
+                    </div>
+                    <div class="ds-process-step">
+                        <span class="ds-number">03</span>
+                        <h4>Design</h4>
+                        <p>Exploring multiple directions, iterating on high-fidelity prototypes, and refining the visual language.</p>
+                    </div>
+                    <div class="ds-process-step">
+                        <span class="ds-number">04</span>
+                        <h4>Build</h4>
+                        <p>Developing robust, accessible, and performant code that aligns perfectly with the design direction.</p>
+                    </div>
+                    <div class="ds-process-step">
+                        <span class="ds-number">05</span>
+                        <h4>Refine</h4>
+                        <p>Continuous testing, feedback integration, and optimization to ensure the product exceeds expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPABILITIES -->
+        <section class="ds-capabilities ds-reveal">
+            <div class="container">
+                <span class="ds-eyebrow">Capabilities</span>
+                <h2>What we bring to the table.</h2>
+                <div class="ds-capabilities-grid">
+                    <div class="ds-capability">
+                        <h4>Visual Identity</h4>
+                        <p>Brand strategy, typography systems, color theory, and cohesive visual languages.</p>
+                    </div>
+                    <div class="ds-capability">
+                        <h4>Interaction Design</h4>
+                        <p>Micro-interactions, motion design, and advanced user interface behaviors.</p>
+                    </div>
+                    <div class="ds-capability">
+                        <h4>Accessibility</h4>
+                        <p>WCAG compliance, inclusive design practices, and assistive technology support.</p>
+                    </div>
+                    <div class="ds-capability">
+                        <h4>Performance</h4>
+                        <p>Optimized asset delivery, minimal overhead, and core web vitals compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="ds-team ds-reveal">
+            <div class="container">
+                <span class="ds-eyebrow">The Team</span>
+                <h2>Our professionals.</h2>
+                <div class="ds-team-grid">
+                    <div class="ds-member">
+                        <div class="ds-member-image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Alex Rivera" loading="lazy" decoding="async"></div>
+                        <h4>Alex Rivera</h4>
+                        <p>Principal Designer</p>
+                    </div>
+                    <div class="ds-member">
+                        <div class="ds-member-image"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Sarah Kim" loading="lazy" decoding="async"></div>
+                        <h4>Sarah Kim</h4>
+                        <p>Lead Engineer</p>
+                    </div>
+                    <div class="ds-member">
+                        <div class="ds-member-image"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Marcus Jones" loading="lazy" decoding="async"></div>
+                        <h4>Marcus Jones</h4>
+                        <p>UX Researcher</p>
+                    </div>
+                    <div class="ds-member">
+                        <div class="ds-member-image"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Elena Volkov" loading="lazy" decoding="async"></div>
+                        <h4>Elena Volkov</h4>
+                        <p>Frontend Architect</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="ds-testimonials ds-reveal">
+            <div class="container">
+                <span class="ds-eyebrow">Testimonials</span>
+                <h2>What our clients say.</h2>
+                <div class="ds-testimonials-grid">
+                    <div class="ds-testimonial">
+                        <blockquote>"DevSnips completely transformed our design workflow. Their design system saved our engineering team hundreds of hours and made our product feel cohesive."</blockquote>
+                        <cite>Linda Chen</cite>
+                        <small>VP of Product, TechCorp</small>
+                    </div>
+                    <div class="ds-testimonial">
+                        <blockquote>"Working with DevSnips was a game-changer. They didn't just build a great interface; they fundamentally improved how our developers think about building for the web."</blockquote>
+                        <cite>David O'Conner</cite>
+                        <small>CTO, StartUp Inc.</small>
+                    </div>
+                    <div class="ds-testimonial">
+                        <blockquote>"The attention to detail and the editorial approach to design is unmatched. DevSnips delivered a premium, high-performance experience that our users love."</blockquote>
+                        <cite>Maria Rodriguez</cite>
+                        <small>Director of Design, FinTech Ltd.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSIGHTS -->
+        <section class="ds-insights ds-reveal" id="insights">
+            <div class="container">
+                <span class="ds-eyebrow">Insights</span>
+                <h2>Latest from the blog.</h2>
+                <div class="ds-insights-grid">
+                    <article class="ds-insight">
+                        <div class="ds-meta"><span>Design Systems</span> <span>Jan 12, 2026</span> <span>5 min read</span></div>
+                        <h4>The State of Open Source Interfaces</h4>
+                        <p>Exploring the current landscape of open source UI libraries and how they are shaping the future of web development.</p>
+                    </article>
+                    <article class="ds-insight">
+                        <div class="ds-meta"><span>Development</span> <span>Dec 28, 2025</span> <span>7 min read</span></div>
+                        <h4>Building Accessible Design Systems</h4>
+                        <p>A technical deep-dive into ensuring your design system is fully accessible and inclusive for all users.</p>
+                    </article>
+                    <article class="ds-insight">
+                        <div class="ds-meta"><span>UX Design</span> <span>Dec 15, 2025</span> <span>4 min read</span></div>
+                        <h4>Why Editorial Layouts Drive Engagement</h4>
+                        <p>How moving away from generic SaaS grids and embracing editorial composition can transform user experience.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="ds-cta ds-reveal" id="contact">
+            <div class="container">
+                <h2>Ready to build something<br><span class="ds-accent-text">exceptional</span>?</h2>
+                <p>Let's collaborate to create open source interfaces, design systems, and developer experiences that set new standards.</p>
+                <div class="ds-cta-group">
+                    <a href="#" class="ds-btn-primary">Start a Project</a>
+                    <a href="#" class="ds-btn-secondary">Explore Documentation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ds-footer">
+        <div class="container">
+            <div class="ds-footer-grid">
+                <div>
+                    <div class="ds-footer-logo">Dev<span>Snips</span></div>
+                    <p>Open source interfaces, design systems, and developer experiences.</p>
+                </div>
+                <div>
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Components</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Community</h5>
+                    <ul>
+                        <li><a href="#">Contributing</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ds-footer-bottom">
+                &copy; 2026 DevSnips. Built for the open source community.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "id": "Tailwind/Components/Toasts/status-toasts",
+  "type": "component",
+  "technology": "Tailwind",
+  "category": "Components",
+  "family": "Toasts",
+  "slug": "status-toasts",
+  "name": "Status Toasts",
+  "description": "Four semantic toast variants \u2014 success, error, warning, info \u2014 each with a matching icon, accent color, and ARIA role. Errors and warnings use role=alert; success and info use role=status.",
+  "tags": [
+    "toast",
+    "notification",
+    "success",
+    "error",
+    "warning",
+    "info",
+    "feedback",
+    "alert"
+  ],
+  "features": [
+    "4 semantic types",
+    "matching icons and colors",
+    "role=alert for errors/warnings",
+    "role=status for success/info",
+    "auto-dismiss",
+    "pause on hover",
+    "close button",
+    "focus-visible ring"
+  ],
+  "framework": "Tailwind CSS",
+  "related": [
+    "action-toast",
+    "minimal-toast"
+  ],
+  "url": "Tailwind/Components/Toasts/status-toasts/index.html"
+}

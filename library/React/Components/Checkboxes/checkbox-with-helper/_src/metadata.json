@@ -1,0 +1,57 @@
+{
+  "id": "checkbox-with-helper-react-001",
+  "name": "Checkbox With Helper",
+  "slug": "checkbox-with-helper",
+  "component": "checkbox",
+  "family": "checkboxes",
+  "variant": "checkbox-with-helper",
+  "description": "Checkbox with a visible label plus helper text wired via aria-describedby.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Checkboxes",
+  "subcategory": "Labeling",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "checkbox",
+    "form",
+    "selection",
+    "helper",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native checkbox",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": true,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "checkbox",
+    "checkbox-with-label",
+    "checkbox-with-error"
+  ]
+}

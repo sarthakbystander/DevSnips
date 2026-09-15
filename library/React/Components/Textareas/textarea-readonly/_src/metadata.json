@@ -1,0 +1,60 @@
+{
+  "id": "textarea-readonly-react-001",
+  "name": "Textarea Readonly",
+  "slug": "textarea-readonly",
+  "component": "textarea",
+  "family": "textareas",
+  "variant": "textarea-readonly",
+  "description": "Read-only textarea using the real native readOnly attribute \u2014 focusable, selectable, submitted.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Textareas",
+  "subcategory": "States",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "textarea",
+    "form",
+    "input",
+    "text",
+    "multiline",
+    "readonly",
+    "state",
+    "react",
+    "tailwind",
+    "accessible",
+    "native"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "semantic HTML",
+    "keyboard accessible",
+    "native form control"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "focus-visible",
+    "keyboard accessible",
+    "semantic HTML",
+    "native textarea",
+    "associated labels",
+    "ARIA"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "textarea",
+    "textarea-disabled",
+    "textarea-with-actions"
+  ]
+}

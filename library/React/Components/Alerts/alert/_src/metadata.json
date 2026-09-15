@@ -1,0 +1,60 @@
+{
+  "id": "alert-react-001",
+  "name": "Alert",
+  "slug": "alert",
+  "component": "alert",
+  "family": "alerts",
+  "variant": "alert",
+  "description": "The reference alert: a restrained inline feedback surface (radius-md, 1px border) with the title / description / icon / action / close primitives and role-matched live-region behavior. Every other variant in the family is built from these same primitives.",
+  "framework": "React",
+  "language": "TSX",
+  "languages": [
+    "JSX",
+    "TSX"
+  ],
+  "technology": "react",
+  "type": "component",
+  "category": "Alerts",
+  "subcategory": "Core",
+  "styling": "Tailwind CSS",
+  "tags": [
+    "alert",
+    "feedback",
+    "react",
+    "tailwind",
+    "accessible",
+    "responsive",
+    "tokens",
+    "reference",
+    "compound",
+    "composition",
+    "status"
+  ],
+  "features": [
+    "responsive",
+    "light/dark",
+    "reduced-motion",
+    "focus-visible",
+    "live-region roles",
+    "token-driven surface",
+    "compound regions",
+    "registered title/description association",
+    "role override"
+  ],
+  "responsive": true,
+  "darkMode": true,
+  "accessibility": [
+    "role=status by default (polite)",
+    "aria-labelledby/describedby wired by registration",
+    "role={null} for static content"
+  ],
+  "interactive": false,
+  "dependencies": [],
+  "source": "DevSnips",
+  "related": [
+    "alert-info",
+    "alert-with-icon",
+    "alert-dismissible",
+    "alert-rich"
+  ]
+}
