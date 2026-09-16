@@ -33,7 +33,7 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Components/Cards/"
 
 VARIANTS = [
@@ -85,7 +85,7 @@ def overflow(page, w):
 def static_checks():
     print("== static ==")
     for slug in VARIANTS:
-        folder = ROOT / "React/Components/Cards" / slug
+        folder = ROOT / "library/React/Components/Cards" / slug
         files = sorted(p.name for p in folder.iterdir() if p.is_file())
         check(
             files == ["README.md", "code.jsx", "code.tsx", "metadata.json", "preview.html"],
@@ -107,13 +107,13 @@ def static_checks():
               f"{slug}: no hardcoded hex colors in code.tsx")
         check("var(--ds-color-focus-ring)" in tsx, f"{slug}: focus-ring token")
         check("motion-reduce:" in tsx, f"{slug}: reduced-motion guard")
-    css = list((ROOT / "React/Components/Cards").rglob("*.css"))
+    css = list((ROOT / "library/React/Components/Cards").rglob("*.css"))
     check(css == [], "no component-specific CSS files in the family")
     # derived-code.tsx parity: identical shared core except the header comment
-    reference = (ROOT / "React/Components/Cards/card/code.tsx").read_text()
+    reference = (ROOT / "library/React/Components/Cards/card/code.tsx").read_text()
     ref_body = re.sub(r"/\*\*.*?\*/", "", reference, count=1, flags=re.S)
     for slug in VARIANTS[1:]:
-        tsx = (ROOT / "React/Components/Cards" / slug / "code.tsx").read_text()
+        tsx = (ROOT / "library/React/Components/Cards" / slug / "code.tsx").read_text()
         body = re.sub(r"/\*\*.*?\*/", "", tsx, count=1, flags=re.S)
         check(body == ref_body, f"{slug}: code.tsx shares the reference core")
 
@@ -121,7 +121,7 @@ def static_checks():
 def export_parity_checks():
     print("== export parity (tsx/jsx) ==")
     for slug in VARIANTS:
-        folder = ROOT / "React/Components/Cards" / slug
+        folder = ROOT / "library/React/Components/Cards" / slug
         tsx = (folder / "code.tsx").read_text()
         jsx = (folder / "code.jsx").read_text()
         te = sorted(set(re.findall(r"export function ([A-Za-z_$][\w$]*)", tsx)))

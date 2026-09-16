@@ -42,8 +42,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DIALOGS = ROOT / "React/Components/Dialogs"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+DIALOGS = ROOT / "library/React/Components/Dialogs"
 SLUGS = [
     "dialog",
     "dialog-controlled",

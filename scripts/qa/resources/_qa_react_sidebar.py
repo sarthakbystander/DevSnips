@@ -45,8 +45,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-SIDEBAR = ROOT / "React/Components/Sidebar"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+SIDEBAR = ROOT / "library/React/Components/Sidebar"
 SLUGS = [
     "sidebar",
     "sidebar-collapsed",

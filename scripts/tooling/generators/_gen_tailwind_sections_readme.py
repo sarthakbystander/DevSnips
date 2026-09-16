@@ -8,8 +8,8 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-TAILWIND_SECTIONS = ROOT / "Tailwind" / "Sections"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+TAILWIND_SECTIONS = ROOT / "library" / "Tailwind" / "Sections"
 
 
 def _read_meta(p):
@@ -67,7 +67,7 @@ def is_leaf(folder):
 
 def main(check_mode=False):
     if not TAILWIND_SECTIONS.exists():
-        print("Tailwind/Sections/ not found.")
+        print("library/Tailwind/Sections/ not found.")
         return 0
     
     missing_count = 0

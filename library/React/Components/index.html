@@ -45,8 +45,8 @@
     <div class="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 sm:px-6">
       <a href="../index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Overview</a>
       <a href="index.html" aria-current="page" class="whitespace-nowrap border-b-2 border-sky-600 px-3 py-2.5 text-sm font-semibold text-sky-600 dark:text-sky-400">Components</a>
-      <a href="../sections/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Sections</a>
-      <a href="../templates/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Templates</a>
+      <a href="../Sections/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Sections</a>
+      <a href="../Templates/index.html" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Templates</a>
     </div>
   </nav>
 </header>
@@ -97,7 +97,7 @@
     var desc = fam.description || v.description || ('React ' + fam.name + ' component family.');
     // Link to the first variant's preview (each variant folder has preview.html).
     var firstVar = v;
-    var href = '../../' + firstVar.path + 'preview.html';
+    var href = '../../library/' + firstVar.path + 'preview.html';
     var a = document.createElement('a');
     a.href = href;
     a.className = 'group flex flex-col rounded-xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-1 hover:border-sky-400 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-sky-500';

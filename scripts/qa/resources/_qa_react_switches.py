@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Components/"
 
 SWITCHES = [

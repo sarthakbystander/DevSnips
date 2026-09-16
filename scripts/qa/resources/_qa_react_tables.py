@@ -69,7 +69,7 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Components/Tables/"
 
 VARIANTS = [
@@ -132,7 +132,7 @@ def overflow(page, w):
 def static_checks():
     print("== static ==")
     for slug in VARIANTS:
-        folder = ROOT / "React/Components/Tables" / slug
+        folder = ROOT / "library/React/Components/Tables" / slug
         files = sorted(p.name for p in folder.iterdir() if p.is_file())
         check(
             files == ["README.md", "code.jsx", "code.tsx", "metadata.json", "preview.html"],
@@ -165,13 +165,13 @@ def static_checks():
               f"{slug}: real table elements in code.tsx")
         check('role="grid"' not in tsx and 'role="table"' not in tsx,
               f"{slug}: no ARIA grid/table re-declaration")
-    css = list((ROOT / "React/Components/Tables").rglob("*.css"))
+    css = list((ROOT / "library/React/Components/Tables").rglob("*.css"))
     check(css == [], "no component-specific CSS files in the family")
     # derived-code.tsx parity: identical shared core except the header comment
-    reference = (ROOT / "React/Components/Tables/table/code.tsx").read_text()
+    reference = (ROOT / "library/React/Components/Tables/table/code.tsx").read_text()
     ref_body = re.sub(r"/\*\*.*?\*/", "", reference, count=1, flags=re.S)
     for slug in VARIANTS[1:]:
-        tsx = (ROOT / "React/Components/Tables" / slug / "code.tsx").read_text()
+        tsx = (ROOT / "library/React/Components/Tables" / slug / "code.tsx").read_text()
         body = re.sub(r"/\*\*.*?\*/", "", tsx, count=1, flags=re.S)
         check(body == ref_body, f"{slug}: code.tsx shares the reference core")
 
@@ -212,7 +212,7 @@ def _props_of(src, name):
 def export_parity_checks():
     print("== export + prop parity (tsx/jsx) ==")
     for slug in VARIANTS:
-        folder = ROOT / "React/Components/Tables" / slug
+        folder = ROOT / "library/React/Components/Tables" / slug
         tsx = (folder / "code.tsx").read_text()
         jsx = (folder / "code.jsx").read_text()
         te = sorted(set(re.findall(r"export function ([A-Za-z_$][\w$]*)", tsx)))

@@ -18,8 +18,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-COMP = ROOT / "Vanilla" / "Components"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+COMP = ROOT / "library" / "Vanilla" / "Components"
 DRY = bool(__import__("os").environ.get("DRY_RUN"))
 
 # ---- value -> token mappings (matched literally, case-insensitive for hex) ----

@@ -39,8 +39,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-FORMFIELDS = ROOT / "React/Components/FormFields"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+FORMFIELDS = ROOT / "library/React/Components/FormFields"
 SLUGS = [
     "form-field",
     "form-field-required",

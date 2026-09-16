@@ -19,12 +19,12 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 
 
 def main():
     by_id = defaultdict(list)
-    for mf in (ROOT / "Vanilla").rglob("metadata.json"):
+    for mf in (ROOT / "library" / "Vanilla").rglob("metadata.json"):
         try:
             m = json.loads(mf.read_text(encoding="utf-8"))
         except Exception:

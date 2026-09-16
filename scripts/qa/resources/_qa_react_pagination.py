@@ -27,8 +27,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-PAGINATION = ROOT / "React/Components/Pagination"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+PAGINATION = ROOT / "library/React/Components/Pagination"
 SLUGS = [
     "pagination",
     "pagination-with-previous-next",

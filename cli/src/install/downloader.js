@@ -92,7 +92,9 @@ function getSourceFiles(availableFiles, technology) {
  */
 function buildRepoFilePath(componentPath, filename) {
   const base = stripTrailingSlash(componentPath);
-  return `${base}/${filename}`;
+  // Map registry path → library/ on-disk location (user-facing paths stay tech-first)
+  const repoBase = base.startsWith('library/') ? base : `library/${base}`;
+  return `${repoBase}/${filename}`;
 }
 
 module.exports = {

@@ -42,7 +42,7 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Components/Breadcrumbs/"
 
 VARIANTS = [
@@ -95,7 +95,7 @@ def overflow(page, w):
 def static_checks():
     print("== static ==")
     for slug in VARIANTS:
-        folder = ROOT / "React/Components/Breadcrumbs" / slug
+        folder = ROOT / "library/React/Components/Breadcrumbs" / slug
         files = sorted(p.name for p in folder.iterdir() if p.is_file())
         check(
             files == ["README.md", "code.jsx", "code.tsx", "metadata.json", "preview.html"],
@@ -118,7 +118,7 @@ def static_checks():
         check('aria-current="page"' in tsx, f"{slug}: aria-current page")
         check('aria-hidden="true"' in tsx, f"{slug}: aria-hidden separators/icons")
         check("var(--ds-color-focus-ring)" in tsx, f"{slug}: focus-ring token")
-    css = list((ROOT / "React/Components/Breadcrumbs").rglob("*.css"))
+    css = list((ROOT / "library/React/Components/Breadcrumbs").rglob("*.css"))
     check(css == [], "no component-specific CSS files in the family")
 
 

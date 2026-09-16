@@ -8,8 +8,8 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-REACT_SECTIONS = ROOT / "React" / "Sections"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+REACT_SECTIONS = ROOT / "library" / "React" / "Sections"
 
 
 def _read_meta(p):
@@ -69,7 +69,7 @@ def is_leaf(folder):
 
 def main(check_mode=False):
     if not REACT_SECTIONS.exists():
-        print("React/Sections/ not found.")
+        print("library/React/Sections/ not found.")
         return 0
     
     missing_count = 0

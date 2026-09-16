@@ -11,8 +11,8 @@ other content is preserved exactly. Idempotent: re-running is a no-op once fixed
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-T = ROOT / "Tailwind" / "Sections" / "Testimonials"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+T = ROOT / "library" / "Tailwind" / "Sections" / "Testimonials"
 
 HEART_OLD = 'aria-hidden="true">heart</svg>'
 # Also catch the previously-patched path so re-running syncs to the canonical ICONS["heart"].

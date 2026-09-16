@@ -32,8 +32,8 @@ import re
 import shutil
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-COMP = ROOT / "Vanilla" / "Components"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+COMP = ROOT / "library" / "Vanilla" / "Components"
 
 SNIPPET_RE = re.compile(r"^snippet-(\d+)-(.+)$")
 
@@ -291,7 +291,7 @@ def unify_metadata(dry: bool):
 
 def clean_templates(dry: bool):
     log("\n=== Step E: clean Vanilla Templates metadata (boilerplate + honest flags) ===")
-    tdir = ROOT / "Vanilla" / "Templates"
+    tdir = ROOT / "library" / "Vanilla" / "Templates"
     if not tdir.exists():
         return
     cleaned = 0

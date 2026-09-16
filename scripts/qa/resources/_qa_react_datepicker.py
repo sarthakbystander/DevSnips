@@ -42,8 +42,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DATEPICKER = ROOT / "React/Components/DatePicker"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+DATEPICKER = ROOT / "library/React/Components/DatePicker"
 ESBUILD = Path("/tmp/dsbuild/node_modules/.bin/esbuild")
 DSBUILD = Path("/tmp/dsbuild")
 SLUGS = [

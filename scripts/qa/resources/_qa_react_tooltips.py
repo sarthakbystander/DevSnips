@@ -36,8 +36,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-TOOLTIPS = ROOT / "React/Components/Tooltips"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+TOOLTIPS = ROOT / "library/React/Components/Tooltips"
 SLUGS = [
     "tooltip",
     "tooltip-placement",
