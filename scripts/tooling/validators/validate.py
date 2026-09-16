@@ -190,7 +190,7 @@ def check_index_vs_disk():
     # `React/Sections/` are first-class content types, so a /Sections/ segment
     # is valid there. It is only stale anywhere else (e.g. under the removed
     # Utilities/ and Resources/ collections).
-    valid_sections = ("library/Tailwind/Sections/", "library/Vanilla/Sections/", "library/React/Sections/")
+    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/", "React/Sections/")
     for fam in idx["families"]:
         for token in ("/Utilities/", "/Resources/"):
             if token in fam["path"]:
@@ -215,7 +215,9 @@ def check_index_vs_disk():
             for mf in comp.rglob("metadata.json"):
                 leaf = mf.parent
                 if is_leaf(leaf, tech):
-                    rel = str(leaf).replace(str(ROOT) + "/", "")
+                    rel = leaf.relative_to(ROOT).as_posix()
+                    if rel.startswith("library/"):
+                        rel = rel[len("library/"):]
                     if rel not in indexed:
                         problems.append("On-disk content leaf not indexed: %s" % rel)
         tmpl = ROOT / "library" / td / "Templates"
@@ -223,7 +225,9 @@ def check_index_vs_disk():
             for top in tmpl.iterdir():
                 if not top.is_dir():
                     continue
-                rel = str(top).replace(str(ROOT) + "/", "")
+                rel = top.relative_to(ROOT).as_posix()
+                if rel.startswith("library/"):
+                    rel = rel[len("library/"):]
                 # Indexed if it's a family path or any variant path starts with it.
                 covered = (rel in indexed_families
                            or rel in indexed
