@@ -25,7 +25,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 INDEX = ROOT / "snippets-index.json"
 
 REACT = "React"
@@ -378,7 +378,7 @@ def build_index():
     for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
                            (REACT, "React")):
         for category, type_val, is_template in _trees_for(tech):
-            tree = ROOT / root_dir / category
+            tree = ROOT / "library" / root_dir / category
             if not tree.exists():
                 continue
             for top in sorted(tree.iterdir()):
@@ -404,8 +404,8 @@ def build_index():
 
     # Technologies list.
     techs = []
-    for name, path in ((TAILWIND, "Tailwind/"), (VANILLA, "Vanilla/"),
-                       (REACT, "React/")):
+    for name, path in ((TAILWIND, "library/Tailwind/"), (VANILLA, "library/Vanilla/"),
+                       (REACT, "library/React/")):
         fam_names = [f["name"] for f in new_families if f["tech"] == name]
         techs.append({"name": name, "path": path, "status": "active",
                       "families": fam_names})
@@ -488,7 +488,7 @@ def validate(data, families):
     for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
                            (REACT, "React")):
         for category, _type, _is_template in _trees_for(tech):
-            tree = ROOT / root_dir / category
+            tree = ROOT / "library" / root_dir / category
             if not tree.exists():
                 continue
             for leaf, meta in list_leaves_under(tree, tech):
@@ -504,7 +504,7 @@ def validate(data, families):
 
     # 4. No stale Utilities/Resources references; /Sections/ is only valid
     #    under Tailwind/Sections/ or Vanilla/Sections/.
-    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/", "React/Sections/")
+    valid_sections = ("library/Tailwind/Sections/", "library/Vanilla/Sections/", "library/React/Sections/")
     for f in families:
         for token in ("/Utilities/", "/Resources/"):
             if token in f["path"]:
@@ -530,7 +530,7 @@ def validate(data, families):
     #    agent instructions (the universal template requirement).
     for tech, root_dir in ((TAILWIND, "Tailwind"), (VANILLA, "Vanilla"),
                            (REACT, "React")):
-        tmpl = ROOT / root_dir / "Templates"
+        tmpl = ROOT / "library" / root_dir / "Templates"
         if not tmpl.exists():
             continue
         for top in tmpl.iterdir():

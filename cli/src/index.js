@@ -5,10 +5,12 @@
  *
  * Usage:
  *   npx devsnips add <path>
+ *   npx devsnips init
  *   npx devsnips --help
  */
 
 const { runAddCommand } = require('./commands/add.js');
+const { runInitCommand } = require('./commands/init.js');
 const { showHelp, printVersion } = require('./utils/errors.js');
 
 const args = process.argv.slice(2);
@@ -59,11 +61,17 @@ switch (command) {
     break;
   }
 
+  case 'init': {
+    runInitCommand();
+    break;
+  }
+
   default:
     console.error(`Unknown command: ${command}`);
     console.error('');
     console.error('Available commands:');
-    console.error('  add    Install a component from DevSnips');
+    console.error('  add    Install a component/resource from DevSnips');
+    console.error('  init   Initialize the DevSnips project context');
     console.error('');
     console.error('Run "npx devsnips --help" for more information.');
     process.exit(1);

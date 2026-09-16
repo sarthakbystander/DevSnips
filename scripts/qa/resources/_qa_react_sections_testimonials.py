@@ -35,7 +35,7 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Sections/Testimonials/"
 SLUGS = [
     "minimal",
@@ -67,14 +67,14 @@ def static_checks() -> None:
     emoji = re.compile(
         "[\U0001F000-\U0001FAFF☀-➿\U00020000-\U0002FFFF]", re.UNICODE
     )
-    family_dir = ROOT / "React" / "Sections" / "Testimonials"
+    family_dir = ROOT / "library" / "React" / "Sections" / "Testimonials"
     dirs = sorted(p.name for p in family_dir.iterdir() if p.is_dir())
     check(
         dirs == sorted(SLUGS),
         f"family contains exactly the four direction variants, got {dirs}",
     )
     for slug in SLUGS:
-        folder = ROOT / "React" / "Sections" / "Testimonials" / slug
+        folder = ROOT / "library" / "React" / "Sections" / "Testimonials" / slug
         files = sorted(p.name for p in folder.iterdir() if p.is_file())
         check(
             files == ["code.tsx", "metadata.json", "preview.html"],

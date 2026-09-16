@@ -26,8 +26,8 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent
-TEXTAREAS = ROOT / "React/Components/Textareas"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+TEXTAREAS = ROOT / "library/React/Components/Textareas"
 BASE = "http://localhost:8765/React/Components/"
 
 SLUGS = [

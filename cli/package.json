@@ -1,13 +1,13 @@
 {
   "name": "devsnips",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "DevSnips CLI - Install UI components from the DevSnips library",
   "main": "src/index.js",
   "bin": {
     "devsnips": "./src/index.js"
   },
   "scripts": {
-    "test": "node test/downloader.test.js && node src/index.js --help"
+    "test": "node test/downloader.test.js && node test/config.test.js && node test/agents.test.js && node test/context.test.js && node test/init.test.js && node src/index.js --help"
   },
   "keywords": [
     "devsnips",

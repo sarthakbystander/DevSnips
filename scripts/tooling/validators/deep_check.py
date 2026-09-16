@@ -17,7 +17,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 REACT = "React"
 TAILWIND = "Tailwind CSS"
 VANILLA = "Vanilla HTML/CSS/JS"
@@ -65,7 +65,7 @@ def check_component_section_files():
     """Enforce required files for Components and Sections."""
     for tech, tech_dir in TECH_DIRS.items():
         for bucket in ("Components", "Sections"):
-            base = ROOT / tech_dir / bucket
+            base = ROOT / "library" / tech_dir / bucket
             if not base.exists():
                 continue
             for mf in base.rglob("metadata.json"):
@@ -103,7 +103,7 @@ def check_component_section_files():
 def check_template_files():
     """Enforce required files for Templates."""
     for tech, tech_dir in TECH_DIRS.items():
-        tmpl = ROOT / tech_dir / "Templates"
+        tmpl = ROOT / "library" / tech_dir / "Templates"
         if not tmpl.exists():
             continue
         for top in tmpl.iterdir():

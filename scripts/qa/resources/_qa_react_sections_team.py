@@ -19,7 +19,7 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://127.0.0.1:8765/React/Sections/Team/"
 SLUGS = ["minimal", "dark-premium", "bento", "neo-brutalist"]
 DIRECTIONS = {
@@ -52,7 +52,7 @@ def static_checks() -> None:
     emoji = re.compile(
         "[\U0001F000-\U0001FAFF☀-➿\U00020000-\U0002FFFF]", re.UNICODE
     )
-    family_dir = ROOT / "React" / "Sections" / "Team"
+    family_dir = ROOT / "library" / "React" / "Sections" / "Team"
     dirs = sorted(p.name for p in family_dir.iterdir() if p.is_dir())
     check(dirs == sorted(SLUGS), f"exactly four variant directories, got {dirs}")
 

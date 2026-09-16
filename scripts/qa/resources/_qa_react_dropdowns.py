@@ -37,8 +37,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DROPDOWNS = ROOT / "React/Components/Dropdowns"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+DROPDOWNS = ROOT / "library/React/Components/Dropdowns"
 SLUGS = [
     "dropdown-menu",
     "dropdown-menu-with-icons",

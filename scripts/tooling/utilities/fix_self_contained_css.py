@@ -17,8 +17,8 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-SEC = ROOT / "Tailwind" / "Sections"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+SEC = ROOT / "library" / "Tailwind" / "Sections"
 
 MARKER = "/* DevSnips style-helper classes (self-contained snippet) */"
 

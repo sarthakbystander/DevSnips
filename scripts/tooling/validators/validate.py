@@ -26,7 +26,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 INDEX = ROOT / "snippets-index.json"
 REACT = "React"
 TAILWIND = "Tailwind CSS"
@@ -83,7 +83,7 @@ ALLOWED_DIRS = {
 
 def check_architecture():
     for tech_dir in ("Vanilla", "Tailwind", "React"):
-        td = ROOT / tech_dir
+        td = ROOT / "library" / tech_dir
         if not td.exists():
             continue
         allowed = ALLOWED_DIRS.get(tech_dir, {"Components", "Templates"})
@@ -97,7 +97,7 @@ def check_architecture():
     # every technology.
     for forbidden in ("Utilities", "Resources", "Snippets", "Pages", "Tools"):
         for tech_dir in ("Vanilla", "Tailwind", "React"):
-            p = ROOT / tech_dir / forbidden
+            p = ROOT / "library" / tech_dir / forbidden
             if p.exists():
                 problems.append("Architecture: forbidden standalone dir %s" % p)
 
@@ -108,7 +108,7 @@ def check_metadata_validity():
         # Every technology has three content-type buckets.
         buckets = ["Components", "Sections", "Templates"]
         for bucket in buckets:
-            base = ROOT / td / bucket
+            base = ROOT / "library" / td / bucket
             if not base.exists():
                 continue
             for mf in base.rglob("metadata.json"):
@@ -180,7 +180,7 @@ def check_index_vs_disk():
     for fam in idx["families"]:
         for v in fam.get("variants", []):
             variant_paths.append(v["path"])
-            vp = ROOT / v["path"].rstrip("/")
+            vp = ROOT / "library" / v["path"].rstrip("/")
             if not (vp / "metadata.json").exists():
                 problems.append("Index variant missing on disk: %s" % v["path"])
     dup = {p for p in variant_paths if variant_paths.count(p) > 1}
@@ -208,22 +208,26 @@ def check_index_vs_disk():
     indexed_families = {fam["path"].rstrip("/") for fam in idx["families"]}
     for tech, td in TECH_DIRS:
         # Components AND sections are both leaf-bearing content trees.
-        content_trees = [ROOT / td / "Components", ROOT / td / "Sections"]
+        content_trees = [ROOT / "library" / td / "Components", ROOT / "library" / td / "Sections"]
         for comp in content_trees:
             if not comp.exists():
                 continue
             for mf in comp.rglob("metadata.json"):
                 leaf = mf.parent
                 if is_leaf(leaf, tech):
-                    rel = str(leaf).replace(str(ROOT) + "/", "")
+                    rel = leaf.relative_to(ROOT).as_posix()
+                    if rel.startswith("library/"):
+                        rel = rel[len("library/"):]
                     if rel not in indexed:
                         problems.append("On-disk content leaf not indexed: %s" % rel)
-        tmpl = ROOT / td / "Templates"
+        tmpl = ROOT / "library" / td / "Templates"
         if tmpl.exists():
             for top in tmpl.iterdir():
                 if not top.is_dir():
                     continue
-                rel = str(top).replace(str(ROOT) + "/", "")
+                rel = top.relative_to(ROOT).as_posix()
+                if rel.startswith("library/"):
+                    rel = rel[len("library/"):]
                 # Indexed if it's a family path or any variant path starts with it.
                 covered = (rel in indexed_families
                            or rel in indexed
@@ -236,7 +240,7 @@ def check_template_agents():
     """Every template under `<Tech>/Templates/` must ship an AGENTS.md with
     template-specific instructions for AI coding agents."""
     for tech, td in TECH_DIRS:
-        tmpl = ROOT / td / "Templates"
+        tmpl = ROOT / "library" / td / "Templates"
         if not tmpl.exists():
             continue
         for top in tmpl.iterdir():

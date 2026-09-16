@@ -17,10 +17,10 @@ from .builders_logos import logos
 from .builders_newsletter import newsletter
 from .builders_404 import error_page
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 # Generated section-style content lives under Tailwind/Sections/ — Sections are a
 # first-class content type alongside Components/ and Templates/ in the Tailwind IA.
-SECTIONS = ROOT / "Tailwind" / "Sections"
+SECTIONS = ROOT / "library" / "Tailwind" / "Sections"
 
 BUILDERS = [
     ("Testimonials", testimonials),

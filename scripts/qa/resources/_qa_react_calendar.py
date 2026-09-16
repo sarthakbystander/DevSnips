@@ -39,8 +39,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-CALENDAR = ROOT / "React/Components/Calendar"
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
+CALENDAR = ROOT / "library/React/Components/Calendar"
 ESBUILD = Path("/tmp/dsbuild/node_modules/.bin/esbuild")
 DSBUILD = Path("/tmp/dsbuild")
 SLUGS = [

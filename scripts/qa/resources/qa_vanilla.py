@@ -33,11 +33,11 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 # Vanilla has three content types (Components / Sections / Templates); the
 # quality bar covers the two leaf-bearing trees (Components + Sections).
-COMP = ROOT / "Vanilla" / "Components"
-SECTIONS = ROOT / "Vanilla" / "Sections"
+COMP = ROOT / "library" / "Vanilla" / "Components"
+SECTIONS = ROOT / "library" / "Vanilla" / "Sections"
 SCAN_ROOTS = [COMP, SECTIONS]
 
 # Families where keyboard/ARIA/reduced-motion are required (interactive).

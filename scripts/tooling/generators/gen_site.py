@@ -32,7 +32,7 @@ import json, os, re, shutil, html as htmllib
 # CWD and any machine: script lives in <repo>/_gen/, site is emitted to <repo>/site/.
 GEN_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(GEN_DIR)
-SITE = os.path.join(ROOT, "site")
+SITE = os.path.join(ROOT, "website")
 TECHS = ["Tailwind", "Vanilla", "React"]
 
 def rd(path):
@@ -398,7 +398,7 @@ def build_home(data):
     <p class="mt-4 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 sm:text-lg">Browse by technology. Every component, section, and template has a real, working detail page: live preview, copy-paste code, metadata, and documentation.</p>
     <div class="mt-6 flex flex-wrap gap-3">
       <a href="docs/index.html" class="rounded-lg bg-slate-500 px-4 py-2 text-sm font-bold text-white hover:bg-slate-600">Read the docs</a>
-      <a href="Tailwind/index.html" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Browse Tailwind</a>
+      <a href="library/Tailwind/index.html" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-bold hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Browse Tailwind</a>
     </div>
   </section>
   <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6" aria-label="Technologies">

@@ -33,7 +33,7 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Sections/Comparison/"
 SLUGS = ["minimal", "dark-premium", "bento", "neo-brutalist"]
 WIDTHS = [320, 375, 768, 1280, 1440]
@@ -59,7 +59,7 @@ def static_checks() -> None:
         "[\U0001F000-\U0001FAFF☀-➿\U00020000-\U0002FFFF]", re.UNICODE
     )
     hex_lit = re.compile(r"#[0-9a-fA-F]{3,8}\b")
-    root = ROOT / "React" / "Sections" / "Comparison"
+    root = ROOT / "library" / "React" / "Sections" / "Comparison"
     check(
         sorted(p.name for p in root.iterdir() if p.is_dir()) == sorted(SLUGS),
         "exact four direction folders",
