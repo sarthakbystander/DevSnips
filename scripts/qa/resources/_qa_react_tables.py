@@ -10,8 +10,8 @@ Verifies behavior-critical guarantees (not cosmetics):
   - shared core: every derived code.tsx is identical to the reference except
     its header doc comment; TSX/JSX export sets + per-component prop
     signatures match
-  - generator: `_gen_react_tables.py --check` reports no drift;
-    `scripts/validate.py` passes
+  - generator: `scripts/tooling/generators/_gen_react_tables.py --check` reports no drift;
+    `scripts/tooling/validators/validate.py` passes
   - semantics: real table elements everywhere (table/caption/thead/tbody/
     tfoot/tr/th[scope=col]/td), no role=grid re-declaration, no div-based
     fake tables, no nested interactive elements
@@ -228,18 +228,22 @@ def export_parity_checks():
 
 def generator_checks():
     print("== generator + repo validation ==")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_tables.py"
+    if _gen_script.exists():
+        r = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            cwd=ROOT, capture_output=True, text=True,
+        )
+        check(r.returncode == 0 and "up to date" in r.stdout,
+              "generator --check reports no drift")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_tables.py" % _gen_script.name)
     r = subprocess.run(
-        [sys.executable, "_gen_react_tables.py", "--check"],
-        cwd=ROOT, capture_output=True, text=True,
-    )
-    check(r.returncode == 0 and "up to date" in r.stdout,
-          "generator --check reports no drift")
-    r = subprocess.run(
-        [sys.executable, "scripts/validate.py"],
+        [sys.executable, "scripts/tooling/validators/validate.py"],
         cwd=ROOT, capture_output=True, text=True,
     )
     check(r.returncode == 0 and "VALIDATION PASSED" in r.stdout,
-          "scripts/validate.py passes")
+          "validate.py passes")
 
 
 def shared_checks(page, slug):

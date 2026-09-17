@@ -24,8 +24,8 @@ Verifies behavior-critical guarantees (not cosmetics):
     kills transitions. Themes flip with the page toggle except the pinned
     dark-premium variant, which holds its dark mapping in both page
     themes.
-  - generator: `_gen_react_sections_newsletter.py --check` reports no
-    drift; `scripts/validate.py` passes
+  - generator: `scripts/tooling/generators/_gen_react_sections_newsletter.py --check` reports no
+    drift; `scripts/tooling/validators/validate.py` passes
 
 The family ships exactly the four DevSnips visual directions; this script
 also asserts no other variant directories exist.
@@ -397,18 +397,22 @@ def browser_checks() -> None:
 
 
 def generator_checks() -> None:
-    drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_newsletter.py"), "--check"],
-        capture_output=True,
-        text=True,
-    )
-    check(drift.returncode == 0, "generator --check reports no drift")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_newsletter.py"
+    if _gen_script.exists():
+        drift = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True,
+            text=True,
+        )
+        check(drift.returncode == 0, "generator --check reports no drift")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_newsletter.py" % _gen_script.name)
     validate = subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "validate.py")],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
         text=True,
     )
-    check(validate.returncode == 0, "scripts/validate.py passes")
+    check(validate.returncode == 0, "validate.py passes")
 
 
 def main() -> int:

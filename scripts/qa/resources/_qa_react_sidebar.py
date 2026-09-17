@@ -13,7 +13,7 @@ Static checks (per variant):
     emoji, no neon/purple vocabulary in code.tsx or preview.html
   - TSX/JSX export parity (19 exports) + prop-name parity per export
   - shared-core equality across all 12 variants (header-comment-neutralized)
-  - generator --check (no drift) + scripts/validate.py gates
+  - generator --check (no drift) + scripts/tooling/validators/validate.py gates
 
 Browser checks (Playwright, per preview):
   - 0 console errors, 0 page errors
@@ -245,18 +245,22 @@ def static_checks():
         check(cores[slug] == ref, f"{slug}: shared core identical to reference")
 
     # Generator drift gate.
-    gen = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sidebar.py"), "--check"],
-        capture_output=True, text=True, cwd=ROOT,
-    )
-    check(gen.returncode == 0, f"generator --check clean ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sidebar.py"
+    if _gen_script.exists():
+        gen = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True, text=True, cwd=ROOT,
+        )
+        check(gen.returncode == 0, f"generator --check clean ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_sidebar.py" % _gen_script.name)
 
     # Repository validator gate.
     val = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/validate.py")],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True, text=True, cwd=ROOT,
     )
-    check(val.returncode == 0, f"scripts/validate.py passes ({val.stdout.strip()[-160:]})")
+    check(val.returncode == 0, f"validate.py passes ({val.stdout.strip()[-160:]})")
 
 
 def open_preview(page, slug, width=1280, hash_route=None):

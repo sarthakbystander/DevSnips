@@ -19,7 +19,7 @@ This script:
      valid on-disk leaf must be indexed. Reports mismatches.
   4. Recomputes stats and technologies[].families from the final family set.
 
-Run:  python3 -m _gen.rebuild_index
+Run:  python3 scripts/tooling/indexing/rebuild_index.py
 """
 import json
 import re
@@ -51,9 +51,23 @@ def _has_child_meta(folder: Path) -> bool:
     return False
 
 
+def rel_path(p: Path) -> str:
+    """POSIX repo-relative path for a path under ROOT, without the `library/`
+    prefix — index paths are tech-first (e.g. `Tailwind/Components/...`),
+    matching snippets-index.json and validate.py.
+
+    `str(p).replace(str(ROOT) + "/", "")` is NOT portable: on Windows str(Path)
+    uses backslashes, so the replace never matches and the index would be
+    written with absolute, machine-specific paths.
+    """
+    rel = p.relative_to(ROOT).as_posix()
+    if rel.startswith("library/"):
+        rel = rel[len("library/"):]
+    return rel
+
+
 def is_leaf(folder: Path, tech: str) -> bool:
     """A leaf content item.
-
     Tailwind leaf: a folder containing code.html + preview.html + metadata.json
     whose direct children do NOT include another metadata.json-bearing folder.
     Vanilla leaf: a folder containing metadata.json whose direct children do
@@ -291,13 +305,13 @@ def build_index():
         if not leaves:
             return
         leaves = sorted(leaves, key=lambda lm: lm[0].name.lower())
-        rel = str(family_dir).replace(str(ROOT) + "/", "")
+        rel = rel_path(family_dir)
         fam_path = rel + "/"
         old_fam = lookup_old_fam(fam_path)
 
         variants = []
         for leaf, meta in leaves:
-            leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
+            leaf_rel = rel_path(leaf) + "/"
             variants.append(make_variant(leaf, meta, type_val, leaf_rel))
 
         # Family display name resolution order:
@@ -457,7 +471,9 @@ def validate(data, families):
     for f in families:
         tech = f["tech"]
         for v in f["variants"]:
-            vpath = ROOT / v["path"].rstrip("/")
+            # Index paths are tech-first (Tailwind/...); content lives under
+            # library/ on disk.
+            vpath = ROOT / "library" / v["path"].rstrip("/")
             mpath = vpath / "metadata.json"
             if not mpath.exists():
                 problems.append(f"Indexed variant missing on disk: {v['path']}")
@@ -492,7 +508,7 @@ def validate(data, families):
             if not tree.exists():
                 continue
             for leaf, meta in list_leaves_under(tree, tech):
-                leaf_rel = str(leaf).replace(str(ROOT) + "/", "") + "/"
+                leaf_rel = rel_path(leaf) + "/"
                 if norm(leaf_rel) not in indexed:
                     problems.append(f"On-disk leaf NOT indexed: {leaf_rel}")
 
@@ -503,8 +519,8 @@ def validate(data, families):
         problems.append(f"Duplicate family path: {d}")
 
     # 4. No stale Utilities/Resources references; /Sections/ is only valid
-    #    under Tailwind/Sections/ or Vanilla/Sections/.
-    valid_sections = ("library/Tailwind/Sections/", "library/Vanilla/Sections/", "library/React/Sections/")
+    #    under a technology's Sections/ tree (index paths are tech-first).
+    valid_sections = ("Tailwind/Sections/", "Vanilla/Sections/", "React/Sections/")
     for f in families:
         for token in ("/Utilities/", "/Resources/"):
             if token in f["path"]:

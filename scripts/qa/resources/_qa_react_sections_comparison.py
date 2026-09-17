@@ -15,8 +15,8 @@ Verifies behavior-critical guarantees (not cosmetics):
     page themes
   - focus: when interactive controls exist, keyboard focus can land on them
   - motion: prefers-reduced-motion disables transitions when interactive
-  - generator: `_gen_react_sections_comparison.py --check` reports no drift;
-    `scripts/validate.py` passes
+  - generator: `scripts/tooling/generators/_gen_react_sections_comparison.py --check` reports no drift;
+    `scripts/tooling/validators/validate.py` passes
 
 Run from the repo root with a static server on :8765:
 
@@ -246,21 +246,25 @@ def browser_checks() -> None:
 
 
 def generator_checks() -> None:
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_comparison.py"
+    if _gen_script.exists():
+        r = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True,
+            text=True,
+        )
+        check(
+            r.returncode == 0,
+            "generator --check reports no stale embedded sources",
+        )
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_comparison.py" % _gen_script.name)
     r = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_comparison.py"), "--check"],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
         text=True,
     )
-    check(
-        r.returncode == 0,
-        "generator --check reports no stale embedded sources",
-    )
-    r = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/validate.py")],
-        capture_output=True,
-        text=True,
-    )
-    check(r.returncode == 0, "scripts/validate.py passes")
+    check(r.returncode == 0, "validate.py passes")
 
 
 def main() -> int:

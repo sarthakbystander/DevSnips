@@ -33,7 +33,13 @@ def patch_heart(text):
 def patch_bento_grid(text):
     """ratings key: 4 unfilled %s in the featured rating panel."""
     s = "bento-grid"
-    from _gen.helpers import TOKENS, star_row
+    try:
+        from _gen.helpers import TOKENS, star_row
+    except ImportError:
+        print("[bento-grid] token lookup unavailable (_gen.helpers is not "
+              "importable from this checkout) - %s placeholder patch skipped",
+              file=sys.stderr)
+        return text
     b = TOKENS[s]
     old = (
         '<div class="%s p-8"><div class="flex items-end gap-3">'
@@ -55,7 +61,13 @@ def patch_bento_grid(text):
 def patch_dark_premium(text):
     """split key: 8 unfilled %s in the featured spotlight panel."""
     s = "dark-premium"
-    from _gen.helpers import TOKENS, star_row, avatar
+    try:
+        from _gen.helpers import TOKENS, star_row, avatar
+    except ImportError:
+        print("[dark-premium] token lookup unavailable (_gen.helpers is not "
+              "importable from this checkout) - %s placeholder patch skipped",
+              file=sys.stderr)
+        return text
     b = TOKENS[s]
     persons = [
         ("Maya Chen", "Head of Design", "Northbeam"),
@@ -100,7 +112,19 @@ def patch_dark_premium(text):
 def patch_vercel(text):
     """carousel key: 2 unfilled %s in the outer carousel panel."""
     s = "vercel"
-    from _gen.helpers import TOKENS
+    try:
+        from _gen.helpers import TOKENS
+    except ImportError:
+        # The section-style generator package no longer lives at repo root
+        # (it moved to scripts/tooling/generators/, which this repair script
+        # must not import). Without the token table the %s placeholder patch
+        # cannot be computed here: report it loudly instead of crashing.
+        # The leak verification at the end of main() still fails the run if
+        # any `%s` remains, so nothing is silently missed.
+        print("[vercel] token lookup unavailable (_gen.helpers is not "
+              "importable from this checkout) - %s placeholder patch skipped",
+              file=sys.stderr)
+        return text
     b = TOKENS[s]
     old = '<div class="%s %s overflow-hidden p-8 sm:p-12">'
     new = f'<div class="{b["surface"]} {b["hover_card"]} overflow-hidden p-8 sm:p-12">'

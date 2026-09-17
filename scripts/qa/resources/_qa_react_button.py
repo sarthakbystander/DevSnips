@@ -9,6 +9,7 @@ outline, disabled opacity, and a screenshot to /tmp.
 """
 import asyncio
 import sys
+import tempfile
 from pathlib import Path
 from playwright.async_api import async_playwright
 
@@ -72,8 +73,8 @@ async def main(slug):
             op = await d.first.evaluate("e => getComputedStyle(e).opacity")
             if float(op) > 0.9:
                 fails.append(f"disabled opacity {op} too high")
-        # screenshot
-        out = Path(f"/tmp/qa_{slug}.png")
+        # screenshot (portable temp dir — /tmp does not exist on Windows)
+        out = Path(tempfile.gettempdir()) / ("qa_%s.png" % slug)
         await page.screenshot(path=str(out), full_page=True)
         if errors:
             fails.extend(errors[:6])

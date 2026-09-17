@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>devsnips skill — eval review</title>
+<style>
+  :root {
+    --bg: #0f1115; --surface: #171a21; --border: #2a2e37;
+    --text: #e6e8eb; --muted: #8b93a1;
+    --pass: #3fb950; --partial: #d29922; --fail: #f85149;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font: 14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; }
+  header { padding:24px 32px; border-bottom:1px solid var(--border); }
+  h1 { margin:0 0 4px; font-size:18px; }
+  .meta { color:var(--muted); font-size:13px; }
+  main { padding:24px 32px; max-width:1100px; margin:0 auto; }
+  .cards { display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px 20px; min-width:140px; }
+  .card .num { font-size:24px; font-weight:600; }
+  .card .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  table { width:100%; border-collapse:collapse; margin-bottom:32px; background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  th, td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); font-size:13px; }
+  th { color:var(--muted); font-weight:500; text-transform:uppercase; font-size:11px; letter-spacing:.04em; }
+  tr:last-child td { border-bottom:none; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:99px; font-size:12px; font-weight:600; }
+  .badge.pass { background:rgba(63,185,80,.15); color:var(--pass); }
+  .badge.partial { background:rgba(210,153,34,.15); color:var(--partial); }
+  .badge.fail { background:rgba(248,81,73,.15); color:var(--fail); }
+  .weak { color:var(--muted); font-size:12px; }
+  h2 { font-size:14px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 12px; }
+  .bar-bg { background:#252932; border-radius:4px; height:6px; width:120px; overflow:hidden; display:inline-block; vertical-align:middle; }
+  .bar-fill { background:var(--pass); height:100%; }
+</style>
+</head>
+<body>
+<header>
+  <h1>devsnips skill — eval review</h1>
+  <div class="meta" id="meta"></div>
+</header>
+<main>
+  <div class="cards" id="cards"></div>
+  <h2>Per-criterion mean</h2>
+  <table id="criteria-table"><thead><tr><th>#</th><th>Criterion</th><th>Mean</th><th></th></tr></thead><tbody></tbody></table>
+  <h2>Scenario results</h2>
+  <table id="scenario-table"><thead><tr><th>Scenario</th><th>Verdict</th><th>%</th><th>Weaknesses</th></tr></thead><tbody></tbody></table>
+</main>
+<script>
+const EVAL_DATA = {"run": {"run_id": "2026-09-16T00:00:00Z", "skill_version": "1.0.1", "results": [{"scenario_id": "react-ts-modal", "verdict": "fail", "percent": 45.8, "hard_failure": true, "scores": {"1": 2, "2": 2, "3": 2, "4": 1, "5": 0, "6": 2, "7": 2, "8": 1, "9": 0, "10": 1, "11": 2, "12": 1}, "weaknesses": ["Criterion 5: claimed installation success but no verification steps shown in transcript", "Criterion 9: no viewport checks performed"]}, {"scenario_id": "tailwind-pricing-section", "verdict": "pass", "percent": 91.7, "hard_failure": false, "scores": {"1": 2, "2": 2, "3": 2, "4": 2, "5": 2, "6": 2, "7": 2, "8": 2, "9": 2, "10": 2, "11": 2, "12": 1}, "weaknesses": ["Criterion 12: minor registry hiccup handled but not explicitly logged"]}, {"scenario_id": "vanilla-navbar", "verdict": "partial", "percent": 75.0, "hard_failure": false, "scores": {"1": 1, "2": 2, "3": 2, "4": 2, "5": 2, "6": 1, "7": 1, "8": 2, "9": 2, "10": 1, "11": 2, "12": 1}, "weaknesses": ["Criterion 1: browsed filenames before checking snippets-index.json", "Criterion 6: stated a variant count from memory"]}, {"scenario_id": "react-dashboard-template", "verdict": "partial", "percent": 79.2, "hard_failure": false, "scores": {"1": 2, "2": 2, "3": 1, "4": 1, "5": 2, "6": 2, "7": 2, "8": 1, "9": 1, "10": 2, "11": 2, "12": 2}, "weaknesses": ["Criterion 9: mobile width not checked for the copied dashboard template"]}]}, "report": {"run_id": "2026-09-16T00:00:00Z", "skill_version": "1.0.1", "n_scenarios": 4, "pass_rate": 0.5, "mean_percent": 78.1, "hard_failures": 1, "criterion_means": {"1": 1.75, "2": 2.0, "3": 1.75, "4": 1.5, "5": 1.0, "6": 1.75, "7": 1.75, "8": 1.5, "9": 1.25, "10": 1.5, "11": 2.0, "12": 1.75}, "worst_criteria": ["5", "9"], "worst_scenarios": ["react-ts-modal"]}};
+const CRITERION_NAMES = {
+  "1":"Registry-first discovery","2":"Resource-type boundary","3":"Stack match",
+  "4":"Selection ranked properly","5":"CLI install fully verified","6":"No fabrication",
+  "7":"Minimal integration","8":"Accessibility preserved","9":"Responsive checked",
+  "10":"Verification exercised real behavior","11":"Freshness discipline","12":"Failure handling"
+};
+
+function el(tag, props={}, ...children){
+  const e = document.createElement(tag);
+  Object.entries(props).forEach(([k,v]) => k==="text" ? e.textContent=v : e.setAttribute(k,v));
+  children.forEach(c => e.appendChild(c));
+  return e;
+}
+
+function render(){
+  if (typeof EVAL_DATA === "undefined") {
+    document.getElementById("meta").textContent = "No data injected — open this file via generate_review.py, not directly.";
+    return;
+  }
+  const { run, report } = EVAL_DATA;
+
+  document.getElementById("meta").textContent =
+    `run ${report.run_id} · skill v${report.skill_version} · ${report.n_scenarios} scenarios`;
+
+  const cards = document.getElementById("cards");
+  const cardData = [
+    ["Pass rate", (report.pass_rate*100).toFixed(0) + "%"],
+    ["Mean score", report.mean_percent + "%"],
+    ["Hard failures", report.hard_failures],
+    ["Scenarios", report.n_scenarios],
+  ];
+  cardData.forEach(([label, num]) => {
+    cards.appendChild(el("div", {class:"card"},
+      el("div", {class:"num", text:num}),
+      el("div", {class:"label", text:label})
+    ));
+  });
+
+  const ctbody = document.querySelector("#criteria-table tbody");
+  Object.entries(report.criterion_means)
+    .sort((a,b) => Number(a[0]) - Number(b[0]))
+    .forEach(([k, v]) => {
+      const isWorst = report.worst_criteria.includes(k);
+      const tr = el("tr");
+      tr.appendChild(el("td", {text:k}));
+      tr.appendChild(el("td", {text: CRITERION_NAMES[k] || "?"}));
+      tr.appendChild(el("td", {text: v + " / 2" + (isWorst ? " ⚠️" : "")}));
+      const barBg = el("div", {class:"bar-bg"});
+      const fill = el("div", {class:"bar-fill", style:`width:${(v/2*100).toFixed(0)}%; background:${isWorst ? "#f85149" : "#3fb950"}`});
+      barBg.appendChild(fill);
+      const barTd = el("td"); barTd.appendChild(barBg);
+      tr.appendChild(barTd);
+      ctbody.appendChild(tr);
+    });
+
+  const stbody = document.querySelector("#scenario-table tbody");
+  run.results.forEach(r => {
+    const tr = el("tr");
+    tr.appendChild(el("td", {text: r.scenario_id}));
+    const badgeTd = el("td");
+    badgeTd.appendChild(el("span", {class:`badge ${r.verdict}`, text:r.verdict}));
+    tr.appendChild(badgeTd);
+    tr.appendChild(el("td", {text: r.percent + "%"}));
+    tr.appendChild(el("td", {class:"weak", text: (r.weaknesses||[]).slice(0,2).join("; ") || "—"}));
+    stbody.appendChild(tr);
+  });
+}
+render();
+</script>
+</body>
+</html>

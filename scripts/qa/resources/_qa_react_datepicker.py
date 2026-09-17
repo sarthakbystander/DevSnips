@@ -1231,16 +1231,20 @@ def browser_checks():
 
 def process_checks():
     print("process checks")
-    gen = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_datepicker.py"), "--check"],
-        capture_output=True, text=True, cwd=str(ROOT),
-    )
-    check(gen.returncode == 0, f"generator --check drift-free ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_datepicker.py"
+    if _gen_script.exists():
+        gen = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True, text=True, cwd=str(ROOT),
+        )
+        check(gen.returncode == 0, f"generator --check drift-free ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_datepicker.py" % _gen_script.name)
     val = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/validate.py")],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True, text=True, cwd=str(ROOT),
     )
-    check(val.returncode == 0, f"scripts/validate.py passes ({val.stdout.strip()[-200:]} {val.stderr.strip()[-200:]})")
+    check(val.returncode == 0, f"validate.py passes ({val.stdout.strip()[-200:]} {val.stderr.strip()[-200:]})")
 
 
 def main():

@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Deep-check script enforcing required file sets per tech for Components and Sections.
 
-Components and Sections must ship a tech-specific minimum file set:
-  Tailwind Components/Sections: code.html, preview.html, metadata.json, README.md
+Components and Sections must ship a tech-specific minimum file set
+(docs/COMPONENT_STRUCTURE.md, "Standard files"):
+  Tailwind Components: code.html, preview.html, metadata.json, README.md
+  Tailwind Sections:   code.html, preview.html, metadata.json
+                       (README.md optional; must be non-empty when present)
   Vanilla Components/Sections: metadata.json (code files optional per content)
-  React Components/Sections: code.tsx, preview.html, metadata.json, README.md
+  React Components:    code.tsx, preview.html, metadata.json, README.md
+  React Sections:      code.tsx, preview.html, metadata.json
+                       (sections ship exactly these three files — no README)
 
 Templates ship their own requirements:
   Tailwind: preview.html + metadata.json only (full HTML/CSS/JS in code.html is optional)
@@ -54,7 +59,10 @@ def is_leaf(folder, tech_dir):
     if _has_child_meta(folder):
         return False
     if tech_dir == "Tailwind":
-        return (folder / "code.html").exists() and (folder / "preview.html").exists()
+        # Either file present makes this a content leaf (see validate.py):
+        # a variant missing exactly one of the pair is reported below rather
+        # than being silently treated as a grouping folder.
+        return (folder / "code.html").exists() or (folder / "preview.html").exists()
     if tech_dir == "React":
         return (folder / "code.tsx").exists() or (folder / "preview.html").exists()
     # Vanilla: any leaf with metadata.json and no child metadata
@@ -76,15 +84,29 @@ def check_component_section_files():
                 if "__error__" in meta:
                     problems.append(f"Invalid JSON: {mf}")
                     continue
-                # Tailwind Components/Sections require: code.html, preview.html, metadata.json, README.md
+                # Tailwind components require: code.html, preview.html,
+                # metadata.json, README.md. Tailwind sections require
+                # code.html + preview.html; a README is optional there but
+                # must be non-empty when present (docs/COMPONENT_STRUCTURE.md
+                # "Standard files" — README is required for component
+                # variants, not for sections).
                 if tech_dir == "Tailwind":
-                    for need in ("code.html", "preview.html", "README.md"):
+                    needs = ["code.html", "preview.html"]
+                    if bucket == "Components":
+                        needs.append("README.md")
+                    for need in needs:
                         if not (leaf / need).exists():
                             problems.append(
                                 f"Tailwind {bucket.lower()} missing {need}: {leaf}")
-                # React Components/Sections require: code.tsx, preview.html, metadata.json, README.md
+                # React components require: code.tsx, preview.html,
+                # metadata.json, README.md. React sections ship exactly
+                # code.tsx + preview.html + metadata.json (no README, no
+                # code.jsx parity file).
                 elif tech_dir == "React":
-                    for need in ("code.tsx", "preview.html", "README.md"):
+                    needs = ["code.tsx", "preview.html"]
+                    if bucket == "Components":
+                        needs.append("README.md")
+                    for need in needs:
                         if not (leaf / need).exists():
                             problems.append(
                                 f"React {bucket.lower()} missing {need}: {leaf}")
@@ -98,6 +120,12 @@ def check_component_section_files():
                     if not mf.exists():
                         problems.append(
                             f"Vanilla {bucket.lower()} missing metadata.json: {leaf}")
+                # An optional section README must still be useful when present.
+                if bucket == "Sections":
+                    readme = leaf / "README.md"
+                    if readme.exists() and not readme.read_text(encoding="utf-8").strip():
+                        problems.append(
+                            f"{tech_dir} section has empty README.md: {leaf}")
 
 
 def check_template_files():

@@ -16,8 +16,8 @@ Verifies behavior-critical guarantees (not cosmetics):
   - focus: keyboard focus shows a 2px focus-visible outline on interactive
     elements
   - motion: prefers-reduced-motion kills transitions
-  - generator: `_gen_react_sections_pricing.py --check` reports no drift;
-    `scripts/validate.py` passes
+  - generator: `scripts/tooling/generators/_gen_react_sections_pricing.py --check` reports no drift;
+    `scripts/tooling/validators/validate.py` passes
 
 Run from the repo root with a static server on :8765:
 
@@ -223,18 +223,22 @@ def browser_checks() -> None:
 
 
 def generator_checks() -> None:
-    drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_pricing.py"), "--check"],
-        capture_output=True,
-        text=True,
-    )
-    check(drift.returncode == 0, "generator --check reports no drift")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_pricing.py"
+    if _gen_script.exists():
+        drift = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True,
+            text=True,
+        )
+        check(drift.returncode == 0, "generator --check reports no drift")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_pricing.py" % _gen_script.name)
     validate = subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "validate.py")],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
         text=True,
     )
-    check(validate.returncode == 0, "scripts/validate.py passes")
+    check(validate.returncode == 0, "validate.py passes")
 
 
 def main() -> int:

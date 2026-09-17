@@ -61,9 +61,13 @@ def is_leaf(folder, tech):
         # Tailwind content folders ship code.html + preview.html (+ metadata).
         # Tailwind Templates are the exception: they have preview.html +
         # metadata.json (no code.html) and are indexed as single-variant
-        # families. The Buttons 3-level grouping folders have metadata.json but
-        # no code.html/preview.html, so they are correctly excluded as non-leaves.
-        return (folder / "code.html").exists() and (folder / "preview.html").exists()
+        # families (templates are handled outside this predicate). Either file
+        # present makes a Components/Sections folder a content leaf, so a
+        # variant missing exactly one of the pair is reported by the
+        # required-file checks instead of being silently treated as a grouping
+        # folder; folders with metadata.json but neither file (e.g. the
+        # Buttons 3-level grouping folders) stay non-leaves.
+        return (folder / "code.html").exists() or (folder / "preview.html").exists()
     if tech == REACT:
         # React components and sections ship code.tsx (+ code.jsx parity file
         # for components); React templates ship preview.html (full Vite/Next
@@ -282,8 +286,13 @@ def _run_qa():
     # not printed to keep validation output readable).
     """
     import subprocess
-    qa = ROOT / "scripts" / "qa_vanilla.py"
+    qa = ROOT / "scripts" / "qa" / "resources" / "qa_vanilla.py"
     if not qa.exists():
+        # The quality bar is a required gate: a missing scanner must never
+        # silently pass validation.
+        problems.append(
+            "Vanilla quality-bar scanner missing (expected %s)"
+            % qa.relative_to(ROOT))
         return 0
     r = subprocess.run(
         [sys.executable, str(qa), "--only-failures"],

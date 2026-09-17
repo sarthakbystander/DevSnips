@@ -224,19 +224,23 @@ def browser_checks() -> None:
 
 
 def generator_checks() -> None:
-    drift = subprocess.run(
-        [sys.executable, str(ROOT / "_gen_react_sections_team.py"), "--check"],
-        capture_output=True,
-        text=True,
-    )
-    check(drift.returncode == 0, "_gen_react_sections_team.py --check passes")
+    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_team.py"
+    if _gen_script.exists():
+        drift = subprocess.run(
+    [sys.executable, str(_gen_script), "--check"],
+            capture_output=True,
+            text=True,
+        )
+        check(drift.returncode == 0, "_gen_react_sections_team.py --check passes")
+    else:
+        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_team.py" % _gen_script.name)
 
     validate = subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "validate.py")],
+        [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
         text=True,
     )
-    check(validate.returncode == 0, "scripts/validate.py passes")
+    check(validate.returncode == 0, "validate.py passes")
 
 
 def main() -> int:
