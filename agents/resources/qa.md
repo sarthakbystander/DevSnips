@@ -21,8 +21,9 @@ A second, more granular checker exists:
 python scripts/tooling/validators/deep_check.py
 ```
 
-Implementation: `scripts/tooling/validators/deep_check.py`. Its docstring calls itself "the
-basis for validate.py's deep checks". It enforces per-tech file sets and is stricter about
+Implementation: `scripts/tooling/validators/deep_check.py`. It is a standalone, stricter
+file-set checker that runs alongside `validate.py` (it is **not** invoked by `validate.py`'s
+`main()`). It enforces per-tech file sets and is stricter about
 `README.md` and `code.jsx` in places where `validate.py` is not.
 
 ## Validation layers

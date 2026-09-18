@@ -22,9 +22,9 @@ judgment and are handled manually for interactive families.
 
 Idempotent: re-running is a no-op on already-fixed files.
 
-Run:  DRY_RUN=1 python3 -m _gen.fix_quality_bar   (preview)
-      python3 -m _gen.fix_quality_bar              (apply)
-Then: python3 scripts/qa_vanilla.py
+Run:  DRY_RUN=1 python3 scripts/tooling/utilities/fix_quality_bar.py   (preview)
+      python3 scripts/tooling/utilities/fix_quality_bar.py              (apply)
+Then: python3 scripts/qa/resources/qa_vanilla.py
 """
 import os
 import re

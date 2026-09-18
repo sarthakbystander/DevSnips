@@ -156,24 +156,18 @@ file, distinct from the root `AGENTS.md` and from `agents/resources/`.
 
 ## Known stale references (documented, deliberately not silently changed)
 
-1. Root `AGENTS.md` describes the pre-`library/` layout (`Tailwind/Components/…`,
-   `_gen/rebuild_index.py`, `scripts/validate.py`, `Vanilla/Components/tokens.css`) and
-   carries inventory counts that no longer match `snippets-index.json`.
-2. Root `README.md` links `Tailwind/Templates/…`, `React/index.html`, `Tailwind/index.html`,
+1. Root `README.md` links `Tailwind/Templates/…`, `React/index.html`, `Tailwind/index.html`,
    and `Vanilla/Templates/SaaS%20Dashboard/` — none exist at those paths.
-3. `docs/COMPONENT_STRUCTURE.md` and `docs/CONTRIBUTING.md` omit Vanilla `Sections/` and give
-   the commands `python3 -m _gen.rebuild_index` / `python3 scripts/validate.py`, neither of
-   which exists.
-4. `scripts/tooling/indexing/update_index.py` writes `library/`-prefixed paths and uses
+2. `scripts/tooling/indexing/update_index.py` writes `library/`-prefixed paths and uses
    package-relative imports, so it disagrees with the current index format produced by
    `rebuild_index.py`. Treat it as legacy.
-5. `scripts/tooling/validators/validate.py`'s duplicate-ID check only prints a NOTE for
+3. `scripts/tooling/validators/validate.py`'s duplicate-ID check only prints a NOTE for
    pre-existing duplicates; it does not fail the run.
-6. Most `scripts/qa/resources/_qa_react_*.py` harnesses read files from `library/...` but
-   navigate a browser to `http://localhost:8765/React/...`, so they require the static server
-   to be rooted at `library/`.
-7. `agents/skills/devsnips/references/schemas.md` references eval files (`scripts/run_eval.py`,
+4. `agents/skills/devsnips/references/schemas.md` references eval files (`scripts/run_eval.py`,
    `agents/analyzer.md`, `agents/grader.md`, …) that do not exist in this repository.
+
+(The former items about the root `AGENTS.md` layout, the `docs/` validator commands, and the
+QA harnesses' static-server convention were resolved and removed from this list.)
 
 ## Deeper reading
 

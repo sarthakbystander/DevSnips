@@ -98,7 +98,7 @@ Every template under `Tailwind/Templates/`, `React/Templates/`, or `Vanilla/Temp
 └── pages/ or src/    # actual template source
 ```
 
-`AGENTS.md` is DevSnips agent metadata/instructions — it is NOT template source code. It should explain what the template is, its structure, design system, how an agent should safely modify it, what NOT to change unnecessarily,and the quality bar to re-check. The validator enforces this structurally (`scripts/validate.py` fails when a template is missing it; `_gen/rebuild_index.py` refuses to write an index for a template that lacks it), so a new template contribution that omits `AGENTS.md` will not validate.
+`AGENTS.md` is DevSnips agent metadata/instructions — it is NOT template source code. It should explain what the template is, its structure, design system, how an agent should safely modify it, what NOT to change unnecessarily,and the quality bar to re-check. The validator enforces this structurally (`scripts/tooling/validators/validate.py` fails when a template is missing it; `scripts/tooling/indexing/rebuild_index.py` refuses to write an index for a template that lacks it), so a new template contribution that omits `AGENTS.md` will not validate.
 
 ## Quality requirements
 
@@ -139,13 +139,13 @@ When adding a new family, make sure the family and its variants can be represent
 After adding, moving, renaming, or deleting content, regenerate the index:
 
 ```bash
-python3 -m _gen.rebuild_index
+python scripts/tooling/indexing/rebuild_index.py
 ```
 
 Then run:
 
 ```bash
-python3 scripts/validate.py
+python scripts/tooling/validators/validate.py
 ```
 
 Do not submit a pull request with a stale index or broken validation output.
@@ -185,7 +185,7 @@ Mention validation commands you ran and any known limitations.
 - [ ] I avoided unnecessary dependencies.
 - [ ] I regenerated `snippets-index.json` when content changed.
 - [ ] I added the `AGENTS.md` template-specific agent-instructions file when adding or editing a template.
-- [ ] `python3 scripts/validate.py` passes.
+- [ ] `python scripts/tooling/validators/validate.py` passes.
 - [ ] I documented any known limitations in the pull request.
 
 ## Maintainer principle

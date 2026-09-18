@@ -16,7 +16,7 @@ Templates ship their own requirements:
   Vanilla: preview.html or pages/* + metadata.json + README.md + AGENTS.md
   React: preview.html (Vite/Next project) + metadata.json + README.md + AGENTS.md
 
-This script serves as the basis for validate.py's deep checks.
+Runs alongside validate.py as a stricter, per-tech required-file-set checker.
 """
 import json
 import sys
