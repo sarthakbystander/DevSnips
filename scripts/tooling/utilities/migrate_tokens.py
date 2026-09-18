@@ -11,8 +11,8 @@ surface/--radius token system + prefers-color-scheme) — those are a deliberate
 already-cohesive design system.
 
 Usage:
-    python3 -m _gen.migrate_tokens            # apply (writes files)
-    DRY_RUN=1 python3 -m _gen.migrate_tokens  # report only, no writes
+    python3 scripts/tooling/utilities/migrate_tokens.py            # apply (writes files)
+    DRY_RUN=1 python3 scripts/tooling/utilities/migrate_tokens.py  # report only, no writes
 """
 import re
 import sys

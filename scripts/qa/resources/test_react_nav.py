@@ -4,7 +4,7 @@ Tests the four navigation pages at 375 / 768 / 1280 px:
   - no horizontal overflow
   - no console errors (page errors / JS exceptions)
   - cards render (data loaded from snippets-index.json)
-Run: python3 scripts/test_react_nav.py  (requires the http server on :12000)
+Run: python3 scripts/qa/resources/test_react_nav.py  (requires the http server on :12000)
 """
 import json
 import sys

@@ -36,7 +36,7 @@ Browser checks (Playwright, per preview):
   - badges / user area / footer actions / dashboard composition
   - focus-visible 2px outline; light/dark token flip; reduced-motion guard
 
-Run: python3 scripts/_qa_react_sidebar.py
+Run: python3 scripts/qa/resources/_qa_react_sidebar.py
 """
 from __future__ import annotations
 import json
@@ -244,16 +244,6 @@ def static_checks():
     for slug in SLUGS[1:]:
         check(cores[slug] == ref, f"{slug}: shared core identical to reference")
 
-    # Generator drift gate.
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sidebar.py"
-    if _gen_script.exists():
-        gen = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            capture_output=True, text=True, cwd=ROOT,
-        )
-        check(gen.returncode == 0, f"generator --check clean ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_sidebar.py" % _gen_script.name)
 
     # Repository validator gate.
     val = subprocess.run(

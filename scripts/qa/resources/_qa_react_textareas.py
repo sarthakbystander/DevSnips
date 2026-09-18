@@ -18,7 +18,7 @@ Verifies the behavior-critical guarantees (not cosmetics):
   - reduced-motion: computed transition duration collapses to 0s
 Also checks metadata.json validity + TSX/JSX signature parity.
 Run a static server from the repo root first:
-  python3 -m http.server 8765 &
+  python3 -m http.server 8765 --directory library &
 """
 import json
 import re

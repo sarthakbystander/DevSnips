@@ -29,7 +29,7 @@ Browser checks (Playwright, per preview):
   - focus-visible outline; dark-mode token flip (body + panel);
     reduced-motion transition-none
 
-Run: python3 scripts/_qa_react_dropdowns.py
+Run: python3 scripts/qa/resources/_qa_react_dropdowns.py
 """
 from __future__ import annotations
 import json

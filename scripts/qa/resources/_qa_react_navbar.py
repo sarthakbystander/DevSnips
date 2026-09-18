@@ -27,7 +27,7 @@ Browser checks (Playwright, per preview):
     containment, mega-menu groups, sticky pinning, transparent surface,
     side-panel overlay/scroll-lock/focus, user-menu actions)
 
-Run: python3 scripts/_qa_react_navbar.py
+Run: python3 scripts/qa/resources/_qa_react_navbar.py
 """
 from __future__ import annotations
 import json

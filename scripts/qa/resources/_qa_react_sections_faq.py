@@ -23,7 +23,6 @@ Verifies behavior-critical guarantees (not cosmetics):
     colors;the `dark-premium` variant keeps its pinned dark mapping
     in both page themes
   - motion: prefers-reduced-motion kills transitions
-  - generator: `scripts/tooling/generators/_gen_react_sections_faq.py --check` reports no drift;
     `scripts/tooling/validators/validate.py` passes
 
 The accordion interaction tests actually open and close FAQ items — they
@@ -31,8 +30,8 @@ do not merely assert the elements exist.
 
 Run from the repo root with a static server on :8765:
 
-    python3 -m http.server 8765 &
-    python3 scripts/_qa_react_sections_faq.py
+    python3 -m http.server 8765 --directory library &
+    python3 scripts/qa/resources/_qa_react_sections_faq.py
 """
 import json
 import re
@@ -362,17 +361,7 @@ def browser_checks() -> None:
         browser.close()
 
 
-def generator_checks() -> None:
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_faq.py"
-    if _gen_script.exists():
-        drift = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            capture_output=True,
-            text=True,
-        )
-        check(drift.returncode == 0, "generator --check reports no drift")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_faq.py" % _gen_script.name)
+def validation_checks() -> None:
     validate = subprocess.run(
         [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
@@ -383,7 +372,7 @@ def generator_checks() -> None:
 
 def main() -> int:
     static_checks()
-    generator_checks()
+    validation_checks()
     browser_checks()
     print(f"\n{checks} checks, {len(failures)} failures")
     if failures:

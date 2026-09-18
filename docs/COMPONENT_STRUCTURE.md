@@ -123,7 +123,7 @@ Every template — Tailwind, Vanilla, and React — must ship an `AGENTS.md` at 
 
 `preview.html` is a demonstration environment. It may contain CDN imports, demo content, page framing, and preview-only JavaScript. `code.html` should not inherit unnecessary preview scaffolding.
 
-`AGENTS.md` is required for every template under `Tailwind/Templates/`, `React/Templates/`, and `Vanilla/Templates/`. It explains what the template is, its structure, design system, how to safely modify it, what not to change, and the quality bar to re-check. The repository validator enforces its presence structurally — `python3 scripts/validate.py` fails if a template is missing it,and `python3 -m _gen.rebuild_index` refuses to write an index for a template that lacks it.
+`AGENTS.md` is required for every template under `Tailwind/Templates/`, `React/Templates/`, and `Vanilla/Templates/`. It explains what the template is, its structure, design system, how to safely modify it, what not to change, and the quality bar to re-check. The repository validator enforces its presence structurally — `python scripts/tooling/validators/validate.py` fails if a template is missing it, and `python scripts/tooling/indexing/rebuild_index.py` refuses to write an index for a template that lacks it.
 
 ## Metadata principles
 
@@ -213,13 +213,13 @@ The index contains family and variant records, technology information, content t
 After adding, moving, renaming, or deleting content, regenerate it with:
 
 ```bash
-python3 -m _gen.rebuild_index
+python scripts/tooling/indexing/rebuild_index.py
 ```
 
 Then validate the repository:
 
 ```bash
-python3 scripts/validate.py
+python scripts/tooling/validators/validate.py
 ```
 
 The validator checks architecture, metadata, index-to-disk consistency, stale paths, duplicate variant paths, and content coverage.

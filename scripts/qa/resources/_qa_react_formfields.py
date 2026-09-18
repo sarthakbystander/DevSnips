@@ -31,7 +31,7 @@ Browser checks (Playwright, per preview):
   - focus-visible outline; dark-mode token flip; reduced-motion
     transition-none
 
-Run: python3 scripts/_qa_react_formfields.py
+Run: python3 scripts/qa/resources/_qa_react_formfields.py
 """
 from __future__ import annotations
 import json

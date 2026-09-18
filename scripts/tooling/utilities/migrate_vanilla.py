@@ -22,9 +22,10 @@ Cleans up the structural/Schema inconsistencies identified in the Vanilla audit:
      Strip `Snippet NN ` boilerplate from `name`/`description`, and remove the
      clearly-irrelevant `table` tag from non-Tables families.
 
-The script is safe to dry-run:  DRY_RUN=1 python3 -m _gen.migrate_vanilla
+The script is safe to dry-run:  DRY_RUN=1 python3 scripts/tooling/utilities/migrate_vanilla.py
 It only writes when run without DRY_RUN. After it runs, regenerate the index:
-    python3 -m _gen.rebuild_index && python3 scripts/validate.py
+    python3 scripts/tooling/indexing/rebuild_index.py && \
+    python3 scripts/tooling/validators/validate.py
 """
 import json
 import os
@@ -336,8 +337,9 @@ def main():
     flatten_forms(dry)
     unify_metadata(dry)
     clean_templates(dry)
-    log("\nDone. Next: python3 -m _gen.fix_duplicate_ids && "
-        "python3 -m _gen.rebuild_index && python3 scripts/validate.py")
+    log("\nDone. Next: python3 scripts/tooling/utilities/fix_duplicate_ids.py && "
+        "python3 scripts/tooling/indexing/rebuild_index.py && "
+        "python3 scripts/tooling/validators/validate.py")
 
 
 if __name__ == "__main__":

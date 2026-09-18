@@ -12,8 +12,9 @@ so `dark-mode-toggle-001` under family `display` becomes
 `display-dark-mode-toggle-001`. Non-colliding IDs are left untouched (preserve
 existing stable IDs).
 
-Run:  python3 -m _gen.fix_duplicate_ids
-Then: python3 -m _gen.rebuild_index && python3 scripts/validate.py
+Run:  python3 scripts/tooling/utilities/fix_duplicate_ids.py
+Then: python3 scripts/tooling/indexing/rebuild_index.py && \
+      python3 scripts/tooling/validators/validate.py
 """
 import json
 from collections import defaultdict
