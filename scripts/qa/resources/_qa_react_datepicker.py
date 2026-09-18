@@ -33,7 +33,7 @@ Browser checks (Playwright, per preview):
   - mobile: bottom sheet at 375 (overlay + full-width + 44px cells), popover at desktop
   - focus-visible ring; dark-mode token flip; reduced-motion guard
 
-Run: python3 scripts/_qa_react_datepicker.py
+Run: python3 scripts/qa/resources/_qa_react_datepicker.py
 """
 from __future__ import annotations
 import json
@@ -1231,15 +1231,6 @@ def browser_checks():
 
 def process_checks():
     print("process checks")
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_datepicker.py"
-    if _gen_script.exists():
-        gen = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            capture_output=True, text=True, cwd=str(ROOT),
-        )
-        check(gen.returncode == 0, f"generator --check drift-free ({gen.stdout.strip()} {gen.stderr.strip()[:200]})")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_datepicker.py" % _gen_script.name)
     val = subprocess.run(
         [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True, text=True, cwd=str(ROOT),

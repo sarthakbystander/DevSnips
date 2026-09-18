@@ -24,8 +24,8 @@ Verifies behavior-critical guarantees (not cosmetics):
 
 Run from the repo root with a static server on :8765:
 
-    python3 -m http.server 8765 &
-    python3 scripts/_qa_react_cards.py
+    python3 -m http.server 8765 --directory library &
+    python3 scripts/qa/resources/_qa_react_cards.py
 """
 import json
 import re

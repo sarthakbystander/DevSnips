@@ -28,7 +28,7 @@ Browser checks (Playwright, per preview):
   - focus-visible 2px outline; dark-mode token flip (body + bubble);
     reduced-motion transition-none; open bubble inside the viewport
 
-Run: python3 scripts/_qa_react_tooltips.py
+Run: python3 scripts/qa/resources/_qa_react_tooltips.py
 """
 from __future__ import annotations
 import json

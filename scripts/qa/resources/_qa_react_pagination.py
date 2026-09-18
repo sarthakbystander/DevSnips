@@ -19,7 +19,7 @@ Browser checks (Playwright, per preview):
   - focus-visible outline on keyboard focus; dark-mode token flip;
     reduced-motion transition-none
 
-Run: python3 scripts/_qa_react_pagination.py
+Run: python3 scripts/qa/resources/_qa_react_pagination.py
 """
 from __future__ import annotations
 import json

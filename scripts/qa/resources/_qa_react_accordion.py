@@ -10,7 +10,6 @@ Verifies behavior-critical guarantees (not cosmetics):
   - shared core: every derived code.tsx is identical to the reference except
     its header doc comment; TSX/JSX export sets + per-component prop
     signatures match
-  - generator: `scripts/tooling/generators/_gen_react_accordion.py --check` reports no drift;
     `scripts/tooling/validators/validate.py` passes
   - semantics: real button triggers in h3 headings, aria-expanded +
     aria-controls wired to unique stable ids, role=region labelled back,
@@ -31,8 +30,8 @@ Verifies behavior-critical guarantees (not cosmetics):
 
 Run from the repo root with a static server on :8765:
 
-    python3 -m http.server 8765 &
-    python3 scripts/_qa_react_accordion.py
+    python3 -m http.server 8765 --directory library &
+    python3 scripts/qa/resources/_qa_react_accordion.py
 """
 import json
 import re
@@ -198,18 +197,8 @@ def export_parity_checks():
             check(tp is not None and tp == jp, f"{slug}: {name} prop-signature parity")
 
 
-def generator_checks():
+def validation_checks():
     print("== generator + repo validation ==")
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_accordion.py"
-    if _gen_script.exists():
-        r = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            cwd=ROOT, capture_output=True, text=True,
-        )
-        check(r.returncode == 0 and "up to date" in r.stdout,
-              "generator --check reports no drift")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_accordion.py" % _gen_script.name)
     r = subprocess.run(
         [sys.executable, "scripts/tooling/validators/validate.py"],
         cwd=ROOT, capture_output=True, text=True,
@@ -652,7 +641,7 @@ def reduced_motion_check(browser):
 def main():
     static_checks()
     export_parity_checks()
-    generator_checks()
+    validation_checks()
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 900})

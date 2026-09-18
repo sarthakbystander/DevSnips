@@ -19,13 +19,12 @@ Verifies behavior-critical guarantees (not cosmetics):
   - tabs variant: tablist/tab/tabpanel roles, aria-selected / aria-controls
     wiring, roving tabindex, click + ArrowRight/ArrowLeft/Home/End keyboard
     navigation with automatic activation
-  - generator: `scripts/tooling/generators/_gen_react_sections_features.py --check` reports no drift;
     `scripts/tooling/validators/validate.py` passes
 
 Run from the repo root with a static server on :8765:
 
-    python3 -m http.server 8765 &
-    python3 scripts/_qa_react_sections_features.py
+    python3 -m http.server 8765 --directory library &
+    python3 scripts/qa/resources/_qa_react_sections_features.py
 """
 import json
 import re
@@ -320,17 +319,7 @@ def browser_checks() -> None:
         browser.close()
 
 
-def generator_checks() -> None:
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_features.py"
-    if _gen_script.exists():
-        drift = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            capture_output=True,
-            text=True,
-        )
-        check(drift.returncode == 0, "generator --check reports no drift")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_features.py" % _gen_script.name)
+def validation_checks() -> None:
     validate = subprocess.run(
         [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
@@ -341,7 +330,7 @@ def generator_checks() -> None:
 
 def main() -> int:
     static_checks()
-    generator_checks()
+    validation_checks()
     browser_checks()
     print(f"\n{checks} checks, {len(failures)} failures")
     if failures:

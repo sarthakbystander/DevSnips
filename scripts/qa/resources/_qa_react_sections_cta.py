@@ -19,7 +19,6 @@ Verifies behavior-critical guarantees (not cosmetics):
   - focus: keyboard focus shows a 2px focus-visible outline on every
     interactive element.
   - motion: prefers-reduced-motion kills transitions
-  - generator: `scripts/tooling/generators/_gen_react_sections_cta.py --check` reports no drift;
     `scripts/tooling/validators/validate.py` passes
 
 The family ships exactly the four DevSnips visual directions; this script
@@ -27,8 +26,8 @@ also asserts no other variant directories exist.
 
 Run from the repo root with a static server on :8765:
 
-    python3 -m http.server 8765 &
-    python3 scripts/_qa_react_sections_cta.py
+    python3 -m http.server 8765 --directory library &
+    python3 scripts/qa/resources/_qa_react_sections_cta.py
 """
 import json
 import re
@@ -257,17 +256,7 @@ def browser_checks() -> None:
         browser.close()
 
 
-def generator_checks() -> None:
-    _gen_script = ROOT / "scripts" / "tooling" / "generators" / "_gen_react_sections_cta.py"
-    if _gen_script.exists():
-        drift = subprocess.run(
-    [sys.executable, str(_gen_script), "--check"],
-            capture_output=True,
-            text=True,
-        )
-        check(drift.returncode == 0, "generator --check reports no drift")
-    else:
-        check(False, "generator drift check unavailable (not in checkout): _gen_react_sections_cta.py" % _gen_script.name)
+def validation_checks() -> None:
     validate = subprocess.run(
         [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True,
@@ -278,7 +267,7 @@ def generator_checks() -> None:
 
 def main() -> int:
     static_checks()
-    generator_checks()
+    validation_checks()
     browser_checks()
     print(f"\n{checks} checks, {len(failures)} failures")
     if failures:

@@ -24,8 +24,8 @@ Accordions, Navigation, Tooltips, Loaders(anim), Other(anim subset), Buttons,
 Forms. A failure there is what fails the CI gate.
 
 Usage:
-    python3 scripts/qa_vanilla.py            # report + exit code
-    python3 scripts/qa_vanilla.py --json     # machine-readable report
+    python3 scripts/qa/resources/qa_vanilla.py            # report + exit code
+    python3 scripts/qa/resources/qa_vanilla.py --json     # machine-readable report
 """
 import argparse
 import json

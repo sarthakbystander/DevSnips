@@ -34,7 +34,7 @@ Browser checks (Playwright, per preview):
   - focus-visible outline; dark-mode token flip (body + panel + overlay);
     reduced-motion transition-none
 
-Run: python3 scripts/_qa_react_dialogs.py
+Run: python3 scripts/qa/resources/_qa_react_dialogs.py
 """
 from __future__ import annotations
 import json
