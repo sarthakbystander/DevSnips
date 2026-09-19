@@ -15,6 +15,7 @@ An open-source, framework-agnostic frontend component library. UI resources are 
 |---|---|
 | `library/<Tech>/<Type>/<Family>/<variant>/` | Canonical UI resources. Tech: `React` · `Tailwind` · `Vanilla`. Type: `Components` · `Sections` · `Templates` |
 | `cli/` | Node CLI — implementation in `cli/src/` (commands in `cli/src/commands/`: `add.js`, `init.js`), suites in `cli/test/` |
+| `integrations/mcp/` | Read-only MCP server (`devsnips-mcp`) exposing the library to AI agents; see `agents/resources/mcp.md` |
 | `agents/skills/devsnips/` | Published agent skill (`SKILL.md` + references) |
 | `agents/resources/` | Deep agent documentation (routing table below) |
 | `agents/resources/indexes/` | **Generated** specialized indexes — never hand-edit |
@@ -48,6 +49,7 @@ An open-source, framework-agnostic frontend component library. UI resources are 
 | Tailwind specifics (code.html/preview.html, style tokens) | `agents/resources/frameworks/tailwind.md` |
 | Vanilla specifics (self-contained code.html, --ds-* tokens) | `agents/resources/frameworks/vanilla.md` |
 | CLI behavior, resource resolution, config | `agents/resources/cli.md` |
+| MCP server (`devsnips-mcp`), tools, providers, config | `agents/resources/mcp.md` |
 | Index generation and validation | `agents/resources/indexing.md` |
 | What to run after changes; QA layers | `agents/resources/qa.md` |
 | Step-by-step change procedures | `agents/resources/workflows.md` |
@@ -98,6 +100,7 @@ What each layer covers, per-framework rules, and QA harness locations: `agents/r
 - Specialized index generator / validator: `scripts/tooling/indexing/build_resource_indexes.py` · `scripts/tooling/indexing/validate_indexes.py`
 - Master index: `snippets-index.json` — specialized indexes: `agents/resources/indexes/`
 - CLI entry: `cli/src/index.js` — commands: `cli/src/commands/add.js`, `cli/src/commands/init.js`
+- MCP server: `integrations/mcp/src/devsnips_mcp/` — docs: `agents/resources/mcp.md`
 - Agent skill: `agents/skills/devsnips/SKILL.md`
 
 ## Detailed Documentation

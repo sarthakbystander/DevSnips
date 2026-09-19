@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devsnips-mcp"
+version = "0.1.0"
+description = "Read-only MCP server exposing the DevSnips UI library (components, sections, templates) to AI coding agents."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "DevSnips" }]
+keywords = ["mcp", "devsnips", "ui", "components", "tailwind", "react", "ai", "agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: User Interfaces",
+]
+# The MCP SDK is the only runtime dependency. The adapter in server.py supports
+# both release lines: the current stable line (pip install mcp -> 2.x, spec
+# 2026-07-28) and the v1.x maintenance line (FastMCP). Pin tighter (e.g.
+# "mcp>=2,<3") in your own environment if you want to freeze the line.
+dependencies = ["mcp>=1.28"]
+
+[project.optional-dependencies]
+# Adds the `mcp dev` / `mcp run` / `mcp install` helper CLI on top of the SDK.
+cli = ["mcp[cli]>=1.28"]
+dev = ["ruff", "mypy"]
+
+[project.scripts]
+devsnips-mcp = "devsnips_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/sarthakbystander/DevSnips"
+Repository = "https://github.com/sarthakbystander/DevSnips"
+Documentation = "https://github.com/sarthakbystander/DevSnips/tree/main/integrations/mcp"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
