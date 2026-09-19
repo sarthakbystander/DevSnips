@@ -24,8 +24,18 @@ the agent docs use.
 
 Requires Python 3.10+.
 
+### Option 1 — from PyPI (published releases)
+
 ```bash
 pip install devsnips-mcp
+```
+
+### Option 2 — directly from the DevSnips repository
+
+Installs the latest `main` without waiting for a PyPI release:
+
+```bash
+pip install "devsnips-mcp @ git+https://github.com/sarthakbystander/DevSnips.git#subdirectory=integrations/mcp"
 ```
 
 Run directly to confirm it starts:
