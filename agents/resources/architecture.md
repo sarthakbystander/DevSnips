@@ -29,7 +29,7 @@ Read them from the current `snippets-index.json`.
 | `scripts/` | Repository tooling: validators, indexing, generators, utilities, QA harnesses. |
 | `website/` | Published static site — a *derived* copy of the resource tree. |
 | `docs/` | Contributor-facing specs (`COMPONENT_STRUCTURE.md`, `CONTRIBUTING.md`). |
-| `integrations/mcp/` | Reserved; currently empty. |
+| `integrations/mcp/` | Read-only MCP server (`devsnips-mcp`) exposing the library to AI agents; see `agents/resources/mcp.md`. |
 | `.github/` | Only `PULL_REQUEST_TEMPLATE.md`. **There is no CI workflow in this repository.** |
 | `devsnips/` | CLI `init` output artifact (`AGENTS.md` + `config.json`); untracked. |
 | `index.html` | Root tech landing page; links into `library/`. |
