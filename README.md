@@ -177,6 +177,29 @@ http://localhost:8080/
 
 ---
 
+## Documentation
+
+Full documentation lives in [`docs/`](docs/index.md). Start with the [documentation index](docs/index.md), which routes you by role and task:
+
+| You are… | Start with |
+| --- | --- |
+| An AI coding agent integrating DevSnips into a project | [Introduction](docs/introduction/what-is-devsnips.md) → [Agent overview](docs/agents/overview.md) → [CLI](docs/cli/overview.md) |
+| A developer evaluating DevSnips | [What is DevSnips](docs/introduction/what-is-devsnips.md) → [Architecture](docs/introduction/architecture.md) → [Resources](docs/resources/overview.md) |
+| A contributor adding a resource | [Resource model](docs/resources/overview.md) → [Creating resources](docs/contributing/creating-resources.md) → [Validation](docs/contributing/validation.md) |
+| An integrator consuming the registry programmatically | [Machine-readable overview](docs/machine-readable/overview.md) → [Registry schema](docs/machine-readable/registry.md) |
+| Connecting DevSnips to an MCP client | [DevSnips MCP](docs/mcp/overview.md) |
+
+Key references:
+
+- [CLI reference](docs/reference/cli-reference.md) — commands, project context, troubleshooting
+- [Registry schema](docs/machine-readable/registry.md) — the shape of `snippets-index.json`
+- [Terminology](docs/reference/terminology.md) · [FAQ](docs/faq.md)
+- [Contributing guide](docs/CONTRIBUTING.md) · [Component structure spec](docs/COMPONENT_STRUCTURE.md)
+- [Engineering reports](reports/README.md) — audits and investigations
+- [`AGENTS.md`](AGENTS.md) — entry point for AI agents working on this repository
+
+---
+
 ## Design System
 
 DevSnips follows a consistent design philosophy across its component library.
@@ -247,6 +270,7 @@ Contributions, improvements, bug fixes, and new components are welcome.
 ## Links
 
 * [GitHub Repository](https://github.com/sarthakbystander/DevSnips)
+* [Documentation](docs/index.md)
 * [DevSnips CLI on npm](https://www.npmjs.com/package/devsnips)
 * [Tailwind Library](Tailwind/index.html)
 * [React Library](React/index.html)
