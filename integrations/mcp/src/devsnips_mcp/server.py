@@ -38,7 +38,9 @@ def create_server(name: str = SERVER_NAME):
         from mcp.server import MCPServer
         server = MCPServer(name)
     except ImportError:  # v1.x maintenance line
-        from mcp.server.fastmcp import FastMCP
+        # On mcp 2.x this module path exists but only raises ModuleNotFoundError,
+        # so type checkers cannot see FastMCP on it. The branch is unreachable there.
+        from mcp.server.fastmcp import FastMCP  # type: ignore[attr-defined]
         server = FastMCP(name)
 
     from .tools import register_all
