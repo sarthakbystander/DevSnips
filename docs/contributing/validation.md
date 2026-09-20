@@ -16,30 +16,64 @@ There is **no CI** in this repository (`.github/` contains only the PR template)
 
 Python scripts resolve the repository root from their own file location, so the working directory does not matter. Playwright is not declared in any manifest — install it in your environment before running browser harnesses.
 
-## What `validate.py` checks
+## The full validation layers
 
-| Layer | Covers |
-|---|---|
-| Architecture | Each tech dir may contain only `Components`, `Sections`, `Templates`; `Utilities`/`Resources`/`Snippets`/`Pages`/`Tools` are forbidden anywhere under a tech |
-| Metadata validity | JSON parses; `type` present, lowercase vocabulary, matches folder bucket; required files per tech (Tailwind Comp/Sec: `code.html` + `preview.html`; Tailwind components: non-empty `README.md`; React Comp/Sec: `code.tsx` + `preview.html`) |
-| Index ↔ disk | Two-way coverage, duplicate paths, stale paths |
-| Template `AGENTS.md` | Exists and non-empty for every template |
-| Vanilla quality bar | `qa_vanilla.py` runs inside `validate.py`; a required-check failure fails validation |
-| Duplicate IDs | Reported as a NOTE, not a failure (deliberate, so pre-existing IDs are preserved). Do not "fix" duplicates as a side effect |
+Every verification layer, what it checks, and where it lives:
 
-`deep_check.py` is a standalone, stricter file-set checker (per-tech required/optional files; React section README absence is fine, empty README anywhere is a failure; missing React `code.jsx` is a warning only).
+| Layer | Enforcing file | What it covers |
+|---|---|---|
+| Architecture | `validate.py` (`check_architecture`) | Allowed/forbidden dirs per tech |
+| Metadata validity | `validate.py` (`check_metadata_validity`) | JSON parse, `type` value + bucket match, required files per tech |
+| Index ↔ disk consistency | `validate.py` (`check_index_vs_disk`) | Two-way coverage, duplicate paths, stale paths |
+| Template `AGENTS.md` | `validate.py` (`check_template_agents`) + `rebuild_index.py` (`validate`) | Existence + non-empty |
+| Per-tech file sets | `deep_check.py` | Required/optional files per tech + type |
+| Vanilla quality bar | `qa_vanilla.py` (invoked by `validate.py`) | a11y/animation/dark-mode per Vanilla component |
+| Index regeneration safety | `rebuild_index.py` (`validate`) | Refuses to write on mismatch |
+| CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors |
+| Browser QA (React) | `scripts/qa/resources/_qa_react_*.py` | Runtime, layout, theme, a11y per family |
+| Browser QA (templates) | `scripts/qa/resources/_qa_template.py` | Overflow, console errors, interactions |
+| Nav page QA | `scripts/qa/resources/test_tailwind_nav.py`, `test_react_nav.py` | Browse-page behavior |
+
+## Structure checks
+
+`check_architecture()` (in `validate.py`):
+
+- each of `library/Vanilla`, `library/Tailwind`, `library/React` may contain only `Components`, `Sections`, `Templates` (`ALLOWED_DIRS`);
+- `Utilities`, `Resources`, `Snippets`, `Pages`, `Tools` are forbidden under every tech.
+
+The `is_leaf()` predicate (in `validate.py`, `deep_check.py`, and `rebuild_index.py`) defines what counts as a resource — see [Resource model](../resources/overview.md) for the deliberate difference between the indexer's predicate and the validators' predicate.
+
+## Resource (file-set) checks
+
+`check_metadata_validity()` in `validate.py`:
+
+- Tailwind `Components/` and `Sections/` leaves must have `code.html` **and** `preview.html`;
+- Tailwind `Components/` leaves must additionally have a non-empty `README.md`;
+- React `Components/` and `Sections/` leaves must have `code.tsx` **and** `preview.html`;
+- invalid JSON in any `metadata.json` is a failure.
+
+`deep_check.py` is a standalone, stricter file-set checker that runs **alongside** `validate.py` (it is not invoked by `validate.py`). It enforces per-tech file sets and is stricter about `README.md` and `code.jsx` in places where `validate.py` is not: React Components need `code.tsx`, `preview.html`, `README.md`; React Sections need `code.tsx`, `preview.html`; a missing React `code.jsx` is a **warning** only; any Section with an empty `README.md` is a failure. `check_template_files()` requires a non-empty `AGENTS.md` for every template, plus `preview.html` (Tailwind/React) or `preview.html` **or** non-empty `pages/` (Vanilla), plus `README.md` (Vanilla).
+
+## Metadata checks
+
+- `type` must be present and one of `component` / `section` / `template`;
+- `type` must match the folder bucket via explicit cross-checks (`type=component outside Components/`, etc.);
+- Duplicate IDs are collected and reported as a **NOTE**, not a failure — deliberate, so pre-existing IDs are preserved. Do not "fix" duplicates as a side effect of an unrelated change; report them.
 
 ## What `qa_vanilla.py` checks
 
-Per Vanilla component: accessibility and interaction semantics (keyboard operability, focus visibility, ARIA on custom widgets), reduced-motion guards on animations, dark-mode support. Flags: `--only-failures`, `--json`, and advisory `--tokens` (`--ds-*` adoption vs raw hex; always exits 0). It scans the Components tree; Sections/Templates are governed by their own specs.
+Per Vanilla component: accessibility and interaction semantics (keyboard operability, focus visibility, ARIA on custom widgets), reduced-motion guards on animations, dark-mode support. Flags: `--only-failures`, `--json`, and advisory `--tokens` (`--ds-*` adoption vs raw hex; always exits 0). It scans the Components tree; Sections/Templates are governed by their own specs. It runs **inside** `validate.py`, so a required-check failure fails overall validation.
 
 ## Browser QA harnesses
 
-Per-family Playwright scripts under `scripts/qa/resources/`: `_qa_react_*.py` (component/section families), `_qa_template.py` (generic template harness, works for Tailwind/Vanilla templates too), `test_tailwind_nav.py` / `test_react_nav.py` (gallery pages). React harnesses serve `preview.html` at `http://localhost:8765` and are invoked per slug, e.g.:
+Per-family Playwright scripts under `scripts/qa/resources/`:
 
-```bash
-python3 scripts/qa/resources/_qa_react_button.py split-button
-```
+- `_qa_react_*.py` — React component/section families. Serve `preview.html` at `http://localhost:8765`, invoked per slug:
+  ```bash
+  python3 scripts/qa/resources/_qa_react_button.py split-button
+  ```
+- `_qa_template.py` — generic template harness (works for Tailwind/Vanilla templates too).
+- `test_tailwind_nav.py` / `test_react_nav.py` — the gallery/browse pages.
 
 Harnesses exist for most — not all — families. Check the directory before assuming one exists.
 
@@ -48,6 +82,7 @@ Harnesses exist for most — not all — families. Check the directory before as
 | Message | Meaning | Fix |
 |---|---|---|
 | `VALIDATION FAILED - N problem(s):` | Any of the layers above | Read the listed paths; fix the content, not the validator |
+| `indexed variant missing on disk` / `on-disk leaf not indexed` | Leaf added/renamed without regenerating | Run `rebuild_index.py` |
 | `type=section outside Sections/` | Resource moved without updating metadata `type` | Update that leaf's `metadata.json` |
 | `Tailwind component missing README.md` | Missing or empty README | Add/complete it |
 | `Architecture: unexpected dir` | New top-level dir under a tech tree | Remove it or justify a schema change |
@@ -80,6 +115,11 @@ If a failure is pre-existing and unrelated to your change, report it in the PR i
 3. deep_check.py           (file-set changes)
 4. qa_vanilla.py           (Vanilla changes)
 5. cd cli; npm test        (cli/ changes)
-6. relevant browser harness(visual/interactive changes)
+6. relevant browser harness (visual/interactive changes)
 7. Report exact commands + observed results — not a general claim of success
 ```
+
+## Go deeper
+
+This page is the human-facing QA reference. The implementation-anchored reference (the exact check functions, the deliberate duplicate-ID policy, and the per-harness invocation contracts) is maintained for agents in [`agents/resources/qa.md`](https://github.com/sarthakbystander/DevSnips/blob/main/agents/resources/qa.md).
+

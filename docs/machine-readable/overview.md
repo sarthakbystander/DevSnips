@@ -1,6 +1,6 @@
 # Machine-readable system — overview
 
-DevSnips treats its machine-readable layer as a first-class product surface, not a byproduct. Everything an agent or integrator needs to query the inventory exists as a structured file, and every structured file is generated from one canonical source.
+DevSnips treats its machine-readable layer as a first-class product surface, not a byproduct. Everything an agent or integrator needs to query the inventory exists as a structured file, and every structured file is generated from one canonical source. This page explains the surfaces, the generation pipeline that produces them, and how to pick the right one.
 
 ## The surfaces
 
@@ -24,6 +24,62 @@ DevSnips treats its machine-readable layer as a first-class product surface, not
 4. **Portability.** Registry and index paths are tech-first without the `library/` prefix, computed portably (never absolute machine paths). The on-disk location of any entry is `library/<path>`.
 5. **Stable identity.** The registry path is the resource's identity. IDs must remain stable once published.
 
+## The index pipeline: rebuild vs build vs update vs validate
+
+Four distinct scripts under `scripts/tooling/indexing/` — each has one job. **Do not confuse them.**
+
+| Script | Command | What it does | When to run it |
+|---|---|---|---|
+| `rebuild_index.py` | `python scripts/tooling/indexing/rebuild_index.py` | Regenerates the master `snippets-index.json` from disk. | After any leaf is added, removed, renamed, or moved, or any `metadata.json` changed. |
+| `build_resource_indexes.py` | `python scripts/tooling/indexing/build_resource_indexes.py` | Regenerates the three per-type specialized indexes from the master. | After the master changes. |
+| `validate_indexes.py` | `python scripts/tooling/indexing/validate_indexes.py` | Re-scans disk and asserts the specialized indexes match. | After every regeneration, and in CI/PRs. |
+| `update_index.py` | `python scripts/tooling/indexing/update_index.py` | **Legacy / do not use.** Writes `library/`-prefixed paths and disagrees with the current format. | Never; treat as legacy. |
+
+### `rebuild_index.py` — the master generator
+
+Steps (from its `main()`):
+
+1. **Load the previous index** to preserve hand-curated family-level `description` / `tags` / `searchTerms` and variant-level fields.
+2. **Re-scan the disk** for leaves under each content-type tree and rebuild each family/variant `path`, `category`, and `type` from the on-disk location.
+3. **Cross-validate** — every indexed variant must exist on disk and every valid on-disk leaf must be indexed.
+4. **Recompute stats** and `technologies[].families` from the final family set.
+5. **Write the index only if validation found no problems**; otherwise print the problems and leave the file untouched.
+
+Key internals:
+
+- `TAILWIND_TREES` / `VANILLA_TREES` / `REACT_TREES` — the three `(bucket, type, is_template)` trees per technology: `("Components","component",False)`, `("Sections","section",False)`, `("Templates","template",True)`. To add a content type, change these, not the output file.
+- `is_leaf()` — Tailwind requires `code.html` **and** `preview.html`; React accepts `code.tsx` **or** `preview.html`; Vanilla is any `metadata.json` folder without a child `metadata.json`.
+- `make_variant()` — builds each variant record, including the `files` manifest (see below).
+- `validate()` — the pre-write problem list. Printing `NOT writing index due to validation problems` is a **failure**, not a no-op.
+
+### The `files` manifest
+
+`make_variant()` builds `variant.files` from what is actually on disk:
+
+- direct files: `code.html`, `code.tsx`, `metadata.json`, `preview.html`, `README.md`, `AGENTS.md`, …
+- plus `pages/*` (one level deep, prefixed `pages/`) — Tailwind and Vanilla templates;
+- plus `src/*`, `components/*`, `data/*`, `sections/*`, `styles/*` (one level deep, prefixed) — React templates.
+
+This manifest is what the CLI installs, so **an incomplete manifest means an incomplete install.** Files nested deeper than one level below those directories are **not** listed.
+
+### `build_resource_indexes.py` — the per-type indexes
+
+Builds the three specialized indexes from the **same in-memory family set** the master used, and refuses to write anything when `rebuild_index.validate()` reports a problem. Run it after the master changes.
+
+**Schema (each specialized index):** `version`, `type`, `description`, `generatedBy`, `masterIndex` (`"snippets-index.json"`), `pathConvention`, `stats` (`families`, `resources`, `installable`, `byTechnology`), `families[]` (sorted by path). Each variant entry carries `id` (the canonical CLI-resolvable id, `npx devsnips add <id>`), `name`, `type`, `path`, plus optional `description` / `files` / `tags` / `features` / `styles` (omitted when empty) and `install` (the exact CLI command, derived only when the CLI would find installable files). Paths are tech-first, without the `library/` prefix.
+
+### `validate_indexes.py` — the post-hoc gate
+
+Re-scans the disk with `rebuild_index`'s scanner (exact leaf-detection parity, including `_template_leaves` for template roots that have no root `code.html`) and fails loudly on: stale entries (indexed path missing on disk), missing resources (disk leaf absent from the index), duplicate ids/paths, wrong `type` vs parent index, wrong family `variantsCount`, family/variant path-prefix mismatches, sort-order violations, master↔specialized count mismatches, and JSON parse errors. Exit 0 = the indexes match the repository. **Run it after every regeneration.**
+
+### `update_index.py` — legacy, do not use
+
+Writes `library/`-prefixed paths and uses package-relative imports, so it disagrees with the current index format produced by `rebuild_index.py`. Treat it as legacy; do not document or use it.
+
+### Determinism
+
+Two runs over the same repository state produce byte-identical specialized indexes (families/variants sorted by path, fixed key order, no timestamps). The master keeps its existing `lastUpdated` date, which is the only intentional non-determinism.
+
 ## Choosing a surface
 
 - **Full inventory query** → registry (`snippets-index.json`).
@@ -32,6 +88,13 @@ DevSnips treats its machine-readable layer as a first-class product surface, not
 - **Compact LLM-readable listing** → `llms.txt` (names + URLs) or `llms-full.txt` (adds descriptions + tags).
 - **"What is installed in this project?"** → `devsnips/config.json`.
 - **Deep truth about one resource** → the resource's own `metadata.json` at `library/<path>` (registry copies can lag).
+
+## Consumers
+
+- **CLI** — fetches the registry from GitHub `main` and resolves `npx devsnips add <path>` against `variants[].path`. See [CLI overview](../cli/overview.md).
+- **Validation** — `validate.py` requires two-way registry↔disk agreement; `rebuild_index.py` refuses to write on mismatch.
+- **Website** — `llms.txt`, `llms-full.txt`, `search-index.json`, `sitemap.xml` (generated by `gen_site.py`).
+- **Agents** — the skill and the per-type indexes both require reading the **live** registry rather than trusting documentation.
 
 ## Pages in this section
 
@@ -50,3 +113,7 @@ https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.
 ```
 
 Pin your integration to a commit rather than `main` if you need reproducibility; `main` is the live truth the CLI itself uses.
+
+## Go deeper
+
+This page is the human-facing machine-readable overview. The implementation-anchored reference (generator internals, the full specialized-index schema, and the leaf-detection parity contract) is maintained for agents in [`agents/resources/indexing.md`](https://github.com/sarthakbystander/DevSnips/blob/main/agents/resources/indexing.md).
