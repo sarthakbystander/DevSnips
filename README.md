@@ -67,11 +67,11 @@ Complete multi-page websites built from composed sections and components.
 
 Featured templates include:
 
-- [AI SaaS Platform](Tailwind/Templates/ai-saas-platform/preview.html)
-- [Northstar Vanilla Dashboard](Vanilla/Templates/SaaS%20Dashboard/)
-- [Stratum](Tailwind/Templates/stratum/preview.html)
-- [Northline Atelier](Tailwind/Templates/northline-atelier/preview.html)
-- [Baseline Conference](Tailwind/Templates/baseline-conference/pages/index.html)
+- [AI SaaS Platform](library/Tailwind/Templates/ai-saas-platform/preview.html)
+- [Northstar Vanilla Dashboard](library/Vanilla/Templates/saas-dashboard/preview.html)
+- [Stratum](library/Tailwind/Templates/stratum/preview.html)
+- [Northline Atelier](library/Tailwind/Templates/northline-atelier/preview.html)
+- [Baseline Conference](library/Tailwind/Templates/baseline-conference/pages/index.html)
 
 ---
 
@@ -85,9 +85,9 @@ Featured templates include:
 
 Browse the libraries:
 
-- [Tailwind](Tailwind/index.html)
-- [React](React/index.html)
-- [Vanilla](Vanilla/Sections/sections-index.html)
+- [Tailwind](library/Tailwind/index.html)
+- [React](library/React/index.html)
+- [Vanilla](library/Vanilla/Sections/sections-index.html)
 
 ---
 
@@ -272,9 +272,9 @@ Contributions, improvements, bug fixes, and new components are welcome.
 * [GitHub Repository](https://github.com/sarthakbystander/DevSnips)
 * [Documentation](docs/index.md)
 * [DevSnips CLI on npm](https://www.npmjs.com/package/devsnips)
-* [Tailwind Library](Tailwind/index.html)
-* [React Library](React/index.html)
-* [Vanilla Library](Vanilla/Sections/sections-index.html)
+* [Tailwind Library](library/Tailwind/index.html)
+* [React Library](library/React/index.html)
+* [Vanilla Library](library/Vanilla/Sections/sections-index.html)
 * [Changelog](CHANGELOG.md)
 * [License](LICENSE)
 
