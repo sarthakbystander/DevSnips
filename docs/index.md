@@ -11,6 +11,9 @@ Start here based on what you are doing:
 | A contributor adding a resource | [Resource model](resources/overview.md) → [Creating resources](contributing/creating-resources.md) → [Validation](contributing/validation.md) |
 | An integrator consuming the registry programmatically | [Machine-readable overview](machine-readable/overview.md) → [Registry schema](machine-readable/registry.md) |
 | An AI coding agent (or developer) connecting DevSnips to an MCP client | [DevSnips MCP](mcp/overview.md) |
+| New to DevSnips and want a guided path | [Tutorials](tutorials/getting-started.md) |
+| Theming a project or adapting a resource | [Theming](theming.md) |
+| Running or extending the repository tooling | [Tooling](tooling/overview.md) → [QA](qa/overview.md) |
 | Looking up a definition, path, or command | [Reference](reference/terminology.md) → [FAQ](faq.md) |
 
 ## Documentation map
@@ -48,6 +51,15 @@ docs/
 │   └── schemas.md
 ├── mcp/                 The devsnips-mcp server: install, configure, connect, use
 │   └── overview.md
+├── tooling/             scripts/tooling/: validators, indexing, site generators, utilities
+│   └── overview.md
+├── qa/                  The QA surface: validators, quality bars, browser harnesses
+│   └── overview.md
+├── tutorials/           Step-by-step walkthroughs
+│   ├── getting-started.md
+│   ├── install-and-customize.md
+│   ├── build-a-landing-page.md
+│   └── author-a-resource.md
 ├── contributing/        How to add resources: structure, metadata, agent files, validation
 │   ├── overview.md
 │   ├── creating-resources.md
@@ -59,6 +71,7 @@ docs/
 │   ├── directory-structure.md
 │   ├── cli-reference.md
 │   └── conventions.md
+├── theming.md           Design tokens and the --ds-* contract per technology
 └── faq.md
 ```
 
