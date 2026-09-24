@@ -18,8 +18,27 @@ Closes #<issue-number> (if applicable)
 
 ## 🧪 Validation
 
-- [ ] I ran lint checks locally (HTMLHint / ESLint).
-- [ ] I tested snippet behavior manually.
+The authoritative template is [`.github/PULL_REQUEST_TEMPLATE.md`](https://github.com/sarthakbystander/DevSnips/blob/main/.github/PULL_REQUEST_TEMPLATE.md). Run the gates that apply to your change:
+
+```bash
+# Always:
+python scripts/tooling/validators/validate.py
+
+# When library/ content or resource metadata changed:
+python scripts/tooling/indexing/rebuild_index.py
+python scripts/tooling/indexing/validate_indexes.py
+
+# When Markdown changed or referenced files moved:
+python scripts/tooling/validators/check_md_links.py
+python scripts/tooling/validators/check_agent_doc_paths.py
+
+# When cli/ changed:
+cd cli && npm test
+```
+
+- [ ] `validate.py` prints `VALIDATION PASSED` (exit 0).
+- [ ] `snippets-index.json` regenerated when `library/` content changed.
+- [ ] Relevant checks above pass.
 
 ## 📸 Screenshots / Preview
 
