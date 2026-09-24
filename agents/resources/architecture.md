@@ -27,13 +27,16 @@ Read them from the current `snippets-index.json`.
 | `cli/` | Published npm CLI (`devsnips`) that installs resources into a user project. |
 | `agents/` | Agent-facing layer: skills (`agents/skills/devsnips/`) and this resource doc set. |
 | `scripts/` | Repository tooling: validators, indexing, generators, utilities, QA harnesses. |
-| `website/` | Published static site — a *derived* copy of the resource tree. |
-| `docs/` | Contributor-facing specs (`COMPONENT_STRUCTURE.md`, `CONTRIBUTING.md`). |
+| `docs/` | Contributor + platform documentation (start at `docs/index.md`). |
 | `integrations/mcp/` | Read-only MCP server (`devsnips-mcp`) exposing the library to AI agents; see `agents/resources/mcp.md`. |
-| `.github/` | Only `PULL_REQUEST_TEMPLATE.md`. **There is no CI workflow in this repository.** |
-| `devsnips/` | CLI `init` output artifact (`AGENTS.md` + `config.json`); untracked. |
+| `reports/` | Engineering audits and investigations. |
+| `.github/workflows/` | CI — runs the validators and the CLI tests on every push and pull request. |
 | `index.html` | Root tech landing page; links into `library/`. |
-| `fix_validate.py` | Untracked one-off migration patch script at the repo root. |
+
+Two paths are generated and uncommitted rather than checked in: `website/` (the
+derived static site) is produced by `scripts/tooling/generators/gen_site.py`, and
+`devsnips/` is created in a *user* project by `npx devsnips init`. Neither exists
+in a clean checkout.
 
 ## `library/`
 
@@ -87,7 +90,6 @@ It never reads the local `library/` tree. It resolves a path against the **remot
 | `scripts/tooling/validators/validate.py` | The repository gate: architecture, metadata, index↔disk, template `AGENTS.md`, plus the Vanilla quality bar. |
 | `scripts/tooling/validators/deep_check.py` | Per-tech required-file-set checker; the detailed file-set rules behind `validate.py`. |
 | `scripts/tooling/indexing/rebuild_index.py` | Authoritative regenerator for `snippets-index.json`. |
-| `scripts/tooling/indexing/update_index.py` | Legacy generator for the Tailwind 15-style section families; see "Known stale references". |
 | `scripts/tooling/generators/` | Section generators (`generate.py`, `gen_site.py`, `builders_*.py`, `styles.py`) and README generators. |
 | `scripts/tooling/utilities/` | One-off migration/repair scripts (`migrate_tokens.py`, `fix_quality_bar.py`, …). |
 | `scripts/qa/resources/qa_vanilla.py` | Vanilla quality-bar + token-conformance scanner. |
@@ -95,33 +97,31 @@ It never reads the local `library/` tree. It resolves a path against the **remot
 | `scripts/qa/resources/_qa_template.py` | Vanilla template overflow/interaction harness. |
 | `scripts/qa/resources/test_tailwind_nav.py`, `test_react_nav.py` | Nav/index page harnesses. |
 
-**No test runner, CI, or `package.json` exists at the repository root.** Python files under
-`scripts/` are plain scripts; the only `package.json` is `cli/package.json`.
+**There is no test runner or `package.json` at the repository root.** Python files under
+`scripts/` are plain scripts; the only `package.json` is `cli/package.json`. CI is driven by
+`.github/workflows/ci.yml`, which invokes those scripts plus `npm test` in `cli/`.
 
 See `agents/resources/qa.md` and `agents/resources/indexing.md`.
 
-## `website/`
+## `website/` (generated, not committed)
 
-The published static site. It mirrors the resource tree for rendering.
+The published static site, produced by `scripts/tooling/generators/gen_site.py`. It is a
+**derived publishing artifact** and is not present in a clean checkout.
 
-- Pages: `website/index.html`, `website/docs/index.html`, `website/docs/cli/index.html`,
-  `website/docs/agents/index.html`, `website/docs/structure/index.html`, …
+- Pages: `website/index.html`, `website/docs/index.html`, `website/docs/cli/index.html`, …
 - Resource mirrors: `website/<React|Tailwind|Vanilla>/<Components|Sections|Templates>/...`
 - Machine-readable: `website/llms.txt`, `website/llms-full.txt`, `website/search-index.json`
-- `website/assets/style.css`, `website/robots.txt`, `website/sitemap.xml`
 
-`website/` is a **derived publishing artifact**, not the canonical source. Do not treat
-`website/...` paths as resource locations — the canonical resource is always under `library/`.
+Do not treat `website/...` paths as resource locations — the canonical resource is always
+under `library/`. Regenerate; never hand-edit.
 
 ## `agents/`
 
 | Path | Role |
 |---|---|
 | `agents/skills/devsnips/SKILL.md` | The agent skill: discover, install, adapt, verify DevSnips resources. |
-| `agents/skills/devsnips/references/` | `cli_reference.md`, `registry_schema.md`, `accessibility_responsive_checklist.md`, `schemas.md`. |
-| `agents/skills/devsnips/eval-viewer/` | Eval viewer tooling (`generate_review.py`, `viewer.html`). |
+| `agents/skills/devsnips/references/` | `cli_reference.md`, `registry_schema.md`, `accessibility_responsive_checklist.md`. |
 | `agents/resources/` | **This doc set** — repository-side (maintainer/agent) resource documentation. |
-| `agents/examples/`, `agents/prompts/`, `agents/providers/` | Present but currently empty. |
 
 Relationship: `SKILL.md` documents *consuming* DevSnips (find → install → integrate).
 `agents/resources/` documents *the repository itself* (where things live, what is enforced,
@@ -138,7 +138,7 @@ snippets-index.json           generated registry, tech-first paths
    |
    +--> scripts/tooling/validators/validate.py       requires index <-> disk agreement
    +--> cli/src/registry/resolver.js                 fetches it from GitHub main
-   +--> website/ (llms.txt, search-index.json, mirrors)
+   +--> website/ (generated by gen_site.py: llms.txt, search-index.json, mirrors)
 ```
 
 Templates carry their own per-template `AGENTS.md` (see `resources.md`) — a *resource-level*
@@ -151,23 +151,18 @@ file, distinct from the root `AGENTS.md` and from `agents/resources/`.
 - **`cli/` is distribution.** It is a self-contained npm package (`cli/package.json` `files`)
   and must not depend on repository-relative paths.
 - **`website/` is output.** Regenerate; don't hand-edit resource mirrors.
-- **No CI.** Validation is enforced only when a human/agent runs it manually; the process
-  artifacts are `docs/PULL_REQUEST_TEMPLATE.md` and `.github/PULL_REQUEST_TEMPLATE.md`.
+- **CI enforces the validators.** `.github/workflows/ci.yml` runs `validate.py`,
+  the Python tooling unit tests, `rebuild_index.py --check`, `validate_indexes.py`, the
+  Markdown/agent-doc link and path checks, and `cli` `npm test` on every push and pull
+  request. The process artifacts remain
+  `docs/PULL_REQUEST_TEMPLATE.md` and `.github/PULL_REQUEST_TEMPLATE.md`.
 
-## Known stale references (documented, deliberately not silently changed)
+## Known gaps
 
-1. Root `README.md` links `Tailwind/Templates/…`, `React/index.html`, `Tailwind/index.html`,
-   and `Vanilla/Templates/SaaS%20Dashboard/` — none exist at those paths.
-2. `scripts/tooling/indexing/update_index.py` writes `library/`-prefixed paths and uses
-   package-relative imports, so it disagrees with the current index format produced by
-   `rebuild_index.py`. Treat it as legacy.
-3. `scripts/tooling/validators/validate.py`'s duplicate-ID check only prints a NOTE for
-   pre-existing duplicates; it does not fail the run.
-4. `agents/skills/devsnips/references/schemas.md` references eval files (`scripts/run_eval.py`,
-   `agents/analyzer.md`, `agents/grader.md`, …) that do not exist in this repository.
-
-(The former items about the root `AGENTS.md` layout, the `docs/` validator commands, and the
-QA harnesses' static-server convention were resolved and removed from this list.)
+This section is currently empty: the previously tracked items — the root `README.md` links,
+the root `AGENTS.md` layout, the `docs/` validator commands, the QA harnesses' static-server
+convention, the absence of CI, the legacy `update_index.py`, the unscoped duplicate-ID policy,
+and the orphaned eval-tooling references — have all been resolved.
 
 ## Deeper reading
 

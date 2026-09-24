@@ -51,5 +51,5 @@ No `assets/`, `css/`, `js/`, or `images/` directories — all visuals are Tailwi
 
 ## Quality bar
 
-Semantic landmarks (`header`, `nav`, `main`, `footer`), ARIA on the mobile menu and schedule tabs (`aria-expanded`, `role="tablist"`, `role="tab"`, `role="tabpanel"`), visible focus rings, `sr-only` labels on icon-only controls, `prefers-reduced-motion` guard that disables hover press animation. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks (`header`, `nav`, `main`, `footer`), ARIA on the mobile menu and schedule tabs (`aria-expanded`, `role="tablist"`, `role="tab"`, `role="tabpanel"`), visible focus rings, `sr-only` labels on icon-only controls, `prefers-reduced-motion` guard that disables hover press animation. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

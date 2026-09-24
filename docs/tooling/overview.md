@@ -33,12 +33,14 @@ The canonical run order:
 
 ## Validators
 
-Validators run as standalone scripts; no CI wraps them. The minimum bar before any push is `validate.py`; everything else is scope-dependent.
+Validators run as standalone scripts; CI (`.github/workflows/ci.yml`) wraps the always-on ones. The minimum bar before any push is `validate.py`; everything else is scope-dependent.
 
 | Path | What it checks |
 |---|---|
-| `validators/validate.py` | architecture (only `Components`/`Sections`/`Templates` under each tech; no `Utilities`/`Resources`/`Snippets`/`Pages`/`Tools`), metadata validity (`type` present and matching its folder bucket; required files per tech), two-way index↔disk consistency, template `AGENTS.md` existence + non-empty, Vanilla quality bar (via `qa_vanilla.py`), duplicate IDs (collected as a NOTE, not a failure — deliberate) |
+| `validators/validate.py` | architecture (only `Components`/`Sections`/`Templates` under each tech; no `Utilities`/`Resources`/`Snippets`/`Pages`/`Tools`), metadata validity (`type` present and matching its folder bucket; required files per tech), two-way index↔disk consistency, template `AGENTS.md` existence + non-empty, Vanilla quality bar (via `qa_vanilla.py`), duplicate IDs (a collision within one tech/type/subcategory fails; cross-technology id parity is a NOTE) |
 | `validators/deep_check.py` | per-tech required vs optional files: React Components need `code.tsx` + `preview.html` + `README.md`; React Sections need `code.tsx` + `preview.html`; a missing React `code.jsx` is a **warning** only; any Section with an empty `README.md` is a failure |
+| `validators/check_md_links.py` | every relative Markdown link in the repo resolves to a real file or directory, and `file.md#fragment` anchors match a real heading slug |
+| `validators/check_agent_doc_paths.py` | path-like backticked references in agent-facing docs (`agents/resources/*.md`, `library/**/AGENTS.md`, `integrations/mcp/**/*.md`) resolve (root-anchored paths, `library/`-relative registry paths) |
 
 Key behavior:
 
@@ -59,7 +61,6 @@ The indexing family produces the machine-readable registry and the three per-typ
 
 - `build_resource_indexes.py` **imports** `rebuild_index.py` for the scanner, curated-data preservation, and `validate()` — the filesystem scanner is never duplicated.
 - `validate_indexes.py` **imports** `rebuild_index.py` for `disk_leaf_ids()` — so the validator can never drift from the generator's leaf-detection logic.
-- `indexing/update_index.py` is **legacy / do not use** — it writes `library/`-prefixed paths and disagrees with the current format.
 
 ### The `files` manifest
 

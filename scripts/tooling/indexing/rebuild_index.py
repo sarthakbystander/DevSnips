@@ -95,10 +95,15 @@ def is_leaf(folder: Path, tech: str) -> bool:
 
 
 def list_leaves_under(folder: Path, tech: str):
-    """Yield (leaf_path_rel, metadata) for every leaf under `folder`."""
+    """Yield (leaf_path_rel, metadata) for every leaf under `folder`.
+
+    Sorted by path so the result does not depend on `os.scandir` order (which
+    is not guaranteed across filesystems); otherwise sibling leaves that share
+    a folder name would order non-deterministically.
+    """
     if not folder.exists():
         return
-    for p in folder.rglob("metadata.json"):
+    for p in sorted(folder.rglob("metadata.json")):
         leaf = p.parent
         if is_leaf(leaf, tech):
             yield leaf, _read_meta(p)
@@ -304,7 +309,11 @@ def build_index():
             leaves = _leaves_in_family_dir(family_dir, tech)
         if not leaves:
             return
-        leaves = sorted(leaves, key=lambda lm: lm[0].name.lower())
+        # Full relative path is the tie-break: two leaves can share a folder
+        # name under different parents (e.g. Buttons/icon-button/basic and
+        # Buttons/animated-button/basic), and sorting on the name alone would
+        # leave their order to filesystem walk order.
+        leaves = sorted(leaves, key=lambda lm: lm[0].as_posix().lower())
         rel = rel_path(family_dir)
         fam_path = rel + "/"
         old_fam = lookup_old_fam(fam_path)
@@ -562,6 +571,9 @@ def validate(data, families):
 
 
 if __name__ == "__main__":
+    import sys
+
+    check_only = "--check" in sys.argv[1:]
     data, families = build_index()
     problems = validate(data, families)
     if problems:
@@ -579,9 +591,30 @@ if __name__ == "__main__":
         tfams = [f for f in families if f["tech"] == tech]
         tv = sum(f["variantsCount"] for f in tfams)
         print(f"  {tech}: {len(tfams)} families, {tv} variants")
+
+    if check_only:
+        # CI mode: fail if the committed index is not exactly what would be
+        # written. `lastUpdated` is a date stamp, so it is ignored — the
+        # committed value is what matters.
+        if problems:
+            print("Index is stale: validation problems above.", file=sys.stderr)
+            sys.exit(1)
+        current = json.loads(INDEX.read_text(encoding="utf-8"))
+        committed = dict(current)
+        rebuilt = dict(data)
+        committed.pop("lastUpdated", None)
+        rebuilt.pop("lastUpdated", None)
+        if committed != rebuilt:
+            print("Index is stale: run `python scripts/tooling/indexing/rebuild_index.py` "
+                  "and commit the result.", file=sys.stderr)
+            sys.exit(1)
+        print("Index is up to date (--check).")
+        sys.exit(0)
+
     if not problems:
         INDEX.write_text(json.dumps(data, indent=2, ensure_ascii=False),
                          encoding="utf-8")
         print("Wrote snippets-index.json")
     else:
         print("NOT writing index due to validation problems.")
+        sys.exit(1)

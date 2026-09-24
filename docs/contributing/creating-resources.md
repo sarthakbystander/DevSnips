@@ -67,7 +67,11 @@ Required at the template root. What it should cover: [Agent files](agent-files.m
 python scripts/tooling/indexing/rebuild_index.py
 python scripts/tooling/validators/deep_check.py
 python scripts/tooling/validators/validate.py
+python scripts/tooling/indexing/validate_indexes.py
 ```
+
+If you edited Markdown or moved referenced files, also run
+`python scripts/tooling/validators/check_md_links.py`.
 
 Check the registry entry that was created: correct family name, `variantsCount`, `type`, and the variant's `files[]` manifest (this manifest drives CLI installs).
 

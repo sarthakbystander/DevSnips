@@ -31,5 +31,5 @@ Interactive button animations including loading states, hover effects, and trans
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Loading Button](../Loading%20Button/) - Dedicated loading components
+- [Basic Button](../basic-button/) - Core button styles
+- [Loading Button](../loading-button/) - Dedicated loading components

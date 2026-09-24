@@ -77,7 +77,8 @@ Do NOT load all ten files for every task.
 
 ## QA Expectations
 
-After any change, run the most relevant check — minimum bar:
+CI (`.github/workflows/ci.yml`) runs these on every push and pull request; run them locally
+first. After any change, run the most relevant check — minimum bar:
 
 ```
 python scripts/tooling/validators/validate.py
@@ -86,8 +87,16 @@ python scripts/tooling/validators/validate.py
 Regenerate indexes whenever `library/` content or resource metadata changed:
 
 ```
+python scripts/tooling/indexing/rebuild_index.py
 python scripts/tooling/indexing/build_resource_indexes.py
 python scripts/tooling/indexing/validate_indexes.py
+```
+
+After editing Markdown, or moving/renaming files that documentation references:
+
+```
+python scripts/tooling/validators/check_md_links.py
+python scripts/tooling/validators/check_agent_doc_paths.py
 ```
 
 What each layer covers, per-framework rules, and QA harness locations: `agents/resources/qa.md`.
@@ -96,8 +105,10 @@ What each layer covers, per-framework rules, and QA harness locations: `agents/r
 
 - Resource spec (required files per tech/type): `agents/resources/resources.md`
 - Structure + metadata validator: `scripts/tooling/validators/validate.py`
-- Master index generator: `scripts/tooling/indexing/rebuild_index.py`
+- Markdown link + agent-doc path checkers: `scripts/tooling/validators/check_md_links.py` · `scripts/tooling/validators/check_agent_doc_paths.py`
+- Master index generator: `scripts/tooling/indexing/rebuild_index.py` (`--check` verifies without writing)
 - Specialized index generator / validator: `scripts/tooling/indexing/build_resource_indexes.py` · `scripts/tooling/indexing/validate_indexes.py`
+- CI workflow: `.github/workflows/ci.yml`
 - Master index: `snippets-index.json` — specialized indexes: `agents/resources/indexes/`
 - CLI entry: `cli/src/index.js` — commands: `cli/src/commands/add.js`, `cli/src/commands/init.js`
 - MCP server: `integrations/mcp/src/devsnips_mcp/` — docs: `agents/resources/mcp.md`

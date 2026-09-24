@@ -37,4 +37,4 @@ html5-boilerplate/
 
 ## Quality bar
 
-Semantic HTML, `lang` attribute, viewport meta, `:focus-visible` ring, reduced-motion guard. Run `python3 scripts/qa_vanilla.py` after changes. Validate with `python3 scripts/_qa_template.py Vanilla/Templates/html5-boilerplate/preview.html`.
+Semantic HTML, `lang` attribute, viewport meta, `:focus-visible` ring, reduced-motion guard. Run `python3 scripts/qa/resources/qa_vanilla.py` after changes. Validate with `python3 scripts/qa/resources/_qa_template.py Vanilla/Templates/html5-boilerplate/preview.html`.

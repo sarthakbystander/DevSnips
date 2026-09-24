@@ -9,7 +9,7 @@ Bordered buttons with transparent backgrounds in solid, thick, and dashed styles
 | [Primary](./primary/) | Blue bordered buttons |
 | [Thick](./thick/) | Bold thick border styles |
 | [Dashed](./dashed/) | Dashed border variants |
-| [Sizes](./sizes/) | All button sizes |
+| Sizes | All button sizes |
 
 ## Quick Start
 
@@ -27,6 +27,6 @@ Bordered buttons with transparent backgrounds in solid, thick, and dashed styles
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Solid background buttons
-- [Ghost Button](../Ghost%20Button/) - Transparent hover buttons
-- [Filled Button](../Filled%20Button/) - Soft background variants
+- [Basic Button](../basic-button/) - Solid background buttons
+- [Ghost Button](../ghost-button/) - Transparent hover buttons
+- [Filled Button](../filled-button/) - Soft background variants

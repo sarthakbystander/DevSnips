@@ -39,4 +39,4 @@ developer-portfolio/
 
 ## Quality bar
 
-Skip link, semantic landmarks, single `h1`, `aria-expanded`/`aria-controls` mobile toggle, `aria-current` scrollspy, `:focus-visible` rings, reduced-motion guard. Run `python3 scripts/qa_vanilla.py` after changes. Validate with `python3 scripts/_qa_template.py Vanilla/Templates/developer-portfolio/preview.html` (overflow + console + interactions).
+Skip link, semantic landmarks, single `h1`, `aria-expanded`/`aria-controls` mobile toggle, `aria-current` scrollspy, `:focus-visible` rings, reduced-motion guard. Run `python3 scripts/qa/resources/qa_vanilla.py` after changes. Validate with `python3 scripts/qa/resources/_qa_template.py Vanilla/Templates/developer-portfolio/preview.html` (overflow + console + interactions).

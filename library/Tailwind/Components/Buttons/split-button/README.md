@@ -26,5 +26,5 @@ Button components with dropdown or icon triggers for additional actions.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Icon Button](../Icon%20Button/) - Icon-only buttons
+- [Basic Button](../basic-button/) - Core button styles
+- [Icon Button](../icon-button/) - Icon-only buttons

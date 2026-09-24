@@ -31,5 +31,5 @@ Floating action buttons (FAB) for primary actions.
 
 ## Related
 
-- [Icon Button](../Icon%20Button/) - Icon-only buttons
-- [Animated Button](../Animated%20Button/) - Animated buttons
+- [Icon Button](../icon-button/) - Icon-only buttons
+- [Animated Button](../animated-button/) - Animated buttons

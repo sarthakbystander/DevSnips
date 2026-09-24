@@ -46,5 +46,5 @@ No external image assets — the landscape is a handcrafted inline SVG(forest, l
 
 ## Quality bar
 
-Semantic landmarks, labelled navigation, visible focus states, descriptive SVG title/description, keyboard-friendly buttons/links, touch-friendly controls, `prefers-reduced-motion` handling, mobile-first from 320px through 1920px+. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks, labelled navigation, visible focus states, descriptive SVG title/description, keyboard-friendly buttons/links, touch-friendly controls, `prefers-reduced-motion` handling, mobile-first from 320px through 1920px+. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

@@ -32,5 +32,5 @@ Buttons with loading states, spinners, and progress indicators.
 
 ## Related
 
-- [Animated Button](../Animated%20Button/) - General animations
-- [Basic Button](../Basic%20Button/) - Core button styles
+- [Animated Button](../animated-button/) - General animations
+- [Basic Button](../basic-button/) - Core button styles

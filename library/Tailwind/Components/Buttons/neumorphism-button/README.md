@@ -33,5 +33,5 @@ Works in all modern browsers.
 
 ## Related
 
-- [Glass Button](../Glass%20Button/) - Glass morphism style
-- [Basic Button](../Basic%20Button/) - Core button styles
+- [Glass Button](../glass-button/) - Glass morphism style
+- [Basic Button](../basic-button/) - Core button styles

@@ -24,16 +24,15 @@ DevSnips treats its machine-readable layer as a first-class product surface, not
 4. **Portability.** Registry and index paths are tech-first without the `library/` prefix, computed portably (never absolute machine paths). The on-disk location of any entry is `library/<path>`.
 5. **Stable identity.** The registry path is the resource's identity. IDs must remain stable once published.
 
-## The index pipeline: rebuild vs build vs update vs validate
+## The index pipeline: rebuild vs build vs validate
 
-Four distinct scripts under `scripts/tooling/indexing/` — each has one job. **Do not confuse them.**
+Three distinct scripts under `scripts/tooling/indexing/` — each has one job. **Do not confuse them.**
 
 | Script | Command | What it does | When to run it |
 |---|---|---|---|
 | `rebuild_index.py` | `python scripts/tooling/indexing/rebuild_index.py` | Regenerates the master `snippets-index.json` from disk. | After any leaf is added, removed, renamed, or moved, or any `metadata.json` changed. |
 | `build_resource_indexes.py` | `python scripts/tooling/indexing/build_resource_indexes.py` | Regenerates the three per-type specialized indexes from the master. | After the master changes. |
 | `validate_indexes.py` | `python scripts/tooling/indexing/validate_indexes.py` | Re-scans disk and asserts the specialized indexes match. | After every regeneration, and in CI/PRs. |
-| `update_index.py` | `python scripts/tooling/indexing/update_index.py` | **Legacy / do not use.** Writes `library/`-prefixed paths and disagrees with the current format. | Never; treat as legacy. |
 
 ### `rebuild_index.py` — the master generator
 
@@ -71,10 +70,6 @@ Builds the three specialized indexes from the **same in-memory family set** the 
 ### `validate_indexes.py` — the post-hoc gate
 
 Re-scans the disk with `rebuild_index`'s scanner (exact leaf-detection parity, including `_template_leaves` for template roots that have no root `code.html`) and fails loudly on: stale entries (indexed path missing on disk), missing resources (disk leaf absent from the index), duplicate ids/paths, wrong `type` vs parent index, wrong family `variantsCount`, family/variant path-prefix mismatches, sort-order violations, master↔specialized count mismatches, and JSON parse errors. Exit 0 = the indexes match the repository. **Run it after every regeneration.**
-
-### `update_index.py` — legacy, do not use
-
-Writes `library/`-prefixed paths and uses package-relative imports, so it disagrees with the current index format produced by `rebuild_index.py`. Treat it as legacy; do not document or use it.
 
 ### Determinism
 

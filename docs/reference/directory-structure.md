@@ -43,9 +43,8 @@ DevSnips/
 ├── agents/
 │   ├── skills/devsnips/
 │   │   ├── SKILL.md                  published agent skill (v1.0.1)
-│   │   ├── references/               cli_reference.md, registry_schema.md,
-│   │   │                             accessibility_responsive_checklist.md, schemas.md
-│   │   └── eval-viewer/              eval tooling (generate_review.py, viewer.html)
+│   │   └── references/               cli_reference.md, registry_schema.md,
+│   │                                 accessibility_responsive_checklist.md
 │   └── resources/                    repository-side deep agent docs
 │       ├── architecture.md, resources.md, cli.md, indexing.md,
 │       ├── qa.md, workflows.md, conventions.md
@@ -53,28 +52,27 @@ DevSnips/
 │       └── indexes/*.json            GENERATED — specialized indexes
 │
 ├── scripts/
-│   ├── tooling/validators/           validate.py, deep_check.py
+│   ├── tooling/validators/           validate.py, deep_check.py,
+│   │                                 check_md_links.py, check_agent_doc_paths.py
 │   ├── tooling/indexing/             rebuild_index.py, build_resource_indexes.py,
-│   │                                 validate_indexes.py, update_index.py (legacy)
+│   │                                 validate_indexes.py
+│   ├── tooling/tests/                stdlib unittest suite for the tooling scripts
 │   ├── tooling/generators/           gen_site.py (website), Tailwind section builders
 │   ├── tooling/utilities/            one-off migration/repair scripts
 │   └── qa/resources/                 qa_vanilla.py + Playwright harnesses
 │
-├── website/                          GENERATED — published static site
-│   ├── index.html                    home page
-│   ├── <Tech>/<Type>/…/index.html    resource detail pages (mirrors)
-│   ├── llms.txt · llms-full.txt      LLM-oriented inventory digests
-│   ├── search-index.json             flat per-resource search records
-│   ├── sitemap.xml · robots.txt      crawlability
-│   └── docs/, cli/, contributing/ …  site documentation pages
-│
 ├── docs/                             contributor + platform documentation (this tree)
 │   └── …                             see docs/index.md for the map
 │
-├── devsnips/                         CLI init-output artifact in this checkout (config.json, AGENTS.md)
-├── integrations/                     reserved, currently empty
+├── integrations/mcp/                 read-only MCP server (`devsnips-mcp`)
 ├── reports/                          audit reports
-└── .github/PULL_REQUEST_TEMPLATE.md  PR template (no CI workflows exist)
+└── .github/
+    ├── PULL_REQUEST_TEMPLATE.md      PR template
+    └── workflows/ci.yml              CI: validators, index drift, doc links, CLI tests
+
+Generated and NOT committed (absent from a clean checkout):
+├── website/                          published static site (gen_site.py)
+└── devsnips/                         CLI `init` output, created in a user project
 ```
 
 ## Rules that follow from this layout

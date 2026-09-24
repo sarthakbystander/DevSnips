@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-24
+
+### Added — CI, Markdown link checker, and agent-doc path checker
+- **GitHub Actions CI** (`.github/workflows/ci.yml`) now enforces the documented validation gates on every push to `main` and every pull request, in three jobs: library structure/indexes (`validate.py`, Python tooling unit tests, `rebuild_index.py --check`, `validate_indexes.py`), documentation (`check_md_links.py`, `check_agent_doc_paths.py`), and CLI (`npm test`). Previously validation ran only when a human or agent remembered to run it.
+- **Markdown link checker** (`scripts/tooling/validators/check_md_links.py`) resolves every relative Markdown link target in the repository and fails on a missing path — and now also verifies `file.md#fragment` anchors against a real heading slug (GitHub-style, including duplicate-heading `-1` suffixes) — catching rotted cross-links between resource READMEs and token docs.
+- **Agent-doc path checker** (`scripts/tooling/validators/check_agent_doc_paths.py`) validates path-like backticked references in agent-facing docs (`agents/resources/*.md`, `library/**/AGENTS.md`, `integrations/mcp/**/*.md`); supports fenced-code stripping and `<!-- path-check: ignore-start -->` / `ignore-end` regions for intentionally non-resolving paths. Extending the scope caught and fixed stale pre-reorg script paths (`scripts/validate.py`, `scripts/qa_vanilla.py`, `scripts/_qa_template.py`, `_gen/…`, `scripts/qa/…`) shipped in 19 template `AGENTS.md` files and several library/docs pages.
+- **Python tooling unit tests** (`scripts/tooling/tests/`) cover the indexer's deterministic ordering/leaf detection, the Markdown link + anchor checker, the agent-doc path checker, and the duplicate-ID classifier; CI runs them.
+- **Docs reconciled with the repository**: removed stale "no CI" claims across `AGENTS.md`, `agents/resources/*.md`, and `docs/**`; the `architecture.md` ledger now lists only the remaining genuine gaps; `docs/reference/directory-structure.md` no longer claims `website/` and `devsnips/` are committed; the `docs/machine-readable/overview.md` pipeline section no longer cites a removed fourth script; removed the orphaned skill `assets/eval_review.html` (its `generate_review.py` was already deleted); fixed 39 broken Markdown links.
+
 ## 2026-09-08
 
 ### Added — `AGENTS.md` required for every template

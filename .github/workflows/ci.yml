@@ -1,0 +1,70 @@
+name: CI
+
+# Enforces the checks the agent docs describe. Before this existed, validation
+# only ran when a contributor remembered to run it by hand, so index drift and
+# rotted documentation links could land on main unnoticed.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# A new push to the same ref supersedes the previous run.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  library:
+    name: Library structure and indexes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Structure + metadata validation
+        run: python scripts/tooling/validators/validate.py
+
+      - name: Python tooling unit tests
+        run: python -m unittest discover -s scripts/tooling/tests -t scripts/tooling/tests
+
+      - name: Master index is up to date
+        run: python scripts/tooling/indexing/rebuild_index.py --check
+
+      - name: Specialized indexes validation
+        run: python scripts/tooling/indexing/validate_indexes.py
+
+  docs:
+    name: Documentation links and paths
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Relative Markdown links resolve
+        run: python scripts/tooling/validators/check_md_links.py
+
+      - name: Agent doc path references resolve
+        run: python scripts/tooling/validators/check_agent_doc_paths.py
+
+  cli:
+    name: CLI tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cli
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Test suite
+        run: npm test

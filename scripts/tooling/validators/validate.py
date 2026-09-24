@@ -12,7 +12,8 @@ Checks:
   2. No standalone Utilities/Resources/Snippets content dirs.
   3. Every component/section/template folder has a valid metadata.json.
   4. No orphaned metadata.json (metadata without its expected sibling files).
-  5. No duplicate IDs across all metadata.json.
+  5. No duplicate IDs within one technology + content type + subcategory
+     (cross-technology id echoes are expected and reported as a NOTE).
   6. No duplicate variant paths in the index.
   7. Every index variant path exists on disk and has metadata.json.
   8. Every on-disk leaf is present in the index.
@@ -107,6 +108,13 @@ def check_architecture():
 
 
 def check_metadata_validity():
+    # IDs are collected per technology. The metadata `id`/`slug` is a
+    # descriptive field derived from the folder name (`<section>-<style>` for
+    # Tailwind sections, `<family>-<direction>` for React sections), not the
+    # canonical registry key — that key is the tech-first *path*, which is
+    # checked separately and is globally unique. So React and Tailwind both
+    # shipping a `team-minimal` section is expected, not a collision; only a
+    # duplicate *within one technology* is a real ambiguity.
     all_ids = {}
     for tech, td in TECH_DIRS:
         # Every technology has three content-type buckets.
@@ -163,17 +171,39 @@ def check_metadata_validity():
                         "%s type=template outside Templates/: %s" % (td, mf))
                 mid = meta.get("id") or meta.get("slug")
                 if mid:
-                    all_ids.setdefault(mid, []).append(str(mf))
-    # Duplicate IDs are reported as informational notes, not failures: per the
-    # migration rules, existing IDs must be preserved (rule #9). The known
-    # pre-existing duplicates (feature-grid-neo-brutalism across marketing/saas,
-    # contact-form-001 across Forms/Contact and Contact) existed before the
-    # migration at their old locations and are out of scope for this refactor.
-    dup_ids = {mid: files for mid, files in all_ids.items() if len(files) > 1}
-    if dup_ids:
-        print("NOTE: %d pre-existing duplicate ID(s) preserved (not changed per rule #9):" % len(dup_ids))
-        for mid, files in dup_ids.items():
-            print("    - %s (%d files)" % (mid, len(files)))
+                    sub = (meta.get("subcategory") or "").lower()
+                    all_ids.setdefault(mid, []).append((str(mf), tech, bucket, sub))
+    # An id is only a real ambiguity when two leaves under the SAME technology,
+    # content type AND subcategory share it — the case a rename within one
+    # collection does not disambiguate. Cross-tech echoes are an expected
+    # convention (Tailwind/React section id parity), so they are NOTE-level.
+    collisions, informational = classify_duplicate_ids(all_ids)
+    for mid, entries in sorted(collisions.items()):
+        problems.append(
+            "Duplicate id within one technology/type: %s (%s)"
+            % (mid, ", ".join(sorted(e[0] for e in entries))))
+    if informational:
+        print("NOTE: %d id(s) shared across technologies/types (path is the "
+              "canonical registry key, so these are expected):" % len(informational))
+        for mid in sorted(informational):
+            print("    - %s (%d files)" % (mid, len(informational[mid])))
+
+
+def classify_duplicate_ids(all_ids):
+    """Split collected ids into true collisions and cross-tech informational echoes.
+
+    `all_ids` maps an id to a list of `(metadata_path, tech, bucket, subcategory)`
+    tuples. A collision is two leaves sharing an id under the same
+    (tech, bucket, subcategory) — the registry key is the path, so echoes across
+    technologies are expected id-parity rather than ambiguity.
+    """
+    dup_any = {mid: entries for mid, entries in all_ids.items() if len(entries) > 1}
+    collisions = {
+        mid: entries for mid, entries in dup_any.items()
+        if len({(e[1], e[2], (e[3] or "").lower()) for e in entries}) == 1
+    }
+    informational = {m: e for m, e in dup_any.items() if m not in collisions}
+    return collisions, informational
 
 
 def check_index_vs_disk():
@@ -266,6 +296,10 @@ def main():
     check_metadata_validity()
     check_index_vs_disk()
     check_template_agents()
+    # Strict per-tech required-file-set checker. Previously a separate
+    # `deep_check.py` run; its findings now merge into this single gate so a
+    # contributor cannot pass `validate.py` while failing the stricter layer.
+    _run_deep_check()
     # Quality-bar scan (Vanilla components). Non-fatal warnings are fine; only
     # required-check failures fail validation, so the bar is enforced in CI.
     qa_failures = _run_qa()
@@ -277,6 +311,29 @@ def main():
     if qa_failures:
         sys.exit(1)
     print("VALIDATION PASSED - architecture, metadata, and index all consistent.")
+
+
+def _run_deep_check():
+    """Merge the per-tech required-file-set checks into this validator.
+
+    `deep_check.py` lives beside this file; it is imported by path so the
+    validator stays a standalone script (no package/__init__ required).
+    """
+    import importlib.util
+    here = Path(__file__).resolve().parent
+    deep = here / "deep_check.py"
+    if not deep.exists():
+        problems.append(
+            "Required-file-set checker missing (expected %s)"
+            % deep.relative_to(ROOT))
+        return
+    spec = importlib.util.spec_from_file_location("deep_check", deep)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    dc_problems, dc_warnings = module.collect()
+    problems.extend(dc_problems)
+    for w in dc_warnings:
+        print("  deep-check warning: %s" % w)
 
 
 def _run_qa():

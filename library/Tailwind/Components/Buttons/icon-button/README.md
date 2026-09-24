@@ -28,5 +28,5 @@ Icon-only buttons and icon+text combinations for toolbars and navigation.
 
 ## Related
 
-- [Animated Button](../Animated%20Button/) - Animated icon buttons
-- [Split Button](../Split%20Button/) - Button with dropdown
+- [Animated Button](../animated-button/) - Animated icon buttons
+- [Split Button](../split-button/) - Button with dropdown

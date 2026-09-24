@@ -186,6 +186,7 @@ Mention validation commands you ran and any known limitations.
 - [ ] I regenerated `snippets-index.json` when content changed.
 - [ ] I added the `AGENTS.md` template-specific agent-instructions file when adding or editing a template.
 - [ ] `python scripts/tooling/validators/validate.py` passes.
+- [ ] `python scripts/tooling/validators/check_md_links.py` passes if Markdown changed or referenced files moved.
 - [ ] I documented any known limitations in the pull request.
 
 ## Maintainer principle

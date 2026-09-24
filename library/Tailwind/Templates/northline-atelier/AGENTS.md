@@ -52,6 +52,6 @@ No `assets/`, `css/`, `js/`, or `images/` directories — visual details use Tai
 
 ## Quality bar
 
-Semantic landmarks, visible keyboard focus, labelled form controls, descriptive SVG titles, reduced-motion handling, mobile-first responsiveness from 320px through 1920px+. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks, visible keyboard focus, labelled form controls, descriptive SVG titles, reduced-motion handling, mobile-first responsiveness from 320px through 1920px+. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 
 

@@ -60,7 +60,7 @@ model, index registration, and validation as the other technologies.
 
 ### Forbidden content collections
 
-Do not create technology-level `Utilities/`, `Resources/`, `Snippets/`, `Pages/`, or `Tools/` collections. If something is a reusable UI pattern, it should have an appropriate component, section, or template classification. Repository tooling belongs under `_gen/` or `scripts/`.
+Do not create technology-level `Utilities/`, `Resources/`, `Snippets/`, `Pages/`, or `Tools/` collections. If something is a reusable UI pattern, it should have an appropriate component, section, or template classification. Repository tooling belongs under `scripts/tooling/`.
 
 ## Family and variant model
 

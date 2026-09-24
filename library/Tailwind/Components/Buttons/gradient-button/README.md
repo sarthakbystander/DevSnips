@@ -54,6 +54,6 @@ A collection of gradient button components with various styles and effects.
 
 ## Related
 
-- [Glass Button](../Glass%20Button/) - Frosted glass effect
-- [Animated Button](../Animated%20Button/) - Hover animations
-- [Icon Button](../Icon%20Button/) - Icon + text combinations
+- [Glass Button](../glass-button/) - Frosted glass effect
+- [Animated Button](../animated-button/) - Hover animations
+- [Icon Button](../icon-button/) - Icon + text combinations

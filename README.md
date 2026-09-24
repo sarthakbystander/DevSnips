@@ -5,6 +5,7 @@
 Reusable **Tailwind CSS**, **Vanilla HTML/CSS/JS**, and **React** components, sections, and full multi-page templates — including production-ready AI SaaS platforms.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/sarthakbystander/DevSnips/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakbystander/DevSnips/actions/workflows/ci.yml)
 [![GitHub stars](https://img.shields.io/github/stars/sarthakbystander/DevSnips?style=social)](https://github.com/sarthakbystander/DevSnips/stargazers)
 [![Variants](https://img.shields.io/badge/variants-1000%2B-brightgreen)](https://github.com/sarthakbystander/DevSnips)
 [![Templates](https://img.shields.io/badge/templates-19-orange)](https://github.com/sarthakbystander/DevSnips)

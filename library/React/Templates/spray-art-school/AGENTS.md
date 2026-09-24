@@ -61,5 +61,5 @@ Routes: `/` Home(Hero, Selected Work, Courses( Services), About, Roadmap( Proces
 
 ## Quality bar
 
-Semantic landmarks(`header`, `main`, `section`, `footer`, `nav`, `form`), single `h1` per page, descriptive `h2` section headings with eyebrows, mobile menu `aria-expanded`, form labels via `htmlFor`/`id`, `role="status"` success message, global `:focus-visible` dashed outline, `prefers-reduced-motion` resolves Framer Motion transitions instantly. Run `npm run build` (strict `tsc` type-check) and `python3 scripts/validate.py` after changes.
+Semantic landmarks(`header`, `main`, `section`, `footer`, `nav`, `form`), single `h1` per page, descriptive `h2` section headings with eyebrows, mobile menu `aria-expanded`, form labels via `htmlFor`/`id`, `role="status"` success message, global `:focus-visible` dashed outline, `prefers-reduced-motion` resolves Framer Motion transitions instantly. Run `npm run build` (strict `tsc` type-check) and `python3 scripts/tooling/validators/validate.py` after changes.
 

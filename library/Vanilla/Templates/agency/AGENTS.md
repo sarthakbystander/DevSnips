@@ -40,7 +40,7 @@ No `assets/`&mdash;all imagery is Unsplash CDN URLs; fonts + Pico CSS are CDN.
 
 ## Quality bar
 
-`aria-expanded` + `aria-controls` mobile menu, `aria-current` scrollspy, `:focus-visible` accent ring, descriptive alt text, reduced-motion guard. The head inline `<script>document.documentElement.classList.add('js')</script>` gates reveal (no-JS falls back to visible). Run `python3 scripts/qa_vanilla.py` after changes.
+`aria-expanded` + `aria-controls` mobile menu, `aria-current` scrollspy, `:focus-visible` accent ring, descriptive alt text, reduced-motion guard. The head inline `<script>document.documentElement.classList.add('js')</script>` gates reveal (no-JS falls back to visible). Run `python3 scripts/qa/resources/qa_vanilla.py` after changes.
 
 ## Gotcha
 
