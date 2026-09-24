@@ -38,4 +38,4 @@ product-launch/
 
 ## Quality bar
 
-Skip link, semantic landmarks, single `h1`, ARIA on the FAQ accordion (`aria-expanded`/`aria-controls`/`role=region`), form `aria-invalid` + `aria-live` errors, `role=img` progress bar, `:focus-visible` rings, reduced-motion guard. Run `python3 scripts/qa_vanilla.py` after changes. Validate with `python3 scripts/_qa_template.py Vanilla/Templates/product-launch/preview.html`.
+Skip link, semantic landmarks, single `h1`, ARIA on the FAQ accordion (`aria-expanded`/`aria-controls`/`role=region`), form `aria-invalid` + `aria-live` errors, `role=img` progress bar, `:focus-visible` rings, reduced-motion guard. Run `python3 scripts/qa/resources/qa_vanilla.py` after changes. Validate with `python3 scripts/qa/resources/_qa_template.py Vanilla/Templates/product-launch/preview.html`.

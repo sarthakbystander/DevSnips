@@ -118,8 +118,7 @@ Only ever via the generator.
 ```
 
 If step 3 prints `VALIDATION PROBLEMS`, the index was **not** written. Fix the listed problems
-and re-run. Never run `scripts/tooling/indexing/update_index.py` — it is legacy and writes
-`library/`-prefixed paths (`agents/resources/indexing.md`).
+and re-run.
 
 ## 8. Framework-specific work
 

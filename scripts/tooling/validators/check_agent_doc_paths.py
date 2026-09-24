@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guard the path references quoted in `agents/resources/*.md`.
+"""Guard the path references quoted in agent-facing Markdown docs.
 
 Those docs are the authoritative map of the repository for agents, and they
 quote concrete paths inline in backticks (`` `scripts/tooling/validators/validate.py` ``).
@@ -7,8 +7,14 @@ When a file or directory moves, those references rot silently — the existing
 validators only inspect metadata/index/architecture, never the docs that
 describe them.
 
-This checks every path-like backticked token in `agents/resources/*.md` and
-fails when it resolves to nothing. Resolution tries, in order:
+Scanned documents:
+
+  - `agents/resources/*.md` — the repository-side deep agent docs
+  - `library/**/AGENTS.md` — per-resource agent guidance the CLI ships to users
+  - `integrations/mcp/**/*.md` — MCP server agent docs
+
+This checks every path-like backticked token in those files and fails when it
+resolves to nothing. Resolution tries, in order:
 
   - the repository root
   - each doc's own context directories (`agents/resources/`, `scripts/`,
@@ -28,7 +34,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]  # -> repo root
-DOC_GLOB = "agents/resources/*.md"
+DOC_GLOBS = (
+    "agents/resources/*.md",
+    "library/**/AGENTS.md",
+    "integrations/mcp/**/*.md",
+)
 
 BACKTICK = re.compile(r"`([^`]+)`")
 
@@ -160,9 +170,9 @@ def resolves(token: str) -> bool:
 
 
 def main():
-    files = sorted(ROOT.glob(DOC_GLOB))
+    files = sorted({p for glob in DOC_GLOBS for p in ROOT.glob(glob)})
     if not files:
-        print(f"No files matched {DOC_GLOB}", file=sys.stderr)
+        print(f"No files matched {DOC_GLOBS}", file=sys.stderr)
         return 1
 
     failures = 0
@@ -189,7 +199,7 @@ def main():
     if failures:
         print(f"\nFAILED: {failures} unresolved path reference(s).")
         return 1
-    print(f"OK: all path references in {DOC_GLOB} resolve ({checked} checked, "
+    print(f"OK: all path references in scanned agent docs resolve ({checked} checked, "
           f"{len(files)} files).")
     return 0
 

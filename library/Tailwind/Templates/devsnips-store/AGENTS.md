@@ -66,5 +66,5 @@ Mobile menu, product filter chips + sort + live count, thumbnail gallery, finish
 
 ## Quality bar
 
-Semantic landmarks (`header`, `nav`, `main`, `footer`), skip link, a single `h1` per page, ARIA on the mobile menu (`aria-expanded`/`aria-controls`), accordion and stepper, visible focus rings, `prefers-reduced-motion` support. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks (`header`, `nav`, `main`, `footer`), skip link, a single `h1` per page, ARIA on the mobile menu (`aria-expanded`/`aria-controls`), accordion and stepper, visible focus rings, `prefers-reduced-motion` support. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

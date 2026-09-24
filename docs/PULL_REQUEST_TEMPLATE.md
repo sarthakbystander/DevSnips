@@ -1,28 +1,15 @@
-## 🚀 Pull Request Summary
+# Pull request template
 
-### What does this PR change?
-<!-- Describe the snippet(s) or documentation updates in 2-4 bullets. -->
+The canonical template lives at
+[`../.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md);
+GitHub loads it automatically when a pull request is opened. Use that file
+rather than duplicating it here.
 
-### Related issue
-Closes #<issue-number> (if applicable)
-
-## ✅ PR Checklist
-
-- [ ] My snippet(s) include the standard comment header.
-- [ ] I followed project formatting and code style rules.
-- [ ] For templates, I added/updated the template-specific `AGENTS.md` agent instructions.
-- [ ] I reviewed snippet accessibility (semantic HTML + ARIA where needed).
-- [ ] I tested in multiple browsers.
-- [ ] I updated `snippets-index.json` for added/removed snippets.
-- [ ] I added/updated documentation where necessary.
-
-## 🧪 Validation
-
-The authoritative template is [`.github/PULL_REQUEST_TEMPLATE.md`](https://github.com/sarthakbystander/DevSnips/blob/main/.github/PULL_REQUEST_TEMPLATE.md). Run the gates that apply to your change:
+In short, run the gates that apply to your change:
 
 ```bash
 # Always:
-python scripts/tooling/validators/validate.py
+python scripts/tooling/validators/validate.py        # must print VALIDATION PASSED
 
 # When library/ content or resource metadata changed:
 python scripts/tooling/indexing/rebuild_index.py
@@ -36,10 +23,6 @@ python scripts/tooling/validators/check_agent_doc_paths.py
 cd cli && npm test
 ```
 
-- [ ] `validate.py` prints `VALIDATION PASSED` (exit 0).
-- [ ] `snippets-index.json` regenerated when `library/` content changed.
-- [ ] Relevant checks above pass.
-
-## 📸 Screenshots / Preview
-
-<!-- Optional for visual changes: include screenshots or a demo link. -->
+See [`contributing/overview.md`](contributing/overview.md) for the contributor
+checklist and [`contributing/validation.md`](contributing/validation.md) for
+what each gate covers.

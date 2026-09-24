@@ -121,7 +121,7 @@ Swiss minimal = subtle elevation, never the brutalist offset shadow.
 
 ## Migration rule (value → token)
 
-Components are migrated deterministically by `_gen/migrate_tokens.py`. Each raw value is replaced with a `var(--ds-*, <original>)` reference so nothing changes visually until `tokens.css` is themed:
+Components are migrated deterministically by `scripts/tooling/utilities/migrate_tokens.py`. Each raw value is replaced with a `var(--ds-*, <original>)` reference so nothing changes visually until `tokens.css` is themed:
 
 | Raw value (examples) | Token |
 |---|---|
@@ -136,4 +136,4 @@ Components are migrated deterministically by `_gen/migrate_tokens.py`. Each raw 
 | `4px` / `8px` / `12px` (radius) | `--ds-radius-sm` / `md` / `lg` |
 | `0 2px 5px rgba(0,0,0,0.1)` (shadow) | `--ds-shadow-md` |
 
-Adoption is measured by `scripts/qa_vanilla.py --tokens` (counts `var(--ds-*)` vs raw values per component).
+Adoption is measured by `scripts/qa/resources/qa_vanilla.py --tokens` (counts `var(--ds-*)` vs raw values per component).

@@ -43,6 +43,6 @@ Pages reference shared `../css` and `../js` via relative paths. The mock data li
 - Do not introduce a framework (React/Vue/Tailwind/Bootstrap). Vanilla HTML + CSS + JS only.
 - Do not remove the `--ds-*` token layer or hardcode visual values.
 
-## Quality bar (enforced by `scripts/qa_vanilla.py`)
+## Quality bar (enforced by `scripts/qa/resources/qa_vanilla.py`)
 
-Every page must pass: reduced-motion guard on animations, `:focus-visible` ring, ARIA on interactive widgets, keyboard-operable controls. Run `python3 scripts/qa_vanilla.py` after changes.
+Every page must pass: reduced-motion guard on animations, `:focus-visible` ring, ARIA on interactive widgets, keyboard-operable controls. Run `python3 scripts/qa/resources/qa_vanilla.py` after changes.

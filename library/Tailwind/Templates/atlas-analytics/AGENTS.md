@@ -60,5 +60,5 @@ No `css/`, `js/` or `images/` directories beyond `assets/` — all visuals are i
 
 ## Quality bar
 
-Semantic landmarks (`header`, `nav`, `main`, `footer`), skip link, a single `h1` per page, ARIA on the drawer, command palette and settings tabs, visible focus rings in the accent color, `prefers-reduced-motion` disables transitions. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks (`header`, `nav`, `main`, `footer`), skip link, a single `h1` per page, ARIA on the drawer, command palette and settings tabs, visible focus rings in the accent color, `prefers-reduced-motion` disables transitions. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

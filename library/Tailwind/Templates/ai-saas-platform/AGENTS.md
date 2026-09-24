@@ -60,4 +60,4 @@ Each page is self-contained static HTML — `components/` files are copy-paste r
 
 ## Quality bar
 
-Semantic HTML (`header`, `nav`, `main`, `section`, `article`, `footer`), ARIA labels, `aria-expanded` on toggles, focus-visible rings, `prefers-reduced-motion` respected for dashboard chart animations. Validate with `python3 scripts/validate.py` after changes; run any related `scripts/_qa_*.py` template harness when present.
+Semantic HTML (`header`, `nav`, `main`, `section`, `article`, `footer`), ARIA labels, `aria-expanded` on toggles, focus-visible rings, `prefers-reduced-motion` respected for dashboard chart animations. Validate with `python3 scripts/tooling/validators/validate.py` after changes; run any related `scripts/qa/resources/_qa_*.py` template harness when present.

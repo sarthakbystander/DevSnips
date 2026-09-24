@@ -28,6 +28,9 @@ jobs:
       - name: Structure + metadata validation
         run: python scripts/tooling/validators/validate.py
 
+      - name: Python tooling unit tests
+        run: python -m unittest discover -s scripts/tooling/tests -t scripts/tooling/tests
+
       - name: Master index is up to date
         run: python scripts/tooling/indexing/rebuild_index.py --check
 

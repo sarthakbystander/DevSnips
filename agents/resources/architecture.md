@@ -90,7 +90,6 @@ It never reads the local `library/` tree. It resolves a path against the **remot
 | `scripts/tooling/validators/validate.py` | The repository gate: architecture, metadata, index↔disk, template `AGENTS.md`, plus the Vanilla quality bar. |
 | `scripts/tooling/validators/deep_check.py` | Per-tech required-file-set checker; the detailed file-set rules behind `validate.py`. |
 | `scripts/tooling/indexing/rebuild_index.py` | Authoritative regenerator for `snippets-index.json`. |
-| `scripts/tooling/indexing/update_index.py` | Legacy generator for the Tailwind 15-style section families; see "Known stale references". |
 | `scripts/tooling/generators/` | Section generators (`generate.py`, `gen_site.py`, `builders_*.py`, `styles.py`) and README generators. |
 | `scripts/tooling/utilities/` | One-off migration/repair scripts (`migrate_tokens.py`, `fix_quality_bar.py`, …). |
 | `scripts/qa/resources/qa_vanilla.py` | Vanilla quality-bar + token-conformance scanner. |
@@ -121,8 +120,7 @@ under `library/`. Regenerate; never hand-edit.
 | Path | Role |
 |---|---|
 | `agents/skills/devsnips/SKILL.md` | The agent skill: discover, install, adapt, verify DevSnips resources. |
-| `agents/skills/devsnips/references/` | `cli_reference.md`, `registry_schema.md`, `accessibility_responsive_checklist.md`, `schemas.md`. |
-| `agents/skills/devsnips/eval-viewer/` | Eval viewer tooling (`generate_review.py`, `viewer.html`). |
+| `agents/skills/devsnips/references/` | `cli_reference.md`, `registry_schema.md`, `accessibility_responsive_checklist.md`. |
 | `agents/resources/` | **This doc set** — repository-side (maintainer/agent) resource documentation. |
 
 Relationship: `SKILL.md` documents *consuming* DevSnips (find → install → integrate).
@@ -154,29 +152,17 @@ file, distinct from the root `AGENTS.md` and from `agents/resources/`.
   and must not depend on repository-relative paths.
 - **`website/` is output.** Regenerate; don't hand-edit resource mirrors.
 - **CI enforces the validators.** `.github/workflows/ci.yml` runs `validate.py`,
-  `rebuild_index.py --check`, `validate_indexes.py`, the Markdown/agent-doc link and path
-  checks, and `cli` `npm test` on every push and pull request. The process artifacts remain
+  the Python tooling unit tests, `rebuild_index.py --check`, `validate_indexes.py`, the
+  Markdown/agent-doc link and path checks, and `cli` `npm test` on every push and pull
+  request. The process artifacts remain
   `docs/PULL_REQUEST_TEMPLATE.md` and `.github/PULL_REQUEST_TEMPLATE.md`.
 
-## Known gaps (documented, deliberately not silently changed)
+## Known gaps
 
-The path checker skips this section (`<!-- path-check: ignore-start -->` /
-`<!-- path-check: ignore-end -->`), because it intentionally names paths that do not
-resolve.
-
-<!-- path-check: ignore-start -->
-1. `scripts/tooling/indexing/update_index.py` writes `library/`-prefixed paths and uses
-   package-relative imports, so it disagrees with the current index format produced by
-   `rebuild_index.py`. Treat it as legacy.
-2. `scripts/tooling/validators/validate.py`'s duplicate-ID check only prints a NOTE for
-   pre-existing duplicates; it does not fail the run.
-3. `agents/skills/devsnips/references/schemas.md` references eval files (`scripts/run_eval.py`,
-   `agents/analyzer.md`, `agents/grader.md`, …) that do not exist in this repository.
-<!-- path-check: ignore-end -->
-
-(The former items about the root `README.md` links, the root `AGENTS.md` layout, the `docs/`
-validator commands, the QA harnesses' static-server convention, and the absence of CI were
-resolved and removed from this list.)
+This section is currently empty: the previously tracked items — the root `README.md` links,
+the root `AGENTS.md` layout, the `docs/` validator commands, the QA harnesses' static-server
+convention, the absence of CI, the legacy `update_index.py`, the unscoped duplicate-ID policy,
+and the orphaned eval-tooling references — have all been resolved.
 
 ## Deeper reading
 

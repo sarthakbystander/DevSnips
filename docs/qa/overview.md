@@ -19,7 +19,8 @@ scripts/qa/
 | Repository validator | `validators/validate.py` | `scripts/tooling/validators/` | every push |
 | File-set checker | `validators/deep_check.py` | `scripts/tooling/validators/` | file-set changes |
 | Markdown link checker | `validators/check_md_links.py` | `scripts/tooling/validators/` | Markdown edits / file moves |
-| Agent-doc path checker | `validators/check_agent_doc_paths.py` | `scripts/tooling/validators/` | `agents/resources/` edits |
+| Agent-doc path checker | `validators/check_agent_doc_paths.py` | `scripts/tooling/validators/` | agent-facing docs (`agents/resources/`, `library/**/AGENTS.md`, MCP) |
+| Python tooling tests | `scripts/tooling/tests/` (`unittest`) | `scripts/tooling/tests/` | validator/indexer changes |
 | Master index drift | `indexing/rebuild_index.py --check` | `scripts/tooling/indexing/` | every push |
 | Specialized index validation | `indexing/validate_indexes.py` | `scripts/tooling/indexing/` | index changes |
 | Vanilla quality bar | `qa_vanilla.py` | `scripts/qa/resources/` | Vanilla component changes |
@@ -34,19 +35,21 @@ Pure-Python (no node/npm), safe for CI. Measures every Vanilla component against
 
 Checks per component `.html`:
 
-| Code | Check |
-|---|---|
-| R1 doctype | full `<!DOCTYPE html>` document, or a clearly marked snippet fragment (both acceptable; flagged for the record) |
-| R2 lang | `<html lang>` set when a DOCTYPE is present |
-| R3 viewport | viewport meta set when a DOCTYPE is present |
-| A1 reduced-motion | animations guarded by `prefers-reduced-motion` |
-| A2 aria/role | interactive components use role/aria-* semantics |
-| A3 focus-visible | `:focus-visible` (or a focus-visible ring) present |
-| A4 keyboard | interactive controls are `<button>`/`<a>` or carry `tabindex`/`role="button"` |
-| A5 semantic | uses semantic landmarks (`main`/`nav`/`section`/`header`/…) |
-| D1 dark-mode | supports `prefers-color-scheme` **or** is a non-visual snippet |
+| Code | Check | Required? |
+|---|---|---|
+| R1 doctype | full `<!DOCTYPE html>` document, or a clearly marked snippet fragment (both acceptable; flagged for the record) | no (warn) |
+| R2 lang | `<html lang>` set when a DOCTYPE is present | when a DOCTYPE is present |
+| R3 viewport | viewport meta set when a DOCTYPE is present | when a DOCTYPE is present |
+| A1 reduced-motion | animations guarded by `prefers-reduced-motion` | when the file animates |
+| A2 aria/role | interactive components use role/aria-* semantics (native semantic elements satisfy this) | interactive families |
+| A3 focus-visible | `:focus-visible` (or a focus-visible ring) present | interactive families |
+| A4 keyboard | interactive controls are `<button>`/`<a>` or carry `tabindex`/`role="button"` | interactive families that wire JS interaction |
+| A5 semantic | uses semantic landmarks (`main`/`nav`/`section`/`header`/…) | no (warn) |
 
-**"Interactive" families** (where A1–A4 are *required*): Modals, Dropdowns, Tabs, Accordions, Navigation, Tooltips, Loaders (anim), Other (anim subset), Buttons, Forms. A failure there is what fails the gate.
+The script also computes dark-mode support (`prefers-color-scheme`), but that is currently an
+informational value, not an emitted pass/fail check.
+
+**"Interactive" families** (where A1–A4 are *required*): Modals, Dropdowns, Tabs, Accordions, Navigation, Tooltips, Buttons, Forms, Loaders. Purely visual families (Cards, Hero, Marketing, Testimonials, Stats, …) still need reduced-motion when they animate, but not ARIA/keyboard. A failure in a required check is what fails the gate.
 
 ```bash
 python3 scripts/qa/resources/qa_vanilla.py            # report + exit code
@@ -61,14 +64,16 @@ Per-family Playwright scripts under `scripts/qa/resources/`. Playwright is **not
 
 | Harness | Scope | Invocation |
 |---|---|---|
-| `_qa_react_*.py` | one React component/section family | `python3 scripts/qa/resources/_qa_react_button.py split-button` (per slug) |
-| `_qa_template.py` | a multi-page template (Tailwind/Vanilla too) | `python3 scripts/qa/resources/_qa_template.py <slug>` |
-| `test_react_nav.py` | the React gallery/browse page | `python3 scripts/qa/resources/test_react_nav.py` |
-| `test_tailwind_nav.py` | the Tailwind gallery/browse page | `python3 scripts/qa/resources/test_tailwind_nav.py` |
+| `_qa_react_*.py` | one React component/section family | serve `library/` on `:8765` (`python3 -m http.server 8765 --directory library`), then e.g. `python3 scripts/qa/resources/_qa_react_button.py split-button` |
+| `_qa_template.py` | a multi-page template (Tailwind/Vanilla too) | `python3 scripts/qa/resources/_qa_template.py <path-to-preview.html>` (loads it over `file://`) |
+| `test_react_nav.py` | the React gallery/browse page | serve `library/` on `:12000`, then `python3 scripts/qa/resources/test_react_nav.py` |
+| `test_tailwind_nav.py` | the Tailwind gallery/browse page | serve `library/` on `:12000`, then `python3 scripts/qa/resources/test_tailwind_nav.py` |
+
+The React and nav harnesses navigate to `http://localhost:<port>/<Tech>/...`, so the document root must be `library/` (the index paths are tech-first, without the `library/` prefix). `_qa_template.py` instead opens the preview over `file://` and needs no server.
 
 ### How the React harnesses work
 
-Each `_qa_react_*.py` serves the family's `preview.html` at `http://localhost:8765`, drives a real browser, and asserts:
+Each `_qa_react_*.py` loads the family's `preview.html` from a static server you run on `:8765` (document root `library/`), drives a real browser, and asserts:
 
 - **runtime** — the component mounts with no console errors;
 - **layout** — no horizontal overflow at mobile widths;
@@ -89,17 +94,18 @@ A harness prints `PASS`/`FAIL` per check and per viewport. `FAIL` lines name the
 
 ```text
 1. rebuild_index.py        (if leaves added/removed/renamed or metadata changed)
-2. validate.py             (must print VALIDATION PASSED, exit 0)
-3. deep_check.py           (file-set changes)
+2. validate.py             (must print VALIDATION PASSED, exit 0 — includes the file-set layer)
+3. deep_check.py           (optional focused file-set report)
 4. check_md_links.py       (Markdown edits / file moves)
-5. check_agent_doc_paths.py (agents/resources edits)
+5. check_agent_doc_paths.py (agents/resources + library AGENTS.md edits)
 6. validate_indexes.py     (index regeneration)
-7. qa_vanilla.py           (Vanilla changes)
-8. cd cli; npm test        (cli/ changes)
-9. relevant browser harness(visual/interactive changes)
-10. report exact commands + observed results
+7. scripts/tooling/tests   (validator/indexer changes)
+8. qa_vanilla.py           (Vanilla changes)
+9. cd cli; npm test        (cli/ changes)
+10. relevant browser harness(visual/interactive changes)
+11. report exact commands + observed results
 
-Steps 1-8 run in CI; run them locally first so a push does not fail.
+Steps 1-9 run in CI (plus the tooling-test suite); run them locally first so a push does not fail.
 ```
 
 `rebuild_index.py` printing `NOT writing index due to validation problems` is a **failure**, not a no-op.

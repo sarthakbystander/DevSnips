@@ -146,11 +146,7 @@ gate (see "Specialized type indexes" below) — run it after every regeneration.
    nothing local is installable until the regenerated index is pushed.
 2. **Regeneration preserves curated fields indefinitely.** Removing a key from `metadata.json`
    does not necessarily remove it from the index.
-3. **`scripts/tooling/indexing/update_index.py` is legacy.** It writes `library/`-prefixed paths
-   and uses package-relative imports, so its output disagrees with the current format. Use
-   `rebuild_index.py` only.
-4. **`update_index.py` also recomputes stats itself** — a second reason not to run both.
-5. `rebuild_index.py` **refuses to write** when validation fails: a silent "nothing happened"
+3. `rebuild_index.py` **refuses to write** when validation fails: a silent "nothing happened"
    run means the disk and the index disagree. Read the printed problems; don't retry blindly.
 
 ## Related

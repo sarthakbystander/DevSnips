@@ -37,5 +37,12 @@
 
 ## Follow-up status (2026-09-24)
 
-1. **Done.** `.github/workflows/ci.yml` runs `validate.py`, `rebuild_index.py --check`, `validate_indexes.py`, `check_md_links.py`, `check_agent_doc_paths.py`, and `cli` `npm test` on every push to `main` and every pull request.
-2. **Open.** `deep_check.py` still stands alone; it is now invoked by CI but not merged into `validate.py`. Deferred until there is a concrete need, to avoid changing validator behavior late in the cycle.
+1. **Done.** `.github/workflows/ci.yml` runs `validate.py`, the Python tooling unit tests
+   (`scripts/tooling/tests/`), `rebuild_index.py --check`, `validate_indexes.py`,
+   `check_md_links.py`, `check_agent_doc_paths.py`, and `cli` `npm test` on every push to
+   `main` and every pull request.
+2. **Done.** `deep_check.py`'s `collect()` is merged into `validate.py`'s `main()` via
+   `_run_deep_check()`, so a `validate.py` pass covers the strict file-set layer; the script
+   remains runnable standalone for a focused report. The duplicate-ID policy was also scoped:
+   collisions within one technology/type/subcategory fail, while cross-technology id echoes are
+   informational NOTES (the registry keys on the tech-first path).

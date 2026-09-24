@@ -16,7 +16,8 @@ Templates ship their own requirements:
   Vanilla: preview.html or pages/* + metadata.json + README.md + AGENTS.md
   React: preview.html (Vite/Next project) + metadata.json + README.md + AGENTS.md
 
-Runs alongside validate.py as a stricter, per-tech required-file-set checker.
+Runs standalone as a stricter, per-tech required-file-set checker, and is also
+invoked by `validate.py` (its findings are merged into that single gate).
 """
 import json
 import sys
@@ -200,9 +201,21 @@ def check_template_files():
                                     f"Vanilla template missing README.md: {sub}")
 
 
-def main():
+def collect():
+    """Run every check and return (problems, warnings).
+
+    The module-level lists are reset first so repeated calls (e.g. from
+    validate.py in the same process) don't accumulate prior findings.
+    """
+    problems.clear()
+    warnings.clear()
     check_component_section_files()
     check_template_files()
+    return list(problems), list(warnings)
+
+
+def main():
+    collect()
     if problems:
         print("DEEP CHECK FAILED - %d problem(s):" % len(problems))
         for p in problems:

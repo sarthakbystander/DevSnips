@@ -51,5 +51,5 @@ Hero (full-screen campaign introduction with oversized KRAT wordmark), Adventure
 
 ## Quality bar
 
-Semantic landmarks, a skip link, labelled navigation controls, visible keyboard focus, descriptive image alt text, an accessible menu button, Escape-to-close behavior, reduced-motion support. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks, a skip link, labelled navigation controls, visible keyboard focus, descriptive image alt text, an accessible menu button, Escape-to-close behavior, reduced-motion support. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

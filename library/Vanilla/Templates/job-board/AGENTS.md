@@ -40,4 +40,4 @@ All data (10 companies, 24 jobs, applications) lives in `script.js`.
 
 ## Quality bar
 
-ARIA on the search input, filter selects, apply modal (`role=dialog`/`aria-modal`, Esc + overlay close), `aria-expanded` on the mobile toggle, `:focus-visible` rings, reduced-motion guard, status badges convey state beyond color. Run `python3 scripts/qa_vanilla.py` after changes.
+ARIA on the search input, filter selects, apply modal (`role=dialog`/`aria-modal`, Esc + overlay close), `aria-expanded` on the mobile toggle, `:focus-visible` rings, reduced-motion guard, status badges convey state beyond color. Run `python3 scripts/qa/resources/qa_vanilla.py` after changes.

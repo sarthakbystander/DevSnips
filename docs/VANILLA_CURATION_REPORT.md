@@ -11,7 +11,7 @@ visual design are **untouched** in this report. Nothing has been deleted or modi
 - Leaves that contain an actual component `.html` file (the unit the task calls a "component leaf"): **266**
 - Leaves that contain **only** a `.css` or `.js` snippet (no `.html`): **27** (23 CSS-only, 4 JS-only)
 - `snippets-index.json` currently indexes **293** Vanilla-component variants across **34** component
-  families (Vanilla "Components" category). `scripts/validate.py` PASSES and `scripts/qa_vanilla.py`
+  families (Vanilla "Components" category). `scripts/tooling/validators/validate.py` PASSES and `scripts/qa/resources/qa_vanilla.py`
   reports **266** components scanned (it only scans leaves with HTML), **0** required-check failures.
 - Cross-reference surface is clean: no Vanilla component `metadata.json` has any `related` entry that
   points to another component, and no component `README.md` contains a `../` cross-link. So deletion
@@ -444,8 +444,8 @@ survive because they are genuinely different (section layout vs validated form);
   section families (Hero, CTA, Features, etc.) by name — it does **not** load legacy leaf HTML,
   so deleting legacy leaves will not break it. (Verify no deleted slug appears as a label.)
 - After deletion: run `python3 -m _gen.rebuild_index` (regenerates `snippets-index.json` from disk,
-  cross-validates indexed==on-disk, refuses mismatch), then `python3 scripts/validate.py` and
-  `python3 scripts/qa_vanilla.py`. Remove now-empty families (Dropdowns, Marketing) from the index
+  cross-validates indexed==on-disk, refuses mismatch), then `python3 scripts/tooling/validators/validate.py` and
+  `python3 scripts/qa/resources/qa_vanilla.py`. Remove now-empty families (Dropdowns, Marketing) from the index
   automatically via rebuild. Confirm Tailwind + Vanilla/Templates untouched via `git status`.
 - The two pre-existing duplicate slugs (`dark-mode-toggle`, `contact-form`) are each resolved by this
   curation (one of each pair is deleted), which also fixes that latent issue.

@@ -23,9 +23,10 @@ python scripts/tooling/validators/deep_check.py
 ```
 
 Implementation: `scripts/tooling/validators/deep_check.py`. It is a standalone, stricter
-file-set checker that runs alongside `validate.py` (it is **not** invoked by `validate.py`'s
-`main()`). It enforces per-tech file sets and is stricter about
-`README.md` and `code.jsx` in places where `validate.py` is not.
+file-set checker. It enforces per-tech file sets and is stricter about
+`README.md` and `code.jsx` in places where `validate.py` is not. Its `collect()` function is
+merged into `validate.py`'s `main()` (via `_run_deep_check()`), so passing `validate.py` also
+means passing the strict file-set layer; you can still run it standalone for a focused report.
 
 ## Validation layers
 
@@ -35,9 +36,10 @@ file-set checker that runs alongside `validate.py` (it is **not** invoked by `va
 | Metadata validity | `scripts/tooling/validators/validate.py` (`check_metadata_validity`) | JSON parse, `type` value + bucket match, required files per tech. |
 | Index ↔ disk consistency | `scripts/tooling/validators/validate.py` (`check_index_vs_disk`) | Two-way coverage, duplicate paths, stale paths. |
 | Template `AGENTS.md` | `scripts/tooling/validators/validate.py` (`check_template_agents`) and `scripts/tooling/indexing/rebuild_index.py` (`validate`) | Existence + non-empty. |
-| Per-tech file sets | `scripts/tooling/validators/deep_check.py` | Required/optional files per tech + type. |
-| Markdown links | `scripts/tooling/validators/check_md_links.py` | Relative links in every `*.md` resolve. |
-| Agent doc paths | `scripts/tooling/validators/check_agent_doc_paths.py` | Path-like backticked references in `agents/resources/*.md` resolve. |
+| Per-tech file sets | `scripts/tooling/validators/deep_check.py` (merged into `validate.py`) | Required/optional files per tech + type. |
+| Markdown links | `scripts/tooling/validators/check_md_links.py` | Relative links in every `*.md` resolve, and `file.md#fragment` anchors match a real heading slug. |
+| Python tooling tests | `scripts/tooling/tests/` (`unittest`) | Unit tests for the validators and the indexer's ordering/leaf detection. |
+| Agent doc paths | `scripts/tooling/validators/check_agent_doc_paths.py` | Path-like backticked references in `agents/resources/*.md`, `library/**/AGENTS.md`, and `integrations/mcp/**/*.md` resolve. |
 | Vanilla quality bar | `scripts/qa/resources/qa_vanilla.py` (invoked by `validate.py`) | a11y/animation/dark-mode per Vanilla component. |
 | Index regeneration safety | `scripts/tooling/indexing/rebuild_index.py` (`validate`) | Refuses to write on mismatch. |
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors. |
@@ -70,6 +72,16 @@ difference between the indexer's predicate and the validators' predicate.
 
 - Tailwind Components: `code.html`, `preview.html`, `README.md`;
 - Tailwind Sections: `code.html`, `preview.html` (README optional, non-empty if present);
+- React Components: `code.tsx`, `preview.html`, `README.md`;
+- React Sections: `code.tsx`, `preview.html`;
+- React component missing `code.jsx` → **warning** only (printed, does not fail);
+- Vanilla Components/Sections: `metadata.json`;
+- any Section with an empty `README.md` → failure.
+
+`deep_check.py` `check_template_files()` requires per template root: a non-empty `AGENTS.md`
+(all techs); Tailwind and React templates also need `preview.html`; Vanilla templates need
+`preview.html` **or** a non-empty `pages/`, plus `README.md`.
+
 ## Indexing checks
 
 Implementation: `scripts/tooling/indexing/rebuild_index.py` `validate()` and
@@ -120,6 +132,9 @@ runner.
   token flip, `focus-visible` outline, disabled opacity, reduced-motion, ARIA/role wiring, and
   each family's keyboard model.
 
+Serve the repository with the document root set to `library/` for both the React harnesses
+(`:8765`) and the nav harnesses (`:12000`).
+
 Other harnesses:
 
 - `scripts/qa/resources/_qa_template.py <path-to-preview.html>` — `file://` based; widths
@@ -131,14 +146,16 @@ Other harnesses:
 
 ## Expected verification flow
 
-CI runs the static gates — `validate.py`, `rebuild_index.py --check`,
+CI runs the static gates — `validate.py` (which now also runs the strict file-set layer),
+the Python tooling unit tests (`scripts/tooling/tests/`), `rebuild_index.py --check`,
 `validate_indexes.py`, both doc checkers, and `cli` `npm test` — on every push and pull
 request. Run them locally first so a push does not fail CI.
 
 1. `python scripts/tooling/indexing/rebuild_index.py` — only if content was added, removed,
    renamed, or moved. `rebuild_index.py --check` verifies without writing (CI uses this).
-2. `python scripts/tooling/validators/validate.py`
-3. `python scripts/tooling/validators/deep_check.py` — when file-set rules are in play.
+2. `python scripts/tooling/validators/validate.py` — includes the strict file-set layer.
+3. `python scripts/tooling/validators/deep_check.py` — optional standalone report of the same
+   file-set rules (useful for a focused view).
 4. `python scripts/tooling/validators/check_md_links.py` and
    `python scripts/tooling/validators/check_agent_doc_paths.py` — after editing Markdown or
    moving files that documentation references.
@@ -189,15 +206,6 @@ Implementation: `cli/test/`, run via `npm test` from `cli/` (see `cli/package.js
   safe failure on malformed config, recording only after install, no `.tmp` leftovers.
 - `cli/test/init.test.js` — end-to-end `init` via `execSync`, including idempotency and
   malformed-config failure.
-- React Components: `code.tsx`, `preview.html`, `README.md`;
-- React Sections: `code.tsx`, `preview.html`;
-- React component missing `code.jsx` → **warning** only (printed, does not fail);
-- Vanilla Components/Sections: `metadata.json`;
-- any Section with an empty `README.md` → failure.
-
-`deep_check.py` `check_template_files()` requires per template root: a non-empty `AGENTS.md`
-(all techs); Tailwind and React templates also need `preview.html`; Vanilla templates need
-`preview.html` **or** a non-empty `pages/`, plus `README.md`.
 
 ## Metadata checks
 
@@ -207,8 +215,10 @@ Implementation: `scripts/tooling/validators/validate.py`
 - `type` must match the folder bucket, via explicit cross-checks
   (`type=component outside Components/`, `type=section outside Sections/`,
   `type=template outside Templates/`).
-- Duplicate IDs are collected and reported as a **NOTE**, not a failure — the code states this
-  is deliberate so pre-existing IDs are preserved. Do not "fix" duplicates as a side effect of
-  an unrelated change; report them.
+- Duplicate IDs are collected per technology/type/subcategory. A collision within one
+  technology, content type, and subcategory is a failure (two leaves in the same collection
+  cannot share an id). IDs echoed across technologies — e.g. the Tailwind and React `team-minimal`
+  sections — are expected id-parity, and the registry keys on the tech-first *path*, so they are
+  reported as a **NOTE**, not a failure.
 
 Per-technology metadata key sets are enumerated in `agents/resources/resources.md` §5.

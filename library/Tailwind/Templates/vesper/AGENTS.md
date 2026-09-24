@@ -67,5 +67,5 @@ Only two small scoped scripts — no libraries: mobile menu toggle(aria-expanded
 
 ## Quality bar
 
-Semantic landmarks, skip link, single `h1`, descriptive `h2`/`h3` hierarchy, accordion ARIA(`aria-expanded`/`aria-controls`/`role="region"`, keyboard-operable, single-open, mobile menu `aria-expanded`, visible cyan `:focus-visible` ring, SVG diagrams `role="img"` + `aria-label`, decorative SVGs `aria-hidden`, `prefers-reduced-motion` disables mesh drift/radar sweep/marquee/sparkline/edge flow/transitions. Validate with `python3 scripts/validate.py` after changes.
+Semantic landmarks, skip link, single `h1`, descriptive `h2`/`h3` hierarchy, accordion ARIA(`aria-expanded`/`aria-controls`/`role="region"`, keyboard-operable, single-open, mobile menu `aria-expanded`, visible cyan `:focus-visible` ring, SVG diagrams `role="img"` + `aria-label`, decorative SVGs `aria-hidden`, `prefers-reduced-motion` disables mesh drift/radar sweep/marquee/sparkline/edge flow/transitions. Validate with `python3 scripts/tooling/validators/validate.py` after changes.
 

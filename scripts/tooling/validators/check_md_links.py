@@ -7,10 +7,11 @@ rot, and nothing in the existing validators notices because they only check
 metadata/index/architecture — not Markdown.
 
 Checks each `[text](target)` where `target` is a repository-relative path:
-  - strips `#fragments` and `?query`
   - resolves relative to the containing file
-  - skips `http(s)://`, `mailto:`, and bare `#anchor` links
+  - skips `http(s)://` and `mailto:` links
   - verifies the resolved path exists (file or directory)
+  - when the target is a Markdown file and carries a `#fragment`, verifies the
+    fragment matches a heading slug in that file (GitHub-style slugs)
 
 Run:  python3 scripts/tooling/validators/check_md_links.py
 Exit: 0 when every relative link resolves, 1 otherwise.
@@ -18,6 +19,7 @@ Exit: 0 when every relative link resolves, 1 otherwise.
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[3]  # -> repo root
 
@@ -25,6 +27,37 @@ ROOT = Path(__file__).resolve().parents[3]  # -> repo root
 SKIP_DIRS = {".git", "node_modules", "__pycache__", ".agent_tmp"}
 
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+HEADING = re.compile(r"^\s{0,3}#{1,6}\s+(.*?)\s*#*\s*$")
+
+
+def _slug(heading: str) -> str:
+    """GitHub-compatible heading slug: lowercase, drop punctuation, spaces→-."""
+    text = re.sub(r"`([^`]*)`", r"\1", heading)  # inline code -> its content
+    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)  # links -> link text
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text)  # drop punctuation
+    return re.sub(r"\s", "-", text).strip("-")
+
+
+def heading_slugs(path: Path):
+    """Return the set of anchor slugs defined in a Markdown file, plus deduped -1 variants."""
+    slugs = {}
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        return set()
+    for line in text.splitlines():
+        m = HEADING.match(line)
+        if not m:
+            continue
+        base = _slug(m.group(1))
+        if not base:
+            continue
+        count = slugs.get(base, 0)
+        slugs[base] = count + 1
+        if count:
+            slugs[f"{base}-{count}"] = 1
+    return set(slugs)
 
 
 def markdown_files():
@@ -44,21 +77,26 @@ def check_file(path: Path):
 
     for match in MARKDOWN_LINK.finditer(text):
         target = match.group(1).strip()
-        if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+        if not target or target.startswith(("http://", "https://", "mailto:")):
             continue
-        # Drop query/fragment, then percent-decode the path portion.
-        target = target.split("#", 1)[0].split("?", 1)[0]
-        if not target:
-            continue
-        from urllib.parse import unquote
-        target = unquote(target)
-        if target.startswith("/"):
-            resolved = ROOT / target.lstrip("/")
+        # Split off any query/fragment before resolving the path portion.
+        path_part, _, fragment = target.partition("#")
+        path_part = path_part.split("?", 1)[0]
+        path_part = unquote(path_part)
+        fragment = unquote(fragment)
+        if path_part.startswith("/"):
+            resolved = ROOT / path_part.lstrip("/")
+        elif path_part:
+            resolved = (path.parent / path_part).resolve()
         else:
-            resolved = (path.parent / target).resolve()
+            resolved = path  # bare `#anchor` refers to this file
+        line_no = text[: match.start()].count("\n") + 1
         if not resolved.exists():
-            line_no = text[: match.start()].count("\n") + 1
             broken.append((line_no, match.group(0), target))
+            continue
+        if fragment and resolved.is_file() and resolved.suffix == ".md":
+            if fragment not in heading_slugs(resolved):
+                broken.append((line_no, match.group(0), target))
     return broken
 
 

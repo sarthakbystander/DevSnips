@@ -41,7 +41,7 @@ All content lives in `script.js` (`NAV` config + `PAGES.<id>` content builders)&
 
 ## Quality bar
 
-Reduced-motion guards on all animations, ARIA on the search dialog / tablists / drawer / TOC, `:focus-visible` rings, keyboard-operable (Esc, Cmd/Ctrl+K, `/`, arrows, Enter). Run `python3 scripts/qa_vanilla.py` after changes.
+Reduced-motion guards on all animations, ARIA on the search dialog / tablists / drawer / TOC, `:focus-visible` rings, keyboard-operable (Esc, Cmd/Ctrl+K, `/`, arrows, Enter). Run `python3 scripts/qa/resources/qa_vanilla.py` after changes.
 
 ## Gotcha
 
