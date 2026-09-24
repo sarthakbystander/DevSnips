@@ -103,7 +103,7 @@ See [AGENTS.md context files](../contributing/agent-files.md) for the full contr
 - `cli/` is distribution. It is a self-contained npm package and must not depend on repository-relative paths.
 - `integrations/` is integrations. `integrations/mcp/` is read-only and shares the CLI's path conventions and installability rules, but is a separate process with no runtime dependency on the CLI.
 - `website/` is output. Regenerate it; never hand-edit resource mirrors.
-- There is no CI. Validation runs only when a human or agent runs it; the process artifact is the pull-request template (`.github/PULL_REQUEST_TEMPLATE.md`), which requires reporting the validation commands run.
+- CI (`.github/workflows/ci.yml`) runs the static gates on every push and pull request; the browser QA layers run manually. The process artifact is the pull-request template (`.github/PULL_REQUEST_TEMPLATE.md`), which requires reporting the validation commands run.
 
 ## Where to go next
 

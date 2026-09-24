@@ -33,12 +33,14 @@ The canonical run order:
 
 ## Validators
 
-Validators run as standalone scripts; no CI wraps them. The minimum bar before any push is `validate.py`; everything else is scope-dependent.
+Validators run as standalone scripts; CI (`.github/workflows/ci.yml`) wraps the always-on ones. The minimum bar before any push is `validate.py`; everything else is scope-dependent.
 
 | Path | What it checks |
 |---|---|
 | `validators/validate.py` | architecture (only `Components`/`Sections`/`Templates` under each tech; no `Utilities`/`Resources`/`Snippets`/`Pages`/`Tools`), metadata validity (`type` present and matching its folder bucket; required files per tech), two-way index↔disk consistency, template `AGENTS.md` existence + non-empty, Vanilla quality bar (via `qa_vanilla.py`), duplicate IDs (collected as a NOTE, not a failure — deliberate) |
 | `validators/deep_check.py` | per-tech required vs optional files: React Components need `code.tsx` + `preview.html` + `README.md`; React Sections need `code.tsx` + `preview.html`; a missing React `code.jsx` is a **warning** only; any Section with an empty `README.md` is a failure |
+| `validators/check_md_links.py` | every relative Markdown link in the repo resolves to a real file or directory |
+| `validators/check_agent_doc_paths.py` | path-like backticked references in `agents/resources/*.md` resolve (root-anchored paths, `library/`-relative registry paths) |
 
 Key behavior:
 

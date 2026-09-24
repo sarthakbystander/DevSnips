@@ -28,6 +28,6 @@ Foundation button styles with semantic color variants.
 
 ## Related
 
-- [Ghost Button](../Ghost%20Button/) - Transparent buttons with hover effects
-- [Outline Button](../Outline%20Button/) - Bordered buttons
-- [Filled Button](../Filled%20Button/) - Soft background variants
+- [Ghost Button](../ghost-button/) - Transparent buttons with hover effects
+- [Outline Button](../outline-button/) - Bordered buttons
+- [Filled Button](../filled-button/) - Soft background variants

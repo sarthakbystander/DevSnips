@@ -1,6 +1,6 @@
 # Contributing — validation and QA
 
-There is **no CI** in this repository (`.github/` contains only the PR template). Every check runs only when a human or agent runs it. A pull request must state which commands were run and what they printed.
+CI (`.github/workflows/ci.yml`) runs the always-on gates on every push and pull request. The browser QA layers are still manual, so a pull request must state which commands were run and what they printed.
 
 ## The command matrix
 
@@ -9,7 +9,10 @@ There is **no CI** in this repository (`.github/` contains only the PR template)
 | Always (minimum bar) | `python scripts/tooling/validators/validate.py` | Prints `VALIDATION PASSED - architecture, metadata, and index all consistent.`, exit 0 |
 | File-set changes | `python scripts/tooling/validators/deep_check.py` | No failures reported |
 | Any content added/removed/renamed | `python scripts/tooling/indexing/rebuild_index.py` | Prints `Wrote snippets-index.json` — not `NOT writing index due to validation problems` |
+| Index drift check (what CI runs) | `python scripts/tooling/indexing/rebuild_index.py --check` | Prints `Index is up to date (--check).`; does not write |
 | After index regeneration | `python scripts/tooling/indexing/validate_indexes.py` | Exit 0 (indexes match the repository) |
+| Markdown edits / file moves | `python scripts/tooling/validators/check_md_links.py` | `OK: all relative Markdown links resolve` |
+| `agents/resources/` edits | `python scripts/tooling/validators/check_agent_doc_paths.py` | `OK: all path references in agents/resources/*.md resolve` |
 | Vanilla component changes | `python scripts/qa/resources/qa_vanilla.py --only-failures` | `failing required checks: 0` |
 | CLI changes | `cd cli && npm test` | All suites pass |
 | Visual/interactive changes | Relevant Playwright harness under `scripts/qa/resources/` | No console errors, no horizontal overflow at mobile width |
@@ -27,6 +30,8 @@ Every verification layer, what it checks, and where it lives:
 | Index ↔ disk consistency | `validate.py` (`check_index_vs_disk`) | Two-way coverage, duplicate paths, stale paths |
 | Template `AGENTS.md` | `validate.py` (`check_template_agents`) + `rebuild_index.py` (`validate`) | Existence + non-empty |
 | Per-tech file sets | `deep_check.py` | Required/optional files per tech + type |
+| Markdown links | `check_md_links.py` | Relative links in every `*.md` resolve |
+| Agent doc paths | `check_agent_doc_paths.py` | Path-like backticked refs in `agents/resources/*.md` resolve |
 | Vanilla quality bar | `qa_vanilla.py` (invoked by `validate.py`) | a11y/animation/dark-mode per Vanilla component |
 | Index regeneration safety | `rebuild_index.py` (`validate`) | Refuses to write on mismatch |
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors |

@@ -30,5 +30,5 @@ Minimal button styles with subtle designs.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Ghost Button](../Ghost%20Button/) - Ghost button styles
+- [Basic Button](../basic-button/) - Core button styles
+- [Ghost Button](../ghost-button/) - Ghost button styles

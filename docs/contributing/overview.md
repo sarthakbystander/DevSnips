@@ -60,7 +60,7 @@ git commit -m "feat: add your component"
 - Branch names are prefixed (`feat/…`, `chore/…`); commit messages use conventional prefixes (`feat:`, `chore:`).
 - Keep commits focused — do not mix a repository-wide refactor into a resource contribution.
 - Pull requests use `.github/PULL_REQUEST_TEMPLATE.md` / `docs/PULL_REQUEST_TEMPLATE.md` and must report the validation commands run and their observed results, plus any known limitations.
-- There is no CI in this repository: validation runs when *you* run it. A PR with stale registry output or failing validation will be caught in review.
+- CI runs the static gates (validator, index drift, index validation, doc links, CLI tests) on every push and pull request. Run them locally first; a PR with stale registry output will fail CI.
 
 ## When in doubt
 

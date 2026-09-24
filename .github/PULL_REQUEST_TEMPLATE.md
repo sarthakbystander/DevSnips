@@ -25,6 +25,10 @@ python scripts/tooling/validators/validate.py
 # When per-tech required-file sets are in play:
 python scripts/tooling/validators/deep_check.py
 
+# When Markdown changed, or files it references were moved/renamed:
+python scripts/tooling/validators/check_md_links.py
+python scripts/tooling/validators/check_agent_doc_paths.py
+
 # When library/ content or resource metadata changed — regenerate, then verify:
 python scripts/tooling/indexing/rebuild_index.py
 python scripts/tooling/indexing/validate_indexes.py
@@ -40,6 +44,8 @@ Checklist:
       it printed `Validation: OK (indexed content matches disk exactly)` and **never**
       `NOT writing index due to validation problems`.
 - [ ] `deep_check.py` passes if required-file sets were touched.
+- [ ] `check_md_links.py` and `check_agent_doc_paths.py` pass if Markdown changed or
+      referenced files were moved/renamed.
 - [ ] No generated file was hand-edited (`snippets-index.json` and
       `agents/resources/indexes/*.json` are script outputs — regenerate, don't patch).
 - [ ] For visual/interactive changes: the relevant harness under

@@ -33,5 +33,5 @@ Glass morphism buttons with backdrop blur effects.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Neumorphism Button](../Neumorphism%20Button/) - Soft UI style
+- [Basic Button](../basic-button/) - Core button styles
+- [Neumorphism Button](../neumorphism-button/) - Soft UI style

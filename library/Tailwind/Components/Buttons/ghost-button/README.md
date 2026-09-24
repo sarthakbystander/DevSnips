@@ -7,7 +7,7 @@ Transparent buttons that reveal background color on hover.
 | Variant | Description |
 |---------|-------------|
 | [Primary](./primary/) | Transparent buttons with blue hover effect |
-| [Sizes](./sizes/) | All button sizes |
+| Sizes | All button sizes |
 
 ## Quick Start
 
@@ -25,6 +25,6 @@ Transparent buttons that reveal background color on hover.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Solid background buttons
-- [Outline Button](../Outline%20Button/) - Bordered buttons
-- [Filled Button](../Filled%20Button/) - Soft background variants
+- [Basic Button](../basic-button/) - Solid background buttons
+- [Outline Button](../outline-button/) - Bordered buttons
+- [Filled Button](../filled-button/) - Soft background variants

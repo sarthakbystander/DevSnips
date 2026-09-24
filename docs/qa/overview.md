@@ -1,6 +1,6 @@
 # QA — overview
 
-DevSnips has **no CI** (`.github/` holds only the PR template), so QA is a set of locally-run gates. This page maps every layer, where it lives, and how to run it. For the fix procedure and the per-change command matrix see [Validation](../contributing/validation.md); this page is the structural map of the QA *surface*.
+CI (`.github/workflows/ci.yml`) covers the static gates — structure/metadata validation, index drift, index validation, documentation link/path checks, and the CLI tests. The browser QA layers are still locally-run gates. This page maps every layer, where it lives, and how to run it. For the fix procedure and the per-change command matrix see [Validation](../contributing/validation.md); this page is the structural map of the QA *surface*.
 
 ```text
 scripts/qa/
@@ -18,6 +18,10 @@ scripts/qa/
 |---|---|---|---|
 | Repository validator | `validators/validate.py` | `scripts/tooling/validators/` | every push |
 | File-set checker | `validators/deep_check.py` | `scripts/tooling/validators/` | file-set changes |
+| Markdown link checker | `validators/check_md_links.py` | `scripts/tooling/validators/` | Markdown edits / file moves |
+| Agent-doc path checker | `validators/check_agent_doc_paths.py` | `scripts/tooling/validators/` | `agents/resources/` edits |
+| Master index drift | `indexing/rebuild_index.py --check` | `scripts/tooling/indexing/` | every push |
+| Specialized index validation | `indexing/validate_indexes.py` | `scripts/tooling/indexing/` | index changes |
 | Vanilla quality bar | `qa_vanilla.py` | `scripts/qa/resources/` | Vanilla component changes |
 | React browser QA | `_qa_react_*.py` | `scripts/qa/resources/` | visual/interactive React changes |
 | Template browser QA | `_qa_template.py` | `scripts/qa/resources/` | template changes |
@@ -87,10 +91,15 @@ A harness prints `PASS`/`FAIL` per check and per viewport. `FAIL` lines name the
 1. rebuild_index.py        (if leaves added/removed/renamed or metadata changed)
 2. validate.py             (must print VALIDATION PASSED, exit 0)
 3. deep_check.py           (file-set changes)
-4. qa_vanilla.py           (Vanilla changes)
-5. cd cli; npm test        (cli/ changes)
-6. relevant browser harness(visual/interactive changes)
-7. report exact commands + observed results
+4. check_md_links.py       (Markdown edits / file moves)
+5. check_agent_doc_paths.py (agents/resources edits)
+6. validate_indexes.py     (index regeneration)
+7. qa_vanilla.py           (Vanilla changes)
+8. cd cli; npm test        (cli/ changes)
+9. relevant browser harness(visual/interactive changes)
+10. report exact commands + observed results
+
+Steps 1-8 run in CI; run them locally first so a push does not fail.
 ```
 
 `rebuild_index.py` printing `NOT writing index due to validation problems` is a **failure**, not a no-op.

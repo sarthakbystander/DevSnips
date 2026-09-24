@@ -1,8 +1,9 @@
 # DevSnips — Validation and QA
 
 Every verification layer in the repository, what it checks, where it lives, and what an agent
-must run after a change. There is **no CI** in this repository (`.github/` contains only
-`PULL_REQUEST_TEMPLATE.md`), so these checks run only when someone runs them.
+must run after a change. CI (`.github/workflows/ci.yml`) runs the always-on gates on every
+push and pull request; the heavier browser QA layers remain manual, so run them when your
+change touches what they cover.
 
 ## The gate you must always run
 
@@ -35,6 +36,8 @@ file-set checker that runs alongside `validate.py` (it is **not** invoked by `va
 | Index ↔ disk consistency | `scripts/tooling/validators/validate.py` (`check_index_vs_disk`) | Two-way coverage, duplicate paths, stale paths. |
 | Template `AGENTS.md` | `scripts/tooling/validators/validate.py` (`check_template_agents`) and `scripts/tooling/indexing/rebuild_index.py` (`validate`) | Existence + non-empty. |
 | Per-tech file sets | `scripts/tooling/validators/deep_check.py` | Required/optional files per tech + type. |
+| Markdown links | `scripts/tooling/validators/check_md_links.py` | Relative links in every `*.md` resolve. |
+| Agent doc paths | `scripts/tooling/validators/check_agent_doc_paths.py` | Path-like backticked references in `agents/resources/*.md` resolve. |
 | Vanilla quality bar | `scripts/qa/resources/qa_vanilla.py` (invoked by `validate.py`) | a11y/animation/dark-mode per Vanilla component. |
 | Index regeneration safety | `scripts/tooling/indexing/rebuild_index.py` (`validate`) | Refuses to write on mismatch. |
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors. |
@@ -128,13 +131,21 @@ Other harnesses:
 
 ## Expected verification flow
 
+CI runs the static gates — `validate.py`, `rebuild_index.py --check`,
+`validate_indexes.py`, both doc checkers, and `cli` `npm test` — on every push and pull
+request. Run them locally first so a push does not fail CI.
+
 1. `python scripts/tooling/indexing/rebuild_index.py` — only if content was added, removed,
-   renamed, or moved.
+   renamed, or moved. `rebuild_index.py --check` verifies without writing (CI uses this).
 2. `python scripts/tooling/validators/validate.py`
 3. `python scripts/tooling/validators/deep_check.py` — when file-set rules are in play.
-4. `cd cli; npm test` — only if `cli/` changed.
-5. The relevant browser harness — when the change is visual/interactive.
-6. `python scripts/qa/resources/qa_vanilla.py` — when Vanilla content changed.
+4. `python scripts/tooling/validators/check_md_links.py` and
+   `python scripts/tooling/validators/check_agent_doc_paths.py` — after editing Markdown or
+   moving files that documentation references.
+5. `python scripts/tooling/indexing/validate_indexes.py` — after regenerating indexes.
+6. `cd cli; npm test` — only if `cli/` changed.
+7. The relevant browser harness — when the change is visual/interactive.
+8. `python scripts/qa/resources/qa_vanilla.py` — when Vanilla content changed.
 
 ## Common failure classes
 

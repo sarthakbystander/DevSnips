@@ -29,7 +29,7 @@ AI coding agent → DevSnips MCP → snippets-index.json (registry) → library/
 - The registry `files` manifest is lossy for React templates (only one level of `src/**`
   listed). MCP reports `files_complete: false` in remote mode and walks the real tree in
   local mode.
-- No CI in the repository; Python tooling is stdlib-only; testing convention is plain
+- Python tooling is stdlib-only; testing convention is plain
   `unittest`-style scripts, no pytest.
 
 ## Architecture

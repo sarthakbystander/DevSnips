@@ -35,5 +35,5 @@ Buttons with 3D depth effects and push animations.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Animated Button](../Animated%20Button/) - General animations
+- [Basic Button](../basic-button/) - Core button styles
+- [Animated Button](../animated-button/) - General animations

@@ -6,9 +6,9 @@ Solid and soft background filled buttons in multiple colors and styles.
 
 | Variant | Description |
 |---------|-------------|
-| [Primary](./primary/) | Solid color filled buttons |
+| Primary | Solid color filled buttons |
 | [Soft](./soft/) | Soft pastel background buttons |
-| [Sizes](./sizes/) | All button sizes |
+| Sizes | All button sizes |
 
 ## Quick Start
 
@@ -32,6 +32,6 @@ Solid and soft background filled buttons in multiple colors and styles.
 
 ## Related
 
-- [Basic Button](../Basic%20Button/) - Core button styles
-- [Ghost Button](../Ghost%20Button/) - Transparent hover buttons
-- [Outline Button](../Outline%20Button/) - Bordered buttons
+- [Basic Button](../basic-button/) - Core button styles
+- [Ghost Button](../ghost-button/) - Transparent hover buttons
+- [Outline Button](../outline-button/) - Bordered buttons

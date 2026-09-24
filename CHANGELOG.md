@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-24
+
+### Added — CI, Markdown link checker, and agent-doc path checker
+- **GitHub Actions CI** (`.github/workflows/ci.yml`) now enforces the documented validation gates on every push to `main` and every pull request, in three jobs: library structure/indexes (`validate.py`, `rebuild_index.py --check`, `validate_indexes.py`), documentation (`check_md_links.py`, `check_agent_doc_paths.py`), and CLI (`npm test`). Previously validation ran only when a human or agent remembered to run it.
+- **Markdown link checker** (`scripts/tooling/validators/check_md_links.py`) resolves every relative Markdown link target in the repository and fails on a missing path — catching rotted cross-links between resource READMEs and token docs.
+- **Agent-doc path checker** (`scripts/tooling/validators/check_agent_doc_paths.py`) validates path-like backticked references in `agents/resources/*.md`; supports fenced-code stripping and `<!-- path-check: ignore-start -->` / `ignore-end` regions for intentionally non-resolving paths.
+- **Docs reconciled with the repository**: removed stale "no CI" claims across `AGENTS.md`, `agents/resources/*.md`, and `docs/**`; the `architecture.md` ledger now lists only the remaining genuine gaps; `docs/reference/directory-structure.md` no longer claims `website/` and `devsnips/` are committed; fixed 39 broken Markdown links.
+
 ## 2026-09-08
 
 ### Added — `AGENTS.md` required for every template

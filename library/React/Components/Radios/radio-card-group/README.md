@@ -41,7 +41,7 @@ Built with React, Tailwind CSS, and DevSnips design tokens. The component consum
 
 ## Design Tokens
 
-See [React/DESIGN_TOKENS.md](../../DESIGN_TOKENS.md) for the authoritative token specification. This radio uses the semantic color, radius, spacing, and motion tokens.
+See [React/DESIGN_TOKENS.md](../../../DESIGN_TOKENS.md) for the authoritative token specification. This radio uses the semantic color, radius, spacing, and motion tokens.
 
 ## Notes
 

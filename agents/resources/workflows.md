@@ -139,11 +139,16 @@ Each framework doc ends with its own "inspect these files first" list.
 1. Run   python scripts/tooling/indexing/rebuild_index.py     (only if content changed)
 2. Run   python scripts/tooling/validators/validate.py
 3. Run   python scripts/tooling/validators/deep_check.py      (file-set changes)
-4. Run   python scripts/qa/resources/qa_vanilla.py            (Vanilla changes)
-5. Run   cd cli; npm test                                     (cli/ changes)
-6. Run   the relevant browser harness                         (visual/interactive changes)
-7. Report the exact commands run and their observed results — not a general claim
+4. Run   python scripts/tooling/validators/check_md_links.py  (Markdown edits)
+5. Run   python scripts/tooling/validators/check_agent_doc_paths.py (agents/resources edits)
+6. Run   python scripts/tooling/indexing/validate_indexes.py  (index regeneration)
+7. Run   python scripts/qa/resources/qa_vanilla.py            (Vanilla changes)
+8. Run   cd cli; npm test                                     (cli/ changes)
+9. Run   the relevant browser harness                         (visual/interactive changes)
+10. Report the exact commands run and their observed results — not a general claim
 ```
+
+CI runs steps 1–8 on every push and pull request; run them locally first so a push does not fail.
 
 ## 10. Investigating a failure
 
@@ -152,6 +157,8 @@ Each framework doc ends with its own "inspect these files first" list.
 2. Locate  the code that produced it:
              validate.py messages                 -> scripts/tooling/validators/validate.py
              "NOT writing index ..."              -> scripts/tooling/indexing/rebuild_index.py
+             broken-link / unresolved-path        -> scripts/tooling/validators/check_md_links.py
+                                                      scripts/tooling/validators/check_agent_doc_paths.py
              CLI error text                       -> cli/src/utils/errors.js
              quality-bar "FAIL <path> <check>"    -> scripts/qa/resources/qa_vanilla.py
 3. Inspect the offending artifact
