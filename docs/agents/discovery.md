@@ -10,10 +10,6 @@ Discovery is how an agent finds DevSnips and its inventory. DevSnips exposes sev
 | `agents/resources/indexes/components-index.json` | Components only, with `id` and a ready-to-run `install` command per variant. | Answering "find/install a component…" without scanning the full registry. |
 | `agents/resources/indexes/sections-index.json` | Sections only, same shape. | Section-scoped queries. |
 | `agents/resources/indexes/templates-index.json` | Templates only, same shape. | Template-scoped queries. |
-| `website/llms.txt` | Every resource as a Markdown link list, grouped by technology and category. | A compact, human/LLM-readable inventory with URLs. |
-| `website/llms-full.txt` | The same list with descriptions and tags inline per entry. | Evaluating resources without fetching the registry. |
-| `website/search-index.json` | Flat array of per-resource records (`id`, `type`, `technology`, `category`, `family`, `slug`, `name`, `description`, `tags`, `features`, `related`, `url`). | Client-side search integration. |
-| `website/sitemap.xml` | All resource page URLs. | URL enumeration. |
 
 Registry URLs (also recorded in the skill's frontmatter):
 
@@ -30,7 +26,6 @@ Prefer the raw URL over the GitHub web page URL when fetching structured data.
 
 1. **Via the agent skill.** If the host agent supports skills, the `devsnips` skill declares its triggers in its frontmatter description ("use DevSnips", "add a DevSnips button", or UI requests likely satisfied by a DevSnips resource). Installing the skill is the intended integration path.
 2. **Via repository context.** A project that uses DevSnips contains `devsnips/AGENTS.md` (created by the CLI) telling agents that resources are installed under `devsnips/`, and `devsnips/config.json` listing what is already installed. An agent entering such a project reads these before touching UI.
-3. **Via web search / website.** The website is fully indexed (sitemap, robots allow-all) and carries LLM-oriented digests. An agent that lands on `devsnips.dev` should follow the pointers to the registry rather than scraping pages.
 
 ## Querying the registry
 

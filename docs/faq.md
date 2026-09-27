@@ -6,7 +6,7 @@ Answers grounded in actual project behavior. Where a question depends on live da
 
 ### What is DevSnips?
 
-An open-source, agent-first UI resource library. It provides reusable UI resources — Components, Sections, and Templates in React, Tailwind CSS, and Vanilla HTML/CSS/JS — with machine-readable metadata, a JSON registry, and a CLI, so AI coding agents can discover, evaluate, install, adapt, and verify them programmatically. Humans browse the same collection via the website or by reading the source files directly. See [What is DevSnips](introduction/what-is-devsnips.md).
+An open-source, agent-first UI resource library. It provides reusable UI resources — Components, Sections, and Templates in React, Tailwind CSS, and Vanilla HTML/CSS/JS — with machine-readable metadata, a JSON registry, and a CLI, so AI coding agents can discover, evaluate, install, adapt, and verify them programmatically. Humans browse the same collection by reading the source files directly. See [What is DevSnips](introduction/what-is-devsnips.md).
 
 ### Who is DevSnips for?
 
@@ -18,7 +18,7 @@ Through the lifecycle: query the registry → filter by technology/type/tags →
 
 ### Is there an MCP server or an API?
 
-No. There is no HTTP API. There is an MCP server (`devsnips-mcp`, a read-only stdio server under `integrations/mcp/`) — see [DevSnips MCP](mcp/overview.md). The machine-readable surfaces are files: `snippets-index.json`, the specialized indexes, `website/search-index.json`, `llms.txt`, and `llms-full.txt`.
+No. There is no HTTP API. There is an MCP server (`devsnips-mcp`, a read-only stdio server under `integrations/mcp/`) — see [DevSnips MCP](mcp/overview.md). The machine-readable surfaces are files: `snippets-index.json` and the specialized indexes.
 
 ## Resources
 
@@ -114,7 +114,7 @@ No. Validation runs only when a human or agent runs it. The PR template asks you
 
 The disk wins. Regenerate the registry and run `python scripts/tooling/indexing/validate_indexes.py`. Never patch the JSON by hand.
 
-### I saw a resource on the website but the CLI can't find it.
+### I saw a resource in a listing but the CLI can't find it.
 
 The CLI resolves against the registry on `main`. A resource that exists only in a branch, a fork, or a local checkout is not installable until it is merged and the registry is regenerated.
 

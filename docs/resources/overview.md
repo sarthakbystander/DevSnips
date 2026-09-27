@@ -40,7 +40,7 @@ Three equivalent forms describe the same resource:
 
 | Form | Example | Used by |
 |---|---|---|
-| Registry path (tech-first, trailing slash) | `React/Components/Buttons/solid-button/` | CLI, `snippets-index.json`, specialized indexes, website URLs |
+| Registry path (tech-first, trailing slash) | `React/Components/Buttons/solid-button/` | CLI, `snippets-index.json`, specialized indexes |
 | Filesystem path | `library/React/Components/Buttons/solid-button/` | The repository on disk; direct file access |
 | Family + variant | tech `React` → category `Components` → family `Buttons` → variant `solid-button` | Identity inside the registry |
 

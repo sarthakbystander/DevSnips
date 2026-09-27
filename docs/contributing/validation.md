@@ -39,7 +39,6 @@ Every verification layer, what it checks, and where it lives:
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors |
 | Browser QA (React) | `scripts/qa/resources/_qa_react_*.py` | Runtime, layout, theme, a11y per family |
 | Browser QA (templates) | `scripts/qa/resources/_qa_template.py` | Overflow, console errors, interactions |
-| Nav page QA | `scripts/qa/resources/test_tailwind_nav.py`, `test_react_nav.py` | Browse-page behavior |
 
 ## Structure checks
 
@@ -80,7 +79,6 @@ Per-family Playwright scripts under `scripts/qa/resources/`:
   python3 scripts/qa/resources/_qa_react_button.py split-button
   ```
 - `_qa_template.py` — generic template harness (works for Tailwind/Vanilla templates too); takes a `preview.html` path and loads it over `file://` (no server needed).
-- `test_tailwind_nav.py` / `test_react_nav.py` — the gallery/browse pages; serve `library/` on `:12000` first.
 
 Harnesses exist for most — not all — families. Check the directory before assuming one exists.
 

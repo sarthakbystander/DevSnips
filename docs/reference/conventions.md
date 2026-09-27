@@ -63,4 +63,4 @@ Inside a leaf, file names are fixed lowercase constants: `code.html`, `code.tsx`
 
 ## Generated files — never hand-edit
 
-`snippets-index.json` (`rebuild_index.py`), `agents/resources/indexes/*.json` (`build_resource_indexes.py`), `website/**` (`gen_site.py`), `devsnips/config.json` (CLI). `devsnips/AGENTS.md` is CLI-created once and user-owned thereafter.
+`snippets-index.json` (`rebuild_index.py`), `agents/resources/indexes/*.json` (`build_resource_indexes.py`), `devsnips/config.json` (CLI). `devsnips/AGENTS.md` is CLI-created once and user-owned thereafter.

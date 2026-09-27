@@ -8,7 +8,7 @@ The fastest path from "I need a UI" to "it's in my project." DevSnips has three 
 |---|---|---|
 | **CLI** | Copying source into your project | `npx devsnips add <path>` |
 | **MCP server** | Letting an AI coding agent find/read resources inside your editor | `pip install devsnips-mcp` |
-| **Browse / copy** | Exploring visually first | the website, or `library/` on disk |
+| **Browse / copy** | Exploring visually first | `library/` on disk |
 
 This tutorial uses the CLI, the most common path.
 
@@ -24,7 +24,7 @@ Resources are addressed by a tech-first registry path:
 - Category: `Components`, `Sections`, `Templates`
 - e.g. `React/Components/Buttons/solid-button`
 
-To see what's available without the CLI, browse the registry or the website. Query options: [Machine-readable overview](../machine-readable/overview.md).
+To see what's available without the CLI, browse the registry. Query options: [Machine-readable overview](../machine-readable/overview.md).
 
 ## 2. Install it
 

@@ -21,7 +21,6 @@ An open-source, framework-agnostic frontend component library. UI resources are 
 | `agents/resources/indexes/` | **Generated** specialized indexes — never hand-edit |
 | `scripts/tooling/` | Validators (`validators/`), index generators (`indexing/`), resource generators (`generators/`) |
 | `scripts/qa/` | QA harnesses (Playwright + static), mostly under `scripts/qa/resources/` |
-| `website/` | Documentation site; `website/llms.txt` is the LLM-facing digest |
 | `docs/` | Human contributor docs: `COMPONENT_STRUCTURE.md`, `CONTRIBUTING.md` |
 | `snippets-index.json` | **Generated** master index (tech-first paths, no `library/` prefix) |
 | `index.html` | Root browse page |
@@ -32,7 +31,7 @@ An open-source, framework-agnostic frontend component library. UI resources are 
 2. **Generated — never hand-edit:**
    - `snippets-index.json` — regenerate with `python scripts/tooling/indexing/rebuild_index.py`
    - `agents/resources/indexes/*.json` — regenerate with `python scripts/tooling/indexing/build_resource_indexes.py`
-3. **Documentation:** `agents/resources/*.md` (hand-maintained, path-accurate); `website/`, `docs/`, `README.md` are human-facing and may lag.
+3. **Documentation:** `agents/resources/*.md` (hand-maintained, path-accurate); `docs/`, `README.md` are human-facing and may lag.
 4. **Counts:** never quote resource counts from any documentation — read `snippets-index.json`.
 
 ## Context Loading — read only what your task requires
@@ -70,7 +69,7 @@ Do NOT load all ten files for every task.
 ## Safety / Modification Rules
 
 - Never manually edit generated indexes or preview-shell artifacts derived from metadata.
-- Never rename, move, or delete resources without regenerating both indexes and confirming no consumer (CLI resolver, website) breaks.
+- Never rename, move, or delete resources without regenerating both indexes and confirming no consumer (CLI resolver) breaks.
 - New resources must match the exact file contract for their tech + type — see `agents/resources/resources.md` before creating anything.
 - Don't change architecture, schemas, or generator behavior without reading `agents/resources/architecture.md` and `agents/resources/indexing.md` first.
 - Preserve existing naming, capitalization (`React`, `Tailwind`, `Vanilla`, `Components`, `Sections`, `Templates`), and tech-first index paths (no `library/` prefix) unless the task explicitly changes them.

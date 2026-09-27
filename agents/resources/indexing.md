@@ -9,7 +9,7 @@ same ("Do not edit ... by hand unless a maintainer specifically asks you to").
 ## Purpose and source of truth
 
 `snippets-index.json` is the **single machine-readable registry** of every resource. It is what
-the CLI resolves paths against, what the website/search layer reads, and what
+the CLI resolves paths against and what
 `scripts/tooling/validators/validate.py` cross-checks the filesystem against.
 
 The source of truth is the **filesystem under `library/`** plus each leaf's `metadata.json`.
@@ -119,9 +119,6 @@ gate (see "Specialized type indexes" below) — run it after every regeneration.
   requires a `families` array, and resolves `npx devsnips add <path>` against `variants[].path`.
   See `agents/resources/cli.md`.
 - **Validation** — `scripts/tooling/validators/validate.py`.
-- **Website** — `website/llms.txt`, `website/llms-full.txt`, `website/search-index.json` are
-  published alongside the site (generators under `scripts/tooling/generators/`, principally
-  `gen_site.py`).
 - **Agents** — `agents/skills/devsnips/SKILL.md` and
   `agents/skills/devsnips/references/registry_schema.md` require reading the live registry
   rather than trusting documentation.
@@ -138,7 +135,6 @@ gate (see "Specialized type indexes" below) — run it after every regeneration.
 | `library/Tailwind/Components/STYLE_TOKENS.md`, `library/React/DESIGN_TOKENS.md`, `library/React/Sections/DESIGN_TOKENS.md`, `library/Vanilla/Components/DESIGN_TOKENS.md`, `library/Vanilla/Templates/design-tokens.md` | **Canonical** shared references |
 | `library/Vanilla/Sections/sections-index.html`, `sections-showcase.html` | **Canonical** browse galleries |
 | `library/Tailwind/index.html`, `library/React/index.html` | **Canonical** browse pages |
-| `website/**` (mirrors, `llms.txt`, `search-index.json`) | **Derived** publishing artifact |
 
 ## Stale-data risks
 

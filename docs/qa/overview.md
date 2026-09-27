@@ -6,8 +6,6 @@ CI (`.github/workflows/ci.yml`) covers the static gates — structure/metadata v
 scripts/qa/
   resources/
     qa_vanilla.py          Vanilla quality-bar scanner (static)
-    test_react_nav.py      React gallery nav (Playwright)
-    test_tailwind_nav.py   Tailwind gallery nav (Playwright)
     _qa_react_*.py         per-family React browser harnesses (Playwright)
     _qa_template.py        generic multi-page template harness (Playwright)
 ```
@@ -26,7 +24,6 @@ scripts/qa/
 | Vanilla quality bar | `qa_vanilla.py` | `scripts/qa/resources/` | Vanilla component changes |
 | React browser QA | `_qa_react_*.py` | `scripts/qa/resources/` | visual/interactive React changes |
 | Template browser QA | `_qa_template.py` | `scripts/qa/resources/` | template changes |
-| Nav/gallery QA | `test_react_nav.py`, `test_tailwind_nav.py` | `scripts/qa/resources/` | gallery page changes |
 | CLI behavior | `cli/test/*.test.js` | `cli/test/` | CLI changes |
 
 ## Static scanner: `qa_vanilla.py`
@@ -66,10 +63,8 @@ Per-family Playwright scripts under `scripts/qa/resources/`. Playwright is **not
 |---|---|---|
 | `_qa_react_*.py` | one React component/section family | serve `library/` on `:8765` (`python3 -m http.server 8765 --directory library`), then e.g. `python3 scripts/qa/resources/_qa_react_button.py split-button` |
 | `_qa_template.py` | a multi-page template (Tailwind/Vanilla too) | `python3 scripts/qa/resources/_qa_template.py <path-to-preview.html>` (loads it over `file://`) |
-| `test_react_nav.py` | the React gallery/browse page | serve `library/` on `:12000`, then `python3 scripts/qa/resources/test_react_nav.py` |
-| `test_tailwind_nav.py` | the Tailwind gallery/browse page | serve `library/` on `:12000`, then `python3 scripts/qa/resources/test_tailwind_nav.py` |
 
-The React and nav harnesses navigate to `http://localhost:<port>/<Tech>/...`, so the document root must be `library/` (the index paths are tech-first, without the `library/` prefix). `_qa_template.py` instead opens the preview over `file://` and needs no server.
+The React harnesses navigate to `http://localhost:<port>/<Tech>/...`, so the document root must be `library/` (the index paths are tech-first, without the `library/` prefix). `_qa_template.py` instead opens the preview over `file://` and needs no server.
 
 ### How the React harnesses work
 

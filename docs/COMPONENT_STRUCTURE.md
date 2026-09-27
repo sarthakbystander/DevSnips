@@ -1,6 +1,6 @@
 # DevSnips Content Structure Specification
 
-This document defines how DevSnips organizes components, sections, templates, variants, and metadata. The structure is designed so every useful piece of content can be addressed independently by the repository, indexer, and future website.
+This document defines how DevSnips organizes components, sections, templates, variants, and metadata. The structure is designed so every useful piece of content can be addressed independently by the repository and the indexer.
 
 ## Design goals
 
@@ -127,7 +127,7 @@ Every template — Tailwind, Vanilla, and React — must ship an `AGENTS.md` at 
 
 ## Metadata principles
 
-Metadata is consumed by repository tooling and the future DevSnips website. It should be accurate, deterministic, and consistent with the filesystem.
+Metadata is consumed by repository tooling. It should be accurate, deterministic, and consistent with the filesystem.
 
 A Tailwind variant must declare its content type:
 
@@ -239,4 +239,4 @@ Do not perform a large migration by changing folders alone. The index and metada
 
 ## Why this structure exists
 
-This model allows DevSnips to grow without turning every category into a large monolithic file. Each variant can eventually have its own website page, search result, metadata, preview, analytics, and canonical URL while families still provide useful organization for humans.
+This model allows DevSnips to grow without turning every category into a large monolithic file. Each variant can eventually have its own search result, metadata, preview, analytics, and canonical URL while families still provide useful organization for humans.

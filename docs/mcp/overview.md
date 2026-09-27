@@ -6,7 +6,7 @@
 AI coding agent → devsnips-mcp → snippets-index.json → library/<path>/<file>
 ```
 
-The MCP is a **consumer** of DevSnips, not a second database. It reads the same canonical registry (`snippets-index.json`) and the same `library/` tree that the CLI, the website, and the agent docs use. It never registers or writes resources; v1 is strictly read-only.
+The MCP is a **consumer** of DevSnips, not a second database. It reads the same canonical registry (`snippets-index.json`) and the same `library/` tree that the CLI and the agent docs use. It never registers or writes resources; v1 is strictly read-only.
 
 ## Why use it
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-27
+
+### Removed — the `website/` publishing surface and its remaining tooling
+- **The generated static site no longer exists as a repository surface.** The `website/` tree itself was deleted in `58712cbf`; this change retires the tooling and documentation that produced and described it. Deleted: `scripts/tooling/generators/gen_site.py` (the site generator), `scripts/tooling/generators/style_extra.css` (its brand stylesheet), and the gallery harnesses `scripts/qa/resources/test_react_nav.py` / `test_tailwind_nav.py`.
+- **Docs reconciled with the removal.** `AGENTS.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `agents/resources/*.md` (`architecture.md`, `conventions.md`, `indexing.md`, `qa.md`, `frameworks/tailwind.md`), 21 pages under `docs/`, and `integrations/mcp/implementation_plan.md` no longer describe `website/`, `llms.txt`, `llms-full.txt`, `search-index.json`, `sitemap.xml`, `gen_site.py`, or the nav-page harnesses. `agents/resources/architecture.md` lost its `website/` section and now names only `devsnips/` as the generated-and-uncommitted path.
+- **Query surfaces unchanged.** The registry (`snippets-index.json`), the per-type indexes (`agents/resources/indexes/*.json`), the CLI, and the MCP server are untouched; discovery now goes through those rather than the removed site digests.
+- **Verified:** `validate.py` prints `VALIDATION PASSED - architecture, metadata, and index all consistent.`; `check_agent_doc_paths.py` resolves every reference (420 checked, 36 files); the 40-test tooling suite and `validate_indexes.py` pass.
+
+
 ## 2026-09-24
 
 ### Added — CI, Markdown link checker, and agent-doc path checker
