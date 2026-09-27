@@ -1,14 +1,14 @@
 # Tooling — overview
 
-This page is the map of `scripts/tooling/`. Four families: **validators** (guardrails), **indexing** (the registry), **site generators** (the website), **utilities** (one-off migrations and quality fixes). For end-to-end procedures see [QA](../qa/overview.md); for the high-level registry pipeline see [Machine-readable overview](../machine-readable/overview.md).
+This page is the map of `scripts/tooling/`. Four families: **validators** (guardrails), **indexing** (the registry), **generators** (Tailwind section builders), **utilities** (one-off migrations and quality fixes). For end-to-end procedures see [QA](../qa/overview.md); for the high-level registry pipeline see [Machine-readable overview](../machine-readable/overview.md).
 
-Never hand-edit generated output: `snippets-index.json`, `agents/resources/indexes/*.json`, or `website/**`. Re-run the script that made it.
+Never hand-edit generated output: `snippets-index.json` or `agents/resources/indexes/*.json`. Re-run the script that made it.
 
 ```text
 scripts/tooling/
   validators/       guardrails that the library must clear
   indexing/         the machine-readable registry and the per-type indexes
-  generators/       the static website (site generation + Tailwind section builders)
+  generators/       Tailwind section builders (content generation)
   utilities/        one-off migrations and automated quality-bar fixes
 ```
 
@@ -20,7 +20,6 @@ The canonical run order:
     -> indexing/rebuild_index.py        master registry
     -> indexing/build_resource_indexes.py per-type indexes
     -> indexing/validate_indexes.py      per-type indexes match
-    -> generators/gen_site.py            website
     -> utilities/*.py                    migrations / quality fixes
 ```
 
@@ -28,7 +27,7 @@ The canonical run order:
 |---|---|---|
 | **validators** | repository integrity: architecture, metadata, index<->disk consistency, template `AGENTS.md`, file-set sanctions, Vanilla quality bar | before every push (minimum: `validate.py`) |
 | **indexing** | `snippets-index.json` + per-type indexes | leaves added/removed/renamed/moved; metadata changes |
-| **site generators** | `website/` + search index, `llms.txt`, `llms-full.txt`, `sitemap.xml` | content/metadata changes that should appear on the site |
+| **generators** | Tailwind section content (`code.html`, `preview.html`, `metadata.json`, `README.md`) | adding or restyling Tailwind sections |
 | **utilities** | deterministic migrations + quality fixes | when invited for a specific cleanup |
 
 ## Validators
@@ -76,29 +75,16 @@ The indexing family produces the machine-readable registry and the three per-typ
 
 The indexer is strict for Tailwind (both files) and loose for React (either file); the validators are stricter in the opposite direction so a variant missing one of the pair is flagged by the required-files check rather than reclassified as a non-leaf.
 
-## Site generators
+## Generators
 
-The site-generator family emits the static `website/`. It is fully self-contained Python (no Node, no build step for the generator itself).
+The generator family builds Tailwind section content. It is fully self-contained Python (no Node, no build step).
 
 | Path | Role |
 |---|---|
-| `generators/gen_site.py` | main site generator — walks `library/Tailwind/`, `library/Vanilla/`, `library/React/` (Components/Sections/Templates), reads each item's `metadata.json` + `README.md`, emits a fully cross-linked static site into `website/` |
 | `generators/generate.py` | Tailwind **section** builder — writes all 165 Tailwind/Sections section folders (`code.html`, `preview.html`, `metadata.json`, `README.md`), one of 15 styles per category |
 | `generators/styles.py` | the 15 style systems (tokens, fonts, helper classes, dark-mode membership) used by the section builders |
 | `generators/layout.py` + `helpers.py` | shared layout helpers: containers, navbar/footer, logo/svg handling |
 | `generators/builders_*.py` (11 files) | per-category section builders: testimonials, faq, contact, footer, navbar, stats, team, blog, logos, newsletter, 404 |
-
-### What `gen_site.py` emits
-
-Per resource: a detail page (preview + code + metadata + features + related + docs); templates get a multi-page-aware detail page. Cross-cutting: technology hub pages, category index pages (Components/Sections/Templates per tech), family group pages, a home page, a documentation hub, and shared navbar/footer on every page. It also emits the index surfaces — `website/search-index.json`, `llms.txt`, `llms-full.txt`, `sitemap.xml` — and brand assets (`assets/style.css`, `assets/logo.svg`). All internal links are relative; "Preview" opens the real `preview.html` (or `index.html` for templates) in a new tab.
-
-Regenerate after any content/metadata change that should appear on the site:
-
-```bash
-python scripts/tooling/generators/gen_site.py
-```
-
-The website is a **derived output** — never hand-edit `website/` mirrors; see [Architecture](../introduction/architecture.md).
 
 ## Utilities
 
@@ -120,10 +106,10 @@ Shared conventions: all resolve the repo root relative to their own file (CWD-in
 |---|---|
 | Before every push | `validators/validate.py` |
 | File-set changes (missing README, etc.) | `deep_check.py` |
-| New/removed/renamed leaf or metadata change | `rebuild_index.py` → `validate_indexes.py` → (optionally) `gen_site.py` |
+| New/removed/renamed leaf or metadata change | `rebuild_index.py` → `validate_indexes.py` |
 | Duplicate IDs reported | `fix_duplicate_ids.py` → `rebuild_index.py` → `validate_indexes.py` → `validate.py` |
 | Vanilla quality-bar failures | `fix_quality_bar.py` (DRY_RUN first) → re-run `qa_vanilla.py` → `validate.py` |
-| Site needs to reflect content changes | `gen_site.py` |
+| New or restyled Tailwind section | `generate.py` (and the relevant `builders_*.py`) → `rebuild_index.py` → `validate_indexes.py` → `validate.py` |
 
 ## Go deeper
 

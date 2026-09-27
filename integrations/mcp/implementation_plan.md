@@ -23,9 +23,6 @@ AI coding agent → DevSnips MCP → snippets-index.json (registry) → library/
   (`https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json`)
   and downloads files from `library/<path>/<file>`. Verified live: HTTP 200, `ETag` present,
   `Access-Control-Allow-Origin: *`.
-- `website/search-index.json` is stale (968 of 1018 variants), uses a different technology
-  vocabulary, has no generator in the repo, and `devsnips.dev/search-index.json` + `/llms.txt`
-  return 404. MCP does not use it.
 - The registry `files` manifest is lossy for React templates (only one level of `src/**`
   listed). MCP reports `files_complete: false` in remote mode and walks the real tree in
   local mode.

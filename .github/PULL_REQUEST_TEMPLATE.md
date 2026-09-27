@@ -12,7 +12,6 @@
 - [ ] CLI (`cli/`)
 - [ ] Agent docs / indexes (`agents/`, `snippets-index.json`)
 - [ ] Human docs (`docs/`, `README.md`)
-- [ ] Website (`website/` — regenerated artifacts only)
 
 ## Validation
 

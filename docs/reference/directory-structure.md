@@ -57,7 +57,7 @@ DevSnips/
 │   ├── tooling/indexing/             rebuild_index.py, build_resource_indexes.py,
 │   │                                 validate_indexes.py
 │   ├── tooling/tests/                stdlib unittest suite for the tooling scripts
-│   ├── tooling/generators/           gen_site.py (website), Tailwind section builders
+│   ├── tooling/generators/           Tailwind section builders
 │   ├── tooling/utilities/            one-off migration/repair scripts
 │   └── qa/resources/                 qa_vanilla.py + Playwright harnesses
 │
@@ -71,7 +71,6 @@ DevSnips/
     └── workflows/ci.yml              CI: validators, index drift, doc links, CLI tests
 
 Generated and NOT committed (absent from a clean checkout):
-├── website/                          published static site (gen_site.py)
 └── devsnips/                         CLI `init` output, created in a user project
 ```
 
@@ -79,7 +78,6 @@ Generated and NOT committed (absent from a clean checkout):
 
 - Resource content exists **only** under `library/`. Tooling under `scripts/` must never be a resource; content must never live under `scripts/`.
 - `cli/` is self-contained and must not depend on repository-relative paths.
-- `website/**` paths are output, never resource locations. A resource's on-disk location is always `library/<registry path>`.
 - Forbidden directory names under any technology: `Utilities/`, `Resources/`, `Snippets/`, `Pages/`, `Tools/`.
 - There is no root `package.json`; CLI commands run from `cli/` (or via `npx devsnips`).
 
@@ -90,4 +88,3 @@ Generated and NOT committed (absent from a clean checkout):
 | Install | registry path: `npx devsnips add React/Components/Buttons/split-button` |
 | Read on disk | `library/React/Components/Buttons/split-button/` |
 | Registry entry | `snippets-index.json` → family `React/Components/Buttons/` → variant |
-| Website page | `https://devsnips.dev/React/Components/Buttons/split-button/index.html` |

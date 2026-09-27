@@ -87,4 +87,4 @@ Branch `feat/…`, conventional commit, focused diff. Include screenshots or a p
 
 ## Result
 
-The resource is indexed, browsable on the website (after site regeneration), installable via `npx devsnips add <path>`, and covered by the validators. Anything less means a step was skipped — the validator output will say which.
+The resource is indexed, installable via `npx devsnips add <path>`, and covered by the validators. Anything less means a step was skipped — the validator output will say which.

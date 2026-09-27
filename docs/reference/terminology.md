@@ -48,7 +48,6 @@ Canonical vocabulary for DevSnips. Use these terms exactly; do not substitute sy
 
 ## Commonly confused pairs
 
-- **Registry vs website.** The registry is the JSON inventory; the website is a generated human/LLM discovery surface over the same data. The website is never canonical.
 - **Variant vs family vs type.** `solid-button` is a variant; `Buttons` is a family; `component` is its type.
 - **`tech` strings.** Filter with `React`, `Tailwind CSS`, `Vanilla HTML/CSS/JS` — exact registry strings. Disk directories are `React`, `Tailwind`, `Vanilla`.
 - **Master vs specialized index.** The master carries paths and manifests; specialized indexes add `id` and `install` per variant. In the master, the variant `path` *is* the id.

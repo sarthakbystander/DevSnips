@@ -58,7 +58,6 @@ Each stage has a dedicated page in the [Agents](../agents/overview.md) section.
 
 Humans are a first-class secondary audience:
 
-- **Browsing and discovery** — the [website](https://devsnips.dev) is a generated static site with technology hubs, category pages, per-resource detail pages, search, and LLM-oriented digests (`llms.txt`, `llms-full.txt`). See [Website and discovery](../machine-readable/schemas.md#website-surfaces).
 - **Direct consumption** — resources are plain files. `code.html` / `code.tsx` are copy-paste ready; `preview.html` is a runnable demo. A human can read the code and copy it without the CLI.
 - **Contributing** — resources are folders with a defined file contract; contributions follow [Contributing](../contributing/overview.md).
 
@@ -73,7 +72,6 @@ Humans are a first-class secondary audience:
 | The CLI (`npx devsnips`) | Non-interactive installer. Fetches the registry, resolves a path, downloads source files into `./devsnips/` in the user's project. |
 | Project context (`devsnips/config.json`, `devsnips/AGENTS.md`) | Machine-readable install state plus agent instructions inside a user project. |
 | Agent skill (`devsnips`) | Operational instructions governing how an agent should find, install, adapt, and verify resources. |
-| Website | Generated discovery interface over the same registry. Not the canonical source. |
 | Validators and QA tooling | Enforce structure, metadata validity, registry↔disk consistency, and resource quality bars. |
 
 ## What DevSnips is not

@@ -51,7 +51,7 @@ docs/
 │   └── schemas.md
 ├── mcp/                 The devsnips-mcp server: install, configure, connect, use
 │   └── overview.md
-├── tooling/             scripts/tooling/: validators, indexing, site generators, utilities
+├── tooling/             scripts/tooling/: validators, indexing, generators, utilities
 │   └── overview.md
 ├── qa/                  The QA surface: validators, quality bars, browser harnesses
 │   └── overview.md
@@ -89,4 +89,3 @@ These documentation pages explain the system. The following are the authoritativ
 - `agents/resources/*.md` — repository-side deep reference for agents modifying DevSnips itself.
 - `agents/skills/devsnips/SKILL.md` — the operational skill for agents *consuming* DevSnips.
 - `docs/COMPONENT_STRUCTURE.md`, `docs/CONTRIBUTING.md` — maintainer-facing structure specs.
-- `website/llms.txt`, `website/llms-full.txt`, `website/search-index.json` — website discovery surfaces.

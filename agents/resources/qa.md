@@ -45,7 +45,6 @@ means passing the strict file-set layer; you can still run it standalone for a f
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors. |
 | Browser QA (React) | `scripts/qa/resources/_qa_react_*.py` | Runtime, layout, theme, a11y per family. |
 | Browser QA (templates) | `scripts/qa/resources/_qa_template.py` | Overflow, console errors, interactions. |
-| Nav page QA | `scripts/qa/resources/test_tailwind_nav.py`, `test_react_nav.py` | Browse-page behavior. |
 
 ## Structure checks
 
@@ -141,8 +140,6 @@ Other harnesses:
   `320, 375, 768, 1024, 1280, 1920`; console/page errors; per-template interaction checks
   (`dp_checks` for `developer-portfolio`, `pl_checks` for `product-launch`, `ec_checks` for
   `event-conference`).
-- `scripts/qa/resources/test_tailwind_nav.py`, `test_react_nav.py` — browse-page harnesses
-  (`BASE = "http://localhost:12000"`).
 
 ## Expected verification flow
 

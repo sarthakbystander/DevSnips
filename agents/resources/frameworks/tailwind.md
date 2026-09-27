@@ -126,8 +126,6 @@ Every template must ship `AGENTS.md` at its root (enforced by
 - `scripts/tooling/validators/validate.py` +
   `scripts/tooling/validators/deep_check.py` cover structure, metadata, and
   index consistency.
-- `scripts/qa/resources/test_tailwind_nav.py` validates the Tailwind gallery
-  pages (`library/Tailwind/index.html` and category indexes).
 - `scripts/qa/resources/_qa_template.py` is a generic Playwright harness that
   also works on Tailwind template previews (e.g.
   `python3 scripts/qa/resources/_qa_template.py library/Tailwind/Templates/meridian/preview.html`).

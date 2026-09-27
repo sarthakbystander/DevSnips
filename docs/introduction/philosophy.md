@@ -6,11 +6,11 @@ DevSnips' architecture follows from a small set of principles. Each principle be
 
 AI coding agents are the primary consumers. Every operation an agent needs — discovery, evaluation, installation, verification — has a non-interactive, machine-readable interface:
 
-- Discovery reads JSON (`snippets-index.json`, the specialized indexes, `search-index.json`).
+- Discovery reads JSON (`snippets-index.json` and the specialized indexes).
 - Installation runs one command (`npx devsnips add <path>`) with no prompts.
 - Verification is file-based: expected paths, expected files, expected content.
 
-This does not exclude humans. `code.html` and `code.tsx` are readable and copy-paste ready, and the website renders the same registry for browsing. But whenever a design decision trades interactive convenience against predictability, predictability wins. The CLI deliberately has no interactive prompts, no wizards, and no flags that change behavior silently.
+This does not exclude humans. `code.html` and `code.tsx` are readable and copy-paste ready, and `library/` can be browsed directly on disk. But whenever a design decision trades interactive convenience against predictability, predictability wins. The CLI deliberately has no interactive prompts, no wizards, and no flags that change behavior silently.
 
 ## 2. Structured resources with a fixed file contract
 
@@ -26,7 +26,7 @@ A fixed contract is what makes everything else possible: the indexer can build a
 
 ## 3. Explicit metadata over inferred behavior
 
-Metadata is infrastructure, not decoration. `metadata.json` records what the implementation actually provides — `responsive`, `darkMode`, `accessibility`, `dependencies`, `features` — and contributors are required not to claim behavior the code does not implement. Downstream consumers (index, website, agents) treat metadata as the description of record.
+Metadata is infrastructure, not decoration. `metadata.json` records what the implementation actually provides — `responsive`, `darkMode`, `accessibility`, `dependencies`, `features` — and contributors are required not to claim behavior the code does not implement. Downstream consumers (index, CLI, agents) treat metadata as the description of record.
 
 One deliberate consequence: metadata schemas are **per-technology, not universal**. Each technology's records follow the shape of its siblings, reflecting how the collection evolved, and the indexer tolerates field differences across technologies. Do not invent keys; copy a sibling's shape.
 
@@ -42,13 +42,13 @@ The folder name is the canonical slug. `slug`, `name`, and `id` in `metadata.jso
 
 ## 5. A single machine-readable registry
 
-Every queryable fact about the inventory lives in `snippets-index.json`. It is generated from the filesystem by `scripts/tooling/indexing/rebuild_index.py` and is the single object that the CLI, the website, the validators, and the specialized indexes all derive from. One registry means one place to update and one place to trust — and one place that can drift, which is why a two-way index↔disk consistency check runs in the primary validator.
+Every queryable fact about the inventory lives in `snippets-index.json`. It is generated from the filesystem by `scripts/tooling/indexing/rebuild_index.py` and is the single object that the CLI, the validators, and the specialized indexes all derive from. One registry means one place to update and one place to trust — and one place that can drift, which is why a two-way index↔disk consistency check runs in the primary validator.
 
 Counts in the registry are recomputed on every regeneration. Documentation is deliberately forbidden from quoting inventory counts because they drift; read them from the current registry.
 
 ## 6. Generated artifacts are never hand-edited
 
-`snippets-index.json`, `agents/resources/indexes/*.json`, and the `website/` mirrors are generated. Hand-editing them creates a second source of truth. The generators preserve curated fields (family descriptions, tags, search terms) across regenerations, so there is no reason to patch the output. Regeneration is also defensive: `rebuild_index.py` refuses to write when its cross-validation finds disk↔index disagreement, so a broken state is reported rather than committed.
+`snippets-index.json` and `agents/resources/indexes/*.json` are generated. Hand-editing them creates a second source of truth. The generators preserve curated fields (family descriptions, tags, search terms) across regenerations, so there is no reason to patch the output. Regeneration is also defensive: `rebuild_index.py` refuses to write when its cross-validation finds disk↔index disagreement, so a broken state is reported rather than committed.
 
 ## 7. Compatibility over cleverness
 

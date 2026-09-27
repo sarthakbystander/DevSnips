@@ -26,7 +26,7 @@ Error text is designed to name the failing path or file. Read the actual message
 
 **"Re-running says the file already exists."** The CLI never overwrites. Remove `./devsnips/<tech>/<category>/<family>/<variant>/` and re-run. There is no `--force`.
 
-**"The resource I want isn't found but I saw it on the website."** The CLI resolves against the registry published on `main`. A resource that exists only in a branch or a local checkout cannot be installed.
+**"The resource I want isn't found but I saw it listed somewhere."** The CLI resolves against the registry published on `main`. A resource that exists only in a branch or a local checkout cannot be installed.
 
 **"npx can't run / no network."** Fall back to fetching the files directly from `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/library/<registry path>/<file>`. Note that this path skips the project-context bookkeeping that `add` performs.
 
