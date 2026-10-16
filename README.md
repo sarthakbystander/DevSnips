@@ -1,72 +1,75 @@
 # DevSnips
 
-**The largest free & open-source UI library for web developers**
+**The UI library built for AI coding agents — and the humans who use them.**
 
-Reusable **Tailwind CSS**, **Vanilla HTML/CSS/JS**, and **React** components, sections, and full multi-page templates — including production-ready AI SaaS platforms.
+Production-ready **components**, **sections**, and full **multi-page templates** for Vanilla HTML/CSS/JS, Tailwind CSS, and React. Free, open source, and designed so both developers and AI agents can discover, install, and adapt UI without starting from a blank file.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/sarthakbystander/DevSnips/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakbystander/DevSnips/actions/workflows/ci.yml)
 [![GitHub stars](https://img.shields.io/github/stars/sarthakbystander/DevSnips?style=social)](https://github.com/sarthakbystander/DevSnips/stargazers)
 [![Variants](https://img.shields.io/badge/variants-1000%2B-brightgreen)](https://github.com/sarthakbystander/DevSnips)
-[![Templates](https://img.shields.io/badge/templates-19-orange)](https://github.com/sarthakbystander/DevSnips)
 [![npm](https://img.shields.io/npm/v/devsnips)](https://www.npmjs.com/package/devsnips)
 
 ---
 
 ## Why DevSnips?
 
-DevSnips is a free, open-source UI library built for developers who want production-ready interfaces without starting every project from an empty file.
+Most UI libraries give you components. DevSnips gives you a **structured, machine-readable UI resource system** that works equally well for humans and AI coding agents.
 
-- **1000+ UI variants**
-- **15+ visual styles**
-- **Tailwind CSS, React, and Vanilla**
-- **Full multi-page templates**
-- **Reusable components and sections**
-- **Design-token driven interfaces**
-- **MIT licensed**
-- **CLI for installing source directly into your project**
+| | |
+|---|---|
+| **1000+ production-ready variants** | Components, sections, and full templates across three stacks |
+| **Agent-first design** | Machine-readable registry, MCP server, and official agent skill |
+| **Source you own** | CLI installs real source files into your project — no black-box packages |
+| **Consistent engineering** | Design tokens, accessibility-conscious markup, responsive by default |
+| **MIT licensed** | Free for personal and commercial use |
 
-From individual buttons and forms to complete AI SaaS platforms, dashboards, agencies, portfolios, and conference websites.
+From a single button to a complete AI SaaS platform, dashboard, agency site, or conference website — copy, adapt, and ship.
 
 ---
 
-## What's Included?
+## Quick Start
+
+### Install any resource with the CLI
+
+```bash
+npx devsnips add <path>
+```
+
+**Examples**
+
+```bash
+npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel
+npx devsnips add React/Components/Buttons/solid-button
+npx devsnips add Vanilla/Components/Buttons/split-button
+```
+
+Resources land in `./devsnips/<tech>/<category>/<family>/<variant>/` as plain source files you control.
+
+Requires Node.js 18+. Full CLI docs → [`cli/README.md`](cli/README.md)
+
+### Or browse the library locally
+
+```bash
+git clone https://github.com/sarthakbystander/DevSnips.git
+cd DevSnips
+python3 -m http.server 8080
+```
+
+Open [http://localhost:8080](http://localhost:8080)
+
+---
+
+## What's Inside
 
 ### Components
-
-Reusable UI components for common interface patterns.
-
-- Buttons
-- Inputs
-- Forms
-- Cards
-- Navigation
-- Modals
-- Dropdowns
-- Breadcrumbs
-- Checkboxes
-- Radios
-- And more
+Reusable UI elements and interaction patterns (buttons, inputs, forms, cards, navigation, modals, dropdowns, tables, tooltips, and more).
 
 ### Sections
-
-Complete page sections ready to drop into your projects.
-
-- Hero sections
-- Features
-- Pricing
-- Testimonials
-- Contact
-- Footers
-- AI product sections
-- Dashboard sections
-- And more
+Complete page regions ready to drop in: heroes, features, pricing, testimonials, contact, footers, AI product sections, dashboard blocks, and more.
 
 ### Templates
-
-Complete multi-page websites built from composed sections and components.
-
-Featured templates include:
+Full multi-page starting points. Featured examples:
 
 - [AI SaaS Platform](library/Tailwind/Templates/ai-saas-platform/preview.html)
 - [Northstar Vanilla Dashboard](library/Vanilla/Templates/saas-dashboard/preview.html)
@@ -74,213 +77,91 @@ Featured templates include:
 - [Northline Atelier](library/Tailwind/Templates/northline-atelier/preview.html)
 - [Baseline Conference](library/Tailwind/Templates/baseline-conference/pages/index.html)
 
----
+### Supported stacks
 
-## Supported Technologies
+| Stack | What you get |
+|-------|--------------|
+| **Tailwind CSS** | Components · Sections · Templates |
+| **React** | Components · Sections · Templates |
+| **Vanilla** | HTML · CSS · JavaScript |
 
-| Technology | Library |
-| --- | --- |
-| Tailwind CSS | Components, sections & templates |
-| React | Components, sections & templates |
-| Vanilla | HTML, CSS & JavaScript |
-
-Browse the libraries:
-
-- [Tailwind](library/Tailwind/index.html)
-- [React](library/React/index.html)
-- [Vanilla](library/Vanilla/Sections/sections-index.html)
+Browse:
+- [Tailwind library](library/Tailwind/index.html)
+- [React library](library/React/index.html)
+- [Vanilla library](library/Vanilla/Sections/sections-index.html)
 
 ---
 
-## DevSnips CLI
+## Built for AI Coding Agents
 
-DevSnips now includes an official CLI for installing components, sections, and templates directly into your project.
+DevSnips is deliberately structured so agents can discover, evaluate, install, adapt, and verify UI resources reliably:
 
-### Install with npx
+- **Live registry** — [`snippets-index.json`](https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json) is the authoritative, machine-readable inventory
+- **Official agent skill** — drop-in instructions for agents that use DevSnips
+- **MCP integration** — expose the library to MCP-compatible clients
+- **AGENTS.md** — clear entry point for agents working on this repository or in consumer projects
 
-```bash
-npx devsnips add <path>
-```
-
-### Examples
-
-```bash
-npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel
-```
-
-```bash
-npx devsnips add React/Components/Buttons/solid-button
-```
-
-```bash
-npx devsnips add Vanilla/Components/Buttons/split-button
-```
-
-The CLI fetches the requested source directly from DevSnips and installs it into:
-
-```text
-./devsnips/<technology>/<category>/<family>/<variant>/
-```
-
-For example:
-
-```bash
-npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel
-```
-
-becomes:
-
-```text
-./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/
-```
-
-### CLI commands
-
-```bash
-npx devsnips --help
-npx devsnips --version
-```
-
-Node.js 18 or newer is required.
-
-Read the full [CLI documentation](cli/README.md).
-
----
-
-## Quick Start
-
-### Option 1: Use the CLI
-
-Install what you need directly into your project:
-
-```bash
-npx devsnips add <path>
-```
-
-### Option 2: Clone the repository
-
-```bash
-git clone https://github.com/sarthakbystander/DevSnips.git
-cd DevSnips
-```
-
-To browse the library locally:
-
-```bash
-python3 -m http.server 8080
-```
-
-Then open:
-
-```text
-http://localhost:8080/
-```
+See the [agent documentation](docs/agents/overview.md) and [MCP overview](docs/mcp/overview.md).
 
 ---
 
 ## Documentation
 
-Full documentation lives in [`docs/`](docs/index.md). Start with the [documentation index](docs/index.md), which routes you by role and task:
+Start with the [documentation index](docs/index.md) — it routes by role:
 
-| You are… | Start with |
-| --- | --- |
-| An AI coding agent integrating DevSnips into a project | [Introduction](docs/introduction/what-is-devsnips.md) → [Agent overview](docs/agents/overview.md) → [CLI](docs/cli/overview.md) |
-| A developer evaluating DevSnips | [What is DevSnips](docs/introduction/what-is-devsnips.md) → [Architecture](docs/introduction/architecture.md) → [Resources](docs/resources/overview.md) |
+| You are… | Start here |
+|----------|------------|
+| An AI coding agent integrating DevSnips | [Introduction](docs/introduction/what-is-devsnips.md) → [Agent overview](docs/agents/overview.md) → [CLI](docs/cli/overview.md) |
+| A developer evaluating the library | [What is DevSnips](docs/introduction/what-is-devsnips.md) → [Architecture](docs/introduction/architecture.md) → [Resources](docs/resources/overview.md) |
 | A contributor adding a resource | [Resource model](docs/resources/overview.md) → [Creating resources](docs/contributing/creating-resources.md) → [Validation](docs/contributing/validation.md) |
-| An integrator consuming the registry programmatically | [Machine-readable overview](docs/machine-readable/overview.md) → [Registry schema](docs/machine-readable/registry.md) |
-| Connecting DevSnips to an MCP client | [DevSnips MCP](docs/mcp/overview.md) |
+| Connecting via MCP | [DevSnips MCP](docs/mcp/overview.md) |
 
-Key references:
-
-- [CLI reference](docs/reference/cli-reference.md) — commands, project context, troubleshooting
-- [Registry schema](docs/machine-readable/registry.md) — the shape of `snippets-index.json`
-- [Terminology](docs/reference/terminology.md) · [FAQ](docs/faq.md)
-- [Contributing guide](docs/CONTRIBUTING.md) · [Component structure spec](docs/COMPONENT_STRUCTURE.md)
-- [Engineering reports](reports/README.md) — audits and investigations
-- [`AGENTS.md`](AGENTS.md) — entry point for AI agents working on this repository
+Key references: [CLI reference](docs/reference/cli-reference.md) · [Registry schema](docs/machine-readable/registry.md) · [Contributing guide](docs/CONTRIBUTING.md) · [`AGENTS.md`](AGENTS.md)
 
 ---
 
-## Design System
+## Design Philosophy
 
-DevSnips follows a consistent design philosophy across its component library.
+- Reusable design tokens
+- Consistent spacing & typography
+- Responsive layouts by default
+- Neutral-first foundations with controlled visual variation
+- Accessibility-conscious interfaces
+- Source that is easy for humans and agents to read and adapt
 
-The system is built around:
-
-* Reusable design tokens
-* Consistent spacing
-* Structured typography
-* Responsive layouts
-* Neutral-first foundations
-* Controlled visual variation
-* Accessibility-conscious interfaces
-* Developer-friendly source code
-
-The goal is simple: **different designs, consistent engineering.**
+**Different designs. Consistent engineering.**
 
 ---
 
-## Built For
+## Use Cases
 
-DevSnips can be used for:
-
-* AI SaaS products
-* Dashboards
-* Admin panels
-* Business websites
-* Agency websites
-* Developer tools
-* Landing pages
-* Portfolios
-* Conferences and events
-* Product websites
-* Personal projects
+AI SaaS products · Dashboards & admin panels · Business & agency sites · Developer tools · Landing pages · Portfolios · Conference & event sites · Product marketing sites · Personal projects
 
 ---
 
-## Repository Structure
+## Contributing
 
-```text
-DevSnips/
-├── React/
-├── Tailwind/
-├── Vanilla/
-├── cli/
-├── docs/
-├── scripts/
-├── snippets-index.json
-├── CHANGELOG.md
-├── LICENSE
-└── README.md
-```
+Contributions are welcome — new variants, fixes, documentation, and tooling improvements.
 
-The `snippets-index.json` registry provides the structured index of available library content.
+1. Fork the repository
+2. Create a feature branch
+3. Follow the [resource model](docs/resources/overview.md) and [validation](docs/contributing/validation.md) rules
+4. Open a pull request
 
----
-
-## Open Source
-
-DevSnips is completely free and open source under the **MIT License**.
-
-Use it in personal projects, commercial products, experiments, and anything else the MIT license permits.
-
-Contributions, improvements, bug fixes, and new components are welcome.
-
----
-
-## Links
-
-* [GitHub Repository](https://github.com/sarthakbystander/DevSnips)
-* [Documentation](docs/index.md)
-* [DevSnips CLI on npm](https://www.npmjs.com/package/devsnips)
-* [Tailwind Library](library/Tailwind/index.html)
-* [React Library](library/React/index.html)
-* [Vanilla Library](library/Vanilla/Sections/sections-index.html)
-* [Changelog](CHANGELOG.md)
-* [License](LICENSE)
+See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the full guide.
 
 ---
 
 ## License
 
-MIT © Sarthak Bystander
+MIT © [Sarthak Bystander](https://github.com/sarthakbystander)
+
+Free for personal and commercial use.
+
+---
+
+## Star the repo
+
+If DevSnips saves you time (or helps your AI agent ship better UI), a star helps others discover it.
+
+[![Star this repo](https://img.shields.io/github/stars/sarthakbystander/DevSnips?style=for-the-badge&logo=github)](https://github.com/sarthakbystander/DevSnips)
