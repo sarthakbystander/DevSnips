@@ -48,16 +48,6 @@ Resources land in `./devsnips/<tech>/<category>/<family>/<variant>/` as plain so
 
 Requires Node.js 18+. Full CLI docs → [`cli/README.md`](cli/README.md)
 
-### Or browse the library locally
-
-```bash
-git clone https://github.com/sarthakbystander/DevSnips.git
-cd DevSnips
-python3 -m http.server 8080
-```
-
-Open [http://localhost:8080](http://localhost:8080)
-
 ---
 
 ## What's Inside
