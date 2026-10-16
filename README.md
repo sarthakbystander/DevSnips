@@ -10,6 +10,10 @@ Production-ready **components**, **sections**, and full **multi-page templates**
 [![Variants](https://img.shields.io/badge/variants-1000%2B-brightgreen)](https://github.com/sarthakbystander/DevSnips)
 [![npm](https://img.shields.io/npm/v/devsnips)](https://www.npmjs.com/package/devsnips)
 
+<p align="center">
+  <img src="https://devsnips.site/og-home.jpg" alt="DevSnips — UI resources for developers and AI agents" width="100%">
+</p>
+
 ---
 
 ## Why DevSnips?
