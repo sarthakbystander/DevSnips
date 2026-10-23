@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%236F52D9%27/%3E%3Cpath d=%27M20 8.5c3.6 2.7 4.3 6 2 8.3-2 2-5.5 1.2-6.2 4-.6 2.4 1 4.2 3.1 4.2 4 0 6.6-3.3 6.6-7.2 0-5-2.2-7.6-5.5-9.3Z%27 fill=%27%23F5F1FF%27/%3E%3C/svg%3E" />
+<title>Suna Studio — Template Preview | DevSnips</title>
+<meta name="description" content="Static shell preview of Suna Studio, a single-page React + TypeScript AI music studio that generates real songs through Suna AI's public Hugging Face Space. Soft lavender dashboard with a near-violet player. Generation is disabled in this static preview." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,640&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: "#F6F4FA",
+          ink: "#211D31",
+          "ink-2": "#3A3450",
+          muted: "#6E6784",
+          faint: "#9B94B0",
+          line: "#E5E0F0",
+          "line-strong": "#D5CEE6",
+          surface: "#FFFFFF",
+          "surface-2": "#F3F0FA",
+          accent: "#6F52D9",
+          "accent-soft": "#ECE6FD",
+          "accent-deep": "#5843B4",
+          night: "#151220",
+          "night-2": "#1E1930",
+          cream: "#F5F1FF",
+          lilac: "#B6A6F2",
+          "lilac-soft": "#EFEAFF",
+          sage: "#79A886",
+          "sage-soft": "#E4F0E6",
+        },
+        fontFamily: {
+          sans: ["'Plus Jakarta Sans'", "sans-serif"],
+          display: ["'Fraunces'", "serif"],
+          mono: ["'JetBrains Mono'", "monospace"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: light; }
+  body { background-color: #F6F4FA; color: #211D31; font-family: 'Plus Jakarta Sans', sans-serif; }
+  ::selection { background: #ECE6FD; color: #211D31; }
+  :focus-visible { outline: 2px solid #6F52D9; outline-offset: 2px; border-radius: 4px; }
+  .ds-card { border: 1px solid #E5E0F0; background: #fff; border-radius: 26px; box-shadow: 0 18px 40px -28px rgba(33, 29, 49, 0.25); }
+  .ds-chip { border: 1px solid #E5E0F0; background: #fff; border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 500; color: #3A3450; display: inline-flex; align-items: center; gap: 6px; }
+  .ds-chip[data-selected="true"] { background: #6F52D9; border-color: #6F52D9; color: #fff; }
+  .ds-dot { height: 12px; width: 12px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08); }
+  .ds-note { border: 1px dashed #D5CEE6; background: rgba(243, 240, 250, 0.4); border-radius: 18px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body class="antialiased">
+<!-- DevSnips preview ribbon: honest scope note -->
+<div class="bg-night text-cream/90">
+  <div class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-2 text-center text-[11px] leading-5">
+    <span class="font-semibold text-cream">Suna Studio — static shell preview.</span>
+    <span class="text-cream/70">This is a styling prototype of the React app: real generation runs only after <code class="rounded bg-white/10 px-1 font-mono text-[10px]">npm install &amp;&amp; npm run dev</code>, which talks to Suna AI's public Space. No audio plays here, by design.</span>
+  </div>
+</div>
+
+<!-- Top bar -->
+<header class="sticky top-0 z-40 border-b border-line/80 bg-paper/85 backdrop-blur">
+  <div class="mx-auto flex h-[54px] max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-8 w-8 place-items-center rounded-full bg-accent" aria-hidden="true">
+        <svg width="17" height="17" viewBox="0 0 32 32" fill="none"><path d="M20 5.5c6.2 4.7 7.4 10.5 3.4 14.5-3.6 3.6-9.6 2.2-10.8 6.9-1.1 4.1 1.8 7.1 5.4 7.1 6.9 0 11.5-5.7 11.5-12.6C29.5 13.2 25.6 8.6 20 5.5Z" fill="#F5F1FF"/></svg>
+      </span>
+      <div class="leading-tight">
+        <p class="text-[13px] font-bold tracking-[-0.01em] text-ink">Suna Studio</p>
+        <p class="text-[9px] uppercase tracking-[0.14em] text-faint">AI music studio</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-2.5 py-1 font-mono text-[9.5px] text-muted">
+        <span class="h-1.5 w-1.5 rounded-full bg-sage"></span> Reachable
+      </span>
+      <span class="inline-flex h-8 items-center gap-1.5 rounded-full border border-line bg-surface px-3 text-[9.5px] text-muted">DevSnips × Suna AI</span>
+    </div>
+  </div>
+</header>
+
+<main class="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-5 px-4 py-6 sm:px-6 lg:grid-cols-[244px_minmax(0,1fr)]">
+  <!-- Sidebar -->
+  <aside class="hidden lg:block">
+    <div class="ds-card sticky top-[74px] rounded-3xl p-4">
+      <div class="flex items-center justify-between">
+        <p class="text-[9.5px] font-semibold uppercase tracking-[0.14em] text-faint">Session tracks</p>
+        <span class="rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[9px] text-faint">0</span>
+      </div>
+      <div class="ds-note mt-3 p-4 text-center">
+        <p class="text-[11.5px] font-semibold text-ink">Nothing loaded yet</p>
+        <p class="mt-1 text-[10px] leading-4 text-muted">Render a track in the live app and it appears here for the session.</p>
+      </div>
+      <p class="mt-3 text-[9.5px] leading-4 text-faint">Tracks stay in this tab only — download the ones you keep.</p>
+      <div class="mt-2.5 flex items-center justify-between">
+        <span class="text-[8px] uppercase tracking-[0.12em] text-faint">DevSnips × Suna AI</span>
+        <span class="font-mono text-[8px] text-faint">48 kHz</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Studio column -->
+  <div class="min-w-0 space-y-6">
+    <section>
+      <p class="text-[9px] font-semibold uppercase tracking-[0.18em] text-accent-deep">Prompt first</p>
+      <h1 class="mt-1 font-display text-[34px] leading-[1.04] tracking-[-0.015em] text-ink sm:text-[44px]">
+        Describe a song.<br class="hidden sm:block" /> Suna renders the master.
+      </h1>
+      <p class="mt-2 max-w-[560px] text-[12px] leading-5 text-muted">
+        The installed app renders real audio on Suna AI's public Space — singing full-song vocals from a preset songbook, or building a backing band around your own voice. This preview only shows the shell.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        <span class="rounded-full border border-line bg-surface px-2.5 py-1 text-[9px] text-muted">24–68s songs</span>
+        <span class="rounded-full border border-line bg-surface px-2.5 py-1 text-[9px] text-muted">6 artist presets</span>
+        <span class="rounded-full border border-line bg-surface px-2.5 py-1 text-[9px] text-muted">Editable lyrics</span>
+        <span class="rounded-full border border-line bg-surface px-2.5 py-1 text-[9px] text-muted">MP3 + WAV masters</span>
+      </div>
+    </section>
+
+    <!-- Composer shell -->
+    <form class="ds-card p-4 sm:p-5" aria-label="Composer preview (static)" onsubmit="return false">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-7 w-7 place-items-center rounded-full bg-accent-soft text-accent-deep" aria-hidden="true">✦</span>
+          <div>
+            <h2 class="text-[13px] font-semibold text-ink">New track</h2>
+            <p class="hidden text-[11px] text-muted sm:block">One idea is enough to begin.</p>
+          </div>
+        </div>
+        <div class="flex rounded-full border border-line bg-surface-2 p-1" role="group" aria-label="Composer mode preview">
+          <span class="rounded-full bg-surface px-3.5 py-1.5 text-[11px] font-medium capitalize text-ink shadow-sm">Simple</span>
+          <span class="rounded-full px-3.5 py-1.5 text-[11px] font-medium capitalize text-muted">Custom</span>
+        </div>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-dashed border-line-strong bg-surface-2/40 px-4 pb-3 pt-4">
+        <p class="text-[15px] leading-6 text-faint sm:text-base">Warm headlights in the rain, a voice that refuses to stay down…</p>
+        <div class="mt-2 flex items-center justify-between text-[10.5px] text-muted">
+          <span>Prompt goes to the Space literally — no silent rewrites.</span>
+          <span class="font-mono text-[10px] text-faint" aria-hidden="true">0/500</span>
+        </div>
+      </div>
+
+      <div class="mt-3 flex flex-wrap items-center gap-2">
+        <span class="mr-0.5 text-[10px] uppercase tracking-[0.16em] text-faint">Try</span>
+        <span class="ds-chip">Midnight drive</span>
+        <span class="ds-chip">Armor up</span>
+        <span class="ds-chip">Stadium sunrise</span>
+        <span class="ds-chip">Golden meadow</span>
+        <span class="ds-chip">Carnival dusk</span>
+        <span class="ds-chip">Night lullaby</span>
+      </div>
+
+      <div class="mt-5">
+        <div class="flex items-baseline justify-between gap-3">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">Voice &amp; world</p>
+            <p class="mt-0.5 text-[11px] text-muted">Suna sings the preset's songbook. Open Custom to edit lyrics.</p>
+          </div>
+          <span class="font-mono text-[10px] text-faint">60s</span>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-1.5 pb-1">
+          <span class="ds-chip" data-selected="true"><span class="ds-dot" style="background:#D9848E"></span>Chanson</span>
+          <span class="ds-chip"><span class="ds-dot" style="background:#E3B75F"></span>Ballad</span>
+          <span class="ds-chip"><span class="ds-dot" style="background:#8FA6E9"></span>Folk-Pop</span>
+          <span class="ds-chip"><span class="ds-dot" style="background:#2E2A44"></span>Arena Rock</span>
+          <span class="ds-chip"><span class="ds-dot" style="background:#57C4A1"></span>Afro-Latin</span>
+          <span class="ds-chip"><span class="ds-dot" style="background:#A08BD8"></span>Slap House</span>
+        </div>
+      </div>
+
+      <div class="mt-5 flex flex-col gap-3 border-t border-line bg-surface-2/65 px-4 pb-3.5 pt-4 sm:flex-row sm:items-center sm:justify-between -mx-4 -mb-4 sm:-mx-5 sm:-mb-5">
+        <div class="flex items-center gap-2 text-[10.5px] text-muted">
+          <span class="h-1.5 w-1.5 rounded-full bg-sage"></span>
+          <span>Live on Suna's public Space in the real app. Tracks stay in this tab.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint">60s · Chanson · Turbo</span>
+          <span class="inline-flex h-11 cursor-not-allowed items-center gap-2 rounded-full bg-accent px-5 text-[12.5px] font-semibold text-white opacity-60" aria-disabled="true">✦ Generate track →</span>
+        </div>
+      </div>
+    </form>
+
+    <!-- Empty session -->
+    <section aria-label="Session library preview">
+      <div class="flex items-baseline justify-between gap-3">
+        <h2 class="text-[15px] font-bold tracking-[-0.01em] text-ink">Session tracks</h2>
+        <span class="font-mono text-[9.5px] text-faint">0</span>
+      </div>
+      <div class="ds-note mt-3 p-6 sm:p-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <span class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-accent-soft/55 text-accent-deep" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><path d="M20 5.5c6.2 4.7 7.4 10.5 3.4 14.5-3.6 3.6-9.6 2.2-10.8 6.9-1.1 4.1 1.8 7.1 5.4 7.1 6.9 0 11.5-5.7 11.5-12.6C29.5 13.2 25.6 8.6 20 5.5Z" fill="#5843B4"/></svg>
+          </span>
+          <div>
+            <h3 class="font-display text-[24px] leading-tight text-ink">The room is quiet.</h3>
+            <p class="mt-1 max-w-[430px] text-[11.5px] leading-5 text-muted">Describe a track in the live app and Suna renders it here, with its real duration, format, and telemetry. Nothing is stored after you leave the tab.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-line/80 pb-28 pt-5">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <p class="text-[10.5px] text-muted">Suna Studio template · React + TypeScript + Tailwind CSS + <span class="font-mono">@gradio/client</span></p>
+        <p class="font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint">DevSnips · generation on real hardware, honestly reported</p>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<!-- Player bar shell -->
+<div class="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-night" role="region" aria-label="Player preview (static)">
+  <div class="mx-auto flex h-[68px] max-w-[1440px] items-center gap-3 px-4 sm:px-6">
+    <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-night-2 text-cream/40" aria-hidden="true">♪</span>
+    <div class="min-w-0 flex-1">
+      <p class="truncate text-[11.5px] font-semibold text-cream/85">Nothing playing</p>
+      <p class="translate-y-[-1px] font-mono text-[8.5px] uppercase tracking-[0.14em] text-cream/40">Waiting for the live app</p>
+    </div>
+    <span class="hidden font-mono text-[9px] text-cream/35 sm:inline">— / —</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-24",
+  "lastUpdated": "2026-10-23",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
-    "totalFamilies": 116,
-    "totalVariants": 1018,
+    "totalFamilies": 117,
+    "totalVariants": 1019,
     "totalSubVariants": 0,
-    "totalStyles": 1854,
+    "totalStyles": 1855,
     "technologies": [
       "Tailwind CSS",
       "Vanilla HTML/CSS/JS",
@@ -25,7 +25,7 @@
     "reactByType": {
       "component": 293,
       "section": 56,
-      "template": 1
+      "template": 2
     }
   },
   "families": [
@@ -20028,124 +20028,6 @@
       ]
     },
     {
-      "name": "CTA",
-      "path": "Vanilla/Sections/CTA/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "section",
-      "category": "Sections",
-      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Banner CTA",
-          "path": "Vanilla/Sections/CTA/cta-banner/",
-          "type": "section",
-          "description": "Bold banner CTA on a colored panel with blobs.",
-          "tags": [
-            "cta",
-            "banner",
-            "gradient"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Download CTA",
-          "path": "Vanilla/Sections/CTA/cta-download/",
-          "type": "section",
-          "description": "Download CTA with store buttons and a QR mock.",
-          "tags": [
-            "cta",
-            "download",
-            "qr"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Newsletter CTA",
-          "path": "Vanilla/Sections/CTA/cta-newsletter/",
-          "type": "section",
-          "description": "Newsletter signup CTA with consent checkbox.",
-          "tags": [
-            "cta",
-            "newsletter",
-            "form"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Split CTA",
-          "path": "Vanilla/Sections/CTA/cta-split/",
-          "type": "section",
-          "description": "Two-pane split CTA (offer + actions).",
-          "tags": [
-            "cta",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "cta",
-      "tags": [
-        "cta",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "cta",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Contact",
       "path": "Vanilla/Sections/Contact/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -20357,6 +20239,124 @@
       ],
       "searchTerms": [
         "content",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "CTA",
+      "path": "Vanilla/Sections/CTA/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Banner CTA",
+          "path": "Vanilla/Sections/CTA/cta-banner/",
+          "type": "section",
+          "description": "Bold banner CTA on a colored panel with blobs.",
+          "tags": [
+            "cta",
+            "banner",
+            "gradient"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Download CTA",
+          "path": "Vanilla/Sections/CTA/cta-download/",
+          "type": "section",
+          "description": "Download CTA with store buttons and a QR mock.",
+          "tags": [
+            "cta",
+            "download",
+            "qr"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Newsletter CTA",
+          "path": "Vanilla/Sections/CTA/cta-newsletter/",
+          "type": "section",
+          "description": "Newsletter signup CTA with consent checkbox.",
+          "tags": [
+            "cta",
+            "newsletter",
+            "form"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Split CTA",
+          "path": "Vanilla/Sections/CTA/cta-split/",
+          "type": "section",
+          "description": "Two-pane split CTA (offer + actions).",
+          "tags": [
+            "cta",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "cta",
+      "tags": [
+        "cta",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "cta",
         "neo brutalist",
         "section",
         "vanilla"
@@ -34105,63 +34105,6 @@
       ]
     },
     {
-      "name": "CTA",
-      "path": "React/Sections/CTA/",
-      "tech": "React",
-      "type": "section",
-      "category": "Sections",
-      "description": "",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "CTA — Bento",
-          "path": "React/Sections/CTA/bento/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Dark Premium",
-          "path": "React/Sections/CTA/dark-premium/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Minimal",
-          "path": "React/Sections/CTA/minimal/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Neo-Brutalist",
-          "path": "React/Sections/CTA/neo-brutalist/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        }
-      ],
-      "subcategory": "CTA",
-      "tags": []
-    },
-    {
       "name": "Comparison",
       "path": "React/Sections/Comparison/",
       "tech": "React",
@@ -34329,6 +34272,63 @@
         "inquiry form",
         "neo-brutalist"
       ]
+    },
+    {
+      "name": "CTA",
+      "path": "React/Sections/CTA/",
+      "tech": "React",
+      "type": "section",
+      "category": "Sections",
+      "description": "",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "CTA — Bento",
+          "path": "React/Sections/CTA/bento/",
+          "type": "section",
+          "description": "",
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Dark Premium",
+          "path": "React/Sections/CTA/dark-premium/",
+          "type": "section",
+          "description": "",
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Minimal",
+          "path": "React/Sections/CTA/minimal/",
+          "type": "section",
+          "description": "",
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Neo-Brutalist",
+          "path": "React/Sections/CTA/neo-brutalist/",
+          "type": "section",
+          "description": "",
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        }
+      ],
+      "subcategory": "CTA",
+      "tags": []
     },
     {
       "name": "FAQ",
@@ -35065,7 +35065,32 @@
             "tailwind.config.ts",
             "tsconfig.json",
             "src/App.tsx",
-            "src/main.tsx"
+            "src/components/Badge.tsx",
+            "src/components/Button.tsx",
+            "src/components/Logo.tsx",
+            "src/components/Navbar.tsx",
+            "src/components/ProjectCard.tsx",
+            "src/components/SectionHeading.tsx",
+            "src/components/ServiceCard.tsx",
+            "src/components/SplatterDecoration.tsx",
+            "src/components/TornDivider.tsx",
+            "src/data/projects.ts",
+            "src/data/services.ts",
+            "src/data/testimonials.ts",
+            "src/main.tsx",
+            "src/pages/About.tsx",
+            "src/pages/Contact.tsx",
+            "src/pages/Home.tsx",
+            "src/pages/Work.tsx",
+            "src/sections/About.tsx",
+            "src/sections/CTA.tsx",
+            "src/sections/Footer.tsx",
+            "src/sections/Hero.tsx",
+            "src/sections/Process.tsx",
+            "src/sections/SelectedWork.tsx",
+            "src/sections/Services.tsx",
+            "src/sections/Testimonials.tsx",
+            "src/styles/globals.css"
           ]
         }
       ],
@@ -35084,6 +35109,109 @@
         "template",
         "typescript",
         "vite"
+      ]
+    },
+    {
+      "name": "Suna Studio",
+      "path": "React/Templates/suna-ai-studio/",
+      "tech": "React",
+      "type": "template",
+      "category": "Templates",
+      "description": "",
+      "variantsCount": 1,
+      "variants": [
+        {
+          "name": "Suna Studio",
+          "path": "React/Templates/suna-ai-studio/",
+          "type": "template",
+          "description": "A production-ready single-page React + TypeScript AI music studio that generates real songs through Suna AI's public Hugging Face Space via @gradio/client. A prompt-first composer (Simple/Custom modes, six artist presets, editable lyrics, a Turbo/High-Fidelity synthesis engine switch, 24-68s length, optional sing-to-masterpiece vocal upload with a vocal/band mix) feeds the Space's live generate_suna_track endpoint; results land in a session-only library with a Spotify-style near-violet player bar (play/pause, seek, volume, MediaSession metadata), interactive mobile player sheet, telemetry and sung-lyric sheets, and WAV-master downloads. Soft lavender/white palette with a violet accent and honest live states - no fake progress bars.",
+          "tags": [
+            "ai-music",
+            "music-generation",
+            "audio",
+            "player",
+            "gradio",
+            "workspace",
+            "single-page",
+            "react",
+            "typescript",
+            "vite",
+            "tailwind",
+            "template"
+          ],
+          "features": [
+            "real AI music generation through Suna AI's public Space via @gradio/client v2 (/gradio_api/info availability probe, /generate_suna_track endpoint)",
+            "prompt-first composer with Simple and Custom modes, ⌘/Ctrl+Enter submit, and 500-character prompt budget",
+            "six artist presets (Indila Chanson, Matushka Folk-Pop, Power Ballad, Arena Rock, Afro-Latin Pop, Slap House) with the Space's exact API enum values",
+            "editable lyrics editor with songbook autofill that matches the Space's preset-change behavior",
+            "Turbo (8-step) / High-Fidelity (16-step) synthesis engine switch and 24-68s length slider mirroring the Space's controls",
+            "optional sing-to-masterpiece vocal clip upload (drag & drop, 25MB budget, clip duration read) with a 0.30-1.20 vocal/band mix",
+            "honest generation states - connecting, composing with a real elapsed timer, queue notices, and Space error text surfaced verbatim; no fabricated progress percentages",
+            "session-only track library with rename, remove, clear, and copy-prompt; tracks never leave the tab and expire with the Space's temp files",
+            "Spotify-style near-violet player bar with play/pause, seek slider, seek-ahead/behind, volume, mute toggle, and keyboard shortcuts",
+            "MediaSession metadata (title, artist, album artwork) for OS media controls",
+            "expansive NowPlaying card with track stats, Suna telemetry, and the Space's word-aligned sung-lyric sheet",
+            "full-screen mobile player sheet (dialog, focus trap, Escape to close) and mobile session drawer",
+            "downloads prefer the Space's 48 kHz 16-bit WAV master, falling back to the 320kbps MP3",
+            "lavender/white design system: Plus Jakarta Sans + Fraunces, #F6F4FA paper, #211D31 ink, #6F52D9 violet accent, #151220 player",
+            "semantics - landmark structure, aria-pressed chips, labeled sliders, role=status generation card, focus-visible rings, prefers-reduced-motion handling"
+          ],
+          "styles": [
+            "soft-lavender-studio"
+          ],
+          "files": [
+            ".gitignore",
+            "AGENTS.md",
+            "README.md",
+            "index.html",
+            "metadata.json",
+            "package-lock.json",
+            "package.json",
+            "postcss.config.js",
+            "preview.html",
+            "tailwind.config.ts",
+            "tsconfig.json",
+            "vite.config.ts",
+            "src/App.tsx",
+            "src/components/Composer.tsx",
+            "src/components/GenerationPanel.tsx",
+            "src/components/Icon.tsx",
+            "src/components/MobileDrawer.tsx",
+            "src/components/NowPlaying.tsx",
+            "src/components/PlayerBar.tsx",
+            "src/components/PlayerSheet.tsx",
+            "src/components/Sidebar.tsx",
+            "src/components/Slider.tsx",
+            "src/components/SunaMark.tsx",
+            "src/components/TopBar.tsx",
+            "src/components/TrackArtwork.tsx",
+            "src/components/TrackCard.tsx",
+            "src/index.css",
+            "src/lib/clipboard.ts",
+            "src/lib/focus.ts",
+            "src/lib/format.ts",
+            "src/lib/palettes.ts",
+            "src/lib/suna.ts",
+            "src/lib/types.ts",
+            "src/main.tsx",
+            "src/studio/StudioProvider.tsx"
+          ]
+        }
+      ],
+      "subcategory": "AI Music",
+      "tags": [
+        "ai-music",
+        "audio",
+        "gradio",
+        "music-generation",
+        "player",
+        "react",
+        "single-page",
+        "tailwind",
+        "template",
+        "typescript",
+        "vite",
+        "workspace"
       ]
     }
   ],
@@ -35156,9 +35284,9 @@
         "Tables",
         "Tabs",
         "Tooltips",
-        "CTA",
         "Contact",
         "Content",
+        "CTA",
         "FAQ",
         "Features",
         "Footer",
@@ -35209,9 +35337,9 @@
         "Tabs",
         "Textareas",
         "Tooltips",
-        "CTA",
         "Comparison",
         "Contact",
+        "CTA",
         "FAQ",
         "Features",
         "Hero",
@@ -35222,7 +35350,8 @@
         "Stats",
         "Team",
         "Testimonials",
-        "SPRAY — Art School"
+        "SPRAY — Art School",
+        "Suna Studio"
       ]
     }
   ],
