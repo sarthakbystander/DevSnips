@@ -152,6 +152,7 @@
             "tsconfig.json",
             "vite.config.ts",
             "src/App.tsx",
+            "src/assets/ocean-crests.png",
             "src/components/Composer.tsx",
             "src/components/GenerationPanel.tsx",
             "src/components/Icon.tsx",
@@ -206,7 +207,7 @@
             "expansive NowPlaying card with track stats, Suna telemetry, and the Space's word-aligned sung-lyric sheet",
             "full-screen mobile player sheet (dialog, focus trap, Escape to close) and mobile session drawer",
             "downloads prefer the Space's 48 kHz 16-bit WAV master, falling back to the 320kbps MP3",
-            "deep-current cinematic design system: Instrument Serif display + Inter + IBM Plex Mono, #05070D canvas, #0D1322 glass cards, #76CDE0 ice-cyan accent, #030509 near-black player, centered serif display hero with an accent-word emphasis, slim icon rail, poster-strip session gallery, and a CSS-only living ocean backdrop (god-rays, rising bioluminescent dust, caustic light, depth vignette)",
+            "deep-current cinematic design system: Instrument Serif display + Inter + IBM Plex Mono, #05070D canvas, #0D1322 glass cards, #76CDE0 ice-cyan accent, #030509 near-black player, centered serif display hero with an accent-word emphasis, slim icon rail, poster-strip session gallery, and a living ocean backdrop (god-rays, a swappable seamless moonlit wave-crest texture asset, rising bioluminescent dust, caustic light, depth vignette)",
             "semantics - landmark structure, aria-pressed chips, labeled sliders, role=status generation card, focus-visible rings, prefers-reduced-motion handling"
           ],
           "styles": [

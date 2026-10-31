@@ -38,9 +38,11 @@ a serious instrument panel:
   emphasis ("Start with a *feeling.*"), a floating glass composer card, idea chips and
   preset pills, a wide glass featured-track card, a horizontal poster strip of earlier
   session renders, and the fixed near-black player at the bottom. Behind the app runs a
-  hand-built **living ocean scene**: slow god-rays swaying from the surface, two layers of
-  drifting bioluminescent dust, breathing caustic light, a depth vignette, and film grain —
-  pure CSS/SVG, decorative only, and fully disabled under `prefers-reduced-motion`. One
+  hand-built **living ocean scene**: slow god-rays swaying from the surface, a **moonlit
+  wave-crest texture** (a seamless `src/assets/ocean-crests.png` tile — swap that file to
+  change the texture), two layers of drifting bioluminescent dust, breathing caustic
+  light, a depth vignette, and film grain — pure CSS/SVG plus one swappable texture asset,
+  decorative only, and fully disabled under `prefers-reduced-motion`. One
   ice-cyan accent stays restrained; background blur (backdrop-blur glass) is used
   sparingly on the composer, featured card, rail, and top bar.
 

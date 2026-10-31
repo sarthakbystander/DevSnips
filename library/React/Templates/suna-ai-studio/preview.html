@@ -128,6 +128,18 @@
     from { background-position: 0 0; }
     to { background-position: 0 -400px; }
   }
+  .ocean-crests {
+    position: absolute; inset: 0; background-repeat: repeat; opacity: 0.72;
+    background-image: url("src/assets/ocean-crests.png");
+    background-size: 1280px auto;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.36) 46%, rgba(0,0,0,0) 84%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.36) 46%, rgba(0,0,0,0) 84%);
+    animation: preview-crest-drift 320s linear infinite;
+  }
+  @keyframes preview-crest-drift {
+    from { background-position: 0 0; }
+    to { background-position: 0 -1280px; }
+  }
   .ocean-caustic {
     position: absolute; border-radius: 9999px; filter: blur(46px);
     animation: preview-caustic 32s ease-in-out infinite;
@@ -156,6 +168,7 @@
     <span style="left:34%; width:20rem; --r:-4deg; animation-delay:2s;"></span>
     <span style="left:70%; width:15rem; --r:-8deg; animation-delay:5s;"></span>
   </div>
+  <div class="ocean-crests"></div>
   <div class="ocean-caustic ocean-caustic-a"></div>
   <div class="ocean-caustic ocean-caustic-b"></div>
   <div class="ocean-particles"></div>

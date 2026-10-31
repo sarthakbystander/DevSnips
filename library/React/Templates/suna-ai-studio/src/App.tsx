@@ -255,7 +255,7 @@ const OCEAN_RAYS = [
 function BackdropScene() {
   return (
     <div className="ocean-scene pointer-events-none fixed inset-0 z-0" aria-hidden="true">
-      <div className="ocean-rays">
+      <div className="ocean-rays" style={{ opacity: 0.6 }}>
         {OCEAN_RAYS.map((ray, index) => (
           <span
             key={index}
@@ -272,6 +272,7 @@ function BackdropScene() {
           />
         ))}
       </div>
+      <div className="ocean-crests" />
       <div className="ocean-caustic ocean-caustic-a" />
       <div className="ocean-caustic ocean-caustic-b" />
       <div className="ocean-particles ocean-particles-a" />

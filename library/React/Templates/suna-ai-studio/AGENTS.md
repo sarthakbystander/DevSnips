@@ -20,7 +20,9 @@ with a single accent-word emphasis, a floating glass composer card, a wide glass
 track card, a horizontal poster strip of earlier session renders, and a fixed near-black
 player at the bottom. Layered radial gradients in `src/index.css` give the canvas depth,
 and a fixed `.ocean-scene` container renders a pure-CSS living ocean backdrop (swaying
-god-rays, drifting bioluminescent dust, breathing caustics, depth vignette) — decorative
+god-rays, a moonlit wave-crest texture layer backed by the seamless
+`src/assets/ocean-crests.png` tile — swap the PNG to replace the texture — drifting
+bioluminescent dust, breathing caustics, depth vignette) — decorative
 only, never tied to audio state, and frozen under `prefers-reduced-motion` by the global
 rule. Solid light pills (`bg-cream text-night`) are the CTA treatment and blurred glass is
 used sparingly (composer, featured card, rail, top bar). The visual system lives entirely in
@@ -47,6 +49,8 @@ suna-ai-studio/
     ├── App.tsx                # shell: Rail, TopBar, hero, composer, session feed, footer
     ├── index.css              # dark CSS tokens, background gradients, range styling,
     │                            dialog/drawer rules
+    ├── assets/
+    │   └── ocean-crests.png   # seamless moonlit wave-crest texture (swappable)
     ├── lib/                   # suna.ts (Gradio adapter), types.ts, palettes.ts,
     │                            format.ts, clipboard.ts, focus.ts
     ├── studio/
