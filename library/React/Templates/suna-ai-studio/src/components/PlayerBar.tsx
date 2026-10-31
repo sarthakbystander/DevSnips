@@ -50,7 +50,7 @@ export function PlayerBar() {
         />
       ) : (
         <span className="grid h-full w-full place-items-center bg-white/[0.06]">
-          <SunaMark size={18} className="text-cream/20" cut="#151220" />
+          <SunaMark size={18} className="text-cream/20" cut="#101420" />
         </span>
       )}
     </span>

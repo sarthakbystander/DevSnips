@@ -114,7 +114,7 @@ export function GenerationPanel() {
               <button
                 type="button"
                 onClick={retryGeneration}
-                className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-3.5 text-[11px] font-semibold text-cream transition hover:bg-ink-2"
+                className="inline-flex h-9 items-center gap-1.5 rounded-full bg-cream px-3.5 text-[11px] font-semibold text-night transition hover:bg-white"
               >
                 <Icon name="rotate" size={13} />
                 Try again

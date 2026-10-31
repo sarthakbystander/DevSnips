@@ -5,7 +5,7 @@ import { Icon } from "./components/Icon";
 import { MobileDrawer } from "./components/MobileDrawer";
 import { NowPlaying } from "./components/NowPlaying";
 import { PlayerBar } from "./components/PlayerBar";
-import { Sidebar } from "./components/Sidebar";
+import { Rail } from "./components/Sidebar";
 import { SunaMark } from "./components/SunaMark";
 import { TopBar } from "./components/TopBar";
 import { TrackCard } from "./components/TrackCard";
@@ -24,36 +24,32 @@ const SUNA_SITE_URL = "https://suna.jjcoders.com";
 
 function Hero() {
   return (
-    <section className="pt-7 sm:pt-9 lg:pt-10">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/70 px-2.5 py-1 text-[8.5px] font-semibold uppercase tracking-[0.16em] text-muted">
-          <span className="h-1 w-1 rounded-full bg-accent" />
-          {SUNA_MODEL_LABEL} · Live Space
-        </span>
-        <span className="text-[9px] uppercase tracking-[0.14em] text-faint">
-          A DevSnips template
-        </span>
-      </div>
-
-      <h1 className="mt-4 max-w-[630px] text-balance font-display text-[42px] leading-[0.96] tracking-[-0.02em] text-ink sm:text-[54px] lg:text-[58px]">
-        Start with a <em className="text-accent-deep">feeling.</em>
-      </h1>
-      <p className="mt-3.5 max-w-[520px] text-[13px] leading-6 text-muted sm:text-[14px]">
-        Describe the track in your head. Suna AI renders it on its public
-        Space as a real stereo file — then it is yours to play, shape, and keep.
+    <section className="relative pt-12 text-center sm:pt-16">
+      <p className="font-mono text-[9px] uppercase tracking-[0.32em] text-accent-deep/90">
+        {SUNA_MODEL_LABEL} · Live Space
       </p>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[9.5px] text-faint">
+      <h1 className="mx-auto mt-4 max-w-[760px] text-balance font-display text-[52px] leading-[0.98] tracking-[0.01em] text-ink sm:text-[72px] lg:text-[84px]">
+        Start with a{" "}
+        <em className="text-accent-deep not-italic font-light">feeling.</em>
+      </h1>
+      <p className="mx-auto mt-4 max-w-[520px] text-[12.5px] leading-6 text-muted sm:text-[13.5px]">
+        Describe the track in your head. Suna AI renders it on its public
+        Space as a real stereo master — then it is yours to play, shape, and
+        keep.
+      </p>
+
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[9.5px] text-faint">
         <span className="inline-flex items-center gap-1.5">
           <Icon name="wave" size={12} className="text-accent" />
           Real Suna render
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <Icon name="link" size={11} className="text-muted" />
+          <Icon name="link" size={11} />
           Public Space · no account
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <Icon name="clock" size={11} className="text-muted" />
+          <Icon name="clock" size={11} />
           Session-only
         </span>
       </div>
@@ -65,10 +61,10 @@ function EmptySession() {
   return (
     <div className="mt-4 overflow-hidden rounded-[26px] border border-dashed border-line-strong bg-surface/35 p-6 sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-        <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-accent-soft/55 text-accent-deep">
-          <SunaMark size={38} cut="#ECE6FD" />
+        <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-accent-soft/70 text-accent">
+          <SunaMark size={38} cut="#0D1322" />
         </div>
-        <div>
+        <div className="text-left">
           <h3 className="font-display text-[25px] leading-tight text-ink">
             The room is quiet.
           </h3>
@@ -99,20 +95,21 @@ function SessionFeed({ tracks }: { tracks: Track[] }) {
   const [featured, ...earlier] = tracks;
 
   return (
-    <section aria-labelledby="session-heading" className="mt-10 sm:mt-12">
+    <section id="session" aria-labelledby="session-heading" className="mt-14 scroll-mt-20 sm:mt-16">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-faint">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-faint">
             This session
           </p>
           <h2
             id="session-heading"
-            className="mt-1 font-display text-[27px] leading-none tracking-[-0.015em] text-ink"
+            className="mt-1.5 font-display text-[30px] leading-none tracking-[0.01em] text-ink"
           >
-            Your tracks
+            Rendered{" "}
+            <em className="text-accent-deep not-italic">yours.</em>
           </h2>
         </div>
-        <span className="pb-0.5 text-[9px] text-faint">
+        <span className="pb-1 text-[9px] text-faint">
           {tracks.length > 0
             ? `${pluralise(tracks.length, "render")} · newest first`
             : "Nothing rendered yet"}
@@ -122,14 +119,18 @@ function SessionFeed({ tracks }: { tracks: Track[] }) {
       {tracks.length === 0 ? (
         <EmptySession />
       ) : (
-        <div className="mt-4 space-y-3">
-          {featured && <TrackCard track={featured} featured />}
+        <div>
+          {featured && (
+            <div className="mt-5">
+              <TrackCard track={featured} featured />
+            </div>
+          )}
           {earlier.length > 0 && (
-            <div className="rounded-2xl border border-line bg-surface/45 p-1.5">
-              <p className="px-2 pb-1 pt-1.5 text-[8.5px] font-semibold uppercase tracking-[0.16em] text-faint">
+            <div className="mt-5">
+              <p className="px-0.5 pb-2 text-[8.5px] font-semibold uppercase tracking-[0.18em] text-faint">
                 Earlier in this session
               </p>
-              <div className="divide-y divide-line/60">
+              <div className="no-scrollbar flex gap-2.5 overflow-x-auto pb-1.5">
                 {earlier.map((track) => (
                   <TrackCard key={track.id} track={track} />
                 ))}
@@ -144,7 +145,7 @@ function SessionFeed({ tracks }: { tracks: Track[] }) {
 
 function Footer() {
   return (
-    <footer className="mt-12 border-t border-line/80 pb-8 pt-5 sm:mt-14">
+    <footer className="mt-14 border-t border-line/70 pb-10 pt-5 sm:mt-16">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-[450px]">
           <p className="text-[9.5px] leading-4 text-faint">
@@ -205,9 +206,9 @@ function NoticeToast() {
 
   const tone =
     notice.tone === "success"
-      ? "border-sage/50 bg-sage-soft text-ink"
+      ? "border-sage/40 bg-sage-soft text-ink"
       : notice.tone === "error"
-        ? "border-accent/30 bg-accent-soft text-accent-deep"
+        ? "border-accent/35 bg-accent-soft text-accent-deep"
         : "border-line bg-surface text-ink-2";
 
   return (
@@ -233,7 +234,7 @@ function NoticeToast() {
           type="button"
           onClick={dismissNotice}
           aria-label="Dismiss notification"
-          className="ml-1 grid h-5 w-5 shrink-0 place-items-center rounded-full opacity-55 transition hover:bg-black/5 hover:opacity-100"
+          className="ml-1 grid h-5 w-5 shrink-0 place-items-center rounded-full opacity-55 transition hover:bg-white/10 hover:opacity-100"
         >
           <Icon name="close" size={11} />
         </button>
@@ -247,16 +248,18 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-dvh bg-paper text-ink">
+    <div className="relative min-h-dvh bg-paper text-ink">
+      <div className="paper-grain pointer-events-none fixed inset-0 z-0 opacity-[0.035]" aria-hidden="true" />
+
       <a
         href="#main"
-        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-ink px-4 py-2 text-[11px] font-medium text-cream transition focus:translate-y-0"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-cream px-4 py-2 text-[11px] font-medium text-night transition focus:translate-y-0"
       >
         Skip to content
       </a>
 
-      <div className="mx-auto flex min-h-dvh w-full max-w-[1600px]">
-        <Sidebar onNewTrack={focusComposer} />
+      <div className="relative z-10 mx-auto flex min-h-dvh w-full max-w-[1600px]">
+        <Rail />
 
         <div className="flex min-w-0 flex-1 flex-col">
           <TopBar onOpenMenu={() => setMenuOpen(true)} />
@@ -266,9 +269,9 @@ export default function App() {
             tabIndex={-1}
             className="flex-1 pb-[calc(82px+env(safe-area-inset-bottom))] focus:outline-none lg:pb-[104px]"
           >
-            <div className="mx-auto w-full max-w-[780px] px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[860px] px-4 sm:px-6 lg:px-8">
               <Hero />
-              <div className="mt-6 sm:mt-7">
+              <div className="mt-8 sm:mt-10">
                 <Composer />
                 <GenerationPanel />
               </div>
@@ -278,7 +281,7 @@ export default function App() {
           </main>
         </div>
 
-        <aside className="sticky top-0 hidden h-[calc(100dvh-84px)] w-[308px] shrink-0 border-l border-line/80 min-[1360px]:block">
+        <aside className="sticky top-0 hidden h-[calc(100dvh-84px)] w-[308px] shrink-0 border-l border-line/60 min-[1360px]:block">
           <div className="h-full overflow-y-auto px-5 py-6">
             <NowPlaying />
           </div>

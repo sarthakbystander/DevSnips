@@ -229,7 +229,7 @@ export function Composer() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="overflow-hidden rounded-[26px] border border-line bg-surface shadow-card"
+      className="overflow-hidden rounded-[28px] border border-line bg-surface/85 shadow-card backdrop-blur-xl"
       aria-labelledby="composer-label"
     >
       <div className="p-4 sm:p-5">

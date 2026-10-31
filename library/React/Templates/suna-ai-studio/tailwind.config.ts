@@ -1,33 +1,49 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * "Deep Current" — a cinematic dark design system.
+ *
+ * The token NAMES are kept from the original light theme so components read
+ * logically (paper = canvas, ink = primary text, surface = card, …); the VALUES
+ * carry the deep ocean/night mood: near-black blue canvas, glass panels, a
+ * luminous violet accent, and a paper-white action color.
+ */
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        paper: "#F6F4FA",
-        surface: "#FFFFFF",
-        "surface-2": "#F1EDF8",
-        ink: "#211D31",
-        "ink-2": "#3B3550",
-        muted: "#6D6783",
-        faint: "#9B95AD",
-        line: "#E6E0F0",
-        "line-strong": "#D5CDE4",
-        accent: "#6F52D9",
-        "accent-deep": "#5136B0",
-        "accent-soft": "#ECE6FD",
-        lilac: "#CBBFF2",
-        "lilac-soft": "#F1ECFC",
-        sage: "#8BB8A4",
-        "sage-soft": "#E4F2EC",
-        gold: "#D7AD62",
-        "gold-soft": "#F7EDDA",
-        rose: "#E5A6B8",
-        "rose-soft": "#FAE7EC",
-        night: "#151220",
-        "night-2": "#211C30",
-        cream: "#F5F1FF",
+        /** Page canvas — near-black deep blue. */
+        paper: "#05070D",
+        /** Card / glass panel fill. */
+        surface: "#0D1322",
+        /** Nested well / hover fill, a step lighter. */
+        "surface-2": "#131B2C",
+        /** Primary text — paper white. */
+        ink: "#EDF1FA",
+        "ink-2": "#C4CEE0",
+        muted: "#8E9BB6",
+        faint: "#5B687F",
+        line: "#1B2333",
+        "line-strong": "#2B3549",
+        /** Luminous violet accent. */
+        accent: "#8B7CF6",
+        /** Light-accent text for dark tinted chips. */
+        "accent-deep": "#C9BCFF",
+        "accent-soft": "#151A2E",
+        lilac: "#A78BFA",
+        "lilac-soft": "#1A1E38",
+        sage: "#5BC89A",
+        "sage-soft": "#0F241D",
+        gold: "#E3B75F",
+        "gold-soft": "#241D10",
+        rose: "#F1A2BC",
+        "rose-soft": "#27131D",
+        /** The darkest layer — player bar / sheets. */
+        night: "#030509",
+        "night-2": "#0C1220",
+        /** Paper white — action fills and player text. */
+        cream: "#F2F5FF",
       },
       fontFamily: {
         display: ["Instrument Serif", "Georgia", "Cambria", "serif"],
@@ -35,9 +51,11 @@ export default {
         mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        card: "0 1px 2px rgba(33, 29, 49, 0.04), 0 18px 40px -28px rgba(61, 45, 116, 0.25)",
-        lift: "0 2px 4px rgba(33, 29, 49, 0.05), 0 28px 60px -36px rgba(61, 45, 116, 0.32)",
-        player: "0 -18px 50px -32px rgba(12, 8, 30, 0.55)",
+        card:
+          "inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 26px 60px -34px rgba(0, 0, 0, 0.85)",
+        lift:
+          "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 34px 80px -38px rgba(0, 0, 0, 0.9)",
+        player: "0 -26px 60px -34px rgba(0, 0, 0, 0.9)",
       },
       keyframes: {
         "fade-up": {
@@ -60,6 +78,10 @@ export default {
           "0%, 100%": { transform: "scaleY(0.35)" },
           "50%": { transform: "scaleY(1)" },
         },
+        drift: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0) scale(1)" },
+          "50%": { transform: "translate3d(0, -14px, 0) scale(1.025)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 420ms cubic-bezier(0.22, 1, 0.36, 1) both",
@@ -67,6 +89,7 @@ export default {
         orbit: "orbit 10s linear infinite",
         "pulse-soft": "pulse-soft 2.4s ease-in-out infinite",
         equalize: "equalize 900ms ease-in-out infinite",
+        drift: "drift 16s ease-in-out infinite",
       },
     },
   },

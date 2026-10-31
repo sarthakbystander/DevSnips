@@ -11,14 +11,22 @@ contains no mock generation, no fake audio URLs, and no fabricated progress stat
 
 ## Design system
 
-**Soft lavender studio** — Plus Jakarta Sans (UI) + Fraunces (display); palette paper
-`#F6F4FA`, ink `#211D31`, violet accent `#6F52D9`, night player `#151220`, soft cream
-`#F5F1FF`. Rounded prompt-first composer cards on a paper canvas, a sidebar + top-bar
-shell, a featured track card, and a fixed near-violet Spotify-style player at the bottom.
-No glassmorphism, no neon, no gradient-built decoration. The visual system lives entirely
-in `tailwind.config.ts` (colors, fonts), the token block at the top of `src/index.css`,
+**Deep Current (cinematic dark)** — Instrument Serif (display, true italics) + Inter (UI)
++ IBM Plex Mono (meta); palette canvas `#05070D`, glass cards `#0D1322`, primary text
+`#EDF1FA`, luminous violet accent `#8B7CF6` (light-accent text `#C9BCFF`), near-black
+player `#030509`, paper-white action fill `#F2F5FF`. The shell is a slim icon rail
+(Compose / Tracks / Library + a live Space status dot), a centered serif display hero
+with a single accent-word emphasis, a floating glass composer card, a wide glass featured
+track card, a horizontal poster strip of earlier session renders, and a fixed near-black
+player at the bottom. Layered radial gradients in `src/index.css` give the canvas depth;
+solid light pills (`bg-cream text-night`) are the CTA treatment and blurred glass is used
+sparingly (composer, featured card, rail, top bar). The visual system lives entirely in
+`tailwind.config.ts` (colors, fonts), the dark token block at the top of `src/index.css`,
 and the presentational components — it does not depend on the shared DevSnips `--ds-*`
-tokens.
+tokens. Token names are kept logical (paper = canvas, ink = primary text, cream =
+paper-white fill), so re-theming is still a palette swap — watch the two inverted idioms:
+solid CTAs must stay `bg-cream text-night`, and artwork hover overlays use `bg-night/…`,
+not `bg-ink/…` (ink is light text in dark mode).
 
 ## File layout
 
@@ -27,20 +35,22 @@ suna-ai-studio/
 ├── index.html                 # Vite entry (theme-color, root mount)
 ├── package.json               # React 18, @gradio/client 2, Vite 5
 ├── vite.config.ts
-├── tailwind.config.ts         # lavender/white color system, fonts, animations
+├── tailwind.config.ts         # deep-current dark color system, fonts, animations
 ├── postcss.config.js
 ├── tsconfig.json              # strict TypeScript
 └── src/
     ├── main.tsx               # StrictMode + StudioProvider mount
-    ├── App.tsx                # shell: TopBar, Sidebar, composer, session feed, footer
-    ├── index.css              # CSS tokens, range styling, dialog/drawer rules
+    ├── App.tsx                # shell: Rail, TopBar, hero, composer, session feed, footer
+    ├── index.css              # dark CSS tokens, background gradients, range styling,
+    │                            dialog/drawer rules
     ├── lib/                   # suna.ts (Gradio adapter), types.ts, palettes.ts,
     │                            format.ts, clipboard.ts, focus.ts
     ├── studio/
     │   └── StudioProvider.tsx # audio element, generation lifecycle, session state
-    └── components/            # Composer, GenerationPanel, TrackCard, NowPlaying,
-                                 PlayerBar, PlayerSheet, Sidebar, TopBar, MobileDrawer,
-                                 SunaMark, TrackArtwork, Slider, Icon
+    └── components/            # Composer, GenerationPanel, TrackCard (featured card +
+                                 poster tile), NowPlaying, PlayerBar, PlayerSheet,
+                                 Sidebar (desktop Rail + drawer tracklist), TopBar,
+                                 MobileDrawer, SunaMark, TrackArtwork, Slider, Icon
 ```
 
 ## The external API (do not invent values)

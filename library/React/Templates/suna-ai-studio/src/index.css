@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --page: #f6f4fa;
-  --ink: #211d31;
-  --line: #e6e0f0;
-  --accent: #6f52d9;
-  --range-fill: #211d31;
-  --range-track: #ddd6ea;
-  --range-thumb: #211d31;
-  --range-ring: rgba(33, 29, 49, 0.12);
+  color-scheme: dark;
+  --page: #05070d;
+  --ink: #edf1fa;
+  --line: #1b2333;
+  --accent: #8b7cf6;
+  --range-fill: #f2f5ff;
+  --range-track: rgba(242, 245, 255, 0.14);
+  --range-thumb: #f2f5ff;
+  --range-ring: rgba(139, 124, 246, 0.3);
 }
 
 * {
@@ -31,16 +31,19 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Deep current: layered light, like looking up from under dark water. */
   background-image:
-    radial-gradient(90rem 44rem at 50% -14rem, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 68%),
-    radial-gradient(48rem 30rem at 108% 12%, rgba(159, 137, 238, 0.16) 0%, rgba(159, 137, 238, 0) 70%),
-    radial-gradient(40rem 26rem at -8% 46%, rgba(229, 166, 184, 0.09) 0%, rgba(229, 166, 184, 0) 70%);
+    radial-gradient(120rem 58rem at 50% -22rem, rgba(78, 124, 208, 0.2) 0%, rgba(78, 124, 208, 0) 72%),
+    radial-gradient(64rem 40rem at 88% 16%, rgba(139, 124, 246, 0.12) 0%, rgba(139, 124, 246, 0) 72%),
+    radial-gradient(56rem 34rem at -12% 58%, rgba(64, 168, 190, 0.06) 0%, rgba(64, 168, 190, 0) 70%),
+    radial-gradient(70rem 44rem at 110% 96%, rgba(139, 124, 246, 0.07) 0%, rgba(139, 124, 246, 0) 72%);
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 ::selection {
-  background: #ddd3fb;
-  color: #211d31;
+  background: #8b7cf6;
+  color: #05070d;
 }
 
 :focus-visible {
@@ -66,7 +69,7 @@ button:disabled {
 /* Thin, quiet scrollbars that do not compete with the layout. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(33, 29, 49, 0.2) transparent;
+  scrollbar-color: rgba(226, 232, 248, 0.18) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -79,14 +82,14 @@ button:disabled {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(33, 29, 49, 0.16);
+  background: rgba(226, 232, 248, 0.14);
   border: 2px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(33, 29, 49, 0.28);
+  background: rgba(226, 232, 248, 0.26);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -99,7 +102,8 @@ button:disabled {
   display: none;
 }
 
-/* Accessible range inputs with a visible fill. */
+/* Accessible range inputs with a visible fill. Defaults are tuned for the
+   dark canvas; `.on-dark` exists for the player bar and keeps the same look. */
 .ds-range {
   -webkit-appearance: none;
   appearance: none;
@@ -175,10 +179,10 @@ button:disabled {
 }
 
 .ds-range.on-dark {
-  --range-fill: #f5f1ff;
-  --range-track: rgba(245, 241, 255, 0.2);
-  --range-thumb: #f5f1ff;
-  --range-ring: rgba(245, 241, 255, 0.16);
+  --range-fill: #f2f5ff;
+  --range-track: rgba(242, 245, 255, 0.16);
+  --range-thumb: #f2f5ff;
+  --range-ring: rgba(242, 245, 255, 0.16);
 }
 
 /* Native dialog, restyled as a listening-room sheet. */
@@ -192,8 +196,8 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(16, 12, 28, 0.55);
-  backdrop-filter: blur(6px);
+  background: rgba(2, 4, 9, 0.72);
+  backdrop-filter: blur(8px);
 }
 
 dialog[open] {
@@ -235,7 +239,7 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
-/* A tiny paper grain, kept below the content. */
+/* A tiny film grain, kept below the content. */
 .paper-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
 }

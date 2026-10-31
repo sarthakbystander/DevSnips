@@ -111,97 +111,75 @@ export function TrackCard({ track, featured = false }: TrackCardProps) {
 
   if (!featured) {
     return (
-      <article className="group flex items-center gap-2.5 rounded-xl px-1.5 py-1.5 transition hover:bg-surface/75">
+      <article className="group relative aspect-[4/5] w-[150px] shrink-0 animate-fade-up overflow-hidden rounded-2xl border border-line bg-surface shadow-card sm:w-[172px]">
+        <TrackArtwork
+          seed={track.id}
+          palette={preset.palette}
+          className="absolute inset-0 h-full w-full"
+          playing={isThisPlaying}
+        />
+        <span
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/85 via-night/20 to-transparent"
+          aria-hidden="true"
+        />
+
         <button
           type="button"
           onClick={handlePlay}
           aria-label={
             isThisPlaying ? `Pause ${track.title}` : `Play ${track.title}`
           }
-          className="relative h-11 w-11 shrink-0 overflow-hidden rounded-[10px] ring-1 ring-inset ring-black/5"
+          className={`absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-cream/95 text-night shadow-lg backdrop-blur transition hover:scale-[1.05] hover:bg-white ${
+            isThisPlaying
+              ? "opacity-100"
+              : "opacity-0 focus-visible:opacity-100 group-hover:opacity-100"
+          }`}
         >
-          <TrackArtwork
-            seed={track.id}
-            palette={preset.palette}
-            className="h-full w-full"
-            playing={isThisPlaying}
-          />
-          <span
-            className={`absolute inset-0 grid place-items-center bg-ink/35 text-cream transition ${
-              isThisPlaying ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-            }`}
-          >
-            <Icon name={isThisPlaying ? "pause" : "play"} size={14} />
-          </span>
+          <Icon name={isThisPlaying ? "pause" : "play"} size={16} />
         </button>
+
+        <div className="absolute right-1.5 top-1.5 flex gap-1 opacity-0 transition focus-within:opacity-100 group-hover:opacity-100">
+          <button
+            type="button"
+            onClick={() => downloadTrack(track)}
+            disabled={isDownloading}
+            aria-label={`Download ${track.title}`}
+            className="grid h-7 w-7 place-items-center rounded-full bg-night/55 text-cream/80 backdrop-blur transition hover:text-cream disabled:opacity-50"
+          >
+            {isDownloading ? (
+              <span className="h-3 w-3 animate-spin rounded-full border-[1.5px] border-white/30 border-t-cream" />
+            ) : (
+              <Icon name="download" size={12} />
+            )}
+          </button>
+          <button
+            type="button"
+            onClick={() => removeTrack(track.id)}
+            aria-label={`Remove ${track.title} from session`}
+            className="grid h-7 w-7 place-items-center rounded-full bg-night/55 text-cream/80 backdrop-blur transition hover:text-accent-deep"
+          >
+            <Icon name="trash" size={12} />
+          </button>
+        </div>
 
         <button
           type="button"
           onClick={() => selectTrack(track)}
-          className="min-w-0 flex-1 text-left"
+          className="absolute inset-x-0 bottom-0 p-3 text-left"
         >
-          <span className="block truncate text-[12px] font-medium text-ink">
+          <span className="block truncate text-[11.5px] font-semibold text-cream">
             {track.title}
           </span>
-          <span className="mt-0.5 block truncate text-[9.5px] text-muted">
-            {preset.label} · {durationLabel(track)}
+          <span className="mt-0.5 block truncate font-mono text-[8.5px] text-cream/55">
+            {preset.shortLabel} · {durationLabel(track)}
           </span>
-        </button>
-
-        {isCurrent && (
-          <span
-            className="mr-1 flex h-4 items-end gap-[2px] text-accent"
-            aria-label={isPlaying ? "Playing" : "Selected"}
-          >
-            <span
-              className={`h-1.5 w-[2px] rounded-full bg-current ${
-                isPlaying ? "animate-equalize origin-bottom" : ""
-              }`}
-            />
-            <span
-              className={`h-3 w-[2px] rounded-full bg-current ${
-                isPlaying
-                  ? "animate-equalize origin-bottom [animation-delay:120ms]"
-                  : ""
-              }`}
-            />
-            <span
-              className={`h-2 w-[2px] rounded-full bg-current ${
-                isPlaying
-                  ? "animate-equalize origin-bottom [animation-delay:240ms]"
-                  : ""
-              }`}
-            />
-          </span>
-        )}
-
-        <button
-          type="button"
-          onClick={() => downloadTrack(track)}
-          disabled={isDownloading}
-          aria-label={`Download ${track.title}`}
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-faint transition hover:bg-surface hover:text-ink disabled:opacity-50"
-        >
-          {isDownloading ? (
-            <span className="h-3 w-3 animate-spin rounded-full border-[1.5px] border-faint/40 border-t-ink" />
-          ) : (
-            <Icon name="download" size={13} />
-          )}
-        </button>
-        <button
-          type="button"
-          onClick={() => removeTrack(track.id)}
-          aria-label={`Remove ${track.title} from session`}
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-faint opacity-0 transition hover:bg-surface hover:text-accent-deep focus-visible:opacity-100 group-hover:opacity-100"
-        >
-          <Icon name="trash" size={13} />
         </button>
       </article>
     );
   }
 
   return (
-    <article className="animate-fade-up overflow-hidden rounded-[26px] border border-line bg-surface p-4 shadow-card sm:p-5">
+    <article className="animate-fade-up overflow-hidden rounded-[26px] border border-line bg-surface/85 p-4 shadow-card backdrop-blur-xl sm:p-5">
       <div className="flex gap-3.5 sm:gap-5">
         <div className="relative w-[108px] shrink-0 sm:w-[190px]">
           <TrackArtwork
@@ -217,7 +195,7 @@ export function TrackCard({ track, featured = false }: TrackCardProps) {
             aria-label={
               isThisPlaying ? `Pause ${track.title}` : `Play ${track.title}`
             }
-            className="absolute bottom-2.5 left-2.5 grid h-10 w-10 place-items-center rounded-full bg-cream/95 text-ink shadow-lg backdrop-blur transition hover:scale-[1.04] hover:bg-white sm:h-12 sm:w-12"
+            className="absolute bottom-2.5 left-2.5 grid h-10 w-10 place-items-center rounded-full bg-cream/95 text-night shadow-lg backdrop-blur transition hover:scale-[1.04] hover:bg-white sm:h-12 sm:w-12"
           >
             <Icon name={isThisPlaying ? "pause" : "play"} size={18} />
           </button>
@@ -307,7 +285,7 @@ export function TrackCard({ track, featured = false }: TrackCardProps) {
             <button
               type="button"
               onClick={handlePlay}
-              className="inline-flex h-8 items-center gap-1.5 rounded-full bg-ink px-3 text-[10.5px] font-semibold text-cream transition hover:bg-ink-2"
+              className="inline-flex h-8 items-center gap-1.5 rounded-full bg-cream px-3 text-[10.5px] font-semibold text-night transition hover:bg-white"
             >
               <Icon name={isThisPlaying ? "pause" : "play"} size={12} />
               {isThisPlaying ? "Pause" : "Listen"}

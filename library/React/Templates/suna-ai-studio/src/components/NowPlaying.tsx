@@ -84,8 +84,8 @@ export function NowPlaying() {
                 showLabel
                 playing={isPlaying}
               />
-              <span className="absolute inset-0 bg-ink/0 transition group-hover:bg-ink/15" />
-              <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-cream/95 text-ink shadow-lg transition group-hover:scale-[1.04]">
+              <span className="absolute inset-0 bg-night/0 transition group-hover:bg-night/40" />
+              <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-cream/95 text-night shadow-lg transition group-hover:scale-[1.04]">
                 <Icon name={isPlaying ? "pause" : "play"} size={15} />
               </span>
             </button>
@@ -142,7 +142,7 @@ export function NowPlaying() {
               <button
                 type="button"
                 onClick={togglePlay}
-                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-full bg-ink px-3 text-[10.5px] font-semibold text-cream transition hover:bg-ink-2"
+                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-full bg-cream px-3 text-[10.5px] font-semibold text-night transition hover:bg-white"
               >
                 <Icon name={isPlaying ? "pause" : "play"} size={12} />
                 {isPlaying ? "Pause" : "Listen"}
@@ -197,7 +197,7 @@ export function NowPlaying() {
             <button
               type="button"
               onClick={focusComposer}
-              className="mt-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-4 text-[10.5px] font-semibold text-cream transition hover:bg-ink-2"
+              className="mt-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-cream px-4 text-[10.5px] font-semibold text-night transition hover:bg-white"
             >
               <Icon name="sparkles" size={12} />
               Describe a track
@@ -224,12 +224,12 @@ export function NowPlaying() {
               className="text-faint transition group-hover:text-ink"
             />
           </div>
-          <p className="mt-1 text-[9px] leading-3.5 text-muted">
+          <p className="mt-1 text-[9px] leading-[14px] text-muted">
             {availabilityCopy.detail}
           </p>
         </a>
 
-        <p className="px-0.5 text-[8.5px] leading-3.5 text-faint">
+        <p className="px-0.5 text-[8.5px] leading-[14px] text-faint">
           Renders are session-only. Download a track to keep it beyond this
           tab. Audio URLs are served by the Space and may expire.
         </p>
