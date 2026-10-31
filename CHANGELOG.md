@@ -11,6 +11,12 @@
 - **Verified**: `npm run typecheck` + `npm run build` (strict `tsc`) pass; Puppeteer checks — no horizontal overflow at 390/768/1024/1280/1440/1600 px, zero console errors, and visual confirmation of the hero/composer rail shell, Custom-mode panel, mobile drawer (light CTA pills on dark), and top bar/indexes regenerated (`rebuild_index.py` → 117 families / 1019 variants / 1855 styles; `build_resource_indexes.py` + `validate_indexes.py` OK).
 - **Boundaries reported honestly**: re-generation against the live Space remains externally blocked for this IP — the anonymous ZeroGPU quota is still exhausted (`"You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota"`; the submit stream yields zero events), so the redesigned UI was verified with the honest idle/error states rather than a fresh render; the quota/cancel/retry paths were previously E2E-verified on 2026-10-23.
 
+### Changed — accent review + living ocean backdrop (same-day iteration after first look-back)
+- **The old violet accent read as the generic "AI gradient" look; it is replaced everywhere by a restrained ice-cyan ocean accent**: `accent #76CDE0`, light-accent text `#BCE7F2`, tinted chip bed `#0E1E28` (token-value remap; token names unchanged). Selection color, focus rings, sliders, brand mark, hero emphasis word, and preview.html follow. **Contrast correction that comes with cyan**: every accent fill now pairs with `text-night` instead of `text-white` (cyan + white text was ~2:1); the Generate CTA hovers to paper-white (`hover:bg-cream`), unifying the CTA language with the light pill.
+- **A hand-built living ocean backdrop** replaces the flat gradient field: a fixed `.ocean-scene` layer under the app with five swaying god-rays (per-ray rotation/opacity/duration CSS vars), two layers of drifting bioluminescent dust (repeating SVG motes rising at 140s/220s), breathing caustic light blobs, a depth vignette, and the film grain. Pure CSS/SVG — no assets, no JS, honors `prefers-reduced-motion`, decorative only (never tied to audio or generation state). `preview.html` mirrors both changes (cyan accent, scene layer).
+- Docs/metadata updated to the ice-cyan values and the scene description; indexes regenerated and validators re-run (structure OK, links OK, agent-doc paths OK, `rebuild_index.py --check` up to date).
+- Verified: strict build passes; Puppeteer — no horizontal overflow at 390/768/1280/1440 px, zero console errors.
+
 ## 2026-10-23
 
 ### Added — `React/Templates/suna-ai-studio` (Suna Studio, second React template)

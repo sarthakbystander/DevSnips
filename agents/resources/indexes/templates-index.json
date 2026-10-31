@@ -137,7 +137,7 @@
           "name": "Suna Studio",
           "type": "template",
           "path": "React/Templates/suna-ai-studio/",
-          "description": "A production-ready single-page React + TypeScript AI music studio that generates real songs through Suna AI's public Hugging Face Space via @gradio/client. A prompt-first composer (Simple/Custom modes, six artist presets, editable lyrics, a Turbo/High-Fidelity synthesis engine switch, 24-68s length, optional sing-to-masterpiece vocal upload with a vocal/band mix) feeds the Space's live generate_suna_track endpoint; results land in a session-only library with a Spotify-style near-black player bar (play/pause, seek, volume, MediaSession metadata), interactive mobile player sheet, telemetry and sung-lyric sheets, and WAV-master downloads. Deep-current cinematic dark palette - near-black blue canvas, floating glass composer under a large serif display hero with an accent-word emphasis, slim icon rail, poster-strip session gallery, and a luminous violet accent - with honest live states and no fake progress bars.",
+          "description": "A production-ready single-page React + TypeScript AI music studio that generates real songs through Suna AI's public Hugging Face Space via @gradio/client. A prompt-first composer (Simple/Custom modes, six artist presets, editable lyrics, a Turbo/High-Fidelity synthesis engine switch, 24-68s length, optional sing-to-masterpiece vocal upload with a vocal/band mix) feeds the Space's live generate_suna_track endpoint; results land in a session-only library with a Spotify-style near-black player bar (play/pause, seek, volume, MediaSession metadata), interactive mobile player sheet, telemetry and sung-lyric sheets, and WAV-master downloads. Deep-current cinematic dark palette - near-black blue canvas with a hand-built living ocean backdrop (swaying god-rays, drifting bioluminescent dust, breathing caustic light), floating glass composer under a large serif display hero with an accent-word emphasis, slim icon rail, poster-strip session gallery, and a restrained ice-cyan accent - with honest live states and no fake progress bars.",
           "files": [
             ".gitignore",
             "AGENTS.md",
@@ -206,7 +206,7 @@
             "expansive NowPlaying card with track stats, Suna telemetry, and the Space's word-aligned sung-lyric sheet",
             "full-screen mobile player sheet (dialog, focus trap, Escape to close) and mobile session drawer",
             "downloads prefer the Space's 48 kHz 16-bit WAV master, falling back to the 320kbps MP3",
-            "deep-current cinematic design system: Instrument Serif display + Inter + IBM Plex Mono, #05070D canvas, #0D1322 glass cards, #8B7CF6 luminous violet accent, #030509 near-black player, centered serif display hero with an accent-word emphasis, slim icon rail, and a poster-strip session gallery",
+            "deep-current cinematic design system: Instrument Serif display + Inter + IBM Plex Mono, #05070D canvas, #0D1322 glass cards, #76CDE0 ice-cyan accent, #030509 near-black player, centered serif display hero with an accent-word emphasis, slim icon rail, poster-strip session gallery, and a CSS-only living ocean backdrop (god-rays, rising bioluminescent dust, caustic light, depth vignette)",
             "semantics - landmark structure, aria-pressed chips, labeled sliders, role=status generation card, focus-visible rings, prefers-reduced-motion handling"
           ],
           "styles": [

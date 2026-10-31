@@ -26,13 +26,13 @@ export default {
         faint: "#5B687F",
         line: "#1B2333",
         "line-strong": "#2B3549",
-        /** Luminous violet accent. */
-        accent: "#8B7CF6",
+        /** Ice-cyan accent — the ocean reference. */
+        accent: "#76CDE0",
         /** Light-accent text for dark tinted chips. */
-        "accent-deep": "#C9BCFF",
-        "accent-soft": "#151A2E",
-        lilac: "#A78BFA",
-        "lilac-soft": "#1A1E38",
+        "accent-deep": "#BCE7F2",
+        "accent-soft": "#0E1E28",
+        lilac: "#5FB3C7",
+        "lilac-soft": "#0F2027",
         sage: "#5BC89A",
         "sage-soft": "#0F241D",
         gold: "#E3B75F",

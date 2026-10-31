@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { CSSProperties } from "react";
 import { Composer } from "./components/Composer";
 import { GenerationPanel } from "./components/GenerationPanel";
 import { Icon } from "./components/Icon";
@@ -243,13 +244,51 @@ function NoticeToast() {
   );
 }
 
+const OCEAN_RAYS = [
+  { el: "span", left: "4%", rot: "6deg", width: "13rem", duration: "26s", delay: "0s", opacity: "0.6" },
+  { el: "span", left: "22%", rot: "9deg", width: "17rem", duration: "31s", delay: "1.5s", opacity: "0.5" },
+  { el: "span", left: "58%", rot: "-5deg", width: "24rem", duration: "36s", delay: "0.5s", opacity: "0.7" },
+  { el: "span", left: "78%", rot: "-9deg", width: "14rem", duration: "29s", delay: "3s", opacity: "0.45" },
+  { el: "i", left: "40%", rot: "3deg", width: "9rem", duration: "39s", delay: "2s", opacity: "0.5" },
+];
+
+function BackdropScene() {
+  return (
+    <div className="ocean-scene pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+      <div className="ocean-rays">
+        {OCEAN_RAYS.map((ray, index) => (
+          <span
+            key={index}
+            style={
+              {
+                left: ray.left,
+                width: ray.width,
+                "--ray-rot": ray.rot,
+                "--ray-op": ray.opacity,
+                animationDuration: ray.duration,
+                animationDelay: ray.delay,
+              } as CSSProperties
+            }
+          />
+        ))}
+      </div>
+      <div className="ocean-caustic ocean-caustic-a" />
+      <div className="ocean-caustic ocean-caustic-b" />
+      <div className="ocean-particles ocean-particles-a" />
+      <div className="ocean-particles ocean-particles-b" />
+      <div className="ocean-vignette" />
+      <div className="paper-grain absolute inset-0 opacity-[0.035]" />
+    </div>
+  );
+}
+
 export default function App() {
   const { tracks } = useStudio();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="relative min-h-dvh bg-paper text-ink">
-      <div className="paper-grain pointer-events-none fixed inset-0 z-0 opacity-[0.035]" aria-hidden="true" />
+      <BackdropScene />
 
       <a
         href="#main"

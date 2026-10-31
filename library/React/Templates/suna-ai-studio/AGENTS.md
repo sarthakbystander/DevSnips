@@ -13,19 +13,23 @@ contains no mock generation, no fake audio URLs, and no fabricated progress stat
 
 **Deep Current (cinematic dark)** — Instrument Serif (display, true italics) + Inter (UI)
 + IBM Plex Mono (meta); palette canvas `#05070D`, glass cards `#0D1322`, primary text
-`#EDF1FA`, luminous violet accent `#8B7CF6` (light-accent text `#C9BCFF`), near-black
+`#EDF1FA`, restrained ice-cyan accent `#76CDE0` (light-accent text `#BCE7F2`), near-black
 player `#030509`, paper-white action fill `#F2F5FF`. The shell is a slim icon rail
 (Compose / Tracks / Library + a live Space status dot), a centered serif display hero
 with a single accent-word emphasis, a floating glass composer card, a wide glass featured
 track card, a horizontal poster strip of earlier session renders, and a fixed near-black
-player at the bottom. Layered radial gradients in `src/index.css` give the canvas depth;
-solid light pills (`bg-cream text-night`) are the CTA treatment and blurred glass is used
-sparingly (composer, featured card, rail, top bar). The visual system lives entirely in
+player at the bottom. Layered radial gradients in `src/index.css` give the canvas depth,
+and a fixed `.ocean-scene` container renders a pure-CSS living ocean backdrop (swaying
+god-rays, drifting bioluminescent dust, breathing caustics, depth vignette) — decorative
+only, never tied to audio state, and frozen under `prefers-reduced-motion` by the global
+rule. Solid light pills (`bg-cream text-night`) are the CTA treatment and blurred glass is
+used sparingly (composer, featured card, rail, top bar). The visual system lives entirely in
 `tailwind.config.ts` (colors, fonts), the dark token block at the top of `src/index.css`,
 and the presentational components — it does not depend on the shared DevSnips `--ds-*`
 tokens. Token names are kept logical (paper = canvas, ink = primary text, cream =
-paper-white fill), so re-theming is still a palette swap — watch the two inverted idioms:
-solid CTAs must stay `bg-cream text-night`, and artwork hover overlays use `bg-night/…`,
+paper-white fill), so re-theming is still a palette swap — watch the three idioms:
+solid CTAs must stay `bg-cream text-night`, accent fills pair with `text-night` (not
+`text-white` — cyan-on-white fails contrast), and artwork hover overlays use `bg-night/…`,
 not `bg-ink/…` (ink is light text in dark mode).
 
 ## File layout

@@ -31,16 +31,18 @@ a serious instrument panel:
 
 - **Type:** Instrument Serif (display, true italics) + Inter (UI) + IBM Plex Mono (meta).
 - **Palette:** near-black blue canvas `#05070D`, glass cards `#0D1322`, primary text `#EDF1FA`,
-  luminous violet accent `#8B7CF6` with light-accent text `#C9BCFF`, near-black player `#030509`,
+  restrained ice-cyan accent `#76CDE0` with light-accent text `#BCE7F2`, near-black player `#030509`,
   paper-white action fill `#F2F5FF` (solid light pills are the CTA color on dark).
 - **Composition:** a slim icon rail on the left (Compose / Tracks / Library + a live Space
   status dot pinned at the bottom), a centered serif display hero with a single accent-word
   emphasis ("Start with a *feeling.*"), a floating glass composer card, idea chips and
   preset pills, a wide glass featured-track card, a horizontal poster strip of earlier
-  session renders, and the fixed near-black player at the bottom. Layered radial "deep
-  current" gradients give the canvas its depth; one accent color stays restrained.
-  Background blur (backdrop-blur glass) is used sparingly on the composer, featured card,
-  rail, and top bar.
+  session renders, and the fixed near-black player at the bottom. Behind the app runs a
+  hand-built **living ocean scene**: slow god-rays swaying from the surface, two layers of
+  drifting bioluminescent dust, breathing caustic light, a depth vignette, and film grain —
+  pure CSS/SVG, decorative only, and fully disabled under `prefers-reduced-motion`. One
+  ice-cyan accent stays restrained; background blur (backdrop-blur glass) is used
+  sparingly on the composer, featured card, rail, and top bar.
 
 The visual system lives entirely in `tailwind.config.ts` (colors, fonts, shadows),
 `src/index.css` (dark tokens, background gradients, range styling, dialog/drawer rules),

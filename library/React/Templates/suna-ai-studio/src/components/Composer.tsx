@@ -369,7 +369,7 @@ export function Composer() {
                     title={item.description}
                     className={`group flex items-center gap-1.5 rounded-full border px-2.5 py-2 text-[11px] font-medium transition ${
                       selected
-                        ? "border-accent bg-accent text-white shadow-sm"
+                        ? "border-accent bg-accent text-night shadow-sm"
                         : "border-line bg-surface text-ink-2 hover:border-line-strong hover:bg-surface-2"
                     }`}
                   >
@@ -431,7 +431,7 @@ export function Composer() {
                         </span>
                       </span>
                       {checked && (
-                        <span className="absolute right-2.5 top-2.5 grid h-4 w-4 place-items-center rounded-full bg-accent text-white">
+                        <span className="absolute right-2.5 top-2.5 grid h-4 w-4 place-items-center rounded-full bg-accent text-night">
                           <Icon name="check" size={10} strokeWidth={2.4} />
                         </span>
                       )}
@@ -755,7 +755,7 @@ export function Composer() {
           <button
             type="submit"
             disabled={isGenerating}
-            className="group inline-flex h-11 items-center justify-center gap-2 rounded-full bg-accent px-5 text-[12.5px] font-semibold text-white shadow-sm transition hover:bg-accent-deep disabled:cursor-wait disabled:opacity-65"
+            className="group inline-flex h-11 items-center justify-center gap-2 rounded-full bg-accent px-5 text-[12.5px] font-semibold text-night shadow-sm transition hover:bg-cream disabled:cursor-wait disabled:opacity-65"
           >
             {isGenerating ? (
               <>

@@ -209,7 +209,7 @@ export function SidebarContent({
                   clearTracks();
                   setConfirmClear(false);
                 }}
-                className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold text-white"
+                className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold text-night"
               >
                 Clear
               </button>
@@ -307,7 +307,7 @@ function RailButton({
       </span>
       <span className="text-[8px] font-medium tracking-[0.06em]">{label}</span>
       {badge ? (
-        <span className="absolute right-2 top-1 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-1 font-mono text-[8px] font-semibold text-white">
+        <span className="absolute right-2 top-1 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-1 font-mono text-[8px] font-semibold text-night">
           {badge > 9 ? "9+" : badge}
         </span>
       ) : null}
