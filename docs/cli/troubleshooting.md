@@ -24,7 +24,7 @@ Error text is designed to name the failing path or file. Read the actual message
 
 **"I installed a resource and it's not recorded."** Either the context update failed (the CLI said so) or the files were fetched manually rather than via `add`. Manual fetches never touch `config.json`.
 
-**"Re-running says the file already exists."** The CLI never overwrites. Remove `./devsnips/<tech>/<category>/<family>/<variant>/` and re-run. There is no `--force`.
+**"Re-running says the file already exists."** By default the CLI never overwrites. Either remove `./devsnips/<tech>/<category>/<family>/<variant>/` and re-run, or re-run with `--force` to overwrite the existing files.
 
 **"The resource I want isn't found but I saw it listed somewhere."** The CLI resolves against the registry published on `main`. A resource that exists only in a branch or a local checkout cannot be installed.
 

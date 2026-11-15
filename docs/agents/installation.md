@@ -58,4 +58,4 @@ If `npx devsnips` cannot run (no network, no npm/node, sandboxed container), fal
 
 ## Re-installing and idempotency
 
-There is no `--force` flag. If the destination files already exist, remove them first. The install record in `config.json` is de-duplicated: re-running `add` for an already-recorded resource does not create a second record.
+`add` refuses to overwrite existing destination files unless `--force` is passed. Without `--force`, remove them first. The install record in `config.json` is de-duplicated: re-running `add` for an already-recorded resource does not create a second record.

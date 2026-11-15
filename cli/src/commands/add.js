@@ -15,8 +15,10 @@ const { initializeContext, updateContextAfterInstall, isContextInitialized } = r
  * Execute the add command
  *
  * @param {string} inputPath - User-provided component path
+ * @param {object} [options] - Command options
+ * @param {boolean} [options.force] - Overwrite existing destination files
  */
-async function runAddCommand(inputPath) {
+async function runAddCommand(inputPath, options = {}) {
   // Step 1: Normalize and validate input path
   const normalizedPath = normalizePath(inputPath);
 
@@ -135,7 +137,7 @@ async function runAddCommand(inputPath) {
     const destPath = getDestinationFilePath(destDir, filename);
 
     try {
-      writeFile(destPath, content, false);
+      writeFile(destPath, content, Boolean(options.force));
       writtenFiles.push(filename);
     } catch (error) {
       // writeFile already exits on error

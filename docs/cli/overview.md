@@ -81,7 +81,7 @@ input:  Tailwind/Sections/AI-Product/agent-workflow/vercel
 output: ./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/
 ```
 
-Write safety: the CLI refuses any path that resolves outside `./devsnips`, refuses to overwrite an existing file, and creates parent directories on demand. **There is no `--force` flag** — the existing-file error mentions it only as a future possibility.
+Write safety: the CLI refuses any path that resolves outside `./devsnips`, refuses to overwrite an existing file unless `--force` is passed, and creates parent directories on demand.
 
 ## Project context
 
@@ -148,7 +148,7 @@ The help text prints the path shape `<Technology>/<Category>/<Family>/<variant>/
 
 Verified absent — do not script against these or claim them:
 
-- No `--force`, `--dry-run`, or overwrite behavior.
+- No `--dry-run` (overwrite behavior exists only via `add --force`).
 - No `list`, `search`, `remove`, or `update` commands.
 - No JSON output mode; no `--config`, `--dir`, or `--output` options.
 - No version pinning, offline mode, or local-registry mode.

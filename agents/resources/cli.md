@@ -89,13 +89,13 @@ output: ./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/
 Write safety (`cli/src/install/writer.js` `writeFile`):
 
 - refuses any path that resolves outside `./devsnips` (`isPathWithinBase` security check);
-- refuses to overwrite an existing file (`allowOverwrite` defaults to `false`; `add` always
-  passes `false`);
+- refuses to overwrite an existing file (`allowOverwrite` defaults to `false`; `add` passes
+  `false` unless the user supplied `--force`);
 - creates parent directories on demand.
 
-There is **no `--force` flag**. The existing-file error text mentions `--force` "once that flag
-is available" — do not document it as working, and do not add it without wiring it through
-`cli/src/index.js` and `cli/src/commands/add.js`.
+`--force` is wired through `cli/src/index.js` (flag parse) → `cli/src/commands/add.js`
+(`options.force`) → `writeFile(destPath, content, force)`. Without the flag the behavior is
+unchanged: the existing file wins and the CLI exits with a filesystem error.
 
 ## Which files get installed
 
@@ -167,9 +167,10 @@ Individual suites can be run directly as `node test/<file>.test.js`. They use `n
 
 ## Not in the CLI
 
-Verified absent; do not document these as features: `--force`, `--dry-run`, `list`/`search`,
+Verified absent; do not document these as features: `--dry-run`, `list`/`search`,
 `remove`/`update`, a JSON output mode, `--config`/`--dir`/`--output`, version pinning, an
-offline or local-registry mode, and any interactive prompt.
+offline or local-registry mode, and any interactive prompt. (`--force` exists on `add`
+and overwrites existing destination files.)
   failed write never leaves truncated JSON.
 - A malformed existing `config.json` is an **error**, never silently replaced; the file is left
   byte-for-byte untouched and the command exits `1`.

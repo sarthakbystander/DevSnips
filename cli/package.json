@@ -7,7 +7,7 @@
     "devsnips": "./src/index.js"
   },
   "scripts": {
-    "test": "node test/downloader.test.js && node test/config.test.js && node test/agents.test.js && node test/context.test.js && node test/init.test.js && node src/index.js --help"
+    "test": "node test/downloader.test.js && node test/paths.test.js && node test/resolver.test.js && node test/writer.test.js && node test/config.test.js && node test/agents.test.js && node test/context.test.js && node test/init.test.js && node src/index.js --help"
   },
   "keywords": [
     "devsnips",

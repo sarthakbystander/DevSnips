@@ -55,6 +55,7 @@ Project Context:
   You may edit it to add project-specific instructions.
 
 Options:
+  --force       Overwrite existing files (add command only)
   --help, -h    Show this help message
   --version, -v  Show the installed version
 

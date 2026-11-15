@@ -62,7 +62,7 @@ Source files (`code.html`, `code.tsx`, `code.jsx`, `pages/*.html`, CSS/JS/TS) pl
 
 ### Why won't it overwrite existing files?
 
-By design. There is no `--force` flag. Remove the destination files and re-run.
+By design, `add` never overwrites unless you ask it to. Either remove the destination files and re-run, or re-run with `--force` to overwrite the existing files.
 
 ### The command failed — what now?
 

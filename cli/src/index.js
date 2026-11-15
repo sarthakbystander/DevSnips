@@ -38,19 +38,20 @@ const command = args[0];
 
 switch (command) {
   case 'add': {
-    const componentPath = args[1];
+    const force = args.includes('--force');
+    const componentPath = args.find(a => a !== 'add' && a !== '--force');
     if (!componentPath) {
       console.error('Error: Missing component path');
       console.error('');
       console.error('Usage:');
-      console.error('  npx devsnips add <component-path>');
+      console.error('  npx devsnips add <component-path> [--force]');
       console.error('');
       console.error('Example:');
       console.error('  npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel');
       process.exit(1);
     }
     // Properly handle the async command so rejections surface cleanly
-    runAddCommand(componentPath).catch((err) => {
+    runAddCommand(componentPath, { force }).catch((err) => {
       console.error('');
       console.error('✗ Unexpected error');
       console.error('');

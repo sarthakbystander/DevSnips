@@ -90,7 +90,9 @@ Guidance only — some families use an extra level (Tailwind Buttons groups, mul
 
 ## Not available
 
-Confirmed absent; do not use or script against: `--force`, `--dry-run`, `list`, `search`, `remove`, `update`, JSON output, `--config`/`--dir`/`--output`, version pinning, offline/local-registry mode, interactive prompts.
+Confirmed absent; do not use or script against: `--dry-run`, `list`, `search`, `remove`, `update`, JSON output, `--config`/`--dir`/`--output`, version pinning, offline/local-registry mode, interactive prompts.
+
+`--force` **is** available on `add`: it re-installs and overwrites the existing destination files.
 
 ## Exit codes
 
