@@ -11,10 +11,13 @@
   text-align: center;
 }
 .cookie-banner .btn {
-  background: var(--ds-accent, #4a90e2);
+  background: var(--ds-accent, #2563eb);
   color: white;
   padding: 5px 10px;
   border-radius: var(--ds-radius-sm, 5px);
+  border: 0;
+  cursor: pointer;
+  font: inherit;
   text-decoration: none;
   margin-left: 10px;
 }
@@ -29,6 +32,11 @@
 }
 @media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
-<div id="cookie-banner" class="cookie-banner">
-  <p>This website uses cookies to ensure you get the best experience on our website. <a href="#" class="btn" onclick="document.getElementById('cookie-banner').style.display = 'none'">Got it!</a></p>
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+  <p>This website uses cookies to ensure you get the best experience on our website. <button type="button" class="btn" aria-label="Dismiss cookie notice">Got it!</button></p>
 </div>
+<script>
+  document.querySelector('.cookie-banner .btn').addEventListener('click', function () {
+    document.getElementById('cookie-banner').style.display = 'none';
+  });
+</script>

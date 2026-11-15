@@ -12,13 +12,13 @@
 </div>
 
 <div class="demo-buttons">
-  <button onclick="showToast('success', 'Success!', 'Operation completed successfully.')">
+  <button type="button" data-toast-type="success" data-toast-title="Success!" data-toast-message="Operation completed successfully.">
     Show Success Toast
   </button>
-  <button onclick="showToast('error', 'Error!', 'Something went wrong.')">
+  <button type="button" data-toast-type="error" data-toast-title="Error!" data-toast-message="Something went wrong.">
     Show Error Toast
   </button>
-  <button onclick="showToast('info', 'Info', 'This is an informational message.')">
+  <button type="button" data-toast-type="info" data-toast-title="Info" data-toast-message="This is an informational message.">
     Show Info Toast
   </button>
 </div>
@@ -37,8 +37,8 @@
 
 .toast {
   --toast-bg: white;
-  --toast-border: var(--ds-border, #ddd);
-  --toast-progress: var(--ds-accent, #4a90e2);
+  --toast-border: var(--ds-border, #e5e5e5);
+  --toast-progress: var(--ds-accent, #2563eb);
   
   position: relative;
   min-width: 300px;
@@ -106,17 +106,17 @@
 
 /* Toast types */
 .toast[data-type="success"] {
-  --toast-border: var(--ds-success, #4caf50);
+  --toast-border: var(--ds-success, #16a34a);
   border-left: 4px solid var(--toast-border);
 }
 
 .toast[data-type="error"] {
-  --toast-border: var(--ds-danger, #f44336);
+  --toast-border: var(--ds-danger, #dc2626);
   border-left: 4px solid var(--toast-border);
 }
 
 .toast[data-type="info"] {
-  --toast-border: var(--ds-accent, #2196f3);
+  --toast-border: var(--ds-accent, #2563eb);
   border-left: 4px solid var(--toast-border);
 }
 
@@ -259,4 +259,10 @@ class ToastNotification {
 function showToast(type, title, message) {
   new ToastNotification(type, title, message);
 }
+
+document.querySelectorAll('.demo-buttons button').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    showToast(btn.dataset.toastType, btn.dataset.toastTitle, btn.dataset.toastMessage);
+  });
+});
 </script>

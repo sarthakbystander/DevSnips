@@ -29,6 +29,16 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  padding: 8px 8px 8px 32px;
+  color: var(--ds-muted, #818181);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 36px;
+}
+.sidenav .closebtn:hover {
+  color: var(--ds-surface-2, #f1f1f1);
 }
 #main {
   transition: margin-left .5s;
@@ -47,14 +57,14 @@
 @media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <button type="button" class="closebtn" aria-label="Close navigation">&times;</button>
   <a href="#">About</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
 <div id="main">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <button type="button" style="font-size:30px;cursor:pointer;background:none;border:0;padding:0;color:inherit;font:inherit" aria-label="Open navigation menu">&#9776; open</button>
 </div>
 <script>
 function openNav() {
@@ -65,4 +75,6 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
 }
+document.querySelector(".sidenav .closebtn").addEventListener("click", closeNav);
+document.querySelector("#main button").addEventListener("click", openNav);
 </script>

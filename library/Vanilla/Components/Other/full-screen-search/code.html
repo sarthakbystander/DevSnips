@@ -46,19 +46,23 @@
 }
 @media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
-<div id="myOverlay" class="overlay">
-  <span class="closebtn" onclick="closeSearch()" style="cursor:pointer; color:white; font-size: 60px; position: absolute; top: 20px; right: 45px;">&times;</span>
+<div id="myOverlay" class="overlay" role="dialog" aria-label="Search">
+  <button type="button" class="closebtn" aria-label="Close search" style="cursor:pointer; color:white; font-size: 60px; position: absolute; top: 20px; right: 45px; background:none; border:0;">&times;</button>
   <div class="overlay-content">
-    <input type="text" placeholder="Search..">
+    <input type="text" placeholder="Search.." aria-label="Search">
     <button type="submit">Search</button>
   </div>
 </div>
-<button onclick="openSearch()">Open Search</button>
+<button type="button" aria-haspopup="dialog" aria-controls="myOverlay" aria-expanded="false" id="open-search-btn">Open Search</button>
 <script>
 function openSearch() {
   document.getElementById("myOverlay").style.display = "block";
+  document.getElementById("open-search-btn").setAttribute("aria-expanded", "true");
 }
 function closeSearch() {
   document.getElementById("myOverlay").style.display = "none";
+  document.getElementById("open-search-btn").setAttribute("aria-expanded", "false");
 }
+document.querySelector(".overlay .closebtn").addEventListener("click", closeSearch);
+document.getElementById("open-search-btn").addEventListener("click", openSearch);
 </script>
