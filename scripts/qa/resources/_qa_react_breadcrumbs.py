@@ -283,7 +283,7 @@ def main():
         check(trigger.get_attribute("aria-expanded") == "false", "breadcrumbs-with-dropdown: Escape closes the menu")
         check(page.evaluate("document.activeElement === document.querySelector('#ds-root nav button[aria-haspopup=\"menu\"]')"),
               "breadcrumbs-with-dropdown: Escape returns focus to the trigger")
-        current_item = page.evaluate(
+        page.evaluate(
             "(() => { const b = document.querySelector('#ds-root nav button[aria-haspopup=\"menu\"]'); b.click(); return true; })()"
         )
         page.wait_for_timeout(200)

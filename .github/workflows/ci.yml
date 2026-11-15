@@ -53,6 +53,26 @@ jobs:
       - name: Agent doc path references resolve
         run: python scripts/tooling/validators/check_agent_doc_paths.py
 
+  lint:
+    name: Python lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff==0.16.8
+
+      # Config lives in ruff.toml at the repo root; it mirrors the style the
+      # MCP package already declares in integrations/mcp/pyproject.toml.
+      # Scripts under scripts/qa are syntax-checked even though their
+      # Playwright harnesses are not wired into CI.
+      - name: Ruff check
+        run: ruff check scripts/ integrations/mcp/src/
+
   cli:
     name: CLI tests
     runs-on: ubuntu-latest

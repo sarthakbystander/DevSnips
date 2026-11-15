@@ -373,7 +373,7 @@ def browser_checks():
         open_preview(page, "form-field-disabled")
         email = page.locator('[data-ds-form-field]', has=page.get_by_text("Account email", exact=True)).locator("input")
         check(email.get_attribute("disabled") is not None, "disabled: input has native disabled")
-        label = page.locator(f'label[for="{email.get_attribute("id")}"]')
+        page.locator(f'label[for="{email.get_attribute("id")}"]')
         muted = page.evaluate("""() => {
           const probe = document.createElement('span');
           probe.style.color = 'var(--ds-color-muted-foreground)';

@@ -219,7 +219,7 @@ def main():
         cards = page.locator("#ds-root label")
         check(cards.count() >= 3, "3 cards rendered")
         cb0 = page.locator('#ds-root input[type="checkbox"]').nth(0)
-        before = cb0.is_checked()
+        cb0.is_checked()
         # click the card text area (not the input) -> label toggles
         cards.nth(1).click()
         page.wait_for_timeout(100)

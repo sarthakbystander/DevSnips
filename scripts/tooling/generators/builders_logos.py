@@ -1,5 +1,5 @@
 """Logos section builders — 15 concepts."""
-from .helpers import TOKENS, ic, ICONS, logo_svg
+from .helpers import TOKENS, ic, logo_svg
 from .layout import head, section
 
 BRANDS = ["Vercel", "Linear", "Stripe", "Resend", "Raycast", "Notion", "Framer", "Cal.com", "Clerk", "Supabase", "Clerk", "PostHog"]

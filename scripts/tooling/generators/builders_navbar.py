@@ -1,5 +1,5 @@
 """Navbar section builders — 15 concepts."""
-from .helpers import TOKENS, ic, ICONS, logo_svg
+from .helpers import TOKENS, ic, logo_svg
 
 
 def section(body, style, scope=None):
@@ -31,8 +31,9 @@ def navbar(style, i):
     key, title = concepts[i]
     brand = logo_svg("Flowbase")
     links = ["Product", "Pricing", "Docs", "Changelog"]
-    navlinks = lambda extra="": "".join(
-        '<a href="#" class="text-sm font-medium %s px-3 py-2 rounded-md hover:opacity-100">%s</a>' % (b["text_muted"], l) for l in links) + extra
+    def navlinks(extra=""):
+        return "".join(
+            '<a href="#" class="text-sm font-medium %s px-3 py-2 rounded-md hover:opacity-100">%s</a>' % (b["text_muted"], ln) for ln in links) + extra
 
     def actions():
         return ('<div class="flex items-center gap-2"><a href="#" class="text-sm font-medium %s px-3 py-2">Sign in</a>'
@@ -109,7 +110,7 @@ def navbar(style, i):
         body = ('<nav class="flex h-16 items-center justify-between %s px-4">%s'
                 '<div class="hidden md:flex items-center gap-1">%s</div>%s%s</nav>') % (
             b["surface"], brand,
-            "".join('<a href="#" class="f-mono text-sm font-bold uppercase px-3 py-2 border-2 border-transparent hover:border-current">%s</a>' % l for l in links),
+            "".join('<a href="#" class="f-mono text-sm font-bold uppercase px-3 py-2 border-2 border-transparent hover:border-current">%s</a>' % ln for ln in links),
             '<a href="#" class="%s px-4 py-2 text-sm">START FREE</a>', mobile())
         feat = ["bold brutalist nav", "uppercase mono links", "hard borders", "edge CTA", "responsive"]
 
@@ -132,7 +133,7 @@ def navbar(style, i):
                 '<div class="hidden md:flex items-center gap-1">%s</div>'
                 '<div class="flex items-center gap-2"><span class="hidden sm:inline-flex %s">%s</span>%s</div></nav>') % (
             brand,
-            "".join('<a href="#" class="text-sm %s px-3 py-1.5 rounded-md hover:opacity-100">%s</a>' % (b["text_muted"], l) for l in ["Product", "Pricing", "Docs", "Blog"]),
+            "".join('<a href="#" class="text-sm %s px-3 py-1.5 rounded-md hover:opacity-100">%s</a>' % (b["text_muted"], ln) for ln in ["Product", "Pricing", "Docs", "Blog"]),
             b["badge"], ic("github", "h-3.5 w-3.5") + " Star", actions())
         feat = ["vercel-style nav", "low height bar", "github star badge", "ghost links", "CTA actions"]
 
@@ -142,7 +143,7 @@ def navbar(style, i):
                 '<div class="hidden md:flex items-center gap-4">%s</div>'
                 '<div class="flex items-center gap-2">%s</div>'
                 '<div class="hidden md:flex items-center">%s</div>%s</nav>') % (
-            brand, "".join('<a href="#" class="text-sm font-medium %s">%s</a>' % (b["text_muted"], l) for l in ["Docs", "Community"]),
+            brand, "".join('<a href="#" class="text-sm font-medium %s">%s</a>' % (b["text_muted"], ln) for ln in ["Docs", "Community"]),
             '<a href="#" class="%s px-4 py-2 text-sm">Sign in</a>' % b["btn_secondary"], right, mobile())
         feat = ["split navbar", "links both sides", "centered CTA", "sign-in + start", "responsive"]
 
@@ -156,7 +157,7 @@ def navbar(style, i):
     elif key == "minimal":
         body = ('<nav class="flex h-14 items-center justify-between">%s'
                 '<div class="hidden sm:flex items-center gap-5">%s</div>%s</nav>') % (
-            brand, "".join('<a href="#" class="text-sm %s">%s</a>' % (b["text_muted"], l) for l in ["Docs", "Pricing", "Contact"]), actions())
+            brand, "".join('<a href="#" class="text-sm %s">%s</a>' % (b["text_muted"], ln) for ln in ["Docs", "Pricing", "Contact"]), actions())
         feat = ["minimal navbar", "low height", "bare links", "no hamburger", "single CTA"]
 
     elif key == "app-bar":

@@ -1,5 +1,5 @@
 """Stats section builders — 15 concepts."""
-from .helpers import TOKENS, ic, ICONS
+from .helpers import TOKENS, ic
 from .layout import head, section
 
 
@@ -33,7 +33,7 @@ def stats(style, i):
             value, b["text_muted"], label, "")
 
     if key == "kpi-cards":
-        cards = "".join(stat_card(v, l, icn, s) for v, l, icn, s in [
+        cards = "".join(stat_card(v, ln, icn, s) for v, ln, icn, s in [
             ("$4.2M", "Annual revenue", "credit", "18"), ("128k", "Active users", "users", "32"), ("99.9%", "Uptime SLA", "shield", "0.1"), ("1m 42s", "Median reply", "clock", "12")])
         body = '<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">%s</div>' % cards
         feat = ["4 KPI cards", "delta indicators", "iconified", "hover lift", "responsive 1/2/4-col"]
@@ -46,13 +46,13 @@ def stats(style, i):
             b["surface"], b["text_muted"], b["badge"], ic("trend", "h-3.5 w-3.5"),
             "".join('<div class="flex-1 rounded-t %s" style="height:%d%%"></div>' % (b["surface_soft"], h) for h in [40, 55, 48, 70, 65, 90]),
             b["text_muted"])
-        mini = "".join(stat_card(v, l, icn, s) for v, l, icn, s in [
+        mini = "".join(stat_card(v, ln, icn, s) for v, ln, icn, s in [
             ("12,840", "Tickets", "headset", "8"), ("98%", "CSAT", "heart", "2"), ("3.2h", "Avg resolve", "clock", "15")])
         body = top + '<div class="grid grid-cols-1 gap-5 sm:grid-cols-3">%s</div>' % mini
         feat = ["dashboard stat panel", "bar chart placeholder", "month axis", "3 KPI tiles", "responsive"]
 
     elif key == "company":
-        cards = "".join(stat_card(v, l, icn, s) for v, l, icn, s in [
+        cards = "".join(stat_card(v, ln, icn, s) for v, ln, icn, s in [
             ("340+", "Employees", "users", "12"), ("42", "Countries", "globe", "4"), ("$120M", "Funding raised", "credit", "25"), ("6", "Global offices", "building", "0")])
         body = '<div class="grid grid-cols-2 gap-5 lg:grid-cols-4">%s</div>' % cards
         feat = ["company metrics grid", "4 stats", "delta badges", "2-col mobile", "responsive 2/4-col"]
@@ -85,16 +85,16 @@ def stats(style, i):
             "".join('<div class="flex-1 rounded-t %s" style="height:%d%%"></div>' % (b["surface_soft"], h) for h in [30, 50, 45, 70, 60, 85, 75]))
         small = "".join(
             '<div class="%s %s p-6"><p class="f-disp text-2xl font-bold">%s</p><p class="mt-1 text-sm %s">%s</p></div>' % (
-                b["surface"], b["hover_card"], v, b["text_muted"], l)
-            for v, l in [("128k", "Users"), ("99.9%", "Uptime"), ("42", "Countries"), ("1m 42s", "Reply time")])
+                b["surface"], b["hover_card"], v, b["text_muted"], ln)
+            for v, ln in [("128k", "Users"), ("99.9%", "Uptime"), ("42", "Countries"), ("1m 42s", "Reply time")])
         body = '<div class="grid grid-cols-2 gap-4 lg:grid-cols-4">%s%s</div>' % (big, small)
         feat = ["bento stats grid", "large hero stat", "bar chart inset", "4 supporting tiles", "responsive 2/4-col"]
 
     elif key == "minimal":
         body = ('<div class="grid grid-cols-2 gap-8 lg:grid-cols-4">%s</div>') % "".join(
             '<div class="text-center"><p class="f-disp text-3xl sm:text-4xl font-bold">%s</p><p class="mt-2 text-sm %s">%s</p></div>' % (
-                v, b["text_muted"], l)
-            for v, l in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("42", "Countries")])
+                v, b["text_muted"], ln)
+            for v, ln in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("42", "Countries")])
         feat = ["minimal text stats", "no cards", "centered values", "2/4-col grid", "low chrome"]
 
     elif key == "premium":
@@ -102,8 +102,8 @@ def stats(style, i):
             b["surface"], "".join(
                 '<div class="text-center"><div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center %s">%s</div>'
                 '<p class="f-disp text-3xl sm:text-4xl font-bold">%s</p><p class="mt-1 text-sm %s">%s</p></div>' % (
-                    b["surface_soft"], ic(icn, "h-5 w-5"), v, b["text_muted"], l)
-                for v, l, icn in [("128k", "Users", "users"), ("$4.2M", "ARR", "credit"), ("99.9%", "Uptime", "shield"), ("72", "NPS", "heart")]))
+                    b["surface_soft"], ic(icn, "h-5 w-5"), v, b["text_muted"], ln)
+                for v, ln, icn in [("128k", "Users", "users"), ("$4.2M", "ARR", "credit"), ("99.9%", "Uptime", "shield"), ("72", "NPS", "heart")]))
         feat = ["premium stat panel", "iconized tiles", "centered composition", "boxed container", "responsive 2/4-col"]
 
     elif key == "glass":
@@ -111,15 +111,15 @@ def stats(style, i):
             '<div class="%s %s p-6"><div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center %s">%s</span>'
             '<div><p class="f-disp text-2xl font-bold">%s</p><p class="text-xs %s">%s</p></div></div>'
             '<div class="mt-4 h-1.5 rounded-full %s overflow-hidden"><div class="h-full rounded-full" style="width:%s%%;background:%s"></div></div></div>' % (
-                b["surface"], b["hover_card"], b["surface_soft"], ic(icn, "h-4 w-4"), v, b["text_muted"], l, b["surface_soft"], pct, b["accent"])
-            for v, l, icn, pct in [("128k", "Active users", "users", 82), ("99.9%", "Uptime", "shield", 99), ("72", "NPS", "heart", 72), ("4.2M", "API calls/day", "bolt", 65), ("1m 42s", "Reply time", "clock", 40), ("340", "Employees", "users", 55)])
+                b["surface"], b["hover_card"], b["surface_soft"], ic(icn, "h-4 w-4"), v, b["text_muted"], ln, b["surface_soft"], pct, b["accent"])
+            for v, ln, icn, pct in [("128k", "Active users", "users", 82), ("99.9%", "Uptime", "shield", 99), ("72", "NPS", "heart", 72), ("4.2M", "API calls/day", "bolt", 65), ("1m 42s", "Reply time", "clock", 40), ("340", "Employees", "users", 55)])
         feat = ["spotlight stat cards", "mini progress bars", "6 metrics", "icon + value", "responsive 1/2/3-col"]
 
     elif key == "brutalist":
         body = ('<div class="grid grid-cols-2 gap-0 %s" >%s</div>') % (b["surface"], "".join(
             '<div class="border-2 border-current p-6 text-center"><p class="f-mono text-3xl font-bold">%s</p><p class="mt-2 f-mono text-xs uppercase tracking-wider %s">%s</p></div>'
-            % (v, b["text_muted"], l)
-            for v, l in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("340", "Team")]))
+            % (v, b["text_muted"], ln)
+            for v, ln in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("340", "Team")]))
         feat = ["brutalist stat grid", "edge-to-edge borders", "mono numerals", "2x2 grid", "uppercase labels"]
 
     elif key == "split":
@@ -129,8 +129,8 @@ def stats(style, i):
                 '<div class="grid grid-cols-2 gap-4">%s</div></div>') % (
             b["badge"], ic("users", "h-3.5 w-3.5"), b["text_muted"], "".join(
                 '<div class="%s p-5"><p class="f-disp text-2xl font-bold">%s</p><p class="mt-1 text-xs %s">%s</p></div>' % (
-                    b["surface"], v, b["text_muted"], l)
-                for v, l in [("$4.2M", "ARR"), ("99.9%", "Uptime"), ("72", "NPS"), ("1m 42s", "Reply time")]))
+                    b["surface"], v, b["text_muted"], ln)
+                for v, ln in [("$4.2M", "ARR"), ("99.9%", "Uptime"), ("72", "NPS"), ("1m 42s", "Reply time")]))
         feat = ["split stat layout", "large headline number", "2x2 supporting grid", "asymmetric balance", "responsive"]
 
     elif key == "bar":
@@ -155,8 +155,8 @@ def stats(style, i):
         body = ('<div class="%s p-6"><div class="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:divide-x sm:divide-current/10">%s</div></div>') % (
             b["surface"], "".join(
                 '<div class="text-center sm:px-4"><p class="f-disp text-2xl sm:text-3xl font-bold">%s</p><p class="mt-1 text-xs %s">%s</p></div>' % (
-                    v, b["text_muted"], l)
-                for v, l in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("42", "Countries")]))
+                    v, b["text_muted"], ln)
+                for v, ln in [("128k", "Users"), ("$4.2M", "ARR"), ("99.9%", "Uptime"), ("42", "Countries")]))
         feat = ["inline stat strip", "divided columns", "compact container", "centered values", "responsive 2/4-col"]
 
     else:  # circular
@@ -166,8 +166,8 @@ def stats(style, i):
             '<circle cx="18" cy="18" r="15.9155" fill="none" stroke="%s" stroke-width="3" stroke-linecap="round" stroke-dasharray="%d 100"/></svg>'
             '<div class="absolute inset-0 flex flex-col items-center justify-center"><p class="f-disp text-xl font-bold">%s</p></div></div>'
             '<p class="mt-3 text-sm %s">%s</p></div>' % (
-                b["surface"], b["hover_card"], b["accent"], pct, v, b["text_muted"], l)
-            for v, pct, l in [("82%", 82, "Active users"), ("99%", 99, "Uptime"), ("72", 72, "NPS"), ("94%", 94, "Retention")])
+                b["surface"], b["hover_card"], b["accent"], pct, v, b["text_muted"], ln)
+            for v, pct, ln in [("82%", 82, "Active users"), ("99%", 99, "Uptime"), ("72", 72, "NPS"), ("94%", 94, "Retention")])
         feat = ["circular progress stats", "SVG ring charts", "4 metrics", "dasharray fills", "responsive 1/2/4-col"]
 
     code = section(h + body, style)

@@ -107,9 +107,7 @@ COLOR_MAP = {
     "#e7e7e7": "--ds-surface-3",
     "#e4e4e4": "--ds-surface-3",
     "#e3f2fd": "--ds-accent-soft",
-    "#f4f4f4": "--ds-surface-2",
     "#fefefe": "--ds-surface",
-    "#f8f9fa": "--ds-surface-2",
     # borders
     "#dee2e6": "--ds-border",
     "#d1d5db": "--ds-border",
@@ -209,9 +207,11 @@ def replace_colors(html: str):
         i = m.end()
         while i < len(html) and depth > 0:
             if html[i:i + 4] == "var(":
-                depth += 1; i += 4
+                depth += 1
+                i += 4
             elif html[i] == ")":
-                depth -= 1; i += 1
+                depth -= 1
+                i += 1
             else:
                 i += 1
         skip_spans.append((m.start(), i))
@@ -424,7 +424,6 @@ def migrate_file(path: Path, refresh: bool = False):
 
 
 def main():
-    import sys
     refresh = "--refresh-blocks" in sys.argv
     total_replacements = 0
     files_changed = 0

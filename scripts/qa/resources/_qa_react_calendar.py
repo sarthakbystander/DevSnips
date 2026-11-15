@@ -36,7 +36,6 @@ import json
 import re
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]  # → repo root
@@ -632,7 +631,7 @@ def check_min_max(browser):
     errors = open_preview(page, slug)
     check(not errors, f"{slug}: behavior — no console/page errors {errors[:3]}")
 
-    card1 = page.locator('[role="grid"][aria-label="August 2026"]').first
+    page.locator('[role="grid"][aria-label="August 2026"]').first
     check(page.locator('[data-cal-focus="20260804"]').first.is_disabled(), f"{slug}: day before minDate disabled")
     check(not page.locator('[data-cal-focus="20260805"]').first.is_disabled(), f"{slug}: minDate itself enabled")
     check(not page.locator('[data-cal-focus="20260826"]').first.is_disabled(), f"{slug}: maxDate itself enabled")
@@ -665,11 +664,14 @@ def check_min_max(browser):
     next2 = page.get_by_role("button", name="Go to next month").nth(1)
     check(prev2.is_disabled(), f"{slug}: cross-year window disables previous")
     check(not next2.is_disabled(), f"{slug}: cross-year window allows next")
-    next2.click(); page.wait_for_timeout(120)
+    next2.click()
+    page.wait_for_timeout(120)
     check(grids.nth(1).get_attribute("aria-label") == "December 2026", f"{slug}: November -> December")
-    next2.click(); page.wait_for_timeout(120)
+    next2.click()
+    page.wait_for_timeout(120)
     check(grids.nth(1).get_attribute("aria-label") == "January 2027", f"{slug}: December rolls into January 2027")
-    next2.click(); page.wait_for_timeout(120)
+    next2.click()
+    page.wait_for_timeout(120)
     check(grids.nth(1).get_attribute("aria-label") == "February 2027", f"{slug}: January -> February 2027")
     check(next2.is_disabled(), f"{slug}: next disabled at the window end")
     check(not prev2.is_disabled(), f"{slug}: previous re-enabled inside the window")
