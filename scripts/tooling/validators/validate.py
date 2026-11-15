@@ -169,6 +169,20 @@ def check_metadata_validity():
                 elif mtype == "template" and bucket != "Templates":
                     problems.append(
                         "%s type=template outside Templates/: %s" % (td, mf))
+                # Discovery quality: every leaf must carry a non-empty human
+                # `description` and a non-empty `tags` list — they feed
+                # search, the browse pages, and agent resource selection.
+                # Grouping-folder metadata (family containers) is exempt.
+                if is_leaf(leaf, tech):
+                    desc = meta.get("description")
+                    if not isinstance(desc, str) or not desc.strip():
+                        problems.append(
+                            "%s metadata missing/empty `description`: %s" % (td, mf))
+                    tags = meta.get("tags")
+                    if not isinstance(tags, list) or not any(
+                            isinstance(t, str) and t.strip() for t in tags):
+                        problems.append(
+                            "%s metadata missing/empty `tags`: %s" % (td, mf))
                 mid = meta.get("id") or meta.get("slug")
                 if mid:
                     sub = (meta.get("subcategory") or "").lower()

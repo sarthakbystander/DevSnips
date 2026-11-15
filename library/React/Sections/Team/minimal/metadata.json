@@ -7,8 +7,13 @@
   "family": "Team",
   "direction": "Minimal",
   "type": "section",
-  "tags": ["team", "editorial", "minimal"],
+  "tags": [
+    "team",
+    "editorial",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A ruled four-column team list: members separated by hairlines on a border-t grid, with names, roles, and bios carried by typography alone."
 }

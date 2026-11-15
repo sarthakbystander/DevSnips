@@ -1,14 +1,19 @@
 {
   "id": "features-spotlight",
-  "name": "Features \u2014 Spotlight",
+  "name": "Features — Spotlight",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "spotlight",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "One large featured capability with a real query-plan artifact, above a quieter row of three supporting features separated by a single hairline."
 }

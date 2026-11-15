@@ -1,14 +1,19 @@
 {
   "id": "pricing-bento",
-  "name": "Pricing \u2014 Bento",
+  "name": "Pricing — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Pricing",
   "family": "Pricing",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "pricing",
+    "plans",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "Pricing as a 12-column cell grid: a hero cell with the recommended plan and its included list, two compact plan cells beside it, and a full-width guarantee strip."
 }

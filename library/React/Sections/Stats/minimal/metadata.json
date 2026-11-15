@@ -7,8 +7,13 @@
   "family": "Stats",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "stats",
+    "metrics",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A left-aligned header above a ruled stat rail: four metrics in one hairline-separated list, the design carried by spacing and numerical hierarchy."
 }

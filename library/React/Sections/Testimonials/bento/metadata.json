@@ -1,14 +1,19 @@
 {
   "id": "testimonials-bento",
-  "name": "Testimonials \u2014 Bento",
+  "name": "Testimonials — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Testimonials",
   "family": "Testimonials",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "testimonials",
+    "social proof",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento proof grid: a hero quote cell with the longest testimonial, an evidence cell with a single outcome stat, and three single-quote cells."
 }

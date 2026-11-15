@@ -1,14 +1,19 @@
 {
   "id": "faq-dark-premium",
-  "name": "FAQ \u2014 Dark Premium",
+  "name": "FAQ — Dark Premium",
   "technology": "React",
   "category": "Sections",
   "subcategory": "FAQ",
   "family": "FAQ",
   "direction": "Dark Premium",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "faq",
+    "accordion",
+    "dark premium"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "An editorial 4/8 FAQ split on a permanently dark canvas: oversized heading block left, a single raised question-list panel right, with a ruled contact action beneath."
 }

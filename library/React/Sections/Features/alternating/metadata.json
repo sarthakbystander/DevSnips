@@ -1,14 +1,19 @@
 {
   "id": "features-alternating",
-  "name": "Features \u2014 Alternating",
+  "name": "Features — Alternating",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "alternating rows",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "An editorial walk through three features: alternating 5/7 rows pairing copy with a bordered product artifact, stacking copy-first below lg."
 }

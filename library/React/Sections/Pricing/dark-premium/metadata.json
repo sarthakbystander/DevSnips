@@ -1,14 +1,19 @@
 {
   "id": "pricing-dark-premium",
-  "name": "Pricing \u2014 Dark Premium",
+  "name": "Pricing — Dark Premium",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Pricing",
   "family": "Pricing",
   "direction": "Dark Premium",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "pricing",
+    "plans",
+    "dark premium"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "Two plans on a dark canvas: a free Community tier beside a Pro tier with a metered usage rate card, one elevation step above the canvas."
 }

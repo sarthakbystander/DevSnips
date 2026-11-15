@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-24",
+  "lastUpdated": "2026-11-15",
   "description": "DevSnips component library index - organized as design system families with production-ready variants",
   "stats": {
     "totalFamilies": 116,
@@ -15361,7 +15361,7 @@
           "name": "AI SaaS Platform",
           "path": "Tailwind/Templates/ai-saas-platform/",
           "type": "template",
-          "description": "AI SaaS Platform",
+          "description": "An eleven-page Tailwind CSS SaaS template for an AI startup - marketing pages plus dashboard, billing, docs, blog, and auth screens in an editorial terracotta style.",
           "tags": [
             "ai",
             "saas",
@@ -20028,124 +20028,6 @@
       ]
     },
     {
-      "name": "CTA",
-      "path": "Vanilla/Sections/CTA/",
-      "tech": "Vanilla HTML/CSS/JS",
-      "type": "section",
-      "category": "Sections",
-      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "Banner CTA",
-          "path": "Vanilla/Sections/CTA/cta-banner/",
-          "type": "section",
-          "description": "Bold banner CTA on a colored panel with blobs.",
-          "tags": [
-            "cta",
-            "banner",
-            "gradient"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Download CTA",
-          "path": "Vanilla/Sections/CTA/cta-download/",
-          "type": "section",
-          "description": "Download CTA with store buttons and a QR mock.",
-          "tags": [
-            "cta",
-            "download",
-            "qr"
-          ],
-          "features": [
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Newsletter CTA",
-          "path": "Vanilla/Sections/CTA/cta-newsletter/",
-          "type": "section",
-          "description": "Newsletter signup CTA with consent checkbox.",
-          "tags": [
-            "cta",
-            "newsletter",
-            "form"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        },
-        {
-          "name": "Split CTA",
-          "path": "Vanilla/Sections/CTA/cta-split/",
-          "type": "section",
-          "description": "Two-pane split CTA (offer + actions).",
-          "tags": [
-            "cta",
-            "split"
-          ],
-          "features": [
-            "responsive",
-            "light/dark",
-            "reduced-motion",
-            "ARIA",
-            "focus-visible",
-            "semantic HTML"
-          ],
-          "files": [
-            "README.md",
-            "code.html",
-            "metadata.json"
-          ]
-        }
-      ],
-      "subcategory": "cta",
-      "tags": [
-        "cta",
-        "neo-brutalist",
-        "vanilla",
-        "responsive",
-        "dark-mode"
-      ],
-      "searchTerms": [
-        "cta",
-        "neo brutalist",
-        "section",
-        "vanilla"
-      ]
-    },
-    {
       "name": "Contact",
       "path": "Vanilla/Sections/Contact/",
       "tech": "Vanilla HTML/CSS/JS",
@@ -20357,6 +20239,124 @@
       ],
       "searchTerms": [
         "content",
+        "neo brutalist",
+        "section",
+        "vanilla"
+      ]
+    },
+    {
+      "name": "CTA",
+      "path": "Vanilla/Sections/CTA/",
+      "tech": "Vanilla HTML/CSS/JS",
+      "type": "section",
+      "category": "Sections",
+      "description": "Call-to-action sections: banner, split, download with QR, and newsletter signup.",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "Banner CTA",
+          "path": "Vanilla/Sections/CTA/cta-banner/",
+          "type": "section",
+          "description": "Bold banner CTA on a colored panel with blobs.",
+          "tags": [
+            "cta",
+            "banner",
+            "gradient"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Download CTA",
+          "path": "Vanilla/Sections/CTA/cta-download/",
+          "type": "section",
+          "description": "Download CTA with store buttons and a QR mock.",
+          "tags": [
+            "cta",
+            "download",
+            "qr"
+          ],
+          "features": [
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Newsletter CTA",
+          "path": "Vanilla/Sections/CTA/cta-newsletter/",
+          "type": "section",
+          "description": "Newsletter signup CTA with consent checkbox.",
+          "tags": [
+            "cta",
+            "newsletter",
+            "form"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        },
+        {
+          "name": "Split CTA",
+          "path": "Vanilla/Sections/CTA/cta-split/",
+          "type": "section",
+          "description": "Two-pane split CTA (offer + actions).",
+          "tags": [
+            "cta",
+            "split"
+          ],
+          "features": [
+            "responsive",
+            "light/dark",
+            "reduced-motion",
+            "ARIA",
+            "focus-visible",
+            "semantic HTML"
+          ],
+          "files": [
+            "README.md",
+            "code.html",
+            "metadata.json"
+          ]
+        }
+      ],
+      "subcategory": "cta",
+      "tags": [
+        "cta",
+        "neo-brutalist",
+        "vanilla",
+        "responsive",
+        "dark-mode"
+      ],
+      "searchTerms": [
+        "cta",
         "neo brutalist",
         "section",
         "vanilla"
@@ -34105,63 +34105,6 @@
       ]
     },
     {
-      "name": "CTA",
-      "path": "React/Sections/CTA/",
-      "tech": "React",
-      "type": "section",
-      "category": "Sections",
-      "description": "",
-      "variantsCount": 4,
-      "variants": [
-        {
-          "name": "CTA — Bento",
-          "path": "React/Sections/CTA/bento/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Dark Premium",
-          "path": "React/Sections/CTA/dark-premium/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Minimal",
-          "path": "React/Sections/CTA/minimal/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        },
-        {
-          "name": "CTA — Neo-Brutalist",
-          "path": "React/Sections/CTA/neo-brutalist/",
-          "type": "section",
-          "description": "",
-          "files": [
-            "code.tsx",
-            "metadata.json",
-            "preview.html"
-          ]
-        }
-      ],
-      "subcategory": "CTA",
-      "tags": []
-    },
-    {
       "name": "Comparison",
       "path": "React/Sections/Comparison/",
       "tech": "React",
@@ -34259,7 +34202,7 @@
           "name": "Contact — Bento",
           "path": "React/Sections/Contact/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento contact composition: a 7-column hero cell with the primary contact form beside a 5-column contact-information cell of email, address, and hours.",
           "tags": [
             "contact",
             "inquiry form",
@@ -34275,7 +34218,7 @@
           "name": "Contact — Dark Premium",
           "path": "React/Sections/Contact/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "A permanently dark editorial contact funnel: a large multi-line statement headline and ruled contact metadata on the left, one refined form surface on the right.",
           "tags": [
             "contact",
             "inquiry form",
@@ -34291,7 +34234,7 @@
           "name": "Contact — Minimal",
           "path": "React/Sections/Contact/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A restrained editorial contact section: an asymmetric 6/6 split pairing eyebrow, headline, and a ruled contact-information list with the accessible form.",
           "tags": [
             "contact",
             "inquiry form",
@@ -34307,7 +34250,7 @@
           "name": "Contact — Neo-Brutalist",
           "path": "React/Sections/Contact/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "A contact billboard with an oversized three-line headline, a hard-bordered form block of square corners and 4px offset shadows, and a rigid contact-information matrix.",
           "tags": [
             "contact",
             "inquiry form",
@@ -34331,6 +34274,90 @@
       ]
     },
     {
+      "name": "CTA",
+      "path": "React/Sections/CTA/",
+      "tech": "React",
+      "type": "section",
+      "category": "Sections",
+      "description": "",
+      "variantsCount": 4,
+      "variants": [
+        {
+          "name": "CTA — Bento",
+          "path": "React/Sections/CTA/bento/",
+          "type": "section",
+          "description": "A 12-column bento conversion grid: a large CTA headline cell with both actions, a stat cell carrying the single accent, three supporting cells, and a full-width action strip.",
+          "tags": [
+            "call to action",
+            "conversion",
+            "bento grid"
+          ],
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Dark Premium",
+          "path": "React/Sections/CTA/dark-premium/",
+          "type": "section",
+          "description": "A permanently dark conversion section with an asymmetric 5/7 split - editorial headline left, a raised ship-status panel of pipeline telemetry right.",
+          "tags": [
+            "call to action",
+            "conversion",
+            "dark premium"
+          ],
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Minimal",
+          "path": "React/Sections/CTA/minimal/",
+          "type": "section",
+          "description": "A restrained editorial call to action: one left-aligned block of eyebrow, heading, lede, and two actions, separated from the canvas by whitespace and a hairline metadata rule.",
+          "tags": [
+            "call to action",
+            "conversion",
+            "minimal"
+          ],
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        },
+        {
+          "name": "CTA — Neo-Brutalist",
+          "path": "React/Sections/CTA/neo-brutalist/",
+          "type": "section",
+          "description": "A rigid conversion split with a hard-bordered headline block, stacked flat-fill metric blocks, uniform 2px borders, and press-down buttons.",
+          "tags": [
+            "call to action",
+            "conversion",
+            "neo-brutalist"
+          ],
+          "files": [
+            "code.tsx",
+            "metadata.json",
+            "preview.html"
+          ]
+        }
+      ],
+      "subcategory": "CTA",
+      "tags": [
+        "bento grid",
+        "call to action",
+        "conversion",
+        "dark premium",
+        "minimal",
+        "neo-brutalist"
+      ]
+    },
+    {
       "name": "FAQ",
       "path": "React/Sections/FAQ/",
       "tech": "React",
@@ -34343,7 +34370,12 @@
           "name": "FAQ — Bento",
           "path": "React/Sections/FAQ/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento FAQ composition: a heading cell and a 7-column accordion cell as the focus of the grid, above a contact cell and a quick-reference facts cell.",
+          "tags": [
+            "faq",
+            "accordion",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34354,7 +34386,12 @@
           "name": "FAQ — Dark Premium",
           "path": "React/Sections/FAQ/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "An editorial 4/8 FAQ split on a permanently dark canvas: oversized heading block left, a single raised question-list panel right, with a ruled contact action beneath.",
+          "tags": [
+            "faq",
+            "accordion",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34365,7 +34402,12 @@
           "name": "FAQ — Minimal",
           "path": "React/Sections/FAQ/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A restrained editorial FAQ: a left-aligned header block above a narrow single column of hairline-separated question triggers, with the contact link as the only accent.",
+          "tags": [
+            "faq",
+            "accordion",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34376,7 +34418,12 @@
           "name": "FAQ — Neo-Brutalist",
           "path": "React/Sections/FAQ/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "FAQ items as square 2px-bordered interface blocks with hard offset shadows, mono index numbers, and press-down triggers.",
+          "tags": [
+            "faq",
+            "accordion",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34385,7 +34432,14 @@
         }
       ],
       "subcategory": "FAQ",
-      "tags": []
+      "tags": [
+        "accordion",
+        "bento grid",
+        "dark premium",
+        "faq",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Features",
@@ -34400,7 +34454,12 @@
           "name": "Features — Alternating",
           "path": "React/Sections/Features/alternating/",
           "type": "section",
-          "description": "",
+          "description": "An editorial walk through three features: alternating 5/7 rows pairing copy with a bordered product artifact, stacking copy-first below lg.",
+          "tags": [
+            "features",
+            "alternating rows",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34411,7 +34470,11 @@
           "name": "Features — Bento",
           "path": "React/Sections/Features/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento grid for 5-8 mixed-weight features: a hero cell with a routing diagram, a stat cell, and four single-idea supporting cells.",
+          "tags": [
+            "features",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34422,7 +34485,12 @@
           "name": "Features — Editorial",
           "path": "React/Sections/Features/editorial/",
           "type": "section",
-          "description": "",
+          "description": "An asymmetric 4/8 editorial split: a quiet heading block beside a numbered feature list separated by hairline rules - typography only, no cards.",
+          "tags": [
+            "features",
+            "numbered list",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34433,7 +34501,12 @@
           "name": "Features — Grid",
           "path": "React/Sections/Features/grid/",
           "type": "section",
-          "description": "",
+          "description": "A left-aligned header block above an even six-item icon grid (3 columns at lg, 2 at sm), with separation from whitespace rather than cards.",
+          "tags": [
+            "features",
+            "icon grid",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34444,7 +34517,11 @@
           "name": "Features — Neo-Brutalist",
           "path": "React/Sections/Features/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "Four square feature blocks with uniform 2px borders, hard 4px offset shadows, mono index numbers, and a single flat accent fill.",
+          "tags": [
+            "features",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34455,7 +34532,12 @@
           "name": "Features — Split",
           "path": "React/Sections/Features/split/",
           "type": "section",
-          "description": "",
+          "description": "A product-focused 6/6 dark split: feature copy with icon-marked rows on the left, a live-feel queue-depth panel on the right.",
+          "tags": [
+            "features",
+            "split layout",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34466,7 +34548,12 @@
           "name": "Features — Spotlight",
           "path": "React/Sections/Features/spotlight/",
           "type": "section",
-          "description": "",
+          "description": "One large featured capability with a real query-plan artifact, above a quieter row of three supporting features separated by a single hairline.",
+          "tags": [
+            "features",
+            "spotlight",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34477,7 +34564,12 @@
           "name": "Features — Tabs",
           "path": "React/Sections/Features/tabs/",
           "type": "section",
-          "description": "",
+          "description": "An interactive feature showcase with real tab semantics: arrow-key and Home/End navigation, roving tabindex, and panels that toggle in place.",
+          "tags": [
+            "features",
+            "tabs",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34486,7 +34578,18 @@
         }
       ],
       "subcategory": "Features",
-      "tags": []
+      "tags": [
+        "alternating rows",
+        "bento grid",
+        "features",
+        "icon grid",
+        "minimal",
+        "neo-brutalist",
+        "numbered list",
+        "split layout",
+        "spotlight",
+        "tabs"
+      ]
     },
     {
       "name": "Hero",
@@ -34501,7 +34604,12 @@
           "name": "Hero — Bento",
           "path": "React/Sections/Hero/bento/",
           "type": "section",
-          "description": "",
+          "description": "A modular 12-column hero grid: a headline cell with the CTAs, a code cell carrying a real copy-paste snippet, and three single-idea supporting cells.",
+          "tags": [
+            "hero",
+            "landing page",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34512,7 +34620,12 @@
           "name": "Hero — Dark Premium",
           "path": "React/Sections/Hero/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "A premium dark hero in a 5/7 split: headline block and CTAs on the left, a bordered product artifact with sparkline metrics on the right.",
+          "tags": [
+            "hero",
+            "landing page",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34523,7 +34636,12 @@
           "name": "Hero — Minimal",
           "path": "React/Sections/Hero/minimal/",
           "type": "section",
-          "description": "",
+          "description": "The Hero family's reference composition: a simple top navigation row, a centered headline block, and a quiet wordmark proof strip carried by typography and hairlines.",
+          "tags": [
+            "hero",
+            "landing page",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34534,7 +34652,12 @@
           "name": "Hero — Neo-Brutalist",
           "path": "React/Sections/Hero/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "An asymmetric 7/5 hero split with a hard-bordered metric panel and flat accent stat blocks - square corners, 2px borders, press-down buttons.",
+          "tags": [
+            "hero",
+            "landing page",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34543,7 +34666,14 @@
         }
       ],
       "subcategory": "Hero",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "hero",
+        "landing page",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Integrations",
@@ -34558,7 +34688,12 @@
           "name": "Integrations — Bento",
           "path": "React/Sections/Integrations/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento ecosystem grid: a featured integration cell, a showcase of compact tool rows, three category cells, and a full-width ecosystem strip.",
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34569,7 +34704,12 @@
           "name": "Integrations — Dark Premium",
           "path": "React/Sections/Integrations/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "A connected-ecosystem composition on a pinned dark canvas: a central product node with six integration nodes orbiting in two ruled rings.",
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34580,7 +34720,12 @@
           "name": "Integrations — Minimal",
           "path": "React/Sections/Integrations/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A documentation-style integration directory: a tight header above a hairline-ruled list of integrations with invented glyphs and mono category labels.",
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34591,7 +34736,12 @@
           "name": "Integrations — Neo-Brutalist",
           "path": "React/Sections/Integrations/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "A system-rack composition: an oversized heading, a flat accent-filled center block with spec rows, and a rigid grid of 2px-bordered module blocks.",
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34600,7 +34750,14 @@
         }
       ],
       "subcategory": "Integrations",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "ecosystem",
+        "integrations",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Logo Cloud",
@@ -34615,7 +34772,12 @@
           "name": "Logo Cloud — Bento",
           "path": "React/Sections/Logo-Cloud/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento brand grid: a hero cell giving the anchor brand a larger presence, a statement cell with the integration count, and seven supporting brand cells.",
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34626,7 +34788,12 @@
           "name": "Logo Cloud — Dark Premium",
           "path": "React/Sections/Logo-Cloud/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "An asymmetric 4/8 dark brand wall: header block left, a single raised panel of hairline-separated invented wordmarks right.",
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34637,7 +34804,12 @@
           "name": "Logo Cloud — Minimal",
           "path": "React/Sections/Logo-Cloud/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A compact ruled brand wall: a left-aligned header above a full-width hairline-separated row of uniformly styled invented wordmarks.",
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34648,7 +34820,12 @@
           "name": "Logo Cloud — Neo-Brutalist",
           "path": "React/Sections/Logo-Cloud/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "A brand matrix of six square 2px-bordered cells with hard offset shadows, mono index numbers, uppercase mono wordmarks, and one flat accent fill.",
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34657,7 +34834,14 @@
         }
       ],
       "subcategory": "Logo-Cloud",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "logo cloud",
+        "minimal",
+        "neo-brutalist",
+        "social proof"
+      ]
     },
     {
       "name": "Newsletter",
@@ -34672,7 +34856,7 @@
           "name": "Newsletter — Bento",
           "path": "React/Sections/Newsletter/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento signup grid: a 7-column hero cell with the primary signup form, a supporting cell listing what subscribers receive, two topic cells, and a bottom strip.",
           "tags": [
             "newsletter",
             "email signup",
@@ -34688,7 +34872,7 @@
           "name": "Newsletter — Dark Premium",
           "path": "React/Sections/Newsletter/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "An editorial 4/8 dark signup: oversized heading block and ruled metadata left, the form in a single raised panel right.",
           "tags": [
             "newsletter",
             "email signup",
@@ -34705,7 +34889,7 @@
           "name": "Newsletter — Minimal",
           "path": "React/Sections/Newsletter/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A restrained editorial signup: eyebrow, controlled headline, one description, a horizontal email form, and a small privacy note - hairlines only.",
           "tags": [
             "newsletter",
             "email signup",
@@ -34721,7 +34905,7 @@
           "name": "Newsletter — Neo-Brutalist",
           "path": "React/Sections/Newsletter/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "A signup billboard: oversized statement headline, ruled metadata strip, a large bordered email field, and a heavy press-down subscribe button.",
           "tags": [
             "newsletter",
             "email signup",
@@ -34758,7 +34942,12 @@
           "name": "Pricing — Bento",
           "path": "React/Sections/Pricing/bento/",
           "type": "section",
-          "description": "",
+          "description": "Pricing as a 12-column cell grid: a hero cell with the recommended plan and its included list, two compact plan cells beside it, and a full-width guarantee strip.",
+          "tags": [
+            "pricing",
+            "plans",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34769,7 +34958,12 @@
           "name": "Pricing — Dark Premium",
           "path": "React/Sections/Pricing/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "Two plans on a dark canvas: a free Community tier beside a Pro tier with a metered usage rate card, one elevation step above the canvas.",
+          "tags": [
+            "pricing",
+            "plans",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34780,7 +34974,12 @@
           "name": "Pricing — Minimal",
           "path": "React/Sections/Pricing/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A left-aligned header above an even three-tier grid of flat bordered cards with tabular-num price blocks and real feature lists.",
+          "tags": [
+            "pricing",
+            "plans",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34791,7 +34990,12 @@
           "name": "Pricing — Neo-Brutalist",
           "path": "React/Sections/Pricing/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "Three square plan blocks with uniform 2px borders, hard offset shadows, mono uppercase labels, and press-down CTAs - the featured plan carries the single accent fill.",
+          "tags": [
+            "pricing",
+            "plans",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34800,7 +35004,14 @@
         }
       ],
       "subcategory": "Pricing",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "minimal",
+        "neo-brutalist",
+        "plans",
+        "pricing"
+      ]
     },
     {
       "name": "Stats",
@@ -34815,7 +35026,12 @@
           "name": "Stats — Bento",
           "path": "React/Sections/Stats/bento/",
           "type": "section",
-          "description": "",
+          "description": "Statistics as a 12-column cell grid: an anchor-metric hero cell, a highlight cell carrying the single accent, and two supporting cells below.",
+          "tags": [
+            "stats",
+            "metrics",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34826,7 +35042,12 @@
           "name": "Stats — Dark Premium",
           "path": "React/Sections/Stats/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "An asymmetric 4/8 dark telemetry split: header block left, a single raised panel of featured metrics and a ruled latency definition list right.",
+          "tags": [
+            "stats",
+            "metrics",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34837,7 +35058,12 @@
           "name": "Stats — Minimal",
           "path": "React/Sections/Stats/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A left-aligned header above a ruled stat rail: four metrics in one hairline-separated list, the design carried by spacing and numerical hierarchy.",
+          "tags": [
+            "stats",
+            "metrics",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34848,7 +35074,12 @@
           "name": "Stats — Neo-Brutalist",
           "path": "React/Sections/Stats/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "Four square stat blocks with uniform 2px borders, hard offset shadows, mono uppercase labels, and a 700-weight numerical voice - one filled accent block.",
+          "tags": [
+            "stats",
+            "metrics",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34857,7 +35088,14 @@
         }
       ],
       "subcategory": "Stats",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "metrics",
+        "minimal",
+        "neo-brutalist",
+        "stats"
+      ]
     },
     {
       "name": "Team",
@@ -34872,7 +35110,7 @@
           "name": "Team — Bento",
           "path": "React/Sections/Team/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column team grid: four member cards with initials avatars, roles, and bios, above a ruled metadata strip of shared standards.",
           "tags": [
             "team",
             "bento",
@@ -34888,7 +35126,7 @@
           "name": "Team — Dark Premium",
           "path": "React/Sections/Team/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "A dark team composition: member cards with bios, locations, and profile links as raised surfaces one elevation step above the canvas.",
           "tags": [
             "team",
             "dark",
@@ -34905,7 +35143,7 @@
           "name": "Team — Minimal",
           "path": "React/Sections/Team/minimal/",
           "type": "section",
-          "description": "",
+          "description": "A ruled four-column team list: members separated by hairlines on a border-t grid, with names, roles, and bios carried by typography alone.",
           "tags": [
             "team",
             "editorial",
@@ -34921,7 +35159,7 @@
           "name": "Team — Neo-Brutalist",
           "path": "React/Sections/Team/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "A rigid team split: hard-bordered member blocks with uniform 2px borders and offset shadows beside a ruled metadata strip.",
           "tags": [
             "team",
             "neo-brutalist",
@@ -34960,7 +35198,12 @@
           "name": "Testimonials — Bento",
           "path": "React/Sections/Testimonials/bento/",
           "type": "section",
-          "description": "",
+          "description": "A 12-column bento proof grid: a hero quote cell with the longest testimonial, an evidence cell with a single outcome stat, and three single-quote cells.",
+          "tags": [
+            "testimonials",
+            "social proof",
+            "bento grid"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34971,7 +35214,12 @@
           "name": "Testimonials — Dark Premium",
           "path": "React/Sections/Testimonials/dark-premium/",
           "type": "section",
-          "description": "",
+          "description": "A dark customer-story split: an evidence card with company facts and outcome metrics beside a two-paragraph first-person narrative with a pull-quote line.",
+          "tags": [
+            "testimonials",
+            "social proof",
+            "dark premium"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34982,7 +35230,12 @@
           "name": "Testimonials — Minimal",
           "path": "React/Sections/Testimonials/minimal/",
           "type": "section",
-          "description": "",
+          "description": "An even grid of six peer testimonials as real figure/blockquote pairs - every voice the same weight, separated by whitespace alone.",
+          "tags": [
+            "testimonials",
+            "social proof",
+            "minimal"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -34993,7 +35246,12 @@
           "name": "Testimonials — Neo-Brutalist",
           "path": "React/Sections/Testimonials/neo-brutalist/",
           "type": "section",
-          "description": "",
+          "description": "Three square testimonial cards with uniform 2px borders, hard offset shadows, mono index numbers, and one flat accent fill.",
+          "tags": [
+            "testimonials",
+            "social proof",
+            "neo-brutalist"
+          ],
           "files": [
             "code.tsx",
             "metadata.json",
@@ -35002,7 +35260,14 @@
         }
       ],
       "subcategory": "Testimonials",
-      "tags": []
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "minimal",
+        "neo-brutalist",
+        "social proof",
+        "testimonials"
+      ]
     },
     {
       "name": "SPRAY — Art School",
@@ -35156,9 +35421,9 @@
         "Tables",
         "Tabs",
         "Tooltips",
-        "CTA",
         "Contact",
         "Content",
+        "CTA",
         "FAQ",
         "Features",
         "Footer",
@@ -35209,9 +35474,9 @@
         "Tabs",
         "Textareas",
         "Tooltips",
-        "CTA",
         "Comparison",
         "Contact",
+        "CTA",
         "FAQ",
         "Features",
         "Hero",

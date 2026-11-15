@@ -1,14 +1,19 @@
 {
   "id": "features-tabs",
-  "name": "Features \u2014 Tabs",
+  "name": "Features — Tabs",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "tabs",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "An interactive feature showcase with real tab semantics: arrow-key and Home/End navigation, roving tabindex, and panels that toggle in place."
 }

@@ -1,14 +1,19 @@
 {
   "id": "cta-bento",
-  "name": "CTA \u2014 Bento",
+  "name": "CTA — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "CTA",
   "family": "CTA",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "call to action",
+    "conversion",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento conversion grid: a large CTA headline cell with both actions, a stat cell carrying the single accent, three supporting cells, and a full-width action strip."
 }

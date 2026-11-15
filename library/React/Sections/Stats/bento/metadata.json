@@ -7,8 +7,13 @@
   "family": "Stats",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "stats",
+    "metrics",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "Statistics as a 12-column cell grid: an anchor-metric hero cell, a highlight cell carrying the single accent, and two supporting cells below."
 }

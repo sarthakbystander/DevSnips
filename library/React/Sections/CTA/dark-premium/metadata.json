@@ -1,14 +1,19 @@
 {
   "id": "cta-dark-premium",
-  "name": "CTA \u2014 Dark Premium",
+  "name": "CTA — Dark Premium",
   "technology": "React",
   "category": "Sections",
   "subcategory": "CTA",
   "family": "CTA",
   "direction": "Dark Premium",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "call to action",
+    "conversion",
+    "dark premium"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A permanently dark conversion section with an asymmetric 5/7 split - editorial headline left, a raised ship-status panel of pipeline telemetry right."
 }

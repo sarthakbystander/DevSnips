@@ -1,14 +1,19 @@
 {
   "id": "pricing-minimal",
-  "name": "Pricing \u2014 Minimal",
+  "name": "Pricing — Minimal",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Pricing",
   "family": "Pricing",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "pricing",
+    "plans",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A left-aligned header above an even three-tier grid of flat bordered cards with tabular-num price blocks and real feature lists."
 }

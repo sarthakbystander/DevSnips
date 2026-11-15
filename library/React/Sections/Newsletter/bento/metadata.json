@@ -7,8 +7,13 @@
   "family": "Newsletter",
   "direction": "Bento",
   "type": "section",
-  "tags": ["newsletter", "email signup", "bento grid"],
+  "tags": [
+    "newsletter",
+    "email signup",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento signup grid: a 7-column hero cell with the primary signup form, a supporting cell listing what subscribers receive, two topic cells, and a bottom strip."
 }
