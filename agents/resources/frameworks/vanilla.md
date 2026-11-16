@@ -107,9 +107,9 @@ are banned by that spec.
   quality bar and is wired into `scripts/tooling/validators/validate.py`
   (a required-check failure fails validation). Flags: `--only-failures`,
   `--json`, and advisory `--tokens` (reports `--ds-*` adoption vs raw hex,
-  always exits 0). It scans the Components tree (observed run:
-  "scanned: 191 components"); Sections/Templates are governed by their own
-  specs.
+  always exits 0). It scans the Components tree (the run summary prints
+  the live count — do not quote a count from documentation); Sections/
+  Templates are governed by their own specs.
 - Structural validation: `scripts/tooling/validators/validate.py` +
   `scripts/tooling/validators/deep_check.py`.
 - Template Playwright QA: `scripts/qa/resources/_qa_template.py`

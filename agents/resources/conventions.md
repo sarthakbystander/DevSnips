@@ -3,6 +3,10 @@
 The naming, file, JSON, and code conventions actually used in this repository. Each entry notes
 where the convention is demonstrated and, where applicable, what enforces it.
 
+> **Twin document:** the human-facing layer documents the same conventions in
+> `docs/reference/conventions.md`, and the contributor walkthrough that applies them lives in
+> `docs/contributing/`. Update all three when a convention changes.
+
 ## Directory naming
 
 - **Technology dirs** are Capitalized: `library/React/`, `library/Tailwind/`, `library/Vanilla/`.
