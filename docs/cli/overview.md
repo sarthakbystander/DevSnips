@@ -40,7 +40,7 @@ Help text, error formatting, and version printing live in `cli/src/utils/errors.
 
 ## Where it reads from and writes to
 
-- **Reads:** the remote registry `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json` (fetched once per process, memoized) and file downloads from `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/library/<path>/<file>`.
+- **Reads:** the remote registry `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json` (fetched once per process, memoized) and file downloads from `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/library/<path>/<file>`. Both endpoints can be redirected for tests or mirrors via the `DEVSNIPS_REGISTRY_URL` and `DEVSNIPS_RAW_BASE` environment variables.
 - **Writes:** only inside `./devsnips/` under the current working directory (enforced by a path-boundary security check). It never reads or writes the DevSnips repository's local `library/` tree.
 
 **The CLI ignores the local `library/` tree entirely.** A resource that is not in the *published* registry cannot be installed, and a change not pushed to `main` is invisible to the CLI.

@@ -5,14 +5,38 @@
  * to resolve component paths to their canonical locations.
  */
 
-const https = require('node:https');
 const { exitWithNetworkError } = require('../utils/errors.js');
 const { stripTrailingSlash } = require('../utils/paths.js');
+const { httpGetText } = require('../utils/http.js');
 
-const REGISTRY_URL = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json';
-const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/';
+const DEFAULT_REGISTRY_URL = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json';
+const DEFAULT_RAW_BASE = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/';
 
 let cachedRegistry = null;
+
+/**
+ * Registry index URL. Overridable for tests, mirrors, and offline use via
+ * the DEVSNIPS_REGISTRY_URL environment variable.
+ *
+ * @returns {string} - The registry URL
+ */
+function getRegistryUrl() {
+  return process.env.DEVSNIPS_REGISTRY_URL || DEFAULT_REGISTRY_URL;
+}
+
+/**
+ * Base URL for raw file downloads. Overridable for tests, mirrors, and
+ * offline use via the DEVSNIPS_RAW_BASE environment variable.
+ *
+ * @returns {string} - The raw base URL with a trailing slash
+ */
+function getRawBase() {
+  const base = process.env.DEVSNIPS_RAW_BASE;
+  if (base) {
+    return stripTrailingSlash(base) + '/';
+  }
+  return DEFAULT_RAW_BASE;
+}
 
 /**
  * Fetch JSON from a URL.
@@ -20,35 +44,13 @@ let cachedRegistry = null;
  * @param {string} url - The URL to fetch
  * @returns {Promise<object>} - Parsed JSON response
  */
-function fetchJSON(url) {
-  return new Promise((resolve, reject) => {
-    const req = https.get(url, (res) => {
-      if (res.statusCode !== 200) {
-        // Consume response to free socket
-        res.resume();
-        reject(new Error(`HTTP ${res.statusCode}`));
-        return;
-      }
-
-      let data = '';
-      res.setEncoding('utf8');
-      res.on('data', chunk => { data += chunk; });
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(data);
-          resolve(parsed);
-        } catch (e) {
-          reject(new Error('Invalid JSON response'));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.setTimeout(30000, () => {
-      req.destroy();
-      reject(new Error('Request timed out'));
-    });
-  });
+async function fetchJSON(url) {
+  const data = await httpGetText(url);
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    throw new Error('Invalid JSON response');
+  }
 }
 
 /**
@@ -62,7 +64,7 @@ async function fetchRegistry() {
   }
 
   try {
-    const registry = await fetchJSON(REGISTRY_URL);
+    const registry = await fetchJSON(getRegistryUrl());
 
     // Validate registry structure
     if (!registry || typeof registry !== 'object') {
@@ -171,5 +173,8 @@ module.exports = {
   fetchRegistry,
   resolveComponent,
   findSimilarPaths,
-  GITHUB_RAW_BASE
+  getRegistryUrl,
+  getRawBase,
+  DEFAULT_REGISTRY_URL,
+  DEFAULT_RAW_BASE
 };

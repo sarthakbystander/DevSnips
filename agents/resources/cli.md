@@ -201,11 +201,17 @@ Implementation: `cli/src/commands/init.js`; tests `cli/test/init.test.js`.
 
 Implementation: `cli/src/registry/resolver.js`
 
-Constants:
+Defaults (overridable by environment, e.g. for tests, mirrors, or offline use):
 
-- `REGISTRY_URL` =
-  `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json`
-- `GITHUB_RAW_BASE` = `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/`
+- `DEVSNIPS_REGISTRY_URL` → registry index URL,
+  default `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json`
+- `DEVSNIPS_RAW_BASE` → file-download base (trailing slash normalized),
+  default `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/`
+
+Exposed as `getRegistryUrl()` / `getRawBase()` (plus `DEFAULT_REGISTRY_URL` /
+`DEFAULT_RAW_BASE`); `cli/src/utils/http.js` holds the single shared
+`httpGetText()` client used by both the resolver (JSON) and the downloader
+(text).
 
 The registry is fetched **remotely** and memoized per process (`cachedRegistry`). It must be an
 object with a `families` array, else a network error is reported. `resolveComponent()` returns

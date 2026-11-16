@@ -137,4 +137,50 @@ check('findSimilarPaths returns empty list when nothing matches', () => {
   assert.deepStrictEqual(findSimilarPaths('Nothing/At/All', REGISTRY), []);
 });
 
+// --- environment overrides (child process so process.env stays isolated) ---
+
+const { spawnSync } = require('node:child_process');
+
+function runInChild(env) {
+  const script = `
+    const { getRegistryUrl, getRawBase } = require('./src/registry/resolver.js');
+    console.log(JSON.stringify({ registry: getRegistryUrl(), rawBase: getRawBase() }));
+  `;
+  return spawnSync(process.execPath, ['-e', script], {
+    cwd: require('node:path').join(__dirname, '..'),
+    env: { ...process.env, ...env },
+    encoding: 'utf8'
+  });
+}
+
+const DEFAULT_REGISTRY = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json';
+const DEFAULT_RAW = 'https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/';
+
+check('getRegistryUrl/getRawBase return the GitHub defaults without env', () => {
+  const out = JSON.parse(runInChild({}).stdout);
+  assert.strictEqual(out.registry, DEFAULT_REGISTRY);
+  assert.strictEqual(out.rawBase, DEFAULT_RAW);
+});
+
+check('DEVSNIPS_REGISTRY_URL overrides the registry URL', () => {
+  const out = JSON.parse(runInChild({
+    DEVSNIPS_REGISTRY_URL: 'http://localhost:9999/index.json'
+  }).stdout);
+  assert.strictEqual(out.registry, 'http://localhost:9999/index.json');
+});
+
+check('DEVSNIPS_RAW_BASE overrides the raw base and is slash-normalized', () => {
+  const out = JSON.parse(runInChild({
+    DEVSNIPS_RAW_BASE: 'http://localhost:9999/raw/'
+  }).stdout);
+  assert.strictEqual(out.rawBase, 'http://localhost:9999/raw/');
+});
+
+check('DEVSNIPS_RAW_BASE without a trailing slash still normalizes', () => {
+  const out = JSON.parse(runInChild({
+    DEVSNIPS_RAW_BASE: 'http://localhost:9999/raw'
+  }).stdout);
+  assert.strictEqual(out.rawBase, 'http://localhost:9999/raw/');
+});
+
 console.log('resolver.test.js: all checks passed');
