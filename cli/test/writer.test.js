@@ -1,7 +1,7 @@
 /**
  * Tests for DevSnips CLI file writer
  *
- * Run with: node test/writer.test.js
+ * Run with: node --test
  */
 
 const assert = require('node:assert');
@@ -54,15 +54,12 @@ function restore() {
   }
 }
 
+// Bridge to the node:test runner: tests are declared with the same
+// check(name, fn) calls as before but execute under node --test.
+const { test } = require('node:test');
+
 function check(name, fn) {
-  try {
-    fn();
-    console.log(`  ✓ ${name}`);
-  } catch (error) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${error.message}`);
-    throw error;
-  }
+  test(name, fn);
 }
 
 // --- writeFile: security guard ---
@@ -213,4 +210,3 @@ check('getDestinationFilePath joins destDir with the filename', () => {
   );
 });
 
-console.log('writer.test.js: all checks passed');

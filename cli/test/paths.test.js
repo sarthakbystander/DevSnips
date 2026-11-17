@@ -1,7 +1,7 @@
 /**
  * Tests for DevSnips CLI path utilities
  *
- * Run with: node test/paths.test.js
+ * Run with: node --test
  */
 
 const assert = require('node:assert');
@@ -17,15 +17,12 @@ const {
   stripTrailingSlash
 } = require('../src/utils/paths.js');
 
+// Bridge to the node:test runner: tests are declared with the same
+// check(name, fn) calls as before but execute under node --test.
+const { test } = require('node:test');
+
 function check(name, fn) {
-  try {
-    fn();
-    console.log(`  ✓ ${name}`);
-  } catch (error) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${error.message}`);
-    throw error;
-  }
+  test(name, fn);
 }
 
 // --- normalizePath ---
@@ -155,4 +152,3 @@ check('stripTrailingSlash normalizes separators and trailing slashes', () => {
   assert.strictEqual(stripTrailingSlash(null), '');
 });
 
-console.log('paths.test.js: all checks passed');

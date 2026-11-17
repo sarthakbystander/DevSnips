@@ -17,6 +17,8 @@ const { initializeContext, updateContextAfterInstall, isContextInitialized } = r
  * @param {string} inputPath - User-provided component path
  * @param {object} [options] - Command options
  * @param {boolean} [options.force] - Overwrite existing destination files
+ * @param {boolean} [options.dryRun] - Resolve and download but write nothing
+ *   (no files, no project-context changes); reports what would happen
  */
 async function runAddCommand(inputPath, options = {}) {
   // Step 1: Normalize and validate input path
@@ -128,25 +130,43 @@ async function runAddCommand(inputPath, options = {}) {
     }
   }
 
-  // Step 6: Calculate destination and write files
+  // Step 6: Calculate destination and write files (dry run only reports them)
   const destDir = calculateDestination(resolved.canonicalPath, resolved.technology);
 
   const writtenFiles = [];
 
-  for (const [filename, content] of downloadedFiles) {
-    const destPath = getDestinationFilePath(destDir, filename);
-
-    try {
-      writeFile(destPath, content, Boolean(options.force));
+  if (options.dryRun) {
+    for (const [filename] of downloadedFiles) {
       writtenFiles.push(filename);
-    } catch (error) {
-      // writeFile already exits on error
+    }
+  } else {
+    for (const [filename, content] of downloadedFiles) {
+      const destPath = getDestinationFilePath(destDir, filename);
+
+      try {
+        writeFile(destPath, content, Boolean(options.force));
+        writtenFiles.push(filename);
+      } catch (error) {
+        // writeFile already exits on error
+      }
     }
   }
 
   // Step 7: Initialize/update DevSnips project context
   // This happens AFTER files are successfully written, so only successful
-  // installations are ever recorded in config.json.
+  // installations are ever recorded in config.json. A dry run never touches
+  // the project context, matching its write-nothing contract.
+  if (options.dryRun) {
+    console.log('');
+    console.log('✓ Dry run complete — no files were written');
+    console.log('');
+    console.log(`  Would install to: ${destDir}`);
+    console.log('  Files:');
+    writtenFiles.forEach(f => console.log(`    - ${f}`));
+    console.log('');
+    process.exit(0);
+  }
+
   const existingContext = isContextInitialized();
 
   process.stdout.write(

@@ -5,15 +5,20 @@
  * present in the registry's resolved file list,and never installs
  * metadata.json or preview.html.
  *
- * Run with: node test/downloader.test.js
+ * Run with: node --test
  */
 
 const assert = require('node:assert');
 const { getSourceFiles } = require('../src/install/downloader.js');
 
+// Bridge to the node:test runner.
+const { test } = require('node:test');
+
 function check(name, available, expected) {
-  const actual = getSourceFiles(available, 'Tailwind CSS');
-  assert.deepStrictEqual(actual, expected, name);
+  test(name, () => {
+    const actual = getSourceFiles(available, 'Tailwind CSS');
+    assert.deepStrictEqual(actual, expected);
+  });
 }
 
 // README.md and AGENTS.md are installable when present

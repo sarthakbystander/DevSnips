@@ -5,7 +5,7 @@
  * behavior: fresh initialization, preservation of existing files, safe failure
  * on malformed config, and success-only installation recording.
  *
- * Run with: node test/context.test.js
+ * Run with: node --test
  */
 
 const assert = require('node:assert');
@@ -42,15 +42,12 @@ function teardown() {
   }
 }
 
+// Bridge to the node:test runner: tests are declared with the same
+// check(name, fn) calls as before but execute under node --test.
+const { test } = require('node:test');
+
 function check(name, fn) {
-  try {
-    fn();
-    console.log(`  ✓ ${name}`);
-  } catch (error) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${error.message}`);
-    throw error;
-  }
+  test(name, fn);
 }
 
 // Fresh initialization creates the directory, config.json, and AGENTS.md

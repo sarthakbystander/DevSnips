@@ -142,17 +142,15 @@ The help text prints the path shape `<Technology>/<Category>/<Family>/<variant>/
 
 ## Tests
 
-`npm test` (from `cli/`) runs the suites in order — downloader, config, agents, context, init — then `node src/index.js --help`. The suites use `node:assert` and `os.tmpdir()` sandboxes: no framework, no network access. Individual suites run directly as `node test/<file>.test.js`. There is **no** end-to-end `add` test — `add` performs network I/O.
+`npm test` (from `cli/`) runs `node --test`, which executes every `cli/test/*.test.js` under the built-in runner — downloader, paths, resolver, writer, config, agents, context, init, and dryrun — then a `node src/index.js --help` smoke check. Suites use `node:assert` and `os.tmpdir()` sandboxes; no framework. The dryrun suite performs an end-to-end `add` (both real and `--dry-run`) against a local `127.0.0.1` fixture server reached through the `DEVSNIPS_REGISTRY_URL` / `DEVSNIPS_RAW_BASE` environment overrides — the real registry is never contacted.
 
 ## What the CLI does not have
 
 Verified absent — do not script against these or claim them:
 
-- No `--dry-run` (overwrite behavior exists only via `add --force`).
 - No `list`, `search`, `remove`, or `update` commands.
 - No JSON output mode; no `--config`, `--dir`, or `--output` options.
-- No version pinning, offline mode, or local-registry mode.
-- No interactive prompts.
+- No version pinning and no interactive prompts. (Offline/local-mirror use is possible via the `DEVSNIPS_REGISTRY_URL` / `DEVSNIPS_RAW_BASE` environment overrides.)
 
 To see what is available, query the registry; to uninstall, remove files and the `config.json` record manually.
 

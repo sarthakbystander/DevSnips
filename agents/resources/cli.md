@@ -39,7 +39,8 @@ Help text, error formatting, and version printing live in `cli/src/utils/errors.
 Implementation: `cli/src/commands/add.js`
 
 Tests: `cli/test/downloader.test.js` (file selection), `cli/test/context.test.js`
-(install recording). There is **no** end-to-end `add` test — `add` performs network I/O.
+(install recording), `cli/test/dryrun.test.js` (offline end-to-end `add` and `--dry-run`
+against a local fixture server via the registry env overrides below).
 
 Behavior, in order:
 
@@ -61,6 +62,8 @@ Behavior, in order:
    after files are on disk, `updateContextAfterInstall(canonicalPath, technology)`.
    If this step fails, the CLI exits `1` and reports that files exist but were not recorded in
    `devsnips/config.json`.
+8. **Report** — destination directory and the written file names.
+
 ## Path handling and installation output
 
 Implementation: `cli/src/install/downloader.js` (`buildRepoFilePath`),
@@ -93,9 +96,14 @@ Write safety (`cli/src/install/writer.js` `writeFile`):
   `false` unless the user supplied `--force`);
 - creates parent directories on demand.
 
-`--force` is wired through `cli/src/index.js` (flag parse) → `cli/src/commands/add.js`
-(`options.force`) → `writeFile(destPath, content, force)`. Without the flag the behavior is
-unchanged: the existing file wins and the CLI exits with a filesystem error.
+`--force` is wired through `cli/src/index.js` (flag parse, via `parseAddCommand` in
+`cli/src/utils/args.js`) → `cli/src/commands/add.js` (`options.force`) →
+`writeFile(destPath, content, force)`. Without the flag the behavior is unchanged: the
+existing file wins and the CLI exits with a filesystem error.
+
+`--dry-run` is parsed the same way and reaches `add` as `options.dryRun`: the registry is
+fetched and files are downloaded as usual, but no files are written and the project context
+is not initialized or updated; the report says what *would* have been installed.
 
 ## Which files get installed
 
@@ -153,25 +161,29 @@ that as guidance only — Tailwind components may be 2-level or 3-level
 
 ## Tests and how to run them
 
-Manifest script: `cli/package.json` `scripts.test` runs, in order,
-`cli/test/downloader.test.js`, `cli/test/config.test.js`, `cli/test/agents.test.js`,
-`cli/test/context.test.js`, `cli/test/init.test.js`, then `node src/index.js --help`.
+Manifest script: `cli/package.json` `scripts.test` runs `node --test` (discovers every
+`cli/test/*.test.js` — downloader, paths, resolver, writer, config, agents, context, init,
+dryrun — under the `node:test` runner) followed by a `node src/index.js --help` smoke check.
 
 ```bash
 cd cli
 npm test
 ```
 
-Individual suites can be run directly as `node test/<file>.test.js`. They use `node:assert` and
-`os.tmpdir()` sandboxes — no framework, no network access.
+Suites use `node:assert` and `os.tmpdir()` sandboxes — no framework. Only
+`cli/test/dryrun.test.js` performs network I/O, and it is a `127.0.0.1` fixture server, not a
+real network call.
 
 ## Not in the CLI
 
-Verified absent; do not document these as features: `--dry-run`, `list`/`search`,
-`remove`/`update`, a JSON output mode, `--config`/`--dir`/`--output`, version pinning, an
-offline or local-registry mode, and any interactive prompt. (`--force` exists on `add`
-and overwrites existing destination files.)
-  failed write never leaves truncated JSON.
+Verified absent; do not document these as features: `list`/`search`, `remove`/`update`, a JSON
+output mode, `--config`/`--dir`/`--output`, version pinning, and any interactive prompt.
+(`--force` and `--dry-run` exist on `add`; `DEVSNIPS_REGISTRY_URL`/`DEVSNIPS_RAW_BASE` redirect
+the registry and file endpoints for tests, mirrors, and offline use.)
+
+## Project context (`devsnips/`)
+
+- Atomic `config.json` writes: a failed write never leaves truncated JSON.
 - A malformed existing `config.json` is an **error**, never silently replaced; the file is left
   byte-for-byte untouched and the command exits `1`.
 - `project` is preserved verbatim across rewrites.
@@ -195,7 +207,6 @@ Implementation: `cli/src/commands/init.js`; tests `cli/test/init.test.js`.
   reporting which were created.
 - Fails cleanly (exit `1`) on a malformed `config.json`, leaving it untouched.
 - `add` performs the same initialization automatically on first successful install.
-8. **Report** — destination directory and the written file names.
 
 ## Resource resolution
 

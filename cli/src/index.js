@@ -12,6 +12,7 @@
 const { runAddCommand } = require('./commands/add.js');
 const { runInitCommand } = require('./commands/init.js');
 const { showHelp, printVersion } = require('./utils/errors.js');
+const { parseAddCommand } = require('./utils/args.js');
 
 const args = process.argv.slice(2);
 
@@ -38,20 +39,22 @@ const command = args[0];
 
 switch (command) {
   case 'add': {
-    const force = args.includes('--force');
-    const componentPath = args.find(a => a !== 'add' && a !== '--force');
-    if (!componentPath) {
+    const parsed = parseAddCommand(args);
+    if (parsed.error === 'missing-path') {
       console.error('Error: Missing component path');
       console.error('');
       console.error('Usage:');
-      console.error('  npx devsnips add <component-path> [--force]');
+      console.error('  npx devsnips add <component-path> [--force] [--dry-run]');
       console.error('');
       console.error('Example:');
       console.error('  npx devsnips add Tailwind/Sections/AI-Product/agent-workflow/vercel');
       process.exit(1);
     }
     // Properly handle the async command so rejections surface cleanly
-    runAddCommand(componentPath, { force }).catch((err) => {
+    runAddCommand(parsed.componentPath, {
+      force: parsed.force,
+      dryRun: parsed.dryRun
+    }).catch((err) => {
       console.error('');
       console.error('✗ Unexpected error');
       console.error('');

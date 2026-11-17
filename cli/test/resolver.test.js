@@ -1,22 +1,19 @@
 /**
  * Tests for DevSnips CLI registry resolver (pure functions, no network)
  *
- * Run with: node test/resolver.test.js
+ * Run with: node --test
  */
 
 const assert = require('node:assert');
 
 const { resolveComponent, findSimilarPaths } = require('../src/registry/resolver.js');
 
+// Bridge to the node:test runner: tests are declared with the same
+// check(name, fn) calls as before but execute under node --test.
+const { test } = require('node:test');
+
 function check(name, fn) {
-  try {
-    fn();
-    console.log(`  ✓ ${name}`);
-  } catch (error) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${error.message}`);
-    throw error;
-  }
+  test(name, fn);
 }
 
 // Minimal registry fixture shaped like snippets-index.json
@@ -183,4 +180,3 @@ check('DEVSNIPS_RAW_BASE without a trailing slash still normalizes', () => {
   assert.strictEqual(out.rawBase, 'http://localhost:9999/raw/');
 });
 
-console.log('resolver.test.js: all checks passed');
