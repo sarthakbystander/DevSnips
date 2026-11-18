@@ -570,6 +570,42 @@ def validate(data, families):
     return problems
 
 
+def _diff_summary(committed, rebuilt, path="$", out=None, limit=10):
+    """Collect the first `limit` value differences between two index trees.
+
+    Used by `--check` to report exactly which field drifted instead of a
+    bare "run rebuild_index.py" line.
+    """
+    if out is None:
+        out = []
+    if len(out) >= limit:
+        return out
+    if isinstance(committed, dict) and isinstance(rebuilt, dict):
+        for key in sorted(set(committed) | set(rebuilt)):
+            if len(out) >= limit:
+                break
+            if key not in committed:
+                out.append(f"{path}.{key}: committed MISSING, rebuilt "
+                           f"{rebuilt[key]!r}")
+            elif key not in rebuilt:
+                out.append(f"{path}.{key}: committed {committed[key]!r}, "
+                           "rebuilt MISSING")
+            else:
+                _diff_summary(committed[key], rebuilt[key],
+                              f"{path}.{key}", out, limit)
+    elif isinstance(committed, list) and isinstance(rebuilt, list):
+        if len(committed) != len(rebuilt):
+            out.append(f"{path}: committed has {len(committed)} items, "
+                       f"rebuilt has {len(rebuilt)}")
+        for i, (c, r) in enumerate(zip(committed, rebuilt)):
+            if len(out) >= limit:
+                break
+            _diff_summary(c, r, f"{path}[{i}]", out, limit)
+    elif committed != rebuilt:
+        out.append(f"{path}: committed {committed!r} != rebuilt {rebuilt!r}")
+    return out
+
+
 if __name__ == "__main__":
     import sys
 
@@ -607,6 +643,12 @@ if __name__ == "__main__":
         if committed != rebuilt:
             print("Index is stale: run `python scripts/tooling/indexing/rebuild_index.py` "
                   "and commit the result.", file=sys.stderr)
+            diffs = _diff_summary(committed, rebuilt)
+            for d in diffs:
+                print("  drift " + d, file=sys.stderr)
+            if not diffs:
+                print("  drift: structural difference summary unavailable",
+                      file=sys.stderr)
             sys.exit(1)
         print("Index is up to date (--check).")
         sys.exit(0)
