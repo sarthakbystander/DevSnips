@@ -8,6 +8,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    # Weekly browser QA: the browser-qa job only runs on schedule + dispatch
+    # (it is heavy and depends on third-party CDN availability).
+    - cron: "17 5 * * 1"
 
 # A new push to the same ref supersedes the previous run.
 concurrency:
@@ -98,3 +102,66 @@ jobs:
 
       - name: Test suite
         run: npm test
+
+  # Browser QA is the heaviest layer (full Playwright sweeps over every
+  # Tailwind/React preview) and every page loads its framework from a third
+  # party CDN, so it runs on demand and on the weekly schedule above instead
+  # of on every push. See agents/resources/qa.md.
+  browser-qa:
+    name: Browser QA (Playwright)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright + Chromium
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
+      # The React harnesses' BASE URLs are relative to this port, so the
+      # document root must be library/ (see agents/resources/qa.md).
+      - name: Start library HTTP server
+        run: |
+          nohup python -m http.server 8765 --directory library --bind 127.0.0.1 &
+          sleep 1
+
+      - name: Tailwind sweep
+        run: python scripts/qa/resources/qa_tailwind.py
+
+      - name: React family harnesses
+        run: |
+          status=0
+          for f in scripts/qa/resources/_qa_react_*.py; do
+            # sections_integrations needs a local tsc toolchain (/tmp/dsbuild);
+            # it stays environment-only (agents/resources/qa.md).
+            if [ "$(basename "$f")" = "_qa_react_sections_integrations.py" ]; then
+              continue
+            fi
+            echo "::group::$f"
+            if [ "$(basename "$f")" = "_qa_react_button.py" ]; then
+              # per-slug harness; the sweep covers every Buttons variant
+              for slug in $(ls library/React/Components/Buttons); do
+                python "$f" "$slug" || status=1
+              done
+            else
+              python "$f" || status=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $status
+
+      - name: Vanilla template previews
+        run: |
+          status=0
+          for t in library/Vanilla/Templates/*/preview.html; do
+            echo "::group::$t"
+            python scripts/qa/resources/_qa_template.py "$t" || status=1
+            echo "::endgroup::"
+          done
+          exit $status
