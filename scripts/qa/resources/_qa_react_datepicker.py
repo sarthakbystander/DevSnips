@@ -459,47 +459,68 @@ def check_reference(browser):
     page.wait_for_timeout(150)
     check(heading_text(page) == "August 2026", f"{slug}: previous month navigates")
 
-    # full keyboard model on the grid (anchors relative to today, which the
-    # opening focus follows when nothing is selected)
-    today_key = page.evaluate(
-        "(() => { const n = new Date(); return n.getFullYear() * 10000 + (n.getMonth() + 1) * 100 + n.getDate(); })()"
-    )
-    check(focus_key(page) == str(today_key), f"{slug}: opening focuses today (got {focus_key(page)})")
+    # full keyboard model on the grid (anchors relative to the opening focus;
+    # the fixture picker is controlled with an August 2026 value, so the grid
+    # and its focus are deterministic fixtures rather than "today")
+    base_key = int(focus_key(page))
+    check(1 <= base_key % 100 <= 28,
+          f"{slug}: opening focus leaves room for +8 day arithmetic (got {base_key})")
     page.keyboard.press("ArrowRight")
     page.wait_for_timeout(100)
-    check(int(focus_key(page)) == today_key + 1, f"{slug}: ArrowRight moves to next day")
+    check(int(focus_key(page)) == base_key + 1, f"{slug}: ArrowRight moves to next day")
     page.keyboard.press("ArrowDown")
     page.wait_for_timeout(100)
-    check(int(focus_key(page)) == today_key + 8, f"{slug}: ArrowDown moves a week down")
+    check(int(focus_key(page)) == base_key + 8, f"{slug}: ArrowDown moves a week down")
     page.keyboard.press("ArrowLeft")
     page.wait_for_timeout(100)
-    check(int(focus_key(page)) == today_key + 7, f"{slug}: ArrowLeft moves to previous day")
+    check(int(focus_key(page)) == base_key + 7, f"{slug}: ArrowLeft moves to previous day")
     page.keyboard.press("ArrowUp")
     page.wait_for_timeout(100)
-    check(focus_key(page) == str(today_key), f"{slug}: ArrowUp moves a week up")
+    check(focus_key(page) == str(base_key), f"{slug}: ArrowUp moves a week up")
     home_key = page.evaluate(
         "(key) => { const y = Math.floor(key / 10000), m = Math.floor((key % 10000) / 100) - 1, d = key % 100; const dt = new Date(y, m, d); const back = new Date(y, m, d - dt.getDay()); return back.getFullYear() * 10000 + (back.getMonth() + 1) * 100 + back.getDate(); }",
-        today_key,
+        base_key,
     )
     page.keyboard.press("Home")
     page.wait_for_timeout(100)
     check(focus_key(page) == str(home_key), f"{slug}: Home moves to week start")
     page.keyboard.press("End")
     page.wait_for_timeout(100)
-    check(focus_key(page) == str(today_key), f"{slug}: End moves to week end")
+    check(focus_key(page) == str(base_key), f"{slug}: End moves to week end")
+    # month paging: expectations derived from the visible month, not hardcoded
+    h0 = heading_text(page)
+    fmt_long = "new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' })"
+    month_names = "['January','February','March','April','May','June','July','August','September','October','November','December']"
+    paged = page.evaluate(
+        "(h) => { const [mon, yr] = h.split(' '); const m = " + month_names + ".indexOf(mon);"
+        " return " + fmt_long + ".format(new Date(+yr, m + 1, 1)); }",
+        h0,
+    )
+    paged_year = page.evaluate(
+        "(h) => { const [mon, yr] = h.split(' '); const m = " + month_names + ".indexOf(mon);"
+        " return " + fmt_long + ".format(new Date(+yr, m + 12, 1)); }",
+        paged,
+    )
     page.keyboard.press("PageDown")
     page.wait_for_timeout(200)
-    check(heading_text(page) == "September 2026", f"{slug}: PageDown pages the month")
+    check(heading_text(page) == paged, f"{slug}: PageDown pages the month")
     page.keyboard.press("Shift+PageDown")
     page.wait_for_timeout(200)
-    check(heading_text(page) == "September 2027", f"{slug}: Shift+PageDown pages a year")
+    check(heading_text(page) == paged_year,
+          f"{slug}: Shift+PageDown pages a year (got {heading_text(page)!r}, want {paged_year!r})")
     page.keyboard.press("Shift+PageUp")
     page.wait_for_timeout(200)
-    check(heading_text(page) == "September 2026", f"{slug}: Shift+PageUp pages a year back")
-    # Enter selects
+    check(heading_text(page) == paged, f"{slug}: Shift+PageUp pages a year back")
+    # Enter selects the focused day (expected value derived from that key)
+    selected_key = int(focus_key(page))
+    expected_value = page.evaluate(
+        "(key) => { const y = Math.floor(key / 10000), m = Math.floor((key % 10000) / 100) - 1, d = key % 100;"
+        " return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(y, m, d)); }",
+        selected_key,
+    )
     page.keyboard.press("Enter")
     page.wait_for_timeout(250)
-    check(inp.input_value().startswith("Sep "), f"{slug}: Enter selects the focused day")
+    check(inp.input_value() == expected_value, f"{slug}: Enter selects the focused day (got {inp.input_value()!r}, want {expected_value!r})")
     check(page.get_by_role("dialog").count() == 0, f"{slug}: keyboard selection closes")
     check(page.evaluate("document.activeElement.id") == "dp-ref-input",
           f"{slug}: focus restored to the input after keyboard selection")
@@ -581,8 +602,16 @@ def check_with_label(browser):
     page.locator('#ds-root input[aria-haspopup="dialog"]').first.click()
     page.wait_for_selector('[role="dialog"]')
     page.wait_for_timeout(250)
-    page.get_by_role("button", name="Go to next month").click()
-    page.wait_for_timeout(150)
+    # the picker anchors on the current month when the field is empty; the
+    # fixture dates below are September 2026, so navigate there first
+    # (time-robust: the number of steps adapts to whenever the harness runs)
+    for _ in range(48):
+        if heading_text(page) == "September 2026":
+            break
+        page.get_by_role("button", name="Go to previous month").click()
+        page.wait_for_timeout(120)
+    check(heading_text(page) == "September 2026",
+          f"{slug}: navigated to the September 2026 fixture month (got {heading_text(page)!r})")
     page.locator('[data-dp-focus="20260910"]').click()
     page.wait_for_timeout(250)
     check("Sep 10, 2026" in page.locator("#dp-label-readout").text_content(),
@@ -1118,6 +1147,15 @@ def check_mobile(browser):
     check(cell["w"] == 44 and cell["h"] == 44, f"{slug}: 44px day cells (got {cell})")
 
     # pick + readout
+    # the sheet anchors on the current month when the field is empty; the
+    # fixture date below is August 2026, so navigate there first (time-robust)
+    for _ in range(48):
+        if heading_text(page) == "August 2026":
+            break
+        page.get_by_role("button", name="Go to previous month").click()
+        page.wait_for_timeout(120)
+    check(heading_text(page) == "August 2026",
+          f"{slug}: navigated to the August 2026 fixture month (got {heading_text(page)!r})")
     page.locator('[data-dp-focus="20260826"]').click()
     page.wait_for_timeout(250)
     check(page.get_by_role("dialog").count() == 0, f"{slug}: selection closes the sheet")

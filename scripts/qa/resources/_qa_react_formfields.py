@@ -89,7 +89,7 @@ def static_checks():
         check(folder.is_dir(), f"{slug}: folder exists")
         for name in FILES:
             check((folder / name).is_file(), f"{slug}: {name} exists")
-        meta = json.loads((folder / "metadata.json").read_text())
+        meta = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
         for key in ["id", "name", "slug", "component", "family", "variant", "description",
                     "framework", "language", "languages", "technology", "type", "category",
                     "subcategory", "styling", "tags", "features", "responsive", "darkMode",
@@ -106,8 +106,8 @@ def static_checks():
         check(meta["dependencies"] == [], f"{slug}: no dependencies")
         for rel in meta["related"]:
             check(rel in SLUGS, f"{slug}: related slug {rel} exists")
-        tsx = (folder / "code.tsx").read_text()
-        jsx = (folder / "code.jsx").read_text()
+        tsx = (folder / "code.tsx").read_text(encoding="utf-8")
+        jsx = (folder / "code.jsx").read_text(encoding="utf-8")
         check(not re.search(r"\bany\b", tsx), f"{slug}: no any in code.tsx")
         check("<div onClick" not in tsx, f"{slug}: no div onClick")
         check("style=" not in tsx, f"{slug}: no inline style attribute")
@@ -126,7 +126,7 @@ def static_checks():
         check(tsx_exports == jsx_exports, f"{slug}: export parity {tsx_exports} vs {jsx_exports}")
         check("export default FormField;" in jsx, f"{slug}: JSX default export")
         check("interface " not in jsx and ": string" not in jsx, f"{slug}: JSX types stripped")
-        preview = (folder / "preview.html").read_text()
+        preview = (folder / "preview.html").read_text(encoding="utf-8")
         check("data-theme" in preview and "ds-theme-toggle" in preview, f"{slug}: preview theme toggle")
         cores[slug] = neutralize_core(tsx)
     ref = cores["form-field"]
