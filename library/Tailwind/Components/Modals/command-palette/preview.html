@@ -6,12 +6,12 @@
   <title>Command Palette - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-50 via-slate-100 to-zinc-100 flex items-center justify-center p-8">
+<body data-command-palette class="min-h-screen bg-gradient-to-br from-gray-50 via-slate-100 to-zinc-100 flex items-center justify-center p-8">
   
   <!-- Command Palette Modal -->
   <div id="command-palette" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('command-palette')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
     
     <!-- Palette -->
     <div class="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
@@ -120,7 +120,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('command-palette')" class="px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-lg">
+  <button class="px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-lg" aria-haspopup="dialog" aria-expanded="false" aria-controls="command-palette" data-bind="2">
     <span class="flex items-center gap-2">
       <span>Open Command Palette</span>
       <kbd class="px-2 py-0.5 text-xs bg-gray-700 dark:bg-gray-200 rounded">⌘K</kbd>
@@ -142,5 +142,45 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-command-palette]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('command-palette') });
+    bind('[data-bind="2"]', function (event) { openModal('command-palette') });
+    const menus = [
+      { id: 'command-palette', close: function () { closeModal('command-palette') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

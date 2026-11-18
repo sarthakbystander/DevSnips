@@ -1,4 +1,4 @@
-<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+<div data-expandable-table class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
   <table class="w-full">
     <thead>
       <tr class="bg-gray-50 border-b border-gray-200">
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-100" id="expandableTable">
-      <tr class="expandable-row" onclick="toggleRow(this)">
+      <tr class="expandable-row">
         <td class="px-5 py-4">
           <button class="expand-btn w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition-colors">
             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -51,7 +51,7 @@
           </div>
         </td>
       </tr>
-      <tr class="expandable-row" onclick="toggleRow(this)">
+      <tr class="expandable-row">
         <td class="px-5 py-4">
           <button class="expand-btn w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 hover:bg-emerald-200 transition-colors">
             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -94,6 +94,22 @@
       </tr>
     </tbody>
   </table>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-expandable-table]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    root.addEventListener('click', function (event) {
+      const opt = event.target.closest('.expandable-row');
+      if (opt) toggleRow(opt);
+    });
+  })();
+</script>
 </div>
 <script>
 function toggleRow(row) {

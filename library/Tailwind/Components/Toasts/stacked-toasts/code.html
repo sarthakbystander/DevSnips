@@ -14,14 +14,28 @@ Usage Example: Call showToast(title, body) repeatedly — they queue vertically 
 ></div>
 
 <!-- Demo trigger buttons -->
-<div class="flex flex-wrap gap-2">
-  <button onclick="pushRandom()" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">Push toast</button>
-  <button onclick="dismissAll()" class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2">Dismiss all</button>
+<div data-stacked-toasts class="flex flex-wrap gap-2">
+  <button class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="1">Push toast</button>
+  <button class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2" data-bind="2">Dismiss all</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-stacked-toasts]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { pushRandom() });
+    bind('[data-bind="2"]', function (event) { dismissAll() });
+  })();
+</script>
 </div>
 
 <script>
   (function () {
-    const root = document.currentScript.closest('[data-toast-region]');
+    const root = document.querySelector('[data-toast-region]');
     if (!root) return;
 
     function dismiss(toast) {

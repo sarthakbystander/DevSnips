@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-radio-menu class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -26,8 +26,7 @@
           <button
             id="radio-button"
             class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-            onclick="toggleDropdown('radio-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="radio-menu">
             <span id="radio-label">Priority</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -44,7 +43,7 @@
 
             <div class="py-2">
               <label class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition-colors">
-                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="critical" onchange="updateRadioLabel(this)">
+                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="critical">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Critical</span>
@@ -52,7 +51,7 @@
               </label>
               
               <label class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition-colors">
-                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="high" onchange="updateRadioLabel(this)">
+                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="high">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 bg-orange-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">High</span>
@@ -60,7 +59,7 @@
               </label>
               
               <label class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition-colors">
-                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="medium" onchange="updateRadioLabel(this)" checked>
+                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="medium" checked>
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Medium</span>
@@ -68,7 +67,7 @@
               </label>
               
               <label class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition-colors">
-                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="low" onchange="updateRadioLabel(this)">
+                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="low">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Low</span>
@@ -76,7 +75,7 @@
               </label>
               
               <label class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-blue-50 transition-colors">
-                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="none" onchange="updateRadioLabel(this)">
+                <input type="radio" name="priority" class="priority-radio w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" value="none">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 bg-gray-300 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">None</span>
@@ -87,6 +86,49 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-radio-menu]');
+
+        function bind(selector, handler, event) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener(event || 'click', handler);
+          });
+         }
+
+        bind('#radio-button', function (event) { toggleDropdown('radio-menu') });
+        root.addEventListener('change', function (event) {
+          const opt = event.target.closest('.priority-radio');
+          if (opt) updateRadioLabel(opt);
+        });
+        const menus = [
+          { id: 'radio-menu', close: function () { toggleDropdown('radio-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

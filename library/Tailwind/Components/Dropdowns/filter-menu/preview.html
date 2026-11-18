@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-filter-menu class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -26,8 +26,7 @@
           <button
             id="filter-button"
             class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-            onclick="toggleDropdown('filter-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="filter-menu">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
             </svg>
@@ -44,7 +43,7 @@
           >
             <div class="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
               <h3 class="font-semibold text-gray-900">Filters</h3>
-              <button class="text-xs font-medium text-blue-600 hover:text-blue-700" onclick="clearFilters()">Clear all</button>
+              <button class="text-xs font-medium text-blue-600 hover:text-blue-700" data-bind="1">Clear all</button>
             </div>
 
             <!-- Status Filter -->
@@ -52,7 +51,7 @@
               <h4 class="text-sm font-medium text-gray-700 mb-3">Status</h4>
               <div class="space-y-2">
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="active" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="active">
                   <span class="flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">
                     <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
                     Active
@@ -60,7 +59,7 @@
                   <span class="ml-auto text-xs text-gray-400">(124)</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="pending" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="pending">
                   <span class="flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">
                     <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
                     Pending
@@ -68,7 +67,7 @@
                   <span class="ml-auto text-xs text-gray-400">(38)</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="inactive" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="status" data-value="inactive">
                   <span class="flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">
                     <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
                     Inactive
@@ -83,22 +82,22 @@
               <h4 class="text-sm font-medium text-gray-700 mb-3">Category</h4>
               <div class="space-y-2">
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="design" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="design">
                   <span class="text-sm text-gray-600 group-hover:text-gray-900">Design</span>
                   <span class="ml-auto text-xs text-gray-400">(56)</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="development" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="development">
                   <span class="text-sm text-gray-600 group-hover:text-gray-900">Development</span>
                   <span class="ml-auto text-xs text-gray-400">(89)</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="marketing" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="marketing">
                   <span class="text-sm text-gray-600 group-hover:text-gray-900">Marketing</span>
                   <span class="ml-auto text-xs text-gray-400">(34)</span>
                 </label>
                 <label class="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="sales" onchange="updateFilters()">
+                  <input type="checkbox" class="filter-checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" data-filter="category" data-value="sales">
                   <span class="text-sm text-gray-600 group-hover:text-gray-900">Sales</span>
                   <span class="ml-auto text-xs text-gray-400">(45)</span>
                 </label>
@@ -117,7 +116,7 @@
             <!-- Footer -->
             <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
               <span id="filter-summary" class="text-xs text-gray-500">No filters applied</span>
-              <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors" onclick="applyFilters()">
+              <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors" data-bind="2">
                 Apply Filters
               </button>
             </div>
@@ -125,6 +124,50 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-filter-menu]');
+
+        function bind(selector, handler, event) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener(event || 'click', handler);
+          });
+         }
+
+        bind('#filter-button', function (event) { toggleDropdown('filter-menu') });
+        bind('[data-bind="1"]', function (event) { clearFilters() });
+        bind('[data-bind="2"]', function (event) { applyFilters() });
+        root.addEventListener('change', function (event) {
+          if (event.target.closest('.filter-checkbox')) updateFilters();
+        });
+        const menus = [
+          { id: 'filter-menu', close: function () { toggleDropdown('filter-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

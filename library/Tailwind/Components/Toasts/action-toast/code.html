@@ -14,16 +14,29 @@ Usage Example: Call showToast({ action: 'Undo', onAction: () => revert() }) afte
 ></div>
 
 <!-- Demo trigger buttons -->
-<div class="flex flex-wrap gap-2">
-  <button onclick="showToast()" class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2">
+<div data-action-toast class="flex flex-wrap gap-2">
+  <button class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2" data-bind="1">
     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg>
     Delete item
   </button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-action-toast]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { showToast() });
+  })();
+</script>
 </div>
 
 <script>
   (function () {
-    const root = document.currentScript.closest('[data-toast-region]');
+    const root = document.querySelector('[data-toast-region]');
     if (!root) return;
 
     function dismiss(toast) {

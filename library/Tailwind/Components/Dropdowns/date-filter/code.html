@@ -1,10 +1,9 @@
 <!-- Date Filter -->
-<div class="relative inline-block">
+<div data-date-filter class="relative inline-block">
   <button
     id="date-button"
     class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-    onclick="toggleDropdown('date-menu')"
-  >
+   aria-haspopup="menu" aria-expanded="false" aria-controls="date-menu">
     <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
     </svg>
@@ -22,14 +21,14 @@
     <div class="p-4 border-b border-gray-100">
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Quick Select</p>
       <div class="grid grid-cols-2 gap-2">
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('today')">Today</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('yesterday')">Yesterday</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('last7')">Last 7 days</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('last30')">Last 30 days</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('thisWeek')">This week</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('lastWeek')">Last week</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('thisMonth')">This month</button>
-        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" onclick="setDateRange('lastMonth')">Last month</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="1">Today</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="2">Yesterday</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="3">Last 7 days</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="4">Last 30 days</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="5">This week</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="6">Last week</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="7">This month</button>
+        <button class="date-preset px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" data-bind="8">Last month</button>
       </div>
     </div>
 
@@ -59,11 +58,59 @@
     <!-- Footer -->
     <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
       <span id="date-summary" class="text-xs text-gray-500">No date range selected</span>
-      <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors" onclick="applyDateRange()">
+      <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors" data-bind="9">
         Apply
       </button>
     </div>
   </div>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-date-filter]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('#date-button', function (event) { toggleDropdown('date-menu') });
+    bind('[data-bind="1"]', function (event) { setDateRange('today') });
+    bind('[data-bind="2"]', function (event) { setDateRange('yesterday') });
+    bind('[data-bind="3"]', function (event) { setDateRange('last7') });
+    bind('[data-bind="4"]', function (event) { setDateRange('last30') });
+    bind('[data-bind="5"]', function (event) { setDateRange('thisWeek') });
+    bind('[data-bind="6"]', function (event) { setDateRange('lastWeek') });
+    bind('[data-bind="7"]', function (event) { setDateRange('thisMonth') });
+    bind('[data-bind="8"]', function (event) { setDateRange('lastMonth') });
+    bind('[data-bind="9"]', function (event) { applyDateRange() });
+    const menus = [
+      { id: 'date-menu', close: function () { toggleDropdown('date-menu') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </div>
 
 <script>

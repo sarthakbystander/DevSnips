@@ -31,8 +31,9 @@
           
           <!-- Actions -->
           <div class="flex flex-col sm:flex-row gap-3 md:flex-col lg:flex-row">
-            <button onclick="closeModal('cookie-modal')" class="px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">Reject All</button>
-            <button onclick="closeModal('cookie-modal')" class="px-6 py-3 text-sm font-medium text-white bg-amber-600 rounded-xl hover:bg-amber-700 transition-colors shadow-lg shadow-amber-500/30 whitespace-nowrap">Accept All</button>
+            <div data-cookie-consent-modal>
+<button class="px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap" data-bind="1">Reject All</button>
+            <button class="px-6 py-3 text-sm font-medium text-white bg-amber-600 rounded-xl hover:bg-amber-700 transition-colors shadow-lg shadow-amber-500/30 whitespace-nowrap" data-bind="2">Accept All</button>
           </div>
         </div>
       </div>
@@ -41,4 +42,48 @@
 </div>
 
 <!-- Demo Trigger Button -->
-<button onclick="openModal('cookie-modal')" class="px-6 py-3 bg-amber-600 text-white font-medium rounded-xl hover:bg-amber-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">Open Cookie Consent</button>
+<button class="px-6 py-3 bg-amber-600 text-white font-medium rounded-xl hover:bg-amber-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2" aria-haspopup="dialog" aria-expanded="false" aria-controls="cookie-modal" data-bind="3">Open Cookie Consent</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-cookie-consent-modal]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('cookie-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('cookie-modal') });
+    bind('[data-bind="3"]', function (event) { openModal('cookie-modal') });
+    const menus = [
+      { id: 'cookie-modal', close: function () { closeModal('cookie-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
+
+</div>
+

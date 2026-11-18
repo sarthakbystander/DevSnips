@@ -1,7 +1,8 @@
 <!-- Checkout Modal -->
 <div id="checkout-modal" class="fixed inset-0 z-50 hidden">
   <!-- Backdrop -->
-  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('checkout-modal')"></div>
+  <div data-checkout-modal>
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm" data-bind="1"></div>
   
   <!-- Modal Container -->
   <div class="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl md:max-h-[90vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col transform transition-all overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
@@ -19,7 +20,7 @@
           <p class="text-sm text-gray-500 dark:text-gray-400">Review your order</p>
         </div>
       </div>
-      <button onclick="closeModal('checkout-modal')" class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      <button class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-bind="2">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
@@ -128,8 +129,8 @@
     <!-- Footer -->
     <div class="flex-shrink-0 p-6 border-t border-gray-100 dark:border-gray-800">
       <div class="flex gap-3">
-        <button onclick="closeModal('checkout-modal')" class="flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Continue Shopping</button>
-        <button onclick="closeModal('checkout-modal')" class="flex-1 py-3 text-sm font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+        <button class="flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" data-bind="3">Continue Shopping</button>
+        <button class="flex-1 py-3 text-sm font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2" data-bind="4">
           <span>Complete Purchase</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -141,4 +142,50 @@
 </div>
 
 <!-- Demo Trigger Button -->
-<button onclick="openModal('checkout-modal')" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Open Checkout Modal</button>
+<button class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-haspopup="dialog" aria-expanded="false" aria-controls="checkout-modal" data-bind="5">Open Checkout Modal</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-checkout-modal]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('checkout-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('checkout-modal') });
+    bind('[data-bind="3"]', function (event) { closeModal('checkout-modal') });
+    bind('[data-bind="4"]', function (event) { closeModal('checkout-modal') });
+    bind('[data-bind="5"]', function (event) { openModal('checkout-modal') });
+    const menus = [
+      { id: 'checkout-modal', close: function () { closeModal('checkout-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
+
+</div>
+

@@ -14,14 +14,31 @@ Usage Example: Call showToast() for a non-ignorable confirmation that still time
 ></div>
 
 <!-- Demo trigger button -->
-<button onclick="showToast()" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+<div data-persistent-toast>
+<button class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="1">
   <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3 3-3"/></svg>
   Upload file
 </button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-persistent-toast]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { showToast() });
+  })();
+</script>
+
+</div>
+
 
 <script>
   (function () {
-    const root = document.currentScript.closest('[data-toast-region]');
+    const root = document.querySelector('[data-toast-region]');
     if (!root) return;
     const DURATION = 6000;
 

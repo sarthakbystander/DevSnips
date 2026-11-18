@@ -1,11 +1,10 @@
 <!-- Avatar Menu -->
-<div class="relative inline-block">
+<div data-avatar-menu class="relative inline-block">
   <button
     id="avatar-button"
     class="relative flex items-center justify-center w-12 h-12 rounded-full hover:ring-4 hover:ring-blue-100 transition-all focus:outline-none"
-    onclick="toggleDropdown('avatar-menu')"
     aria-expanded="true"
-  >
+   aria-haspopup="menu" aria-controls="avatar-menu">
     <img
       src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop&crop=faces"
       alt="User avatar"
@@ -89,6 +88,45 @@
       </a>
     </div>
   </div>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-avatar-menu]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('#avatar-button', function (event) { toggleDropdown('avatar-menu') });
+    const menus = [
+      { id: 'avatar-menu', close: function () { toggleDropdown('avatar-menu') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </div>
 
 <script>

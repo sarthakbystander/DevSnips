@@ -6,12 +6,12 @@
   <title>Signup Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 flex items-center justify-center p-8">
+<body data-signup-modal class="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 flex items-center justify-center p-8">
   
   <!-- Signup Modal -->
   <div id="signup-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('signup-modal')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
     
     <!-- Modal Container -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -29,7 +29,7 @@
         </div>
         
         <!-- Form -->
-        <form class="p-6 space-y-4" onsubmit="event.preventDefault(); closeModal('signup-modal');">
+        <form class="p-6 space-y-4" data-bind="2">
           <!-- Name -->
           <div class="grid grid-cols-2 gap-4">
             <div>
@@ -123,7 +123,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('signup-modal')" class="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-medium rounded-xl hover:from-violet-700 hover:to-purple-700 transition-all focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 shadow-lg shadow-purple-500/30">
+  <button class="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-medium rounded-xl hover:from-violet-700 hover:to-purple-700 transition-all focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 shadow-lg shadow-purple-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="signup-modal" data-bind="3">
     Open Signup Modal
   </button>
 
@@ -145,5 +145,46 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-signup-modal]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('[data-bind="1"]', function (event) { closeModal('signup-modal') });
+    bind('[data-bind="2"]', function (event) { event.preventDefault(); closeModal('signup-modal'); }, 'submit');
+    bind('[data-bind="3"]', function (event) { openModal('signup-modal') });
+    const menus = [
+      { id: 'signup-modal', close: function () { closeModal('signup-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

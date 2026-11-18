@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-theme-switcher class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -26,8 +26,7 @@
           <button
             id="theme-button"
             class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-            onclick="toggleDropdown('theme-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="theme-menu">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
             </svg>
@@ -50,7 +49,6 @@
                 <button
                   class="theme-option relative flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-all"
                   data-theme="light"
-                  onclick="selectTheme(this)"
                 >
                   <div class="w-full h-16 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
                     <svg class="w-8 h-8 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +65,6 @@
                 <button
                   class="theme-option relative flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-all"
                   data-theme="dark"
-                  onclick="selectTheme(this)"
                 >
                   <div class="w-full h-16 rounded-lg bg-slate-800 flex items-center justify-center">
                     <svg class="w-8 h-8 text-slate-200" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +81,6 @@
                 <button
                   class="theme-option relative flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-all"
                   data-theme="system"
-                  onclick="selectTheme(this)"
                 >
                   <div class="w-full h-16 rounded-lg bg-gradient-to-br from-white to-slate-800 flex items-center justify-center">
                     <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +97,6 @@
                 <button
                   class="theme-option relative flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-all"
                   data-theme="sepia"
-                  onclick="selectTheme(this)"
                 >
                   <div class="w-full h-16 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center">
                     <svg class="w-8 h-8 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
@@ -120,18 +115,67 @@
             <div class="px-4 pb-4">
               <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Accent Color</p>
               <div class="flex gap-2">
-                <button class="accent-option w-8 h-8 rounded-full bg-blue-600 ring-2 ring-offset-2 ring-blue-600 hover:scale-110 transition-transform" onclick="setAccentColor('blue')"></button>
-                <button class="accent-option w-8 h-8 rounded-full bg-purple-600 ring-2 ring-offset-2 ring-transparent hover:ring-purple-600 hover:scale-110 transition-transform" onclick="setAccentColor('purple')"></button>
-                <button class="accent-option w-8 h-8 rounded-full bg-pink-600 ring-2 ring-offset-2 ring-transparent hover:ring-pink-600 hover:scale-110 transition-transform" onclick="setAccentColor('pink')"></button>
-                <button class="accent-option w-8 h-8 rounded-full bg-emerald-600 ring-2 ring-offset-2 ring-transparent hover:ring-emerald-600 hover:scale-110 transition-transform" onclick="setAccentColor('emerald')"></button>
-                <button class="accent-option w-8 h-8 rounded-full bg-amber-600 ring-2 ring-offset-2 ring-transparent hover:ring-amber-600 hover:scale-110 transition-transform" onclick="setAccentColor('amber')"></button>
-                <button class="accent-option w-8 h-8 rounded-full bg-red-600 ring-2 ring-offset-2 ring-transparent hover:ring-red-600 hover:scale-110 transition-transform" onclick="setAccentColor('red')"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-blue-600 ring-2 ring-offset-2 ring-blue-600 hover:scale-110 transition-transform" data-bind="1"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-purple-600 ring-2 ring-offset-2 ring-transparent hover:ring-purple-600 hover:scale-110 transition-transform" data-bind="2"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-pink-600 ring-2 ring-offset-2 ring-transparent hover:ring-pink-600 hover:scale-110 transition-transform" data-bind="3"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-emerald-600 ring-2 ring-offset-2 ring-transparent hover:ring-emerald-600 hover:scale-110 transition-transform" data-bind="4"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-amber-600 ring-2 ring-offset-2 ring-transparent hover:ring-amber-600 hover:scale-110 transition-transform" data-bind="5"></button>
+                <button class="accent-option w-8 h-8 rounded-full bg-red-600 ring-2 ring-offset-2 ring-transparent hover:ring-red-600 hover:scale-110 transition-transform" data-bind="6"></button>
               </div>
             </div>
           </div>
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-theme-switcher]');
+
+        function bind(selector, handler) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('click', handler);
+          });
+      }
+
+        bind('#theme-button', function (event) { toggleDropdown('theme-menu') });
+        bind('[data-bind="1"]', function (event) { setAccentColor('blue') });
+        bind('[data-bind="2"]', function (event) { setAccentColor('purple') });
+        bind('[data-bind="3"]', function (event) { setAccentColor('pink') });
+        bind('[data-bind="4"]', function (event) { setAccentColor('emerald') });
+        bind('[data-bind="5"]', function (event) { setAccentColor('amber') });
+        bind('[data-bind="6"]', function (event) { setAccentColor('red') });
+        root.addEventListener('click', function (event) {
+          const opt = event.target.closest('.theme-option');
+          if (opt) selectTheme(opt);
+        });
+        const menus = [
+          { id: 'theme-menu', close: function () { toggleDropdown('theme-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

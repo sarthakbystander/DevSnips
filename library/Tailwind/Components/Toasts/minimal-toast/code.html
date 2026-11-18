@@ -14,14 +14,31 @@ Usage Example: Call showToast('Copied!') after a clipboard copy or quick inline 
 ></div>
 
 <!-- Demo trigger button -->
-<button onclick="showToast('Copied!')" class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+<div data-minimal-toast>
+<button class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="1">
   <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
   Copy to clipboard
 </button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-minimal-toast]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { showToast('Copied!') });
+  })();
+</script>
+
+</div>
+
 
 <script>
   (function () {
-    const root = document.currentScript.closest('[data-toast-region]');
+    const root = document.querySelector('[data-toast-region]');
     if (!root) return;
 
     function dismiss(toast) {

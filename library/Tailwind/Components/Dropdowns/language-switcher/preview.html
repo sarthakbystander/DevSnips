@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-language-switcher class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -26,8 +26,7 @@
           <button
             id="lang-button"
             class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-            onclick="toggleDropdown('lang-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
             </svg>
@@ -52,8 +51,7 @@
                     type="text"
                     placeholder="Search languages..."
                     class="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    oninput="filterLanguages(this.value)"
-                  />
+                  data-bind="1">
                 </div>
               </div>
 
@@ -65,7 +63,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="English"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇺🇸</span>
@@ -79,7 +76,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Spanish"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇪🇸</span>
@@ -93,7 +89,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="French"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇫🇷</span>
@@ -107,7 +102,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="German"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇩🇪</span>
@@ -129,7 +123,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Portuguese"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇧🇷</span>
@@ -143,7 +136,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Japanese"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇯🇵</span>
@@ -157,7 +149,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Chinese"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇨🇳</span>
@@ -171,7 +162,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Korean"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇰🇷</span>
@@ -185,7 +175,6 @@
               <button
                 class="lang-option w-full flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                 data-lang="Arabic"
-                onclick="selectLanguage(this)"
               >
                 <div class="flex items-center gap-3">
                   <span class="text-xl">🇸🇦</span>
@@ -200,6 +189,50 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-language-switcher]');
+
+        function bind(selector, handler, event) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener(event || 'click', handler);
+          });
+         }
+
+        bind('#lang-button', function (event) { toggleDropdown('lang-menu') });
+        bind('[data-bind="1"]', function (event) { filterLanguages(this.value) }, 'input');
+        root.addEventListener('click', function (event) {
+          const opt = event.target.closest('.lang-option');
+          if (opt) selectLanguage(opt);
+        });
+        const menus = [
+          { id: 'lang-menu', close: function () { toggleDropdown('lang-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

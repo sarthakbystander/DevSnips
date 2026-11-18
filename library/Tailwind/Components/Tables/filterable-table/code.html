@@ -1,28 +1,28 @@
-<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+<div data-filterable-table class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
   <div class="p-4 border-b border-gray-200 bg-gray-50">
     <div class="flex flex-wrap gap-3">
-      <select id="statusFilter" onchange="filterTable()" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
+      <select id="statusFilter" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
         <option value="">All Status</option>
         <option value="active">Active</option>
         <option value="pending">Pending</option>
         <option value="completed">Completed</option>
         <option value="cancelled">Cancelled</option>
       </select>
-      <select id="priorityFilter" onchange="filterTable()" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
+      <select id="priorityFilter" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
         <option value="">All Priority</option>
         <option value="critical">Critical</option>
         <option value="high">High</option>
         <option value="medium">Medium</option>
         <option value="low">Low</option>
       </select>
-      <select id="categoryFilter" onchange="filterTable()" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
+      <select id="categoryFilter" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
         <option value="">All Categories</option>
         <option value="bug">Bug</option>
         <option value="feature">Feature</option>
         <option value="enhancement">Enhancement</option>
         <option value="documentation">Documentation</option>
       </select>
-      <button onclick="resetFilters()" class="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+      <button class="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors" data-bind="1">
         Reset Filters
       </button>
     </div>
@@ -181,6 +181,22 @@
       </tr>
     </tbody>
   </table>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-filterable-table]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('#statusFilter', function (event) { filterTable() }, 'change');
+    bind('#priorityFilter', function (event) { filterTable() }, 'change');
+    bind('#categoryFilter', function (event) { filterTable() }, 'change');
+    bind('[data-bind="1"]', function (event) { resetFilters() });
+  })();
+</script>
 </div>
 
 <script>

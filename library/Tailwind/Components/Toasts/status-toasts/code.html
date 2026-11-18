@@ -14,16 +14,32 @@ Usage Example: Call showToast('success'|'error'|'warning'|'info', title, message
 ></div>
 
 <!-- Demo trigger buttons -->
-<div class="flex flex-wrap gap-2">
-  <button onclick="showToast('success')" class="rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2">Success</button>
-  <button onclick="showToast('error')" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2">Error</button>
-  <button onclick="showToast('warning')" class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2">Warning</button>
-  <button onclick="showToast('info')" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">Info</button>
+<div data-status-toasts class="flex flex-wrap gap-2">
+  <button class="rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2" data-bind="1">Success</button>
+  <button class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2" data-bind="2">Error</button>
+  <button class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2" data-bind="3">Warning</button>
+  <button class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="4">Info</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-status-toasts]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { showToast('success') });
+    bind('[data-bind="2"]', function (event) { showToast('error') });
+    bind('[data-bind="3"]', function (event) { showToast('warning') });
+    bind('[data-bind="4"]', function (event) { showToast('info') });
+  })();
+</script>
 </div>
 
 <script>
   (function () {
-    const root = document.currentScript.closest('[data-toast-region]');
+    const root = document.querySelector('[data-toast-region]');
     if (!root) return;
 
     const variants = {
