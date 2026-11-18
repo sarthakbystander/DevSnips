@@ -1,0 +1,58 @@
+name: Release
+
+# Automated CD workflow: triggered when a version tag (v*.*.*) is pushed
+# or a release is published in GitHub.
+# Runs the full test suite before publishing the DevSnips CLI to npm.
+
+on:
+  push:
+    tags:
+      - "v*"
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify before release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Structure & index check
+        run: |
+          python scripts/tooling/validators/validate.py
+          python scripts/tooling/indexing/rebuild_index.py --check
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: CLI test suite
+        working-directory: cli
+        run: npm test
+
+  publish-npm:
+    name: Publish DevSnips CLI to npm
+    needs: [verify]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish CLI package
+        working-directory: cli
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
