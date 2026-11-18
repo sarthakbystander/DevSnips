@@ -292,9 +292,18 @@ def build_index():
             files += sorted("pages/" + p.name
                             for p in pages_dir.iterdir() if p.is_file())
         # React templates keep their project in src/ (and optionally
-        # components/, data/, sections/, styles/ parallel trees); include those
-        # one level deep, prefixed `src/` etc., mirroring the `pages/` manifest.
-        for sub in ("src", "components", "data", "sections", "styles"):
+        # components/, data/, sections/, styles/ parallel trees). src/ is real
+        # code and nests (src/lib/, src/studio/, src/components/…), so it is
+        # walked recursively; the parallel trees are listed one level deep,
+        # prefixed `src/` etc., mirroring the `pages/` manifest of other techs.
+        src_dir = leaf / "src"
+        if src_dir.is_dir():
+            files += sorted(
+                p.relative_to(leaf).as_posix()
+                for p in src_dir.rglob("*")
+                if p.is_file()
+            )
+        for sub in ("components", "data", "sections", "styles"):
             sub_dir = leaf / sub
             if sub_dir.is_dir():
                 files += sorted(sub + "/" + p.name for p in sub_dir.iterdir() if p.is_file())
