@@ -45,6 +45,7 @@ means passing the strict file-set layer; you can still run it standalone for a f
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors. |
 | Browser QA (React) | `scripts/qa/resources/_qa_react_*.py` | Runtime, layout, theme, a11y per family. |
 | Browser QA (Tailwind) | `scripts/qa/resources/qa_tailwind.py` | Runtime, console errors, overflow per Tailwind preview. |
+| Browser QA (Tailwind interactions) | `scripts/qa/resources/qa_tailwind_interactions.py` | Popup toggling, `aria-expanded` sync, Escape close, `[data-bind]` activation. |
 | Browser QA (templates) | `scripts/qa/resources/_qa_template.py` | Overflow, console errors, interactions. |
 | Inline handler gate | `scripts/tooling/validators/validate.py` (`check_inline_handlers`) | No `on*=` attributes in Tailwind HTML outside `<script>`. |
 
@@ -148,6 +149,20 @@ python scripts/qa/resources/qa_tailwind.py                 # full sweep
 python scripts/qa/resources/qa_tailwind.py --only-failures # print failures only
 python scripts/qa/resources/qa_tailwind.py --json          # machine-readable
 python scripts/qa/resources/qa_tailwind.py --limit 10      # smoke subset
+```
+
+Tailwind interactions: `scripts/qa/resources/qa_tailwind_interactions.py`. Python +
+Playwright, `file://` based. The interaction layer the sweep does not cover: per page it
+asserts no page/console errors, every `[aria-haspopup]` trigger toggles its
+`aria-controls` target (visibility + `aria-expanded`) and Escape closes it, and every
+`[data-bind]` element activates without error. Default mode checks the working-tree diff
+vs HEAD, so run it after editing Tailwind resources and before committing; `--all`
+sweeps every preview.
+
+```bash
+python scripts/qa/resources/qa_tailwind_interactions.py            # changed vs HEAD
+python scripts/qa/resources/qa_tailwind_interactions.py --all      # full sweep
+python scripts/qa/resources/qa_tailwind_interactions.py --limit 10 # smoke subset
 ```
 
 The `browser-qa` CI job runs: the Tailwind sweep, every React harness except
