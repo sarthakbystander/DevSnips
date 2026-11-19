@@ -190,7 +190,13 @@ Publishing is automated by `.github/workflows/release.yml`: it runs `verify`, th
 `npm publish --access public` from `cli/`. It triggers on a `v*` tag push, a published GitHub
 release, or `workflow_dispatch`. It needs an `NPM_TOKEN` repository secret holding an npm
 **granular access token with "bypass 2FA" enabled** — npm requires 2FA (or such a token) for
-every publish, so the account must have 2FA enabled before the token can be created.
+every publish, so the account must have 2FA enabled before the token can be created. The
+workflow skips publishing when `npm view devsnips@<version>` already resolves, so tagging a
+release that was published by hand is a no-op rather than a failure.
+
+The registry can acknowledge a publish asynchronously (`202 Accepted`); the new version may
+take a few minutes to appear on `npm view`, and a second publish of the same version during
+that window fails with `409 Conflict`.
 
 Local alternative when signed in interactively:
 

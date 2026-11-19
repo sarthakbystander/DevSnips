@@ -51,7 +51,20 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Check whether this version is already on npm
+        id: published
+        working-directory: cli
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "devsnips@$version" version > /dev/null 2>&1; then
+            echo "already=true" >> "$GITHUB_OUTPUT"
+            echo "devsnips@$version is already published; skipping publish."
+          else
+            echo "already=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish CLI package
+        if: steps.published.outputs.already == 'false'
         working-directory: cli
         run: npm publish --access public
         env:
