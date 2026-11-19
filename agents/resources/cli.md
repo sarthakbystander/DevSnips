@@ -7,7 +7,7 @@ the **implementation**; for consume-side usage rules see
 ## Location and packaging
 
 - Package root: `cli/`
-- Manifest: `cli/package.json` — name `devsnips`, `main`/`bin` → `./src/index.js`,
+- Manifest: `cli/package.json` — name `devsnips`, `main`/`bin` → `src/index.js`,
   `engines.node >= 18`, published `files` = `src/**/*`, `README.md`, `LICENSE`.
 - Docs: `cli/README.md`. License: `cli/LICENSE`. Lockfile: `cli/package-lock.json`.
 - Published as the npm package `devsnips`; invoked as `npx devsnips <command>`.
@@ -173,6 +173,33 @@ npm test
 Suites use `node:assert` and `os.tmpdir()` sandboxes — no framework. Only
 `cli/test/dryrun.test.js` performs network I/O, and it is a `127.0.0.1` fixture server, not a
 real network call.
+
+## Releasing
+
+The published version is `cli/package.json` `version`; nothing else carries it.
+
+Preflight (what the release workflow's `verify` job runs):
+
+```bash
+python scripts/tooling/validators/validate.py
+python scripts/tooling/indexing/rebuild_index.py --check
+cd cli && npm test && npm pack --dry-run   # dry run lists the exact tarball contents
+```
+
+Publishing is automated by `.github/workflows/release.yml`: it runs `verify`, then
+`npm publish --access public` from `cli/`. It triggers on a `v*` tag push, a published GitHub
+release, or `workflow_dispatch`. It needs an `NPM_TOKEN` repository secret holding an npm
+**granular access token with "bypass 2FA" enabled** — npm requires 2FA (or such a token) for
+every publish, so the account must have 2FA enabled before the token can be created.
+
+Local alternative when signed in interactively:
+
+```bash
+cd cli && npm publish --access public
+```
+
+`npm pkg fix` is a no-op on the committed manifest (it already stores `bin` as `src/index.js`
+without `./` and the repository URL as `git+https://…`), so publishing does not rewrite it.
 
 ## Not in the CLI
 
