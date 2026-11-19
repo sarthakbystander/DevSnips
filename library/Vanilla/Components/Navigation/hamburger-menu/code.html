@@ -34,8 +34,14 @@
 }
 @media (prefers-color-scheme: dark){:root{--ds-bg:#0a0a0a;--ds-surface:#111;--ds-surface-2:#171717;--ds-surface-3:#1f1f1f;--ds-foreground:#fafafa;--ds-muted:#a3a3a3;--ds-subtle:#737373;--ds-border:#262626;--ds-border-strong:#404040;--ds-accent:#3b82f6;--ds-accent-hover:#60a5fa;--ds-accent-fg:#fff;--ds-accent-soft:#172554;--ds-success:#22c55e;--ds-success-soft:#052e16;--ds-warning:#f59e0b;--ds-warning-soft:#422006;--ds-danger:#ef4444;--ds-danger-soft:#450a0a;--ds-info:#3b82f6;--ds-info-soft:#172554;--ds-ring:0 0 0 2px #3b82f6;}}
 </style>
-<button type="button" class="hamburger" aria-expanded="false" aria-label="Toggle menu" onclick="this.classList.toggle('active');this.setAttribute('aria-expanded', this.classList.contains('active'))">
+<button type="button" class="hamburger" aria-expanded="false" aria-label="Toggle menu">
   <div class="line"></div>
   <div class="line"></div>
   <div class="line"></div>
 </button>
+<script>
+  document.querySelector('.hamburger').addEventListener('click', function () {
+    this.classList.toggle('active');
+    this.setAttribute('aria-expanded', this.classList.contains('active'));
+  });
+</script>

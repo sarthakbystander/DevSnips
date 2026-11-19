@@ -1,6 +1,6 @@
 """404 section builders — 15 concepts."""
-from .helpers import TOKENS, ic, ICONS, logo_svg
-from .layout import head, section
+from .helpers import TOKENS, ic, logo_svg
+from .layout import section
 
 
 def error_page(style, i):

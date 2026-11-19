@@ -1,14 +1,19 @@
 {
   "id": "faq-neo-brutalist",
-  "name": "FAQ \u2014 Neo-Brutalist",
+  "name": "FAQ — Neo-Brutalist",
   "technology": "React",
   "category": "Sections",
   "subcategory": "FAQ",
   "family": "FAQ",
   "direction": "Neo-Brutalist",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "faq",
+    "accordion",
+    "neo-brutalist"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "FAQ items as square 2px-bordered interface blocks with hard offset shadows, mono index numbers, and press-down triggers."
 }

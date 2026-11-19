@@ -6,12 +6,12 @@
   <title>Success Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/30 to-teal-50 flex items-center justify-center p-8">
+<body data-success-modal class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/30 to-teal-50 flex items-center justify-center p-8">
   
   <!-- Success Modal -->
   <div id="success-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeModal('success-modal')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" data-bind="1"></div>
     
     <!-- Modal Container -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -55,14 +55,14 @@
         
         <!-- Action -->
         <div class="p-6 pt-0 flex justify-center">
-          <button onclick="closeModal('success-modal')" class="px-8 py-3 text-sm font-medium text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-lg shadow-emerald-500/30">Continue</button>
+          <button class="px-8 py-3 text-sm font-medium text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-lg shadow-emerald-500/30" data-bind="2">Continue</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('success-modal')" class="px-6 py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-lg shadow-emerald-500/30">
+  <button class="px-6 py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-lg shadow-emerald-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="success-modal" data-bind="3">
     Open Success Modal
   </button>
 
@@ -84,5 +84,46 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-success-modal]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('success-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('success-modal') });
+    bind('[data-bind="3"]', function (event) { openModal('success-modal') });
+    const menus = [
+      { id: 'success-modal', close: function () { closeModal('success-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

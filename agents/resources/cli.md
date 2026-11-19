@@ -7,7 +7,7 @@ the **implementation**; for consume-side usage rules see
 ## Location and packaging
 
 - Package root: `cli/`
-- Manifest: `cli/package.json` — name `devsnips`, `main`/`bin` → `./src/index.js`,
+- Manifest: `cli/package.json` — name `devsnips`, `main`/`bin` → `src/index.js`,
   `engines.node >= 18`, published `files` = `src/**/*`, `README.md`, `LICENSE`.
 - Docs: `cli/README.md`. License: `cli/LICENSE`. Lockfile: `cli/package-lock.json`.
 - Published as the npm package `devsnips`; invoked as `npx devsnips <command>`.
@@ -39,7 +39,8 @@ Help text, error formatting, and version printing live in `cli/src/utils/errors.
 Implementation: `cli/src/commands/add.js`
 
 Tests: `cli/test/downloader.test.js` (file selection), `cli/test/context.test.js`
-(install recording). There is **no** end-to-end `add` test — `add` performs network I/O.
+(install recording), `cli/test/dryrun.test.js` (offline end-to-end `add` and `--dry-run`
+against a local fixture server via the registry env overrides below).
 
 Behavior, in order:
 
@@ -61,6 +62,8 @@ Behavior, in order:
    after files are on disk, `updateContextAfterInstall(canonicalPath, technology)`.
    If this step fails, the CLI exits `1` and reports that files exist but were not recorded in
    `devsnips/config.json`.
+8. **Report** — destination directory and the written file names.
+
 ## Path handling and installation output
 
 Implementation: `cli/src/install/downloader.js` (`buildRepoFilePath`),
@@ -89,13 +92,18 @@ output: ./devsnips/tailwind/sections/ai-product/agent-workflow/vercel/
 Write safety (`cli/src/install/writer.js` `writeFile`):
 
 - refuses any path that resolves outside `./devsnips` (`isPathWithinBase` security check);
-- refuses to overwrite an existing file (`allowOverwrite` defaults to `false`; `add` always
-  passes `false`);
+- refuses to overwrite an existing file (`allowOverwrite` defaults to `false`; `add` passes
+  `false` unless the user supplied `--force`);
 - creates parent directories on demand.
 
-There is **no `--force` flag**. The existing-file error text mentions `--force` "once that flag
-is available" — do not document it as working, and do not add it without wiring it through
-`cli/src/index.js` and `cli/src/commands/add.js`.
+`--force` is wired through `cli/src/index.js` (flag parse, via `parseAddCommand` in
+`cli/src/utils/args.js`) → `cli/src/commands/add.js` (`options.force`) →
+`writeFile(destPath, content, force)`. Without the flag the behavior is unchanged: the
+existing file wins and the CLI exits with a filesystem error.
+
+`--dry-run` is parsed the same way and reaches `add` as `options.dryRun`: the registry is
+fetched and files are downloaded as usual, but no files are written and the project context
+is not initialized or updated; the report says what *would* have been installed.
 
 ## Which files get installed
 
@@ -153,24 +161,62 @@ that as guidance only — Tailwind components may be 2-level or 3-level
 
 ## Tests and how to run them
 
-Manifest script: `cli/package.json` `scripts.test` runs, in order,
-`cli/test/downloader.test.js`, `cli/test/config.test.js`, `cli/test/agents.test.js`,
-`cli/test/context.test.js`, `cli/test/init.test.js`, then `node src/index.js --help`.
+Manifest script: `cli/package.json` `scripts.test` runs `node --test` (discovers every
+`cli/test/*.test.js` — downloader, paths, resolver, writer, config, agents, context, init,
+dryrun — under the `node:test` runner) followed by a `node src/index.js --help` smoke check.
 
 ```bash
 cd cli
 npm test
 ```
 
-Individual suites can be run directly as `node test/<file>.test.js`. They use `node:assert` and
-`os.tmpdir()` sandboxes — no framework, no network access.
+Suites use `node:assert` and `os.tmpdir()` sandboxes — no framework. Only
+`cli/test/dryrun.test.js` performs network I/O, and it is a `127.0.0.1` fixture server, not a
+real network call.
+
+## Releasing
+
+The published version is `cli/package.json` `version`; nothing else carries it.
+
+Preflight (what the release workflow's `verify` job runs):
+
+```bash
+python scripts/tooling/validators/validate.py
+python scripts/tooling/indexing/rebuild_index.py --check
+cd cli && npm test && npm pack --dry-run   # dry run lists the exact tarball contents
+```
+
+Publishing is automated by `.github/workflows/release.yml`: it runs `verify`, then
+`npm publish --access public` from `cli/`. It triggers on a `v*` tag push, a published GitHub
+release, or `workflow_dispatch`. It needs an `NPM_TOKEN` repository secret holding an npm
+**granular access token with "bypass 2FA" enabled** — npm requires 2FA (or such a token) for
+every publish, so the account must have 2FA enabled before the token can be created. The
+workflow skips publishing when `npm view devsnips@<version>` already resolves, so tagging a
+release that was published by hand is a no-op rather than a failure.
+
+The registry can acknowledge a publish asynchronously (`202 Accepted`); the new version may
+take a few minutes to appear on `npm view`, and a second publish of the same version during
+that window fails with `409 Conflict`.
+
+Local alternative when signed in interactively:
+
+```bash
+cd cli && npm publish --access public
+```
+
+`npm pkg fix` is a no-op on the committed manifest (it already stores `bin` as `src/index.js`
+without `./` and the repository URL as `git+https://…`), so publishing does not rewrite it.
 
 ## Not in the CLI
 
-Verified absent; do not document these as features: `--force`, `--dry-run`, `list`/`search`,
-`remove`/`update`, a JSON output mode, `--config`/`--dir`/`--output`, version pinning, an
-offline or local-registry mode, and any interactive prompt.
-  failed write never leaves truncated JSON.
+Verified absent; do not document these as features: `list`/`search`, `remove`/`update`, a JSON
+output mode, `--config`/`--dir`/`--output`, version pinning, and any interactive prompt.
+(`--force` and `--dry-run` exist on `add`; `DEVSNIPS_REGISTRY_URL`/`DEVSNIPS_RAW_BASE` redirect
+the registry and file endpoints for tests, mirrors, and offline use.)
+
+## Project context (`devsnips/`)
+
+- Atomic `config.json` writes: a failed write never leaves truncated JSON.
 - A malformed existing `config.json` is an **error**, never silently replaced; the file is left
   byte-for-byte untouched and the command exits `1`.
 - `project` is preserved verbatim across rewrites.
@@ -194,17 +240,22 @@ Implementation: `cli/src/commands/init.js`; tests `cli/test/init.test.js`.
   reporting which were created.
 - Fails cleanly (exit `1`) on a malformed `config.json`, leaving it untouched.
 - `add` performs the same initialization automatically on first successful install.
-8. **Report** — destination directory and the written file names.
 
 ## Resource resolution
 
 Implementation: `cli/src/registry/resolver.js`
 
-Constants:
+Defaults (overridable by environment, e.g. for tests, mirrors, or offline use):
 
-- `REGISTRY_URL` =
-  `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json`
-- `GITHUB_RAW_BASE` = `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/`
+- `DEVSNIPS_REGISTRY_URL` → registry index URL,
+  default `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/snippets-index.json`
+- `DEVSNIPS_RAW_BASE` → file-download base (trailing slash normalized),
+  default `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/`
+
+Exposed as `getRegistryUrl()` / `getRawBase()` (plus `DEFAULT_REGISTRY_URL` /
+`DEFAULT_RAW_BASE`); `cli/src/utils/http.js` holds the single shared
+`httpGetText()` client used by both the resolver (JSON) and the downloader
+(text).
 
 The registry is fetched **remotely** and memoized per process (`cachedRegistry`). It must be an
 object with a `families` array, else a network error is reported. `resolveComponent()` returns

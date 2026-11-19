@@ -22,8 +22,11 @@ Checks:
      matching its content-type bucket.
  11. Tailwind component leaves require README.md in addition to code.html +
      preview.html + metadata.json.
+ 12. No inline `on*=` event handlers in Tailwind HTML markup (outside
+     <script> blocks); wiring must use addEventListener.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -169,6 +172,20 @@ def check_metadata_validity():
                 elif mtype == "template" and bucket != "Templates":
                     problems.append(
                         "%s type=template outside Templates/: %s" % (td, mf))
+                # Discovery quality: every leaf must carry a non-empty human
+                # `description` and a non-empty `tags` list — they feed
+                # search, the browse pages, and agent resource selection.
+                # Grouping-folder metadata (family containers) is exempt.
+                if is_leaf(leaf, tech):
+                    desc = meta.get("description")
+                    if not isinstance(desc, str) or not desc.strip():
+                        problems.append(
+                            "%s metadata missing/empty `description`: %s" % (td, mf))
+                    tags = meta.get("tags")
+                    if not isinstance(tags, list) or not any(
+                            isinstance(t, str) and t.strip() for t in tags):
+                        problems.append(
+                            "%s metadata missing/empty `tags`: %s" % (td, mf))
                 mid = meta.get("id") or meta.get("slug")
                 if mid:
                     sub = (meta.get("subcategory") or "").lower()
@@ -291,11 +308,41 @@ def check_template_agents():
                     % (top.relative_to(ROOT)))
 
 
+# Inline event-handler attributes (onclick=, onsubmit=, ...) are not allowed in
+# Tailwind markup: wiring must live in a scoped <script> with addEventListener.
+# Script *content* is exempt, so code-playground demo strings stay valid.
+INLINE_HANDLER_RE = re.compile(
+    r"\bon(click|change|input|submit|select|reset|dblclick|contextmenu|keyup|"
+    r"keydown|keypress|mouseenter|mouseleave|mouseover|mouseout|focus|blur|"
+    r"load|unload|scroll|wheel|toggle|drag|dragstart|dragend|dragover|"
+    r"dragenter|dragleave|drop|copy|cut|paste|animationstart|animationend|"
+    r"animationiteration|transitionend|error|abort|play|pause|ended)\s*=",
+    re.IGNORECASE,
+)
+SCRIPT_BLOCK_RE = re.compile(
+    r"<script\b[^>]*>.*?</script\s*>|<!--.*?-->", re.S | re.IGNORECASE)
+
+
+def check_inline_handlers():
+    """No inline `on*=` event handlers in Tailwind HTML (outside <script>)."""
+    for path in sorted((ROOT / "library" / "Tailwind").rglob("*.html")):
+        html = SCRIPT_BLOCK_RE.sub("", path.read_text(encoding="utf-8"))
+        for m in INLINE_HANDLER_RE.finditer(html):
+            line = html[:m.start()].count("\n") + 1
+            problems.append(
+                "ERROR: Tailwind resource %s uses inline event handler "
+                "`%s` at line %d (wire events via a scoped <script> and "
+                "addEventListener instead)"
+                % (path.relative_to(ROOT), m.group(0).rstrip("= "), line))
+            break  # one report per file is enough
+
+
 def main():
     check_architecture()
     check_metadata_validity()
     check_index_vs_disk()
     check_template_agents()
+    check_inline_handlers()
     # Strict per-tech required-file-set checker. Previously a separate
     # `deep_check.py` run; its findings now merge into this single gate so a
     # contributor cannot pass `validate.py` while failing the stricter layer.

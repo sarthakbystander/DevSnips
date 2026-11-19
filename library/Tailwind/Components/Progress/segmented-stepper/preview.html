@@ -32,7 +32,7 @@
       A three-step checkout. The stepper highlights the current step; use the buttons to move through it.
     </p>
 
-    <div class="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+    <div data-segmented-stepper class="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
       <!-- Component: Segmented Stepper -->
       <ol class="flex items-center" data-stepper="3" data-stepper-step="2" id="checkout-stepper">
         <li class="flex items-center pr-4 sm:pr-8" data-stepper-item="1">
@@ -73,10 +73,24 @@
         </div>
 
         <div class="mt-6 flex items-center justify-between">
-          <button onclick="moveStep(-1)" class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">Back</button>
-          <button onclick="moveStep(1)" class="rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">Continue</button>
+          <button class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="1">Back</button>
+          <button class="rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" data-bind="2">Continue</button>
         </div>
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-segmented-stepper]');
+
+        function bind(selector, handler) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('click', handler);
+          });
+      }
+
+        bind('[data-bind="1"]', function (event) { moveStep(-1) });
+        bind('[data-bind="2"]', function (event) { moveStep(1) });
+      })();
+    </script>
     </div>
   </main>
 

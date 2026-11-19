@@ -91,8 +91,10 @@ def patch_dark_premium(text):
         "Dashboards our execs actually open. The data just makes sense.",
         "We cut churn 18% by acting on insights we finally could see.",
     ]
-    P = lambda n: persons[n % len(persons)]
-    Q = lambda n: quotes[n % len(quotes)]
+    def P(n):
+        return persons[n % len(persons)]
+    def Q(n):
+        return quotes[n % len(quotes)]
     pr = P(3)
     old = (
         '<div class="%s p-8 sm:p-12"><div class="mb-5">%s</div>'
@@ -182,8 +184,8 @@ def main():
                 leaks.append(f"{style}/{fname}: %s")
     if leaks:
         print("REMAINING LEAKS:")
-        for l in leaks:
-            print("  -", l)
+        for ln in leaks:
+            print("  -", ln)
         sys.exit(1)
     else:
         print("Verification: no `>heart<` or `%s` remains in any Testimonials file.")

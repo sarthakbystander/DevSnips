@@ -1,14 +1,19 @@
 {
   "id": "integrations-bento",
-  "name": "Integrations \u2014 Bento",
+  "name": "Integrations — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Integrations",
   "family": "Integrations",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "integrations",
+    "ecosystem",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento ecosystem grid: a featured integration cell, a showcase of compact tool rows, three category cells, and a full-width ecosystem strip."
 }

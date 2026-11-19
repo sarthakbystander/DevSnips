@@ -5,12 +5,14 @@
 ## Syntax
 
 ```bash
-npx devsnips add <path>
+npx devsnips add <path> [--force] [--dry-run]
 ```
 
 | Argument | Required | Meaning |
 |---|---|---|
 | `<path>` | Yes | The variant's registry path: `<Technology>/<Category>/<Family>/<variant>/[style]` |
+| `--force` | No | Overwrite existing destination files instead of failing |
+| `--dry-run` | No | Resolve and download but write nothing: no files, no `config.json`/`AGENTS.md` changes. Reports `Would install to:` and the file list |
 
 The path is matched case-insensitively against the registry and is trailing-slash insensitive. Take the exact path from `snippets-index.json` (or the `id` field of a specialized index entry) — never from memory.
 
@@ -32,7 +34,7 @@ npx devsnips add Tailwind/Templates/meridian
    - Included by extension: `.html`, `.jsx`, `.tsx`, `.js`, `.ts`, `.css`.
    - Empty result → "No source files found", exit 1.
 5. **Download each file** from `https://raw.githubusercontent.com/sarthakbystander/DevSnips/main/library/<path>/<file>`. 30-second timeout per file; an HTML content-type response or empty/whitespace content is a failure. Failures are fatal and name the file.
-6. **Write** (`cli/src/install/writer.js`). Destination: `./devsnips/<tech-slug>/<lowercased path without its technology segment>/`. Every write is checked to stay inside `./devsnips/` (security boundary); an existing destination file is a fatal error — there is no overwrite flag.
+6. **Write** (`cli/src/install/writer.js`). Destination: `./devsnips/<tech-slug>/<lowercased path without its technology segment>/`. Every write is checked to stay inside `./devsnips/` (security boundary); an existing destination file is a fatal error unless `--force` is passed.
 7. **Update project context** (`cli/src/devsnips/context.js`). Creates `devsnips/config.json` and `devsnips/AGENTS.md` when absent, then records the installation — only after files are on disk. A context failure after a successful write exits 1 with a message stating that the files exist but were not recorded.
 8. **Report** the destination directory and the written file names. Exit 0.
 
@@ -91,6 +93,7 @@ Nothing outside `./devsnips/` is created or modified.
 - **Trailing slash** — accepted; registry paths carry one.
 - **Lowercased input** — accepted; matching is case-insensitive.
 - **`library/` prefix in input** — normalizePath does not strip it; the path would fail the technology-prefix check (`library/...` is not a valid first segment). Use the tech-first registry path.
-- **Re-running for an installed resource** — the write fails ("File already exists"); remove the destination directory first. The `config.json` record is de-duplicated, so a re-recording never creates a second entry.
+- **Re-running for an installed resource** — the write fails ("File already exists"); remove the destination directory first, or re-run with `--force`. The `config.json` record is de-duplicated, so a re-recording never creates a second entry.
+- **`--dry-run`** — safe on an already-installed resource: nothing is written and `config.json` is left byte-for-byte unchanged.
 - **Grouped variants** — use the full path including the group level (e.g. `Tailwind/Components/Buttons/basic-button/primary`), not the group folder.
 - **Templates** — installed like any resource; `pages/*` files land inside the destination preserving their relative names.

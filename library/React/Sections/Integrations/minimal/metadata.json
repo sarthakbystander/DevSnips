@@ -1,14 +1,19 @@
 {
   "id": "integrations-minimal",
-  "name": "Integrations \u2014 Minimal",
+  "name": "Integrations — Minimal",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Integrations",
   "family": "Integrations",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "integrations",
+    "ecosystem",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A documentation-style integration directory: a tight header above a hairline-ruled list of integrations with invented glyphs and mono category labels."
 }

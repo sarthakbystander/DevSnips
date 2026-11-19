@@ -24,7 +24,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[3]  # -> repo root
 
 # Directories that never contain repository Markdown worth checking.
-SKIP_DIRS = {".git", "node_modules", "__pycache__", ".agent_tmp"}
+SKIP_DIRS = {".git", "node_modules", "__pycache__", ".agent_tmp", ".venv", "venv"}
 
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 HEADING = re.compile(r"^\s{0,3}#{1,6}\s+(.*?)\s*#*\s*$")

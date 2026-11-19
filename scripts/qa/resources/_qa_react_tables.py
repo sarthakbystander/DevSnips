@@ -588,7 +588,7 @@ def grouped_checks(page):
     labels = page.evaluate(
         "Array.from(document.querySelectorAll('#ds-root th[scope=\"rowgroup\"]')).map(th => th.textContent.replace(/\\s+/g, ' ').trim().slice(0, 20))"
     )
-    check(any("Engineering" in l for l in labels) and any("Design" in l for l in labels) and any("Operations" in l for l in labels),
+    check(any("Engineering" in ln for ln in labels) and any("Design" in ln for ln in labels) and any("Operations" in ln for ln in labels),
           f"table-grouped: group headers label the departments (got {labels})")
     eng_rows = "document.querySelectorAll('#ds-root tbody#group-engineering-rows tr').length"
     check(page.evaluate(eng_rows) == 4, "table-grouped: Engineering renders its header + 3 members")

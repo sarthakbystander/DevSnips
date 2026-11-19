@@ -1,14 +1,19 @@
 {
   "id": "features-grid",
-  "name": "Features \u2014 Grid",
+  "name": "Features — Grid",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "icon grid",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A left-aligned header block above an even six-item icon grid (3 columns at lg, 2 at sm), with separation from whitespace rather than cards."
 }

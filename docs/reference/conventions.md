@@ -2,6 +2,10 @@
 
 The naming, file, JSON, and code conventions actually used in this repository, with what enforces them.
 
+> **Twin document:** the agent-facing layer documents the same conventions in
+> `agents/resources/conventions.md` (organized for AI-agent consumption, with
+> per-entry demonstration paths). Update both when a convention changes.
+
 ## Directory naming
 
 | Level | Convention | Enforced by |

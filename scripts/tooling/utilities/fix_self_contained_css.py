@@ -14,7 +14,6 @@ Idempotent: skips files that already contain the helper CSS (detected via the
 marker comment). Does not touch preview.html.
 """
 import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]  # → repo root

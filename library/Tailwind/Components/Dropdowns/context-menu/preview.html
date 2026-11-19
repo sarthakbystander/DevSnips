@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-context-menu class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="p-12 bg-white rounded-xl shadow-sm">
         
@@ -25,7 +25,6 @@
         <div
           id="context-trigger"
           class="w-full max-w-md mx-auto p-8 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 text-center cursor-context-menu"
-          oncontextmenu="showContextMenu(event)"
         >
           <div class="flex flex-col items-center gap-3">
             <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,6 +128,19 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-context-menu]');
+
+        function bind(selector, handler, event) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener(event || 'click', handler);
+          });
+         }
+
+        bind('#context-trigger', function (event) { showContextMenu(event) }, 'contextmenu');
+      })();
+    </script>
     </div>
 
   </section>

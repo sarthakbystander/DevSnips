@@ -6,12 +6,12 @@
   <title>Form Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center justify-center p-8">
+<body data-form-modal class="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center justify-center p-8">
   
   <!-- Form Modal -->
   <div id="form-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('form-modal')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
     
     <!-- Modal Container -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -30,7 +30,7 @@
               <p class="text-sm text-gray-500 dark:text-gray-400">Fill out the details below</p>
             </div>
           </div>
-          <button onclick="closeModal('form-modal')" class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <button class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-bind="2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -38,7 +38,7 @@
         </div>
         
         <!-- Form -->
-        <form class="p-6 space-y-6" onsubmit="event.preventDefault(); closeModal('form-modal');">
+        <form class="p-6 space-y-6" data-bind="3">
           <!-- Project Name -->
           <div>
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Name *</label>
@@ -108,7 +108,7 @@
           
           <!-- Actions -->
           <div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
-            <button type="button" onclick="closeModal('form-modal')" class="flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button type="button" class="flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" data-bind="4">Cancel</button>
             <button type="submit" class="flex-1 py-3 text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl hover:from-orange-600 hover:to-amber-600 transition-colors shadow-lg shadow-orange-500/30">Submit Proposal</button>
           </div>
         </form>
@@ -117,7 +117,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('form-modal')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 shadow-lg shadow-orange-500/30">
+  <button class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 shadow-lg shadow-orange-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="form-modal" data-bind="5">
     Open Form Modal
   </button>
 
@@ -139,5 +139,48 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-form-modal]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('[data-bind="1"]', function (event) { closeModal('form-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('form-modal') });
+    bind('[data-bind="3"]', function (event) { event.preventDefault(); closeModal('form-modal'); }, 'submit');
+    bind('[data-bind="4"]', function (event) { closeModal('form-modal') });
+    bind('[data-bind="5"]', function (event) { openModal('form-modal') });
+    const menus = [
+      { id: 'form-modal', close: function () { closeModal('form-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

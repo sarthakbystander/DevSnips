@@ -2,8 +2,8 @@
 
 Every verification layer in the repository, what it checks, where it lives, and what an agent
 must run after a change. CI (`.github/workflows/ci.yml`) runs the always-on gates on every
-push and pull request; the heavier browser QA layers remain manual, so run them when your
-change touches what they cover.
+push and pull request; the browser QA layers run on demand (`workflow_dispatch`) and on the
+weekly schedule, so run the relevant one locally when your change touches what they cover.
 
 ## The gate you must always run
 
@@ -44,7 +44,10 @@ means passing the strict file-set layer; you can still run it standalone for a f
 | Index regeneration safety | `scripts/tooling/indexing/rebuild_index.py` (`validate`) | Refuses to write on mismatch. |
 | CLI behavior | `cli/test/*.test.js` | Path/file/context behaviors. |
 | Browser QA (React) | `scripts/qa/resources/_qa_react_*.py` | Runtime, layout, theme, a11y per family. |
+| Browser QA (Tailwind) | `scripts/qa/resources/qa_tailwind.py` | Runtime, console errors, overflow per Tailwind preview. |
+| Browser QA (Tailwind interactions) | `scripts/qa/resources/qa_tailwind_interactions.py` | Popup toggling, `aria-expanded` sync, Escape close, `[data-bind]` activation. |
 | Browser QA (templates) | `scripts/qa/resources/_qa_template.py` | Overflow, console errors, interactions. |
+| Inline handler gate | `scripts/tooling/validators/validate.py` (`check_inline_handlers`) | No `on*=` attributes in Tailwind HTML outside `<script>`. |
 
 ## Structure checks
 
@@ -118,8 +121,9 @@ system and are counted separately. See `agents/resources/frameworks/vanilla.md`.
 
 ## Browser QA (Playwright)
 
-React harnesses: `scripts/qa/resources/_qa_react_*.py`. Python + Playwright; not wired into any
-runner.
+React harnesses: `scripts/qa/resources/_qa_react_*.py`. Python + Playwright; wired into the
+`browser-qa` job in `.github/workflows/ci.yml` (runs on `workflow_dispatch` + the weekly
+`schedule`, not per push).
 
 - They read source files from `ROOT / "library/React/..."` (e.g. `_qa_react_accordion.py`,
   `_qa_react_textareas.py`).
@@ -134,6 +138,38 @@ runner.
 Serve the repository with the document root set to `library/` for both the React harnesses
 (`:8765`) and the nav harnesses (`:12000`).
 
+Tailwind sweep: `scripts/qa/resources/qa_tailwind.py`. Python + Playwright, `file://` based —
+but every `preview.html` loads the Tailwind CDN, so network access is required. It loads every
+`library/Tailwind/**/preview.html` in headless Chromium and asserts, per page: no uncaught page
+errors, no console errors, and no horizontal overflow at 375px and 1280px. Exit code is `1` if
+any required check fails. Also wired into the `browser-qa` CI job.
+
+```bash
+python scripts/qa/resources/qa_tailwind.py                 # full sweep
+python scripts/qa/resources/qa_tailwind.py --only-failures # print failures only
+python scripts/qa/resources/qa_tailwind.py --json          # machine-readable
+python scripts/qa/resources/qa_tailwind.py --limit 10      # smoke subset
+```
+
+Tailwind interactions: `scripts/qa/resources/qa_tailwind_interactions.py`. Python +
+Playwright, `file://` based. The interaction layer the sweep does not cover: per page it
+asserts no page/console errors, every `[aria-haspopup]` trigger toggles its
+`aria-controls` target (visibility + `aria-expanded`) and Escape closes it, and every
+`[data-bind]` element activates without error. Default mode checks the working-tree diff
+vs HEAD, so run it after editing Tailwind resources and before committing; `--all`
+sweeps every preview.
+
+```bash
+python scripts/qa/resources/qa_tailwind_interactions.py            # changed vs HEAD
+python scripts/qa/resources/qa_tailwind_interactions.py --all      # full sweep
+python scripts/qa/resources/qa_tailwind_interactions.py --limit 10 # smoke subset
+```
+
+The `browser-qa` CI job runs: the Tailwind sweep, every React harness except
+`_qa_react_sections_integrations.py` (that one needs the `/tmp/dsbuild` tsc toolchain and stays
+environment-only), `_qa_react_button.py` once per `library/React/Components/Buttons` slug
+(per-slug harness), and `_qa_template.py` over `library/Vanilla/Templates/*/preview.html`.
+
 Other harnesses:
 
 - `scripts/qa/resources/_qa_template.py <path-to-preview.html>` — `file://` based; widths
@@ -143,10 +179,12 @@ Other harnesses:
 
 ## Expected verification flow
 
-CI runs the static gates — `validate.py` (which now also runs the strict file-set layer),
-the Python tooling unit tests (`scripts/tooling/tests/`), `rebuild_index.py --check`,
-`validate_indexes.py`, both doc checkers, and `cli` `npm test` — on every push and pull
-request. Run them locally first so a push does not fail CI.
+CI runs the static gates — `validate.py` (which now also runs the strict file-set layer and
+the Tailwind inline-handler gate), the Python tooling unit tests (`scripts/tooling/tests/`),
+`rebuild_index.py --check`, `validate_indexes.py`, both doc checkers, and `cli` `npm test` —
+on every push and pull request. The `browser-qa` job (Tailwind sweep + React harnesses +
+template previews) runs on `workflow_dispatch` and the weekly schedule only. Run the static
+gates locally first so a push does not fail CI.
 
 1. `python scripts/tooling/indexing/rebuild_index.py` — only if content was added, removed,
    renamed, or moved. `rebuild_index.py --check` verifies without writing (CI uses this).
@@ -174,6 +212,7 @@ request. Run them locally first so a push does not fail CI.
 | `FAIL <path> reduced-motion/focus-visible/...` | Vanilla quality bar | `scripts/qa/resources/qa_vanilla.py` |
 | `NOT writing index due to validation problems` | Disk and index disagree | the printed problem list |
 | `npm test` failure in `cli/` | File-selection or context behavior regressed | the specific `cli/test/*.test.js` |
+| `uses inline event handler` in `validate.py` | Tailwind markup wires an event via `on*=` | that leaf's HTML; move wiring into the scoped `<script>` (`addEventListener`) |
 
 ## What an agent must verify after a change
 

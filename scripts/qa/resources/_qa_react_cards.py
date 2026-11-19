@@ -33,6 +33,12 @@ import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
+# Windows consoles default to a legacy codepage; these harnesses print arrows,
+# Greek letters, and other non-ASCII output.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 ROOT = Path(__file__).resolve().parents[3]  # → repo root
 BASE = "http://localhost:8765/React/Components/Cards/"
 

@@ -159,7 +159,7 @@ def static_checks():
         check(folder.is_dir(), f"{slug}: folder exists")
         for name in FILES:
             check((folder / name).is_file(), f"{slug}: {name} exists")
-        meta = json.loads((folder / "metadata.json").read_text())
+        meta = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
         for key in ["id", "name", "slug", "component", "family", "variant", "description",
                     "framework", "language", "languages", "technology", "type", "category",
                     "subcategory", "styling", "tags", "features", "responsive", "darkMode",
@@ -176,10 +176,10 @@ def static_checks():
         check(meta["dependencies"] == [], f"{slug}: no dependencies")
         check(meta["responsive"] is True, f"{slug}: responsive true")
         check(meta["darkMode"] is True, f"{slug}: darkMode true")
-        tsx = (folder / "code.tsx").read_text()
-        jsx = (folder / "code.jsx").read_text()
-        preview = (folder / "preview.html").read_text()
-        readme = (folder / "README.md").read_text()
+        tsx = (folder / "code.tsx").read_text(encoding="utf-8")
+        jsx = (folder / "code.jsx").read_text(encoding="utf-8")
+        preview = (folder / "preview.html").read_text(encoding="utf-8")
+        readme = (folder / "README.md").read_text(encoding="utf-8")
         check(not re.search(r"\bany\b", tsx), f"{slug}: no any in code.tsx")
         check("<div onClick" not in tsx, f"{slug}: no div onClick")
         check("style=" not in tsx, f"{slug}: no inline style attribute")
@@ -249,6 +249,7 @@ def static_checks():
     val = subprocess.run(
         [sys.executable, str(ROOT / "scripts/tooling/validators/validate.py")],
         capture_output=True, text=True, cwd=ROOT,
+        encoding="utf-8", errors="replace",
     )
     check(val.returncode == 0, f"validate.py passes ({val.stdout.strip()[-160:]})")
 

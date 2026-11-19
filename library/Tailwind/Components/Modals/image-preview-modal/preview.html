@@ -6,17 +6,17 @@
   <title>Image Preview Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-8">
+<body data-image-preview-modal class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-8">
   
   <!-- Image Preview Modal -->
   <div id="image-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/95" onclick="closeModal('image-modal')"></div>
+    <div class="fixed inset-0 bg-black/95" data-bind="1"></div>
     
     <!-- Modal Content -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
       <!-- Close Button -->
-      <button onclick="closeModal('image-modal')" class="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors backdrop-blur">
+      <button class="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors backdrop-blur" data-bind="2">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
@@ -85,7 +85,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('image-modal')" class="px-6 py-3 bg-white/10 backdrop-blur text-white font-medium rounded-xl hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/20">
+  <button class="px-6 py-3 bg-white/10 backdrop-blur text-white font-medium rounded-xl hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/20" aria-haspopup="dialog" aria-expanded="false" aria-controls="image-modal" data-bind="3">
     Open Image Preview
   </button>
 
@@ -107,5 +107,46 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-image-preview-modal]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('image-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('image-modal') });
+    bind('[data-bind="3"]', function (event) { openModal('image-modal') });
+    const menus = [
+      { id: 'image-modal', close: function () { closeModal('image-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

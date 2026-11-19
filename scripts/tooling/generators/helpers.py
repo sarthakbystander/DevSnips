@@ -2,7 +2,7 @@
 
 import html as _html
 
-from .styles import TOKENS, STYLE_NAMES
+from .styles import TOKENS
 
 # re-export ICONS here so builders can `from .helpers import ICONS`
 

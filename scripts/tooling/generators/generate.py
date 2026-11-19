@@ -1,10 +1,8 @@
 """Main generator: writes all 165 section-style component folders and updates the index."""
 import json
-import os
 from pathlib import Path
 
 from .styles import TOKENS, STYLE_NAMES
-from .helpers import ic, ICONS, logo_svg
 from .builders_testimonials import testimonials
 from .builders_faq import faq
 from .builders_contact import contact
@@ -103,7 +101,7 @@ def code_snippet(builder_result, style):
 
 
 def metadata(builder_result, style, cat, n, style_key):
-    b = TOKENS[style]
+    TOKENS[style]
     cat_slug = cat.lower().replace(" ", "-")
     slug = "%s-%s" % (cat_slug, style_key)
     return {
@@ -130,7 +128,6 @@ def metadata(builder_result, style, cat, n, style_key):
 
 
 def readme(builder_result, style, cat, n):
-    style_key = style
     md = """# %s — %s
 
 > %s

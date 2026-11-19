@@ -4,9 +4,9 @@
  * Downloads source files from the DevSnips GitHub repository.
  */
 
-const https = require('node:https');
-const { GITHUB_RAW_BASE } = require('../registry/resolver.js');
+const { getRawBase } = require('../registry/resolver.js');
 const { stripTrailingSlash } = require('../utils/paths.js');
+const { httpGetText } = require('../utils/http.js');
 
 /**
  * Download a file from GitHub Raw.
@@ -14,41 +14,13 @@ const { stripTrailingSlash } = require('../utils/paths.js');
  * @param {string} repoPath - Repository-relative path (e.g., "Tailwind/Components/...")
  * @returns {Promise<string>} - File contents
  */
-function downloadFile(repoPath) {
-  return new Promise((resolve, reject) => {
-    // Ensure no trailing slash on the path segment before the filename
-    const cleanPath = stripTrailingSlash(repoPath);
-    const url = GITHUB_RAW_BASE + cleanPath;
+async function downloadFile(repoPath) {
+  // Ensure no trailing slash on the path segment before the filename
+  const cleanPath = stripTrailingSlash(repoPath);
+  const url = getRawBase() + cleanPath;
 
-    const req = https.get(url, (res) => {
-      if (res.statusCode !== 200) {
-        res.resume();
-        reject(new Error(`HTTP ${res.statusCode}`));
-        return;
-      }
-
-      // Check content type to avoid HTML error pages
-      const contentType = res.headers['content-type'] || '';
-      if (contentType.includes('text/html')) {
-        res.resume();
-        reject(new Error('Unexpected HTML response'));
-        return;
-      }
-
-      let data = '';
-      res.setEncoding('utf8');
-      res.on('data', chunk => { data += chunk; });
-      res.on('end', () => {
-        resolve(data);
-      });
-    });
-
-    req.on('error', reject);
-    req.setTimeout(30000, () => {
-      req.destroy();
-      reject(new Error('Request timed out'));
-    });
-  });
+  // rejectHtml guards against HTML error pages instead of real file content
+  return httpGetText(url, { rejectHtml: true });
 }
 
 /**

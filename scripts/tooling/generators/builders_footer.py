@@ -1,5 +1,5 @@
 """Footer section builders — 15 concepts."""
-from .helpers import TOKENS, ic, ICONS, logo_svg
+from .helpers import TOKENS, ic, logo_svg
 
 
 def section(body, style, scope=None):
@@ -31,7 +31,7 @@ def footer(style, i):
     key, title = concepts[i]
 
     def linkcol(title, links):
-        items = "".join('<li><a href="#" class="text-sm %s hover:opacity-100">%s</a></li>' % (b["text_muted"], l) for l in links)
+        items = "".join('<li><a href="#" class="text-sm %s hover:opacity-100">%s</a></li>' % (b["text_muted"], ln) for ln in links)
         return '<div><h3 class="text-sm font-semibold">%s</h3><ul class="mt-4 space-y-2.5">%s</ul></div>' % (title, items)
 
     def social():
@@ -117,7 +117,7 @@ def footer(style, i):
                 '<div class="flex items-center gap-3">%s<p class="text-sm %s">© 2026 Flowbase</p></div>'
                 '<nav class="flex gap-6 text-sm %s">%s</nav></div>') % (
             logo_svg("Flowbase"), b["text_muted"], b["text_muted"],
-            "".join('<a href="#" class="hover:opacity-100">%s</a>' % l for l in ["Privacy", "Terms", "Status", "Contact"]))
+            "".join('<a href="#" class="hover:opacity-100">%s</a>' % ln for ln in ["Privacy", "Terms", "Status", "Contact"]))
         feat = ["minimal footer", "single row", "inline links", "copyright", "responsive stack"]
 
     elif key == "multi-col":
@@ -140,7 +140,7 @@ def footer(style, i):
     elif key == "compact":
         body = ('<div class="flex flex-col items-center justify-between gap-4 sm:flex-row"><div class="flex items-center gap-6">%s<nav class="flex gap-5 text-sm %s">%s</nav></div>'
                 '<div class="flex items-center gap-4">%s<p class="text-sm %s">© 2026</p></div></div>') % (
-            logo_svg("Flowbase"), b["text_muted"], "".join('<a href="#" class="hover:opacity-100">%s</a>' % l for l in ["Docs", "Pricing", "Blog", "Contact"]),
+            logo_svg("Flowbase"), b["text_muted"], "".join('<a href="#" class="hover:opacity-100">%s</a>' % ln for ln in ["Docs", "Pricing", "Blog", "Contact"]),
             social(), b["text_muted"])
         feat = ["compact footer", "single-line layout", "inline nav", "social + copyright", "responsive"]
 
@@ -158,7 +158,7 @@ def footer(style, i):
                 '<div class="mt-6 flex justify-center">%s</div></div>'
                 '<div class="mt-10 border-t border-current/10 pt-6 text-center"><p class="text-sm %s">© 2026 Flowbase Inc.</p></div>') % (
             logo_svg("Flowbase"), b["text_muted"], b["text_muted"],
-            "".join('<a href="#" class="hover:opacity-100">%s</a>' % l for l in ["Features", "Pricing", "Docs", "Blog", "Careers", "Contact"]),
+            "".join('<a href="#" class="hover:opacity-100">%s</a>' % ln for ln in ["Features", "Pricing", "Docs", "Blog", "Careers", "Contact"]),
             social(), b["text_muted"])
         feat = ["centered footer", "inline nav", "blurb", "social row", "copyright"]
 
@@ -178,7 +178,7 @@ def footer(style, i):
                 '<div class="flex items-center gap-3">%s<p class="text-sm %s">© 2026 Flowbase</p></div>'
                 '<div class="flex gap-4 text-sm %s">%s</div></div>') % (
             "".join(linkcol(t, ls) for t, ls in [("Product", ["Features", "Pricing", "Integrations", "Changelog"]), ("Company", ["About", "Careers", "Blog", "Customers"]), ("Resources", ["Docs", "API", "Community", "Status"]), ("Legal", ["Privacy", "Terms", "Security", "DPA"])]),
-            logo_svg("Flowbase"), b["text_muted"], b["text_muted"], "".join('<a href="#" class="hover:opacity-100">%s</a>' % l for l in ["Privacy", "Terms", "Cookies"]))
+            logo_svg("Flowbase"), b["text_muted"], b["text_muted"], "".join('<a href="#" class="hover:opacity-100">%s</a>' % ln for ln in ["Privacy", "Terms", "Cookies"]))
         feat = ["4-column footer", "16 links", "brand + copyright", "legal inline", "responsive collapse"]
 
     code = section(body, style)

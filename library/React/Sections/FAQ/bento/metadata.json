@@ -1,14 +1,19 @@
 {
   "id": "faq-bento",
-  "name": "FAQ \u2014 Bento",
+  "name": "FAQ — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "FAQ",
   "family": "FAQ",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "faq",
+    "accordion",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento FAQ composition: a heading cell and a 7-column accordion cell as the focus of the grid, above a contact cell and a quick-reference facts cell."
 }

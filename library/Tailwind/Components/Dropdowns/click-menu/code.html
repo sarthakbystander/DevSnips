@@ -1,9 +1,11 @@
 <!-- Click Menu -->
-<div class="relative inline-block">
+<div class="relative inline-block" data-click-menu>
   <button
     id="click-trigger"
     class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-    onclick="toggleClickMenu()"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="click-dropdown"
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
@@ -61,17 +63,31 @@
       </button>
     </div>
   </div>
-</div>
 
-<script>
-  function toggleClickMenu() {
-    document.getElementById('click-dropdown').classList.toggle('hidden');
-  }
+  <script>
+    const clickRoot = document.currentScript.closest('[data-click-menu]');
+    const clickTrigger = clickRoot.querySelector('#click-trigger');
+    const clickDropdown = clickRoot.querySelector('#click-dropdown');
 
-  document.addEventListener('click', function(event) {
-    const container = document.querySelector('.relative.inline-block');
-    if (!container.contains(event.target)) {
-      document.getElementById('click-dropdown').classList.add('hidden');
+    function toggleClickMenu() {
+      const open = clickDropdown.classList.toggle('hidden');
+      clickTrigger.setAttribute('aria-expanded', open ? 'false' : 'true');
     }
-  });
-</script>
+
+    clickTrigger.addEventListener('click', toggleClickMenu);
+
+    clickTrigger.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        clickDropdown.classList.add('hidden');
+        clickTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!clickRoot.contains(event.target)) {
+        clickDropdown.classList.add('hidden');
+        clickTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</div>

@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-select-dropdown class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -30,8 +30,7 @@
             class="relative w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             aria-expanded="true"
             aria-haspopup="listbox"
-            onclick="toggleDropdown('select-menu')"
-          >
+           aria-controls="select-menu">
             <div class="flex items-center justify-between">
               <div id="select-value" class="flex items-center gap-3">
                 <span class="text-gray-400">Choose an option...</span>
@@ -51,7 +50,6 @@
                 class="select-option px-4 py-3 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-value="design"
                 data-label="Design"
-                onclick="selectOption(this)"
               >
                 <span class="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center">
                   <svg class="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +66,6 @@
                 class="select-option px-4 py-3 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-value="development"
                 data-label="Development"
-                onclick="selectOption(this)"
               >
                 <span class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
                   <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +82,6 @@
                 class="select-option px-4 py-3 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-value="marketing"
                 data-label="Marketing"
-                onclick="selectOption(this)"
               >
                 <span class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
                   <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +99,6 @@
                 class="select-option px-4 py-3 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-value="analytics"
                 data-label="Analytics"
-                onclick="selectOption(this)"
               >
                 <span class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
                   <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +115,6 @@
                 class="select-option px-4 py-3 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-value="support"
                 data-label="Support"
-                onclick="selectOption(this)"
               >
                 <span class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
                   <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,6 +131,49 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-select-dropdown]');
+
+        function bind(selector, handler) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('click', handler);
+          });
+      }
+
+        bind('#select-button', function (event) { toggleDropdown('select-menu') });
+        root.addEventListener('click', function (event) {
+          const opt = event.target.closest('.select-option');
+          if (opt) selectOption(opt);
+        });
+        const menus = [
+          { id: 'select-menu', close: function () { toggleDropdown('select-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

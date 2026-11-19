@@ -1,5 +1,5 @@
 """FAQ section builders — 15 concepts."""
-from .helpers import TOKENS, avatar, ic, ICONS, esc
+from .helpers import TOKENS, ic, ICONS
 
 
 def C(inner, max_w="max-w-5xl"):
@@ -62,9 +62,9 @@ def faq(style, i):
         q, a = QA[idx % len(QA)]
         id_attr = ' id="q%d"' % qid if qid is not None else ""
         return (
-            '<details class="group %s %s"' + id_attr + '><summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold">'
+            ('<details class="group %s %s"' + id_attr + '><summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold">'
             '<span>%s</span><svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>'
-            '<div class="px-5 pb-5 text-sm leading-relaxed %s">%s</div></details>' % (
+            '<div class="px-5 pb-5 text-sm leading-relaxed %s">%s</div></details>') % (
                 b["surface"], b["hover_card"], q, b["text_muted"], a)
         )
 

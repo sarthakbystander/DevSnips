@@ -1,14 +1,18 @@
 {
   "id": "features-bento",
-  "name": "Features \u2014 Bento",
+  "name": "Features — Bento",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Bento",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "bento grid"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A 12-column bento grid for 5-8 mixed-weight features: a hero cell with a routing diagram, a stat cell, and four single-idea supporting cells."
 }

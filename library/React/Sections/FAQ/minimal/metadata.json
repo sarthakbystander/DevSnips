@@ -1,14 +1,19 @@
 {
   "id": "faq-minimal",
-  "name": "FAQ \u2014 Minimal",
+  "name": "FAQ — Minimal",
   "technology": "React",
   "category": "Sections",
   "subcategory": "FAQ",
   "family": "FAQ",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "faq",
+    "accordion",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A restrained editorial FAQ: a left-aligned header block above a narrow single column of hairline-separated question triggers, with the contact link as the only accent."
 }

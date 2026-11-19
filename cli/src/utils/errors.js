@@ -55,6 +55,8 @@ Project Context:
   You may edit it to add project-specific instructions.
 
 Options:
+  --force       Overwrite existing files (add command only)
+  --dry-run     Show what would be installed without writing anything (add command only)
   --help, -h    Show this help message
   --version, -v  Show the installed version
 

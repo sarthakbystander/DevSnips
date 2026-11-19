@@ -21,12 +21,19 @@
 }
 
 .topnav a.active {
-  background-color: var(--ds-success, #4CAF50);
+  background-color: var(--ds-success, #16a34a);
   color: white;
 }
 
 .topnav .icon {
   display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 17px;
+  color: var(--ds-surface-2, #f2f2f2);
+  padding: 14px 16px;
 }
 
 /* devsnips-qa:quality-bar */
@@ -46,9 +53,9 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fas fa-bars"></i>
-  </a>
+  <button type="button" class="icon" aria-label="Toggle navigation menu">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
 </div>
 
 <script>
@@ -60,4 +67,5 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+document.querySelector(".topnav .icon").addEventListener("click", myFunction);
 </script>

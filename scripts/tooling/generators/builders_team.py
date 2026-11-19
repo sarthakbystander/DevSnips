@@ -1,5 +1,5 @@
 """Team section builders — 15 concepts."""
-from .helpers import TOKENS, avatar, ic, ICONS, logo_svg
+from .helpers import TOKENS, avatar, ic
 from .layout import head, section
 
 TEAM = [
@@ -169,7 +169,7 @@ def team(style, i):
              '<span class="%s">%s</span></div><p class="text-sm %s">%s</p></div></div><p class="mt-4 text-sm %s leading-relaxed">%s</p>'
              '<div class="mt-5 grid grid-cols-3 gap-2 text-center">%s</div><div class="mt-5">%s</div></article>') % (
                 b["surface"], b["hover_card"], avatar(name, n, "h-20 w-20"), name, b["badge"], ic("shield-check", "h-3 w-3.5"), b["text_muted"], role, b["text_muted"], bio,
-                "".join('<div class="%s p-2"><p class="text-xs font-bold">%s</p><p class="text-xs %s">%s</p></div>' % (b["surface_soft"], v, b["text_muted"], l) for v, l in [("8y", "Tenure"), ("42", "Projects"), ("4.9", "Rating")]),
+                "".join('<div class="%s p-2"><p class="text-xs font-bold">%s</p><p class="text-xs %s">%s</p></div>' % (b["surface_soft"], v, b["text_muted"], ln) for v, ln in [("8y", "Tenure"), ("42", "Projects"), ("4.9", "Rating")]),
                 socials())
             for n, (name, role, bio) in enumerate(TEAM[:4]))
         feat = ["detailed profile cards", "stat sub-tiles", "verified badge", "4 members", "responsive 1/2-col"]

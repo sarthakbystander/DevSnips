@@ -121,6 +121,7 @@
           "name": "Contact — Bento",
           "type": "section",
           "path": "React/Sections/Contact/bento/",
+          "description": "A 12-column bento contact composition: a 7-column hero cell with the primary contact form beside a 5-column contact-information cell of email, address, and hours.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -138,6 +139,7 @@
           "name": "Contact — Dark Premium",
           "type": "section",
           "path": "React/Sections/Contact/dark-premium/",
+          "description": "A permanently dark editorial contact funnel: a large multi-line statement headline and ruled contact metadata on the left, one refined form surface on the right.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -155,6 +157,7 @@
           "name": "Contact — Minimal",
           "type": "section",
           "path": "React/Sections/Contact/minimal/",
+          "description": "A restrained editorial contact section: an asymmetric 6/6 split pairing eyebrow, headline, and a ruled contact-information list with the accessible form.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -172,6 +175,7 @@
           "name": "Contact — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Contact/neo-brutalist/",
+          "description": "A contact billboard with an oversized three-line headline, a hard-bordered form block of square corners and 4px offset shadows, and a rigid contact-information matrix.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -208,10 +212,16 @@
           "name": "CTA — Bento",
           "type": "section",
           "path": "React/Sections/CTA/bento/",
+          "description": "A 12-column bento conversion grid: a large CTA headline cell with both actions, a stat cell carrying the single accent, three supporting cells, and a full-width action strip.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "call to action",
+            "conversion",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/CTA/bento"
         },
@@ -220,10 +230,16 @@
           "name": "CTA — Dark Premium",
           "type": "section",
           "path": "React/Sections/CTA/dark-premium/",
+          "description": "A permanently dark conversion section with an asymmetric 5/7 split - editorial headline left, a raised ship-status panel of pipeline telemetry right.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "call to action",
+            "conversion",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/CTA/dark-premium"
         },
@@ -232,10 +248,16 @@
           "name": "CTA — Minimal",
           "type": "section",
           "path": "React/Sections/CTA/minimal/",
+          "description": "A restrained editorial call to action: one left-aligned block of eyebrow, heading, lede, and two actions, separated from the canvas by whitespace and a hairline metadata rule.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "call to action",
+            "conversion",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/CTA/minimal"
         },
@@ -244,15 +266,29 @@
           "name": "CTA — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/CTA/neo-brutalist/",
+          "description": "A rigid conversion split with a hard-bordered headline block, stacked flat-fill metric blocks, uniform 2px borders, and press-down buttons.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "call to action",
+            "conversion",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/CTA/neo-brutalist"
         }
       ],
-      "subcategory": "CTA"
+      "subcategory": "CTA",
+      "tags": [
+        "bento grid",
+        "call to action",
+        "conversion",
+        "dark premium",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "FAQ",
@@ -267,10 +303,16 @@
           "name": "FAQ — Bento",
           "type": "section",
           "path": "React/Sections/FAQ/bento/",
+          "description": "A 12-column bento FAQ composition: a heading cell and a 7-column accordion cell as the focus of the grid, above a contact cell and a quick-reference facts cell.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "faq",
+            "accordion",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/FAQ/bento"
         },
@@ -279,10 +321,16 @@
           "name": "FAQ — Dark Premium",
           "type": "section",
           "path": "React/Sections/FAQ/dark-premium/",
+          "description": "An editorial 4/8 FAQ split on a permanently dark canvas: oversized heading block left, a single raised question-list panel right, with a ruled contact action beneath.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "faq",
+            "accordion",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/FAQ/dark-premium"
         },
@@ -291,10 +339,16 @@
           "name": "FAQ — Minimal",
           "type": "section",
           "path": "React/Sections/FAQ/minimal/",
+          "description": "A restrained editorial FAQ: a left-aligned header block above a narrow single column of hairline-separated question triggers, with the contact link as the only accent.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "faq",
+            "accordion",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/FAQ/minimal"
         },
@@ -303,15 +357,29 @@
           "name": "FAQ — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/FAQ/neo-brutalist/",
+          "description": "FAQ items as square 2px-bordered interface blocks with hard offset shadows, mono index numbers, and press-down triggers.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "faq",
+            "accordion",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/FAQ/neo-brutalist"
         }
       ],
-      "subcategory": "FAQ"
+      "subcategory": "FAQ",
+      "tags": [
+        "accordion",
+        "bento grid",
+        "dark premium",
+        "faq",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Features",
@@ -326,10 +394,16 @@
           "name": "Features — Alternating",
           "type": "section",
           "path": "React/Sections/Features/alternating/",
+          "description": "An editorial walk through three features: alternating 5/7 rows pairing copy with a bordered product artifact, stacking copy-first below lg.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "alternating rows",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Features/alternating"
         },
@@ -338,10 +412,15 @@
           "name": "Features — Bento",
           "type": "section",
           "path": "React/Sections/Features/bento/",
+          "description": "A 12-column bento grid for 5-8 mixed-weight features: a hero cell with a routing diagram, a stat cell, and four single-idea supporting cells.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Features/bento"
         },
@@ -350,10 +429,16 @@
           "name": "Features — Editorial",
           "type": "section",
           "path": "React/Sections/Features/editorial/",
+          "description": "An asymmetric 4/8 editorial split: a quiet heading block beside a numbered feature list separated by hairline rules - typography only, no cards.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "numbered list",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Features/editorial"
         },
@@ -362,10 +447,16 @@
           "name": "Features — Grid",
           "type": "section",
           "path": "React/Sections/Features/grid/",
+          "description": "A left-aligned header block above an even six-item icon grid (3 columns at lg, 2 at sm), with separation from whitespace rather than cards.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "icon grid",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Features/grid"
         },
@@ -374,10 +465,15 @@
           "name": "Features — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Features/neo-brutalist/",
+          "description": "Four square feature blocks with uniform 2px borders, hard 4px offset shadows, mono index numbers, and a single flat accent fill.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "neo-brutalist"
           ],
           "install": "npx devsnips add React/Sections/Features/neo-brutalist"
         },
@@ -386,10 +482,16 @@
           "name": "Features — Split",
           "type": "section",
           "path": "React/Sections/Features/split/",
+          "description": "A product-focused 6/6 dark split: feature copy with icon-marked rows on the left, a live-feel queue-depth panel on the right.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "split layout",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Features/split"
         },
@@ -398,10 +500,16 @@
           "name": "Features — Spotlight",
           "type": "section",
           "path": "React/Sections/Features/spotlight/",
+          "description": "One large featured capability with a real query-plan artifact, above a quieter row of three supporting features separated by a single hairline.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "features",
+            "spotlight",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Features/spotlight"
         },
@@ -410,15 +518,33 @@
           "name": "Features — Tabs",
           "type": "section",
           "path": "React/Sections/Features/tabs/",
+          "description": "An interactive feature showcase with real tab semantics: arrow-key and Home/End navigation, roving tabindex, and panels that toggle in place.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "features",
+            "tabs",
+            "minimal"
+          ],
           "install": "npx devsnips add React/Sections/Features/tabs"
         }
       ],
-      "subcategory": "Features"
+      "subcategory": "Features",
+      "tags": [
+        "alternating rows",
+        "bento grid",
+        "features",
+        "icon grid",
+        "minimal",
+        "neo-brutalist",
+        "numbered list",
+        "split layout",
+        "spotlight",
+        "tabs"
+      ]
     },
     {
       "name": "Hero",
@@ -433,10 +559,16 @@
           "name": "Hero — Bento",
           "type": "section",
           "path": "React/Sections/Hero/bento/",
+          "description": "A modular 12-column hero grid: a headline cell with the CTAs, a code cell carrying a real copy-paste snippet, and three single-idea supporting cells.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "hero",
+            "landing page",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Hero/bento"
         },
@@ -445,10 +577,16 @@
           "name": "Hero — Dark Premium",
           "type": "section",
           "path": "React/Sections/Hero/dark-premium/",
+          "description": "A premium dark hero in a 5/7 split: headline block and CTAs on the left, a bordered product artifact with sparkline metrics on the right.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "hero",
+            "landing page",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Hero/dark-premium"
         },
@@ -457,10 +595,16 @@
           "name": "Hero — Minimal",
           "type": "section",
           "path": "React/Sections/Hero/minimal/",
+          "description": "The Hero family's reference composition: a simple top navigation row, a centered headline block, and a quiet wordmark proof strip carried by typography and hairlines.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "hero",
+            "landing page",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Hero/minimal"
         },
@@ -469,15 +613,29 @@
           "name": "Hero — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Hero/neo-brutalist/",
+          "description": "An asymmetric 7/5 hero split with a hard-bordered metric panel and flat accent stat blocks - square corners, 2px borders, press-down buttons.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "hero",
+            "landing page",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Hero/neo-brutalist"
         }
       ],
-      "subcategory": "Hero"
+      "subcategory": "Hero",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "hero",
+        "landing page",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Integrations",
@@ -492,10 +650,16 @@
           "name": "Integrations — Bento",
           "type": "section",
           "path": "React/Sections/Integrations/bento/",
+          "description": "A 12-column bento ecosystem grid: a featured integration cell, a showcase of compact tool rows, three category cells, and a full-width ecosystem strip.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Integrations/bento"
         },
@@ -504,10 +668,16 @@
           "name": "Integrations — Dark Premium",
           "type": "section",
           "path": "React/Sections/Integrations/dark-premium/",
+          "description": "A connected-ecosystem composition on a pinned dark canvas: a central product node with six integration nodes orbiting in two ruled rings.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Integrations/dark-premium"
         },
@@ -516,10 +686,16 @@
           "name": "Integrations — Minimal",
           "type": "section",
           "path": "React/Sections/Integrations/minimal/",
+          "description": "A documentation-style integration directory: a tight header above a hairline-ruled list of integrations with invented glyphs and mono category labels.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Integrations/minimal"
         },
@@ -528,15 +704,29 @@
           "name": "Integrations — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Integrations/neo-brutalist/",
+          "description": "A system-rack composition: an oversized heading, a flat accent-filled center block with spec rows, and a rigid grid of 2px-bordered module blocks.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "integrations",
+            "ecosystem",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Integrations/neo-brutalist"
         }
       ],
-      "subcategory": "Integrations"
+      "subcategory": "Integrations",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "ecosystem",
+        "integrations",
+        "minimal",
+        "neo-brutalist"
+      ]
     },
     {
       "name": "Logo Cloud",
@@ -551,10 +741,16 @@
           "name": "Logo Cloud — Bento",
           "type": "section",
           "path": "React/Sections/Logo-Cloud/bento/",
+          "description": "A 12-column bento brand grid: a hero cell giving the anchor brand a larger presence, a statement cell with the integration count, and seven supporting brand cells.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Logo-Cloud/bento"
         },
@@ -563,10 +759,16 @@
           "name": "Logo Cloud — Dark Premium",
           "type": "section",
           "path": "React/Sections/Logo-Cloud/dark-premium/",
+          "description": "An asymmetric 4/8 dark brand wall: header block left, a single raised panel of hairline-separated invented wordmarks right.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Logo-Cloud/dark-premium"
         },
@@ -575,10 +777,16 @@
           "name": "Logo Cloud — Minimal",
           "type": "section",
           "path": "React/Sections/Logo-Cloud/minimal/",
+          "description": "A compact ruled brand wall: a left-aligned header above a full-width hairline-separated row of uniformly styled invented wordmarks.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Logo-Cloud/minimal"
         },
@@ -587,15 +795,29 @@
           "name": "Logo Cloud — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Logo-Cloud/neo-brutalist/",
+          "description": "A brand matrix of six square 2px-bordered cells with hard offset shadows, mono index numbers, uppercase mono wordmarks, and one flat accent fill.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "logo cloud",
+            "social proof",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Logo-Cloud/neo-brutalist"
         }
       ],
-      "subcategory": "Logo-Cloud"
+      "subcategory": "Logo-Cloud",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "logo cloud",
+        "minimal",
+        "neo-brutalist",
+        "social proof"
+      ]
     },
     {
       "name": "Newsletter",
@@ -610,6 +832,7 @@
           "name": "Newsletter — Bento",
           "type": "section",
           "path": "React/Sections/Newsletter/bento/",
+          "description": "A 12-column bento signup grid: a 7-column hero cell with the primary signup form, a supporting cell listing what subscribers receive, two topic cells, and a bottom strip.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -627,6 +850,7 @@
           "name": "Newsletter — Dark Premium",
           "type": "section",
           "path": "React/Sections/Newsletter/dark-premium/",
+          "description": "An editorial 4/8 dark signup: oversized heading block and ruled metadata left, the form in a single raised panel right.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -645,6 +869,7 @@
           "name": "Newsletter — Minimal",
           "type": "section",
           "path": "React/Sections/Newsletter/minimal/",
+          "description": "A restrained editorial signup: eyebrow, controlled headline, one description, a horizontal email form, and a small privacy note - hairlines only.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -662,6 +887,7 @@
           "name": "Newsletter — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Newsletter/neo-brutalist/",
+          "description": "A signup billboard: oversized statement headline, ruled metadata strip, a large bordered email field, and a heavy press-down subscribe button.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -699,10 +925,16 @@
           "name": "Pricing — Bento",
           "type": "section",
           "path": "React/Sections/Pricing/bento/",
+          "description": "Pricing as a 12-column cell grid: a hero cell with the recommended plan and its included list, two compact plan cells beside it, and a full-width guarantee strip.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "pricing",
+            "plans",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Pricing/bento"
         },
@@ -711,10 +943,16 @@
           "name": "Pricing — Dark Premium",
           "type": "section",
           "path": "React/Sections/Pricing/dark-premium/",
+          "description": "Two plans on a dark canvas: a free Community tier beside a Pro tier with a metered usage rate card, one elevation step above the canvas.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "pricing",
+            "plans",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Pricing/dark-premium"
         },
@@ -723,10 +961,16 @@
           "name": "Pricing — Minimal",
           "type": "section",
           "path": "React/Sections/Pricing/minimal/",
+          "description": "A left-aligned header above an even three-tier grid of flat bordered cards with tabular-num price blocks and real feature lists.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "pricing",
+            "plans",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Pricing/minimal"
         },
@@ -735,15 +979,29 @@
           "name": "Pricing — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Pricing/neo-brutalist/",
+          "description": "Three square plan blocks with uniform 2px borders, hard offset shadows, mono uppercase labels, and press-down CTAs - the featured plan carries the single accent fill.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "pricing",
+            "plans",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Pricing/neo-brutalist"
         }
       ],
-      "subcategory": "Pricing"
+      "subcategory": "Pricing",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "minimal",
+        "neo-brutalist",
+        "plans",
+        "pricing"
+      ]
     },
     {
       "name": "Stats",
@@ -758,10 +1016,16 @@
           "name": "Stats — Bento",
           "type": "section",
           "path": "React/Sections/Stats/bento/",
+          "description": "Statistics as a 12-column cell grid: an anchor-metric hero cell, a highlight cell carrying the single accent, and two supporting cells below.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "stats",
+            "metrics",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Stats/bento"
         },
@@ -770,10 +1034,16 @@
           "name": "Stats — Dark Premium",
           "type": "section",
           "path": "React/Sections/Stats/dark-premium/",
+          "description": "An asymmetric 4/8 dark telemetry split: header block left, a single raised panel of featured metrics and a ruled latency definition list right.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "stats",
+            "metrics",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Stats/dark-premium"
         },
@@ -782,10 +1052,16 @@
           "name": "Stats — Minimal",
           "type": "section",
           "path": "React/Sections/Stats/minimal/",
+          "description": "A left-aligned header above a ruled stat rail: four metrics in one hairline-separated list, the design carried by spacing and numerical hierarchy.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "stats",
+            "metrics",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Stats/minimal"
         },
@@ -794,15 +1070,29 @@
           "name": "Stats — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Stats/neo-brutalist/",
+          "description": "Four square stat blocks with uniform 2px borders, hard offset shadows, mono uppercase labels, and a 700-weight numerical voice - one filled accent block.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "stats",
+            "metrics",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Stats/neo-brutalist"
         }
       ],
-      "subcategory": "Stats"
+      "subcategory": "Stats",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "metrics",
+        "minimal",
+        "neo-brutalist",
+        "stats"
+      ]
     },
     {
       "name": "Team",
@@ -817,6 +1107,7 @@
           "name": "Team — Bento",
           "type": "section",
           "path": "React/Sections/Team/bento/",
+          "description": "A 12-column team grid: four member cards with initials avatars, roles, and bios, above a ruled metadata strip of shared standards.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -834,6 +1125,7 @@
           "name": "Team — Dark Premium",
           "type": "section",
           "path": "React/Sections/Team/dark-premium/",
+          "description": "A dark team composition: member cards with bios, locations, and profile links as raised surfaces one elevation step above the canvas.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -852,6 +1144,7 @@
           "name": "Team — Minimal",
           "type": "section",
           "path": "React/Sections/Team/minimal/",
+          "description": "A ruled four-column team list: members separated by hairlines on a border-t grid, with names, roles, and bios carried by typography alone.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -869,6 +1162,7 @@
           "name": "Team — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Team/neo-brutalist/",
+          "description": "A rigid team split: hard-bordered member blocks with uniform 2px borders and offset shadows beside a ruled metadata strip.",
           "files": [
             "code.tsx",
             "metadata.json",
@@ -908,10 +1202,16 @@
           "name": "Testimonials — Bento",
           "type": "section",
           "path": "React/Sections/Testimonials/bento/",
+          "description": "A 12-column bento proof grid: a hero quote cell with the longest testimonial, an evidence cell with a single outcome stat, and three single-quote cells.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "testimonials",
+            "social proof",
+            "bento grid"
           ],
           "install": "npx devsnips add React/Sections/Testimonials/bento"
         },
@@ -920,10 +1220,16 @@
           "name": "Testimonials — Dark Premium",
           "type": "section",
           "path": "React/Sections/Testimonials/dark-premium/",
+          "description": "A dark customer-story split: an evidence card with company facts and outcome metrics beside a two-paragraph first-person narrative with a pull-quote line.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "testimonials",
+            "social proof",
+            "dark premium"
           ],
           "install": "npx devsnips add React/Sections/Testimonials/dark-premium"
         },
@@ -932,10 +1238,16 @@
           "name": "Testimonials — Minimal",
           "type": "section",
           "path": "React/Sections/Testimonials/minimal/",
+          "description": "An even grid of six peer testimonials as real figure/blockquote pairs - every voice the same weight, separated by whitespace alone.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
+          ],
+          "tags": [
+            "testimonials",
+            "social proof",
+            "minimal"
           ],
           "install": "npx devsnips add React/Sections/Testimonials/minimal"
         },
@@ -944,15 +1256,29 @@
           "name": "Testimonials — Neo-Brutalist",
           "type": "section",
           "path": "React/Sections/Testimonials/neo-brutalist/",
+          "description": "Three square testimonial cards with uniform 2px borders, hard offset shadows, mono index numbers, and one flat accent fill.",
           "files": [
             "code.tsx",
             "metadata.json",
             "preview.html"
           ],
+          "tags": [
+            "testimonials",
+            "social proof",
+            "neo-brutalist"
+          ],
           "install": "npx devsnips add React/Sections/Testimonials/neo-brutalist"
         }
       ],
-      "subcategory": "Testimonials"
+      "subcategory": "Testimonials",
+      "tags": [
+        "bento grid",
+        "dark premium",
+        "minimal",
+        "neo-brutalist",
+        "social proof",
+        "testimonials"
+      ]
     },
     {
       "name": "404 (Tailwind)",

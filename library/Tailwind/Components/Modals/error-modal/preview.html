@@ -6,12 +6,12 @@
   <title>Error Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-50 via-red-50/30 to-rose-50 flex items-center justify-center p-8">
+<body data-error-modal class="min-h-screen bg-gradient-to-br from-gray-50 via-red-50/30 to-rose-50 flex items-center justify-center p-8">
   
   <!-- Error Modal -->
   <div id="error-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('error-modal')"></div>
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" data-bind="1"></div>
     
     <!-- Modal Container -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -41,7 +41,7 @@
           
           <!-- Error Actions -->
           <div class="space-y-3">
-            <button onclick="closeModal('error-modal')" class="w-full flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <button class="w-full flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" data-bind="2">
               <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                 <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
@@ -56,7 +56,7 @@
               </svg>
             </button>
             
-            <button onclick="closeModal('error-modal')" class="w-full flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <button class="w-full flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" data-bind="3">
               <div class="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center">
                 <svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.41l.001-.001a1 1 0 011.414 0l.001.001c.39.39.39 1.024 0 1.415l-.001.001a1 1 0 01-1.414 0l-.001-.001a1 1 0 010-1.415zM12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -75,14 +75,14 @@
         
         <!-- Footer -->
         <div class="p-6 pt-0">
-          <button onclick="closeModal('error-modal')" class="w-full py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Dismiss</button>
+          <button class="w-full py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" data-bind="4">Dismiss</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('error-modal')" class="px-6 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-lg shadow-red-500/30">
+  <button class="px-6 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-lg shadow-red-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="error-modal" data-bind="5">
     Open Error Modal
   </button>
 
@@ -104,5 +104,48 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-error-modal]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeModal('error-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('error-modal') });
+    bind('[data-bind="3"]', function (event) { closeModal('error-modal') });
+    bind('[data-bind="4"]', function (event) { closeModal('error-modal') });
+    bind('[data-bind="5"]', function (event) { openModal('error-modal') });
+    const menus = [
+      { id: 'error-modal', close: function () { closeModal('error-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

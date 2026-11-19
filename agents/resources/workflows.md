@@ -87,8 +87,10 @@ Never silence a validator to make a change pass. If a failure is pre-existing an
 12. Verify   node src/index.js --help still prints the documented flags
 ```
 
-Do not document a flag without adding it to `cli/src/index.js`. There is no `--force`, no
-output-directory option, and no CLI-level config file.
+Do not document a flag without adding it to `cli/src/index.js`. `--force` and `--dry-run` exist
+(wired through `cli/src/index.js` → `add.js` → `writer.js` and the dry-run report branch); there is still no
+output-directory option and no CLI-level config file.
+
 ## 6. Updating metadata
 
 ```text

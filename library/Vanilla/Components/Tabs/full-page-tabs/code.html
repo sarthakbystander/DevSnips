@@ -55,10 +55,10 @@
   <p>Who we are and what we do.</p>
 </div>
 
-<button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Home</button>
-<button class="tablink" onclick="openPage('News', this, 'green')">News</button>
-<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
-<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+<button type="button" class="tablink" data-page="Home" data-color="red" id="defaultOpen">Home</button>
+<button type="button" class="tablink" data-page="News" data-color="green">News</button>
+<button type="button" class="tablink" data-page="Contact" data-color="blue">Contact</button>
+<button type="button" class="tablink" data-page="About" data-color="orange">About</button>
 
 <script>
 function openPage(pageName,elmnt,color) {
@@ -70,5 +70,10 @@ function openPage(pageName,elmnt,color) {
   document.getElementById(pageName).style.display = "block";
   elmnt.style.backgroundColor = color;
 }
+document.querySelectorAll(".tablink").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    openPage(btn.dataset.page, btn, btn.dataset.color);
+  });
+});
 document.getElementById("defaultOpen").click();
 </script>

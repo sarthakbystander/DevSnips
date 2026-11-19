@@ -38,28 +38,43 @@
       Delete a snippet below to see the action toast. Click <span class="font-medium text-gray-700">Undo</span> within 6 seconds to restore it.
     </p>
 
-    <div class="mt-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+    <div data-action-toast class="mt-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
       <ul id="snippet-list" class="divide-y divide-gray-100">
         <li class="flex items-center gap-4 p-4">
           <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
           <div class="min-w-0 flex-1"><p class="text-sm font-medium text-gray-900">hero-split-card.html</p><p class="text-xs text-gray-500">Modified 2h ago</p></div>
-          <button onclick="deleteItem(this, 'hero-split-card.html')" class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete hero-split-card.html"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
+          <button class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete hero-split-card.html" data-bind="1"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
         </li>
         <li class="flex items-center gap-4 p-4">
           <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 text-amber-600"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
           <div class="min-w-0 flex-1"><p class="text-sm font-medium text-gray-900">pricing-toggle.html</p><p class="text-xs text-gray-500">Modified yesterday</p></div>
-          <button onclick="deleteItem(this, 'pricing-toggle.html')" class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete pricing-toggle.html"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
+          <button class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete pricing-toggle.html" data-bind="2"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
         </li>
         <li class="flex items-center gap-4 p-4">
           <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-green-50 text-green-600"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
           <div class="min-w-0 flex-1"><p class="text-sm font-medium text-gray-900">faq-accordion.html</p><p class="text-xs text-gray-500">Modified 3 days ago</p></div>
-          <button onclick="deleteItem(this, 'faq-accordion.html')" class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete faq-accordion.html"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
+          <button class="rounded-lg p-2 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Delete faq-accordion.html" data-bind="3"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg></button>
         </li>
       </ul>
       <div id="empty-state" class="hidden p-12 text-center">
         <p class="text-sm font-medium text-gray-500">No snippets left.</p>
         <p class="mt-1 text-xs text-gray-400">Delete was permanent this time.</p>
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-action-toast]');
+
+        function bind(selector, handler) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('click', handler);
+          });
+      }
+
+        bind('[data-bind="1"]', function (event) { deleteItem(this, 'hero-split-card.html') });
+        bind('[data-bind="2"]', function (event) { deleteItem(this, 'pricing-toggle.html') });
+        bind('[data-bind="3"]', function (event) { deleteItem(this, 'faq-accordion.html') });
+      })();
+    </script>
     </div>
   </main>
 
@@ -68,7 +83,7 @@
 
   <script>
     (function () {
-      const root = document.currentScript.closest('[data-toast-region]');
+      const root = document.querySelector('[data-toast-region]');
       if (!root) return;
 
       function dismiss(toast) {

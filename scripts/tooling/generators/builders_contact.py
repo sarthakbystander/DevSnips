@@ -1,5 +1,5 @@
 """Contact section builders — 15 concepts."""
-from .helpers import TOKENS, avatar, ic, ICONS, fill
+from .helpers import TOKENS, avatar, ic
 from .layout import head, section
 
 

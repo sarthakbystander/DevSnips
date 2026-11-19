@@ -53,6 +53,14 @@ Buttons groups) have `metadata.json` but are excluded because they contain leaf 
 
 Implementation — note the two predicates differ slightly:
 
+- `scripts/tooling/indexing/rebuild_index.py` `is_leaf()` — Tailwind requires **both**
+  `code.html` **and** `preview.html`; React accepts `code.tsx` **or** `preview.html`;
+  Vanilla is always a leaf (metadata + no child metadata).
+- `scripts/tooling/validators/validate.py` `is_leaf()` and
+  `scripts/tooling/validators/deep_check.py` `is_leaf()` — Tailwind / React accept **either**
+  file, deliberately, so a variant missing one of the pair is *reported by the required-file
+  checks* instead of being silently reclassified as a grouping folder.
+
 ## 4. Per-framework file requirements
 
 "Required" = a failure in `scripts/tooling/validators/deep_check.py` and/or
@@ -89,6 +97,35 @@ Validation: `scripts/tooling/validators/validate.py`,
 | Component | `code.html`, `preview.html`, `metadata.json`, `README.md` | 3-level layout allowed (see below) |
 | Section | `code.html`, `preview.html`, `metadata.json` | `README.md` optional but must be non-empty when present |
 | Template | `preview.html`, `metadata.json`, `AGENTS.md` | `README.md`, `pages/**`, `assets/**` |
+
+Layout shapes actually present:
+
+- 2-level component: `library/Tailwind/Components/Accordions/basic-accordion/`
+- 3-level component (Buttons only): `library/Tailwind/Components/Buttons/basic-button/primary/`
+  where `basic-button/` holds `metadata.json` + `README.md` plus its variants.
+- 2-level section: `library/Tailwind/Sections/Blog/minimal/`
+- 3-level section: `library/Tailwind/Sections/AI-Product/model-comparison/vercel/`
+- Template: `library/Tailwind/Templates/meridian/`
+
+### 4.3 Vanilla
+
+Repository location: `library/Vanilla/{Components,Sections,Templates}/`
+
+Validation: `scripts/tooling/validators/validate.py`,
+`scripts/tooling/validators/deep_check.py`, `scripts/qa/resources/qa_vanilla.py`
+
+| Type | Required | Optional / notable |
+|---|---|---|
+| Component | `metadata.json` | `code.html`, `README.md` are the universal convention but **not** machine-enforced for Vanilla |
+| Section | `metadata.json` | `code.html`, `README.md` (non-empty when present) |
+| Template | `metadata.json`, `AGENTS.md`, `preview.html` **or** a non-empty `pages/`, plus `README.md` | modular `pages/{code.html,style.css,script.js}`, `css/`, `js/`, `assets/` |
+
+Observed examples:
+
+- Component: `library/Vanilla/Components/Buttons/split-button/`
+- Section: `library/Vanilla/Sections/Hero/hero-minimal/`
+- Template (modular): `library/Vanilla/Templates/agency/`
+- Template (multi-page with shared `css/`/`js/`/`assets/`): `library/Vanilla/Templates/saas-dashboard/`
 
 ## 5. Metadata
 
@@ -146,6 +183,12 @@ Hard rules:
   (`docs/COMPONENT_STRUCTURE.md`, "Required consistency rules").
 - `id`/`slug` should be globally unique for new content. `validate.py` reports duplicates as an
   informational NOTE only; known pre-existing duplicates are deliberately preserved.
+
+The registry does **not** copy every metadata key. `rebuild_index.py` `make_variant()` reads
+`name`, `description`, `tags`, `features`, and `style`/`styles`, and falls back to the previous
+index for anything absent — so removing a curated field from `metadata.json` does not
+necessarily erase it from the index.
+
 ## 6. `code.*`, `preview.html`, `README.md`, `AGENTS.md`
 
 ### `code.*` — the copy-paste implementation
@@ -272,43 +315,3 @@ Destination layout is computed by `cli/src/install/writer.js` `calculateDestinat
   `scripts/qa/resources/qa_vanilla.py` and `agents/resources/frameworks/vanilla.md`.
 - **Responsive** means usable at mobile widths without horizontal overflow, not
   pixel-identical across breakpoints.
-
-The registry does **not** copy every metadata key. `rebuild_index.py` `make_variant()` reads
-`name`, `description`, `tags`, `features`, and `style`/`styles`, and falls back to the previous
-index for anything absent — so removing a curated field from `metadata.json` does not
-necessarily erase it from the index.
-Layout shapes actually present:
-
-- 2-level component: `library/Tailwind/Components/Accordions/basic-accordion/`
-- 3-level component (Buttons only): `library/Tailwind/Components/Buttons/basic-button/primary/`
-  where `basic-button/` holds `metadata.json` + `README.md` plus its variants.
-- 2-level section: `library/Tailwind/Sections/Blog/minimal/`
-- 3-level section: `library/Tailwind/Sections/AI-Product/model-comparison/vercel/`
-- Template: `library/Tailwind/Templates/meridian/`
-
-### 4.3 Vanilla
-
-Repository location: `library/Vanilla/{Components,Sections,Templates}/`
-
-Validation: `scripts/tooling/validators/validate.py`,
-`scripts/tooling/validators/deep_check.py`, `scripts/qa/resources/qa_vanilla.py`
-
-| Type | Required | Optional / notable |
-|---|---|---|
-| Component | `metadata.json` | `code.html`, `README.md` are the universal convention but **not** machine-enforced for Vanilla |
-| Section | `metadata.json` | `code.html`, `README.md` (non-empty when present) |
-| Template | `metadata.json`, `AGENTS.md`, `preview.html` **or** a non-empty `pages/`, plus `README.md` | modular `pages/{code.html,style.css,script.js}`, `css/`, `js/`, `assets/` |
-
-Observed examples:
-
-- Component: `library/Vanilla/Components/Buttons/split-button/`
-- Section: `library/Vanilla/Sections/Hero/hero-minimal/`
-- Template (modular): `library/Vanilla/Templates/agency/`
-- Template (multi-page with shared `css/`/`js/`/`assets/`): `library/Vanilla/Templates/saas-dashboard/`
-- `scripts/tooling/indexing/rebuild_index.py` `is_leaf()` — Tailwind requires **both**
-  `code.html` **and** `preview.html`; React accepts `code.tsx` **or** `preview.html`;
-  Vanilla is always a leaf (metadata + no child metadata).
-- `scripts/tooling/validators/validate.py` `is_leaf()` and
-  `scripts/tooling/validators/deep_check.py` `is_leaf()` — Tailwind / React accept **either**
-  file, deliberately, so a variant missing one of the pair is *reported by the required-file
-  checks* instead of being silently reclassified as a grouping folder.

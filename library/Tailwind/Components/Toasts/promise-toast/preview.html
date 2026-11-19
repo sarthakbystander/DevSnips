@@ -43,7 +43,7 @@
         <h2 class="text-sm font-extrabold uppercase tracking-widest">Production services</h2>
         <span class="border-2 border-black bg-[#00E676] px-2 py-0.5 text-xs font-extrabold uppercase tracking-wider">3 live</span>
       </div>
-      <ul class="divide-y-2 divide-black">
+      <ul data-promise-toast class="divide-y-2 divide-black">
         <li class="flex flex-wrap items-center gap-x-4 gap-y-3 p-4 sm:p-5">
           <span class="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-black bg-[#00C2FF]" aria-hidden="true">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.6 3.6 5.6 3.6 9s-1.1 6.4-3.6 9c-2.5-2.6-3.6-5.6-3.6-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="2"/></svg>
@@ -55,7 +55,7 @@
           <p class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
             <span class="h-2.5 w-2.5 border border-black bg-[#00E676]" aria-hidden="true"></span>Live
           </p>
-          <button type="button" onclick="redeploy('web-storefront', 249)" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">Redeploy</button>
+          <button type="button" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none" data-bind="1">Redeploy</button>
         </li>
         <li class="flex flex-wrap items-center gap-x-4 gap-y-3 p-4 sm:p-5">
           <span class="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-black bg-[#FFE600]" aria-hidden="true">
@@ -68,7 +68,7 @@
           <p class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
             <span class="h-2.5 w-2.5 border border-black bg-[#00E676]" aria-hidden="true"></span>Live
           </p>
-          <button type="button" onclick="redeploy('payments-api', 97)" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">Redeploy</button>
+          <button type="button" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none" data-bind="2">Redeploy</button>
         </li>
         <li class="flex flex-wrap items-center gap-x-4 gap-y-3 p-4 sm:p-5">
           <span class="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-black bg-[#FF4FA3]" aria-hidden="true">
@@ -81,8 +81,23 @@
           <p class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
             <span class="h-2.5 w-2.5 border border-black bg-[#00E676]" aria-hidden="true"></span>Live
           </p>
-          <button type="button" onclick="redeploy('search-worker', 412)" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">Redeploy</button>
+          <button type="button" class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-widest shadow-[4px_4px_0_0_#000] motion-safe:transition-all motion-safe:duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#00C2FF] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none" data-bind="3">Redeploy</button>
         </li>
+      <script>
+        (function () {
+          const root = document.currentScript.closest('[data-promise-toast]');
+
+          function bind(selector, handler) {
+            root.querySelectorAll(selector).forEach(function (el) {
+              el.addEventListener('click', handler);
+            });
+        }
+
+          bind('[data-bind="1"]', function (event) { redeploy('web-storefront', 249) });
+          bind('[data-bind="2"]', function (event) { redeploy('payments-api', 97) });
+          bind('[data-bind="3"]', function (event) { redeploy('search-worker', 412) });
+        })();
+      </script>
       </ul>
     </section>
 

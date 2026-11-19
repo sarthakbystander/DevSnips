@@ -6,12 +6,12 @@
   <title>Bottom Sheet - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-50 via-green-50/30 to-emerald-50 flex items-center justify-center p-8">
+<body data-bottom-sheet class="min-h-screen bg-gradient-to-br from-gray-50 via-green-50/30 to-emerald-50 flex items-center justify-center p-8">
   
   <!-- Bottom Sheet Modal -->
   <div id="bottom-sheet" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeBottomSheet('bottom-sheet')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
     
     <!-- Sheet -->
     <div id="sheet-panel" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-3xl shadow-2xl transform transition-transform duration-300 translate-y-0 max-h-[80vh] overflow-hidden">
@@ -35,7 +35,7 @@
               <p class="text-sm text-gray-500 dark:text-gray-400">Productivity tools</p>
             </div>
           </div>
-          <button onclick="closeBottomSheet('bottom-sheet')" class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <button class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-bind="2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -135,7 +135,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openBottomSheet('bottom-sheet')" class="px-6 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg shadow-green-500/30">
+  <button class="px-6 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg shadow-green-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="bottom-sheet" data-bind="3">
     Open Bottom Sheet
   </button>
 
@@ -154,5 +154,46 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-bottom-sheet]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeBottomSheet('bottom-sheet') });
+    bind('[data-bind="2"]', function (event) { closeBottomSheet('bottom-sheet') });
+    bind('[data-bind="3"]', function (event) { openBottomSheet('bottom-sheet') });
+    const menus = [
+      { id: 'bottom-sheet', close: function () { closeBottomSheet('bottom-sheet') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

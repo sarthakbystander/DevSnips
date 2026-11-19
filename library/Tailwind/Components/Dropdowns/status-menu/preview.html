@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-status-menu class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -26,8 +26,7 @@
           <button
             id="status-button"
             class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-            onclick="toggleDropdown('status-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="status-menu">
             <span id="current-status" class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
               <span>Active</span>
@@ -46,7 +45,7 @@
             </div>
 
             <div class="py-2">
-              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="active" onclick="setStatus(this)">
+              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="active">
                 <div class="flex items-center gap-3">
                   <span class="w-3 h-3 bg-emerald-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Active</span>
@@ -56,7 +55,7 @@
                 </svg>
               </button>
 
-              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="away" onclick="setStatus(this)">
+              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="away">
                 <div class="flex items-center gap-3">
                   <span class="w-3 h-3 bg-amber-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Away</span>
@@ -66,7 +65,7 @@
                 </svg>
               </button>
 
-              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="busy" onclick="setStatus(this)">
+              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="busy">
                 <div class="flex items-center gap-3">
                   <span class="w-3 h-3 bg-red-500 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Busy</span>
@@ -76,7 +75,7 @@
                 </svg>
               </button>
 
-              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="offline" onclick="setStatus(this)">
+              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 transition-colors" data-status="offline">
                 <div class="flex items-center gap-3">
                   <span class="w-3 h-3 bg-gray-400 rounded-full"></span>
                   <span class="text-sm font-medium text-gray-900">Appear Offline</span>
@@ -88,7 +87,7 @@
             </div>
 
             <div class="border-t border-gray-100 py-2">
-              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-red-50 transition-colors" data-status="dnd" onclick="setStatus(this)">
+              <button class="status-option w-full flex items-center justify-between px-4 py-3 hover:bg-red-50 transition-colors" data-status="dnd">
                 <div class="flex items-center gap-3">
                   <span class="w-3 h-3 bg-red-600 rounded-full relative">
                     <span class="absolute inset-0 bg-red-600 rounded-full animate-ping opacity-75"></span>
@@ -104,6 +103,49 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-status-menu]');
+
+        function bind(selector, handler) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('click', handler);
+          });
+      }
+
+        bind('#status-button', function (event) { toggleDropdown('status-menu') });
+        root.addEventListener('click', function (event) {
+          const opt = event.target.closest('.status-option');
+          if (opt) setStatus(opt);
+        });
+        const menus = [
+          { id: 'status-menu', close: function () { toggleDropdown('status-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

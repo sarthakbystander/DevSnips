@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-18
+
+### Changed — CLI v1.2.0 release & test suite expansion
+- **CLI flags `--force` and `--dry-run` added**: `devsnips add <path> --force` allows overwriting existing files; `devsnips add <path> --dry-run` resolves resources and reports planned filesystem writes without modifying disk.
+- **CLI test suite**: Migrated to native Node test runner (`node --test`), added 103 offline unit and end-to-end integration tests using `DEVSNIPS_REGISTRY_URL` and `DEVSNIPS_RAW_BASE` environment overrides.
+- **Ruff linter**: Configured root `ruff.toml` and pinned `ruff==0.16.8` in CI; resolved all 72 lint findings across `scripts/tooling/` and `scripts/qa/`.
+- **Vanilla and Tailwind accessibility**: Removed inline `onclick` handlers, wired scoped event listeners, fixed token fallbacks to Swiss design tokens, and enforced no-inline-handlers validation in Tailwind markup.
+- **Browser QA in CI**: Integrated Playwright browser QA into GitHub Actions under scheduled cron and `workflow_dispatch`.
+
 ## 2026-10-31
 
 ### Changed — `React/Templates/suna-ai-studio` (Suna Studio) full visual redesign: "Deep Current" cinematic dark

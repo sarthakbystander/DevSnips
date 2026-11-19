@@ -90,7 +90,13 @@ Guidance only — some families use an extra level (Tailwind Buttons groups, mul
 
 ## Not available
 
-Confirmed absent; do not use or script against: `--force`, `--dry-run`, `list`, `search`, `remove`, `update`, JSON output, `--config`/`--dir`/`--output`, version pinning, offline/local-registry mode, interactive prompts.
+Confirmed absent; do not use or script against: `list`, `search`, `remove`, `update`, JSON output, `--config`/`--dir`/`--output`, version pinning, interactive prompts.
+
+`--force` **is** available on `add`: it re-installs and overwrites the existing destination files.
+
+`--dry-run` **is** available on `add`: it resolves and downloads normally but writes nothing — no files, no project-context changes — and reports what would have been installed.
+
+The registry and file-download endpoints can be redirected for tests, mirrors, and offline use via the `DEVSNIPS_REGISTRY_URL` and `DEVSNIPS_RAW_BASE` environment variables (defaults are unchanged).
 
 ## Exit codes
 

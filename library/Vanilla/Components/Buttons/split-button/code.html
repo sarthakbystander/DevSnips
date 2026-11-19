@@ -6,7 +6,7 @@
 }
 
 .btn {
-  background-color: var(--ds-success, #4CAF50);
+  background-color: var(--ds-success, #16a34a);
   color: white;
   padding: 10px;
   font-size: 16px;
@@ -30,7 +30,8 @@
   display: block;
 }
 
-.btn-group:hover .dropdown-content {
+.btn-group:hover .dropdown-content,
+.btn-group:focus-within .dropdown-content {
   display: block;
 }
 
@@ -46,10 +47,30 @@
 </style>
 
 <div class="btn-group">
-  <button class="btn">Action</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+  <button type="button" class="btn" id="split-btn-action" aria-haspopup="true" aria-expanded="false" aria-controls="split-btn-menu">Action</button>
+  <div class="dropdown-content" id="split-btn-menu" role="menu" aria-labelledby="split-btn-action">
+    <a href="#" role="menuitem">Link 1</a>
+    <a href="#" role="menuitem">Link 2</a>
+    <a href="#" role="menuitem">Link 3</a>
   </div>
 </div>
+<script>
+  var group = document.querySelector('.btn-group');
+  var trigger = group.querySelector('.btn[aria-haspopup="true"]');
+
+  function setExpanded(open) {
+    trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  trigger.addEventListener('click', function () {
+    setExpanded(trigger.getAttribute('aria-expanded') !== 'true');
+  });
+
+  trigger.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setExpanded(false);
+  });
+
+  group.addEventListener('focusout', function (e) {
+    if (!group.contains(e.relatedTarget)) setExpanded(false);
+  });
+</script>

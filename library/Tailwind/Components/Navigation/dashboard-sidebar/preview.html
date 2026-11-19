@@ -6,9 +6,9 @@
   <title>Dashboard Sidebar | DevSnips</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body data-dashboard-sidebar class="bg-gray-50 min-h-screen">
   
-  <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-30 lg:hidden" onclick="document.getElementById('mobileSidebar').classList.add('-translate-x-full'); this.classList.add('hidden');"></div>
+  <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-30 lg:hidden"></div>
 
   <!-- Component: Dashboard Sidebar -->
   
@@ -105,7 +105,7 @@
       <!-- Header -->
       <div class="flex items-center justify-between mb-8">
         <div class="flex items-center gap-3">
-          <button class="lg:hidden p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg" aria-label="Open menu" onclick="document.getElementById('mobileSidebar').classList.remove('-translate-x-full'); document.getElementById('sidebarOverlay').classList.remove('hidden');">
+          <button class="lg:hidden p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg" aria-label="Open menu" data-bind="1">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
           <div>
@@ -154,5 +154,19 @@
     </div>
   </main>
 
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-dashboard-sidebar]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('#sidebarOverlay', function (event) { document.getElementById('mobileSidebar').classList.add('-translate-x-full'); event.currentTarget.classList.add('hidden'); });
+    bind('[data-bind="1"]', function (event) { document.getElementById('mobileSidebar').classList.remove('-translate-x-full'); document.getElementById('sidebarOverlay').classList.remove('hidden'); });
+  })();
+</script>
 </body>
 </html>

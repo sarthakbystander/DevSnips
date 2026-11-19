@@ -118,8 +118,9 @@ def static_checks():
         check("var(--ds-color-overlay)" in tsx, f"{slug}: overlay token")
         check("var(--ds-color-destructive)" in tsx, f"{slug}: destructive token")
         check("style=" not in tsx, f"{slug}: no inline style attribute")
-        check(re.findall(r"#(?:[0-9a-fA-F]{3}){1,2}\b", tsx) == ["#000", "#000", "#000", "#000"],
-              f"{slug}: only color-mix hover #000 hex literals (got {re.findall(r'#(?:[0-9a-fA-F]{3}){1,2}\b', tsx)})")
+        hex_literals = re.findall(r"#(?:[0-9a-fA-F]{3}){1,2}\b", tsx)
+        check(hex_literals == ["#000", "#000", "#000", "#000"],
+              f"{slug}: only color-mix hover #000 hex literals (got {hex_literals})")
         tsx_exports = sorted(re.findall(r"export function ([A-Za-z_$][\w$]*)", tsx))
         for name in CORE_EXPORTS:
             check(name in tsx_exports, f"{slug}: exports {name}")

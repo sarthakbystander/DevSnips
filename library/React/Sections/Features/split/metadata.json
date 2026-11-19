@@ -1,14 +1,19 @@
 {
   "id": "features-split",
-  "name": "Features \u2014 Split",
+  "name": "Features — Split",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Dark Premium",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "split layout",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A product-focused 6/6 dark split: feature copy with icon-marked rows on the left, a live-feel queue-depth panel on the right."
 }

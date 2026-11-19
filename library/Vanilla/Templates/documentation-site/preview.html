@@ -1234,6 +1234,10 @@
             border-bottom: 1px solid var(--ds-border-subtle);
             margin-bottom: var(--ds-space-10);
             position: relative;
+            /* The decorative glow below is 300px wide and anchored 80px past
+               the right edge; clip it to the hero so it cannot widen the
+               page's scrollable area at narrow widths. */
+            overflow-x: clip;
         }
         .home-hero::after {
             content: '';

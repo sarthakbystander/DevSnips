@@ -1,14 +1,19 @@
 {
   "id": "cta-minimal",
-  "name": "CTA \u2014 Minimal",
+  "name": "CTA — Minimal",
   "technology": "React",
   "category": "Sections",
   "subcategory": "CTA",
   "family": "CTA",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "call to action",
+    "conversion",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "A restrained editorial call to action: one left-aligned block of eyebrow, heading, lede, and two actions, separated from the canvas by whitespace and a hairline metadata rule."
 }

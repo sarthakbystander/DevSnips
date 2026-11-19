@@ -1,7 +1,8 @@
 <!-- Login Modal -->
 <div id="login-modal" class="fixed inset-0 z-50 hidden">
   <!-- Backdrop -->
-  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('login-modal')"></div>
+  <div data-login-modal>
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
   
   <!-- Modal Container -->
   <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -19,7 +20,7 @@
       </div>
       
       <!-- Form -->
-      <form class="p-6 space-y-4" onsubmit="event.preventDefault(); closeModal('login-modal');">
+      <form class="p-6 space-y-4" data-bind="2">
         <!-- Email -->
         <div>
           <label for="login-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
@@ -58,7 +59,7 @@
             <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
             <span class="text-sm text-gray-600 dark:text-gray-400">Remember me</span>
           </label>
-          <button type="button" onclick="closeModal('login-modal');" class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">Forgot password?</button>
+          <button type="button" class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium" data-bind="3">Forgot password?</button>
         </div>
         
         <!-- Submit -->
@@ -102,4 +103,49 @@
 </div>
 
 <!-- Demo Trigger Button -->
-<button onclick="openModal('login-modal')" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Open Login Modal</button>
+<button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-haspopup="dialog" aria-expanded="false" aria-controls="login-modal" data-bind="4">Open Login Modal</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-login-modal]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('[data-bind="1"]', function (event) { closeModal('login-modal') });
+    bind('[data-bind="2"]', function (event) { event.preventDefault(); closeModal('login-modal'); }, 'submit');
+    bind('[data-bind="3"]', function (event) { closeModal('login-modal'); });
+    bind('[data-bind="4"]', function (event) { openModal('login-modal') });
+    const menus = [
+      { id: 'login-modal', close: function () { closeModal('login-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
+
+</div>
+

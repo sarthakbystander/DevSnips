@@ -9,8 +9,10 @@ errors, and direction-specific rendered composition.
 """
 from __future__ import annotations
 
+import functools
 import json
 import re
+import socket
 import subprocess
 import sys
 import threading
@@ -124,10 +126,26 @@ def static_checks() -> None:
             check("active:translate-x-1" in tsx and "active:translate-y-1" in tsx, "neo-brutalist: press-down interaction")
 
 
+def _port_in_use() -> bool:
+    """True if something already listens on 127.0.0.1:8765."""
+    with socket.socket() as probe:
+        probe.settimeout(0.5)
+        return probe.connect_ex(("127.0.0.1", 8765)) == 0
+
+
 def browser_checks() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8765), SimpleHTTPRequestHandler)
-    thread = threading.Thread(target=server.serve_forever, daemon=True)
-    thread.start()
+    # Other React harnesses expect an externally started server (document
+    # root = library/, see agents/resources/qa.md). Reuse one when it is up;
+    # otherwise self-host with the same document root.
+    own_server = None
+    if _port_in_use():
+        print("== reusing the server already listening on :8765 ==")
+    else:
+        handler = functools.partial(SimpleHTTPRequestHandler,
+                                    directory=str(ROOT / "library"))
+        own_server = ThreadingHTTPServer(("127.0.0.1", 8765), handler)
+        thread = threading.Thread(target=own_server.serve_forever, daemon=True)
+        thread.start()
     try:
         with sync_playwright() as pw:
             browser = pw.chromium.launch()
@@ -220,7 +238,8 @@ def browser_checks() -> None:
                 page.close()
             browser.close()
     finally:
-        server.shutdown()
+        if own_server is not None:
+            own_server.shutdown()
 
 
 def validation_checks() -> None:

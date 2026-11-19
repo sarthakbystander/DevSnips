@@ -6,12 +6,12 @@
   <title>Slide Over Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 flex items-center justify-center p-8">
+<body data-slide-over class="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 flex items-center justify-center p-8">
   
   <!-- Slide Over Modal -->
   <div id="slide-over" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeSlideOver('slide-over')"></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" data-bind="1"></div>
     
     <!-- Panel -->
     <div id="slide-panel" class="fixed inset-y-0 left-0 w-full max-w-lg bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 -translate-x-full">
@@ -29,7 +29,7 @@
             <p class="text-sm text-gray-500 dark:text-gray-400">Project: Website Redesign</p>
           </div>
         </div>
-        <button onclick="closeSlideOver('slide-over')" class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-bind="2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
@@ -126,14 +126,14 @@
       <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
         <div class="flex gap-3">
           <button class="flex-1 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Delete</button>
-          <button onclick="closeSlideOver('slide-over')" class="flex-1 py-3 text-sm font-medium text-white bg-violet-600 rounded-xl hover:bg-violet-700 transition-colors">Save Changes</button>
+          <button class="flex-1 py-3 text-sm font-medium text-white bg-violet-600 rounded-xl hover:bg-violet-700 transition-colors" data-bind="3">Save Changes</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openSlideOver('slide-over')" class="px-6 py-3 bg-violet-600 text-white font-medium rounded-xl hover:bg-violet-700 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 shadow-lg shadow-violet-500/30">
+  <button class="px-6 py-3 bg-violet-600 text-white font-medium rounded-xl hover:bg-violet-700 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 shadow-lg shadow-violet-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="slide-over" data-bind="4">
     Open Slide Over
   </button>
 
@@ -156,5 +156,47 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-slide-over]');
+
+    function bind(selector, handler) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener('click', handler);
+      });
+  }
+
+    bind('[data-bind="1"]', function (event) { closeSlideOver('slide-over') });
+    bind('[data-bind="2"]', function (event) { closeSlideOver('slide-over') });
+    bind('[data-bind="3"]', function (event) { closeSlideOver('slide-over') });
+    bind('[data-bind="4"]', function (event) { openSlideOver('slide-over') });
+    const menus = [
+      { id: 'slide-over', close: function () { closeSlideOver('slide-over') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

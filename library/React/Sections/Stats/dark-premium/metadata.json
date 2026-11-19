@@ -7,8 +7,13 @@
   "family": "Stats",
   "direction": "Dark Premium",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "stats",
+    "metrics",
+    "dark premium"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "An asymmetric 4/8 dark telemetry split: header block left, a single raised panel of featured metrics and a ruled latency definition list right."
 }

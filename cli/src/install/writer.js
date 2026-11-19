@@ -62,7 +62,7 @@ function writeFile(filePath, content, allowOverwrite = false) {
   // Check for existing file
   if (fileExists(filePath) && !allowOverwrite) {
     exitWithFilesystemError(
-      'File already exists. Remove it first or re-run with --force once that flag is available.',
+      'File already exists. Remove it first, or re-run with --force to overwrite.',
       filePath
     );
   }

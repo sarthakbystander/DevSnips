@@ -1,14 +1,19 @@
 {
   "id": "features-editorial",
-  "name": "Features \u2014 Editorial",
+  "name": "Features — Editorial",
   "technology": "React",
   "category": "Sections",
   "subcategory": "Features",
   "family": "Features",
   "direction": "Minimal",
   "type": "section",
-  "tags": [],
+  "tags": [
+    "features",
+    "numbered list",
+    "minimal"
+  ],
   "responsive": true,
   "browserSupport": "Modern browsers",
-  "dependencies": []
+  "dependencies": [],
+  "description": "An asymmetric 4/8 editorial split: a quiet heading block beside a numbered feature list separated by hairline rules - typography only, no cards."
 }

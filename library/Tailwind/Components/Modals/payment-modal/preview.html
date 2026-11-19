@@ -6,12 +6,12 @@
   <title>Payment Modal - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-fuchsia-50 flex items-center justify-center p-8">
+<body data-payment-modal class="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-fuchsia-50 flex items-center justify-center p-8">
   
   <!-- Payment Modal -->
   <div id="payment-modal" class="fixed inset-0 z-50 hidden">
     <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('payment-modal')"></div>
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" data-bind="1"></div>
     
     <!-- Modal Container -->
     <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -31,7 +31,7 @@
                 <p class="text-sm text-gray-500 dark:text-gray-400">Secure checkout</p>
               </div>
             </div>
-            <button onclick="closeModal('payment-modal')" class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <button class="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-bind="2">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -40,7 +40,7 @@
         </div>
         
         <!-- Form -->
-        <form class="p-6 space-y-5" onsubmit="event.preventDefault(); closeModal('payment-modal');">
+        <form class="p-6 space-y-5" data-bind="3">
           <!-- Card Number -->
           <div>
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Card Number</label>
@@ -112,7 +112,7 @@
   </div>
 
   <!-- Demo Trigger Button -->
-  <button onclick="openModal('payment-modal')" class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-medium rounded-xl hover:from-rose-600 hover:to-pink-700 transition-all focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 shadow-lg shadow-rose-500/30">
+  <button class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-medium rounded-xl hover:from-rose-600 hover:to-pink-700 transition-all focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 shadow-lg shadow-rose-500/30" aria-haspopup="dialog" aria-expanded="false" aria-controls="payment-modal" data-bind="4">
     Open Payment Modal
   </button>
 
@@ -134,5 +134,47 @@
       }
     });
   </script>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-payment-modal]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('[data-bind="1"]', function (event) { closeModal('payment-modal') });
+    bind('[data-bind="2"]', function (event) { closeModal('payment-modal') });
+    bind('[data-bind="3"]', function (event) { event.preventDefault(); closeModal('payment-modal'); }, 'submit');
+    bind('[data-bind="4"]', function (event) { openModal('payment-modal') });
+    const menus = [
+      { id: 'payment-modal', close: function () { closeModal('payment-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

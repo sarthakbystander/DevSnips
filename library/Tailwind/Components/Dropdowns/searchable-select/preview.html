@@ -17,7 +17,7 @@
     </header>
 
     <!-- Preview -->
-    <div class="space-y-4">
+    <div data-searchable-select class="space-y-4">
       <h2 class="text-lg font-semibold text-gray-800">Preview</h2>
       <div class="flex justify-center p-12 bg-white rounded-xl shadow-sm">
         
@@ -28,8 +28,7 @@
           <div
             id="searchable-trigger"
             class="relative w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg cursor-pointer hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-            onclick="toggleSearchable('searchable-menu')"
-          >
+           aria-haspopup="menu" aria-expanded="false" aria-controls="searchable-menu">
             <div class="flex items-center justify-between">
               <div id="selected-country" class="flex items-center gap-3">
                 <span class="text-gray-400">Type to search...</span>
@@ -55,7 +54,6 @@
                   id="search-input"
                   class="w-full pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Search countries..."
-                  oninput="filterCountries()"
                 />
               </div>
             </div>
@@ -65,7 +63,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="United States"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇺🇸</span>
                 <div>
@@ -77,7 +74,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="United Kingdom"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇬🇧</span>
                 <div>
@@ -89,7 +85,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="Germany"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇩🇪</span>
                 <div>
@@ -101,7 +96,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="France"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇫🇷</span>
                 <div>
@@ -113,7 +107,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="Japan"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇯🇵</span>
                 <div>
@@ -125,7 +118,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="Australia"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇦🇺</span>
                 <div>
@@ -137,7 +129,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="Brazil"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇧🇷</span>
                 <div>
@@ -149,7 +140,6 @@
               <li
                 class="country-option px-4 py-2.5 text-gray-700 cursor-pointer hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-3"
                 data-country="Canada"
-                onclick="selectCountry(this)"
               >
                 <span class="text-xl">🇨🇦</span>
                 <div>
@@ -170,6 +160,50 @@
         </div>
 
       </div>
+    <script>
+      (function () {
+        const root = document.currentScript.closest('[data-searchable-select]');
+
+        function bind(selector, handler, event) {
+          root.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener(event || 'click', handler);
+          });
+         }
+
+        bind('#searchable-trigger', function (event) { toggleSearchable('searchable-menu') });
+        bind('#search-input', function (event) { filterCountries() }, 'input');
+        root.addEventListener('click', function (event) {
+          const opt = event.target.closest('.country-option');
+          if (opt) selectCountry(opt);
+        });
+        const menus = [
+          { id: 'searchable-menu', close: function () { toggleSearchable('searchable-menu') } },
+        ];
+        const observer = new MutationObserver(function () {
+          root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+            const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (menu) {
+              trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+            }
+          });
+        });
+        menus.forEach(function (m) {
+          const menu = document.getElementById(m.id);
+          if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          menus.forEach(function (m) {
+            const menu = document.getElementById(m.id);
+            if (menu && !menu.classList.contains('hidden')) {
+              m.close();
+              const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+              if (trigger) trigger.focus();
+            }
+          });
+        });
+      })();
+    </script>
     </div>
 
   </section>

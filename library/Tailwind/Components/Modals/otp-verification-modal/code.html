@@ -1,7 +1,8 @@
 <!-- OTP Verification Modal -->
 <div id="otp-modal" class="fixed inset-0 z-50 hidden">
   <!-- Backdrop -->
-  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('otp-modal')"></div>
+  <div data-otp-verification-modal>
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-bind="1"></div>
   
   <!-- Modal Container -->
   <div class="fixed inset-0 flex items-center justify-center p-4">
@@ -19,7 +20,7 @@
       </div>
       
       <!-- Form -->
-      <form class="p-6" onsubmit="event.preventDefault(); closeModal('otp-modal');">
+      <form class="p-6" data-bind="2">
         <!-- OTP Inputs -->
         <div class="flex justify-center gap-3 mb-6">
           <input type="text" maxlength="1" class="w-14 h-16 text-center text-2xl font-bold border-2 border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all" autofocus>
@@ -63,4 +64,48 @@
 </div>
 
 <!-- Demo Trigger Button -->
-<button onclick="openModal('otp-modal')" class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-medium rounded-xl hover:from-teal-600 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">Open OTP Modal</button>
+<button class="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-medium rounded-xl hover:from-teal-600 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" aria-haspopup="dialog" aria-expanded="false" aria-controls="otp-modal" data-bind="3">Open OTP Modal</button>
+<script>
+  (function () {
+    const root = document.currentScript.closest('[data-otp-verification-modal]');
+
+    function bind(selector, handler, event) {
+      root.querySelectorAll(selector).forEach(function (el) {
+        el.addEventListener(event || 'click', handler);
+      });
+     }
+
+    bind('[data-bind="1"]', function (event) { closeModal('otp-modal') });
+    bind('[data-bind="2"]', function (event) { event.preventDefault(); closeModal('otp-modal'); }, 'submit');
+    bind('[data-bind="3"]', function (event) { openModal('otp-modal') });
+    const menus = [
+      { id: 'otp-modal', close: function () { closeModal('otp-modal') } },
+    ];
+    const observer = new MutationObserver(function () {
+      root.querySelectorAll('[aria-controls]').forEach(function (trigger) {
+        const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (menu) {
+          trigger.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+    });
+    menus.forEach(function (m) {
+      const menu = document.getElementById(m.id);
+      if (menu) observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menus.forEach(function (m) {
+        const menu = document.getElementById(m.id);
+        if (menu && !menu.classList.contains('hidden')) {
+          m.close();
+          const trigger = root.querySelector('[aria-controls="' + m.id + '"]');
+          if (trigger) trigger.focus();
+        }
+      });
+    });
+  })();
+</script>
+
+</div>
+

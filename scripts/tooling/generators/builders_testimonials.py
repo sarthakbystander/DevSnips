@@ -6,7 +6,7 @@ Builders import helpers and pull visual tokens by style so the SAME concept
 renders differently across the 15 design languages.
 """
 
-from .helpers import TOKENS, avatar, star_row, icon, ic, ICONS, logo_svg, esc
+from .helpers import TOKENS, avatar, star_row, ic
 
 
 def C(inner, max_w="max-w-7xl"):
@@ -58,8 +58,10 @@ def testimonials(style, i):
         "Dashboards our execs actually open. The data just makes sense.",
         "We cut churn 18% by acting on insights we finally could see.",
     ]
-    P = lambda n: persons[n % len(persons)]
-    Q = lambda n: quotes[n % len(quotes)]
+    def P(n):
+        return persons[n % len(persons)]
+    def Q(n):
+        return quotes[n % len(quotes)]
 
     concepts = [
         ("cards", "Card Grid Testimonials"),
