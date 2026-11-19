@@ -66,6 +66,19 @@ def rel_path(p: Path) -> str:
     return rel
 
 
+def path_key(p: Path) -> str:
+    """Case-insensitive, platform-independent sort key for a path.
+
+    `sorted(paths)` is NOT portable: WindowsPath compares case-insensitively
+    (casefold) while PosixPath compares case-sensitively. A tree containing
+    both `CTA/` and `Contact/` therefore sorted as (Contact, CTA) on Windows
+    and (CTA, Contact) on Linux, so the committed index failed `--check` on
+    CI while passing locally. Sorting on an explicit casefolded POSIX string
+    produces the same order on every filesystem.
+    """
+    return p.as_posix().casefold()
+
+
 def is_leaf(folder: Path, tech: str) -> bool:
     """A leaf content item.
     Tailwind leaf: a folder containing code.html + preview.html + metadata.json
@@ -103,7 +116,7 @@ def list_leaves_under(folder: Path, tech: str):
     """
     if not folder.exists():
         return
-    for p in sorted(folder.rglob("metadata.json")):
+    for p in sorted(folder.rglob("metadata.json"), key=path_key):
         leaf = p.parent
         if is_leaf(leaf, tech):
             yield leaf, _read_meta(p)
@@ -322,7 +335,7 @@ def build_index():
         # name under different parents (e.g. Buttons/icon-button/basic and
         # Buttons/animated-button/basic), and sorting on the name alone would
         # leave their order to filesystem walk order.
-        leaves = sorted(leaves, key=lambda lm: lm[0].as_posix().lower())
+        leaves = sorted(leaves, key=lambda lm: path_key(lm[0]))
         rel = rel_path(family_dir)
         fam_path = rel + "/"
         old_fam = lookup_old_fam(fam_path)
@@ -413,7 +426,7 @@ def build_index():
             tree = ROOT / "library" / root_dir / category
             if not tree.exists():
                 continue
-            for top in sorted(tree.iterdir()):
+            for top in sorted(tree.iterdir(), key=path_key):
                 if not top.is_dir():
                     continue
                 if is_template:
@@ -429,7 +442,7 @@ def build_index():
                         if c.is_dir() and _leaves_in_family_dir(c, tech)
                     ]
                     if sub_families and not _leaves_in_family_dir(top, tech):
-                        for sub in sorted(sub_families):
+                        for sub in sorted(sub_families, key=path_key):
                             add_family(sub, tech, category, type_val, is_template=False)
                     else:
                         add_family(top, tech, category, type_val, is_template=False)

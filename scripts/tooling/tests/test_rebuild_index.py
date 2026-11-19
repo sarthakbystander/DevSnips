@@ -85,6 +85,23 @@ class OrderingTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual(first, sorted(first))
 
+    def test_path_key_orders_case_insensitively(self):
+        # Regression: WindowsPath compares case-insensitively while PosixPath
+        # compares case-sensitively, so `sorted(paths)` put CTA before Contact
+        # on Linux and after it on Windows — the committed index then failed
+        # `--check` on CI while passing locally. The casefold key pins one
+        # order everywhere.
+        paths = [Path(n) for n in ("CTA", "Contact", "Content")]
+        ordered = [p.name for p in sorted(paths, key=rebuild.path_key)]
+        self.assertEqual(ordered, ["Contact", "Content", "CTA"])
+
+    def test_leaf_walk_uses_case_insensitive_order(self):
+        for name in ("Alpha", "beta", "Gamma"):
+            _make_leaf(self.root / name)
+        rels = [p.name for p, _ in
+                rebuild.list_leaves_under(self.root, rebuild.TAILWIND)]
+        self.assertEqual(rels, ["Alpha", "beta", "Gamma"])
+
 
 class RelPathTests(unittest.TestCase):
     def test_strips_library_prefix_only(self):
